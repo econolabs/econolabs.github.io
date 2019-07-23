@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{186:function(e,t,n){"use strict";n.r(t),n.d(t,"query",function(){return u});var a=n(0),o=n.n(a),r=n(28);t.default=function(e){var t=e.data;return o.a.createElement(r.a,null,o.a.createElement("h1",null,"About ",t.site.siteMetadata.title),o.a.createElement("p",null,"We're the only site running on your computer dedicated to showing the best photos and videos of pandas eating lots of food."))};var u="1097489062"}}]);
-//# sourceMappingURL=component---src-pages-about-js-6d01905f76679af9ec06.js.map
