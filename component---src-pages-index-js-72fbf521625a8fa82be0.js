@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{186:function(n,a,o){"use strict";o.r(a);var t=o(1),b=(o(0),o(62));a.default=function(){return Object(t.b)(b.a,null,Object(t.b)("h1",null,"Amazing Pandas Eating Things"),Object(t.b)("div",null,Object(t.b)("img",{src:"https://2.bp.blogspot.com/-BMP2l6Hwvp4/TiAxeGx4CTI/AAAAAAAAD_M/XlC_mY3SoEw/s1600/panda-group-eating-bamboo.jpg",alt:"Group of pandas eating bamboo"})))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-72fbf521625a8fa82be0.js.map
