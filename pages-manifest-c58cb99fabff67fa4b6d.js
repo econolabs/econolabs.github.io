@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{153:function(s){s.exports={pages:[],dataPaths:{"sq--src-components-image-js":2011440971,"sq--src-components-seo-js":1025518380}}}}]);
-//# sourceMappingURL=pages-manifest-c58cb99fabff67fa4b6d.js.map
