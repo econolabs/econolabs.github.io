@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{189:function(e,n,t){"use strict";t.r(n);var o=t(0),r=t.n(o);n.default=function(e){return r.a.createElement("h1",null,"Hello, from the theme!")}}}]);
-//# sourceMappingURL=component---gatsby-theme-example-workspaces-src-pages-theme-page-js-9fd62cec6bf6934cb467.js.map
