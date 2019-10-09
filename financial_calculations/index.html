@@ -1,918 +1,104 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.44 'Fira Sans',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Fira Sans',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:2.15rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.58293rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.35824rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.85805rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.79482rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}ul{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:0.85rem;line-height:1.44rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1rem;line-height:1.44rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}blockquote{margin-left:0;margin-right:1.44rem;margin-top:0;padding-bottom:0;padding-left:1.17rem;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1.16543rem;line-height:1.44rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.27rem solid hsla(0,0%,0%,0.2);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.08rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.08rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}li > ul{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.08rem / 2);}code{font-size:0.85rem;line-height:1.44rem;}kbd{font-size:0.85rem;line-height:1.44rem;}samp{font-size:0.85rem;line-height:1.44rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:0.96rem;padding-right:0.96rem;padding-top:0.72rem;padding-bottom:calc(0.72rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#9f392b;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.44rem;color:hsla(0,0%,0%,0.8);font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){blockquote{margin-left:-1.08rem;margin-right:0;padding-left:0.81rem;}}</style><meta name="generator" content="Gatsby 2.13.73"/><title data-react-helmet="true"></title><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link href="//fonts.googleapis.com/css?family=Playfair+Display:700|Fira+Sans:400,400i,700,700i" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/webpack-runtime-c4729e993e62de2f7dbf.js"/><link as="script" rel="preload" href="/app-466eaefb143b5b00d41b.js"/><link as="script" rel="preload" href="/0-73294c9e0faec9f36d2a.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js"/><link as="fetch" rel="preload" href="/page-data/financial_calculations/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><style data-emotion-css="1si8awd">.css-1si8awd{margin:0 auto;max-width:700px;padding:2.88rem;padding-top:2.16rem;}</style><div class="css-1si8awd"><a href="/"><style data-emotion-css="i0b9uu">.css-i0b9uu{margin-bottom:2.88rem;display:inline-block;font-style:normal;}</style><h3 class="css-i0b9uu">Econolabs</h3></a><style data-emotion-css="146q31f">.css-146q31f{float:right;}</style><a class="css-146q31f" href="/about/">О проекте</a><div><h1>Основы финансовых вычислений</h1><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden"><div style="width:100%;padding-bottom:66.66666666666667%"></div><img src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAcM4rmKiYs//xAAbEAADAAIDAAAAAAAAAAAAAAABAgMAIQQRE//aAAgBAQABBQIR0JaaZ79GbEvRMPKqT//EABYRAQEBAAAAAAAAAAAAAAAAAAASAf/aAAgBAwEBPwGU6//EABYRAQEBAAAAAAAAAAAAAAAAAAASAf/aAAgBAgEBPwGlY//EABoQAAICAwAAAAAAAAAAAAAAAAAxAQIQISL/2gAIAQEABj8CQsbtJzYZ/8QAGhABAAIDAQAAAAAAAAAAAAAAAQARITFxUf/aAAgBAQABPyFs4UUC0jtTrB6SvHJLhU4T/9oADAMBAAIAAwAAABDD3//EABcRAAMBAAAAAAAAAAAAAAAAAAARQQH/2gAIAQMBAT8Q16Ip/8QAFxEAAwEAAAAAAAAAAAAAAAAAABFBAf/aAAgBAgEBPxDFgyH/xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhUUFhkaH/2gAIAQEAAT8QWLKrUCFWmMRSL8iSp9rBAex8GcaCqGp//9k=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f3d723cd8b918b57c472475951783e25/d278e/abstract1.jpg 200w,
-/static/f3d723cd8b918b57c472475951783e25/8539d/abstract1.jpg 400w,
-/static/f3d723cd8b918b57c472475951783e25/bc3a8/abstract1.jpg 800w,
-/static/f3d723cd8b918b57c472475951783e25/81ef8/abstract1.jpg 1200w,
-/static/f3d723cd8b918b57c472475951783e25/989b1/abstract1.jpg 1600w,
-/static/f3d723cd8b918b57c472475951783e25/e7c7e/abstract1.jpg 5760w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/f3d723cd8b918b57c472475951783e25/d278e/abstract1.jpg 200w,
-/static/f3d723cd8b918b57c472475951783e25/8539d/abstract1.jpg 400w,
-/static/f3d723cd8b918b57c472475951783e25/bc3a8/abstract1.jpg 800w,
-/static/f3d723cd8b918b57c472475951783e25/81ef8/abstract1.jpg 1200w,
-/static/f3d723cd8b918b57c472475951783e25/989b1/abstract1.jpg 1600w,
-/static/f3d723cd8b918b57c472475951783e25/e7c7e/abstract1.jpg 5760w" src="/static/f3d723cd8b918b57c472475951783e25/bc3a8/abstract1.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div><h2>Основы финансовых вычислений. Проценты. Доходность. NPV. IRR. Окупаемость</h2>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1107px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/d758afaff5e8dd12584d805dc66047cc/c3f89/timeline.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23.306233062330627%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAMBAQAAAAAAAAAAAAAAAQARITFh/9oACAEBAAE/IQw2B7C67P/aAAwDAQACAAMAAAAQgA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAXEAEBAQEAAAAAAAAAAAAAAAABABHh/9oACAEBAAE/EFUVKgq0hw3/2Q=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Timeline"
-        title="Timeline"
-        src="/static/d758afaff5e8dd12584d805dc66047cc/c3f89/timeline.jpg"
-        srcset="/static/d758afaff5e8dd12584d805dc66047cc/afcd2/timeline.jpg 300w,
-/static/d758afaff5e8dd12584d805dc66047cc/82472/timeline.jpg 600w,
-/static/d758afaff5e8dd12584d805dc66047cc/c3f89/timeline.jpg 1107w"
-        sizes="(max-width: 1107px) 100vw, 1107px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<ul>
-<li>Наращение - от настоящего к будущему</li>
-<li>Дисконтирование - от будущего к настоящему</li>
-<li>Простые проценты </li>
-<li>Сложные проценты (капитализированные)</li>
-</ul>
-<blockquote>
-<p>Дисконтирование на 1 год</p>
-</blockquote>
-<p> <span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1107px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0b0a0f9714879859432e75280bbbefad/c3f89/timeline2.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23.306233062330627%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRAAAwADAAAAAAAAAAAAAAAAABEhAVFh/9oACAEBAAE/IblUXS7P/9oADAMBAAIAAwAAABCDz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABgQAQEBAQEAAAAAAAAAAAAAAAEAEUGx/9oACAEBAAE/EARPENBVsCN8X//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Timeline2"
-        title="Timeline2"
-        src="/static/0b0a0f9714879859432e75280bbbefad/c3f89/timeline2.jpg"
-        srcset="/static/0b0a0f9714879859432e75280bbbefad/afcd2/timeline2.jpg 300w,
-/static/0b0a0f9714879859432e75280bbbefad/82472/timeline2.jpg 600w,
-/static/0b0a0f9714879859432e75280bbbefad/c3f89/timeline2.jpg 1107w"
-        sizes="(max-width: 1107px) 100vw, 1107px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Сколько мы готовы заплатить за вексель, по которому через ГОД заплатят 10 млн. руб?
-Ставка альтернативной доходности 10%</p>
-<p>Дисконтный множитель 0,909=1/1,1, дисконт 9,1%</p>
-<blockquote>
-<p>Дисконтирование на 2 года</p>
-</blockquote>
-<p> <span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1107px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f692294238dd1533173408d382a7864c/c3f89/timeline3.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23.306233062330627%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERQVH/2gAIAQEAAT8hVekuivT/2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAQEBAQAAAAAAAAAAAAAAAQARIbH/2gAIAQEAAT8QCawWF6gjfN//2Q=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Timeline3"
-        title="Timeline3"
-        src="/static/f692294238dd1533173408d382a7864c/c3f89/timeline3.jpg"
-        srcset="/static/f692294238dd1533173408d382a7864c/afcd2/timeline3.jpg 300w,
-/static/f692294238dd1533173408d382a7864c/82472/timeline3.jpg 600w,
-/static/f692294238dd1533173408d382a7864c/c3f89/timeline3.jpg 1107w"
-        sizes="(max-width: 1107px) 100vw, 1107px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Сколько мы готовы заплатить за вексель, по которому через ДВА года заплатят 10 млн. руб? Ставка альтернативной доходности 10%</p>
-<p>Дисконтный множитель 0,826=1/(1,1*1,1), дисконт 17,4%</p>
-<blockquote>
-<p>Текущая стоимость будущих денег Present value</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1197px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 42.10526315789473%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="PV"
-        title="PV"
-        src="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-        srcset="/static/2b0a0aebb2c8815eabc2f46bb308223f/afcd2/timeline%2Bnpv.jpg 300w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/82472/timeline%2Bnpv.jpg 600w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w"
-        sizes="(max-width: 1197px) 100vw, 1197px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Текущая стоимость будущих денег Present value</p>
-</blockquote>
-<p> <span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1197px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 42.10526315789473%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="NPV"
-        title="NPV"
-        src="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-        srcset="/static/2b0a0aebb2c8815eabc2f46bb308223f/afcd2/timeline%2Bnpv.jpg 300w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/82472/timeline%2Bnpv.jpg 600w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w"
-        sizes="(max-width: 1197px) 100vw, 1197px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p> CF cash flow</p>
-<blockquote>
-<p>Пренумерандо и постнумерандо</p>
-</blockquote>
-<table width="100%">
-          <tbody>
-            <tr>
-              <th>Пренумерандо (инвестиции) степень</th>
-              <th>Год проекта</th>
-              <th>Постнумерандо (CF) степень</th>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>3</td>
-              <td>3</td>
-            </tr>
-          </tbody>
-        </table>
-<blockquote>
-<p>Интуитивная модель оценки бизнеса</p>
-</blockquote>
-<p>Альтернативные варианты размещения средств. Сколько стоит бизнес?
-<table>
-<tbody>
-<tr>
-<th>
-<p>Можно купить бизнес - 10 млн. руб. в год</p>
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 512px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/618f49db6e4b25afb97f21756eb05882/c5a17/store.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAEe0lEQVQ4y62Ua0xTZxjHT91xcVv2YX6wraXg3JiRZLi4D27JLtm+uKFxTLAoUJCLATKCm7JIAbl0QSYUxQsCxdKzgYBVQLq1oM6pA1wWzXQhQx0wDMilwhARaHvew/nvsSYOlu2bJ/nnvTzP+8/veZ9zDjcXolYgXMVPB2n4Yc6fn12j4aFT8feX+fGjtGYfqHl5o5q/t1jLjz2n5RGq4sV3l/MjFJvU+PGIoLOrNb61a5FWwT31hwhXEaFAhAIRWolQIEKBCAUiFIhQIEKBCAUiFIhQIEKBiAQiFIjQSoRWWte6ntEGc/IGdQz0GiBYi1nuZeBNLRC9HFAFwMOtANb7AWEasGdXQHqB1jrK/dCPYpTrHwDEUO7rdIZbCSo59bGhTo3pQJVnmNOKM0FKEeFKceIltTjC+YnsPaUohyhFl0Ijji3WiNikFL1vK8VHuZPL1CJ0SnH6VZV7igsgQ//PqGTV+whTSe6QNzCsWCm7NwYToT8m1wZj9PlASFtXYy7yFYxpgjAeEAQ5eiXE8CCMLgnEg7coV6+VZ9avkcepGhenCfHdo/x9TiuuHQGchQwdJuBiAfBTMdD2NY1FQPt+4DzpAulyIdBBe859FPPlSrheBmbL++VJY3DvbAsGHDhTXsjslcVoMpeg/uh+dNgOYer3U2itKoa9yoQzZhMayk1oMxej1WJCXYUJtrIiqct5HBhr65hn2GafulaDwvI6dmbci7K++9jw818oLj2CvsYi5NU6cGqcobZ/Avobk0gkDbgm8dXNB1jXPiEdLqsAem1X/jEcO2v3Xq9FiuBkZjdV6JFxbAwot1ox2FyEOFs78maAHz1AC8VjB4H0IYC2kD8MqcTyDdBn61xgyH6thd7axkLJqHKarsgLnKy1or+pCAkNlxBCJsYhhvMzMlqmZET1ydg9IMPlnpMclDfXM9/Q1Wr3dNnwxa48lnSMxrI6lJR/C6G4AHfsB5BQfxGhRLTploT8Efmx6UMZ+n4g9c856dwJK6QFhqNOu/tmMzI3R7L88K0w6rYh+eMIHDbswV3nIZ/hp8PAlj8kbOqRYRyV8cOsDDtVEtUrSwctwr9KHnXY3d2NyIjYzvbGJCI3NhHpujhU7jX4CPU1F3wlf3KTDG8DH90CsoZkOMiwZlyWqo9Tl3tOzr/Dc/bZ2y3I0MWwnOh45OjjYdDFwJz5Je5dPYGDpgMoqBToLbA8UQHJUl0NS6VZulRPXR5yzOvyLUuTp7MchohYT250HMvTxzOas4pdqQw3zAxXjzJ0HmS4UrpAcmcpkzpKveiuBn6ruuwzW/ra9qUTpzM7HjYbkRm1A/nbk2EkZUcnoeLzVHi/ywVz5kN0GmlcKKnVCK8jn76gfXA1GLq5JdEvcpFhKXm7E9JO7NmR1hQXnnw6fkty4yPRvDFpW0pjZtJOnwz/r9NZyTsb0xPSTkZuTsl6+j/Yde8kcnfqshVdxzMWpUfEKzIiExSGqATFo3lJSrJioD5bcbchWzFI42DDf+hxfFFvTZYicG089zciFWc2z42DxwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Store"
-        title="Store"
-        src="/static/618f49db6e4b25afb97f21756eb05882/c5a17/store.png"
-        srcset="/static/618f49db6e4b25afb97f21756eb05882/135ae/store.png 300w,
-/static/618f49db6e4b25afb97f21756eb05882/c5a17/store.png 512w"
-        sizes="(max-width: 512px) 100vw, 512px"
-        loading="lazy"
-      />
-  </a>
-    </span>
-</th>
-<th>
-<p>Можно открыть депозит - под 10% годовых</p>
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 512px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1fc57fcfe6eac1d2b2ce54b378d022e7/c5a17/bank-building.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAJbHAACWxwEXtf5lAAABlElEQVQ4y8WUsUoDQRRF16yFYKeFRVTQRmNEJKAWNoIfIIqFCmJgG//Aym+wEgsRDREtDGghJEtMUthIJNE0YqGonYWFdsYg8Q7cWZ7jJkoIOHCYve/N3J2dN7OW9b0FgC10G1gGt+AeOKBd5G3O+dECRqILrIE7UDV4AusgWGt+i0gMgg3wIgwq4JNURPwVbIJhvxVOggPwLiaUDTNpWhbjPkACTGmzpM9nNYryss654ZfgGhRBgX0JXFEX+Fwyxqg5efAAcnqVIbAI5kCU1VyhXqB2OGaWOYdjlV4y9zIMnrnsU7ArtuIRxEFMVN0Fe+CY+g1EtFkr+wSTfaLiVZrptsXYCHUHdVqcS+/8nDAZpo5QHwrDbcYmqLupc/IImoZD1KN1DMepg/UM9X6E/mA49i+Gjexhj5+hbVS5X5zN36rcSX0mfhJeuTNMzvDN8+JcDvBFR4ypw94Lpqnz/NV5Ld2Ee3whDaN8e4yfuM8+LrRfTN8gNXdVm6lAlldNXamUwDVibo0xSRZmRxneNPH3VfwC1+LVPd3o6+8AAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Bank-building"
-        title="Bank-building"
-        src="/static/1fc57fcfe6eac1d2b2ce54b378d022e7/c5a17/bank-building.png"
-        srcset="/static/1fc57fcfe6eac1d2b2ce54b378d022e7/135ae/bank-building.png 300w,
-/static/1fc57fcfe6eac1d2b2ce54b378d022e7/c5a17/bank-building.png 512w"
-        sizes="(max-width: 512px) 100vw, 512px"
-        loading="lazy"
-      />
-  </a>
-    </span>
-</th>
-</tr>
-</tbody>
-</table>
-<br>
-</p>
-<blockquote>
-<p>Оценка бизнеса. Математическое обоснование</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/2be4b7508eacc497b0be5709a0de7b3f/0309e/perpetuaty8.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB8klEQVQoz21S227TQBD1/38BEm154x8KCNEiFdFABUqaJmkSx9f13Y7vazs5zKyTwAMrH5257cyOZzTZ9UjSHFtDwBEhdFPAcgK4IoIXJDBtnxBA+AkhVrFRnMFxQwRhCp9ibIrN8hpHAFo/HBDlDQwvgxXkME7YeXsFnbBxU1hRCTMs4SY1RNoo3YkrxVnRousGHA5HaHUj8XEa4v2Di5s7G2+/2Lgmvr4f+ebe+Q9sXN05ePfVwZvPFtZ+DT6SkmpNK/G0FPg02eDb1MKrlWFppliZI59x1lfsN9JL3Nre0wslpOyQ5yW0VvaYrgUeny287EKEWQOX2hBRNTK1xfIZXjzamdnH8VleUbKcUECraom5HmK2jVV1rvisx5jvYsUvRjLKO7YlWNDrWF/Q69i3FQXCpEBZViiqhlvu8H3u4PZRx4eJjoeZwGQR4OcqwmTJHOLH8i9+rWPlf3qNVMzvTUovL8F5GjmMUzZpkisrhu5m8HiKMbd2YtJZ9k42/+RnZh9zXklwHobWUubZ1qOBGJjMbWydFHZQwKEV4TWyfMI/+sjFBVykanq1MgOvjaSEBf3HrGiQ0j5yNd6rsh7trO/Llmy1ijnbihO4za4fVDL6xpaPJDDzxGsqwNWOGA/L/TBcWjr7BnXveLnLCVn+A2XMNY+cKOSPAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Перпетуитет"
-        title="Перпетуитет"
-        src="/static/2be4b7508eacc497b0be5709a0de7b3f/6ff5e/perpetuaty8.png"
-        srcset="/static/2be4b7508eacc497b0be5709a0de7b3f/135ae/perpetuaty8.png 300w,
-/static/2be4b7508eacc497b0be5709a0de7b3f/34e8a/perpetuaty8.png 600w,
-/static/2be4b7508eacc497b0be5709a0de7b3f/6ff5e/perpetuaty8.png 1200w,
-/static/2be4b7508eacc497b0be5709a0de7b3f/0309e/perpetuaty8.png 1280w"
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Стоимость бизнеса - сумма дисконтированных денежных потоков</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/3c707afcda528c032f4b2dedcc59119f/0309e/perpetuaty9.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACCklEQVQoz3VS2W7bMBDU//9T0TaxA7cFiqbN4TuOYluWRJGiKIrUlckubRd9KYEBuSR3dvaI2q6HUAartwyvSYFVnOLlkCM+FdinCtt9hu1B4I3OjEwanITGjv4e8xL7jO5PEto4vL8DUT+MsK4NpLpuUNUu7GVloS7IZRXuK+vR+D7ANC1q8qtpt65D2w0YiTFyvoMhgsZ5DOOIjh44gPPt33OpDWzjgsP/Fr90/YDItx0a+lwZG5wbhj8Tcjkc242Hp8BdP6JqSJ3rcVQeedUiLhw2GWVEKRtTI2KpTKbJsKSSSYZhIII2pFnWHrusxupksSRMlgrr1OLrQuH5aHG3Vrid50hESYQGEatSugops2RWJnSDQ2ExW0k8HQy+bzW+bUr8fqtws5BB0WRV4iEuMZ1nuFtkSOW5LFHb9qGGjghN02F7MriZF0HRLal5DIRlwOPeBKJlUuPTQ4Zf2wITUjddCOTahcZEHXWZa7iIRXjkaF+eBZ72VdjvXzVma4mfOx3UTpekOpb4/CfB/UuB2VLgx0ZC1S3GkbtMLedGlKYJY2Cp+DxrSS5xIhRKIy8UhCyRZgJJmgfw23mUHDWxC7UfeQ5bMgY6scEzyZ2UukYuCiilUBQSgpBmObJcUHks3IWA/f7FeB1sNjzlz5G4Sf1w+UQ7N8qTMxPw+erIgQfy5TSv9zymH1tsRf9B6cvDAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Перпетуитет"
-        title="Перпетуитет"
-        src="/static/3c707afcda528c032f4b2dedcc59119f/6ff5e/perpetuaty9.png"
-        srcset="/static/3c707afcda528c032f4b2dedcc59119f/135ae/perpetuaty9.png 300w,
-/static/3c707afcda528c032f4b2dedcc59119f/34e8a/perpetuaty9.png 600w,
-/static/3c707afcda528c032f4b2dedcc59119f/6ff5e/perpetuaty9.png 1200w,
-/static/3c707afcda528c032f4b2dedcc59119f/0309e/perpetuaty9.png 1280w"
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Вспомним школу - Сумма бесконечной геометрической прогрессии
-b2=b1<em>q, b3=b2</em>q=b1<em>q</em>q...</p>
-</blockquote>
-<p><img src="./progression.gif" alt="Прогрессия"></p>
-<blockquote>
-<p>Применение формулы суммы бесконечной прогрессии</p>
-</blockquote>
-<p>Ставка альтернативной доходности 10%. Нам предлагают купить торговый центр, который будет ежегодно приносить 10 млн. руб.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 996px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/287c13a562e02b6c53fa2c97869708f2/a6f5c/perputual0.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 52.71084337349398%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABKElEQVQoz52RyXKDMBBE+f+Po8rcXBgMGJt9R+zIeSAXiROfMiWGnkY9mkbac4+u65ZlAUgpwWTFD8Mwz7PCAMrnj9B4+r63bTsMQ2R5noOjKGr2cF33fr9XVSWECILAcRw2HCdtYjZBIaYxsjRNb7fbOI5JkmRZ5nle27bo4R+PB9vkHi/xv0NTNpj8fD4rz2A1VVEU1+tVkTC+7zO5Kl9iXDEYPk3TvFwuDMzkzIZVwzB0XbcsCxLZ6XSK4/hNjDfaoy/Lkkbsg1X2aAdPI1oj4OS6rt/EB1IXowY+7maaJpU/e96z/PTpDyl/MxrGeC3rukpJ4mTQhve1bLVc1u/y+MTS+D1iXPNmYDX9nCZJLYainYp2ZIVhnFVdIbayEkMYRYrfy+kLBcB5YtHv1WEAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Прогрессия"
-        title="Прогрессия"
-        src="/static/287c13a562e02b6c53fa2c97869708f2/a6f5c/perputual0.png"
-        srcset="/static/287c13a562e02b6c53fa2c97869708f2/135ae/perputual0.png 300w,
-/static/287c13a562e02b6c53fa2c97869708f2/34e8a/perputual0.png 600w,
-/static/287c13a562e02b6c53fa2c97869708f2/a6f5c/perputual0.png 996w"
-        sizes="(max-width: 996px) 100vw, 996px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Перпетуитет (вечная рента)</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1099px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/28dad0417b5f9624265c9648eaa7beef/b31c7/perpetual1.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 16.742493175614197%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAEQEUH/2gAIAQEAAT8hoxx//9oADAMBAAIAAwAAABDzz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQACAgMAAAAAAAAAAAAAAAEAETGRIUFR/9oACAEBAAE/EEgvO2J2OfZRRnc//9k='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Перпетуитет"
-        title="Перпетуитет"
-        src="/static/28dad0417b5f9624265c9648eaa7beef/b31c7/perpetual1.jpg"
-        srcset="/static/28dad0417b5f9624265c9648eaa7beef/afcd2/perpetual1.jpg 300w,
-/static/28dad0417b5f9624265c9648eaa7beef/82472/perpetual1.jpg 600w,
-/static/28dad0417b5f9624265c9648eaa7beef/b31c7/perpetual1.jpg 1099w"
-        sizes="(max-width: 1099px) 100vw, 1099px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Типовая задача - прирост стоимости акций в результате утверждения инвестиционного проекта</p>
-</blockquote>
-<p>Компания планирует провести модернизацию производства, которая позволит увеличить годовой денежный поток на 200 млн. рублей в бесконечной перспективе (перпетуитет)
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.44 'Fira Sans',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Fira Sans',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:2.15rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.58293rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.35824rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.85805rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.79482rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}ul{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:0.85rem;line-height:1.44rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1rem;line-height:1.44rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}blockquote{margin-left:0;margin-right:1.44rem;margin-top:0;padding-bottom:0;padding-left:1.17rem;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1.16543rem;line-height:1.44rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.27rem solid hsla(0,0%,0%,0.2);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.08rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.08rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}li > ul{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.08rem / 2);}code{font-size:0.85rem;line-height:1.44rem;}kbd{font-size:0.85rem;line-height:1.44rem;}samp{font-size:0.85rem;line-height:1.44rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:0.96rem;padding-right:0.96rem;padding-top:0.72rem;padding-bottom:calc(0.72rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#9f392b;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.44rem;color:hsla(0,0%,0%,0.8);font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){blockquote{margin-left:-1.08rem;margin-right:0;padding-left:0.81rem;}}</style><style data-href="/commons.14eaf9d3b5f4846544e3.css">header{height:389px;width:640px;background:#000;overflow:hidden;background:"green";background:-webkit-gradient(linear,left top,left bottom,from(rgba(231,244,231,.8)),to(rgba(76,175,80,.8))),url(/static/h1title-ce5c07ba7a8538cecdfa91d286695418.jpg);background:linear-gradient(rgba(231,244,231,.8),rgba(76,175,80,.8)),url(/static/h1title-ce5c07ba7a8538cecdfa91d286695418.jpg);border-radius:5px}img{-o-object-fit:cover;object-fit:cover}section{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);color:#fff;font-family:Roboto,sans-serif}</style><style data-href="/styles.f3dd590f4e5157b2ce95.css">.container{display:flex;margin:48px 0;text-align:center}.node{display:flex;overflow:hidden;flex-basis:100%;align-items:center;flex-direction:column}.status{width:20px;height:20px;margin:8px;display:inline-flex;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:50%;background-color:#bbb}.status.colored{background-color:#98fb98}.status:after,.status:before{content:"";position:absolute;top:50%;width:1000%;border-bottom:2px solid #000;border-radius:4px}.status:before{margin-left:calc(-1000% - 10px)}.status:after{margin-left:30px}.node:first-child>.status:before,.node:last-child>.status:after{content:none}</style><meta name="generator" content="Gatsby 2.15.28"/><title data-react-helmet="true"></title><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link href="//fonts.googleapis.com/css?family=Playfair+Display:700|Fira+Sans:400,400i,700,700i" rel="stylesheet" type="text/css"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><link as="script" rel="preload" href="/webpack-runtime-0ae4a5ac088962acb668.js"/><link as="script" rel="preload" href="/styles-b4f5ca1644e9b5dc4446.js"/><link as="script" rel="preload" href="/app-0831f129a49ca3aa15f7.js"/><link as="script" rel="preload" href="/commons-e738a65c411fc57638cf.js"/><link as="script" rel="preload" href="/component---src-pages-financial-calculations-md-40507f8da14c70f78d4c.js"/><link as="fetch" rel="preload" href="/page-data/financial_calculations/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><style data-emotion-css="1si8awd">.css-1si8awd{margin:0 auto;max-width:700px;padding:2.88rem;padding-top:2.16rem;}</style><div class="css-1si8awd"><a href="/"><style data-emotion-css="i0b9uu">.css-i0b9uu{margin-bottom:2.88rem;display:inline-block;font-style:normal;}</style><h3 class="css-i0b9uu">Econolabs</h3></a><header><section class="hero-header-text"><h2 style="color:white;margin:.5rem">Финансовые вычисления</h2></section></header><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:23.306233062330627%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAMBAQAAAAAAAAAAAAAAAQARITFh/9oACAEBAAE/IQw2B7C67P/aAAwDAQACAAMAAAAQgA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAXEAEBAQEAAAAAAAAAAAAAAAABABHh/9oACAEBAAE/EFUVKgq0hw3/2Q==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Timeline" title="Timeline" src="/static/d758afaff5e8dd12584d805dc66047cc/48a11/timeline.jpg" srcSet="/static/d758afaff5e8dd12584d805dc66047cc/3dff4/timeline.jpg 125w,/static/d758afaff5e8dd12584d805dc66047cc/9fb78/timeline.jpg 250w,/static/d758afaff5e8dd12584d805dc66047cc/48a11/timeline.jpg 500w,/static/d758afaff5e8dd12584d805dc66047cc/a66cd/timeline.jpg 750w,/static/d758afaff5e8dd12584d805dc66047cc/971c4/timeline.jpg 1000w,/static/d758afaff5e8dd12584d805dc66047cc/c3f89/timeline.jpg 1107w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><ul><li><p>Наращение - от настоящего к будущему</p></li><li><p>Дисконтирование - от будущего к настоящему</p></li><li><p>Простые проценты </p></li><li><p>Сложные проценты (капитализированные)</p></li></ul><blockquote><p>Дисконтирование на 1 год</p></blockquote><p> <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:23.306233062330627%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRAAAwADAAAAAAAAAAAAAAAAABEhAVFh/9oACAEBAAE/IblUXS7P/9oADAMBAAIAAwAAABCDz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABgQAQEBAQEAAAAAAAAAAAAAAAEAEUGx/9oACAEBAAE/EARPENBVsCN8X//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Timeline2" title="Timeline2" src="/static/0b0a0f9714879859432e75280bbbefad/48a11/timeline2.jpg" srcSet="/static/0b0a0f9714879859432e75280bbbefad/3dff4/timeline2.jpg 125w,/static/0b0a0f9714879859432e75280bbbefad/9fb78/timeline2.jpg 250w,/static/0b0a0f9714879859432e75280bbbefad/48a11/timeline2.jpg 500w,/static/0b0a0f9714879859432e75280bbbefad/a66cd/timeline2.jpg 750w,/static/0b0a0f9714879859432e75280bbbefad/971c4/timeline2.jpg 1000w,/static/0b0a0f9714879859432e75280bbbefad/c3f89/timeline2.jpg 1107w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p>Сколько мы готовы заплатить за вексель, по которому через ГОД заплатят 10 млн. руб?
+Ставка альтернативной доходности 10%</p><p>Дисконтный множитель 0,909=1/1,1, дисконт 9,1%</p><blockquote><p>Дисконтирование на 2 года</p></blockquote><p> <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:23.306233062330627%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERQVH/2gAIAQEAAT8hVekuivT/2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAQEBAQAAAAAAAAAAAAAAAQARIbH/2gAIAQEAAT8QCawWF6gjfN//2Q==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Timeline3" title="Timeline3" src="/static/f692294238dd1533173408d382a7864c/48a11/timeline3.jpg" srcSet="/static/f692294238dd1533173408d382a7864c/3dff4/timeline3.jpg 125w,/static/f692294238dd1533173408d382a7864c/9fb78/timeline3.jpg 250w,/static/f692294238dd1533173408d382a7864c/48a11/timeline3.jpg 500w,/static/f692294238dd1533173408d382a7864c/a66cd/timeline3.jpg 750w,/static/f692294238dd1533173408d382a7864c/971c4/timeline3.jpg 1000w,/static/f692294238dd1533173408d382a7864c/c3f89/timeline3.jpg 1107w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p>Сколько мы готовы заплатить за вексель, по которому через ДВА года заплатят 10 млн. руб? Ставка альтернативной доходности 10%</p><p>Дисконтный множитель 0,826=1/(1,1*1,1), дисконт 17,4%</p><blockquote><p>Текущая стоимость будущих денег Present value</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:42.10526315789473%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="PV" title="PV" src="/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg" srcSet="/static/2b0a0aebb2c8815eabc2f46bb308223f/3dff4/timeline%2Bnpv.jpg 125w,/static/2b0a0aebb2c8815eabc2f46bb308223f/9fb78/timeline%2Bnpv.jpg 250w,/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg 500w,/static/2b0a0aebb2c8815eabc2f46bb308223f/a66cd/timeline%2Bnpv.jpg 750w,/static/2b0a0aebb2c8815eabc2f46bb308223f/971c4/timeline%2Bnpv.jpg 1000w,/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Текущая стоимость будущих денег Present value</p></blockquote><p> <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:42.10526315789473%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="NPV" title="NPV" src="/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg" srcSet="/static/2b0a0aebb2c8815eabc2f46bb308223f/3dff4/timeline%2Bnpv.jpg 125w,/static/2b0a0aebb2c8815eabc2f46bb308223f/9fb78/timeline%2Bnpv.jpg 250w,/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg 500w,/static/2b0a0aebb2c8815eabc2f46bb308223f/a66cd/timeline%2Bnpv.jpg 750w,/static/2b0a0aebb2c8815eabc2f46bb308223f/971c4/timeline%2Bnpv.jpg 1000w,/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p> CF cash flow</p><blockquote><p>Пренумерандо и постнумерандо</p></blockquote><p>Пренумерандо (инвестиции) степень   Год проекта   Постнумерандо (CF) степень</p><hr/><p>  0                                   1             1
+1                                   2             2
+2                                   3             3</p><blockquote><p>Интуитивная модель оценки бизнеса</p></blockquote><p>Альтернативные варианты размещения средств. Сколько стоит бизнес?</p><p>Можно купить бизнес - 10 млн. руб. в год  Можно открыть депозит - под 10% годовых</p><hr/><p> <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:100%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAEe0lEQVQ4y62Ua0xTZxjHT91xcVv2YX6wraXg3JiRZLi4D27JLtm+uKFxTLAoUJCLATKCm7JIAbl0QSYUxQsCxdKzgYBVQLq1oM6pA1wWzXQhQx0wDMilwhARaHvew/nvsSYOlu2bJ/nnvTzP+8/veZ9zDjcXolYgXMVPB2n4Yc6fn12j4aFT8feX+fGjtGYfqHl5o5q/t1jLjz2n5RGq4sV3l/MjFJvU+PGIoLOrNb61a5FWwT31hwhXEaFAhAIRWolQIEKBCAUiFIhQIEKBCAUiFIhQIEKBiAQiFIjQSoRWWte6ntEGc/IGdQz0GiBYi1nuZeBNLRC9HFAFwMOtANb7AWEasGdXQHqB1jrK/dCPYpTrHwDEUO7rdIZbCSo59bGhTo3pQJVnmNOKM0FKEeFKceIltTjC+YnsPaUohyhFl0Ijji3WiNikFL1vK8VHuZPL1CJ0SnH6VZV7igsgQ//PqGTV+whTSe6QNzCsWCm7NwYToT8m1wZj9PlASFtXYy7yFYxpgjAeEAQ5eiXE8CCMLgnEg7coV6+VZ9avkcepGhenCfHdo/x9TiuuHQGchQwdJuBiAfBTMdD2NY1FQPt+4DzpAulyIdBBe859FPPlSrheBmbL++VJY3DvbAsGHDhTXsjslcVoMpeg/uh+dNgOYer3U2itKoa9yoQzZhMayk1oMxej1WJCXYUJtrIiqct5HBhr65hn2GafulaDwvI6dmbci7K++9jw818oLj2CvsYi5NU6cGqcobZ/Avobk0gkDbgm8dXNB1jXPiEdLqsAem1X/jEcO2v3Xq9FiuBkZjdV6JFxbAwot1ox2FyEOFs78maAHz1AC8VjB4H0IYC2kD8MqcTyDdBn61xgyH6thd7axkLJqHKarsgLnKy1or+pCAkNlxBCJsYhhvMzMlqmZET1ydg9IMPlnpMclDfXM9/Q1Wr3dNnwxa48lnSMxrI6lJR/C6G4AHfsB5BQfxGhRLTploT8Efmx6UMZ+n4g9c856dwJK6QFhqNOu/tmMzI3R7L88K0w6rYh+eMIHDbswV3nIZ/hp8PAlj8kbOqRYRyV8cOsDDtVEtUrSwctwr9KHnXY3d2NyIjYzvbGJCI3NhHpujhU7jX4CPU1F3wlf3KTDG8DH90CsoZkOMiwZlyWqo9Tl3tOzr/Dc/bZ2y3I0MWwnOh45OjjYdDFwJz5Je5dPYGDpgMoqBToLbA8UQHJUl0NS6VZulRPXR5yzOvyLUuTp7MchohYT250HMvTxzOas4pdqQw3zAxXjzJ0HmS4UrpAcmcpkzpKveiuBn6ruuwzW/ra9qUTpzM7HjYbkRm1A/nbk2EkZUcnoeLzVHi/ywVz5kN0GmlcKKnVCK8jn76gfXA1GLq5JdEvcpFhKXm7E9JO7NmR1hQXnnw6fkty4yPRvDFpW0pjZtJOnwz/r9NZyTsb0xPSTkZuTsl6+j/Yde8kcnfqshVdxzMWpUfEKzIiExSGqATFo3lJSrJioD5bcbchWzFI42DDf+hxfFFvTZYicG089zciFWc2z42DxwAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Store" title="Store" src="/static/618f49db6e4b25afb97f21756eb05882/d19c0/store.png" srcSet="/static/618f49db6e4b25afb97f21756eb05882/6b181/store.png 125w,/static/618f49db6e4b25afb97f21756eb05882/5039d/store.png 250w,/static/618f49db6e4b25afb97f21756eb05882/d19c0/store.png 500w,/static/618f49db6e4b25afb97f21756eb05882/c5a17/store.png 512w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span>                    <span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:100%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAJbHAACWxwEXtf5lAAABlElEQVQ4y8WUsUoDQRRF16yFYKeFRVTQRmNEJKAWNoIfIIqFCmJgG//Aym+wEgsRDREtDGghJEtMUthIJNE0YqGonYWFdsYg8Q7cWZ7jJkoIOHCYve/N3J2dN7OW9b0FgC10G1gGt+AeOKBd5G3O+dECRqILrIE7UDV4AusgWGt+i0gMgg3wIgwq4JNURPwVbIJhvxVOggPwLiaUDTNpWhbjPkACTGmzpM9nNYryss654ZfgGhRBgX0JXFEX+Fwyxqg5efAAcnqVIbAI5kCU1VyhXqB2OGaWOYdjlV4y9zIMnrnsU7ArtuIRxEFMVN0Fe+CY+g1EtFkr+wSTfaLiVZrptsXYCHUHdVqcS+/8nDAZpo5QHwrDbcYmqLupc/IImoZD1KN1DMepg/UM9X6E/mA49i+Gjexhj5+hbVS5X5zN36rcSX0mfhJeuTNMzvDN8+JcDvBFR4ypw94Lpqnz/NV5Ld2Ee3whDaN8e4yfuM8+LrRfTN8gNXdVm6lAlldNXamUwDVibo0xSRZmRxneNPH3VfwC1+LVPd3o6+8AAAAASUVORK5CYII=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Bank-building" title="Bank-building" src="/static/1fc57fcfe6eac1d2b2ce54b378d022e7/d19c0/bank-building.png" srcSet="/static/1fc57fcfe6eac1d2b2ce54b378d022e7/6b181/bank-building.png 125w,/static/1fc57fcfe6eac1d2b2ce54b378d022e7/5039d/bank-building.png 250w,/static/1fc57fcfe6eac1d2b2ce54b378d022e7/d19c0/bank-building.png 500w,/static/1fc57fcfe6eac1d2b2ce54b378d022e7/c5a17/bank-building.png 512w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Оценка бизнеса. Математическое обоснование</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.25%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB8klEQVQoz21S227TQBD1/38BEm154x8KCNEiFdFABUqaJmkSx9f13Y7vazs5zKyTwAMrH5257cyOZzTZ9UjSHFtDwBEhdFPAcgK4IoIXJDBtnxBA+AkhVrFRnMFxQwRhCp9ibIrN8hpHAFo/HBDlDQwvgxXkME7YeXsFnbBxU1hRCTMs4SY1RNoo3YkrxVnRousGHA5HaHUj8XEa4v2Di5s7G2+/2Lgmvr4f+ebe+Q9sXN05ePfVwZvPFtZ+DT6SkmpNK/G0FPg02eDb1MKrlWFppliZI59x1lfsN9JL3Nre0wslpOyQ5yW0VvaYrgUeny287EKEWQOX2hBRNTK1xfIZXjzamdnH8VleUbKcUECraom5HmK2jVV1rvisx5jvYsUvRjLKO7YlWNDrWF/Q69i3FQXCpEBZViiqhlvu8H3u4PZRx4eJjoeZwGQR4OcqwmTJHOLH8i9+rWPlf3qNVMzvTUovL8F5GjmMUzZpkisrhu5m8HiKMbd2YtJZ9k42/+RnZh9zXklwHobWUubZ1qOBGJjMbWydFHZQwKEV4TWyfMI/+sjFBVykanq1MgOvjaSEBf3HrGiQ0j5yNd6rsh7trO/Llmy1ijnbihO4za4fVDL6xpaPJDDzxGsqwNWOGA/L/TBcWjr7BnXveLnLCVn+A2XMNY+cKOSPAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Перпетуитет" title="Перпетуитет" src="/static/2be4b7508eacc497b0be5709a0de7b3f/d19c0/perpetuaty8.png" srcSet="/static/2be4b7508eacc497b0be5709a0de7b3f/6b181/perpetuaty8.png 125w,/static/2be4b7508eacc497b0be5709a0de7b3f/5039d/perpetuaty8.png 250w,/static/2be4b7508eacc497b0be5709a0de7b3f/d19c0/perpetuaty8.png 500w,/static/2be4b7508eacc497b0be5709a0de7b3f/35c67/perpetuaty8.png 750w,/static/2be4b7508eacc497b0be5709a0de7b3f/e11df/perpetuaty8.png 1000w,/static/2be4b7508eacc497b0be5709a0de7b3f/0309e/perpetuaty8.png 1280w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Стоимость бизнеса - сумма дисконтированных денежных потоков</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.25%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACCklEQVQoz3VS2W7bMBDU//9T0TaxA7cFiqbN4TuOYluWRJGiKIrUlckubRd9KYEBuSR3dvaI2q6HUAartwyvSYFVnOLlkCM+FdinCtt9hu1B4I3OjEwanITGjv4e8xL7jO5PEto4vL8DUT+MsK4NpLpuUNUu7GVloS7IZRXuK+vR+D7ANC1q8qtpt65D2w0YiTFyvoMhgsZ5DOOIjh44gPPt33OpDWzjgsP/Fr90/YDItx0a+lwZG5wbhj8Tcjkc242Hp8BdP6JqSJ3rcVQeedUiLhw2GWVEKRtTI2KpTKbJsKSSSYZhIII2pFnWHrusxupksSRMlgrr1OLrQuH5aHG3Vrid50hESYQGEatSugops2RWJnSDQ2ExW0k8HQy+bzW+bUr8fqtws5BB0WRV4iEuMZ1nuFtkSOW5LFHb9qGGjghN02F7MriZF0HRLal5DIRlwOPeBKJlUuPTQ4Zf2wITUjddCOTahcZEHXWZa7iIRXjkaF+eBZ72VdjvXzVma4mfOx3UTpekOpb4/CfB/UuB2VLgx0ZC1S3GkbtMLedGlKYJY2Cp+DxrSS5xIhRKIy8UhCyRZgJJmgfw23mUHDWxC7UfeQ5bMgY6scEzyZ2UukYuCiilUBQSgpBmObJcUHks3IWA/f7FeB1sNjzlz5G4Sf1w+UQ7N8qTMxPw+erIgQfy5TSv9zymH1tsRf9B6cvDAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Перпетуитет" title="Перпетуитет" src="/static/3c707afcda528c032f4b2dedcc59119f/d19c0/perpetuaty9.png" srcSet="/static/3c707afcda528c032f4b2dedcc59119f/6b181/perpetuaty9.png 125w,/static/3c707afcda528c032f4b2dedcc59119f/5039d/perpetuaty9.png 250w,/static/3c707afcda528c032f4b2dedcc59119f/d19c0/perpetuaty9.png 500w,/static/3c707afcda528c032f4b2dedcc59119f/35c67/perpetuaty9.png 750w,/static/3c707afcda528c032f4b2dedcc59119f/e11df/perpetuaty9.png 1000w,/static/3c707afcda528c032f4b2dedcc59119f/0309e/perpetuaty9.png 1280w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Вспомним школу - Сумма бесконечной геометрической прогрессии
+b2=b1<em>q, b3=b2</em>q=b1<em>q</em>q...</p></blockquote><p><img src="./progression.gif" alt="Прогрессия"/></p><blockquote><p>Применение формулы суммы бесконечной прогрессии</p></blockquote><p>Ставка альтернативной доходности 10%. Нам предлагают купить торговый центр, который будет ежегодно приносить 10 млн. руб.</p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:52.71084337349398%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABKElEQVQoz52RyXKDMBBE+f+Po8rcXBgMGJt9R+zIeSAXiROfMiWGnkY9mkbac4+u65ZlAUgpwWTFD8Mwz7PCAMrnj9B4+r63bTsMQ2R5noOjKGr2cF33fr9XVSWECILAcRw2HCdtYjZBIaYxsjRNb7fbOI5JkmRZ5nle27bo4R+PB9vkHi/xv0NTNpj8fD4rz2A1VVEU1+tVkTC+7zO5Kl9iXDEYPk3TvFwuDMzkzIZVwzB0XbcsCxLZ6XSK4/hNjDfaoy/Lkkbsg1X2aAdPI1oj4OS6rt/EB1IXowY+7maaJpU/e96z/PTpDyl/MxrGeC3rukpJ4mTQhve1bLVc1u/y+MTS+D1iXPNmYDX9nCZJLYainYp2ZIVhnFVdIbayEkMYRYrfy+kLBcB5YtHv1WEAAAAASUVORK5CYII=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Прогрессия" title="Прогрессия" src="/static/287c13a562e02b6c53fa2c97869708f2/d19c0/perputual0.png" srcSet="/static/287c13a562e02b6c53fa2c97869708f2/6b181/perputual0.png 125w,/static/287c13a562e02b6c53fa2c97869708f2/5039d/perputual0.png 250w,/static/287c13a562e02b6c53fa2c97869708f2/d19c0/perputual0.png 500w,/static/287c13a562e02b6c53fa2c97869708f2/35c67/perputual0.png 750w,/static/287c13a562e02b6c53fa2c97869708f2/a6f5c/perputual0.png 996w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Перпетуитет (вечная рента)</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:16.742493175614197%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAEQEUH/2gAIAQEAAT8hoxx//9oADAMBAAIAAwAAABDzz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQACAgMAAAAAAAAAAAAAAAEAETGRIUFR/9oACAEBAAE/EEgvO2J2OfZRRnc//9k=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Перпетуитет" title="Перпетуитет" src="/static/28dad0417b5f9624265c9648eaa7beef/48a11/perpetual1.jpg" srcSet="/static/28dad0417b5f9624265c9648eaa7beef/3dff4/perpetual1.jpg 125w,/static/28dad0417b5f9624265c9648eaa7beef/9fb78/perpetual1.jpg 250w,/static/28dad0417b5f9624265c9648eaa7beef/48a11/perpetual1.jpg 500w,/static/28dad0417b5f9624265c9648eaa7beef/a66cd/perpetual1.jpg 750w,/static/28dad0417b5f9624265c9648eaa7beef/971c4/perpetual1.jpg 1000w,/static/28dad0417b5f9624265c9648eaa7beef/b31c7/perpetual1.jpg 1099w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Типовая задача - прирост стоимости акций в результате утверждения инвестиционного проекта</p></blockquote><p>Компания планирует провести модернизацию производства, которая позволит увеличить годовой денежный поток на 200 млн. рублей в бесконечной перспективе (перпетуитет)
 Для реализации проекта требуются единовременные инвестиции сейчас в размере 1600 млн. руб.
 Какова чистая приведенная стоимость проекта, если альтернативные издержки капитала (альтернативные затраты на капитал) составляют 10%?
-На сколько должна вырасти стоимость одной акции этой компании, если всего в обращении находится 10 млн. шт. акций?</p>
-<blockquote>
-<p>Формула Гордона - модификация перпетуитета</p>
-</blockquote>
-<p>Денежные потоки растут с постоянным темпом</p>
-<p>Торговый центр в конце первого года принесет 10 млн. руб. и каждый год арендная плата будет расти на 2% в год относительно предыдущего</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/aa0f89069511fa2cccc88c70c15a47aa/e1d7b/gordonfoto.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.29032258064516%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAFlrGVFIWK//8QAGhABAAIDAQAAAAAAAAAAAAAAAgABAwQxEf/aAAgBAQABBQIlEpeFXdTZ4Gnl5P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAECABEQEiFx/9oACAEBAAY/AhvyzAFYQWb5H8gVjYx//8QAGxABAAIDAQEAAAAAAAAAAAAAAQAxESFRQXH/2gAIAQEAAT8hDPAcOccjkJdCktk2zUp/U2ouknBRP//aAAwDAQACAAMAAAAQ68//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMUFhUXGR/9oACAEBAAE/EH5GBWCldLg+Y4+h4vLAiDhA5Z0RLewAdILf0JXbFQkyE9JEDdFz/9k='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/aa0f89069511fa2cccc88c70c15a47aa/e1d7b/gordonfoto.jpg"
-        srcset="/static/aa0f89069511fa2cccc88c70c15a47aa/afcd2/gordonfoto.jpg 300w,
-/static/aa0f89069511fa2cccc88c70c15a47aa/82472/gordonfoto.jpg 600w,
-/static/aa0f89069511fa2cccc88c70c15a47aa/e1d7b/gordonfoto.jpg 620w"
-        sizes="(max-width: 620px) 100vw, 620px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/e6b26d7f53d532ae422d3ac5edc02182/0309e/gordon8.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB9ElEQVQoz1VSaXPTMBD1//8hDFA+AJ87w9EMgQD1TJukJamdy7Zs+b5vP1ZSQqnGb97bQ+uVtFrX9XCDFOsdw8pwsDm4MCyOtcmwdwKYlo/tkeOJ+OBGOBIM0nsWKnZC7CjP8RMM4wRtmibwKMVmz+DwSOLAAjA/xs7mEib9wOYx3DCVMfEjlZNgGkf0/YCGGpMFi6rB+98e3v1k+KBzvJozvF0wvPnhSFz01cKlHJe0ir/+znAl7IUHnnUQq6XCsuD1rYWP8x2udRvfHgJ8vnNxs+T4uvTw5d47ay71bOVLPVsp32wdIMxatG2HLMuh1W1P7Sd0HzEsnoPHNR0vhxMUsH0B0sTKzsGCUtqMbME8qpFkJRXLVMG8bOhBfCxNDsNO6OIznLwcJyp69LIzP8PiFy4k3KhCnBbIC0JZQ6vqFvOVg0/6SeLXHx+320BhEzzrM/RtKP36EzHpOzOGHxeomhZ1S3fYdgMe9gHuDR+PB3pht8DWoiuw05dwFJtO9oIPXoG0aNEPo4RWVS0dmUPfOHjc+zQaJTw6hoAbKvyz//NffAKiMzEycmwaOvLRS2DaorsEUVbThgJBWtEDieKFhBvmyp+QPyolC4jumk4VpA+aaFOskayO5qhuOhm4LDH4A+UM43jepILCns66H1RMmH8BD0AzcRNXbpMAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/e6b26d7f53d532ae422d3ac5edc02182/6ff5e/gordon8.png"
-        srcset="/static/e6b26d7f53d532ae422d3ac5edc02182/135ae/gordon8.png 300w,
-/static/e6b26d7f53d532ae422d3ac5edc02182/34e8a/gordon8.png 600w,
-/static/e6b26d7f53d532ae422d3ac5edc02182/6ff5e/gordon8.png 1200w,
-/static/e6b26d7f53d532ae422d3ac5edc02182/0309e/gordon8.png 1280w"
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Стоимость бизнеса - сумма бесконечных дисконтированных денежных потоков</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/617304634f753beda3950e8972fab4c8/0309e/gordon9.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACDklEQVQoz01TCW7bMBDU/79UoFfsHklQGAkc37Ity9ZFkdRNXZ7sUm1QASPuisvhDLlyuq5HlGZYHQMs3Rt2XgTXj21+DlIcrwn2lxgHX8CLFC4E9yrs3MFPppqbwC3RGMY7nJFegZgIL5GERwUukfC4PYcWm1OAEy1iMibfebEl49x0A1qCIWGWsDEd8qJCXlZo+wF10yIrawipLWKhEMYpklQho7pU5VRbw7Q9Oqr//+n6EY4hwrbtLFFFaExLxZ0F78zfi7Kx+b/nfodVwwR5MyDJW+SVQVGUcHhRWTUoCFVtiKS3Ssu6RU15zzmRNe0AWXbYRxWuyuDpmGEX1nh0NWbrBAGdYVEUcCpayJYtEYFVGjNB5g0E7b4NK/w5ZXjxcnxZSeyiGt83Cq8ek8WYEyJZkKCGLFu7xlrjmNXGqkagDX4dNF4vBX7uFX6TkqVfYL7XpKzE52WMxVFgvknwYyuQZI09Iqcfxsku2ya1nqgw2yqr6ttaWkK293zKsQ6mb28XhU8vIRYniflW2g111WG0t9zQ+ZBCNyAVB4Wng8TXlbB2eGRVj66aLJ8VZhuBlZ/hYS3w5ud4Pmoszrkl5MtyWjMFujQIhUZALRImConMbNtIlVHryKmFUv3RTnZOTzXskJ2OTMgBtwD751su6WC5v/qB0HPTdtMl/W0j/rN4nnOOB4o5Zw4W9g62AEDDT6GONgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/617304634f753beda3950e8972fab4c8/6ff5e/gordon9.png"
-        srcset="/static/617304634f753beda3950e8972fab4c8/135ae/gordon9.png 300w,
-/static/617304634f753beda3950e8972fab4c8/34e8a/gordon9.png 600w,
-/static/617304634f753beda3950e8972fab4c8/6ff5e/gordon9.png 1200w,
-/static/617304634f753beda3950e8972fab4c8/0309e/gordon9.png 1280w"
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Роль формулы суммы беконечной геометрической прогресии</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 984px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0cb40b66209c01102ab5341492792f04/a4a15/gordon0.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 41.361788617886184%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA8UlEQVQY02WR2WqFQBBE/f9v0wcRUXDfRXEDN9TEHKdzhZB6KHuql6ketfuD67rgL4XvDxA5wsTneYoCS4smn23boigiXVVVURTE8DAMWZYRB0EwjmMcx2VZuq67risTf5sZNk0Tub7vu66jnxjuFMIwrOua5kqBWfM8i82n+TUptiXx6iJK8CowokYpbjkvy4IraZP1CPZ95zaJLwUCjOD8uRnDSZJwxp7jOLqu+77ftm2twIYosGmaTdOwPLYty0LJ8/yxzT5pmrIn1bZte56HSD+vRRFDyRqGwbWIKEyBKdPuv8CwvOT7/47jEL7/4QeXMsVAe3mnYgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/0cb40b66209c01102ab5341492792f04/a4a15/gordon0.png"
-        srcset="/static/0cb40b66209c01102ab5341492792f04/135ae/gordon0.png 300w,
-/static/0cb40b66209c01102ab5341492792f04/34e8a/gordon0.png 600w,
-/static/0cb40b66209c01102ab5341492792f04/a4a15/gordon0.png 984w"
-        sizes="(max-width: 984px) 100vw, 984px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Terminal Value, Free Cash Flow, Rate of return, G</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 475px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/59bbac817fa413adf99763ad94d8d186/aff45/gordon1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 22.315789473684212%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmUlEQVQI12WO3QqEIBSEff9n6hUqkLoyFLtICPsxqWDJdj+ShYWdCxnP+UZHWGuNMa9HUsqyLKuqGoYBX9e11rpt26IoQggppaZp2MJ0XTdNk+j7Xim1rus4jsdxAOGdczHGZVm2bQPCZGDf93meWQFgxPtPVIDj5B8yTO5HGGLe+/M86QUg8i7HMkS967q48jbEL5C+og7DDww14BoRVj69AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/59bbac817fa413adf99763ad94d8d186/aff45/gordon1.png"
-        srcset="/static/59bbac817fa413adf99763ad94d8d186/135ae/gordon1.png 300w,
-/static/59bbac817fa413adf99763ad94d8d186/aff45/gordon1.png 475w"
-        sizes="(max-width: 475px) 100vw, 475px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Знаем ТРЕБУЕМУЮ доходность - можно рассчитать СПРАВЕДЛИВУЮ цену</p>
-</blockquote>
-<blockquote>
-<p>Знаем РЫНОЧНУЮ цену - можно рассчитать СПРАВЕДЛИВУЮ требуемую доходность с учетом всех рисков</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 878px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f29d3e87f045e08541eba8df27bebbe2/8ee24/gordon-views.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 41.571753986332574%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABCklEQVQY02WR66qCUBCF9/s/l5AY/chLhWZeyhLxQl4Ryc6XAyKcATdr1p5Za2arvkt8Pp95njnTNG3bFmZeAjAMA+Q4jkJ+N6Ekr6oqDMP3+3273VzXpb/rur7vaSvL8ng8RlFUFAVl4iRmapUhmaaJ66ZpaBOGIkCWZWh9/4Wq69qyLNM0Hcc5nU6e510uFwF5njMIthScz2cY/CkTxvd9JfLzJiTdOqz7r+NMSyi++/1+vV5ZNUkSMCcpno/HA4BhEAS8CFeccRw/n09Z5+dMhWEYu92O4ZmZFKxpmq7r+/3+cDgwoczJOkjbti1/5OeMGJLovV4vAJ48MuvB4wZgBDCAZrBU4voHytO6SKOwajwAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/f29d3e87f045e08541eba8df27bebbe2/8ee24/gordon-views.png"
-        srcset="/static/f29d3e87f045e08541eba8df27bebbe2/135ae/gordon-views.png 300w,
-/static/f29d3e87f045e08541eba8df27bebbe2/34e8a/gordon-views.png 600w,
-/static/f29d3e87f045e08541eba8df27bebbe2/8ee24/gordon-views.png 878w"
-        sizes="(max-width: 878px) 100vw, 878px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Мы открываем продуктовый магазин, рассчитываем NPV
+На сколько должна вырасти стоимость одной акции этой компании, если всего в обращении находится 10 млн. шт. акций?</p><blockquote><p>Формула Гордона - модификация перпетуитета</p></blockquote><p>Денежные потоки растут с постоянным темпом</p><p>Торговый центр в конце первого года принесет 10 млн. руб. и каждый год арендная плата будет расти на 2% в год относительно предыдущего</p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.29032258064516%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAFlrGVFIWK//8QAGhABAAIDAQAAAAAAAAAAAAAAAgABAwQxEf/aAAgBAQABBQIlEpeFXdTZ4Gnl5P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAECABEQEiFx/9oACAEBAAY/AhvyzAFYQWb5H8gVjYx//8QAGxABAAIDAQEAAAAAAAAAAAAAAQAxESFRQXH/2gAIAQEAAT8hDPAcOccjkJdCktk2zUp/U2ouknBRP//aAAwDAQACAAMAAAAQ68//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMUFhUXGR/9oACAEBAAE/EH5GBWCldLg+Y4+h4vLAiDhA5Z0RLewAdILf0JXbFQkyE9JEDdFz/9k=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/aa0f89069511fa2cccc88c70c15a47aa/48a11/gordonfoto.jpg" srcSet="/static/aa0f89069511fa2cccc88c70c15a47aa/3dff4/gordonfoto.jpg 125w,/static/aa0f89069511fa2cccc88c70c15a47aa/9fb78/gordonfoto.jpg 250w,/static/aa0f89069511fa2cccc88c70c15a47aa/48a11/gordonfoto.jpg 500w,/static/aa0f89069511fa2cccc88c70c15a47aa/e1d7b/gordonfoto.jpg 620w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.25%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB9ElEQVQoz1VSaXPTMBD1//8hDFA+AJ87w9EMgQD1TJukJamdy7Zs+b5vP1ZSQqnGb97bQ+uVtFrX9XCDFOsdw8pwsDm4MCyOtcmwdwKYlo/tkeOJ+OBGOBIM0nsWKnZC7CjP8RMM4wRtmibwKMVmz+DwSOLAAjA/xs7mEib9wOYx3DCVMfEjlZNgGkf0/YCGGpMFi6rB+98e3v1k+KBzvJozvF0wvPnhSFz01cKlHJe0ir/+znAl7IUHnnUQq6XCsuD1rYWP8x2udRvfHgJ8vnNxs+T4uvTw5d47ay71bOVLPVsp32wdIMxatG2HLMuh1W1P7Sd0HzEsnoPHNR0vhxMUsH0B0sTKzsGCUtqMbME8qpFkJRXLVMG8bOhBfCxNDsNO6OIznLwcJyp69LIzP8PiFy4k3KhCnBbIC0JZQ6vqFvOVg0/6SeLXHx+320BhEzzrM/RtKP36EzHpOzOGHxeomhZ1S3fYdgMe9gHuDR+PB3pht8DWoiuw05dwFJtO9oIPXoG0aNEPo4RWVS0dmUPfOHjc+zQaJTw6hoAbKvyz//NffAKiMzEycmwaOvLRS2DaorsEUVbThgJBWtEDieKFhBvmyp+QPyolC4jumk4VpA+aaFOskayO5qhuOhm4LDH4A+UM43jepILCns66H1RMmH8BD0AzcRNXbpMAAAAASUVORK5CYII=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/e6b26d7f53d532ae422d3ac5edc02182/d19c0/gordon8.png" srcSet="/static/e6b26d7f53d532ae422d3ac5edc02182/6b181/gordon8.png 125w,/static/e6b26d7f53d532ae422d3ac5edc02182/5039d/gordon8.png 250w,/static/e6b26d7f53d532ae422d3ac5edc02182/d19c0/gordon8.png 500w,/static/e6b26d7f53d532ae422d3ac5edc02182/35c67/gordon8.png 750w,/static/e6b26d7f53d532ae422d3ac5edc02182/e11df/gordon8.png 1000w,/static/e6b26d7f53d532ae422d3ac5edc02182/0309e/gordon8.png 1280w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Стоимость бизнеса - сумма бесконечных дисконтированных денежных потоков</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.25%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACDklEQVQoz01TCW7bMBDU/79UoFfsHklQGAkc37Ity9ZFkdRNXZ7sUm1QASPuisvhDLlyuq5HlGZYHQMs3Rt2XgTXj21+DlIcrwn2lxgHX8CLFC4E9yrs3MFPppqbwC3RGMY7nJFegZgIL5GERwUukfC4PYcWm1OAEy1iMibfebEl49x0A1qCIWGWsDEd8qJCXlZo+wF10yIrawipLWKhEMYpklQho7pU5VRbw7Q9Oqr//+n6EY4hwrbtLFFFaExLxZ0F78zfi7Kx+b/nfodVwwR5MyDJW+SVQVGUcHhRWTUoCFVtiKS3Ssu6RU15zzmRNe0AWXbYRxWuyuDpmGEX1nh0NWbrBAGdYVEUcCpayJYtEYFVGjNB5g0E7b4NK/w5ZXjxcnxZSeyiGt83Cq8ek8WYEyJZkKCGLFu7xlrjmNXGqkagDX4dNF4vBX7uFX6TkqVfYL7XpKzE52WMxVFgvknwYyuQZI09Iqcfxsku2ya1nqgw2yqr6ttaWkK293zKsQ6mb28XhU8vIRYniflW2g111WG0t9zQ+ZBCNyAVB4Wng8TXlbB2eGRVj66aLJ8VZhuBlZ/hYS3w5ud4Pmoszrkl5MtyWjMFujQIhUZALRImConMbNtIlVHryKmFUv3RTnZOTzXskJ2OTMgBtwD751su6WC5v/qB0HPTdtMl/W0j/rN4nnOOB4o5Zw4W9g62AEDDT6GONgAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/617304634f753beda3950e8972fab4c8/d19c0/gordon9.png" srcSet="/static/617304634f753beda3950e8972fab4c8/6b181/gordon9.png 125w,/static/617304634f753beda3950e8972fab4c8/5039d/gordon9.png 250w,/static/617304634f753beda3950e8972fab4c8/d19c0/gordon9.png 500w,/static/617304634f753beda3950e8972fab4c8/35c67/gordon9.png 750w,/static/617304634f753beda3950e8972fab4c8/e11df/gordon9.png 1000w,/static/617304634f753beda3950e8972fab4c8/0309e/gordon9.png 1280w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Роль формулы суммы беконечной геометрической прогресии</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:41.361788617886184%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA8UlEQVQY02WR2WqFQBBE/f9v0wcRUXDfRXEDN9TEHKdzhZB6KHuql6ketfuD67rgL4XvDxA5wsTneYoCS4smn23boigiXVVVURTE8DAMWZYRB0EwjmMcx2VZuq67risTf5sZNk0Tub7vu66jnxjuFMIwrOua5kqBWfM8i82n+TUptiXx6iJK8CowokYpbjkvy4IraZP1CPZ95zaJLwUCjOD8uRnDSZJwxp7jOLqu+77ftm2twIYosGmaTdOwPLYty0LJ8/yxzT5pmrIn1bZte56HSD+vRRFDyRqGwbWIKEyBKdPuv8CwvOT7/47jEL7/4QeXMsVAe3mnYgAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/0cb40b66209c01102ab5341492792f04/d19c0/gordon0.png" srcSet="/static/0cb40b66209c01102ab5341492792f04/6b181/gordon0.png 125w,/static/0cb40b66209c01102ab5341492792f04/5039d/gordon0.png 250w,/static/0cb40b66209c01102ab5341492792f04/d19c0/gordon0.png 500w,/static/0cb40b66209c01102ab5341492792f04/35c67/gordon0.png 750w,/static/0cb40b66209c01102ab5341492792f04/a4a15/gordon0.png 984w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Terminal Value, Free Cash Flow, Rate of return, G</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:475px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:22.315789473684212%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmUlEQVQI12WO3QqEIBSEff9n6hUqkLoyFLtICPsxqWDJdj+ShYWdCxnP+UZHWGuNMa9HUsqyLKuqGoYBX9e11rpt26IoQggppaZp2MJ0XTdNk+j7Xim1rus4jsdxAOGdczHGZVm2bQPCZGDf93meWQFgxPtPVIDj5B8yTO5HGGLe+/M86QUg8i7HMkS967q48jbEL5C+og7DDww14BoRVj69AAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/59bbac817fa413adf99763ad94d8d186/aff45/gordon1.png" srcSet="/static/59bbac817fa413adf99763ad94d8d186/6b181/gordon1.png 125w,/static/59bbac817fa413adf99763ad94d8d186/5039d/gordon1.png 250w,/static/59bbac817fa413adf99763ad94d8d186/aff45/gordon1.png 475w" sizes="(max-width: 475px) 100vw, 475px" loading="lazy"/>
+    </span></p><blockquote><p>Знаем ТРЕБУЕМУЮ доходность - можно рассчитать СПРАВЕДЛИВУЮ цену</p></blockquote><blockquote><p>Знаем РЫНОЧНУЮ цену - можно рассчитать СПРАВЕДЛИВУЮ требуемую доходность с учетом всех рисков</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:41.571753986332574%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABCklEQVQY02WR66qCUBCF9/s/l5AY/chLhWZeyhLxQl4Ryc6XAyKcATdr1p5Za2arvkt8Pp95njnTNG3bFmZeAjAMA+Q4jkJ+N6Ekr6oqDMP3+3273VzXpb/rur7vaSvL8ng8RlFUFAVl4iRmapUhmaaJ66ZpaBOGIkCWZWh9/4Wq69qyLNM0Hcc5nU6e510uFwF5njMIthScz2cY/CkTxvd9JfLzJiTdOqz7r+NMSyi++/1+vV5ZNUkSMCcpno/HA4BhEAS8CFeccRw/n09Z5+dMhWEYu92O4ZmZFKxpmq7r+/3+cDgwoczJOkjbti1/5OeMGJLovV4vAJ48MuvB4wZgBDCAZrBU4voHytO6SKOwajwAAAAASUVORK5CYII=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/f29d3e87f045e08541eba8df27bebbe2/d19c0/gordon-views.png" srcSet="/static/f29d3e87f045e08541eba8df27bebbe2/6b181/gordon-views.png 125w,/static/f29d3e87f045e08541eba8df27bebbe2/5039d/gordon-views.png 250w,/static/f29d3e87f045e08541eba8df27bebbe2/d19c0/gordon-views.png 500w,/static/f29d3e87f045e08541eba8df27bebbe2/35c67/gordon-views.png 750w,/static/f29d3e87f045e08541eba8df27bebbe2/8ee24/gordon-views.png 878w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p>Мы открываем продуктовый магазин, рассчитываем NPV
 Где взять требуемую доходность?
-Можем рассчитать по Магниту, X5 Retail Group...</p>
-<blockquote>
-<p>Типовая задача</p>
-</blockquote>
-<p>Компания планирует провести модернизацию производства, которая позволит увеличить годовой денежный поток на 200 млн. рублей в бесконечной перспективе (перпетуитет)
+Можем рассчитать по Магниту, X5 Retail Group...</p><blockquote><p>Типовая задача</p></blockquote><p>Компания планирует провести модернизацию производства, которая позволит увеличить годовой денежный поток на 200 млн. рублей в бесконечной перспективе (перпетуитет)
 Для реализации проекта требуются единовременные инвестиции сейчас в размере 1600 млн. руб.
 Какова чистая приведенная стоимость проекта, если альтернативные издержки капитала (альтернативные затраты на капитал) составляют 10%, а темп роста денежного потока 2%в год?
-На сколько должна вырасти стоимость одной акции этой компании, если всего в обращении находится 10 млн. шт. акций?</p>
-<blockquote>
-<p>Типовая задача 2</p>
-</blockquote>
-<p>Оцените компанию доходным методом, рассчитав NPV.
+На сколько должна вырасти стоимость одной акции этой компании, если всего в обращении находится 10 млн. шт. акций?</p><blockquote><p>Типовая задача 2</p></blockquote><p>Оцените компанию доходным методом, рассчитав NPV.
 Ожидается, что в рамках прогнозного периода потоки свободных денежных средств компании в первый год составят
 10 млн. руб.,
 во второй год 20 млн. руб.,
 на третий год вырастут до 50 млн. руб.
 и начиная с года 4 компания вступает в завершающий период, когда для потока свободных денежных средств ожидается темп прироста 4% в год.
-Чему равна стоимость компании, если затраты на совокупный капитал составляют 10%?</p>
-<blockquote>
-<p>Аннуитет - равные денежные потоки через равные промежутки, но ограниченные во времени</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 950px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1b207c017110dca82447a8593099e13e/f2434/annuaty.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 50.73684210526316%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd1WgKD/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAbEAABBAMAAAAAAAAAAAAAAAABABAhMUGR8P/aAAgBAQABPyEiTe1PFCmy3//aAAwDAQACAAMAAAAQYw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhEDFBUWH/2gAIAQEAAT8QQ0R7yPaNfGDNrfrj1gEMLx//2Q=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Формула Гордона"
-        title="Формула Гордона"
-        src="/static/1b207c017110dca82447a8593099e13e/f2434/annuaty.jpg"
-        srcset="/static/1b207c017110dca82447a8593099e13e/afcd2/annuaty.jpg 300w,
-/static/1b207c017110dca82447a8593099e13e/82472/annuaty.jpg 600w,
-/static/1b207c017110dca82447a8593099e13e/f2434/annuaty.jpg 950w"
-        sizes="(max-width: 950px) 100vw, 950px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Критерии принятия инвестиционных решений</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1197px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 42.10526315789473%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Time Line"
-        title="Time Line"
-        src="/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg"
-        srcset="/static/2b0a0aebb2c8815eabc2f46bb308223f/afcd2/timeline%2Bnpv.jpg 300w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/82472/timeline%2Bnpv.jpg 600w,
-/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w"
-        sizes="(max-width: 1197px) 100vw, 1197px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<table>
-<tbody>
-<tr>
-<th>Показатели</th>
-<th>01.01.2020</th>
-<th>31.12.2020</th>
-<th>31.12.2021</th>
-<th>31.12.2022</th>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td>Денежный поток</td>
-<td>-400</td>
-<td>100</td>
-<td>150</td>
-<td>300</td>
-</tr>
-<tr>
-<td>Дисконтный множитель при ставке 10% годовых</td>
-<td>1,000</td>
-<td>0,909</td>
-<td>0,826</td>
-<td>0,751</td>
-</tr>
-<tr>
-<td>Дисконтированный денежный поток</td>
-<td>-400</td>
-<td>91</td>
-<td>120</td>
-<td>250</td>
-</tr>
-<tr>
-<td>Накопленный дисконтированный денежный поток</td>
-<td>-400</td>
-<td>-309</td>
-<td>-190</td>
-<td><strong>40<strong></td>
-</tr>
-</tbody>
-</table>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 793px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f56a4a9d9fe82fb6ba123f52362dfc89/364a4/cfinvest.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.36822194199244%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABfUlEQVQoz22STUvDQBCG84O8+KO8KJ499SaCXrx6LGJBEakVpUitWi/2A6HFg1VppWlNIk3bZJMm2ezHONnQUkpewuad3Xkys7vRGGNyVYxKKfANAFJwHKPBr32yBUBYwG3jz3HdMIxASaMUs0FIIRYMRwsQWybzHAzpaDo+2gTRw4X5dOAQP5gnwlHDykkRhTESkPKxDProJ/lDv7KbVP4xrf0Nzj4DDsbM9Ik3c2aO6yCoBZQbE2H5EzN0gFDrbOdDL+OXgtr11/OejbRN9PPthlFDm3YnF8W0oU2LdbjT61e9V4zdmOZaF7gJ9Plu9XHUUUyKrEsbTehtC+6HrZt+M4Hp/ODtUqjU02716fc9PQXIkqaPwxQuKdiJ/FyzkK7ZgUvoPD2R7MpDOyo1oaw3iv06xl4cFr5rq60uLzGrbTt86MCL2a7obdUhXwICtfIHZMCMc8pkxGKqMMxngqdYeu9STcrMPXMuGJZTY2KEjBkjno+GLScXZu35B3dbbyHQE4YxAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="График CF"
-        title="График CF"
-        src="/static/f56a4a9d9fe82fb6ba123f52362dfc89/364a4/cfinvest.png"
-        srcset="/static/f56a4a9d9fe82fb6ba123f52362dfc89/135ae/cfinvest.png 300w,
-/static/f56a4a9d9fe82fb6ba123f52362dfc89/34e8a/cfinvest.png 600w,
-/static/f56a4a9d9fe82fb6ba123f52362dfc89/364a4/cfinvest.png 793w"
-        sizes="(max-width: 793px) 100vw, 793px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/8c18f2a854c345d1eb8c581b19ded956/a296c/cf-4-0053.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdlOygD/xAAYEAADAQEAAAAAAAAAAAAAAAAAASEQEv/aAAgBAQABBQJ1wRes/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGBABAQEBAQAAAAAAAAAAAAAAAQAhEVH/2gAIAQEAAT8h7Q1gDuSOY9sLzsxf/9oADAMBAAIAAwAAABCwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFRMfD/2gAIAQEAAT8QIQAcgu9iqPiMNg6zoGldlUrfRmrTs//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Investment Decision Statistics"
-        title="Investment Decision Statistics"
-        src="/static/8c18f2a854c345d1eb8c581b19ded956/a296c/cf-4-0053.jpg"
-        srcset="/static/8c18f2a854c345d1eb8c581b19ded956/afcd2/cf-4-0053.jpg 300w,
-/static/8c18f2a854c345d1eb8c581b19ded956/82472/cf-4-0053.jpg 600w,
-/static/8c18f2a854c345d1eb8c581b19ded956/a296c/cf-4-0053.jpg 800w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Excel </p>
-</blockquote>
-<p><b>NPV</b></p>
-<p>Для расчета NPV используется функция =ЧПС() =NPV()
+Чему равна стоимость компании, если затраты на совокупный капитал составляют 10%?</p><blockquote><p>Аннуитет - равные денежные потоки через равные промежутки, но ограниченные во времени</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:50.73684210526316%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd1WgKD/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAbEAABBAMAAAAAAAAAAAAAAAABABAhMUGR8P/aAAgBAQABPyEiTe1PFCmy3//aAAwDAQACAAMAAAAQYw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhEDFBUWH/2gAIAQEAAT8QQ0R7yPaNfGDNrfrj1gEMLx//2Q==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Формула Гордона" title="Формула Гордона" src="/static/1b207c017110dca82447a8593099e13e/48a11/annuaty.jpg" srcSet="/static/1b207c017110dca82447a8593099e13e/3dff4/annuaty.jpg 125w,/static/1b207c017110dca82447a8593099e13e/9fb78/annuaty.jpg 250w,/static/1b207c017110dca82447a8593099e13e/48a11/annuaty.jpg 500w,/static/1b207c017110dca82447a8593099e13e/a66cd/annuaty.jpg 750w,/static/1b207c017110dca82447a8593099e13e/f2434/annuaty.jpg 950w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Критерии принятия инвестиционных решений</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:42.10526315789473%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3oFB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAhETGR/9oACAEBAAE/IUOyt5gVP//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEhQVH/2gAIAQEAAT8QyBWFLZc3CBS1P//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Time Line" title="Time Line" src="/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg" srcSet="/static/2b0a0aebb2c8815eabc2f46bb308223f/3dff4/timeline%2Bnpv.jpg 125w,/static/2b0a0aebb2c8815eabc2f46bb308223f/9fb78/timeline%2Bnpv.jpg 250w,/static/2b0a0aebb2c8815eabc2f46bb308223f/48a11/timeline%2Bnpv.jpg 500w,/static/2b0a0aebb2c8815eabc2f46bb308223f/a66cd/timeline%2Bnpv.jpg 750w,/static/2b0a0aebb2c8815eabc2f46bb308223f/971c4/timeline%2Bnpv.jpg 1000w,/static/2b0a0aebb2c8815eabc2f46bb308223f/4bcc0/timeline%2Bnpv.jpg 1197w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p>  Показатели                                    01.01.2020   31.12.2020   31.12.2021   31.12.2022</p><hr/><p>  Денежный поток                                -400         100          150          300
+Дисконтный множитель при ставке 10% годовых   1,000        0,909        0,826        0,751
+Дисконтированный денежный поток               -400         91           120          250
+Накопленный дисконтированный денежный поток   -400         -309         -190         <strong>40</strong></p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.36822194199244%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABfUlEQVQoz22STUvDQBCG84O8+KO8KJ499SaCXrx6LGJBEakVpUitWi/2A6HFg1VppWlNIk3bZJMm2ezHONnQUkpewuad3Xkys7vRGGNyVYxKKfANAFJwHKPBr32yBUBYwG3jz3HdMIxASaMUs0FIIRYMRwsQWybzHAzpaDo+2gTRw4X5dOAQP5gnwlHDykkRhTESkPKxDProJ/lDv7KbVP4xrf0Nzj4DDsbM9Ik3c2aO6yCoBZQbE2H5EzN0gFDrbOdDL+OXgtr11/OejbRN9PPthlFDm3YnF8W0oU2LdbjT61e9V4zdmOZaF7gJ9Plu9XHUUUyKrEsbTehtC+6HrZt+M4Hp/ODtUqjU02716fc9PQXIkqaPwxQuKdiJ/FyzkK7ZgUvoPD2R7MpDOyo1oaw3iv06xl4cFr5rq60uLzGrbTt86MCL2a7obdUhXwICtfIHZMCMc8pkxGKqMMxngqdYeu9STcrMPXMuGJZTY2KEjBkjno+GLScXZu35B3dbbyHQE4YxAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="График CF" title="График CF" src="/static/f56a4a9d9fe82fb6ba123f52362dfc89/d19c0/cfinvest.png" srcSet="/static/f56a4a9d9fe82fb6ba123f52362dfc89/6b181/cfinvest.png 125w,/static/f56a4a9d9fe82fb6ba123f52362dfc89/5039d/cfinvest.png 250w,/static/f56a4a9d9fe82fb6ba123f52362dfc89/d19c0/cfinvest.png 500w,/static/f56a4a9d9fe82fb6ba123f52362dfc89/35c67/cfinvest.png 750w,/static/f56a4a9d9fe82fb6ba123f52362dfc89/364a4/cfinvest.png 793w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:75%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdlOygD/xAAYEAADAQEAAAAAAAAAAAAAAAAAASEQEv/aAAgBAQABBQJ1wRes/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGBABAQEBAQAAAAAAAAAAAAAAAQAhEVH/2gAIAQEAAT8h7Q1gDuSOY9sLzsxf/9oADAMBAAIAAwAAABCwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFRMfD/2gAIAQEAAT8QIQAcgu9iqPiMNg6zoGldlUrfRmrTs//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Investment Decision Statistics" title="Investment Decision Statistics" src="/static/8c18f2a854c345d1eb8c581b19ded956/48a11/cf-4-0053.jpg" srcSet="/static/8c18f2a854c345d1eb8c581b19ded956/3dff4/cf-4-0053.jpg 125w,/static/8c18f2a854c345d1eb8c581b19ded956/9fb78/cf-4-0053.jpg 250w,/static/8c18f2a854c345d1eb8c581b19ded956/48a11/cf-4-0053.jpg 500w,/static/8c18f2a854c345d1eb8c581b19ded956/a66cd/cf-4-0053.jpg 750w,/static/8c18f2a854c345d1eb8c581b19ded956/a296c/cf-4-0053.jpg 800w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Excel </p></blockquote><b>NPV</b><p>Для расчета NPV используется функция =ЧПС() =NPV()
 Недостаток - нельзя указать 0 степень
 Аргументы - только положительные денежные потоки
-Потом вычитаем инвестиции</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 678px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/24232d1852e9fdea19ac0409e560569c/6b427/npv400.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 20.79646017699115%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAeUlEQVQI15WO0Q7DIAhF/f+fdDVVp3GLxdqagtsQX/q6k5DcywWCSinlnMvfAJfSWjvnYozW2hDCU2Bh1zUI3vthb+kcZqGMMQCASB+h915rJSIWs1P2goS3dOfgK6hleeRtO4+TF3Bw8a3W2jQMlGGn5hknL7xfgx9wceL3ks5bJAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="NPV"
-        title="NPV"
-        src="/static/24232d1852e9fdea19ac0409e560569c/6b427/npv400.png"
-        srcset="/static/24232d1852e9fdea19ac0409e560569c/135ae/npv400.png 300w,
-/static/24232d1852e9fdea19ac0409e560569c/34e8a/npv400.png 600w,
-/static/24232d1852e9fdea19ac0409e560569c/6b427/npv400.png 678w"
-        sizes="(max-width: 678px) 100vw, 678px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><a href="https://support.office.com/ru-ru/article/%D0%A7%D0%9F%D0%A1-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%A7%D0%9F%D0%A1-8672cb67-2576-4d07-b67b-ac28acf2a568">Excel NPV</a></p>
-<p>Для расчета IRR используется функция =ВСД() =IRR()</p>
-<p><b>PI</b></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 776px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1f97823d4d78b3a92ab296ff84354f2b/0901c/pi400.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 19.587628865979383%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAaUlEQVQI152MSw6AIAwFuf9FFUpbKxHCR2KFhLh2Fk2nn2eI6PiLAQBEtNb6AYCfqvOh79Y591Wt894wc2vtHvTeRaSUos3UEEJKaWmMl8ipzXwxOef7g+rKUjSo1rqiNWjfNyL0Hon5AbgA5EIhdbRsAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="PI"
-        title="PI"
-        src="/static/1f97823d4d78b3a92ab296ff84354f2b/0901c/pi400.png"
-        srcset="/static/1f97823d4d78b3a92ab296ff84354f2b/135ae/pi400.png 300w,
-/static/1f97823d4d78b3a92ab296ff84354f2b/34e8a/pi400.png 600w,
-/static/1f97823d4d78b3a92ab296ff84354f2b/0901c/pi400.png 776w"
-        sizes="(max-width: 776px) 100vw, 776px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><b>IRR</b></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 496px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/83c7e2772a0c061f49e0a143ed8c9696/3214c/irr400.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 32.25806451612903%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAtUlEQVQY05VOXQ+DIBDj//9G48cQVBSIwkAR3Qoke/FpDVzaazmOSLkIMUkpVUKp6sGfVpIEV8xiXVf7P8g4jlVVcc67rmuaBqTve8ZYXdcvSkE4Y+j8LNS2bREGIcOQxLpt+757747jsMY45/YM7z2W8hnJsnYzBgQSLsFsfD6JCaFPhncOHZD7vlG11krpImOM0zic8SoyPcYyIZw4V0YIAbMLRzpkgCN9hID9KaXzMhvz/gLyh1JawtEPRAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="IRR"
-        title="IRR"
-        src="/static/83c7e2772a0c061f49e0a143ed8c9696/3214c/irr400.png"
-        srcset="/static/83c7e2772a0c061f49e0a143ed8c9696/135ae/irr400.png 300w,
-/static/83c7e2772a0c061f49e0a143ed8c9696/3214c/irr400.png 496w"
-        sizes="(max-width: 496px) 100vw, 496px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><a href="https://support.office.com/ru-ru/article/%D0%92%D0%A1%D0%94-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%92%D0%A1%D0%94-64925eaa-9988-495b-b290-3ad0c163c1bc">Excel IRR</a></p>
-<p><b>MIRR</b></p>
-<p>Пусть наш проект приносит слишком хорошую доходность. Что нам делать с полученными средствами?</p>
-<ol>
-<li>Все значения доходов, формируемых инвестициями, приводятся к концу проекта. Для приведения используется ставка, равная реальной доходности рынка.</li>
-<li>Все инвестиции и реинвестиции приводятся к началу проекта. Для приведения используется ставка дисконтирования.</li>
-<li>MIRR определяется как норма дохода, при которой все ожидаемые доходы, приведенные к концу проекта, имеют текущую стоимость, равную стоимости всех требуемых затрат</li>
-</ol>
-<p>Для расчета MIRR используется функция =МВСД().
-Функция МВСД учитывает как затраты на привлечение инвестиции, так и процент, получаемый от реинвестирования денежных средств.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 788px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/15ca3e7fc279eef6007609b3808d5310/993a7/mirr400.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 19.416243654822335%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAfElEQVQI12WN2w7CIBBE+f+/lGATYLkWk3Lp6gSiqXqe9kxgRhhjvPcxxhBCnHyOK/8hEiHlzVpLRFprmkCdc9CVLzXmS63FqMZniY4xxjlh5pRS753fmlM+jooDb/jJe86lPJhPqFBK1VrHhR9traEL5WuglP2+bUSYdy9NMuNe2jLJVAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="MIRR"
-        title="MIRR"
-        src="/static/15ca3e7fc279eef6007609b3808d5310/993a7/mirr400.png"
-        srcset="/static/15ca3e7fc279eef6007609b3808d5310/135ae/mirr400.png 300w,
-/static/15ca3e7fc279eef6007609b3808d5310/34e8a/mirr400.png 600w,
-/static/15ca3e7fc279eef6007609b3808d5310/993a7/mirr400.png 788w"
-        sizes="(max-width: 788px) 100vw, 788px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><a href="https://support.office.com/ru-ru/article/%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d0%bc%d0%b2%d1%81%d0%b4-b020f038-7492-4fb4-93c1-35c345b53524?ui=ru-RU&#x26;rs=ru-RU&#x26;ad=RU">Excel MIRR</a></p>
-<p><a href="https://ocw.mit.edu/courses/sloan-school-of-management/15-401-finance-theory-i-fall-2008/">Подробнее Как учат в ведущих ВУЗах планеты?</a></p>
-<p><a href="https://www.youtube.com/watch?v=U03Md5enU-0&feature=youtu.be" target="_blank"><img src="https://img.youtube.com/vi/U03Md5enU-0/0.jpg" alt="MIT" width="240" height="180" border="10"></a></p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/4SZl1r2O_bY" frameborder="0" allowfullscreen></iframe> --></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/financial_calculations/";window.webpackCompilationHash="f7eeaa6e9f0a1e38826d";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-466eaefb143b5b00d41b.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js"],"component---src-pages-404-js":["/component---src-pages-404-js-6ee983340c42a33790bd.js"],"component---src-pages-about-js":["/component---src-pages-about-js-90e745d647dae13e3a13.js"],"component---src-pages-index-js":["/component---src-pages-index-js-8dc4765c499e409f485c.js"],"component---src-pages-my-files-js":["/component---src-pages-my-files-js-d1a7a4154428d535d054.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js" async=""></script><script src="/0-73294c9e0faec9f36d2a.js" async=""></script><script src="/app-466eaefb143b5b00d41b.js" async=""></script><script src="/webpack-runtime-c4729e993e62de2f7dbf.js" async=""></script></body></html>
+Потом вычитаем инвестиции</p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:20.79646017699115%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAeUlEQVQI15WO0Q7DIAhF/f+fdDVVp3GLxdqagtsQX/q6k5DcywWCSinlnMvfAJfSWjvnYozW2hDCU2Bh1zUI3vthb+kcZqGMMQCASB+h915rJSIWs1P2goS3dOfgK6hleeRtO4+TF3Bw8a3W2jQMlGGn5hknL7xfgx9wceL3ks5bJAAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="NPV" title="NPV" src="/static/24232d1852e9fdea19ac0409e560569c/d19c0/npv400.png" srcSet="/static/24232d1852e9fdea19ac0409e560569c/6b181/npv400.png 125w,/static/24232d1852e9fdea19ac0409e560569c/5039d/npv400.png 250w,/static/24232d1852e9fdea19ac0409e560569c/d19c0/npv400.png 500w,/static/24232d1852e9fdea19ac0409e560569c/6b427/npv400.png 678w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p><a href="https://support.office.com/ru-ru/article/%D0%A7%D0%9F%D0%A1-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%A7%D0%9F%D0%A1-8672cb67-2576-4d07-b67b-ac28acf2a568">Excel NPV</a></p><p>Для расчета IRR используется функция =ВСД() =IRR()</p><b>PI</b><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:19.587628865979383%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAaUlEQVQI152MSw6AIAwFuf9FFUpbKxHCR2KFhLh2Fk2nn2eI6PiLAQBEtNb6AYCfqvOh79Y591Wt894wc2vtHvTeRaSUos3UEEJKaWmMl8ipzXwxOef7g+rKUjSo1rqiNWjfNyL0Hon5AbgA5EIhdbRsAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="PI" title="PI" src="/static/1f97823d4d78b3a92ab296ff84354f2b/d19c0/pi400.png" srcSet="/static/1f97823d4d78b3a92ab296ff84354f2b/6b181/pi400.png 125w,/static/1f97823d4d78b3a92ab296ff84354f2b/5039d/pi400.png 250w,/static/1f97823d4d78b3a92ab296ff84354f2b/d19c0/pi400.png 500w,/static/1f97823d4d78b3a92ab296ff84354f2b/35c67/pi400.png 750w,/static/1f97823d4d78b3a92ab296ff84354f2b/0901c/pi400.png 776w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><b>IRR</b><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:496px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:32.25806451612903%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAtUlEQVQY05VOXQ+DIBDj//9G48cQVBSIwkAR3Qoke/FpDVzaazmOSLkIMUkpVUKp6sGfVpIEV8xiXVf7P8g4jlVVcc67rmuaBqTve8ZYXdcvSkE4Y+j8LNS2bREGIcOQxLpt+757747jsMY45/YM7z2W8hnJsnYzBgQSLsFsfD6JCaFPhncOHZD7vlG11krpImOM0zic8SoyPcYyIZw4V0YIAbMLRzpkgCN9hID9KaXzMhvz/gLyh1JawtEPRAAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="IRR" title="IRR" src="/static/83c7e2772a0c061f49e0a143ed8c9696/3214c/irr400.png" srcSet="/static/83c7e2772a0c061f49e0a143ed8c9696/6b181/irr400.png 125w,/static/83c7e2772a0c061f49e0a143ed8c9696/5039d/irr400.png 250w,/static/83c7e2772a0c061f49e0a143ed8c9696/3214c/irr400.png 496w" sizes="(max-width: 496px) 100vw, 496px" loading="lazy"/>
+    </span></p><p><a href="https://support.office.com/ru-ru/article/%D0%92%D0%A1%D0%94-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%92%D0%A1%D0%94-64925eaa-9988-495b-b290-3ad0c163c1bc">Excel IRR</a></p><b>MIRR</b><p>Пусть наш проект приносит слишком хорошую доходность. Что нам делать с полученными средствами?
+1. Все значения доходов, формируемых инвестициями, приводятся к концу проекта. Для приведения используется ставка, равная реальной доходности рынка.
+2. Все инвестиции и реинвестиции приводятся к началу проекта. Для приведения используется ставка дисконтирования.
+3. MIRR определяется как норма дохода, при которой все ожидаемые доходы, приведенные к концу проекта, имеют текущую стоимость, равную стоимости всех требуемых затрат</p><p>Для расчета MIRR используется функция =МВСД().
+Функция МВСД учитывает как затраты на привлечение инвестиции, так и процент, получаемый от реинвестирования денежных средств.</p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:19.416243654822335%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAfElEQVQI12WN2w7CIBBE+f+/lGATYLkWk3Lp6gSiqXqe9kxgRhhjvPcxxhBCnHyOK/8hEiHlzVpLRFprmkCdc9CVLzXmS63FqMZniY4xxjlh5pRS753fmlM+jooDb/jJe86lPJhPqFBK1VrHhR9traEL5WuglP2+bUSYdy9NMuNe2jLJVAAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="MIRR" title="MIRR" src="/static/15ca3e7fc279eef6007609b3808d5310/d19c0/mirr400.png" srcSet="/static/15ca3e7fc279eef6007609b3808d5310/6b181/mirr400.png 125w,/static/15ca3e7fc279eef6007609b3808d5310/5039d/mirr400.png 250w,/static/15ca3e7fc279eef6007609b3808d5310/d19c0/mirr400.png 500w,/static/15ca3e7fc279eef6007609b3808d5310/35c67/mirr400.png 750w,/static/15ca3e7fc279eef6007609b3808d5310/993a7/mirr400.png 788w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p><a href="https://support.office.com/ru-ru/article/%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d0%bc%d0%b2%d1%81%d0%b4-b020f038-7492-4fb4-93c1-35c345b53524?ui=ru-RU&amp;rs=ru-RU&amp;ad=RU">Excel MIRR</a></p><p><a href="https://ocw.mit.edu/courses/sloan-school-of-management/15-401-finance-theory-i-fall-2008/">Подробнее Как учат в ведущих ВУЗах планеты?</a></p><a href="https://www.youtube.com/watch?v=U03Md5enU-0&amp;feature=youtu.be" target="_blank"><img src="https://img.youtube.com/vi/U03Md5enU-0/0.jpg" alt="MIT" width="240" height="180" border="10"/></a></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/financial_calculations/";window.webpackCompilationHash="f078d1ca52d0ad265700";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0831f129a49ca3aa15f7.js"],"component---src-pages-404-js":["/component---src-pages-404-js-41925f0755357dbaba52.js"],"component---src-pages-about-js":["/component---src-pages-about-js-4e50abae2749b14eeb63.js"],"component---src-pages-index-js":["/component---src-pages-index-js-096c1578141f9f33bacd.js"],"component---src-pages-my-files-js":["/component---src-pages-my-files-js-2228bf4ecc2c2624d5f1.js"],"component---src-pages-page-2-js":["/component---src-pages-page-2-js-1827684d4be66b628cb9.js"],"component---src-pages-company-analyses-md":["/component---src-pages-company-analyses-md-4b3086fd1fd6a7da2f28.js"],"component---src-pages-corporate-taxes-mdx":["/component---src-pages-corporate-taxes-mdx-392a06afb9083f0dcd00.js"],"component---src-pages-example-mdx":["/component---src-pages-example-mdx-455e635c12bbc2cb3aae.js"],"component---src-pages-financial-calculations-md":["/component---src-pages-financial-calculations-md-40507f8da14c70f78d4c.js"],"component---src-pages-introduction-corporate-finance-md":["/component---src-pages-introduction-corporate-finance-md-643714bb1f5f730e3105.js"],"component---src-pages-introduction-securities-market-md":["/component---src-pages-introduction-securities-market-md-6f0c5df0f1b077caa555.js"]};/*]]>*/</script><script src="/component---src-pages-financial-calculations-md-40507f8da14c70f78d4c.js" async=""></script><script src="/commons-e738a65c411fc57638cf.js" async=""></script><script src="/app-0831f129a49ca3aa15f7.js" async=""></script><script src="/styles-b4f5ca1644e9b5dc4446.js" async=""></script><script src="/webpack-runtime-0ae4a5ac088962acb668.js" async=""></script></body></html>

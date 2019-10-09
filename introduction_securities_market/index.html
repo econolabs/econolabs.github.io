@@ -1,350 +1,38 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.44 'Fira Sans',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Fira Sans',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:2.15rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.58293rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.35824rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.85805rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.79482rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}ul{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:0.85rem;line-height:1.44rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1rem;line-height:1.44rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}blockquote{margin-left:0;margin-right:1.44rem;margin-top:0;padding-bottom:0;padding-left:1.17rem;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1.16543rem;line-height:1.44rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.27rem solid hsla(0,0%,0%,0.2);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.08rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.08rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}li > ul{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.08rem / 2);}code{font-size:0.85rem;line-height:1.44rem;}kbd{font-size:0.85rem;line-height:1.44rem;}samp{font-size:0.85rem;line-height:1.44rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:0.96rem;padding-right:0.96rem;padding-top:0.72rem;padding-bottom:calc(0.72rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#9f392b;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.44rem;color:hsla(0,0%,0%,0.8);font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){blockquote{margin-left:-1.08rem;margin-right:0;padding-left:0.81rem;}}</style><meta name="generator" content="Gatsby 2.13.73"/><title data-react-helmet="true"></title><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link href="//fonts.googleapis.com/css?family=Playfair+Display:700|Fira+Sans:400,400i,700,700i" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/webpack-runtime-c4729e993e62de2f7dbf.js"/><link as="script" rel="preload" href="/app-466eaefb143b5b00d41b.js"/><link as="script" rel="preload" href="/0-73294c9e0faec9f36d2a.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js"/><link as="fetch" rel="preload" href="/page-data/introduction_securities_market/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><style data-emotion-css="1si8awd">.css-1si8awd{margin:0 auto;max-width:700px;padding:2.88rem;padding-top:2.16rem;}</style><div class="css-1si8awd"><a href="/"><style data-emotion-css="i0b9uu">.css-i0b9uu{margin-bottom:2.88rem;display:inline-block;font-style:normal;}</style><h3 class="css-i0b9uu">Econolabs</h3></a><style data-emotion-css="146q31f">.css-146q31f{float:right;}</style><a class="css-146q31f" href="/about/">О проекте</a><div><h1>Функции рынка ценных бумаг. Нормативное регулирование</h1><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden"><div style="width:100%;padding-bottom:37.5%"></div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABaklEQVQY0zWRy27bMBBF9V/RwxKjF2DHNQo0Lbrqppv+ViySQ1JxgyQoUKA/JFsyOaSyzdhKgQPuLg7vnSjmNpGYAKaAGfgUfNNj3fuV8oXyOb3gCz4xwFsdSsLMpSZCBS6KuynuXPo/vLC6xnLAUrnWYN5NtyYwPTPwlbAtP23FsIMhShWm3Mb8Il+SSywTLhHuxx/89hoY2FJMTTds5fBJHXf9tO6xfXyLKkMZt9qPTNhU+gsQYuE+P+H9i18/Ym0806GW48ZMjXaV8fT/ysy1DlEs7M3DmIlzyl3SuYYPa3mq+PHr7/H7iy3AMYmFwEKFQr+xS1tPbSvASvuIkgk5lU+kS/Y2l8iUbYxt9bmFcWdOxB0cN5I4reVUClcqbEy4mgEThdfBfCosyTMImfqg0LSTr4378oy7g23VeUNt+7A9UKMQ0U4Ll7XJv7cZx2XtYrkWIFX99c9vn+ZchZ9//f0zaee7Q3gHGKMtiz7fPkEAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/c2ce0afde8f73bf000cbcbf5775454c1/7c0ed/awesome-image.png 200w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/647de/awesome-image.png 400w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/af144/awesome-image.png 800w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/ba299/awesome-image.png 1200w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/9ecf6/awesome-image.png 1600w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/c2ce0afde8f73bf000cbcbf5775454c1/7c0ed/awesome-image.png 200w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/647de/awesome-image.png 400w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/af144/awesome-image.png 800w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/ba299/awesome-image.png 1200w,
-/static/c2ce0afde8f73bf000cbcbf5775454c1/9ecf6/awesome-image.png 1600w" src="/static/c2ce0afde8f73bf000cbcbf5775454c1/af144/awesome-image.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div><h3>Роль ценных бумаг</h3>
-<blockquote>
-<p>Организация и структура финансового рынка</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 868px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0f05553e1e806686c35c602e430cadf9/37948/fr1-2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 44.81566820276498%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeElEQVQoz61SuaoCQRCcr/QDZBMRNFA8MFUxMF0E/0QUr/UAb1G8A/FYxBvxWExKqkF5T3jZa2hqe7pm6K5a1e12kUqlkM/nkcvlfmWhUEA6nUaj0cDpdEImk5Hzby552WwWfEvpug673Y5gMAifzyfo9/slA4EAHA4H4vE4JpMJnE4nvF6v9Igejwdut1tql8uFRCIBtdlsUK/XUSqVUC6XUalUBFkPh0OMRiOYponn84l+vy/TtlotSfZWqxUWiwXm8zl2ux3U/X7HdDoVMh+YzWY4Ho84HA64XC6y6u12A4P1er2WixzEsix8h8I/h6I2xWJR1m42m5912u22IHu9Xg/n81lkeHM6nY5wWPO7Wq1iMBhAJZNJ2Gw2ETkWiyEajSISiYgRoVBIejzno5qmST8cDn94RPZpDu+o5XIJwzBkEiYNoZacfDwef4SnjjTkzSXyd6nVajIZkzzR8Hq9yko0gML/FY/HA9vtFvv9Xowh0sCf8QJw1F5kXkaEtwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Организация и структура финансового рынка"
-        title="Организация и структура финансового рынка"
-        src="/static/0f05553e1e806686c35c602e430cadf9/37948/fr1-2.png"
-        srcset="/static/0f05553e1e806686c35c602e430cadf9/135ae/fr1-2.png 300w,
-/static/0f05553e1e806686c35c602e430cadf9/34e8a/fr1-2.png 600w,
-/static/0f05553e1e806686c35c602e430cadf9/37948/fr1-2.png 868w"
-        sizes="(max-width: 868px) 100vw, 868px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Альтернативы</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 862px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0acc3bd63a399d044104ad2bcfb8b379/6a03e/fr1-4.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.380510440835266%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAByElEQVQoz21SSwupURT9fq+fwEhmBiSSAaVMpJjJjDKRQkJ5v99veb/Xba3bpzu4u077nP1YZ+2H8f1+MZ/PMRwOpUejkXS/35eeTqcYj8dYLBaYTCY6tH0+HzDXFN55DD6ezyeazSa63a6cDKbt/X7rvd1usV6vlUAbjwl2OBzkN8WgY7lcIh6PI51O43w+iw31fr/H4/EQK7K83+8Cpn2z2ejdbrdRrVZxu93+MsxkMrDZbPD5fHA6nXA4HAIgUKvVgsVikZ2H93q9LvZsjd1uh8vlgtfrhdVqRT6fhzGbzVAul9VDAtRqtV+pl8sFuVwOxWIRhUJBd9ooZFcqldBoNNDr9eQnlnpIAFJ+vV4KZLm73U7JZj/N/tHHvlEznpUw99dDBrFnHEqn01G57A/7SlD+SuaDwUDTpZ3TX61WymNl7CNjBWgiZ7NZHXOqBCATCtmQubkRHBABKfycK/ZjyPpDoRD8fj8CgQAikYiY8keC8h2LxbQFjKtUKpoy2dFOfzgcRjAY1CwMJhMolUohkUjA7XYr2Pyd72g0imQyqTuTTKbcDI/HI1BuAYf2K/lfOZ1OYsjSj8cjrtermk/NUs1d/J/8Abz3GS2anNoZAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Организация и структура финансового рынка"
-        title="Организация и структура финансового рынка"
-        src="/static/0acc3bd63a399d044104ad2bcfb8b379/6a03e/fr1-4.png"
-        srcset="/static/0acc3bd63a399d044104ad2bcfb8b379/135ae/fr1-4.png 300w,
-/static/0acc3bd63a399d044104ad2bcfb8b379/34e8a/fr1-4.png 600w,
-/static/0acc3bd63a399d044104ad2bcfb8b379/6a03e/fr1-4.png 862w"
-        sizes="(max-width: 862px) 100vw, 862px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<table>
-<thead>
-<tr>
-<th>Банковский сектор</th>
-<th>Рынок ценных бумаг</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Всегда несут расходы</td>
-<td>Акции</td>
-</tr>
-<tr>
-<td>Ограничены в рисках</td>
-<td>Облигации</td>
-</tr>
-<tr>
-<td>Операции ограничены объемом СК</td>
-<td>Векселя</td>
-</tr>
-<tr>
-<td>-</td>
-<td>Дериваты</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Первичный и вторичный рынок</p>
-</blockquote>
-<p>Первичный рынок - привлечение капитала, возмещение капитала предпринимателей и инвестбанкиров</p>
-<p>Фильмы</p>
-<ul>
-<li>Социальная сеть</li>
-<li>Стив Джобс. Империя соблазна</li>
-<li>Пираты Силиконовой долины</li>
-</ul>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/a56c948dc6fc4fda27ee4ee3cc810c10/b3ee8/ipos.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 71.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHZV0jIF//EABoQAAEFAQAAAAAAAAAAAAAAAAABAhESMRD/2gAIAQEAAQUCXG25pElj/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAIQAg/9oACAEBAAY/ApM//8QAGxABAQEAAgMAAAAAAAAAAAAAAQARITFRcYH/2gAIAQEAAT8h2NDnYQPd0+yBjZ8N/9oADAMBAAIAAwAAABBsD//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAwEBPxBUf//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPxBwf//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExQVFhcYH/2gAIAQEAAT8QfDED7EqgPGlYEM2e6iFLrLXmZmV7mVNDU//Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="IPO&#39;s в инфобизнесе"
-        title="IPO&#39;s в инфобизнесе"
-        src="/static/a56c948dc6fc4fda27ee4ee3cc810c10/b3ee8/ipos.jpg"
-        srcset="/static/a56c948dc6fc4fda27ee4ee3cc810c10/afcd2/ipos.jpg 300w,
-/static/a56c948dc6fc4fda27ee4ee3cc810c10/82472/ipos.jpg 600w,
-/static/a56c948dc6fc4fda27ee4ee3cc810c10/b3ee8/ipos.jpg 960w"
-        sizes="(max-width: 960px) 100vw, 960px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Сегодня 84% компаний выходящих на IPO не имеют прибыли. Это очень много. 10 лет назад показатель составлял всего 33%
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 488px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1acfaa57e8177fd292f7054e9c713b0b/117e9/ipos2.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 133.60655737704917%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAH1Lwwue8QPG6AQf//EABoQAAEFAQAAAAAAAAAAAAAAAAIBAxAREiD/2gAIAQEAAQUCzJgVtqu4qi4//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGBAAAwEBAAAAAAAAAAAAAAAAARARACD/2gAIAQEABj8CdB0Lo5//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEQMVFxIf/aAAgBAQABPyGwtNWynuGJfkYj+12B7LmiZdQn/9oADAMBAAIAAwAAABBcNr//xAAXEQADAQAAAAAAAAAAAAAAAAABEBFB/9oACAEDAQE/EKNKi//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/ECP/xAAgEAEAAwACAQUBAAAAAAAAAAABABEhMUGhUWFxgZHR/9oACAEBAAE/EBRWRoUgAXn3Igt15hpl8/zHEUt2Es0uCFGPiU9T9jYxJucbv1LF68xW3e5xvcbXLP/Z'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Убыточность IPO"
-        title="Убыточность IPO"
-        src="/static/1acfaa57e8177fd292f7054e9c713b0b/117e9/ipos2.jpg"
-        srcset="/static/1acfaa57e8177fd292f7054e9c713b0b/afcd2/ipos2.jpg 300w,
-/static/1acfaa57e8177fd292f7054e9c713b0b/117e9/ipos2.jpg 488w"
-        sizes="(max-width: 488px) 100vw, 488px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p>Вторичный рынок - ?</p>
-<h3>Основные нормативные документы</h3>
-<blockquote>
-<p>Федеральный закон "О рынке ценных бумаг" от 22.04.1996 N 39-ФЗ</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_10148/">Закон</a></p>
-<blockquote>
-<p>Федеральный закон "Об акционерных обществах" от 26.12.1995 N 208-ФЗ</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_8743/">Закон</a></p>
-<blockquote>
-<p>Федеральный закон "Об ипотечных ценных бумагах" от 11.11.2003 N 152-ФЗ</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_44997/">Закон</a></p>
-<blockquote>
-<p>Федеральный закон "Об особенностях эмиссии и обращения государственных и муниципальных ценных бумаг" от 29.07.1998 N 136-ФЗ</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_19587/">Закон</a></p>
-<blockquote>
-<p>Федеральный закон "О переводном и простом векселе" от 11.03.1997 N 48-ФЗ</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_13669">Закон</a></p>
-<blockquote>
-<p>Постановление ЦИК СССР и СНК СССР от 07.08.1937 N 104/1341 "О введении в действие Положения о переводном и простом векселе"</p>
-</blockquote>
-<p><a href="http://www.consultant.ru/document/cons_doc_LAW_13715/">Закон</a></p>
-<h3>Главное в законе о рынке ценных бумаг</h3>
-<blockquote>
-<p>Эмиссионная ценная бумага</p>
-</blockquote>
-<p>закрепляет совокупность имущественных прав...;
-размещается выпусками; имеет равные объем и сроки осуществления прав внутри одного выпуска</p>
-<blockquote>
-<p>Классификация по способу идентификации владельца</p>
-</blockquote>
-<p>Именные эмиссионные ценные бумаги - ценные бумаги, информация о владельцах которых должна быть доступна эмитенту в форме реестра владельцев ценных бумаг, переход прав на которые и осуществление закрепленных ими прав требуют обязательной идентификации владельца.
-Эмиссионные ценные бумаги на предъявителя - ценные бумаги, переход прав на которые и осуществление закрепленных ими прав не требуют идентификации владельца</p>
-<blockquote>
-<p>Классификация по форме выпуска</p>
-</blockquote>
-<p>Документарная форма эмиссионных ценных бумаг - форма эмиссионных ценных бумаг, при которой владелец устанавливается на основании предъявления оформленного надлежащим образом сертификата ценной бумаги или, в случае депонирования такового, на основании записи по счету депо.
-Бездокументарная форма эмиссионных ценных бумаг - форма эмиссионных ценных бумаг, при которой владелец устанавливается на основании записи в реестре владельцев ценных бумаг или, в случае депонирования ценных бумаг,на основании записи по счету депо.</p>
-<blockquote>
-<p>Брокерской деятельностью</p>
-</blockquote>
-<p>признается деятельность по исполнению поручения клиента... на совершение гражданско-правовых сделок с ценными бумагами и (или) на заключение договоров, являющихся производными финансовыми инструментами, осуществляемая на основании возмездных договоров с клиентом.</p>
-<blockquote>
-<p>Дилерской деятельностью</p>
-</blockquote>
-<p>признается совершение сделок купли-продажи ценных бумаг от своего имени и за свой счет путем публичного объявления цен покупки и/или продажи определенных ценных бумаг с обязательством покупки и/или продажи этих ценных бумаг по объявленным лицом, осуществляющим такую деятельность, ценам.</p>
-<blockquote>
-<p>Деятельностью по управлению ценными бумагами</p>
-</blockquote>
-<p>признается деятельность по доверительному управлению ценными бумагами, денежными средствами, предназначенными для совершения сделок с ценными бумагами и (или) заключения договоров, являющихся производными финансовыми инструментами.</p>
-<blockquote>
-<p>Депозитарной деятельностью</p>
-</blockquote>
-<p>признается оказание услуг по хранению сертификатов ценных бумаг и/или учету и переходу прав на ценные бумаги.</p>
-<blockquote>
-<p>Деятельностью по ведению реестра владельцев ценных бумаг</p>
-</blockquote>
-<p>признаются сбор, фиксация, обработка, хранение данных, составляющих реестр владельцев ценных бумаг, и предоставление информации из реестра владельцев ценных бумаг.
-Регистратор, осуществляющий ведение реестра владельцев эмиссионных ценных бумаг, вправе привлекать для выполнения части своих функций, предусмотренных настоящим Федеральным законом, иных регистраторов, депозитариев и брокеров (далее - трансфер-агенты).</p>
-<blockquote>
-<p>Учет прав на счетах</p>
-</blockquote>
-<p>Для учета прав на ценные бумаги депозитарии и держатели реестра могут открывать следующие виды лицевых счетов (счетов депо):</p>
-<ol>
-<li>счет владельца;</li>
-<li>счет доверительного управляющего;</li>
-<li>счет номинального держателя;</li>
-<li>депозитный счет;</li>
-<li>казначейский счет эмитента (лица, обязанного по ценным бумагам);</li>
-<li>иные счета, предусмотренные федеральными законами.</li>
-</ol>
-<p>  Для учета прав на ценные бумаги депозитарии также могут открывать следующие счета:</p>
-<ol>
-<li>счет депо иностранного номинального держателя;</li>
-<li>счет депо иностранного уполномоченного держателя;</li>
-<li>счет депо депозитарных программ.</li>
-</ol>
-<blockquote>
-<p>Номинальный держатель ценных бумаг</p>
-</blockquote>
-<p>депозитарий, на лицевом счете (счете депо) которого учитываются права на ценные бумаги, принадлежащие иным лицам.
-Переход прав на ценные бумаги между депонентами одного номинального держателя ценных бумаг не отражается на его лицевом счете номинального держателя или счете депо номинального держателя.</p>
-<blockquote>
-<p>Репозитарной деятельностью</p>
-</blockquote>
-<p>признается осуществляемая на основании лицензии Банка России деятельность по оказанию услуг по сбору, фиксации, обработке и хранению информации о заключенных не на организованных торгах договорах репо, договорах, являющихся производными финансовыми инструментами, договорах иного вида, предусмотренных нормативными актами Банка России, а также по ведению реестра указанных договоров.
-Репозитарную деятельность вправе осуществлять биржа, клиринговая организация, центральный депозитарий, расчетный депозитарий, не имеющий статуса центрального депозитария.</p>
-<h3>Эмиссия ценных бумаг</h3>
-<blockquote>
-<p>Проспект эмиссии</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 862px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/70975f0fd77e2e4383ddda4b3fb89444/6a03e/fr1-8.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 50.81206496519721%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVQoz22SyYqCQQyE+/3fRPTmQVAP4kFcEQVx3/cNd3HPzFfS8DNMINqdpFOpyu/s157Pp73fbzufz/Z6veRBu9/vdrvddKYOezwe8sPhoBhnzPGzWCysUChYtVq1UqlkjUbDTqeTAI7Ho3U6HcVWq5Vdr1d5v9+3dDptiUTCUqmUaqhXw91uZ7VaTQX5fN4mk4mQaQpYt9u1wWBg4/FYAMTb7bYlk0mLx+MWi8V0p8Z9Ph9RxihkfE8raL4meKcOKXxuuVx+J8RIQIkJvIbosl6vbTqdCp0ztDwrYjDr9XpiNJvNzNGVImhlMhlpeblc9IBcpVKxSCRioVBIeWjTGA2hGw6HLRqNijJSOZKIDHUm8lvG2S5TtFotPQDUbxXA4XCoZdF8s9ko7kj4lftP468Bhv9nQW2pcdvtVhrV63Wh8Q8yU0N9v99buVzW9ufzucBZHjkmz+Vympy7vkNoeUFpPBqNND4FNEUXHmWzWWs2m5IBzRkEkGKxKGeh2A9x5+2tnJwX7AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Этапы"
-        title="Этапы"
-        src="/static/70975f0fd77e2e4383ddda4b3fb89444/6a03e/fr1-8.png"
-        srcset="/static/70975f0fd77e2e4383ddda4b3fb89444/135ae/fr1-8.png 300w,
-/static/70975f0fd77e2e4383ddda4b3fb89444/34e8a/fr1-8.png 600w,
-/static/70975f0fd77e2e4383ddda4b3fb89444/6a03e/fr1-8.png 862w"
-        sizes="(max-width: 862px) 100vw, 862px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Underwriting</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 871px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/e7b091f4846642a0d1e0b69278ac1d0b/05040/fr1-15.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 42.36509758897819%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABHUlEQVQoz32R3Y6CQAyFef+n4pZECOHCCxNAAkaBqCAoPwp1vyY17l5sk2amnfac044jP9a2rWRZJkmSSBzHkqapnM9nnmRZFjmdTuJ5njp18zxrPggCcV1X85vNRvPO5XJRoMPhIEVRaPM4jgq2rqueFPZ9L/f7Xe/2Rkz+8XjIMAxK4pRlKb7vSxiGst1uVQEkr9dLGwGHBIcUBwi7Xq9yu93UmZIeB2QASHRdJ9M0qQryGPHxeJSqqqSuawVElRkgz+fzEysgTAACjGKayTEWxU3TKCgquUNiYxNTy7i/AHlAIeNwmgrUGplNYuoBNLfYQU0URbq/3W4n+/1e7yj93iH5PM9VKZ9gAOwPos/I8o8Zs+3Sfv/v27faN1x5ZJod+EvrAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Виды андеррайтинга"
-        title="Виды андеррайтинга"
-        src="/static/e7b091f4846642a0d1e0b69278ac1d0b/05040/fr1-15.png"
-        srcset="/static/e7b091f4846642a0d1e0b69278ac1d0b/135ae/fr1-15.png 300w,
-/static/e7b091f4846642a0d1e0b69278ac1d0b/34e8a/fr1-15.png 600w,
-/static/e7b091f4846642a0d1e0b69278ac1d0b/05040/fr1-15.png 871w"
-        sizes="(max-width: 871px) 100vw, 871px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<blockquote>
-<p>Длительность этапов</p>
-</blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 868px;"
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/26e97e38903e1f5a3cf31650e14c84ed/37948/fr1-22.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 44.93087557603687%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA8klEQVQoz32SiYqEMBBE8/8/KKh44Yn3iYpau9WQITijDcEE9eWl0gr/tW0bfN9HEAQIwxBVVcGs67o+Q6+fSrVtiyiKBLYsizwdx0GSJMiyDPu+f8HfoGoYBnRdB4KbpoHneQKr61o2KstS3vd9j+M4Ho31XGnyeZ7yI8c0TQK0LAtxHMN1Xdi2jXEcf9qZa2XSdRHI4xZFIWuaE0pz/T0FOO626q5twjmnKXOlOUtnzCdjuJuqp8BNE2bHC8vzXHJd11U2ojFPwVh0Z7wCzSJ4nmcBMxK2F2PQHUIwO0L9uvq3GHTGzJWXlKapmNOSuf8BDce6X7qohtcAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Сроки"
-        title="Сроки"
-        src="/static/26e97e38903e1f5a3cf31650e14c84ed/37948/fr1-22.png"
-        srcset="/static/26e97e38903e1f5a3cf31650e14c84ed/135ae/fr1-22.png 300w,
-/static/26e97e38903e1f5a3cf31650e14c84ed/34e8a/fr1-22.png 600w,
-/static/26e97e38903e1f5a3cf31650e14c84ed/37948/fr1-22.png 868w"
-        sizes="(max-width: 868px) 100vw, 868px"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<h3>Фильмы для расширения кругозора</h3>
-<p><a href="https://vk.com/id151078439">VK</a></p></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/introduction_securities_market/";window.webpackCompilationHash="f7eeaa6e9f0a1e38826d";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-466eaefb143b5b00d41b.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js"],"component---src-pages-404-js":["/component---src-pages-404-js-6ee983340c42a33790bd.js"],"component---src-pages-about-js":["/component---src-pages-about-js-90e745d647dae13e3a13.js"],"component---src-pages-index-js":["/component---src-pages-index-js-8dc4765c499e409f485c.js"],"component---src-pages-my-files-js":["/component---src-pages-my-files-js-d1a7a4154428d535d054.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-50f1fad4cbf0015d1803.js" async=""></script><script src="/0-73294c9e0faec9f36d2a.js" async=""></script><script src="/app-466eaefb143b5b00d41b.js" async=""></script><script src="/webpack-runtime-c4729e993e62de2f7dbf.js" async=""></script></body></html>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.44 'Fira Sans',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Fira Sans',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:2.15rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.58293rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.35824rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.85805rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;color:hsla(0,0%,0%,1);font-family:'Playfair Display',serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.79482rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}ul{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.44rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:0.85rem;line-height:1.44rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1rem;line-height:1.44rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}blockquote{margin-left:0;margin-right:1.44rem;margin-top:0;padding-bottom:0;padding-left:1.17rem;padding-right:0;padding-top:0;margin-bottom:1.08rem;font-size:1.16543rem;line-height:1.44rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.27rem solid hsla(0,0%,0%,0.2);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.08rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.08rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.08rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}li > ul{margin-left:1.44rem;margin-bottom:calc(1.08rem / 2);margin-top:calc(1.08rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.08rem / 2);}code{font-size:0.85rem;line-height:1.44rem;}kbd{font-size:0.85rem;line-height:1.44rem;}samp{font-size:0.85rem;line-height:1.44rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:0.96rem;padding-right:0.96rem;padding-top:0.72rem;padding-bottom:calc(0.72rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#9f392b;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.44rem;color:hsla(0,0%,0%,0.8);font-weight:400;}blockquote cite:before{content:"— ";}@media only screen and (max-width:480px){blockquote{margin-left:-1.08rem;margin-right:0;padding-left:0.81rem;}}</style><style data-href="/commons.14eaf9d3b5f4846544e3.css">header{height:389px;width:640px;background:#000;overflow:hidden;background:"green";background:-webkit-gradient(linear,left top,left bottom,from(rgba(231,244,231,.8)),to(rgba(76,175,80,.8))),url(/static/h1title-ce5c07ba7a8538cecdfa91d286695418.jpg);background:linear-gradient(rgba(231,244,231,.8),rgba(76,175,80,.8)),url(/static/h1title-ce5c07ba7a8538cecdfa91d286695418.jpg);border-radius:5px}img{-o-object-fit:cover;object-fit:cover}section{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);color:#fff;font-family:Roboto,sans-serif}</style><style data-href="/styles.f3dd590f4e5157b2ce95.css">.container{display:flex;margin:48px 0;text-align:center}.node{display:flex;overflow:hidden;flex-basis:100%;align-items:center;flex-direction:column}.status{width:20px;height:20px;margin:8px;display:inline-flex;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:50%;background-color:#bbb}.status.colored{background-color:#98fb98}.status:after,.status:before{content:"";position:absolute;top:50%;width:1000%;border-bottom:2px solid #000;border-radius:4px}.status:before{margin-left:calc(-1000% - 10px)}.status:after{margin-left:30px}.node:first-child>.status:before,.node:last-child>.status:after{content:none}</style><meta name="generator" content="Gatsby 2.15.28"/><title data-react-helmet="true"></title><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link href="//fonts.googleapis.com/css?family=Playfair+Display:700|Fira+Sans:400,400i,700,700i" rel="stylesheet" type="text/css"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><link as="script" rel="preload" href="/webpack-runtime-0ae4a5ac088962acb668.js"/><link as="script" rel="preload" href="/styles-b4f5ca1644e9b5dc4446.js"/><link as="script" rel="preload" href="/app-0831f129a49ca3aa15f7.js"/><link as="script" rel="preload" href="/commons-e738a65c411fc57638cf.js"/><link as="script" rel="preload" href="/component---src-pages-introduction-securities-market-md-6f0c5df0f1b077caa555.js"/><link as="fetch" rel="preload" href="/page-data/introduction_securities_market/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><style data-emotion-css="1si8awd">.css-1si8awd{margin:0 auto;max-width:700px;padding:2.88rem;padding-top:2.16rem;}</style><div class="css-1si8awd"><a href="/"><style data-emotion-css="i0b9uu">.css-i0b9uu{margin-bottom:2.88rem;display:inline-block;font-style:normal;}</style><h3 class="css-i0b9uu">Econolabs</h3></a><h3 style="color:#4CAF50;margin:.5rem">Роль ценных бумаг</h3><blockquote><p>Организация и структура финансового рынка</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:44.81566820276498%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeElEQVQoz61SuaoCQRCcr/QDZBMRNFA8MFUxMF0E/0QUr/UAb1G8A/FYxBvxWExKqkF5T3jZa2hqe7pm6K5a1e12kUqlkM/nkcvlfmWhUEA6nUaj0cDpdEImk5Hzby552WwWfEvpug673Y5gMAifzyfo9/slA4EAHA4H4vE4JpMJnE4nvF6v9Igejwdut1tql8uFRCIBtdlsUK/XUSqVUC6XUalUBFkPh0OMRiOYponn84l+vy/TtlotSfZWqxUWiwXm8zl2ux3U/X7HdDoVMh+YzWY4Ho84HA64XC6y6u12A4P1er2WixzEsix8h8I/h6I2xWJR1m42m5912u22IHu9Xg/n81lkeHM6nY5wWPO7Wq1iMBhAJZNJ2Gw2ETkWiyEajSISiYgRoVBIejzno5qmST8cDn94RPZpDu+o5XIJwzBkEiYNoZacfDwef4SnjjTkzSXyd6nVajIZkzzR8Hq9yko0gML/FY/HA9vtFvv9Xowh0sCf8QJw1F5kXkaEtwAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Организация и структура финансового рынка" title="Организация и структура финансового рынка" src="/static/0f05553e1e806686c35c602e430cadf9/d19c0/fr1-2.png" srcSet="/static/0f05553e1e806686c35c602e430cadf9/6b181/fr1-2.png 125w,/static/0f05553e1e806686c35c602e430cadf9/5039d/fr1-2.png 250w,/static/0f05553e1e806686c35c602e430cadf9/d19c0/fr1-2.png 500w,/static/0f05553e1e806686c35c602e430cadf9/35c67/fr1-2.png 750w,/static/0f05553e1e806686c35c602e430cadf9/37948/fr1-2.png 868w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Альтернативы</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:56.380510440835266%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAByElEQVQoz21SSwupURT9fq+fwEhmBiSSAaVMpJjJjDKRQkJ5v99veb/Xba3bpzu4u077nP1YZ+2H8f1+MZ/PMRwOpUejkXS/35eeTqcYj8dYLBaYTCY6tH0+HzDXFN55DD6ezyeazSa63a6cDKbt/X7rvd1usV6vlUAbjwl2OBzkN8WgY7lcIh6PI51O43w+iw31fr/H4/EQK7K83+8Cpn2z2ejdbrdRrVZxu93+MsxkMrDZbPD5fHA6nXA4HAIgUKvVgsVikZ2H93q9LvZsjd1uh8vlgtfrhdVqRT6fhzGbzVAul9VDAtRqtV+pl8sFuVwOxWIRhUJBd9ooZFcqldBoNNDr9eQnlnpIAFJ+vV4KZLm73U7JZj/N/tHHvlEznpUw99dDBrFnHEqn01G57A/7SlD+SuaDwUDTpZ3TX61WymNl7CNjBWgiZ7NZHXOqBCATCtmQubkRHBABKfycK/ZjyPpDoRD8fj8CgQAikYiY8keC8h2LxbQFjKtUKpoy2dFOfzgcRjAY1CwMJhMolUohkUjA7XYr2Pyd72g0imQyqTuTTKbcDI/HI1BuAYf2K/lfOZ1OYsjSj8cjrtermk/NUs1d/J/8Abz3GS2anNoZAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Организация и структура финансового рынка" title="Организация и структура финансового рынка" src="/static/0acc3bd63a399d044104ad2bcfb8b379/d19c0/fr1-4.png" srcSet="/static/0acc3bd63a399d044104ad2bcfb8b379/6b181/fr1-4.png 125w,/static/0acc3bd63a399d044104ad2bcfb8b379/5039d/fr1-4.png 250w,/static/0acc3bd63a399d044104ad2bcfb8b379/d19c0/fr1-4.png 500w,/static/0acc3bd63a399d044104ad2bcfb8b379/35c67/fr1-4.png 750w,/static/0acc3bd63a399d044104ad2bcfb8b379/6a03e/fr1-4.png 862w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><table><thead><tr><th>Банковский сектор</th><th>Рынок ценных бумаг</th></tr></thead><tbody><tr><td>Всегда несут расходы</td><td>Акции</td></tr><tr><td>Ограничены в рисках</td><td>Облигации</td></tr><tr><td>Операции ограничены объемом СК</td><td>Векселя</td></tr><tr><td>-</td><td>Дериваты</td></tr></tbody></table><blockquote><p>Первичный и вторичный рынок</p></blockquote><p>Первичный рынок - привлечение капитала, возмещение капитала предпринимателей и инвестбанкиров</p><p>Фильмы</p><ul><li>Социальная сеть</li><li>Стив Джобс. Империя соблазна</li><li>Пираты Силиконовой долины</li></ul><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:71.25%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHZV0jIF//EABoQAAEFAQAAAAAAAAAAAAAAAAABAhESMRD/2gAIAQEAAQUCXG25pElj/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAIQAg/9oACAEBAAY/ApM//8QAGxABAQEAAgMAAAAAAAAAAAAAAQARITFRcYH/2gAIAQEAAT8h2NDnYQPd0+yBjZ8N/9oADAMBAAIAAwAAABBsD//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAwEBPxBUf//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPxBwf//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExQVFhcYH/2gAIAQEAAT8QfDED7EqgPGlYEM2e6iFLrLXmZmV7mVNDU//Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="IPO&#x27;s в инфобизнесе" title="IPO&#x27;s в инфобизнесе" src="/static/a56c948dc6fc4fda27ee4ee3cc810c10/48a11/ipos.jpg" srcSet="/static/a56c948dc6fc4fda27ee4ee3cc810c10/3dff4/ipos.jpg 125w,/static/a56c948dc6fc4fda27ee4ee3cc810c10/9fb78/ipos.jpg 250w,/static/a56c948dc6fc4fda27ee4ee3cc810c10/48a11/ipos.jpg 500w,/static/a56c948dc6fc4fda27ee4ee3cc810c10/a66cd/ipos.jpg 750w,/static/a56c948dc6fc4fda27ee4ee3cc810c10/b3ee8/ipos.jpg 960w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><p>Сегодня 84% компаний выходящих на IPO не имеют прибыли. Это очень много. 10 лет назад показатель составлял всего 33%
+<span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:488px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:133.60655737704917%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAH1Lwwue8QPG6AQf//EABoQAAEFAQAAAAAAAAAAAAAAAAIBAxAREiD/2gAIAQEAAQUCzJgVtqu4qi4//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGBAAAwEBAAAAAAAAAAAAAAAAARARACD/2gAIAQEABj8CdB0Lo5//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEQMVFxIf/aAAgBAQABPyGwtNWynuGJfkYj+12B7LmiZdQn/9oADAMBAAIAAwAAABBcNr//xAAXEQADAQAAAAAAAAAAAAAAAAABEBFB/9oACAEDAQE/EKNKi//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/ECP/xAAgEAEAAwACAQUBAAAAAAAAAAABABEhMUGhUWFxgZHR/9oACAEBAAE/EBRWRoUgAXn3Igt15hpl8/zHEUt2Es0uCFGPiU9T9jYxJucbv1LF68xW3e5xvcbXLP/Z&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Убыточность IPO" title="Убыточность IPO" src="/static/1acfaa57e8177fd292f7054e9c713b0b/117e9/ipos2.jpg" srcSet="/static/1acfaa57e8177fd292f7054e9c713b0b/3dff4/ipos2.jpg 125w,/static/1acfaa57e8177fd292f7054e9c713b0b/9fb78/ipos2.jpg 250w,/static/1acfaa57e8177fd292f7054e9c713b0b/117e9/ipos2.jpg 488w" sizes="(max-width: 488px) 100vw, 488px" loading="lazy"/>
+    </span></p><p>Вторичный рынок - ?</p><h3 style="color:#4CAF50;margin:.5rem">Основные нормативные документы</h3><blockquote><p>Федеральный закон &quot;О рынке ценных бумаг&quot; от 22.04.1996 N 39-ФЗ</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_10148/">Закон</a></p><blockquote><p>Федеральный закон &quot;Об акционерных обществах&quot; от 26.12.1995 N 208-ФЗ</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_8743/">Закон</a></p><blockquote><p>Федеральный закон &quot;Об ипотечных ценных бумагах&quot; от 11.11.2003 N 152-ФЗ</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_44997/">Закон</a></p><blockquote><p>Федеральный закон &quot;Об особенностях эмиссии и обращения государственных и муниципальных ценных бумаг&quot; от 29.07.1998 N 136-ФЗ</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_19587/">Закон</a></p><blockquote><p>Федеральный закон &quot;О переводном и простом векселе&quot; от 11.03.1997 N 48-ФЗ</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_13669">Закон</a></p><blockquote><p>Постановление ЦИК СССР и СНК СССР от 07.08.1937 N 104/1341 &quot;О введении в действие Положения о переводном и простом векселе&quot;</p></blockquote><p><a href="http://www.consultant.ru/document/cons_doc_LAW_13715/">Закон</a></p><h3 style="color:#4CAF50;margin:.5rem">Главное в законе о рынке ценных бумаг</h3><blockquote><p>Эмиссионная ценная бумага</p></blockquote><p>закрепляет совокупность имущественных прав...;
+размещается выпусками; имеет равные объем и сроки осуществления прав внутри одного выпуска</p><blockquote><p>Классификация по способу идентификации владельца</p></blockquote><p>Именные эмиссионные ценные бумаги - ценные бумаги, информация о владельцах которых должна быть доступна эмитенту в форме реестра владельцев ценных бумаг, переход прав на которые и осуществление закрепленных ими прав требуют обязательной идентификации владельца.
+Эмиссионные ценные бумаги на предъявителя - ценные бумаги, переход прав на которые и осуществление закрепленных ими прав не требуют идентификации владельца</p><blockquote><p>Классификация по форме выпуска</p></blockquote><p>Документарная форма эмиссионных ценных бумаг - форма эмиссионных ценных бумаг, при которой владелец устанавливается на основании предъявления оформленного надлежащим образом сертификата ценной бумаги или, в случае депонирования такового, на основании записи по счету депо.
+Бездокументарная форма эмиссионных ценных бумаг - форма эмиссионных ценных бумаг, при которой владелец устанавливается на основании записи в реестре владельцев ценных бумаг или, в случае депонирования ценных бумаг,на основании записи по счету депо.</p><blockquote><p>Брокерской деятельностью</p></blockquote><p>признается деятельность по исполнению поручения клиента... на совершение гражданско-правовых сделок с ценными бумагами и (или) на заключение договоров, являющихся производными финансовыми инструментами, осуществляемая на основании возмездных договоров с клиентом.</p><blockquote><p>Дилерской деятельностью</p></blockquote><p>признается совершение сделок купли-продажи ценных бумаг от своего имени и за свой счет путем публичного объявления цен покупки и/или продажи определенных ценных бумаг с обязательством покупки и/или продажи этих ценных бумаг по объявленным лицом, осуществляющим такую деятельность, ценам.</p><blockquote><p>Деятельностью по управлению ценными бумагами</p></blockquote><p>признается деятельность по доверительному управлению ценными бумагами, денежными средствами, предназначенными для совершения сделок с ценными бумагами и (или) заключения договоров, являющихся производными финансовыми инструментами.</p><blockquote><p>Депозитарной деятельностью</p></blockquote><p>признается оказание услуг по хранению сертификатов ценных бумаг и/или учету и переходу прав на ценные бумаги.</p><blockquote><p>Деятельностью по ведению реестра владельцев ценных бумаг</p></blockquote><p>признаются сбор, фиксация, обработка, хранение данных, составляющих реестр владельцев ценных бумаг, и предоставление информации из реестра владельцев ценных бумаг.
+Регистратор, осуществляющий ведение реестра владельцев эмиссионных ценных бумаг, вправе привлекать для выполнения части своих функций, предусмотренных настоящим Федеральным законом, иных регистраторов, депозитариев и брокеров (далее - трансфер-агенты).</p><blockquote><p>Учет прав на счетах</p></blockquote><p>Для учета прав на ценные бумаги депозитарии и держатели реестра могут открывать следующие виды лицевых счетов (счетов депо):
+1. счет владельца;
+2. счет доверительного управляющего;
+3. счет номинального держателя;
+4. депозитный счет;
+5. казначейский счет эмитента (лица, обязанного по ценным бумагам);
+6. иные счета, предусмотренные федеральными законами.</p><p>  Для учета прав на ценные бумаги депозитарии также могут открывать следующие счета:
+1. счет депо иностранного номинального держателя;
+2. счет депо иностранного уполномоченного держателя;
+3. счет депо депозитарных программ.</p><blockquote><p>Номинальный держатель ценных бумаг</p></blockquote><p>депозитарий, на лицевом счете (счете депо) которого учитываются права на ценные бумаги, принадлежащие иным лицам.
+Переход прав на ценные бумаги между депонентами одного номинального держателя ценных бумаг не отражается на его лицевом счете номинального держателя или счете депо номинального держателя.</p><blockquote><p>Репозитарной деятельностью</p></blockquote><p>признается осуществляемая на основании лицензии Банка России деятельность по оказанию услуг по сбору, фиксации, обработке и хранению информации о заключенных не на организованных торгах договорах репо, договорах, являющихся производными финансовыми инструментами, договорах иного вида, предусмотренных нормативными актами Банка России, а также по ведению реестра указанных договоров.
+Репозитарную деятельность вправе осуществлять биржа, клиринговая организация, центральный депозитарий, расчетный депозитарий, не имеющий статуса центрального депозитария.</p><h3 style="color:#4CAF50;margin:.5rem">Эмиссия ценных бумаг</h3><blockquote><p>Проспект эмиссии</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:50.81206496519721%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVQoz22SyYqCQQyE+/3fRPTmQVAP4kFcEQVx3/cNd3HPzFfS8DNMINqdpFOpyu/s157Pp73fbzufz/Z6veRBu9/vdrvddKYOezwe8sPhoBhnzPGzWCysUChYtVq1UqlkjUbDTqeTAI7Ho3U6HcVWq5Vdr1d5v9+3dDptiUTCUqmUaqhXw91uZ7VaTQX5fN4mk4mQaQpYt9u1wWBg4/FYAMTb7bYlk0mLx+MWi8V0p8Z9Ph9RxihkfE8raL4meKcOKXxuuVx+J8RIQIkJvIbosl6vbTqdCp0ztDwrYjDr9XpiNJvNzNGVImhlMhlpeblc9IBcpVKxSCRioVBIeWjTGA2hGw6HLRqNijJSOZKIDHUm8lvG2S5TtFotPQDUbxXA4XCoZdF8s9ko7kj4lftP468Bhv9nQW2pcdvtVhrV63Wh8Q8yU0N9v99buVzW9ufzucBZHjkmz+Vympy7vkNoeUFpPBqNND4FNEUXHmWzWWs2m5IBzRkEkGKxKGeh2A9x5+2tnJwX7AAAAABJRU5ErkJggg==&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Этапы" title="Этапы" src="/static/70975f0fd77e2e4383ddda4b3fb89444/d19c0/fr1-8.png" srcSet="/static/70975f0fd77e2e4383ddda4b3fb89444/6b181/fr1-8.png 125w,/static/70975f0fd77e2e4383ddda4b3fb89444/5039d/fr1-8.png 250w,/static/70975f0fd77e2e4383ddda4b3fb89444/d19c0/fr1-8.png 500w,/static/70975f0fd77e2e4383ddda4b3fb89444/35c67/fr1-8.png 750w,/static/70975f0fd77e2e4383ddda4b3fb89444/6a03e/fr1-8.png 862w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Underwriting</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:42.36509758897819%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABHUlEQVQoz32R3Y6CQAyFef+n4pZECOHCCxNAAkaBqCAoPwp1vyY17l5sk2amnfac044jP9a2rWRZJkmSSBzHkqapnM9nnmRZFjmdTuJ5njp18zxrPggCcV1X85vNRvPO5XJRoMPhIEVRaPM4jgq2rqueFPZ9L/f7Xe/2Rkz+8XjIMAxK4pRlKb7vSxiGst1uVQEkr9dLGwGHBIcUBwi7Xq9yu93UmZIeB2QASHRdJ9M0qQryGPHxeJSqqqSuawVElRkgz+fzEysgTAACjGKayTEWxU3TKCgquUNiYxNTy7i/AHlAIeNwmgrUGplNYuoBNLfYQU0URbq/3W4n+/1e7yj93iH5PM9VKZ9gAOwPos/I8o8Zs+3Sfv/v27faN1x5ZJod+EvrAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Виды андеррайтинга" title="Виды андеррайтинга" src="/static/e7b091f4846642a0d1e0b69278ac1d0b/d19c0/fr1-15.png" srcSet="/static/e7b091f4846642a0d1e0b69278ac1d0b/6b181/fr1-15.png 125w,/static/e7b091f4846642a0d1e0b69278ac1d0b/5039d/fr1-15.png 250w,/static/e7b091f4846642a0d1e0b69278ac1d0b/d19c0/fr1-15.png 500w,/static/e7b091f4846642a0d1e0b69278ac1d0b/35c67/fr1-15.png 750w,/static/e7b091f4846642a0d1e0b69278ac1d0b/05040/fr1-15.png 871w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><blockquote><p>Длительность этапов</p></blockquote><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:500px">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom:44.93087557603687%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA8klEQVQoz32SiYqEMBBE8/8/KKh44Yn3iYpau9WQITijDcEE9eWl0gr/tW0bfN9HEAQIwxBVVcGs67o+Q6+fSrVtiyiKBLYsizwdx0GSJMiyDPu+f8HfoGoYBnRdB4KbpoHneQKr61o2KstS3vd9j+M4Ho31XGnyeZ7yI8c0TQK0LAtxHMN1Xdi2jXEcf9qZa2XSdRHI4xZFIWuaE0pz/T0FOO626q5twjmnKXOlOUtnzCdjuJuqp8BNE2bHC8vzXHJd11U2ojFPwVh0Z7wCzSJ4nmcBMxK2F2PQHUIwO0L9uvq3GHTGzJWXlKapmNOSuf8BDce6X7qohtcAAAAASUVORK5CYII=&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="Сроки" title="Сроки" src="/static/26e97e38903e1f5a3cf31650e14c84ed/d19c0/fr1-22.png" srcSet="/static/26e97e38903e1f5a3cf31650e14c84ed/6b181/fr1-22.png 125w,/static/26e97e38903e1f5a3cf31650e14c84ed/5039d/fr1-22.png 250w,/static/26e97e38903e1f5a3cf31650e14c84ed/d19c0/fr1-22.png 500w,/static/26e97e38903e1f5a3cf31650e14c84ed/35c67/fr1-22.png 750w,/static/26e97e38903e1f5a3cf31650e14c84ed/37948/fr1-22.png 868w" sizes="(max-width: 500px) 100vw, 500px" loading="lazy"/>
+    </span></p><h3 style="color:#4CAF50;margin:.5rem">Фильмы для расширения кругозора</h3><p><a href="https://vk.com/id151078439">VK</a></p></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/introduction_securities_market/";window.webpackCompilationHash="f078d1ca52d0ad265700";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0831f129a49ca3aa15f7.js"],"component---src-pages-404-js":["/component---src-pages-404-js-41925f0755357dbaba52.js"],"component---src-pages-about-js":["/component---src-pages-about-js-4e50abae2749b14eeb63.js"],"component---src-pages-index-js":["/component---src-pages-index-js-096c1578141f9f33bacd.js"],"component---src-pages-my-files-js":["/component---src-pages-my-files-js-2228bf4ecc2c2624d5f1.js"],"component---src-pages-page-2-js":["/component---src-pages-page-2-js-1827684d4be66b628cb9.js"],"component---src-pages-company-analyses-md":["/component---src-pages-company-analyses-md-4b3086fd1fd6a7da2f28.js"],"component---src-pages-corporate-taxes-mdx":["/component---src-pages-corporate-taxes-mdx-392a06afb9083f0dcd00.js"],"component---src-pages-example-mdx":["/component---src-pages-example-mdx-455e635c12bbc2cb3aae.js"],"component---src-pages-financial-calculations-md":["/component---src-pages-financial-calculations-md-40507f8da14c70f78d4c.js"],"component---src-pages-introduction-corporate-finance-md":["/component---src-pages-introduction-corporate-finance-md-643714bb1f5f730e3105.js"],"component---src-pages-introduction-securities-market-md":["/component---src-pages-introduction-securities-market-md-6f0c5df0f1b077caa555.js"]};/*]]>*/</script><script src="/component---src-pages-introduction-securities-market-md-6f0c5df0f1b077caa555.js" async=""></script><script src="/commons-e738a65c411fc57638cf.js" async=""></script><script src="/app-0831f129a49ca3aa15f7.js" async=""></script><script src="/styles-b4f5ca1644e9b5dc4446.js" async=""></script><script src="/webpack-runtime-0ae4a5ac088962acb668.js" async=""></script></body></html>
