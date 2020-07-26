@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[201],{aAW9:function(n,e,a){var r,s;a("klQ5"),r=Prism,s=/("|')(?:\\(?:\r\n?|\n|.)|(?!\1)[^\\\r\n])*\1/,r.languages.json5=r.languages.extend("json",{property:[{pattern:RegExp(s.source+"(?=\\s*:)"),greedy:!0},{pattern:/[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*:)/,alias:"unquoted"}],string:{pattern:s,greedy:!0},number:/[+-]?(?:NaN|Infinity|0x[a-fA-F\d]+|(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?)/})}}]);
+//# sourceMappingURL=201-569b6b83a81a3abdd309.js.map
