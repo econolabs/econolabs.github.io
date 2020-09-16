@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://lib/./node_modules/prismjs/components/prism-tsx.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AACA,gE","file":"380.render-page.js","sourcesContent":["var typescript = Prism.util.clone(Prism.languages.typescript);\nPrism.languages.tsx = Prism.languages.extend('jsx', typescript);"],"sourceRoot":""}
