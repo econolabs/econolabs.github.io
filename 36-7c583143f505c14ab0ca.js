@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[36],{"7/bz":function(n,t,e){"use strict";e.r(t),e.d(t,"default",(function(){return b}));var o=e("q1tI"),c=e.n(o),a=e("/MKj"),i=e("opnR"),u=e("AEIT"),r=e.n(u),d=e("+z1p"),p=e.n(d);function b(n){var t=Object(a.b)(),e=Object(a.c)(i.c).ckeditor_node_content;return c.a.createElement(r.a,{editor:p.a,data:e||"<p>Комментарий</p>",onInit:function(n){},onChange:function(n,e){t(Object(i.d)(e.getData()))},onFocus:function(n,t){}})}}}]);
-//# sourceMappingURL=36-7c583143f505c14ab0ca.js.map
