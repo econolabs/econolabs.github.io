@@ -1,0 +1,2980 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edgemeta name=" viewport"
+        content="width=device-width, initial-scale=1">
+    <meta name="description" content="A live blockchain demo in a browser." />
+    <meta name="author" content="Anders Brownworth" />
+    <link rel="icon" href="../components/favicon.png" />
+    <title>Econolabs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/bootstrap-horizon.css" />
+
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/ladda-themeless.min.css" />
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/blockchain.css" />
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+    <script src="../components/blockchain-demo/javascripts/lib/spin.min.js"></script>
+
+
+    <style type="text/css"></style>
+    <script src="../components/blockchain-demo/javascripts/lib/ladda.min.js"></script>
+    <script src="../components/blockchain-demo/javascripts/lib/ie10-viewport-bug-workaround.js"></script>
+    <script src="../components/blockchain-demo/javascripts/lib/sha256.js"></script>
+    <script src="../components/blockchain-demo/javascripts/blockchain.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"> Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://econolabs.github.io">Econolabs</a>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/blockchain">Theory</a></li>
+                  <li><a href="/hash">Hash</a></li>
+                  <li><a href="/block">Block</a></li>
+                  <li><a href="/basicblockchain">Blockchain</a></li>
+                  <li ><a href="/distributed">Distributed</a></li>
+                  <li class="active"><a href="/tokens">Tokens</a></li>
+                  <li><a href="/coinbase">Coinbase</a></li>
+                  <li><a href="/keys">Keys</a></li>
+                  <li><a href="/signatures">Signatures</a></li>
+                  <li><a href="/transaction">Transaction</a></li>
+                  <li ><a href="/signedblockchain">Signed Blockchain</a></li>
+                    <li><a href="https://vk.com/id151078439">
+                    
+                        <img
+                                src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                                alt=""
+                                style="
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                filter: grayscale(100%);
+                                object-fit: cover;"/>
+    
+                         </a>
+                    </li>
+                </ul>
+            </div>
+
+          
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+      <h1>Tokens</h1>
+      <h3>Peer A</h3>
+      <div class="row row-horizon">
+        <div class="col-xs-7">
+          <div class="well well-success" id="block1chain1well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain1number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block1chain1number"
+                      type="number"
+                      value="1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain1nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain1nonce"
+                    type="text"
+                    value="139358"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx0value"
+                      type="text"
+                      value="25.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx0from"
+                      type="text"
+                      value="Darcy"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx0to"
+                      type="text"
+                      value="Bingley"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx1value"
+                      type="text"
+                      value="4.27"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx1from"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx1to"
+                      type="text"
+                      value="Jane"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx2value"
+                      type="text"
+                      value="19.22"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx2from"
+                      type="text"
+                      value="Wickham"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx2to"
+                      type="text"
+                      value="Lydia"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx3value"
+                      type="text"
+                      value="106.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx3from"
+                      type="text"
+                      value="Lady Catherine de Bourgh"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx3to"
+                      type="text"
+                      value="Collins"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx4value"
+                      type="text"
+                      value="6.42"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx4from"
+                      type="text"
+                      value="Charlotte"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain1tx4to"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain1previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain1previous"
+                    type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain1hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain1hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block1chain1mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block2chain1well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain1number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block2chain1number"
+                      type="number"
+                      value="2"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain1nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain1nonce"
+                    type="text"
+                    value="39207"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx0value"
+                      type="text"
+                      value="97.67"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx0from"
+                      type="text"
+                      value="Ripley"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx0to"
+                      type="text"
+                      value="Lambert"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx1value"
+                      type="text"
+                      value="48.61"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx1from"
+                      type="text"
+                      value="Kane"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx1to"
+                      type="text"
+                      value="Ash"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx2value"
+                      type="text"
+                      value="6.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx2from"
+                      type="text"
+                      value="Parker"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx2to"
+                      type="text"
+                      value="Dallas"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx3value"
+                      type="text"
+                      value="10.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx3from"
+                      type="text"
+                      value="Hicks"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx3to"
+                      type="text"
+                      value="Newt"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx4value"
+                      type="text"
+                      value="88.32"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx4from"
+                      type="text"
+                      value="Bishop"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx4to"
+                      type="text"
+                      value="Burke"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx5value"
+                      type="text"
+                      value="45.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx5from"
+                      type="text"
+                      value="Hudson"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx5to"
+                      type="text"
+                      value="Gorman"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx6value"
+                      type="text"
+                      value="92.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx6from"
+                      type="text"
+                      value="Vasquez"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain1tx6to"
+                      type="text"
+                      value="Apone"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain1previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain1previous"
+                    type="text"
+                    value="00000c52990ee86de55ec4b9b32beefd745d71675dc0eddfbc7b88336e2e296b"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain1hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain1hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block2chain1mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block3chain1well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain1number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block3chain1number"
+                      type="number"
+                      value="3"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain1nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain1nonce"
+                    type="text"
+                    value="13804"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx0value"
+                      type="text"
+                      value="10.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx0from"
+                      type="text"
+                      value="Emily"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx0to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx1value"
+                      type="text"
+                      value="5.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx1from"
+                      type="text"
+                      value="Madison"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx1to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx2value"
+                      type="text"
+                      value="20.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx2from"
+                      type="text"
+                      value="Lucas"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain1tx2to"
+                      type="text"
+                      value="Grace"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain1previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain1previous"
+                    type="text"
+                    value="000078be183417844c14a9251ca246fb15df1074019873f5d85c1a6f4311d4e0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain1hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain1hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block3chain1mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block4chain1well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain1number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block4chain1number"
+                      type="number"
+                      value="4"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain1nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain1nonce"
+                    type="text"
+                    value="20688"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx0value"
+                      type="text"
+                      value="62.19"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx0from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx0to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx1value"
+                      type="text"
+                      value="867.96"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx1from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx1to"
+                      type="text"
+                      value="Strasser"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx2value"
+                      type="text"
+                      value="276.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx2from"
+                      type="text"
+                      value="Victor Laszlo"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx2to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx3value"
+                      type="text"
+                      value="97.13"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx3from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx3to"
+                      type="text"
+                      value="Sam"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx4value"
+                      type="text"
+                      value="119.63"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx4from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain1tx4to"
+                      type="text"
+                      value="Jan Brandel"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain1previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain1previous"
+                    type="text"
+                    value="0000c2c95f54a49b4f2bee7056a7dc3b7c1a408706c848b520e20eac75aaceb0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain1hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain1hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block4chain1mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block5chain1well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain1number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block5chain1number"
+                      type="number"
+                      value="5"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain1nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain1nonce"
+                    type="text"
+                    value="33083"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx0value"
+                      type="text"
+                      value="14.12"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx0from"
+                      type="text"
+                      value="Denise Lovett"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx0to"
+                      type="text"
+                      value="Edmund Lovett"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx1value"
+                      type="text"
+                      value="2,760.29"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx1from"
+                      type="text"
+                      value="Lord Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx1to"
+                      type="text"
+                      value="John Moray"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx2value"
+                      type="text"
+                      value="413.78"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx2from"
+                      type="text"
+                      value="Katherine Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain1tx2to"
+                      type="text"
+                      value="Miss Audrey"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain1previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain1previous"
+                    type="text"
+                    value="0000c03019ed59586405750968888fb65256e82492480d9fe0a6bd2f5e86b5ca"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain1hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain1hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block5chain1mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <h3>Peer B</h3>
+      <div class="row row-horizon">
+        <div class="col-xs-7">
+          <div class="well well-success" id="block1chain2well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain2number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block1chain2number"
+                      type="number"
+                      value="1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain2nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain2nonce"
+                    type="text"
+                    value="139358"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx0value"
+                      type="text"
+                      value="25.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx0from"
+                      type="text"
+                      value="Darcy"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx0to"
+                      type="text"
+                      value="Bingley"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx1value"
+                      type="text"
+                      value="4.27"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx1from"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx1to"
+                      type="text"
+                      value="Jane"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx2value"
+                      type="text"
+                      value="19.22"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx2from"
+                      type="text"
+                      value="Wickham"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx2to"
+                      type="text"
+                      value="Lydia"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx3value"
+                      type="text"
+                      value="106.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx3from"
+                      type="text"
+                      value="Lady Catherine de Bourgh"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx3to"
+                      type="text"
+                      value="Collins"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx4value"
+                      type="text"
+                      value="6.42"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx4from"
+                      type="text"
+                      value="Charlotte"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain2tx4to"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain2previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain2previous"
+                    type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain2hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain2hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block1chain2mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block2chain2well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain2number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block2chain2number"
+                      type="number"
+                      value="2"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain2nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain2nonce"
+                    type="text"
+                    value="39207"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx0value"
+                      type="text"
+                      value="97.67"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx0from"
+                      type="text"
+                      value="Ripley"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx0to"
+                      type="text"
+                      value="Lambert"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx1value"
+                      type="text"
+                      value="48.61"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx1from"
+                      type="text"
+                      value="Kane"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx1to"
+                      type="text"
+                      value="Ash"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx2value"
+                      type="text"
+                      value="6.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx2from"
+                      type="text"
+                      value="Parker"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx2to"
+                      type="text"
+                      value="Dallas"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx3value"
+                      type="text"
+                      value="10.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx3from"
+                      type="text"
+                      value="Hicks"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx3to"
+                      type="text"
+                      value="Newt"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx4value"
+                      type="text"
+                      value="88.32"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx4from"
+                      type="text"
+                      value="Bishop"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx4to"
+                      type="text"
+                      value="Burke"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx5value"
+                      type="text"
+                      value="45.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx5from"
+                      type="text"
+                      value="Hudson"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx5to"
+                      type="text"
+                      value="Gorman"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx6value"
+                      type="text"
+                      value="92.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx6from"
+                      type="text"
+                      value="Vasquez"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain2tx6to"
+                      type="text"
+                      value="Apone"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain2previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain2previous"
+                    type="text"
+                    value="00000c52990ee86de55ec4b9b32beefd745d71675dc0eddfbc7b88336e2e296b"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain2hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain2hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block2chain2mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block3chain2well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain2number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block3chain2number"
+                      type="number"
+                      value="3"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain2nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain2nonce"
+                    type="text"
+                    value="13804"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx0value"
+                      type="text"
+                      value="10.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx0from"
+                      type="text"
+                      value="Emily"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx0to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx1value"
+                      type="text"
+                      value="5.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx1from"
+                      type="text"
+                      value="Madison"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx1to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx2value"
+                      type="text"
+                      value="20.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx2from"
+                      type="text"
+                      value="Lucas"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain2tx2to"
+                      type="text"
+                      value="Grace"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain2previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain2previous"
+                    type="text"
+                    value="000078be183417844c14a9251ca246fb15df1074019873f5d85c1a6f4311d4e0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain2hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain2hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block3chain2mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block4chain2well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain2number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block4chain2number"
+                      type="number"
+                      value="4"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain2nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain2nonce"
+                    type="text"
+                    value="20688"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx0value"
+                      type="text"
+                      value="62.19"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx0from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx0to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx1value"
+                      type="text"
+                      value="867.96"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx1from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx1to"
+                      type="text"
+                      value="Strasser"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx2value"
+                      type="text"
+                      value="276.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx2from"
+                      type="text"
+                      value="Victor Laszlo"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx2to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx3value"
+                      type="text"
+                      value="97.13"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx3from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx3to"
+                      type="text"
+                      value="Sam"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx4value"
+                      type="text"
+                      value="119.63"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx4from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain2tx4to"
+                      type="text"
+                      value="Jan Brandel"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain2previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain2previous"
+                    type="text"
+                    value="0000c2c95f54a49b4f2bee7056a7dc3b7c1a408706c848b520e20eac75aaceb0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain2hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain2hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block4chain2mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block5chain2well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain2number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block5chain2number"
+                      type="number"
+                      value="5"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain2nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain2nonce"
+                    type="text"
+                    value="33083"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx0value"
+                      type="text"
+                      value="14.12"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx0from"
+                      type="text"
+                      value="Denise Lovett"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx0to"
+                      type="text"
+                      value="Edmund Lovett"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx1value"
+                      type="text"
+                      value="2,760.29"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx1from"
+                      type="text"
+                      value="Lord Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx1to"
+                      type="text"
+                      value="John Moray"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx2value"
+                      type="text"
+                      value="413.78"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx2from"
+                      type="text"
+                      value="Katherine Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain2tx2to"
+                      type="text"
+                      value="Miss Audrey"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain2previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain2previous"
+                    type="text"
+                    value="0000c03019ed59586405750968888fb65256e82492480d9fe0a6bd2f5e86b5ca"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain2hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain2hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block5chain2mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <h3>Peer C</h3>
+      <div class="row row-horizon">
+        <div class="col-xs-7">
+          <div class="well well-success" id="block1chain3well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain3number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block1chain3number"
+                      type="number"
+                      value="1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block1chain3nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain3nonce"
+                    type="text"
+                    value="139358"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx0value"
+                      type="text"
+                      value="25.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx0from"
+                      type="text"
+                      value="Darcy"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx0to"
+                      type="text"
+                      value="Bingley"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx1value"
+                      type="text"
+                      value="4.27"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx1from"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx1to"
+                      type="text"
+                      value="Jane"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx2value"
+                      type="text"
+                      value="19.22"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx2from"
+                      type="text"
+                      value="Wickham"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx2to"
+                      type="text"
+                      value="Lydia"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx3value"
+                      type="text"
+                      value="106.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx3from"
+                      type="text"
+                      value="Lady Catherine de Bourgh"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx3to"
+                      type="text"
+                      value="Collins"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx4value"
+                      type="text"
+                      value="6.42"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx4from"
+                      type="text"
+                      value="Charlotte"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block1chain3tx4to"
+                      type="text"
+                      value="Elizabeth"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain3previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain3previous"
+                    type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block1chain3hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block1chain3hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block1chain3mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block2chain3well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain3number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block2chain3number"
+                      type="number"
+                      value="2"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block2chain3nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain3nonce"
+                    type="text"
+                    value="39207"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx0value"
+                      type="text"
+                      value="97.67"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx0from"
+                      type="text"
+                      value="Ripley"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx0to"
+                      type="text"
+                      value="Lambert"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx1value"
+                      type="text"
+                      value="48.61"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx1from"
+                      type="text"
+                      value="Kane"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx1to"
+                      type="text"
+                      value="Ash"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx2value"
+                      type="text"
+                      value="6.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx2from"
+                      type="text"
+                      value="Parker"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx2to"
+                      type="text"
+                      value="Dallas"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx3value"
+                      type="text"
+                      value="10.44"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx3from"
+                      type="text"
+                      value="Hicks"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx3to"
+                      type="text"
+                      value="Newt"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx4value"
+                      type="text"
+                      value="88.32"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx4from"
+                      type="text"
+                      value="Bishop"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx4to"
+                      type="text"
+                      value="Burke"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx5value"
+                      type="text"
+                      value="45.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx5from"
+                      type="text"
+                      value="Hudson"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx5to"
+                      type="text"
+                      value="Gorman"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx6value"
+                      type="text"
+                      value="92.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx6from"
+                      type="text"
+                      value="Vasquez"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block2chain3tx6to"
+                      type="text"
+                      value="Apone"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain3previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain3previous"
+                    type="text"
+                    value="00000c52990ee86de55ec4b9b32beefd745d71675dc0eddfbc7b88336e2e296b"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block2chain3hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block2chain3hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block2chain3mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block3chain3well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain3number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block3chain3number"
+                      type="number"
+                      value="3"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block3chain3nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain3nonce"
+                    type="text"
+                    value="13804"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx0value"
+                      type="text"
+                      value="10.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx0from"
+                      type="text"
+                      value="Emily"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx0to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx1value"
+                      type="text"
+                      value="5.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx1from"
+                      type="text"
+                      value="Madison"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx1to"
+                      type="text"
+                      value="Jackson"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx2value"
+                      type="text"
+                      value="20.00"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx2from"
+                      type="text"
+                      value="Lucas"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block3chain3tx2to"
+                      type="text"
+                      value="Grace"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain3previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain3previous"
+                    type="text"
+                    value="000078be183417844c14a9251ca246fb15df1074019873f5d85c1a6f4311d4e0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block3chain3hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block3chain3hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block3chain3mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block4chain3well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain3number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block4chain3number"
+                      type="number"
+                      value="4"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block4chain3nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain3nonce"
+                    type="text"
+                    value="20688"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx0value"
+                      type="text"
+                      value="62.19"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx0from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx0to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx1value"
+                      type="text"
+                      value="867.96"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx1from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx1to"
+                      type="text"
+                      value="Strasser"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx2value"
+                      type="text"
+                      value="276.15"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx2from"
+                      type="text"
+                      value="Victor Laszlo"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx2to"
+                      type="text"
+                      value="Ilsa"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx3value"
+                      type="text"
+                      value="97.13"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx3from"
+                      type="text"
+                      value="Rick"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx3to"
+                      type="text"
+                      value="Sam"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx4value"
+                      type="text"
+                      value="119.63"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx4from"
+                      type="text"
+                      value="Captain Louis Renault"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block4chain3tx4to"
+                      type="text"
+                      value="Jan Brandel"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain3previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain3previous"
+                    type="text"
+                    value="0000c2c95f54a49b4f2bee7056a7dc3b7c1a408706c848b520e20eac75aaceb0"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block4chain3hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block4chain3hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block4chain3mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="well well-success" id="block5chain3well">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain3number"
+                  >Block:</label
+                >
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">#</span
+                    ><input
+                      class="form-control"
+                      id="block5chain3number"
+                      type="number"
+                      value="5"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="block5chain3nonce"
+                  >Nonce:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain3nonce"
+                    type="text"
+                    value="33083"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx0value"
+                      type="text"
+                      value="14.12"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx0from"
+                      type="text"
+                      value="Denise Lovett"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx0to"
+                      type="text"
+                      value="Edmund Lovett"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx1value"
+                      type="text"
+                      value="2,760.29"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx1from"
+                      type="text"
+                      value="Lord Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx1to"
+                      type="text"
+                      value="John Moray"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx2value"
+                      type="text"
+                      value="413.78"
+                    />
+                    <div class="input-group-addon">From:</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx2from"
+                      type="text"
+                      value="Katherine Glendenning"
+                    />
+                    <div class="input-group-addon">-&gt;</div>
+                    <input
+                      class="form-control"
+                      id="block5chain3tx2to"
+                      type="text"
+                      value="Miss Audrey"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain3previous"
+                  >Prev:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain3previous"
+                    type="text"
+                    value="0000c03019ed59586405750968888fb65256e82492480d9fe0a6bd2f5e86b5ca"
+                  />
+                </div>
+              </div>
+              <div class="form-group" id="state">
+                <label class="col-sm-2 control-label" for="block5chain3hash"
+                  >Hash:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    class="form-control"
+                    id="block5chain3hash"
+                    type="text"
+                    disabled=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <i class="icon-spinner icon-spin icon-large"></i>
+                </div>
+                <div class="col-sm-10">
+                  <button
+                    class="btn btn-primary ladda-button"
+                    id="block5chain3mineButton"
+                    data-style="expand-right"
+                  >
+                    <span class="ladda-label">Mine</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        setup(1, 1);
+        setup(2, 1);
+        setup(3, 1);
+        setup(4, 1);
+        setup(5, 1);
+
+        setup(1, 2);
+        setup(2, 2);
+        setup(3, 2);
+        setup(4, 2);
+        setup(5, 2);
+
+        setup(1, 3);
+        setup(2, 3);
+        setup(3, 3);
+        setup(4, 3);
+        setup(5, 3);
+      });
+
+      function getText(block, chain) {
+        var s =
+          $("#block" + block + "chain" + chain + "number").val() +
+          $("#block" + block + "chain" + chain + "nonce").val();
+        for (
+          var x = 0;
+          $("#block" + block + "chain" + chain + "tx" + x + "value").length > 0;
+          x++
+        ) {
+          s =
+            s +
+            $("#block" + block + "chain" + chain + "tx" + x + "value").val() +
+            $("#block" + block + "chain" + chain + "tx" + x + "from").val() +
+            $("#block" + block + "chain" + chain + "tx" + x + "to").val();
+        }
+        s = s + $("#block" + block + "chain" + chain + "previous").val();
+        return s;
+      }
+
+      function setup(block, chain) {
+        updateHash(block, chain);
+        $("#block" + block + "chain" + chain + "number").bind(
+          "input propertychange",
+          function () {
+            updateChain(block, chain);
+          }
+        );
+        $("#block" + block + "chain" + chain + "nonce").bind(
+          "input propertychange",
+          function () {
+            updateChain(block, chain);
+          }
+        );
+        for (
+          var x = 0;
+          $("#block" + block + "chain" + chain + "tx" + x + "value").length > 0;
+          x++
+        ) {
+          $("#block" + block + "chain" + chain + "tx" + x + "value").bind(
+            "input propertychange",
+            function () {
+              updateChain(block, chain);
+            }
+          );
+          $("#block" + block + "chain" + chain + "tx" + x + "from").bind(
+            "input propertychange",
+            function () {
+              updateChain(block, chain);
+            }
+          );
+          $("#block" + block + "chain" + chain + "tx" + x + "to").bind(
+            "input propertychange",
+            function () {
+              updateChain(block, chain);
+            }
+          );
+        }
+        $("#block" + block + "chain" + chain + "mineButton").click(function (
+          e
+        ) {
+          e.preventDefault();
+          var l = Ladda.create(this);
+          l.start();
+          setTimeout(function () {
+            mine(block, chain, true);
+            l.stop();
+          }, 250); // give UI time to update
+        });
+      }
+    </script>
+</body>
+
+</html>

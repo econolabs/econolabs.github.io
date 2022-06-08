@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edgemeta name=" viewport"
+        content="width=device-width, initial-scale=1">
+    <meta name="description" content="A live blockchain demo in a browser." />
+    <meta name="author" content="Anders Brownworth" />
+    <link rel="icon" href="../components/favicon.png" />
+    <title>Econolabs</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous"
+  />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"
+  ></script>
+
+  <link
+    rel="stylesheet"
+    href="../components/public-private-key-demo/stylesheets/public-key-private-key.css"
+  />
+
+  <script src="../components/public-private-key-demo/javascripts/lib/popper.min.js"></script>
+
+  <script src="../components/public-private-key-demo/javascripts/lib/js.cookie.min.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/BigInteger.min.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/Buffer.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/elliptic.js"></script>
+
+  <script src="../components/public-private-key-demo/javascripts/lib/spin.min.js"></script>
+  <style type="text/css"></style>
+  <script src="../components/public-private-key-demo/javascripts/lib/ladda.min.js"></script>
+   <script src="../components/public-private-key-demo/javascripts/lib/sha256.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/blockchain.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"> Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://econolabs.github.io">Econolabs</a>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/blockchain">Theory</a></li>
+                  <li><a href="/hash">Hash</a></li>
+                  <li><a href="/block">Block</a></li>
+                  <li><a href="/basicblockchain">Blockchain</a></li>
+                  <li ><a href="/distributed">Distributed</a></li>
+                  <li ><a href="/tokens">Tokens</a></li>
+                  <li ><a href="/coinbase">Coinbase</a></li>
+                  <li><a href="/keys">Keys</a></li>
+                  <li class="active"><a href="/signatures">Signatures</a></li>
+                  <li><a href="/transaction">Transaction</a></li>
+                  <li ><a href="/signedblockchain">Signed Blockchain</a></li>
+                    <li><a href="https://vk.com/id151078439">
+                    
+                        <img
+                                src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                                alt=""
+                                style="
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                filter: grayscale(100%);
+                                object-fit: cover;"/>
+    
+                         </a>
+                    </li>
+                </ul>
+            </div>
+
+          
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>Signatures</h4>
+          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="sign-tab"
+                data-toggle="tab"
+                href="#sign"
+                role="tab"
+                aria-controls="sign"
+                aria-selected="true"
+                >Sign
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="verify-tab"
+                data-toggle="tab"
+                href="#verify"
+                role="tab"
+                aria-controls="verify"
+                aria-selected="false"
+                >Verify
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body" id="card">
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane show active"
+              id="sign"
+              role="tabpanel"
+              aria-labelledby="sign-tab"
+            >
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label" for="data">Message </label
+                  ><textarea
+                    class="form-control"
+                    id="sign-message"
+                    rows="5"
+                    aria-label="Message"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="data">Private Key </label
+                  ><input class="form-control" id="privateKey" type="number" />
+                </div>
+                <div class="form-group">
+                  <button
+                    class="btn btn-block btn-primary"
+                    id="sign-button"
+                    type="button"
+                  >
+                    Sign
+                  </button>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="data"
+                    >Message Signature </label
+                  ><input
+                    class="form-control"
+                    id="sign-signature"
+                    disabled=""
+                  />
+                </div>
+              </form>
+            </div>
+            <div
+              class="tab-pane"
+              id="verify"
+              role="tabpanel"
+              aria-labelledby="verify-tab"
+            >
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label" for="data">Message </label
+                  ><textarea
+                    class="form-control"
+                    id="verify-message"
+                    rows="5"
+                    aria-label="Message"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="data">Public Key </label
+                  ><input class="form-control" id="publicKey" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="data">Signature </label
+                  ><input class="form-control" id="verify-signature" />
+                </div>
+                <div class="form-group">
+                  <button
+                    class="btn btn-block btn-primary"
+                    id="verify-button"
+                    type="button"
+                  >
+                    Verify
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var EC = elliptic.elliptic().ec;
+      var ec = new EC("secp256k1");
+
+      var keypair = ec.genKeyPair();
+      if (Cookies.get("privateKey")) {
+        keypair = ec.keyFromPrivate(Cookies.get("privateKey"));
+      }
+
+      function update() {
+        var prv = keypair.getPrivate("hex");
+        var pub = keypair.getPublic("hex");
+        $("#privateKey").val(bigInt(prv, 16).toString());
+        $("#publicKey").val(pub);
+        Cookies.set("privateKey", prv.toString());
+        Cookies.set("publicKey", pub);
+      }
+
+      function resetVerifier() {
+        $("#card").removeClass("alert-success");
+        $("#card").removeClass("alert-danger");
+      }
+
+      $(function () {
+        $("#sign-button").click(function () {
+          var binaryMessage = buffer.Buffer.from(
+            CryptoJS.SHA256($("#sign-message").val()).toString(CryptoJS.enc.Hex)
+          );
+          var hexSignature = buffer.Buffer.from(
+            keypair.sign(binaryMessage).toDER()
+          ).toString("hex");
+          $("#sign-signature").val(hexSignature);
+          $("#verify-signature").val(hexSignature);
+          update();
+          resetVerifier();
+        });
+        $("#verify-button").click(function () {
+          // verify by using only the public key
+          $("#publicKey").val(
+            $("#publicKey")
+              .val()
+              .replace(/[^0-9a-fA-F]/g, "")
+          );
+          var tmpKey;
+          try {
+            tmpKey = ec.keyFromPublic($("#publicKey").val(), "hex");
+            var binaryMessage = buffer.Buffer.from(
+              CryptoJS.SHA256($("#verify-message").val()).toString(
+                CryptoJS.enc.Hex
+              )
+            );
+            if (tmpKey.verify(binaryMessage, $("#verify-signature").val())) {
+              $("#card").addClass("alert-success");
+            } else {
+              $("#card").addClass("alert-danger");
+            }
+          } catch (e) {
+            $("#card").addClass("alert-danger");
+          }
+        });
+        $("#sign-signature").bind("keyup", function () {
+          resetVerifier();
+        });
+        $("#sign-message").bind("keyup", function () {
+          resetVerifier();
+        });
+        $("#verify-signature").bind("keyup", function () {
+          resetVerifier();
+        });
+        $("#verify-message").bind("keyup", function () {
+          resetVerifier();
+        });
+        $("#publicKey").bind("keyup", function () {
+          resetVerifier();
+        });
+        $("#privateKey").bind("keyup", function () {
+          $("#privateKey").val($("#privateKey").val().replace(/\D/g, ""));
+          keypair = ec.keyFromPrivate(
+            bigInt($("#privateKey").val()).toString(16)
+          );
+          resetVerifier();
+          update();
+        });
+        if (Cookies.get("message")) {
+          $("#sign-message").val(Cookies.get("message"));
+          $("#verify-message").val(Cookies.get("message"));
+        }
+        $("#sign-message").bind("keyup", function () {
+          Cookies.set("message", $("#sign-message").val());
+          $("#verify-message").val($("#sign-message").val());
+        });
+        $("#verify-message").bind("keyup", function () {
+          Cookies.set("message", $("#verify-message").val());
+          $("#sign-message").val($("#verify-message").val());
+        });
+        $("#myTab").on("shown.bs.tab", function (e) {
+          resetVerifier();
+        });
+        update();
+      });
+    </script>
+</body>
+
+</html>

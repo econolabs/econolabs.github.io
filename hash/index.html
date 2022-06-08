@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edgemeta name=" viewport"
+        content="width=device-width, initial-scale=1">
+    <meta name="description" content="A live blockchain demo in a browser." />
+    <meta name="author" content="Anders Brownworth" />
+    <link rel="icon" href="../components/favicon.png" />
+    <title>Econolabs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/bootstrap-horizon.css" />
+
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/ladda-themeless.min.css" />
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/lib/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="../components/blockchain-demo/stylesheets/blockchain.css" />
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+        <script src="../components/blockchain-demo/javascripts/lib/spin.min.js"></script>
+
+
+    <style type="text/css"></style>
+    <script src="../components/blockchain-demo/javascripts/lib/ladda.min.js"></script>
+    <script src="../components/blockchain-demo/javascripts/lib/ie10-viewport-bug-workaround.js"></script>
+    <script src="../components/blockchain-demo/javascripts/lib/sha256.js"></script>
+    <script src="../components/blockchain-demo/javascripts/blockchain.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"> Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://econolabs.github.io">Econolabs</a>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/blockchain">Theory</a></li>
+                    <li class="active"><a href="/hash">Hash</a></li>
+                    <li><a href="/block">Block</a></li>
+                    <li><a href="/basicblockchain">Blockchain</a></li>
+                    <li><a href="/distributed">Distributed</a></li>
+                    <li><a href="/tokens">Tokens</a></li>
+                    <li><a href="/coinbase">Coinbase</a></li>
+                    <li><a href="/keys">Keys</a></li>
+                    <li><a href="/signatures">Signatures</a></li>
+                    <li><a href="/transaction">Transaction</a></li>
+                    <li ><a href="/signedblockchain">Signed Blockchain</a></li>
+                    <li><a href="https://vk.com/id151078439">
+                    
+                        <img
+                                src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                                alt=""
+                                style="
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                filter: grayscale(100%);
+                                object-fit: cover;"/>
+    
+                         </a>
+                    </li>
+                </ul>
+            </div>
+
+          
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>SHA256 Hash</h1>
+        <div class="well" id="well1">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="data">Data:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="data" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="hash">Hash:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="hash" type="text" disabled="" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function getText(block, chain) {
+            return $("#data").val();
+        }
+
+        $(function () {
+            $("#data").bind("input propertychange", function () {
+                $("#hash").val(sha256());
+            });
+        });
+
+        $("#hash").val(sha256());
+    </script>
+</body>
+
+</html>

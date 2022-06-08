@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edgemeta name=" viewport"
+    content="width=device-width, initial-scale=1">
+  <meta name="description" content="A live blockchain demo in a browser." />
+  <meta name="author" content="Anders Brownworth" />
+  <link rel="icon" href="../components/favicon.png" />
+  <title>Econolabs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../components/public-private-key-demo/stylesheets/public-key-private-key.css" />
+
+  <script src="../components/public-private-key-demo/javascripts/lib/popper.min.js"></script>
+
+  <script src="../components/public-private-key-demo/javascripts/lib/js.cookie.min.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/BigInteger.min.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/Buffer.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/lib/elliptic.js"></script>
+
+  <script src="../components/public-private-key-demo/javascripts/lib/spin.min.js"></script>
+  <style type="text/css"></style>
+  <script src="../components/public-private-key-demo/javascripts/lib/ladda.min.js"></script>
+ 
+  <script src="../components/public-private-key-demo/javascripts/lib/sha256.js"></script>
+  <script src="../components/public-private-key-demo/javascripts/blockchain.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only"> Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://econolabs.github.io">Econolabs</a>
+      </div>
+
+      <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/blockchain">Theory</a></li>
+          <li><a href="/hash">Hash</a></li>
+          <li><a href="/block">Block</a></li>
+          <li><a href="/basicblockchain">Blockchain</a></li>
+          <li><a href="/distributed">Distributed</a></li>
+          <li><a href="/tokens">Tokens</a></li>
+          <li><a href="/coinbase">Coinbase</a></li>
+          <li><a href="/keys">Keys</a></li>
+          <li><a href="/signatures">Signatures</a></li>
+          <li><a href="/transaction">Transaction</a></li>
+          <li class="active"><a href="/signedblockchain">Signed Blockchain</a></li>
+          <li><a href="https://vk.com/id151078439">
+
+              <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt="" style="
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                filter: grayscale(100%);
+                                object-fit: cover;" />
+
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Blockchain </h1>
+    </div>
+    <h3>Peer A</h3>
+    <div class="d-flex flex-nowrap">
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block1chain1card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain1number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block1chain1number" type="text" value="1" onkeyup="updateChain(1, 1, 0);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain1nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain1nonce" type="text" value="16119"
+                    onkeyup="updateChain(1, 1, 0);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block1chain1coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(1, 1, 0);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block1chain1coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(1, 1, 0);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain1previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain1previous" type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain1hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain1hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block1chain1mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block2chain1card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain1number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block2chain1number" type="text" value="2" onkeyup="updateChain(2, 1, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain1nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain1nonce" type="text" value="25205"
+                    onkeyup="updateChain(2, 1, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain1coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain1coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain1tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain1tx0from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain1tx0to"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain1tx0seq" type="text" value="1" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain1tx0sig"
+                      type="text"
+                      value="3046022100cf33ee8c696edd0b0c291a259e0a03ea2491f8febd396244e309d175bc8b6b7c022100a85b8b15e037ac42d9f2545e568d2433ede51e59f4bbfd4179f285fac1a10f66"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain1tx1value"
+                      type="text" value="20.00" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain1tx1from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain1tx1to"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain1tx1seq" type="text" value="1" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain1tx1sig"
+                      type="text"
+                      value="30460221008aa13eb403bbaecbbefe36d3df2f3fc04fbee6c930f689eef1e54438957b476a0221008e72503ffaeb7f2d146a7f213b6974de03965c45d56b222f1b7a22640ce87cd9"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain1tx2value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain1tx2from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain1tx2to"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain1tx2seq" type="text" value="1" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain1tx2sig"
+                      type="text"
+                      value="304402201d97c65bafaf61ae46717c87757772860cd1b130e5786085f82bef5b98293c2a02200d230c4c690af60c76ed57fd23c92d45d758f5c2325ee3e326d1c98fe0b769f4"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain1tx3value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain1tx3from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain1tx3to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain1tx3seq" type="text" value="1" onkeyup="updateChain(2, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain1tx3sig"
+                      type="text"
+                      value="3046022100c583bd79baf55bd5580761a236a7e2f65b80ae3e4ebb4eb620e6a472156b95d1022100b65511d1eaa63f3cda18b78301e4945772fbddee08903acd65e4a97f57e85c55"
+                      onkeyup="updateChain(2, 1, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain1previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain1previous" type="text"
+                    value="00006908f507a101e89544498978e9bd2e35462b91d86ef13510685227912e77"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain1hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain1hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block2chain1mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block3chain1card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain1number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block3chain1number" type="text" value="3" onkeyup="updateChain(3, 1, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain1nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain1nonce" type="text" value="29164"
+                    onkeyup="updateChain(3, 1, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain1coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain1coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain1tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain1tx0from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain1tx0to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain1tx0seq" type="text" value="1" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain1tx0sig"
+                      type="text"
+                      value="30450220485a5a1c317d5a1b33af90201999909b49e09dc5f0b261048bbee1d09ed1735f02210081eb6d39ab4db5d9f95ec5b103b7a6268bc936c738cb05293e167220fbc3b71e"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain1tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain1tx1from"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain1tx1to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain1tx1seq" type="text" value="1" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain1tx1sig"
+                      type="text"
+                      value="3044022002cc3c61bb7cd4573b192d1b61f125545ebc84c5b47dd9ea096b896bf9b335a702204c3252e5f27c8732d4ce52f58efb3493fa733200aba01270f779a3b7fed2e53c"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain1tx2value"
+                      type="text" value="20.00" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain1tx2from"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain1tx2to"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain1tx2seq" type="text" value="1" onkeyup="updateChain(3, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain1tx2sig"
+                      type="text"
+                      value="3045022100ee33bb3764f5f85f694d1033a66131bc818c188dba4e6392e89c03c06537885202201d92064c5e8804df8864baa30ccbcaca45caac345686768125d0c9a10fad94f4"
+                      onkeyup="updateChain(3, 1, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain1previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain1previous" type="text"
+                    value="00008ccb2fccac084b800a2878d317e14fe88fddb1e91d131d1fc3d523d67125"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain1hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain1hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block3chain1mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block4chain1card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain1number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block4chain1number" type="text" value="4" onkeyup="updateChain(4, 1, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain1nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain1nonce" type="text" value="51263"
+                    onkeyup="updateChain(4, 1, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain1coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain1coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain1tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain1tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain1tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain1tx0seq" type="text" value="1" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain1tx0sig"
+                      type="text"
+                      value="30450221009231b78416d222dd7e73e42b5bd7613b89ad4d093f33ba799d0867304861e5100220028b3ffe5a80bab482c31464fb0db1609f674f8f03e8a137e15593bdc97e7725"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain1tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain1tx1from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain1tx1to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain1tx1seq" type="text" value="1" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain1tx1sig"
+                      type="text"
+                      value="30460221008060d62c9e36fb464b792e4d3b9a08783877259cc56ea87b20d798d0f3f450b202210083d082cc7222d5834f4b71be9b23ee6943f44bda5ef549c698e382b800c59bec"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain1tx2value"
+                      type="text" value="8.00" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain1tx2from"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain1tx2to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain1tx2seq" type="text" value="1" onkeyup="updateChain(4, 1, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain1tx2sig"
+                      type="text"
+                      value="3044022013a30405cc52560bcfa5348955303bad54e235f1504d65e356403f41e60867d50220539fc0bcd0ec869f08ed10987188f3333c9d7050af7ac5cf239c3cab38a4e46f"
+                      onkeyup="updateChain(4, 1, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain1previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain1previous" type="text"
+                    value="000029942f0286f943ac7e877d7f10c3902aecbb2eebc72a758ab40487b0b8f9"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain1hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain1hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block4chain1mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block5chain1card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain1number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block5chain1number" type="text" value="5" onkeyup="updateChain(5, 1, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain1nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain1nonce" type="text" value="172517"
+                    onkeyup="updateChain(5, 1, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain1coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain1coinbaseto"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain1tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain1tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain1tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain1tx0seq" type="text" value="2" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain1tx0sig"
+                      type="text"
+                      value="304502203b00e4d2c7d85dc96a3ede37c287237ba8a6a857defcc285ac2daff92109e75f022100ace660bb266104fd111e7d9ea7ee6a629dc45dfed4ce97b0fe7475e0968ff7d0"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain1tx1value"
+                      type="text" value="6.00" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain1tx1from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain1tx1to"
+                      type="text"
+                      value="043e17e5095e878b0fbf63f4c7de037ed0e098d13ac7b8891c5d7238edc9dea474ce7df69a643edf2cccb7b9cf71701e1825e5ceb840764efb3fc7b6e7f433be41"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain1tx1seq" type="text" value="1" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain1tx1sig"
+                      type="text"
+                      value="304502207765bb9ac24975ff9b4194b95b7ce87b1a7435f983d839efa2b2c5e5aa258b02022100ccc33565490a7cdc738c6e75451eadb53b66dd72f3ce67d13cd3dd905265269b"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain1tx2value"
+                      type="text" value="4.00" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain1tx2from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain1tx2to"
+                      type="text"
+                      value="04020d6fe7aeabd3a00d725f542c35d8b345fe1c884f3af420987ca51c73580e4b4c42f9838f254d142d7024f556d167ce2d0ddf7e9576ebd9136368542f8ac5a2"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain1tx2seq" type="text" value="1" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain1tx2sig"
+                      type="text"
+                      value="304602210090ca7d92de041fd0e7fd7b4638ca1ee85a25e0bdaa3deff87a32eac7f1a0f6e9022100a3fd097026ce01eb105c969d0a460475e655845dd3973ee9f69ca9c2e4f05483"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain1tx3value"
+                      type="text" value="9.95" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain1tx3from"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain1tx3to"
+                      type="text"
+                      value="04148850d1edbd665a7a797c69f8015aa84e92f84f68285cc561397d4120c6e6a0f331e6a40bf9e4066ca1719666d201585564d4e11449e22cec9c6eec3d20bfbf"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain1tx3seq" type="text" value="1" onkeyup="updateChain(5, 1, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain1tx3sig"
+                      type="text"
+                      value="3045022100d980efbdcc9efc5e54ca5ed5a300df6cb103da49ac7ac88ccfce333adb8c33a402201469bb5a211fb9b4ae845accc0fb9f3fd75ea68ce41a1cb37cecb318df357a57"
+                      onkeyup="updateChain(5, 1, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain1previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain1previous" type="text"
+                    value="0000f79349c800b2ef5ed40ba485e4abb75158f60f0fe7a962b5bd0fa6ccf1a0"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain1hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain1hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block5chain1mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Peer B</h3>
+    <div class="d-flex flex-nowrap">
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block1chain2card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain2number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block1chain2number" type="text" value="1" onkeyup="updateChain(1, 2, 0);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain2nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain2nonce" type="text" value="16119"
+                    onkeyup="updateChain(1, 2, 0);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block1chain2coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(1, 2, 0);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block1chain2coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(1, 2, 0);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain2previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain2previous" type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain2hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain2hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block1chain2mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block2chain2card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain2number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block2chain2number" type="text" value="2" onkeyup="updateChain(2, 2, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain2nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain2nonce" type="text" value="25205"
+                    onkeyup="updateChain(2, 2, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain2coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain2coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain2tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain2tx0from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain2tx0to"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain2tx0seq" type="text" value="1" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain2tx0sig"
+                      type="text"
+                      value="3046022100cf33ee8c696edd0b0c291a259e0a03ea2491f8febd396244e309d175bc8b6b7c022100a85b8b15e037ac42d9f2545e568d2433ede51e59f4bbfd4179f285fac1a10f66"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain2tx1value"
+                      type="text" value="20.00" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain2tx1from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain2tx1to"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain2tx1seq" type="text" value="1" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain2tx1sig"
+                      type="text"
+                      value="30460221008aa13eb403bbaecbbefe36d3df2f3fc04fbee6c930f689eef1e54438957b476a0221008e72503ffaeb7f2d146a7f213b6974de03965c45d56b222f1b7a22640ce87cd9"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain2tx2value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain2tx2from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain2tx2to"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain2tx2seq" type="text" value="1" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain2tx2sig"
+                      type="text"
+                      value="304402201d97c65bafaf61ae46717c87757772860cd1b130e5786085f82bef5b98293c2a02200d230c4c690af60c76ed57fd23c92d45d758f5c2325ee3e326d1c98fe0b769f4"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain2tx3value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain2tx3from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain2tx3to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain2tx3seq" type="text" value="1" onkeyup="updateChain(2, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain2tx3sig"
+                      type="text"
+                      value="3046022100c583bd79baf55bd5580761a236a7e2f65b80ae3e4ebb4eb620e6a472156b95d1022100b65511d1eaa63f3cda18b78301e4945772fbddee08903acd65e4a97f57e85c55"
+                      onkeyup="updateChain(2, 2, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain2previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain2previous" type="text"
+                    value="00006908f507a101e89544498978e9bd2e35462b91d86ef13510685227912e77"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain2hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain2hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block2chain2mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block3chain2card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain2number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block3chain2number" type="text" value="3" onkeyup="updateChain(3, 2, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain2nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain2nonce" type="text" value="29164"
+                    onkeyup="updateChain(3, 2, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain2coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain2coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain2tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain2tx0from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain2tx0to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain2tx0seq" type="text" value="1" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain2tx0sig"
+                      type="text"
+                      value="30450220485a5a1c317d5a1b33af90201999909b49e09dc5f0b261048bbee1d09ed1735f02210081eb6d39ab4db5d9f95ec5b103b7a6268bc936c738cb05293e167220fbc3b71e"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain2tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain2tx1from"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain2tx1to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain2tx1seq" type="text" value="1" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain2tx1sig"
+                      type="text"
+                      value="3044022002cc3c61bb7cd4573b192d1b61f125545ebc84c5b47dd9ea096b896bf9b335a702204c3252e5f27c8732d4ce52f58efb3493fa733200aba01270f779a3b7fed2e53c"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain2tx2value"
+                      type="text" value="20.00" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain2tx2from"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain2tx2to"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain2tx2seq" type="text" value="1" onkeyup="updateChain(3, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain2tx2sig"
+                      type="text"
+                      value="3045022100ee33bb3764f5f85f694d1033a66131bc818c188dba4e6392e89c03c06537885202201d92064c5e8804df8864baa30ccbcaca45caac345686768125d0c9a10fad94f4"
+                      onkeyup="updateChain(3, 2, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain2previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain2previous" type="text"
+                    value="00008ccb2fccac084b800a2878d317e14fe88fddb1e91d131d1fc3d523d67125"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain2hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain2hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block3chain2mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block4chain2card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain2number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block4chain2number" type="text" value="4" onkeyup="updateChain(4, 2, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain2nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain2nonce" type="text" value="51263"
+                    onkeyup="updateChain(4, 2, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain2coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain2coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain2tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain2tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain2tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain2tx0seq" type="text" value="1" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain2tx0sig"
+                      type="text"
+                      value="30450221009231b78416d222dd7e73e42b5bd7613b89ad4d093f33ba799d0867304861e5100220028b3ffe5a80bab482c31464fb0db1609f674f8f03e8a137e15593bdc97e7725"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain2tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain2tx1from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain2tx1to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain2tx1seq" type="text" value="1" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain2tx1sig"
+                      type="text"
+                      value="30460221008060d62c9e36fb464b792e4d3b9a08783877259cc56ea87b20d798d0f3f450b202210083d082cc7222d5834f4b71be9b23ee6943f44bda5ef549c698e382b800c59bec"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain2tx2value"
+                      type="text" value="8.00" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain2tx2from"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain2tx2to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain2tx2seq" type="text" value="1" onkeyup="updateChain(4, 2, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain2tx2sig"
+                      type="text"
+                      value="3044022013a30405cc52560bcfa5348955303bad54e235f1504d65e356403f41e60867d50220539fc0bcd0ec869f08ed10987188f3333c9d7050af7ac5cf239c3cab38a4e46f"
+                      onkeyup="updateChain(4, 2, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain2previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain2previous" type="text"
+                    value="000029942f0286f943ac7e877d7f10c3902aecbb2eebc72a758ab40487b0b8f9"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain2hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain2hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block4chain2mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block5chain2card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain2number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block5chain2number" type="text" value="5" onkeyup="updateChain(5, 2, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain2nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain2nonce" type="text" value="172517"
+                    onkeyup="updateChain(5, 2, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain2coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain2coinbaseto"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain2tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain2tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain2tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain2tx0seq" type="text" value="2" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain2tx0sig"
+                      type="text"
+                      value="304502203b00e4d2c7d85dc96a3ede37c287237ba8a6a857defcc285ac2daff92109e75f022100ace660bb266104fd111e7d9ea7ee6a629dc45dfed4ce97b0fe7475e0968ff7d0"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain2tx1value"
+                      type="text" value="6.00" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain2tx1from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain2tx1to"
+                      type="text"
+                      value="043e17e5095e878b0fbf63f4c7de037ed0e098d13ac7b8891c5d7238edc9dea474ce7df69a643edf2cccb7b9cf71701e1825e5ceb840764efb3fc7b6e7f433be41"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain2tx1seq" type="text" value="1" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain2tx1sig"
+                      type="text"
+                      value="304502207765bb9ac24975ff9b4194b95b7ce87b1a7435f983d839efa2b2c5e5aa258b02022100ccc33565490a7cdc738c6e75451eadb53b66dd72f3ce67d13cd3dd905265269b"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain2tx2value"
+                      type="text" value="4.00" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain2tx2from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain2tx2to"
+                      type="text"
+                      value="04020d6fe7aeabd3a00d725f542c35d8b345fe1c884f3af420987ca51c73580e4b4c42f9838f254d142d7024f556d167ce2d0ddf7e9576ebd9136368542f8ac5a2"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain2tx2seq" type="text" value="1" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain2tx2sig"
+                      type="text"
+                      value="304602210090ca7d92de041fd0e7fd7b4638ca1ee85a25e0bdaa3deff87a32eac7f1a0f6e9022100a3fd097026ce01eb105c969d0a460475e655845dd3973ee9f69ca9c2e4f05483"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain2tx3value"
+                      type="text" value="9.95" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain2tx3from"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain2tx3to"
+                      type="text"
+                      value="04148850d1edbd665a7a797c69f8015aa84e92f84f68285cc561397d4120c6e6a0f331e6a40bf9e4066ca1719666d201585564d4e11449e22cec9c6eec3d20bfbf"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain2tx3seq" type="text" value="1" onkeyup="updateChain(5, 2, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain2tx3sig"
+                      type="text"
+                      value="3045022100d980efbdcc9efc5e54ca5ed5a300df6cb103da49ac7ac88ccfce333adb8c33a402201469bb5a211fb9b4ae845accc0fb9f3fd75ea68ce41a1cb37cecb318df357a57"
+                      onkeyup="updateChain(5, 2, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain2previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain2previous" type="text"
+                    value="0000f79349c800b2ef5ed40ba485e4abb75158f60f0fe7a962b5bd0fa6ccf1a0"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain2hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain2hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block5chain2mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Peer C</h3>
+    <div class="d-flex flex-nowrap">
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block1chain3card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain3number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block1chain3number" type="text" value="1" onkeyup="updateChain(1, 3, 0);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block1chain3nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain3nonce" type="text" value="16119"
+                    onkeyup="updateChain(1, 3, 0);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block1chain3coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(1, 3, 0);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block1chain3coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(1, 3, 0);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain3previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain3previous" type="text"
+                    value="0000000000000000000000000000000000000000000000000000000000000000"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block1chain3hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block1chain3hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block1chain3mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block2chain3card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain3number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block2chain3number" type="text" value="2" onkeyup="updateChain(2, 3, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block2chain3nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain3nonce" type="text" value="25205"
+                    onkeyup="updateChain(2, 3, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain3coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain3coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain3tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain3tx0from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain3tx0to"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain3tx0seq" type="text" value="1" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain3tx0sig"
+                      type="text"
+                      value="3046022100cf33ee8c696edd0b0c291a259e0a03ea2491f8febd396244e309d175bc8b6b7c022100a85b8b15e037ac42d9f2545e568d2433ede51e59f4bbfd4179f285fac1a10f66"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain3tx1value"
+                      type="text" value="20.00" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain3tx1from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain3tx1to"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain3tx1seq" type="text" value="1" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain3tx1sig"
+                      type="text"
+                      value="30460221008aa13eb403bbaecbbefe36d3df2f3fc04fbee6c930f689eef1e54438957b476a0221008e72503ffaeb7f2d146a7f213b6974de03965c45d56b222f1b7a22640ce87cd9"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain3tx2value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain3tx2from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain3tx2to"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain3tx2seq" type="text" value="1" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain3tx2sig"
+                      type="text"
+                      value="304402201d97c65bafaf61ae46717c87757772860cd1b130e5786085f82bef5b98293c2a02200d230c4c690af60c76ed57fd23c92d45d758f5c2325ee3e326d1c98fe0b769f4"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block2chain3tx3value"
+                      type="text" value="15.00" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block2chain3tx3from"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block2chain3tx3to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block2chain3tx3seq" type="text" value="1" onkeyup="updateChain(2, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block2chain3tx3sig"
+                      type="text"
+                      value="3046022100c583bd79baf55bd5580761a236a7e2f65b80ae3e4ebb4eb620e6a472156b95d1022100b65511d1eaa63f3cda18b78301e4945772fbddee08903acd65e4a97f57e85c55"
+                      onkeyup="updateChain(2, 3, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain3previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain3previous" type="text"
+                    value="00006908f507a101e89544498978e9bd2e35462b91d86ef13510685227912e77"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block2chain3hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block2chain3hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block2chain3mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block3chain3card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain3number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block3chain3number" type="text" value="3" onkeyup="updateChain(3, 3, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block3chain3nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain3nonce" type="text" value="29164"
+                    onkeyup="updateChain(3, 3, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain3coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain3coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain3tx0value"
+                      type="text" value="10.00" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain3tx0from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain3tx0to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain3tx0seq" type="text" value="1" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain3tx0sig"
+                      type="text"
+                      value="30450220485a5a1c317d5a1b33af90201999909b49e09dc5f0b261048bbee1d09ed1735f02210081eb6d39ab4db5d9f95ec5b103b7a6268bc936c738cb05293e167220fbc3b71e"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain3tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain3tx1from"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain3tx1to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain3tx1seq" type="text" value="1" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain3tx1sig"
+                      type="text"
+                      value="3044022002cc3c61bb7cd4573b192d1b61f125545ebc84c5b47dd9ea096b896bf9b335a702204c3252e5f27c8732d4ce52f58efb3493fa733200aba01270f779a3b7fed2e53c"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block3chain3tx2value"
+                      type="text" value="20.00" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block3chain3tx2from"
+                      type="text"
+                      value="04997ac426a5c3c0ec9b51732435f90ebb4cf06aca4bfdb778865af0110f3931660d8b85297d59382c81eb6c7ae7c100af55800f15dad1fc72122139ba02e5d740"
+                      onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block3chain3tx2to"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block3chain3tx2seq" type="text" value="1" onkeyup="updateChain(3, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block3chain3tx2sig"
+                      type="text"
+                      value="3045022100ee33bb3764f5f85f694d1033a66131bc818c188dba4e6392e89c03c06537885202201d92064c5e8804df8864baa30ccbcaca45caac345686768125d0c9a10fad94f4"
+                      onkeyup="updateChain(3, 3, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain3previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain3previous" type="text"
+                    value="00008ccb2fccac084b800a2878d317e14fe88fddb1e91d131d1fc3d523d67125"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block3chain3hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block3chain3hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block3chain3mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block4chain3card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain3number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block4chain3number" type="text" value="4" onkeyup="updateChain(4, 3, 3);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block4chain3nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain3nonce" type="text" value="51263"
+                    onkeyup="updateChain(4, 3, 3);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain3coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain3coinbaseto"
+                      type="text"
+                      value="04fe1be031bc7a54d900ff062911bc4f7ba0edb39e4280268e490b79e347e3b8b0019c252aad7536ef7caeb061d558cac2eaec43ff670d76a521bec77c35751310"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain3tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain3tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain3tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain3tx0seq" type="text" value="1" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain3tx0sig"
+                      type="text"
+                      value="30450221009231b78416d222dd7e73e42b5bd7613b89ad4d093f33ba799d0867304861e5100220028b3ffe5a80bab482c31464fb0db1609f674f8f03e8a137e15593bdc97e7725"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain3tx1value"
+                      type="text" value="5.00" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain3tx1from"
+                      type="text"
+                      value="042222d7af343abd780add9dd7a0f554a1d6b127bc6f7ec28c5eef97d25af83028e89011559daa71dfcc7e2175433a1a6ef605715eba07a8a942c7088f8050a714"
+                      onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain3tx1to"
+                      type="text"
+                      value="041c377677bb697329b8dbeb5811b026d532730ad90ad7357fd812183ec01b766d7a4ee33c6a85b84d44fa1c3c59377c660f0076c39c563d9a19005a56ee1d1336"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain3tx1seq" type="text" value="1" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain3tx1sig"
+                      type="text"
+                      value="30460221008060d62c9e36fb464b792e4d3b9a08783877259cc56ea87b20d798d0f3f450b202210083d082cc7222d5834f4b71be9b23ee6943f44bda5ef549c698e382b800c59bec"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block4chain3tx2value"
+                      type="text" value="8.00" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block4chain3tx2from"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block4chain3tx2to"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block4chain3tx2seq" type="text" value="1" onkeyup="updateChain(4, 3, 3);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block4chain3tx2sig"
+                      type="text"
+                      value="3044022013a30405cc52560bcfa5348955303bad54e235f1504d65e356403f41e60867d50220539fc0bcd0ec869f08ed10987188f3333c9d7050af7ac5cf239c3cab38a4e46f"
+                      onkeyup="updateChain(4, 3, 3);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain3previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain3previous" type="text"
+                    value="000029942f0286f943ac7e877d7f10c3902aecbb2eebc72a758ab40487b0b8f9"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block4chain3hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block4chain3hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block4chain3mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card card-block card-success" id="block5chain3card">
+          <div class="card-body">
+            <form class="form-horizontal">
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain3number">Block:</label>
+                <div class="col-sm">
+                  <div class="input-group"><span class="input-group-addon">#</span><input class="form-control"
+                      id="block5chain3number" type="text" value="5" onkeyup="updateChain(5, 3, 4);"></div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label" for="block5chain3nonce">Nonce:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain3nonce" type="text" value="172517"
+                    onkeyup="updateChain(5, 3, 4);"></div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Coinbase:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain3coinbasevalue"
+                      type="text" value="100.00" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain3coinbaseto"
+                      type="text"
+                      value="04cc17dc129331c1cbb9c32cf4dc2dde4a5144e26c09b7430685c227176aeed05c74cf9d581da9d872cff53e67a8b28c53dfcf197dc4148e476eff4c3abfb3eebd"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label class="col-sm-2 control-label">Tx:</label>
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain3tx0value"
+                      type="text" value="7.00" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain3tx0from"
+                      type="text"
+                      value="04d4080959e3795bc74a50fe606c1418a0a2a1c2c16e39f5c4a08b363a9c0611fa732be61f13b3f270cc534d3815dacced5d344b86a9aa302390c3399b5238bce6"
+                      onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain3tx0to"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain3tx0seq" type="text" value="2" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain3tx0sig"
+                      type="text"
+                      value="304502203b00e4d2c7d85dc96a3ede37c287237ba8a6a857defcc285ac2daff92109e75f022100ace660bb266104fd111e7d9ea7ee6a629dc45dfed4ce97b0fe7475e0968ff7d0"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain3tx1value"
+                      type="text" value="6.00" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain3tx1from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain3tx1to"
+                      type="text"
+                      value="043e17e5095e878b0fbf63f4c7de037ed0e098d13ac7b8891c5d7238edc9dea474ce7df69a643edf2cccb7b9cf71701e1825e5ceb840764efb3fc7b6e7f433be41"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain3tx1seq" type="text" value="1" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain3tx1sig"
+                      type="text"
+                      value="304502207765bb9ac24975ff9b4194b95b7ce87b1a7435f983d839efa2b2c5e5aa258b02022100ccc33565490a7cdc738c6e75451eadb53b66dd72f3ce67d13cd3dd905265269b"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain3tx2value"
+                      type="text" value="4.00" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain3tx2from"
+                      type="text"
+                      value="0451d4a9c44a2dec79ad3e26ab25223b78d9c9e5150cefe53e79f3fefed4f23b36f02cf51a74c2f44916c571560b5e3f555ee1bb339a64ef707825340e3ed37090"
+                      onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain3tx2to"
+                      type="text"
+                      value="04020d6fe7aeabd3a00d725f542c35d8b345fe1c884f3af420987ca51c73580e4b4c42f9838f254d142d7024f556d167ce2d0ddf7e9576ebd9136368542f8ac5a2"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain3tx2seq" type="text" value="1" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain3tx2sig"
+                      type="text"
+                      value="304602210090ca7d92de041fd0e7fd7b4638ca1ee85a25e0bdaa3deff87a32eac7f1a0f6e9022100a3fd097026ce01eb105c969d0a460475e655845dd3973ee9f69ca9c2e4f05483"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div><br>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div><input class="form-control" id="block5chain3tx3value"
+                      type="text" value="9.95" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">From:</div><input class="form-control" id="block5chain3tx3from"
+                      type="text"
+                      value="040b4c84f02bfec488a8a861267f8221646e1b6f6701504ad39d4ee82248fa7b5152536ea36bf47ee0812186a13311a2c0cfc24f557dfa38b2048139be45d7ac4c"
+                      onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">-&gt;</div><input class="form-control" id="block5chain3tx3to"
+                      type="text"
+                      value="04148850d1edbd665a7a797c69f8015aa84e92f84f68285cc561397d4120c6e6a0f331e6a40bf9e4066ca1719666d201585564d4e11449e22cec9c6eec3d20bfbf"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">Seq:</div><input class="form-control col-sm-1"
+                      id="block5chain3tx3seq" type="text" value="1" onkeyup="updateChain(5, 3, 4);">
+                    <div class="input-group-addon">Sig:</div><input class="form-control" id="block5chain3tx3sig"
+                      type="text"
+                      value="3045022100d980efbdcc9efc5e54ca5ed5a300df6cb103da49ac7ac88ccfce333adb8c33a402201469bb5a211fb9b4ae845accc0fb9f3fd75ea68ce41a1cb37cecb318df357a57"
+                      onkeyup="updateChain(5, 3, 4);">
+                  </div><br>
+                </div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain3previous">Prev:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain3previous" type="text"
+                    value="0000f79349c800b2ef5ed40ba485e4abb75158f60f0fe7a962b5bd0fa6ccf1a0"></div>
+              </div>
+              <div class="form-group" id="state"><label class="col-sm-2 control-label"
+                  for="block5chain3hash">Hash:</label>
+                <div class="col-sm"><input class="form-control" id="block5chain3hash" type="text" disabled=""></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+                <div class="col-sm"><button class="btn btn-primary ladda-button" id="block5chain3mineButton"
+                    data-style="expand-right"><span class="ladda-label">Mine</span></button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>var EC = elliptic.elliptic().ec;
+    var ec = new EC('secp256k1');
+    
+    $(function() {
+      setup(1, 1, 0);
+      setup(2, 1, 4);
+      setup(3, 1, 3);
+      setup(4, 1, 3);
+      setup(5, 1, 4);
+    
+      setup(1, 2, 0);
+      setup(2, 2, 4);
+      setup(3, 2, 3);
+      setup(4, 2, 3);
+      setup(5, 2, 4);
+    
+      setup(1, 3, 0);
+      setup(2, 3, 4);
+      setup(3, 3, 3);
+      setup(4, 3, 3);
+      setup(5, 3, 4);
+    });
+    
+    function getText(block, chain) {
+      var s = $('#block'+block+'chain'+chain+'number').val() +
+              $('#block'+block+'chain'+chain+'nonce').val() +
+              $('#block'+block+'chain'+chain+'coinbasevalue').val() +
+              $('#block'+block+'chain'+chain+'coinbaseto').val();
+    
+      for (var x=0; $('#block'+block+'chain'+chain+'tx'+x+'value').length > 0; x++) {
+        s = s + $('#block'+block+'chain'+chain+'tx'+x+'value').val() +
+                $('#block'+block+'chain'+chain+'tx'+x+'from').val() +
+                $('#block'+block+'chain'+chain+'tx'+x+'to').val() +
+                $('#block'+block+'chain'+chain+'tx'+x+'seq').val() +
+                $('#block'+block+'chain'+chain+'tx'+x+'sig').val();
+      }
+      s = s + $('#block'+block+'chain'+chain+'previous').val();
+      return s;
+    }
+    
+    function setup(block, chain, txCount) {
+      for (var x=0; x<txCount; x++) {
+        verifySignature(block, chain, x);
+      }
+      updateHash(block, chain);
+      $('#block'+block+'chain'+chain+'mineButton').click(function(e) {
+          e.preventDefault();
+          var l = Ladda.create(this);
+          l.start();
+          setTimeout(function() {
+              mine(block, chain, true);
+              l.stop();
+            }, 250); // give UI time to update
+        });
+    }
+    
+    function verifySignature(block, chain, tx) {
+      try {
+        var message = $('#block'+block+'chain'+chain+'tx'+tx+'value').val() +
+                      $('#block'+block+'chain'+chain+'tx'+tx+'from').val() +
+                      $('#block'+block+'chain'+chain+'tx'+tx+'to').val() +
+                      $('#block'+block+'chain'+chain+'tx'+tx+'seq').val();
+        var binaryMessage = buffer.Buffer.from(CryptoJS.SHA256(message).toString(CryptoJS.enc.Hex));
+        var pubKey = ec.keyFromPublic($('#block'+block+'chain'+chain+'tx'+tx+'from').val(), 'hex');
+        if (pubKey.verify(binaryMessage, $('#block'+block+'chain'+chain+'tx'+tx+'sig').val()))
+          $('#block'+block+'chain'+chain+'tx'+tx+'sig').removeClass('text-danger');
+        else
+          $('#block'+block+'chain'+chain+'tx'+tx+'sig').addClass('text-danger');
+      }
+      catch(e) {
+        console.log(e);
+      }
+    }</script>
+</body>
+
+</html>
