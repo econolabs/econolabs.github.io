@@ -4,22 +4,14 @@
 <head>
     <meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
 
-    
-
     <link href="https://unpkg.com/dmglvn-financelabs@0.0.21/build/labs.min.css" rel="stylesheet">
 
-    <!-- <link href="../packages/dmglvnfinancelabs/build/labs.min.css" rel="stylesheet"> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
     <script src="https://unpkg.com/immer@9.0.12/dist/immer.umd.production.min.js"></script>
-
-    <!-- <script src="../packages/dmglvnfinancelabs/build/addquiz.js"></script> -->
 
     <script src="https://unpkg.com/dmglvn-financelabs@0.0.21/build/addquiz.js"></script>
 
@@ -28,14 +20,13 @@
     <div id='labs'></div>
 
     <script type='module'>
-    //    console.log(window.labs)
         window.labs.addquiz({
             databaseURL: 'https://fincalculations.firebaseio.com',
             theme: "Президентская программа. Итоговое тестирование",
             header: "Типовая задача"
         });
     </script>
-    <script>console.log(window)</script>
+   
 </body>
 
 </html>
