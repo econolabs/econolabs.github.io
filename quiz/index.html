@@ -2,281 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    
+
+    <link href="https://unpkg.com/dmglvn-financelabs@0.0.21/build/labs.min.css" rel="stylesheet">
+
+    <!-- <link href="../packages/dmglvnfinancelabs/build/labs.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script src="https://unpkg.com/immer@9.0.12/dist/immer.umd.production.min.js"></script>
+
+    <!-- <script src="../packages/dmglvnfinancelabs/build/addquiz.js"></script> -->
+
+    <script src="https://unpkg.com/dmglvn-financelabs@0.0.21/build/addquiz.js"></script>
+
 
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <h3 style="margin:0">
-      <a aria-current="page" style="color:gray;text-decoration:none" class="" href="/">Econolabs</a>
-    </h3>
-    <a class="navbar-brand" href="https://vk.com/id151078439">
-      <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
-        style="vertical-align:middle;width:40px;height:40px;border-radius:50%;filter:grayscale(100%);object-fit:cover" />
-    </a>
-  </nav>
+    <div id='labs'></div>
 
-  <div style="margin: 0px auto; max-width: 800px; padding: 2rem; margin-top: 2rem">
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">NPV</h5>
-        <p class="card-text">
-          Оцените чистую приведенную стоимость (NPV) проекта (в тыс. руб.), который принесет компании по 200 тыс. руб. в
-          течение двух последующих лет и предполагает первоначальные инвестиции в размере 300 тыс. руб., требуемая
-          доходность - 10%
-        </p>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">75.5</li>
-          <li class="list-group-item">-7.5</li>
-          <li class="list-group-item">47.1</li>
-          <li class="list-group-item">30.6</li>
-        </ul>
-
-      </div>
-      <div class="card-body">
-        <a href="https://support.microsoft.com/ru-ru/office/%d1%87%d0%bf%d1%81-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d1%87%d0%bf%d1%81-8672cb67-2576-4d07-b67b-ac28acf2a568?ui=ru-ru&rs=ru-ru&ad=ru"
-          class="card-link">Microsoft NPV</a>
-        <a href="https://econolabs.github.io/financial_calculations/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Рентабельность активов </h5>
-        <p class="card-text">
-          Коэффициент валовой рентабельности составил 20%. Среднегодовые остатки запасов оцениваются в 1000 тыс. руб.
-          Коэффициент оборачиваемости запасов, оцененный по уровню себестоимости продаж, равен 8. Определите выручку
-        </p>
-
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">8 000 тыс. руб.</li>
-          <li class="list-group-item">9 600 тыс. руб.</li>
-          <li class="list-group-item">10 000 тыс. руб.</li>
-          <li class="list-group-item">40 000 тыс. руб.</li>
-        </ul>
-
-      </div>
-      <div class="card-body">
-        <p class="card-text">Оборачиваемость = Себестоимость / Средние остатки</p>
-        <p class="card-text">Выручка = Себестоимость + Прибыль</p>
-        <p class="card-text">Валовая рентабельность = Рентабельность валового оборота = Прибыль / Выручка</p>
-
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Стоимость бизнеса</h5>
-        <p class="card-text">
-          Если компания принимает проект с отрицательной чистой приведенной стоимостью (NPV)
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Рыночная оценка компании снижается</li>
-          <li class="list-group-item">Балансовая оценка компании снижается</li>
-          <li class="list-group-item">Стоимость компании не меняется</li>
-          <li class="list-group-item">Рыночная оценка компании растет</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        NPV отражает оценку исходя из дисконтирования будущих поступлений
-        <a href="https://econolabs.github.io/business_valuation/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Рентабельность капитала и активов</h5>
-        <p class="card-text">
-          По итогам отчетного года компания показала рентабельность собственного капитала на уровне 12%. Чистая прибыль
-          компании составила 100 млн. руб. Рассчитайте рентабельность всего капитала, если соотношение величины
-          собственных и заемных средств поддерживается на уровне 2 к 1
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">24%</li>
-          <li class="list-group-item">12%</li>
-          <li class="list-group-item">8%</li>
-          <li class="list-group-item">10%</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <p class="card-text">Прибыль / Собственный капитал => Прибыль / (Собственный капитал + Долг)</p>
-        <a href="https://econolabs.github.io/modigliani%E2%80%93miller/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Сложный процент</h5>
-        <p class="card-text">
-          Три года назад вы открыли депозит в банке на 100 тыc. руб. по ставке 5%. На сколько выросла сумма в банке,
-          если по депозиту начисляется сложный процент?
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">33 тыс. руб.</li>
-          <li class="list-group-item">10.3 тыс. руб.</li>
-          <li class="list-group-item">21.5 тыс. руб.</li>
-          <li class="list-group-item">15.8 тыс. руб</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <a href="https://econolabs.github.io/financial_calculations/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Дебиторская и кредиторская задолженность</h5>
-        <p class="card-text">
-          Что означает наличие обязательств в бухгалтерском балансе на конец отчетного года?
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Компания планирует приобрести товар в следующем отчетном году, в текущем периоде
-            произведена <b>предоплата</b> по договору</li>
-          <li class="list-group-item">Компания <b>приобрела</b> товар у поставщика по договору, предусматривающему
-            авансовые платежи, сумма перечисленного компанией аванса <b>превышает</b> стоимость полученного товара</li>
-          <li class="list-group-item">Компания <b>планирует</b> приобрести товар в следующем отчетном году, на конец
-            года заключен договор, но финансовые расчеты <b>не осуществлены</b></li>
-          <li class="list-group-item">Компания <b>приобрела</b> товар у поставщика, но <b>не оплатила</b> счета на конец
-            отчетного года</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        Приобрели, но не оплатили -> кредиторская задолженность. Заплатили аванс, но не получили товар -> дебиторская
-        задолженность.
-        <a href="https://econolabs.github.io/financial_calculations/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Налогообложение</h5>
-        <p class="card-text">
-          Компания отгрузила готовую продукцию покупателю на сумму 5,5 млн. руб., в том числе НДС 10%.
-          Себестоимость продажи готовой продукции составляет 3,5 млн. руб.; расходы на продажу равны 0,2 млн. руб.
-          Покупатель полностью оплатил договор. Чему равна прибыль от продажи в рамках данной операции?
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">1.3</li>
-          <li class="list-group-item">2.0</li>
-          <li class="list-group-item">1.25</li>
-          <li class="list-group-item">1.5</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        Доходы = Выручка 10/110
-        Прибыль = Доходы - Себестоимость проданной продукции = Расходы на продажу
-        <a href="https://econolabs.github.io/corporate_taxes/" class="card-link">Econolabs</a>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Операционный рычаг</h5>
-        <p class="card-text">
-          Большим операционным рычагом обладают те компании, которые...
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Имеют большую долю <b>основных фондов и НМА (нематериальных активов)</b> в
-            структуре баланса и большие <b>управленческие расходы</b></li>
-          <li class="list-group-item">Имеют большую долю <b>переменных затрат</b> в структуре себестоимости</li>
-          <li class="list-group-item">Финансируют инвестиционные проекты преимущественно за счет нераспределенной
-            прибыли</li>
-          <li class="list-group-item">Имеют большую долю долгового финансирования в структуре капитала</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <p class="card-text">Какая часть оборотных активов профинансирована НЕ за счет кредиторской задолженности?</p>
-        <a href="https://econolabs.github.io/company_analyses/" class="card-link">Econolabs</a>
-      </div>
-
-    </div>
-
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Очет о движении денежных средств</h5>
-        <p class="card-text">
-          Компания за отчетный год в отчете о движении денежных средств отразила положительный денежных поток от текущей
-          деятельности.
-          Какой вывод сделает собственник компании?
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Компания продала с большой наценкой товары, получила прибыль от продажи, однако
-            денежные средств по отгрузке со стороны покупателя <b>не перечислены</b></li>
-          <li class="list-group-item">Компания продала <b>объекты недвижимости</b>, получила чистую прибыль за период,
-            суммы полученных денежных средств хватило для погашения всех обязательств по текущей деятельности</li>
-          <li class="list-group-item">Компания продала с большой наценкой товары, получила прибыль от продажи, суммы
-            полученных денежных средств от покупателя хватило для погашения всех обязательств по текущей
-            деятельности/li>
-          <li class="list-group-item">Компания продала <b>объекты недвижимости</b>, получила чистую прибыль за период,
-            суммы полученных денежных средств хватило для погашения всех обязательств по текущей, инвестиционной и
-            финансовой деятельности</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <p class="card-text">Какая часть оборотных активов профинансирована НЕ за счет кредиторской задолженности?</p>
-        <a href="https://econolabs.github.io/business_budgeting/" class="card-link">Econolabs</a>
-      </div>
-
-    </div>
-
-    <div class="card mb-3">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Платежеспособность</h5>
-        <p class="card-text">
-          Компания располагает запасами сырья на 35 млн. руб., запасы готовой продукции оцениваются в 20 млн. руб., на
-          банковском счете размещено 25 млн. руб., кредиторская задолженность составляет 10 млн. руб. Сколько (в млн.
-          руб.) составляет чистый оборотный капитал данной компании?
-        </p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">80</li>
-          <li class="list-group-item">70</li>
-          <li class="list-group-item">45</li>
-          <li class="list-group-item">40</li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <p class="card-text">Какая часть оборотных активов профинансирована НЕ за счет кредиторской задолженности?</p>
-        <a href="https://econolabs.github.io/company_analyses/" class="card-link">Econolabs</a>
-      </div>
-
-    </div>
-
-
-  </div>
-
-
+    <script type='module'>
+    //    console.log(window.labs)
+        window.labs.addquiz({
+            databaseURL: 'https://fincalculations.firebaseio.com',
+            theme: "Президентская программа. Итоговое тестирование",
+            header: "Типовая задача"
+        });
+    </script>
+    <script>console.log(window)</script>
 </body>
 
 </html>
