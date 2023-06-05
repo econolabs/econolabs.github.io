@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" crossorigin="crossorigin"></script>
+    <script src="https://unpkg.com/immer@6.0.3/dist/immer.umd.production.min.js"></script>
+</head>
+
+<body>
+
+    <div id="econolabs" data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+        data-app="1:892270777573:web:bdc13e9b47334b4319700c" data-where="openlectures">
+        <div class="container">
+            <div id="firebaseurl" class="m-3 text-gray"></div>
+
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-md-6">
+                    <select class="form-select form-select-sm" aria-label="select theme" id="selecttheme" name="theme">
+                        <option selected="selected">...</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6">
+                    <select class="form-select form-select-sm" aria-label="select theme" id="selectquiz" name="quiz">
+                        <option selected="selected">...</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row g-3 align-items-center" style="display: none; overflow-x: visible; overflow-y: visible;"
+                id="buttonsdiv">
+                <div class="col col-md-1">
+                    <button class="btn btn-sm btn-outline-secondary m-3" id="save">Save</button>
+                </div>
+                <div class="col col-md-3">
+                    <p class="text-muted" id="id"></p>
+                </div>
+                <div class="col col-md-4">
+                    <button class="btn btn-sm btn-outline-secondary m-3" id="edithintinckeditor">Edit Hint in
+                        CKEditor</button>
+                </div>
+                <div class="col col-md-4">
+                    <button class="btn btn-sm btn-outline-secondary m-3" id="editquizstringinckeditor">Edit Quiz String
+                        in CKEditor </button>
+                </div>
+
+            </div>
+
+            <div class="mb-3" style="display: none; overflow-x: visible; overflow-y: visible;" id="quizstringdiv">
+                <!--     <label for="hint" class="form-label">Quiz String</label>
+                <textarea class="form-control" id="quizstring" rows="5"></textarea>  -->
+            </div>
+
+
+            <div class="mb-3" style="display: none; overflow-x: visible; overflow-y: visible;" id="hintdiv">
+                <!--    <label for="hint" class="form-label">Hint</label>
+                <textarea class="form-control" id="hint" rows="5"></textarea> -->
+            </div>
+
+            <div id="ckeditordiv" style="display: none; overflow-x: visible; overflow-y: visible; ">
+                <div id="editor">
+                    <p>This is some sample content.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <pre id="showobject"></pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
+    <script type="module">
+
+
+
+        //  import { updateFireData, setFireData, getFirebaseNodeKey } from "../utilities/vanillajs_modulewithutilities.js";
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import {
+            getDatabase,
+            ref,
+            get,
+            set,
+            update,
+            child,
+            push
+        } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+        //Firebase
+
+        var fireconf = {};
+        try {
+            fireconf = document
+                .getElementById('econolabs')
+                .dataset;
+        } catch (err) {
+            throw new Error('Unable to get params' + err)
+        }
+        const firebaseConfig = {
+            apiKey: fireconf.api,
+            databaseURL: "https://" + fireconf.base + ".firebaseio.com",
+            appId: fireconf.app
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const dbRef = ref(getDatabase());
+
+        //REDUX
+
+        const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
+        const myReducer = window
+            .immer
+            .produce((draft, action) => {
+                switch (action.type) {
+                    case "SET_STORE_OBJECT":
+                        draft[action.payload.key] = action.payload.value;
+                        break
+
+                    case "SEED_ARRAY":
+                        draft[action.payload.arrayName] = action.payload.arrayItems;
+                        break
+
+                    case "PUSH_SOME_ITEMS_TO_ARRAY":
+                        console.log(draft[action.payload.arrayName]);
+                        console.log(action.payload.newArrayItems);
+                        draft[action.payload.arrayName] = [
+                            ...draft[action.payload.arrayName],
+                            ...action.payload.newArrayItems
+                        ];
+                        break
+
+                    case "PUSH_ITEM_TO_ARRAY":
+                        draft[action.payload.arrayName].push(action.payload.item);
+                        break
+
+                    case "DELETE_ITEM_FROM_ARRAY":
+                        draft[action.payload.arrayName] = draft[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
+                        break
+
+                    case "UPDATE_ITEM_IN_ARRAY":
+                        const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
+                        if (index !== -1) {
+                            draft[action.payload.arrayName][index] = action.payload
+                        };
+                        break
+
+                    default:
+                        break
+                }
+            });
+
+        const store = Redux.createStore(myReducer,
+            {
+                casesArray: [],
+                caseLayout: [],
+            },
+            composeEnhancers(window.Redux.applyMiddleware(reduxMiddleware)));
+
+        ///Initial load
+
+        get(child(dbRef, `quizescases/quizesCasesIds`))
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    let resObj = snapshot.val();
+                    let casesArray = Object
+                        .keys(resObj)
+                        .map(objKey => {
+                            return {
+                                id: objKey,
+                                ...resObj[objKey]
+                            }
+                        });
+                    store.dispatch({
+                        type: 'SEED_ARRAY',
+                        payload: {
+                            arrayName: "casesArray",
+                            arrayItems: casesArray
+                        }
+                    });
+
+                    document
+                        .getElementById("selecttheme")
+                        .innerHTML += [...new Set(casesArray.map(item => item.theme))]
+                            .map(item => {
+                                return `<option>${item}</option>`
+                            })
+                            .join("")
+                } else {
+                    console.log("No data available");
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+
+        //Prepare Editor
+
+        let editor;
+        let editorContentType;
+
+        // This sample still does not showcase all CKEditor 5 features (!)
+        // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
+        // https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/getting-and-setting-data.html
+        CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
+            // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
+            toolbar: {
+                items: [
+                    'exportPDF', 'exportWord', '|',
+                    'findAndReplace', 'selectAll', '|',
+                    'heading', '|',
+                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
+                    'bulletedList', 'numberedList', 'todoList', '|',
+                    'outdent', 'indent', '|',
+                    'undo', 'redo',
+                    '-',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                    'alignment', '|',
+                    'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
+                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'textPartLanguage', '|',
+                    'sourceEditing'
+                ],
+                shouldNotGroupWhenFull: true
+            },
+            // Changing the language of the interface requires loading the language file using the <script> tag.
+            // language: 'es',
+            list: {
+                properties: {
+                    styles: true,
+                    startIndex: true,
+                    reversed: true
+                }
+            },
+            // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+                    { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+                    { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
+                ]
+            },
+            // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
+            placeholder: 'Welcome to CKEditor 5!',
+            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
+            fontFamily: {
+                options: [
+                    'default',
+                    'Arial, Helvetica, sans-serif',
+                    'Courier New, Courier, monospace',
+                    'Georgia, serif',
+                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                    'Tahoma, Geneva, sans-serif',
+                    'Times New Roman, Times, serif',
+                    'Trebuchet MS, Helvetica, sans-serif',
+                    'Verdana, Geneva, sans-serif'
+                ],
+                supportAllValues: true
+            },
+            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
+            fontSize: {
+                options: [10, 12, 14, 'default', 18, 20, 22],
+                supportAllValues: true
+            },
+            // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
+            // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
+            htmlSupport: {
+                allow: [
+                    {
+                        name: /.*/,
+                        attributes: true,
+                        classes: true,
+                        styles: true
+                    }
+                ]
+            },
+            // Be careful with enabling previews
+            // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
+            htmlEmbed: {
+                showPreviews: true
+            },
+            // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
+            link: {
+                decorators: {
+                    addTargetToExternalLinks: true,
+                    defaultProtocol: 'https://',
+                    toggleDownloadable: {
+                        mode: 'manual',
+                        label: 'Downloadable',
+                        attributes: {
+                            download: 'file'
+                        }
+                    }
+                }
+            },
+            // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
+            mention: {
+                feeds: [
+                    {
+                        marker: '@',
+                        feed: [
+                            '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
+                            '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
+                            '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
+                            '@sugar', '@sweet', '@topping', '@wafer'
+                        ],
+                        minimumCharacters: 1
+                    }
+                ]
+            },
+            // The "super-build" contains more premium features that require additional configuration, disable them below.
+            // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
+            removePlugins: [
+                // These two are commercial, but you can try them out without registering to a trial.
+                // 'ExportPdf',
+                // 'ExportWord',
+                'CKBox',
+                'CKFinder',
+                'EasyImage',
+                // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
+                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
+                // Storing images as Base64 is usually a very bad idea.
+                // Replace it on production website with other solutions:
+                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
+                // 'Base64UploadAdapter',
+                'RealTimeCollaborativeComments',
+                'RealTimeCollaborativeTrackChanges',
+                'RealTimeCollaborativeRevisionHistory',
+                'PresenceList',
+                'Comments',
+                'TrackChanges',
+                'TrackChangesData',
+                'RevisionHistory',
+                'Pagination',
+                'WProofreader',
+                // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
+                // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+                'MathType',
+                // The following features are part of the Productivity Pack and require additional license.
+                'SlashCommand',
+                'Template',
+                'DocumentOutline',
+                'FormatPainter',
+                'TableOfContents'
+            ]
+        })
+            .then(newEditor => {
+                editor = newEditor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        //Clicks
+
+        window.addEventListener("change", (e) => {
+            e.preventDefault();
+            if (e.target.id === "selecttheme") {
+                editorContentType = null;
+                document.getElementById('quizstringdiv').style.display = "none";
+                document.getElementById('hintdiv').style.display = "none";
+                document.getElementById('ckeditordiv').style.display = "none";
+                document.getElementById('buttonsdiv').style.display = "none";
+
+
+                //  console.log(document.getElementById("selecttheme").value);
+
+                document
+                    .getElementById("selectquiz")
+                    .innerHTML = [...new Set(store.getState().casesArray.filter(item => item.theme === document.getElementById("selecttheme").value).map(item => item.title))]
+                        .map(item => {
+                            return `<option>${item}</option>`
+                        })
+                        .join("")
+            };
+
+            if (e.target.id === "selectquiz") {
+                editorContentType = null;
+                console.log(document.getElementById("selectquiz").value);
+                let quiz = store
+                    .getState()
+                    .casesArray
+                    .filter(item => item.title === document.getElementById("selectquiz").value)[0];
+                console.log(quiz);
+
+                let hintInitialValue = !!quiz?.hint ? quiz.hint : quiz.id;
+                let quizstringInitialValue = !!quiz?.quizstring ? quiz.quizstring : quiz.id;
+
+                document.getElementById('ckeditordiv').style.display = "none";
+
+                document.getElementById('quizstringdiv').innerHTML = quizstringInitialValue;
+                document.getElementById('quizstringdiv').style.display = "";
+
+                document.getElementById('hintdiv').innerHTML = hintInitialValue;
+                document.getElementById('hintdiv').style.display = "";
+
+                document.getElementById('buttonsdiv').style.display = "";
+                document.getElementById('id').innerText = quiz?.id;
+
+            };
+
+        })
+
+        window.addEventListener("click", (e) => {
+            e.preventDefault();
+            let quiz = store
+                .getState()
+                .casesArray
+                .find(item => item.title === document.getElementById("selectquiz").value);
+
+            if (e.target.id === "save") {
+                //       console.log(document.getElementById('hint').innerHTML);
+                //       console.log(document.getElementById('quizstring').innerHTML);
+
+                console.log(editorContentType);
+                console.log(editor.getData());
+
+                if (editorContentType === "edithintinckeditor") {
+                    updateFireData("quizescases/quizesCasesIds",
+                        [{ ...quiz, hint: editor.getData() }]
+                    );
+                    store.dispatch({
+                        type: "UPDATE_ITEM_IN_ARRAY",
+                        payload: {
+                            arrayName: "casesArray",
+                            arrayItem: { ...quiz, hint: editor.getData() }
+                        }
+                    });
+                    document.getElementById('hintdiv').innerHTML = editor.getData();
+
+
+                }
+
+                if (editorContentType === "editquizstringinckeditor") {
+                    updateFireData("quizescases/quizesCasesIds",
+                        [{ ...quiz, quizstring: editor.getData() }]);
+                    store.dispatch({
+                        type: "UPDATE_ITEM_IN_ARRAY",
+                        payload: {
+                            arrayName: "casesArray",
+                            arrayItem: { ...quiz, quizstring: editor.getData() }
+                        }
+                    });
+                    document.getElementById('quizstringdiv').innerHTML = editor.getData();
+                }
+
+
+
+            }
+
+            if (e.target.id === "edithintinckeditor") {
+                console.log("edithintinckeditor");
+                editorContentType = "edithintinckeditor";
+                document.getElementById('ckeditordiv').style.display = "";
+                editor.setData(!!quiz?.hint ? quiz.hint : "Hint");
+
+            }
+
+            if (e.target.id === "editquizstringinckeditor") {
+                console.log("editquizstringinckeditor");
+                editorContentType = "editquizstringinckeditor";
+                document.getElementById('ckeditordiv').style.display = "";
+                editor.setData(!!quiz?.quizstring ? quiz.quizstring : "Quiz string");
+                // store.dispatch({
+                //         type: 'SEED_ARRAY',
+                //         payload: {
+                //             arrayName: "casesArray",
+                //             arrayItems: casesArray
+                //         }
+                //     });
+            }
+
+        })
+
+        //REDUX SUBSCRIBE
+
+        store.subscribe(() => {
+            console.log([...new Set(store.getState().casesArray.map(item => item.theme))])
+            //   [...new Set(store.getState().casesArray)]
+        });
+
+        ///Common Functions
+
+        function reduxMiddleware(store) {
+            return function (next) {
+                return function (action) {
+                    if (typeof action === "function") {
+                        return action(store.dispatch, store.getState);
+                    } else {
+                        return next(action);
+                    }
+                }
+            }
+        }
+
+        function getFirebaseNodeKey(url) {
+            return push(child(dbRef, url + "/")).key;
+        }
+
+        function setFireData(url = "closedlectures", fireobj = {
+            test: "test"
+        }) {
+            try {
+                set(ref(database, url), fireobj).then(res => console.log("Set is done at " + url + " with data " + fireobj));
+
+            } catch (err) {
+                throw new Error('Unable to set a node ' + err)
+            }
+        }
+
+        function updateFireData(url = "closedlectures", fireArr = [
+            {
+                title: "test",
+                content: "test",
+                id: "test",
+                type: "html"
+            }, {
+                title: "test2",
+                content: "test2",
+                id: "test2",
+                type: "html"
+            }
+        ]) {
+            try {
+                const updates = {};
+                fireArr.forEach(item => {
+                    updates[url + "/" + item.id] = item
+                })
+                console.log(updates);
+                update(ref(database), updates).then(res => console.log("Update is done at " + url + " with data " + updates));
+
+            } catch (err) {
+                throw new Error('Unable to update a node ' + err)
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
