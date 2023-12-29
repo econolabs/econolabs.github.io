@@ -1084,9 +1084,9 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState3(initialState3) {
+          function useState3(initialState2) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useState(initialState3);
+            return dispatcher.useState(initialState2);
           }
           function useReducer(reducer, initialArg, init) {
             var dispatcher = resolveDispatcher();
@@ -3752,7 +3752,7 @@
             if (node.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
               return;
             }
-            var get6 = descriptor.get, set5 = descriptor.set;
+            var get6 = descriptor.get, set4 = descriptor.set;
             Object.defineProperty(node, valueField, {
               configurable: true,
               get: function() {
@@ -3763,7 +3763,7 @@
                   checkFormFieldValueStringCoercion(value);
                 }
                 currentValue = "" + value;
-                set5.call(this, value);
+                set4.call(this, value);
               }
             });
             Object.defineProperty(node, valueField, {
@@ -5674,7 +5674,7 @@
           function has2(key) {
             return key._reactInternals !== void 0;
           }
-          function set4(key, value) {
+          function set3(key, value) {
             key._reactInternals = value;
           }
           var NoFlags = (
@@ -6807,14 +6807,14 @@
           function includesSomeLane(a, b) {
             return (a & b) !== NoLanes;
           }
-          function isSubsetOfLanes(set5, subset) {
-            return (set5 & subset) === subset;
+          function isSubsetOfLanes(set4, subset) {
+            return (set4 & subset) === subset;
           }
           function mergeLanes(a, b) {
             return a | b;
           }
-          function removeLanes(set5, subset) {
-            return set5 & ~subset;
+          function removeLanes(set4, subset) {
+            return set4 & ~subset;
           }
           function intersectLanes(a, b) {
             return a & b;
@@ -11593,9 +11593,9 @@
               }
               return maybeStrictRoot;
             };
-            var setToSortedString = function(set5) {
+            var setToSortedString = function(set4) {
               var array = [];
-              set5.forEach(function(value) {
+              set4.forEach(function(value) {
                 array.push(value);
               });
               return array.sort().join(", ");
@@ -12679,7 +12679,7 @@
           function adoptClassInstance(workInProgress2, instance) {
             instance.updater = classComponentUpdater;
             workInProgress2.stateNode = instance;
-            set4(instance, workInProgress2);
+            set3(instance, workInProgress2);
             {
               instance._reactInternalInstance = fakeInternalInstance;
             }
@@ -14232,20 +14232,20 @@
           }
           function mountReducer(reducer, initialArg, init) {
             var hook = mountWorkInProgressHook();
-            var initialState3;
+            var initialState2;
             if (init !== void 0) {
-              initialState3 = init(initialArg);
+              initialState2 = init(initialArg);
             } else {
-              initialState3 = initialArg;
+              initialState2 = initialArg;
             }
-            hook.memoizedState = hook.baseState = initialState3;
+            hook.memoizedState = hook.baseState = initialState2;
             var queue = {
               pending: null,
               interleaved: null,
               lanes: NoLanes,
               dispatch: null,
               lastRenderedReducer: reducer,
-              lastRenderedState: initialState3
+              lastRenderedState: initialState2
             };
             hook.queue = queue;
             var dispatch = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
@@ -14527,28 +14527,28 @@
               scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
             }
           }
-          function mountState(initialState3) {
+          function mountState(initialState2) {
             var hook = mountWorkInProgressHook();
-            if (typeof initialState3 === "function") {
-              initialState3 = initialState3();
+            if (typeof initialState2 === "function") {
+              initialState2 = initialState2();
             }
-            hook.memoizedState = hook.baseState = initialState3;
+            hook.memoizedState = hook.baseState = initialState2;
             var queue = {
               pending: null,
               interleaved: null,
               lanes: NoLanes,
               dispatch: null,
               lastRenderedReducer: basicStateReducer,
-              lastRenderedState: initialState3
+              lastRenderedState: initialState2
             };
             hook.queue = queue;
             var dispatch = queue.dispatch = dispatchSetState.bind(null, currentlyRenderingFiber$1, queue);
             return [hook.memoizedState, dispatch];
           }
-          function updateState(initialState3) {
+          function updateState(initialState2) {
             return updateReducer(basicStateReducer);
           }
-          function rerenderState(initialState3) {
+          function rerenderState(initialState2) {
             return rerenderReducer(basicStateReducer);
           }
           function pushEffect(tag, create, destroy, deps) {
@@ -15064,13 +15064,13 @@
                 mountHookTypesDev();
                 return mountRef(initialValue);
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountState(initialState3);
+                  return mountState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15168,13 +15168,13 @@
                 updateHookTypesDev();
                 return mountRef(initialValue);
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountState(initialState3);
+                  return mountState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15272,13 +15272,13 @@
                 updateHookTypesDev();
                 return updateRef();
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateState(initialState3);
+                  return updateState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15376,13 +15376,13 @@
                 updateHookTypesDev();
                 return updateRef();
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnRerenderInDEV;
                 try {
-                  return rerenderState(initialState3);
+                  return rerenderState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15490,14 +15490,14 @@
                 mountHookTypesDev();
                 return mountRef(initialValue);
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountState(initialState3);
+                  return mountState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15611,14 +15611,14 @@
                 updateHookTypesDev();
                 return updateRef();
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateState(initialState3);
+                  return updateState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15732,14 +15732,14 @@
                 updateHookTypesDev();
                 return updateRef();
               },
-              useState: function(initialState3) {
+              useState: function(initialState2) {
                 currentHookNameInDev = "useState";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return rerenderState(initialState3);
+                  return rerenderState(initialState2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -25477,7 +25477,7 @@
     }
   });
 
-  // htmls/addquiz.jsx
+  // htmls/openlectures.jsx
   var import_react18 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
@@ -26134,10 +26134,10 @@
   function assertReducerShape(reducers) {
     Object.keys(reducers).forEach((key) => {
       const reducer = reducers[key];
-      const initialState3 = reducer(void 0, {
+      const initialState2 = reducer(void 0, {
         type: actionTypes_default.INIT
       });
-      if (typeof initialState3 === "undefined") {
+      if (typeof initialState2 === "undefined") {
         throw new Error(false ? formatProdErrorMessage(12) : `The slice reducer for key "${key}" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined. If you don't want to set a value for this reducer, you can use null instead of undefined.`);
       }
       if (typeof reducer(void 0, {
@@ -28047,7 +28047,7 @@ Take a look at the reducer(s) handling this action type: ${action.type}.
   function isStateFunction(x) {
     return typeof x === "function";
   }
-  function createReducer(initialState3, mapOrBuilderCallback) {
+  function createReducer(initialState2, mapOrBuilderCallback) {
     if (true) {
       if (typeof mapOrBuilderCallback === "object") {
         throw new Error(false ? formatProdErrorMessage(8) : "The object notation for `createReducer` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createReducer");
@@ -28055,10 +28055,10 @@ Take a look at the reducer(s) handling this action type: ${action.type}.
     }
     let [actionsMap, finalActionMatchers, finalDefaultCaseReducer] = executeReducerBuilderCallback(mapOrBuilderCallback);
     let getInitialState;
-    if (isStateFunction(initialState3)) {
-      getInitialState = () => freezeDraftable(initialState3());
+    if (isStateFunction(initialState2)) {
+      getInitialState = () => freezeDraftable(initialState2());
     } else {
-      const frozenInitialState = freezeDraftable(initialState3);
+      const frozenInitialState = freezeDraftable(initialState2);
       getInitialState = () => frozenInitialState;
     }
     function reducer(state = getInitialState(), action) {
@@ -40696,12 +40696,6 @@ Hook ${hookName} was either not provided or not a function.`);
     return priority === null || typeof priority === "string" || typeof priority === "number" && !isInvalidJSONNumber(priority) || priority && typeof priority === "object" && // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contains(priority, ".sv");
   };
-  var validateFirebaseDataArg = function(fnName, value, path, optional) {
-    if (optional && value === void 0) {
-      return;
-    }
-    validateFirebaseData(errorPrefix(fnName, "value"), value, path);
-  };
   var validateFirebaseData = function(errorPrefix2, data, path_) {
     const path = path_ instanceof Path ? new ValidationPath(path_, errorPrefix2) : path_;
     if (data === void 0) {
@@ -40794,11 +40788,6 @@ Hook ${hookName} was either not provided or not a function.`);
       pathString = pathString.replace(/^\/*\.info(\/|$)/, "/");
     }
     validatePathString(fnName, argumentName, pathString, optional);
-  };
-  var validateWritablePath = function(fnName, path) {
-    if (pathGetFront(path) === ".info") {
-      throw new Error(fnName + " failed = Can't modify data under /.info/");
-    }
   };
   var validateUrl = function(fnName, parsedUrl) {
     const pathString = parsedUrl.path.toString();
@@ -41039,35 +41028,6 @@ Hook ${hookName} was either not provided or not a function.`);
       repoLog(repo, "get for query " + stringify(query) + " failed: " + err);
       return Promise.reject(new Error(err));
     });
-  }
-  function repoSetWithPriority(repo, path, newVal, newPriority, onComplete) {
-    repoLog(repo, "set", {
-      path: path.toString(),
-      value: newVal,
-      priority: newPriority
-    });
-    const serverValues = repoGenerateServerValues(repo);
-    const newNodeUnresolved = nodeFromJSON(newVal, newPriority);
-    const existing = syncTreeCalcCompleteEventCache(repo.serverSyncTree_, path);
-    const newNode = resolveDeferredValueSnapshot(newNodeUnresolved, existing, serverValues);
-    const writeId = repoGetNextWriteId(repo);
-    const events = syncTreeApplyUserOverwrite(repo.serverSyncTree_, path, newNode, writeId, true);
-    eventQueueQueueEvents(repo.eventQueue_, events);
-    repo.server_.put(path.toString(), newNodeUnresolved.val(
-      /*export=*/
-      true
-    ), (status, errorReason) => {
-      const success = status === "ok";
-      if (!success) {
-        warn("set at " + path + " failed: " + status);
-      }
-      const clearEvents = syncTreeAckUserWrite(repo.serverSyncTree_, writeId, !success);
-      eventQueueRaiseEventsForChangedPath(repo.eventQueue_, path, clearEvents);
-      repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
-    });
-    const affectedPath = repoAbortTransactions(repo, path);
-    repoRerunTransactions(repo, affectedPath);
-    eventQueueRaiseEventsForChangedPath(repo.eventQueue_, affectedPath, []);
   }
   function repoUpdate(repo, path, childrenToMerge, onComplete) {
     repoLog(repo, "update", { path: path.toString(), value: childrenToMerge });
@@ -41519,38 +41479,6 @@ Hook ${hookName} was either not provided or not a function.`);
       namespace
     };
   };
-  var PUSH_CHARS = "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
-  var nextPushId = /* @__PURE__ */ function() {
-    let lastPushTime = 0;
-    const lastRandChars = [];
-    return function(now) {
-      const duplicateTime = now === lastPushTime;
-      lastPushTime = now;
-      let i;
-      const timeStampChars = new Array(8);
-      for (i = 7; i >= 0; i--) {
-        timeStampChars[i] = PUSH_CHARS.charAt(now % 64);
-        now = Math.floor(now / 64);
-      }
-      assert(now === 0, "Cannot push at time == 0");
-      let id = timeStampChars.join("");
-      if (!duplicateTime) {
-        for (i = 0; i < 12; i++) {
-          lastRandChars[i] = Math.floor(Math.random() * 64);
-        }
-      } else {
-        for (i = 11; i >= 0 && lastRandChars[i] === 63; i--) {
-          lastRandChars[i] = 0;
-        }
-        lastRandChars[i]++;
-      }
-      for (i = 0; i < 12; i++) {
-        id += PUSH_CHARS.charAt(lastRandChars[i]);
-      }
-      assert(id.length === 20, "nextPushId: Length should be 20.");
-      return id;
-    };
-  }();
   var DataEvent = class {
     /**
      * @param eventType - One of: value, child_added, child_changed, child_moved, child_removed
@@ -41853,40 +41781,6 @@ Hook ${hookName} was either not provided or not a function.`);
       validatePathString("child", "path", path, false);
     }
     return new ReferenceImpl(parent._repo, pathChild(parent._path, path));
-  }
-  function push(parent, value) {
-    parent = getModularInstance(parent);
-    validateWritablePath("push", parent._path);
-    validateFirebaseDataArg("push", value, parent._path, true);
-    const now = repoServerTime(parent._repo);
-    const name5 = nextPushId(now);
-    const thennablePushRef = child(parent, name5);
-    const pushRef = child(parent, name5);
-    let promise;
-    if (value != null) {
-      promise = set2(pushRef, value).then(() => pushRef);
-    } else {
-      promise = Promise.resolve(pushRef);
-    }
-    thennablePushRef.then = promise.then.bind(promise);
-    thennablePushRef.catch = promise.then.bind(promise, void 0);
-    return thennablePushRef;
-  }
-  function set2(ref2, value) {
-    ref2 = getModularInstance(ref2);
-    validateWritablePath("set", ref2._path);
-    validateFirebaseDataArg("set", value, ref2._path, false);
-    const deferred = new Deferred();
-    repoSetWithPriority(
-      ref2._repo,
-      ref2._path,
-      value,
-      /*priority=*/
-      null,
-      deferred.wrapCallback(() => {
-      })
-    );
-    return deferred.promise;
   }
   function update(ref2, values) {
     validateFirebaseMergeDataArg("update", values, ref2._path, false);
@@ -47465,7 +47359,7 @@ Hook ${hookName} was either not provided or not a function.`);
   };
   var isKey = (value) => /^\w*$/.test(value);
   var stringToPath = (input) => compact(input.replace(/["|']|\]/g, "").split(/\.|\[/));
-  function set3(object, path, value) {
+  function set2(object, path, value) {
     let index = -1;
     const tempPath = isKey(path) ? [path] : stringToPath(path);
     const length = tempPath.length;
@@ -47516,8 +47410,8 @@ Hook ${hookName} was either not provided or not a function.`);
   };
   var updateFieldArrayRootError = (errors2, error2, name5) => {
     const fieldArrayErrors = compact(get3(errors2, name5));
-    set3(fieldArrayErrors, "root", error2[name5]);
-    set3(errors2, name5, fieldArrayErrors);
+    set2(fieldArrayErrors, "root", error2[name5]);
+    set2(errors2, name5, fieldArrayErrors);
     return errors2;
   };
   var isFileInput = (element) => element.type === "file";
@@ -47871,7 +47765,7 @@ Hook ${hookName} was either not provided or not a function.`);
     const fields = {};
     for (const name5 of fieldsNames) {
       const field = get3(_fields, name5);
-      field && set3(fields, name5, field._f);
+      field && set2(fields, name5, field._f);
     }
     return {
       criteriaMode,
@@ -48002,16 +47896,16 @@ Hook ${hookName} was either not provided or not a function.`);
         _state.action = true;
         if (shouldUpdateFieldsAndState && Array.isArray(get3(_fields, name5))) {
           const fieldValues = method(get3(_fields, name5), args.argA, args.argB);
-          shouldSetValues && set3(_fields, name5, fieldValues);
+          shouldSetValues && set2(_fields, name5, fieldValues);
         }
         if (shouldUpdateFieldsAndState && Array.isArray(get3(_formState.errors, name5))) {
           const errors2 = method(get3(_formState.errors, name5), args.argA, args.argB);
-          shouldSetValues && set3(_formState.errors, name5, errors2);
+          shouldSetValues && set2(_formState.errors, name5, errors2);
           unsetEmptyArray(_formState.errors, name5);
         }
         if (_proxyFormState.touchedFields && shouldUpdateFieldsAndState && Array.isArray(get3(_formState.touchedFields, name5))) {
           const touchedFields = method(get3(_formState.touchedFields, name5), args.argA, args.argB);
-          shouldSetValues && set3(_formState.touchedFields, name5, touchedFields);
+          shouldSetValues && set2(_formState.touchedFields, name5, touchedFields);
         }
         if (_proxyFormState.dirtyFields) {
           _formState.dirtyFields = getDirtyFields(_defaultValues, _formValues);
@@ -48024,11 +47918,11 @@ Hook ${hookName} was either not provided or not a function.`);
           isValid: _formState.isValid
         });
       } else {
-        set3(_formValues, name5, values);
+        set2(_formValues, name5, values);
       }
     };
     const updateErrors = (name5, error2) => {
-      set3(_formState.errors, name5, error2);
+      set2(_formState.errors, name5, error2);
       _subjects.state.next({
         errors: _formState.errors
       });
@@ -48037,7 +47931,7 @@ Hook ${hookName} was either not provided or not a function.`);
       const field = get3(_fields, name5);
       if (field) {
         const defaultValue = get3(_formValues, name5, isUndefined(value) ? get3(_defaultValues, name5) : value);
-        isUndefined(defaultValue) || ref2 && ref2.defaultChecked || shouldSkipSetValueAs ? set3(_formValues, name5, shouldSkipSetValueAs ? defaultValue : getFieldValue(field._f)) : setFieldValue(name5, defaultValue);
+        isUndefined(defaultValue) || ref2 && ref2.defaultChecked || shouldSkipSetValueAs ? set2(_formValues, name5, shouldSkipSetValueAs ? defaultValue : getFieldValue(field._f)) : setFieldValue(name5, defaultValue);
         _state.mount && _updateValid();
       }
     };
@@ -48055,14 +47949,14 @@ Hook ${hookName} was either not provided or not a function.`);
         }
         const isCurrentFieldPristine = deepEqual2(get3(_defaultValues, name5), fieldValue);
         isPreviousDirty = get3(_formState.dirtyFields, name5);
-        isCurrentFieldPristine ? unset(_formState.dirtyFields, name5) : set3(_formState.dirtyFields, name5, true);
+        isCurrentFieldPristine ? unset(_formState.dirtyFields, name5) : set2(_formState.dirtyFields, name5, true);
         output.dirtyFields = _formState.dirtyFields;
         shouldUpdateField = shouldUpdateField || _proxyFormState.dirtyFields && isPreviousDirty !== !isCurrentFieldPristine;
       }
       if (isBlurEvent) {
         const isPreviousFieldTouched = get3(_formState.touchedFields, name5);
         if (!isPreviousFieldTouched) {
-          set3(_formState.touchedFields, name5, isBlurEvent);
+          set2(_formState.touchedFields, name5, isBlurEvent);
           output.touchedFields = _formState.touchedFields;
           shouldUpdateField = shouldUpdateField || _proxyFormState.touchedFields && isPreviousFieldTouched !== isBlurEvent;
         }
@@ -48079,7 +47973,7 @@ Hook ${hookName} was either not provided or not a function.`);
       } else {
         clearTimeout(timer);
         delayErrorCallback = null;
-        error2 ? set3(_formState.errors, name5, error2) : unset(_formState.errors, name5);
+        error2 ? set2(_formState.errors, name5, error2) : unset(_formState.errors, name5);
       }
       if ((error2 ? !deepEqual2(previousFieldError, error2) : previousFieldError) || !isEmptyObject(fieldState) || shouldUpdateValid) {
         const updatedFormState = {
@@ -48102,7 +47996,7 @@ Hook ${hookName} was either not provided or not a function.`);
       if (names) {
         for (const name5 of names) {
           const error2 = get3(errors2, name5);
-          error2 ? set3(_formState.errors, name5, error2) : unset(_formState.errors, name5);
+          error2 ? set2(_formState.errors, name5, error2) : unset(_formState.errors, name5);
         }
       } else {
         _formState.errors = errors2;
@@ -48125,7 +48019,7 @@ Hook ${hookName} was either not provided or not a function.`);
                 break;
               }
             }
-            !shouldOnlyCheckValid && (get3(fieldError, _f.name) ? isFieldArrayRoot ? updateFieldArrayRootError(_formState.errors, fieldError, _f.name) : set3(_formState.errors, _f.name, fieldError[_f.name]) : unset(_formState.errors, _f.name));
+            !shouldOnlyCheckValid && (get3(fieldError, _f.name) ? isFieldArrayRoot ? updateFieldArrayRootError(_formState.errors, fieldError, _f.name) : set2(_formState.errors, _f.name, fieldError[_f.name]) : unset(_formState.errors, _f.name));
           }
           fieldValue && await executeBuiltInValidation(fieldValue, shouldOnlyCheckValid, context);
         }
@@ -48139,7 +48033,7 @@ Hook ${hookName} was either not provided or not a function.`);
       }
       _names.unMount = /* @__PURE__ */ new Set();
     };
-    const _getDirty = (name5, data) => (name5 && data && set3(_formValues, name5, data), !deepEqual2(getValues(), _defaultValues));
+    const _getDirty = (name5, data) => (name5 && data && set2(_formValues, name5, data), !deepEqual2(getValues(), _defaultValues));
     const _getWatch = (names, defaultValue, isGlobal) => generateWatchOutput(names, _names, {
       ..._state.mount ? _formValues : isUndefined(defaultValue) ? _defaultValues : isString(names) ? { [names]: defaultValue } : defaultValue
     }, isGlobal, defaultValue);
@@ -48150,7 +48044,7 @@ Hook ${hookName} was either not provided or not a function.`);
       if (field) {
         const fieldReference = field._f;
         if (fieldReference) {
-          !fieldReference.disabled && set3(_formValues, name5, getFieldValueAs(value, fieldReference));
+          !fieldReference.disabled && set2(_formValues, name5, getFieldValueAs(value, fieldReference));
           fieldValue = isHTMLElement(fieldReference.ref) && isNullOrUndefined(value) ? "" : value;
           if (isMultipleSelect(fieldReference.ref)) {
             [...fieldReference.ref.options].forEach((optionRef) => optionRef.selected = fieldValue.includes(optionRef.value));
@@ -48188,7 +48082,7 @@ Hook ${hookName} was either not provided or not a function.`);
       const field = get3(_fields, name5);
       const isFieldArray = _names.array.has(name5);
       const cloneValue = cloneObject(value);
-      set3(_formValues, name5, cloneValue);
+      set2(_formValues, name5, cloneValue);
       if (isFieldArray) {
         _subjects.array.next({
           name: name5,
@@ -48227,7 +48121,7 @@ Hook ${hookName} was either not provided or not a function.`);
         const isBlurEvent = event.type === EVENTS.BLUR || event.type === EVENTS.FOCUS_OUT;
         const shouldSkipValidation = !hasValidation(field._f) && !_options.resolver && !get3(_formState.errors, name5) && !field._f.deps || skipValidation(isBlurEvent, get3(_formState.touchedFields, name5), _formState.isSubmitted, validationModeAfterSubmit, validationModeBeforeSubmit);
         const watched = isWatched(name5, _names, isBlurEvent);
-        set3(_formValues, name5, fieldValue);
+        set2(_formValues, name5, fieldValue);
         if (isBlurEvent) {
           field._f.onBlur && field._f.onBlur(event);
           delayErrorCallback && delayErrorCallback(0);
@@ -48329,7 +48223,7 @@ Hook ${hookName} was either not provided or not a function.`);
     };
     const setError = (name5, error2, options) => {
       const ref2 = (get3(_fields, name5, { _f: {} })._f || {}).ref;
-      set3(_formState.errors, name5, {
+      set2(_formState.errors, name5, {
         ...error2,
         ref: ref2
       });
@@ -48368,14 +48262,14 @@ Hook ${hookName} was either not provided or not a function.`);
     const _updateDisabledField = ({ disabled, name: name5, field, fields, value }) => {
       if (isBoolean2(disabled)) {
         const inputValue = disabled ? void 0 : isUndefined(value) ? getFieldValue(field ? field._f : get3(fields, name5)._f) : value;
-        set3(_formValues, name5, inputValue);
+        set2(_formValues, name5, inputValue);
         updateTouchAndDirty(name5, inputValue, false, false, true);
       }
     };
     const register = (name5, options = {}) => {
       let field = get3(_fields, name5);
       const disabledIsDefined = isBoolean2(options.disabled);
-      set3(_fields, name5, {
+      set2(_fields, name5, {
         ...field || {},
         _f: {
           ...field && field._f ? field._f : { ref: { name: name5 } },
@@ -48417,7 +48311,7 @@ Hook ${hookName} was either not provided or not a function.`);
             if (radioOrCheckbox ? refs.find((option) => option === fieldRef) : fieldRef === field._f.ref) {
               return;
             }
-            set3(_fields, name5, {
+            set2(_fields, name5, {
               _f: {
                 ...field._f,
                 ...radioOrCheckbox ? {
@@ -48493,7 +48387,7 @@ Hook ${hookName} was either not provided or not a function.`);
           setValue(name5, get3(_defaultValues, name5));
         } else {
           setValue(name5, options.defaultValue);
-          set3(_defaultValues, name5, options.defaultValue);
+          set2(_defaultValues, name5, options.defaultValue);
         }
         if (!options.keepTouched) {
           unset(_formState.touchedFields, name5);
@@ -48519,7 +48413,7 @@ Hook ${hookName} was either not provided or not a function.`);
       if (!keepStateOptions.keepValues) {
         if (keepStateOptions.keepDirtyValues || shouldCaptureDirtyFields) {
           for (const fieldName of _names.mount) {
-            get3(_formState.dirtyFields, fieldName) ? set3(values, fieldName, get3(_formValues, fieldName)) : setValue(fieldName, get3(values, fieldName));
+            get3(_formState.dirtyFields, fieldName) ? set2(values, fieldName, get3(_formValues, fieldName)) : setValue(fieldName, get3(values, fieldName));
           }
         } else {
           if (isWeb && isUndefined(formValues)) {
@@ -50431,7 +50325,7 @@ Hook ${hookName} was either not provided or not a function.`);
   ButtonGroup.displayName = "ButtonGroup";
   var ButtonGroup_default = ButtonGroup;
 
-  // htmls/addquiz.jsx
+  // htmls/openlectures.jsx
   async function saveBrowserState(name5 = "econolabs", state) {
     try {
       const serializedState = JSON.stringify(state);
@@ -50552,9 +50446,6 @@ Hook ${hookName} was either not provided or not a function.`);
       }
     }
   }
-  function newNodeKey(url = "usersCraft") {
-    return push(child(ref(db), url)).key;
-  }
   async function updateFirebaseNode({
     //delete with updates: { "openlectures/-NfVGIjmOuiBkgjIT-FJ": null },
     updates = { "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7": { id: 0 } },
@@ -50604,35 +50495,16 @@ Hook ${hookName} was either not provided or not a function.`);
   var { setUserProfile } = applicationSlice.actions;
   var apiSlice = createApi2({
     reducerPath: "api",
-    tagTypes: ["WorkbookPost", "QuizesCasesIds", "QuizesCasesEntyties", "UnsplashImageFromCollection"],
+    tagTypes: ["OpenLecture", "OpenLectureTags", "UnsplashImageFromCollection"],
     baseQuery: fakeBaseQuery(),
     endpoints: (builder) => ({
-      //quizescases/quizesCasesIds/
-      //quizescases/quizesCasesEntyties/
-      fetchWorkbookPost: builder.query({
-        async queryFn({ email = "temp@google.com", id = "xxx" }) {
-          try {
-            let list2 = await asyncFirebaseGetObjectNode(
-              {
-                url: "usersCraft/" + email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts/" + id,
-                type: "object"
-              }
-            );
-            console.log(list2);
-            return { data: list2 };
-          } catch (err) {
-            console.log(err);
-            return { error: err };
-          }
-        },
-        providesTags: ["WorkbookPost"]
-      }),
-      fetchQuizesCasesIds: builder.query({
+      //openlectures
+      fetchOpenlecturePosts: builder.query({
         async queryFn() {
           try {
             let list2 = await asyncFirebaseGetObjectNode(
               {
-                url: "quizescases/quizesCasesIds",
+                url: "openlectures/posts",
                 type: "array"
               }
             );
@@ -50642,44 +50514,29 @@ Hook ${hookName} was either not provided or not a function.`);
             return { error: err };
           }
         },
-        providesTags: (result, error2, arg) => [{ type: "QuizesCasesIds", id: arg }]
+        providesTags: (result = [], error2, arg) => [
+          "OpenLecture",
+          ...result.map(({ id }) => ({ type: "OpenLecture", id }))
+        ]
       }),
-      fetchQuizesCasesEntytiesById: builder.query({
-        async queryFn(id) {
+      updateOpenlecture: builder.mutation({
+        async queryFn(post) {
           try {
-            let list2 = await asyncFirebaseGetObjectNode(
-              {
-                url: "quizescases/quizesCasesEntyties/" + id,
-                type: "array"
-              }
-            );
-            return { data: list2 };
+            await updateFirebaseNode({ updates: { ["openlectures/posts/" + post.id]: post } });
           } catch (err) {
             console.log(err);
             return { error: err };
           }
+          return { data: post };
         },
-        providesTags: (result, error2, arg) => [{ type: "QuizesCasesEntyties", id: arg }]
+        invalidatesTags: ["OpenLecture"]
       }),
-      addItemToQuizesCasesIds: builder.mutation({
-        async queryFn(quiz) {
-          try {
-            await updateFirebaseNode({ updates: { ["quizescases/quizesCasesIds/" + quiz.id]: quiz } });
-          } catch (err) {
-            console.log(err);
-            return { error: err };
-          }
-          return { data: quiz };
-        },
-        invalidatesTags: ["QuizesCasesIds"]
-      }),
-      deleteItemFromQuizesCasesIds: builder.mutation({
+      deleteOpenlecture: builder.mutation({
         async queryFn(id) {
           try {
             await deleteFirebaseNode({
               updates: {
-                ["quizescases/quizesCasesIds/" + id]: null,
-                ["quizescases/quizesCasesEntyties/" + id]: null
+                ["openlectures/posts/" + id]: null
               }
             });
           } catch (err) {
@@ -50688,7 +50545,52 @@ Hook ${hookName} was either not provided or not a function.`);
           }
           return { data: id };
         },
-        invalidatesTags: ["QuizesCasesIds"]
+        invalidatesTags: ["OpenLecture"]
+      }),
+      fetchOpenlecturePost: builder.query({
+        async queryFn(id) {
+          try {
+            let list2 = await asyncFirebaseGetObjectNode(
+              {
+                url: "openlectures/posts/" + id,
+                type: "object"
+              }
+            );
+            return { data: list2 };
+          } catch (err) {
+            console.log(err);
+            return { error: err };
+          }
+        },
+        providesTags: (result, error2, arg) => [{ type: "OpenLecture", id: arg }]
+      }),
+      addOpenlecture: builder.mutation({
+        async queryFn(post) {
+          try {
+            await updateFirebaseNode({ updates: { ["openlectures/posts/" + post.id]: post } });
+          } catch (err) {
+            console.log(err);
+            return { error: err };
+          }
+          return { data: post };
+        },
+        invalidatesTags: ["OpenLecture"]
+      }),
+      fetchOpenlectureTags: builder.query({
+        async queryFn() {
+          try {
+            let list2 = await asyncFirebaseGetObjectNode(
+              {
+                url: "openlectures/tags",
+                type: "array"
+              }
+            );
+            return { data: list2 };
+          } catch (err) {
+            return { error: err };
+          }
+        },
+        providesTags: ["OpenLectureTags"]
       }),
       fetchUnsplashImagesFromCollection: builder.query({
         async queryFn({ collectionId = "aH98dheb50M", perPage = 50 }) {
@@ -50710,83 +50612,18 @@ Hook ${hookName} was either not provided or not a function.`);
     })
   });
   var {
-    useFetchWorkbookPostQuery,
-    useDeleteItemFromQuizesCasesIdsMutation,
-    useFetchQuizesCasesIdsQuery,
-    useFetchQuizesCasesEntytiesByIdQuery,
-    useAddItemToQuizesCasesIdsMutation,
+    useDeleteOpenlectureMutation,
+    useFetchOpenlectureTagsQuery,
+    useUpdateOpenlectureMutation,
+    useFetchOpenlecturePostsQuery,
+    // useFetchOpenlecturePostQuery,
+    // useAddOpenlectureMutation,  
     useFetchUnsplashImagesFromCollectionQuery
   } = apiSlice;
-  var initialState2 = {
-    layout: "selectquiz",
-    selectedId: null,
-    selectedTheme: null
-    //     user: null,
-    //     email: null,
-    //     avatarUrl: null,
-    //     loading: false,
-    //     error: null,
-    //     imagesArray: [],
-    //     value: 0,
-  };
-  var editQuizesCasesSlice = createSlice({
-    name: "quizescases",
-    initialState: initialState2,
-    reducers: {
-      setStoreObject: (state, action) => {
-        state[action.payload.key] = action.payload.value;
-      }
-      //         seedArray: (state, action) => {
-      //             state[action.payload.arrayName] = action.payload.arrayItems;
-      //         },
-      // pushSomeItemsToArray: (state, action) => {
-      //     state[action.payload.arrayName] = [...state[action.payload.arrayName], ...action.payload.newArrayItems];
-      // },
-      // emptyArray: (state, action) => {
-      //     state[action.payload.arrayName] = [];
-      // },
-      // pushItemToArray: (state, action) => {
-      //     state[action.payload.arrayName].push(action.payload.item);
-      // },
-      // deleteItemFromArray: (state, action) => {
-      //     state[action.payload.arrayName] = state[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
-      // },
-      // updateItemInArrayById: (state, action) => {
-      //     const index = state[action.payload.arrayName].findIndex(item => item.id === action.payload.item.id)
-      //     if (index !== -1) { state[action.payload.arrayName][index] = action.payload.item };
-      // },
-    }
-    //     extraReducers: (builder) => {
-    //         builder.addCase(fetchImages.pending, (state) => {
-    //             state.loading = true
-    //         })
-    //         builder.addCase(fetchImages.fulfilled, (state, action) => {
-    //             switch (action.payload.type) {
-    //                 case "addImagesBySearchWord":
-    //                     state.loading = false;
-    //                     state.imagesArray = [...state.imagesArray, ...action.payload.imagesArray];
-    //                     break
-    //                 default:
-    //                     state.loading = false;
-    //             }
-    //         })
-    //         builder.addCase(fetchImages.rejected, (state, action) => {
-    //             state.loading = false
-    //             state.error = action.error.message
-    //         })
-    //     }
-  });
-  var {
-    setStoreObject
-    // seedArray, deleteItemFromArray, updateItemInArrayById
-  } = editQuizesCasesSlice.actions;
-  var selectLayout = (state) => state.quizescases.layout;
-  var selectId = (state) => state.quizescases.selectedId;
-  var selectTheme = (state) => state.quizescases.selectedTheme;
   var store = configureStore({
     reducer: {
       //     application: applicationSlice.reducer,
-      quizescases: editQuizesCasesSlice.reducer,
+      //     myComponent: myComponentSlice.reducer,
       [apiSlice.reducerPath]: apiSlice.reducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
@@ -50852,7 +50689,14 @@ Hook ${hookName} was either not provided or not a function.`);
     }
     return /* @__PURE__ */ import_react18.default.createElement("div", { className: "container-fluid p-0" }, /* @__PURE__ */ import_react18.default.createElement(Navbar, { siteTitle: "Econolabs", author: false }), /* @__PURE__ */ import_react18.default.createElement("main", { className: "text-center my-5" }, "..."));
   }
-  function SelectImage({ searchword = "office", orientation = "portrait", doSelectImage, type = "thumb", defaultImage = null, collectionId = "aH98dheb50M" }) {
+  function SelectImage({
+    doSelectImage,
+    type = "thumb",
+    collectionId = "aH98dheb50M",
+    searchword = "office",
+    orientation = "portrait",
+    defaultImage = null
+  }) {
     const [picIndex, setPicIndex] = import_react18.default.useState(0);
     const { data: images, isLoading } = useFetchUnsplashImagesFromCollectionQuery(
       {
@@ -50872,62 +50716,27 @@ Hook ${hookName} was either not provided or not a function.`);
     if (isLoading) {
       return /* @__PURE__ */ import_react18.default.createElement("div", null, "...");
     }
-    const pSBC = (p, c0, c1, l) => {
-      let r, g, b, P, f, t, h, i = parseInt, m = Math.round, a = typeof c1 == "string";
-      if (typeof p != "number" || p < -1 || p > 1 || typeof c0 != "string" || c0[0] != "r" && c0[0] != "#" || c1 && !a)
-        return null;
-      if (!this.pSBCr)
-        this.pSBCr = (d) => {
-          let n = d.length, x = {};
-          if (n > 9) {
-            [r, g, b, a] = d = d.split(","), n = d.length;
-            if (n < 3 || n > 4)
-              return null;
-            x.r = i(r[3] == "a" ? r.slice(5) : r.slice(4)), x.g = i(g), x.b = i(b), x.a = a ? parseFloat(a) : -1;
-          } else {
-            if (n == 8 || n == 6 || n < 4)
-              return null;
-            if (n < 6)
-              d = "#" + d[1] + d[1] + d[2] + d[2] + d[3] + d[3] + (n > 4 ? d[4] + d[4] : "");
-            d = i(d.slice(1), 16);
-            if (n == 9 || n == 5)
-              x.r = d >> 24 & 255, x.g = d >> 16 & 255, x.b = d >> 8 & 255, x.a = m((d & 255) / 0.255) / 1e3;
-            else
-              x.r = d >> 16, x.g = d >> 8 & 255, x.b = d & 255, x.a = -1;
-          }
-          return x;
-        };
-      h = c0.length > 9, h = a ? c1.length > 9 ? true : c1 == "c" ? !h : false : h, f = this.pSBCr(c0), P = p < 0, t = c1 && c1 != "c" ? this.pSBCr(c1) : P ? { r: 0, g: 0, b: 0, a: -1 } : { r: 255, g: 255, b: 255, a: -1 }, p = P ? p * -1 : p, P = 1 - p;
-      if (!f || !t)
-        return null;
-      if (l)
-        r = m(P * f.r + p * t.r), g = m(P * f.g + p * t.g), b = m(P * f.b + p * t.b);
-      else
-        r = m((P * f.r ** 2 + p * t.r ** 2) ** 0.5), g = m((P * f.g ** 2 + p * t.g ** 2) ** 0.5), b = m((P * f.b ** 2 + p * t.b ** 2) ** 0.5);
-      a = f.a, t = t.a, f = a >= 0 || t >= 0, a = f ? a < 0 ? t : t < 0 ? a : a * P + t * p : 0;
-      if (h)
-        return "rgb" + (f ? "a(" : "(") + r + "," + g + "," + b + (f ? "," + m(a * 1e3) / 1e3 : "") + ")";
-      else
-        return "#" + (4294967296 + r * 16777216 + g * 65536 + b * 256 + (f ? m(a * 255) : 0)).toString(16).slice(1, f ? void 0 : -2);
-    };
-    return /* @__PURE__ */ import_react18.default.createElement("div", { style: { gridTemplateRows: "400px auto 1fr 1fr" } }, /* @__PURE__ */ import_react18.default.createElement("div", null, /* @__PURE__ */ import_react18.default.createElement(
+    let mixedDark = "in srgb, " + images[picIndex]?.color + " 10%, white";
+    let mixedLight = "in srgb, " + images[picIndex]?.color + " 10%, DimGray";
+    return /* @__PURE__ */ import_react18.default.createElement("div", { className: "text-white", style: { display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "600px" } }, /* @__PURE__ */ import_react18.default.createElement(
       "img",
       {
         src: images[picIndex].urls.regular,
         className: "card-img",
-        alt: "avatar"
+        alt: "avatar",
+        style: { msxHeight: "600px" }
       }
-    )), /* @__PURE__ */ import_react18.default.createElement(
+    ), /* @__PURE__ */ import_react18.default.createElement(
       "div",
       {
-        className: "rounded m-1 p-1",
+        className: "m-1",
         style: {
           backgroundColor: images[picIndex]?.color,
-          color: "white"
+          padding: ".5rem"
         }
       },
-      !!images[picIndex]?.description ? images[picIndex].description : " " + !!images[picIndex]?.alt_description ? images[picIndex].alt_description : ""
-    ), /* @__PURE__ */ import_react18.default.createElement("div", { className: "d-grid gap-2" }, /* @__PURE__ */ import_react18.default.createElement(
+      images[picIndex]?.description + " " + images[picIndex]?.alt_description
+    ), /* @__PURE__ */ import_react18.default.createElement(
       Button_default,
       {
         size: "sm",
@@ -50935,164 +50744,33 @@ Hook ${hookName} was either not provided or not a function.`);
         onClick: () => updateImage()
       },
       "Next"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", { style: { display: "flex", flexDirection: "row", justifyContent: "space-between", flexWrap: "wrap", rowGap: "10px" } }, /* @__PURE__ */ import_react18.default.createElement("div", null, "   ", /* @__PURE__ */ import_react18.default.createElement(
+    ), /* @__PURE__ */ import_react18.default.createElement(
       Button_default,
       {
         size: "sm",
+        className: "btn m-1",
         style: {
           backgroundColor: images[picIndex]?.color,
-          color: pSBC(0.9, images[picIndex]?.color),
+          color: "color-mix(" + mixedDark + ")",
           padding: ".5rem"
         },
         onClick: () => doSelectImage(images[picIndex].urls[type])
       },
       "Save"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
+    ), /* @__PURE__ */ import_react18.default.createElement(
       Button_default,
       {
         size: "sm",
+        className: "btn m-1",
         style: {
-          backgroundColor: pSBC(-0.9, "#0d6efd"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Blue"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#6610f2"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Ind"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#6f42c1"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Purple"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#d63384"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Pink"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#dc3545"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Red"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#fd7e14"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Orange"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#ffc107"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Yellow"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#198754"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Green"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#20c997"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Teal"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#0dcaf0"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Cyan"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        style: {
-          backgroundColor: pSBC(-0.9, "#adb5bd"),
-          color: pSBC(0.9, images[picIndex]?.color),
-          padding: ".5rem"
-        },
-        onClick: () => doSelectImage(images[picIndex].urls[type])
-      },
-      "S Gray"
-    )), /* @__PURE__ */ import_react18.default.createElement("div", null, " ", /* @__PURE__ */ import_react18.default.createElement(
-      Button_default,
-      {
-        size: "sm",
-        "data-bs-theme": "dark",
-        style: {
-          color: "light",
-          backgroundColor: pSBC(-0.9, images[picIndex]?.color),
+          color: images[picIndex]?.color,
+          backgroundColor: "color-mix(" + mixedLight + ")",
           padding: ".5rem"
         },
         onClick: () => doSelectImage(images[picIndex].urls[type])
       },
       "Save"
-    ))));
+    ));
   }
   function FireLogin() {
     const dispatch = useDispatch();
@@ -51141,289 +50819,115 @@ Hook ${hookName} was either not provided or not a function.`);
       "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"
     ))))));
   }
-  function LayoutButtonGroup() {
-    const dispatch = useDispatch();
-    return /* @__PURE__ */ import_react18.default.createElement(ButtonGroup_default, { className: "m-2", "aria-label": "LayoutButtonGroup", size: "sm" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "selectquiz" })) }, "Select Quiz"), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "editquizmeta" })) }, "Edit Quiz Meta"), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "quizescasesentyties" })) }, "Quizes Cases Entyties"), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "deleteNodeId" })) }, "Delete Node with Id"), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "addquizwithrandomnumber" })) }, "Add Quiz With Random Number"), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", onClick: () => dispatch(setStoreObject({ key: "layout", value: "addquizwithchoices" })) }, "Add Quiz With Choices"));
+  function OpenLectures() {
+    const { data: openlectures } = useFetchOpenlecturePostsQuery();
+    let sortedLectures = openlectures.map((item) => item).sort(({ sortBy: a }, { sortBy: b }) => a - b);
+    return /* @__PURE__ */ import_react18.default.createElement("div", null, sortedLectures.map((item) => {
+      return /* @__PURE__ */ import_react18.default.createElement(Lecture, { key: item.id, item });
+    }));
   }
-  function DeleteNodeId() {
-    const [nodeId, setNodeId] = import_react18.default.useState("temp");
-    const [deleteItemFromQuizesCasesIds] = useDeleteItemFromQuizesCasesIdsMutation();
-    return /* @__PURE__ */ import_react18.default.createElement(Row_default, { className: "align-items-center" }, /* @__PURE__ */ import_react18.default.createElement(Col_default, { xs: "auto" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, { htmlFor: "inlineDelInput", visuallyHidden: true, size: "sm" }, "Del"), /* @__PURE__ */ import_react18.default.createElement(
+  function Lecture({ item }) {
+    const { data: tags, isLoading: tagsAreLoading, error: error2 } = useFetchOpenlectureTagsQuery();
+    const { register, handleSubmit, setValue, watch } = useForm();
+    const [updateOpenlecture] = useUpdateOpenlectureMutation();
+    const [deleteOpenlecture] = useDeleteOpenlectureMutation();
+    const [contentLayout, setContentLayout] = import_react18.default.useState(null);
+    if (tagsAreLoading) {
+      return /* @__PURE__ */ import_react18.default.createElement("div", null, "...");
+    }
+    console.log(item);
+    function delOpenlecture(id) {
+      deleteOpenlecture(id).then((payload) => {
+        console.log("fulfilled", payload);
+      }).catch((error3) => console.error("rejected", error3));
+    }
+    const onSubmit = (lecture) => {
+      updateOpenlecture({ ...item, ...lecture }).unwrap().then((payload) => {
+        console.log("fulfilled", payload);
+        console.log({ ...item, ...lecture });
+      }).catch((error3) => console.error("rejected", error3));
+    };
+    return /* @__PURE__ */ import_react18.default.createElement(Form_default, { onSubmit: handleSubmit(onSubmit), className: "p-1", style: { width: "100%" } }, /* @__PURE__ */ import_react18.default.createElement(Container_default, null), /* @__PURE__ */ import_react18.default.createElement(Row_default, { key: item.id }, /* @__PURE__ */ import_react18.default.createElement(Col_default, { xl: 2 }, /* @__PURE__ */ import_react18.default.createElement("img", { src: item?.image || item?.imageurl, style: { maxWidth: "300px" } })), /* @__PURE__ */ import_react18.default.createElement(Col_default, { xl: 1 }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formFromDate" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "date", defaultValue: item.fromdate, ...register("fromdate"), required: true }), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, null, "from date")), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formToDate" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "date", defaultValue: item.todate, ...register("todate"), required: true }), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, null, "to date"))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formTitle", className: "m-1" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("title"), defaultValue: item?.title, required: true, size: "sm" }), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, null, "Title")), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formTag", className: "m-1" }, /* @__PURE__ */ import_react18.default.createElement(
+      Form_default.Select,
+      {
+        defaultValue: item?.tag,
+        "aria-label": "tags",
+        ...register("tag"),
+        size: "sm"
+      },
+      /* @__PURE__ */ import_react18.default.createElement("option", { value: "later" }, "..."),
+      tags.map((tag) => {
+        return /* @__PURE__ */ import_react18.default.createElement(
+          "option",
+          {
+            key: tag.id,
+            value: tag.value
+          },
+          tag.label
+        );
+      })
+    ), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, { className: "text-muted" }, "tag")), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formSortby" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "number", ...register("sortBy"), defaultValue: item?.sortBy, size: "sm" }), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, null, "Sort By"))), /* @__PURE__ */ import_react18.default.createElement(Col_default, { xs: 12, xl: 4 }, /* @__PURE__ */ import_react18.default.createElement(ButtonGroup_default, { size: "sm" }, /* @__PURE__ */ import_react18.default.createElement(
+      Button_default,
+      {
+        className: "ml-1",
+        variant: "outline-secondary",
+        size: "sm",
+        onClick: () => setContentLayout("show")
+      },
+      "Show"
+    ), /* @__PURE__ */ import_react18.default.createElement(
+      Button_default,
+      {
+        variant: "outline-secondary",
+        size: "sm",
+        onClick: () => setContentLayout("edit")
+      },
+      "Edit"
+    ), /* @__PURE__ */ import_react18.default.createElement(
+      Button_default,
+      {
+        className: "ml-1",
+        variant: "outline-secondary",
+        size: "sm",
+        onClick: () => setContentLayout(null)
+      },
+      "Hide"
+    )), contentLayout === "show" ? /* @__PURE__ */ import_react18.default.createElement("div", { className: "m-1", dangerouslySetInnerHTML: { __html: item?.text } }) : null, contentLayout === "edit" ? /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { controlId: "formContent", className: "my-2" }, /* @__PURE__ */ import_react18.default.createElement(
       Form_default.Control,
       {
+        as: "textarea",
+        rows: 6,
         size: "sm",
-        className: "m-1",
-        id: "inlineDelInput",
-        placeholder: "node id",
-        onChange: (e) => setNodeId(e.target.value)
+        ...register("text"),
+        required: true,
+        defaultValue: item?.text
       }
-    )), /* @__PURE__ */ import_react18.default.createElement(Col_default, { xs: "auto" }, /* @__PURE__ */ import_react18.default.createElement(
+    ), /* @__PURE__ */ import_react18.default.createElement(Form_default.Text, { className: "text-muted" }, "HTML")) : null), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement(
+      Button_default,
+      {
+        className: "m-1",
+        variant: "outline-secondary",
+        size: "sm",
+        type: "submit"
+      },
+      "Save"
+    ), /* @__PURE__ */ import_react18.default.createElement(
       Button_default,
       {
         className: "m-1",
         variant: "outline-danger",
         size: "sm",
-        onClick: () => deleteItemFromQuizesCasesIds(nodeId).then((res) => console.log("Deleted " + res.data)).catch((err) => console.log(err))
+        onClick: () => delOpenlecture(item.id)
       },
       "Del"
-    )));
-  }
-  function createArrayWithNumbers(length) {
-    return Array.from({ length }, (_, i) => i);
-  }
-  function AddQuizWithChoices() {
-    const { data: quizes } = useFetchQuizesCasesIdsQuery();
-    const [addItemToQuizesCasesIds] = useAddItemToQuizesCasesIdsMutation();
-    const { register, handleSubmit, setValue, watch } = useForm();
-    const [id, setId] = import_react18.default.useState(null);
-    const [size, setSize] = (0, import_react18.useState)(1);
-    const onSubmit = (quiz) => {
-      let currentQuizId = newNodeKey("quizescases/quizesCasesIds");
-      console.log({
-        id: currentQuizId,
-        ...quiz,
-        answers: quiz.answers.filter((item) => item !== "")
-      });
-      addItemToQuizesCasesIds(
-        {
-          id: currentQuizId,
-          ...quiz,
-          answers: quiz.answers.filter((item) => item !== "")
-        }
-      ).then((res) => {
-        setId(currentQuizId);
-        console.log(res);
-      });
-    };
-    let uniqueThemes = [...new Set(quizes.map((item) => item?.theme))];
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(Form_default, { onSubmit: handleSubmit(onSubmit) }, /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement(Col_default, null, uniqueThemes.map((theme, index) => /* @__PURE__ */ import_react18.default.createElement("div", { key: index }, /* @__PURE__ */ import_react18.default.createElement("small", null, theme)))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement("div", null, id), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Theme"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("theme"), required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "title" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Title"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("title"), required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "Text" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Text"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("text"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "Hint" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Hint"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("hint"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "Image Url" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Image Url"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "url", ...register("imageurl"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement("div", { className: "d-grid gap-1" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", className: "m-1", size: "sm", type: "submit" }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, createArrayWithNumbers(size).map((number, index) => {
-      return /* @__PURE__ */ import_react18.default.createElement("div", { key: number }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: `choice.${index}` }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Choice"), /* @__PURE__ */ import_react18.default.createElement(
-        Form_default.Control,
-        {
-          type: "text",
-          size: "sm",
-          ...register(`choices.${index}`, { required: true }),
-          required: true,
-          placeholder: "choice"
-        }
-      )), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: `answers.${index}` }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Answer Choice"), /* @__PURE__ */ import_react18.default.createElement(
-        Form_default.Control,
-        {
-          type: "text",
-          size: "sm",
-          ...register(`answers.${index}`),
-          placeholder: "answer",
-          defaultValue: null
-        }
-      )), /* @__PURE__ */ import_react18.default.createElement("hr", null));
-    }), /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", className: "m-1", size: "sm", onClick: () => setSize(size + 1) }, "Add Choice")))));
-  }
-  function AddQuiWithRandomNumber() {
-    const { data: quizes } = useFetchQuizesCasesIdsQuery();
-    const [addItemToQuizesCasesIds] = useAddItemToQuizesCasesIdsMutation();
-    const { register, handleSubmit, setValue, watch } = useForm();
-    const [id, setId] = import_react18.default.useState(null);
-    const onSubmit = (quiz) => {
-      let currentQuizId = newNodeKey("quizescases/quizesCasesIds");
-      addItemToQuizesCasesIds({
-        id: currentQuizId,
-        ...quiz
-      }).then((res) => {
-        setId(currentQuizId);
-        console.log(res);
-      });
-    };
-    let uniqueThemes = [...new Set(quizes.map((item) => item?.theme))];
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement(Col_default, null, uniqueThemes.map((theme, index) => /* @__PURE__ */ import_react18.default.createElement("div", { key: index }, /* @__PURE__ */ import_react18.default.createElement("small", null, theme)))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement("div", null, id), /* @__PURE__ */ import_react18.default.createElement(Form_default, { onSubmit: handleSubmit(onSubmit), className: "p-1" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Theme"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("theme"), required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Title"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("title"), required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Example Quiz String"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("exampleQuizString"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "quizString" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Hint"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("hint"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "quizString" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Text with {={var1-10}} "), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("text"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "quizString" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Answer with var1-10"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, ...register("answer"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement("div", { className: "d-grid gap-1" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", className: "m-1", size: "sm", type: "submit" }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"))))));
-  }
-  function QuizDetails() {
-    const id = useSelector(selectId);
-    const { data, isLoading, isError: isError2 } = useFetchQuizesCasesEntytiesByIdQuery(id);
-    const [howtoId, setHowToId] = import_react18.default.useState(null);
-    const [email, setEmail] = import_react18.default.useState(null);
-    if (!id || isLoading || isError2) {
-      return null;
-    }
-    console.log(data.slice(0, 4));
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement("div", { style: { display: "flex", flexWrap: "wrap" } }, data.slice(0, 5).map((item) => {
-      return /* @__PURE__ */ import_react18.default.createElement(HowToSolveQuiz, { key: item.id, id: item.id, email: item.email });
-    })));
-  }
-  function SelectQuiz() {
-    const dispatch = useDispatch();
-    const { data: quizes } = useFetchQuizesCasesIdsQuery();
-    const theme = useSelector(selectTheme);
-    const id = useSelector(selectId);
-    let uniqueThemes = [...new Set(quizes.map((item) => item?.theme))];
-    let selectedQuiz = quizes.find((item) => item.id === id);
-    console.log(selectedQuiz);
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement(Col_default, null, uniqueThemes.map((theme2, index) => /* @__PURE__ */ import_react18.default.createElement(
-      "div",
-      {
-        key: index,
-        onClick: () => dispatch(setStoreObject({ key: "selectedTheme", value: theme2 }))
-      },
-      /* @__PURE__ */ import_react18.default.createElement("small", null, theme2)
-    ))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, !!theme ? quizes.filter((item) => item.theme === theme).map((quiz) => /* @__PURE__ */ import_react18.default.createElement(
-      "div",
-      {
-        key: quiz.id,
-        onClick: () => dispatch(setStoreObject({ key: "selectedId", value: quiz.id }))
-      },
-      /* @__PURE__ */ import_react18.default.createElement("small", null, quiz?.title)
-    )) : "Select theme"), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement("div", { className: "mb-3" }, id), !!id && /* @__PURE__ */ import_react18.default.createElement(QuizDetails, { id }))));
-  }
-  function EditQuizMeta() {
-    const { data: quizes } = useFetchQuizesCasesIdsQuery();
-    const id = useSelector(selectId);
-    const { register, handleSubmit, setValue, watch } = useForm();
-    const [addItemToQuizesCasesIds] = useAddItemToQuizesCasesIdsMutation();
-    let quiz = quizes.find((quiz2) => quiz2.id === id);
-    if (!quiz) {
-      return null;
-    }
-    console.log(quiz);
-    const onSubmit = (editedquiz) => {
-      addItemToQuizesCasesIds({
-        id: quiz.id,
-        total: quiz.total,
-        ...editedquiz
-      }).then((res) => {
-        console.log(res);
-      });
-    };
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(Form_default, { onSubmit: handleSubmit(onSubmit) }, /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement("div", null, id), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Theme"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("theme"), defaultValue: quiz?.theme, required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "title" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Title"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { type: "text", ...register("title"), defaultValue: quiz?.title, required: true, size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "quizString" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Quiz string"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, defaultValue: quiz?.quizstring, ...register("quizstring"), size: "sm" }))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "theme" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Example Quiz String"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, defaultValue: quiz?.exampleQuizString, ...register("exampleQuizString"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "hint" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Hint"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, defaultValue: quiz?.hint, ...register("hint"), size: "sm" }))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "text" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Text with {={var1-10}} "), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 4, defaultValue: quiz?.text, ...register("text"), size: "sm" })), /* @__PURE__ */ import_react18.default.createElement(Form_default.Group, { className: "mb-1", controlId: "answer" }, /* @__PURE__ */ import_react18.default.createElement(Form_default.Label, null, "Answer with var1-10"), /* @__PURE__ */ import_react18.default.createElement(Form_default.Control, { as: "textarea", rows: 2, defaultValue: quiz?.answer, ...register("answer"), size: "sm" })))), /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement("div", { className: "d-grid gap-1" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "outline-secondary", className: "m-1", size: "sm", type: "submit" }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")))));
-  }
-  function QuizesCasesEntyties() {
-    const id = useSelector(selectId);
-    const { data, isLoading, isError: isError2 } = useFetchQuizesCasesEntytiesByIdQuery(id);
-    const [howtoId, setHowToId] = import_react18.default.useState(null);
-    const [email, setEmail] = import_react18.default.useState(null);
-    if (!id || isLoading || isError2) {
-      return null;
-    }
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(Row_default, null, /* @__PURE__ */ import_react18.default.createElement(Col_default, null, /* @__PURE__ */ import_react18.default.createElement("div", { style: { display: "flex", flexWrap: "wrap" } }, data.map(
-      (item) => /* @__PURE__ */ import_react18.default.createElement(
-        "button",
-        {
-          key: item.id,
-          onClick: () => {
-            setHowToId(item.id);
-            setEmail(item.email);
-          },
-          className: "btn btn-outline-success position-relative m-2"
-        },
-        /* @__PURE__ */ import_react18.default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-table", viewBox: "0 0 16 16" }, /* @__PURE__ */ import_react18.default.createElement("path", { d: "M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" })),
-        /* @__PURE__ */ import_react18.default.createElement("span", { className: "position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" }, "XL", /* @__PURE__ */ import_react18.default.createElement("span", { className: "visually-hidden" }, "Q"))
-      )
-    ))), /* @__PURE__ */ import_react18.default.createElement(Col_default, null, !!email && !!howtoId ? /* @__PURE__ */ import_react18.default.createElement(HowToSolveQuiz, { id: howtoId, email }) : "...")));
-  }
-  var alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z"
-  ];
-  function createMinimalProtoArray(protoDataObject = {}) {
-    let maxRow = 0;
-    let maxColumn = 0;
-    Object.keys(protoDataObject).forEach((objKey) => {
-      if (maxColumn < alphabet.findIndex((item) => item === objKey.substring(0, 1))) {
-        maxColumn = alphabet.findIndex((item) => item === objKey.substring(0, 1)) + 1;
-      }
-      if (maxRow < parseInt(objKey.substring(1))) {
-        maxRow = parseInt(objKey.substring(1));
-      }
-    });
-    let array = new Array(maxRow).fill("").map(() => new Array(maxColumn).fill(""));
-    Object.keys(protoDataObject).map((objKey) => {
-      const [col, ...row] = objKey;
-      let colArrayIndex = alphabet.findIndex((item) => item === col);
-      let rowArrayIndex = parseInt(row) - 1;
-      array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
-    });
-    return array;
-  }
-  function applyClassToTableTag(htmlstring) {
-    if (!htmlstring || typeof htmlstring !== "string")
-      return "";
-    if (htmlstring.includes("table") && !htmlstring.includes("class")) {
-      const regex = /table/i;
-      return htmlstring.replace(regex, 'table class="table table-sm"');
-    }
-    return htmlstring;
-  }
-  function makeHtmlTableMarkup(xlArray) {
-    if (xlArray.length > 0) {
-      return `<table class="table table-striped table-bordered table-hover table-sm">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                ${xlArray[0].map((column, columnIndex) => {
-        return "<th scope='col'>" + alphabet[columnIndex] + "</th>";
-      }).join("")}        
-            </tr>
-        </thead>
-        <tbody>
-            ${xlArray.map((row, rowIndex) => {
-        return `<tr>
-                        <th scope="row">${rowIndex + 1}</th>
-                        ${xlArray[rowIndex].map((column, columnIndex) => {
-          return "<td><small>" + row[columnIndex] + "</small></td>";
-        }).join("")}
-                            </tr>`;
-      }).join("")}
-        </tbody>
-        </table>`;
-    }
-    return null;
-  }
-  function HowToSolveQuiz({ id, email }) {
-    const { data, isLoading, isError: isError2 } = useFetchWorkbookPostQuery({ email, id });
-    if (isLoading || isError2 || !data) {
-      return null;
-    }
-    console.log(data);
-    return /* @__PURE__ */ import_react18.default.createElement("div", { className: "mb-1" }, /* @__PURE__ */ import_react18.default.createElement("div", { dangerouslySetInnerHTML: { __html: data?.type } }), /* @__PURE__ */ import_react18.default.createElement("div", { dangerouslySetInnerHTML: { __html: applyClassToTableTag(data?.quizString) } }), /* @__PURE__ */ import_react18.default.createElement("div", { dangerouslySetInnerHTML: {
-      __html: data?.type === "spreadsheet" ? makeHtmlTableMarkup(createMinimalProtoArray(data?.content)) : data?.answer
-    } }));
-  }
-  function QuizesCasesLayout() {
-    const layout = useSelector(selectLayout);
-    console.log(layout);
-    return /* @__PURE__ */ import_react18.default.createElement(Container_default, null, /* @__PURE__ */ import_react18.default.createElement(LayoutButtonGroup, null), /* @__PURE__ */ import_react18.default.createElement(Container_default, null, layout === "deleteNodeId" && /* @__PURE__ */ import_react18.default.createElement(DeleteNodeId, null), layout === "addquizwithrandomnumber" && /* @__PURE__ */ import_react18.default.createElement(AddQuiWithRandomNumber, null), layout === "selectquiz" && /* @__PURE__ */ import_react18.default.createElement(SelectQuiz, null), layout === "editquizmeta" && /* @__PURE__ */ import_react18.default.createElement(EditQuizMeta, null), layout === "quizescasesentyties" && /* @__PURE__ */ import_react18.default.createElement(QuizesCasesEntyties, null), layout === "addquizwithchoices" && /* @__PURE__ */ import_react18.default.createElement(AddQuizWithChoices, null)));
+    ))), /* @__PURE__ */ import_react18.default.createElement(Container_default, null), /* @__PURE__ */ import_react18.default.createElement("hr", null));
   }
   function App() {
-    const { isLoading, error: error2, isError: isError2 } = useFetchQuizesCasesIdsQuery();
+    const { isLoading } = useFetchOpenlecturePostsQuery();
     if (isLoading) {
       return /* @__PURE__ */ import_react18.default.createElement(Layout, { needAuth: false, needFireAuth: false }, " ");
     }
-    if (isError2) {
-      return /* @__PURE__ */ import_react18.default.createElement(Layout, { needAuth: false, needFireAuth: false }, error2);
-    }
-    return /* @__PURE__ */ import_react18.default.createElement(Layout, { needAuth: false, needFireAuth: true }, /* @__PURE__ */ import_react18.default.createElement(QuizesCasesLayout, null));
+    return /* @__PURE__ */ import_react18.default.createElement(Layout, { needAuth: false, needFireAuth: true }, /* @__PURE__ */ import_react18.default.createElement(OpenLectures, null));
   }
   var root = (0, import_client.createRoot)(document.getElementById("root"));
   root.render(
@@ -51917,6 +51421,24 @@ firebase/app/dist/esm/index.esm.js:
   (**
    * @license
    * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   *)
+
+@firebase/database/dist/index.esm2017.js:
+  (**
+   * @license
+   * Copyright 2017 Google LLC
    *
    * Licensed under the Apache License, Version 2.0 (the "License");
    * you may not use this file except in compliance with the License.
