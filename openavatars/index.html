@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Avatars Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/redux-toolkit.umd.js"></script>
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/query/rtk-query.umd.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Open Avatars</a>
+            <ul class="pagination pagination-sm mx-auto">
+                <li class="page-item active" id="1" style="display: none"><a class="page-link" href="#">1</a></li>
+            </ul>
+            <button class="btn btn-sm btn-outline-secondary" id="quitbutton" style="display: none;">Quit</button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div id="avatars"></div>
+            </div>
+            <div class="col-6">
+                <div id="names"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="newuserform" style="display: none">
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" class="form-control form-control-sm" id="emailinput" placeholder="Email"
+                    aria-label="Email" required>
+            </div>
+            <div class="col" id="usercol">
+                <input type="text" class="form-control form-control-sm" id="user" placeholder="User" aria-label="User">
+            </div>
+            <div class="col" id="passwordcol" style="display: none;">
+                <input type="password" class="form-control form-control-sm" id="passwordinput" placeholder="password"
+                    aria-label="User">
+            </div>
+            <div class="col" id="avatarcol">
+                <input type="url" class="form-control form-control-sm" id="avatar" placeholder="avatarUrl"
+                    aria-label="Avatar" required>
+            </div>
+            <div class="col">
+                <button class="btn btn-sm" id="savenewuser">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script type="module">
+        import { QuizDataStore, debounce, digestMessage } from '../../dist/openquiz.js';
+
+        let quizId = "-NUmjzxUWk28ZcP2J_f5";
+
+        const Quiz = new QuizDataStore(
+            "fincalculations",
+            "AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4",
+            quizId,
+            "a5bd29f89d06e17fbd926cac1e7d5d555611da90",
+
+            "quizescases",
+            "quizesCasesIds",
+            "quizesCasesEntyties",
+            "hint",
+            "usersCraft",
+
+            "econolabs",
+
+            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=100",
+
+
+            "Иван Оленев",
+            "johndoe@gmail.com",
+            "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop",
+
+            "Ваш собственный комментарий",
+            "Требуется email для сохранения комментария в рабочей тетради"
+        );
+
+
+        const appStore = window.RTK;
+        const appApi = window.RTKQ;
+
+
+        const initialState = {
+            loading: false,
+            error: null,
+            array: [],
+            page: 1,
+            email: null,
+            userEmail: null,
+            avatarUrl: null
+        }
+
+
+        const applicationSlice = appStore.createSlice({
+            name: 'application',
+            initialState,
+            reducers: {
+
+                setStoreObject: (state, action) => {
+                    state[action.payload.key] = action.payload.value;
+                },
+
+                seedArray: (state, action) => {
+                    state[action.payload.arrayName] = action.payload.arrayItems;
+                },
+
+                // pushSomeItemsToArray: (state, action) => {
+                //     state[action.payload.arrayName] = [...state[action.payload.arrayName], ...action.payload.newArrayItems];
+                // },
+
+                // emptyArray: (state, action) => {
+                //     state[action.payload.arrayName] = [];
+                // },
+
+                // pushItemToArray: (state, action) => {
+                //     state[action.payload.arrayName].push(action.payload.item);
+                // },
+
+                // deleteItemFromArray: (state, action) => {
+                //     state[action.payload.arrayName] = state[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
+                // },
+
+                // updateItemInArrayById: (state, action) => {
+                //     const index = state[action.payload.arrayName].findIndex(item => item.id === action.payload.item.id)
+                //     if (index !== -1) { state[action.payload.arrayName][index] = action.payload.item };
+                // },
+
+            }
+        })
+
+        const reducer = applicationSlice.reducer;
+        const { seedArray, setStoreObject } = applicationSlice.actions;
+
+        const api = appApi.createApi({
+            reducerPath: 'api',
+            tagTypes: ["OpenAvatar", "UserQuiz", "WorkbookPost", "OpenLecture", "UnsplashImage", "OpenLectureTag", "Auth"],
+            baseQuery: appApi.fakeBaseQuery(),
+            endpoints: (builder) => ({
+
+                fetchOpenAvatars: builder.query({
+                    async queryFn(url = "openavatars") {
+                        try {
+                            let list = await Quiz.getDBNode(url, "array");
+                            //     console.log(list)
+                            return { data: list }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: (result, error, arg) =>
+                        result
+                            ? [...result.map(({ id }) => ({ type: "OpenAvatar", id })), "OpenAvatar"]
+                            : ["OpenAvatar"],
+                }),
+
+                fetchWorkbookPosts: builder.query({
+                    async queryFn(userEmail = "temp@google.com") {
+                        try {
+                            let list = await Quiz.getDBNode("usersCraft/" + userEmail + "/posts", "array")
+                            //       console.log(list);
+                            return { data: list }
+                        }
+                        catch (err) {
+                            console.log(err);
+                            return { error: err }
+                        }
+                    },
+                    providesTags: (result, error, arg) =>
+                        result
+                            ? [...result.map(({ id }) => ({ type: "WorkbookPost", id })), "WorkbookPost"]
+                            : ["WorkbookPost"],
+                }),
+
+                updateOpenAvatars: builder.mutation({
+                    async queryFn({ base = "openavatars", updates = {
+                        temp_google_com: {
+                            id: "temp_google_com",
+                            avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxODU2NzR8MHwxfGNvbGxlY3Rpb258MjB8YUg5OGRoZWI1ME18fHx8fDJ8fDE3MDAxMzYxMjN8&ixlib=rb-4.0.3&q=80&w=200",
+                            user: "Ha Ha"
+                        }
+                    }
+                    }) {
+                        let fireUpdates = {};
+                        Object.keys(updates).forEach(objKey => {
+                            fireUpdates[base + "/" + objKey] = updates[objKey]
+                        });
+                        console.log(fireUpdates);
+                        try { await Quiz.doUpdates(fireUpdates) }
+                        catch (err) { console.log(err); return { error: err } }
+                        return { updates: fireUpdates }
+                    },
+                    invalidatesTags: ["OpenAvatar"]
+                }),
+
+            }),
+        })
+
+        const store = appStore.configureStore({
+            reducer: {
+                application: reducer,
+                [api.reducerPath]: api.reducer
+            },
+            middleware: (getDefaultMiddleware) =>
+                getDefaultMiddleware().concat(api.middleware),
+        })
+        appApi.setupListeners(store.dispatch);
+
+
+
+        function getUserPosts(userEmail, avatarUrl) {
+            store.dispatch(setStoreObject({ key: "userEmail", value: userEmail }));
+            store.dispatch(setStoreObject({ key: "avatarUrl", value: avatarUrl }));
+            store.dispatch(api.endpoints.fetchWorkbookPosts.initiate(userEmail));
+            Quiz.getUserToken().then(res => console.log(res));
+        }
+
+        store.subscribe(() => {
+            const state = store.getState();
+//            console.log(state);
+
+            const avatarsResult = api.endpoints.fetchOpenAvatars.select()(state);
+            const { data: avatars, isLoading: avatarsAreLoading, } = avatarsResult;
+            const postsResult = api.endpoints.fetchWorkbookPosts.select(state.application.userEmail)(state);
+            const { data: posts, isLoading: postsAreLoading } = postsResult;
+
+
+            if (!avatarsAreLoading && !postsAreLoading && !!avatars) {
+                let allavatars = avatars
+                    .filter((item, index) => (index > (state.application.page - 1) * 8 && index < state.application.page * 8))
+                    .map(ava => {
+                        let image = ava?.avatarUrl;
+                        let name = ava?.user;
+                        return `
+                         <div class="card shadow m-1">
+                             <div class="card-body">
+                                 <div class="row">
+                                     <div class="col-xs-12 col-lg-4">
+                                         <div class="text-center">
+                                             <img style="width:80px; height: 80px; object-fit: cover;" class="rounded-circle" src="${image}" alt="${name}"/>
+                                         </div>                                          
+                                     </div>
+                                     <div class="col-xs-12 col-lg-6">
+                                         <div style="margin: auto;">${name}</div>
+                                      
+                                     </div>
+                                     <div class="col-xs-12 col-lg-2">
+                                         <button class="btn btn-sm btn-outline-secondary selectuser" id="${ava.id}">Select</button>
+                                         <button class="btn btn-sm btn-outline-danger mt-1 deleteuser" id="${ava.id}" >Del</button>
+                                     </div>
+                                 </div>    
+                             </div>
+                         </div>`
+                    }).join('');
+                document.getElementById("avatars").innerHTML = allavatars;
+
+                for (var i = 0; i < document.getElementsByClassName("selectuser").length; i++) {
+                    document.getElementsByClassName("selectuser")[i].addEventListener("click", (e) => {
+                        getUserPosts(
+                            e.target.id,
+                            avatars.find(ava => ava.id == e.target.id)?.avatarUrl);
+                    });
+                }
+
+                for (var i = 0; i < document.getElementsByClassName("deleteuser").length; i++) {
+                    document.getElementsByClassName("deleteuser")[i].addEventListener("click", (e) => {
+                        console.log({ [e.target.id]: null })
+
+                        store.dispatch(api.endpoints.updateOpenAvatars.initiate({
+                            base: "openavatars", updates: {
+                                [e.target.id]: null
+                            }
+                        }))
+                            .then(res => { console.log("Deleted") });
+                    });
+                }
+
+
+                let allnames = Array.isArray(posts) ? [...new Set(posts.map(item => item.user))] : [];
+                let numberofposts = Array.isArray(posts) ? posts.length : 0;
+                if (numberofposts > 0) {
+                    document.getElementById("emailinput").value = posts[0].email
+                }
+                allnames = allnames.map(name => {
+                    return `
+                         <div class="card shadow m-1">
+                             <div class="card-body">
+                                 <div class="row">                                 
+                                     <div class="col-xs-12 col-lg-6">
+                                         <div style="margin: auto;">${name}</div>
+                                     </div>
+                                     <div class="col-xs-12 col-lg-2">
+                                         <div style="margin: auto;">${numberofposts}</div>
+                                     </div>
+                                     <div class="col-xs-12 col-lg-4">
+                                         <button class="btn btn-sm btn-outline-secondary selectname" id="${name}" >Save</button>                                     
+                                     </div>
+                                 </div>    
+                             </div>
+                         </div>`
+                }).join('');
+                document.getElementById("names").innerHTML = allnames;
+
+                for (var i = 0; i < document.getElementsByClassName("selectname").length; i++) {
+                    document.getElementsByClassName("selectname")[i].addEventListener("click", (e) => {
+                        store.dispatch(api.endpoints.updateOpenAvatars.initiate({
+                            base: "openavatars", updates: {
+                                [state.application.userEmail]: {
+                                    id: state.application.userEmail,
+                                    avatarUrl: state.application.avatarUrl,
+                                    user: e.target.id
+                                }
+                            }
+                        })).then(res => {
+                            console.log("Updated");
+                            document.getElementById("names").innerHTML = "";
+                        });
+                        console.log(name)
+
+                    });
+                }
+            }
+
+        });
+
+        //DISPATCHING
+
+        window.auth.onAuthStateChanged(user => {
+           if (!user) {
+                document.getElementById("usercol").style.display = "none";
+                document.getElementById("avatarcol").style.display = "none";
+                document.getElementById("savenewuser").style.display = "none";               
+
+                document.getElementById("emailinput").addEventListener("keyup", debounce((e) =>
+                    store.dispatch(setStoreObject({ key: "email", value: e.target.value })), 3000));
+                document.getElementById("passwordcol").style.display = "inline";
+                document.getElementById("passwordinput").addEventListener("keyup", debounce((e) => {
+                    if (!!store.getState().application.email) {
+                        Quiz.doSignInWithEmailAndPassword(store.getState().application.email, e.target.value).then(res =>
+                            window.location.reload()
+                        )
+                    }
+                }, 3000));
+               document.getElementById("newuserform").style.display = "block";
+            }
+            else {
+                document.getElementById("quitbutton").style.display = "block";
+                document.getElementById("passwordcol").style.display = "none";
+                document.getElementById("usercol").style.display = "inline";
+                document.getElementById("avatarcol").style.display = "inline";
+                document.getElementById("savenewuser").style.display = "inline"; 
+                store.dispatch(api.endpoints.fetchOpenAvatars.initiate())
+            .then(res => {
+                let numberOfPages = Array.isArray(res.data) ? Math.ceil(res.data.length / 8) : 0;
+                if (numberOfPages !== document.getElementsByClassName("page-item").length) {
+                   document.getElementsByClassName("pagination")[0].innerHTML = "";
+
+                    for (let step = 0; step < numberOfPages; step++) {
+                        let anchor = document.createElement("a");
+                        anchor.className = "page-link";
+                        anchor.innerText = step + 1;
+                        let pageli = document.createElement("li");
+                        pageli.className = "page-item";
+                        pageli.id = step + 1;
+                        pageli.addEventListener("click", (e) => {
+
+                            document.getElementById("names").innerHTML = "";
+                            store.dispatch(setStoreObject({ key: "page", value: Number(e.target.innerHTML) }));
+
+                            for (var i = 0; i < document.getElementsByClassName("page-item").length; i++) {
+                                let currentPageButton = document.getElementsByClassName("page-item")[i];
+                                if (currentPageButton.id === e.target.innerHTML) {
+                                    currentPageButton.className = "page-item active";
+                                } else {
+                                    currentPageButton.className = "page-item";
+                                }
+                            }
+                        })
+                        pageli.append(anchor);
+                        document.getElementsByClassName("pagination")[0].append(pageli);
+                    }
+                }
+                document.getElementById("newuserform").style.display = "block";
+            });  
+            }
+        });
+
+        for (var i = 0; i < document.getElementsByClassName("page-item").length; i++) {
+            document.getElementsByClassName("page-item")[i].addEventListener("click", (e) => {
+                console.log(e.target.innerHTML);
+                document.getElementById("names").innerHTML = "";
+                store.dispatch(setStoreObject({ key: "page", value: Number(e.target.innerHTML) }));
+
+                for (var i = 0; i < document.getElementsByClassName("page-item").length; i++) {
+                    let currentPageButton = document.getElementsByClassName("page-item")[i];
+                    if (currentPageButton.id === e.target.innerHTML) {
+                        currentPageButton.className = "page-item active";
+                    } else {
+                        currentPageButton.className = "page-item";
+                    }
+                }
+            })
+        }
+
+        document.getElementById("savenewuser").addEventListener("click", (e) => {
+            let email = document.getElementById("emailinput").value;
+            let user = document.getElementById("user").value;
+            let avatarUrl = document.getElementById("avatar").value;
+            console.log(email, user, avatarUrl);
+            store.dispatch(api.endpoints.updateOpenAvatars.initiate({
+                base: "openavatars", updates: {
+                    [email.replace(/[^a-zA-Z0-9]/g, "_")]: {
+                        id: email.replace(/[^a-zA-Z0-9]/g, "_"),
+                        user: user,
+                        avatarUrl: avatarUrl
+                    }
+                }
+            })).then(res => { console.log("Created New User ") });
+        })
+
+        document.getElementById("quitbutton").addEventListener("click", (e) => {
+            Quiz.doSignOut();
+                window.location.reload()   
+        } )
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Что и как мы решали?</title>
+</head>
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 1rem;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <a href="/">
+
+                        <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              filter: grayscale(100%);
+              object-fit: cover;" />
+
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="input-group m-1 p-1">
+            <span class="input-group-text" id="classdate">Дата</span>
+            <input type="date" id="selecteddate" class="form-control" aria-label="Username"
+                aria-describedby="classdate">
+        </div>
+
+        <div id="quiz"></div>
+
+        <div id="cards"></div>
+
+
+    </div>
+
+
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, onValue, update, push, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // Firebase config
+
+        let firebaseConfig = {
+            apiKey: "AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4",
+            authDomain: "fincalculations.firebaseapp.com",
+            databaseURL: "https://fincalculations.firebaseio.com",
+            projectId: "fincalculations",
+            storageBucket: "fincalculations.appspot.com",
+            messagingSenderId: "892270777573",
+            appId: "1:892270777573:web:bdc13e9b47334b4319700c"
+        }
+
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getDatabase();
+        const provider = new EmailAuthProvider();
+
+        // Selectors
+        const selectedDate = document.getElementById("selecteddate");
+
+        //  Utilities
+
+        function applyClassToTableTag(htmlstring) {
+            if (htmlstring instanceof String && htmlstring.includes("table")) {
+                const regex = /table/i;
+                return htmlstring.replace(regex, 'table class="table table-sm"')
+            }
+            return htmlstring
+        }
+
+        const alphabet = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"
+        ];
+
+        function createMinimalProtoArray(protoDataObject = {}) {
+            let maxRow = 0;
+            let maxColumn = 0;
+
+            Object.keys(protoDataObject).forEach(objKey => {
+                if (maxColumn < alphabet.findIndex(item => item === objKey.substring(0, 1))) {
+                    maxColumn = alphabet.findIndex(item => item === objKey.substring(0, 1)) + 1
+                }
+                if (maxRow < parseInt(objKey.substring(1))) {
+                    maxRow = parseInt(objKey.substring(1))
+                }
+            });
+
+            let array = new Array(maxRow).fill('').map(() => new Array(maxColumn).fill(''));
+
+            Object.keys(protoDataObject).map((objKey) => {
+                const [col, ...row] = objKey;
+                let colArrayIndex = alphabet.findIndex((item) => item === col);
+                let rowArrayIndex = parseInt(row) - 1;
+                array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+            });
+            return array;
+        }
+
+        function makeDomNodeForSpreadsheet(tableArray) {
+
+            var tbl = document.createElement("table");
+            tbl.setAttribute('class', "table table-bordered table-sm");
+
+            var tblHead = document.createElement("thead");
+            var row = document.createElement("tr");
+
+            var cell = document.createElement("th");
+            cell.innerText = " ";
+            row.appendChild(cell);
+
+            !!tableArray && Array.isArray(tableArray) && !!tableArray[0] && tableArray[0].forEach((column, columnIndex) => {
+                var cell = document.createElement("th");
+                cell.setAttribute('class', "text-center");
+                cell.innerText = alphabet[columnIndex];
+                row.appendChild(cell);
+            })
+
+            tblHead.appendChild(row);
+            tbl.appendChild(tblHead);
+
+            var tblBody = document.createElement("tbody");
+
+            !!tableArray && Array.isArray(tableArray) && tableArray.forEach((row, rowIndex) => {
+                var row = document.createElement("tr");
+
+                var cell = document.createElement("td");
+                cell.setAttribute('scope', "row");
+                cell.innerText = rowIndex + 1;
+                row.appendChild(cell);
+
+                !!tableArray[rowIndex] && tableArray[rowIndex].forEach((column, columnIndex) => {
+                    var cell = document.createElement("td");
+                    //      cell.setAttribute('class', "text-center");
+                    cell.innerText = tableArray[rowIndex][columnIndex];
+                    row.appendChild(cell);
+                })
+
+                tblBody.appendChild(row);
+            })
+            tbl.appendChild(tblBody);
+
+            return tbl
+        }
+
+        function vanillajsQuizCard(id, quiz) {
+
+            let avatar = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl ?
+                openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].avatarUrl :
+                "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
+
+
+            return document.getElementById(id).innerHTML = `
+            <div class="card m-1">
+            <div class="card-body" id="studentquiz">
+                <h5 class="card-title">${!!quiz?.theme ? quiz.theme : ""}</h5>
+                <p class="card-text">${!!quiz?.title ? quiz.title : ""}</p>
+                <hr />
+                <div class=row>
+                    <div class="col col-lg-3">
+                        <img src=${avatar}
+                                data-bs-toggle="tooltip" data-bs-html="true" 
+                                alt=${quiz.id} id=${quiz.id} class="avatar"
+                                title=${quiz.user}>
+                        <div class="m-1">
+                    ${!!quiz?.user ? applyClassToTableTag(quiz.user) : ""}
+                </div>
+                        </div>
+                    <div class="col col-lg-9">
+                        <div id="studenthint" class="mb-3">${!!quiz?.quizString ? applyClassToTableTag(quiz.quizString) : ""}</div>
+                    </div>
+                <div>    
+               
+               
+               
+                <hr />
+        </div>
+        </div>`}
+
+        //Local State
+
+        let openavatars = {};
+        let globalquizes = [];
+
+        const dataRef = ref(db, 'openavatars');
+        onValue(dataRef, (snapshot) => {
+            const data = snapshot.val();
+            //    console.log(data);
+            openavatars = data;
+
+        });
+
+
+
+
+        // Local functions
+
+        async function asyncFirebaseGetObjectNode({
+            url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
+            type = "array"
+        }) {
+            try {
+                let snapshot = await get(ref(db, url));
+                if (snapshot.exists()) {
+                    let res = snapshot.val();
+                    if (type === "array") { return Object.keys(res).map(objKey => res[objKey]) }
+                    return res
+                } else {
+                    if (type === "array") { return [] } else { return null }
+                }
+            }
+            catch (err) {
+                console.log(err);
+                if (type === "array") { return [] } else { return {} }
+            }
+        }
+
+        function doSelectQuiz(e) {
+            document.getElementById("quiz").innerHTML = `
+            <div class="d-flex justify-content-center p-5" style="min-height: 100px">
+                <div class="spinner-grow spinner-grow-sm text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>`;
+            let quiz = globalquizes.find(item => item.id === e.target.id);
+
+            let user = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user ?
+                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
+                                    : "Иван Оленев";
+
+        //    console.log(user);
+            asyncFirebaseGetObjectNode(
+                {
+                    url: "/usersCraft/" + quiz.email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts/" + quiz.id,
+                    type: "object"
+                })
+                .then(foundquiz => {
+                    //    console.log(foundquiz);
+
+                    if (foundquiz?.type === "spreadsheet") {
+                        vanillajsQuizCard("quiz", { ...foundquiz, user });
+                        document.getElementById("studentquiz")
+                            .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.content, 0, 0)));
+                    }
+
+                    if (foundquiz?.type === "html") {
+                        vanillajsQuizCard("quiz", { ...foundquiz, quizString: foundquiz?.content, user });
+                    }
+
+                    if (foundquiz?.type === "multiplechoices") {
+                        vanillajsQuizCard("quiz", { ...foundquiz, quizString: foundquiz?.content + "<br> " + foundquiz?.answer, user });
+                    }
+
+
+
+
+                    if (!foundquiz) {
+                //        console.log("Try Again");
+                        let altid = "-N" + quiz.id.split("-N").pop();
+                        asyncFirebaseGetObjectNode(
+                            {
+                                url: "quizescases/quizesCasesEntyties/" + altid + "/" + quiz.email.replace(/[^a-zA-Z0-9]/g, "_"),
+                                type: "object"
+                            })
+                            .then(hint => {
+                                if (hint?.type === "spreadsheet") {
+                                    vanillajsQuizCard("quiz", { ...hint, user });
+                                    document.getElementById("studentquiz")
+                                        .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(hint.content, 0, 0)));
+                                }
+
+                                if (hint?.type === "html") {
+                                    vanillajsQuizCard("quiz", { ...hint, quizString: hint?.content, user });
+                                }
+
+                                if (hint?.type === "multiplechoices") {
+                                    vanillajsQuizCard("quiz", { ...hint, quizString: hint?.content + "<br> " + hint?.answer, user });
+                                }
+                            })
+
+                    }
+                })
+
+
+        }
+
+        function doSelectDate(e) {
+            document.getElementById("quiz").innerHTML = "";
+            e.preventDefault();
+            //   console.log(e.target.value);
+            var d = new Date(e.target.value);
+
+            let currentDay = new Intl.DateTimeFormat("en", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            })
+                .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+                .replace(/[^a-zA-Z0-9]/g, "_");
+            asyncFirebaseGetObjectNode(
+                {
+                    url: "/currentDay/" + currentDay + "/posts/",
+                    type: "array"
+                })
+                .then(quizes => {
+                    //    console.log(quizes);
+                    globalquizes = quizes;
+                    let uniqueEmails = [...new Set(quizes.map(item => item?.email))];
+                    let uniqueTitles = [...new Set(quizes.map(item => item?.title))];
+                    let uniqueUserEmails = uniqueEmails.map(email => email.replace(/[^a-zA-Z0-9]/g, "_"));
+
+
+                    document.getElementById("cards").innerHTML =
+                        uniqueTitles.map(title => {
+                            let filteredquizes = quizes.filter(quiz => quiz.title === title);
+                            let avatarsmarkup = filteredquizes.map(quiz => {
+                                let user = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user ?
+                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
+                                    : "Иван Оленев";
+                                let avatar = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl ?
+                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].avatarUrl :
+                                    "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
+                                return `<img src=${avatar}
+                                data-bs-toggle="tooltip" data-bs-html="true" 
+                                alt=${quiz.id} id=${quiz.id} class="avatar"
+                                title=${user}>`
+                            }).join("")
+                            return `<div class="card m-1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${title}</h5>
+                                            <div class="class-text">${avatarsmarkup}</div>
+                                        </div>
+                                    </div>`
+                        })
+                            .join("");
+
+                    var items = document.getElementsByClassName("avatar");
+                    for (var i = 0; i < items.length; i++) {
+                        items[i].addEventListener('click', doSelectQuiz);
+                    }
+
+                });
+
+        }
+
+
+        // Firebase listeners
+
+
+        // HTML event listeners
+        selectedDate.addEventListener("change", doSelectDate, false);
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
