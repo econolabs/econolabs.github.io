@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <title>Что и как мы решали?</title>
 </head>
 
@@ -99,6 +98,11 @@
         const selectedDate = document.getElementById("selecteddate");
 
         //  Utilities
+
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
 
         function applyClassToTableTag(htmlstring) {
             if (htmlstring instanceof String && htmlstring.includes("table")) {
@@ -289,10 +293,10 @@
             let quiz = globalquizes.find(item => item.id === e.target.id);
 
             let user = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user ?
-                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
-                                    : "Иван Оленев";
+                openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
+                : "Иван Оленев";
 
-        //    console.log(user);
+            //    console.log(user);
             asyncFirebaseGetObjectNode(
                 {
                     url: "/usersCraft/" + quiz.email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts/" + quiz.id,
@@ -319,7 +323,7 @@
 
 
                     if (!foundquiz) {
-                //        console.log("Try Again");
+                        //        console.log("Try Again");
                         let altid = "-N" + quiz.id.split("-N").pop();
                         asyncFirebaseGetObjectNode(
                             {
@@ -362,6 +366,8 @@
             })
                 .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
                 .replace(/[^a-zA-Z0-9]/g, "_");
+
+
             asyncFirebaseGetObjectNode(
                 {
                     url: "/currentDay/" + currentDay + "/posts/",
@@ -374,22 +380,38 @@
                     let uniqueTitles = [...new Set(quizes.map(item => item?.title))];
                     let uniqueUserEmails = uniqueEmails.map(email => email.replace(/[^a-zA-Z0-9]/g, "_"));
 
+                    let avatarsObjectKeys = Object.keys(openavatars);
+                    let difference = uniqueUserEmails.filter(x => !avatarsObjectKeys.includes(x));
+
+                    if (!!(difference.length / uniqueUserEmails.length) && (difference.length / uniqueUserEmails.length > 0.8)) {
+                        uniqueEmails.forEach(email => {
+                            openavatars[email.replace(/[^a-zA-Z0-9]/g, "_")] =
+                                openavatars[avatarsObjectKeys[(randomIntFromInterval(1, avatarsObjectKeys.length - 1))]];
+                            openavatars[email.replace(/[^a-zA-Z0-9]/g, "_")].user = quizes.find(item => item.email === email).user
+                        })
+                    };
+
 
                     document.getElementById("cards").innerHTML =
                         uniqueTitles.map(title => {
                             let filteredquizes = quizes.filter(quiz => quiz.title === title);
+
                             let avatarsmarkup = filteredquizes.map(quiz => {
-                                let user = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user ?
-                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
-                                    : "Иван Оленев";
-                                let avatar = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl ?
-                                    openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].avatarUrl :
+
+                                let finduser = openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user;
+                                let user = !!finduser ? finduser : "Иван Оленев";
+
+                                let findavatar = openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl;
+
+                                let avatar = !!findavatar ? findavatar :
                                     "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
+
                                 return `<img src=${avatar}
                                 data-bs-toggle="tooltip" data-bs-html="true" 
                                 alt=${quiz.id} id=${quiz.id} class="avatar"
                                 title=${user}>`
                             }).join("")
+
                             return `<div class="card m-1">
                                         <div class="card-body">
                                             <h5 class="card-title">${title}</h5>
