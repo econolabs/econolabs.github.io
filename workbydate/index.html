@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Что и как мы решали?</title>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/redux-toolkit.umd.js"></script>
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/query/rtk-query.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-<style>
-    .avatar {
-        vertical-align: middle;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 1rem;
-    }
-</style>
+    <style>
+        .avatar {
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem;
+        }
+    </style>
+    <title>Что и как мы решали</title>
+</head>
 
 <body>
 
@@ -37,7 +40,7 @@
                 </ul>
                 <form class="d-flex">
 
-                    <a href="/">
+                    <a href="https://vk.com/dmglvn">
 
                         <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
                             style="
@@ -53,7 +56,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="layout">
 
         <div class="input-group m-1 p-1">
             <span class="input-group-text" id="classdate">Дата</span>
@@ -63,20 +66,52 @@
 
         <div id="quiz"></div>
 
-        <div id="cards"></div>
+        <div id="cards" class="list-group"></div>
 
+        <div id="cases" class="list-group"></div>
+
+        <div id="budgeting" class="list-group"></div>
+
+
+        <div class="modal  fade" id="quizcaseModal" tabindex="-1" aria-labelledby="quizcaseModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="quizcaseModalLabel">Пример</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalbody">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-
 
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, onValue, update, push, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { createApi } from "https://unpkg.com/unsplash-js@7.0.19/dist/unsplash-js.esm.js";
+        import {
+           // alphabet, applyClassToTableTag,
+            createMinimalProtoArray, vanillajsQuizByDateCard, makeDomNodeForSpreadsheet, randomIntFromInterval,
+            getApexchartOptionsFromCase,
+            vanillajsShowAccountingRecords, vanillajsShowBalanceMarkUp, vanillajsShowBalanceStackedBars, vanillajsShowCashFlowMarkUp, vanillajsShowFinancialResultsMarkUp,
+            findUnspalshImageByGender
+        } from "https://unpkg.com/financelabsutilities@0.0.10/dist/index.js";
 
-        // Firebase config
+        let myModal = new bootstrap.Modal(document.getElementById('quizcaseModal'));
+
+        //Utlilities
+
+       // Firebase Config
 
         let firebaseConfig = {
             apiKey: "AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4",
@@ -90,180 +125,12 @@
 
 
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
+        // const auth = getAuth();
+        // window.auth = auth;
         const db = getDatabase();
-        const provider = new EmailAuthProvider();
+        // const provider = new EmailAuthProvider();
 
-        // Selectors
-        const selectedDate = document.getElementById("selecteddate");
-
-        //  Utilities
-
-        function randomIntFromInterval(min, max) { // min and max included 
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
-
-
-        function applyClassToTableTag(htmlstring) {
-            if (htmlstring instanceof String && htmlstring.includes("table")) {
-                const regex = /table/i;
-                return htmlstring.replace(regex, 'table class="table table-sm"')
-            }
-            return htmlstring
-        }
-
-        const alphabet = [
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"
-        ];
-
-        function createMinimalProtoArray(protoDataObject = {}) {
-            let maxRow = 0;
-            let maxColumn = 0;
-
-            Object.keys(protoDataObject).forEach(objKey => {
-                if (maxColumn < alphabet.findIndex(item => item === objKey.substring(0, 1))) {
-                    maxColumn = alphabet.findIndex(item => item === objKey.substring(0, 1)) + 1
-                }
-                if (maxRow < parseInt(objKey.substring(1))) {
-                    maxRow = parseInt(objKey.substring(1))
-                }
-            });
-
-            let array = new Array(maxRow).fill('').map(() => new Array(maxColumn).fill(''));
-
-            Object.keys(protoDataObject).map((objKey) => {
-                const [col, ...row] = objKey;
-                let colArrayIndex = alphabet.findIndex((item) => item === col);
-                let rowArrayIndex = parseInt(row) - 1;
-                array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
-            });
-            return array;
-        }
-
-        function makeDomNodeForSpreadsheet(tableArray) {
-
-            var tbl = document.createElement("table");
-            tbl.setAttribute('class', "table table-bordered table-sm");
-
-            var tblHead = document.createElement("thead");
-            var row = document.createElement("tr");
-
-            var cell = document.createElement("th");
-            cell.innerText = " ";
-            row.appendChild(cell);
-
-            !!tableArray && Array.isArray(tableArray) && !!tableArray[0] && tableArray[0].forEach((column, columnIndex) => {
-                var cell = document.createElement("th");
-                cell.setAttribute('class', "text-center");
-                cell.innerText = alphabet[columnIndex];
-                row.appendChild(cell);
-            })
-
-            tblHead.appendChild(row);
-            tbl.appendChild(tblHead);
-
-            var tblBody = document.createElement("tbody");
-
-            !!tableArray && Array.isArray(tableArray) && tableArray.forEach((row, rowIndex) => {
-                var row = document.createElement("tr");
-
-                var cell = document.createElement("td");
-                cell.setAttribute('scope', "row");
-                cell.innerText = rowIndex + 1;
-                row.appendChild(cell);
-
-                !!tableArray[rowIndex] && tableArray[rowIndex].forEach((column, columnIndex) => {
-                    var cell = document.createElement("td");
-                    //      cell.setAttribute('class', "text-center");
-                    cell.innerText = tableArray[rowIndex][columnIndex];
-                    row.appendChild(cell);
-                })
-
-                tblBody.appendChild(row);
-            })
-            tbl.appendChild(tblBody);
-
-            return tbl
-        }
-
-        function vanillajsQuizCard(id, quiz) {
-
-            let avatar = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl ?
-                openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].avatarUrl :
-                "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
-
-
-            return document.getElementById(id).innerHTML = `
-            <div class="card m-1">
-            <div class="card-body" id="studentquiz">
-                <h5 class="card-title">${!!quiz?.theme ? quiz.theme : ""}</h5>
-                <p class="card-text">${!!quiz?.title ? quiz.title : ""}</p>
-                <hr />
-                <div class=row>
-                    <div class="col col-lg-3">
-                        <img src=${avatar}
-                                data-bs-toggle="tooltip" data-bs-html="true" 
-                                alt=${quiz.id} id=${quiz.id} class="avatar"
-                                title=${quiz.user}>
-                        <div class="m-1">
-                    ${!!quiz?.user ? applyClassToTableTag(quiz.user) : ""}
-                </div>
-                        </div>
-                    <div class="col col-lg-9">
-                        <div id="studenthint" class="mb-3">${!!quiz?.quizString ? applyClassToTableTag(quiz.quizString) : ""}</div>
-                    </div>
-                <div>    
-               
-               
-               
-                <hr />
-        </div>
-        </div>`}
-
-        //Local State
-
-        let openavatars = {};
-        let globalquizes = [];
-
-        const dataRef = ref(db, 'openavatars');
-        onValue(dataRef, (snapshot) => {
-            const data = snapshot.val();
-            //    console.log(data);
-            openavatars = data;
-
-        });
-
-
-
-
-        // Local functions
-
-        async function asyncFirebaseGetObjectNode({
+        async function getFirebaseNode({
             url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
             type = "array"
         }) {
@@ -283,79 +150,545 @@
             }
         }
 
-        function doSelectQuiz(e) {
-            document.getElementById("quiz").innerHTML = `
-            <div class="d-flex justify-content-center p-5" style="min-height: 100px">
-                <div class="spinner-grow spinner-grow-sm text-light" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>`;
-            let quiz = globalquizes.find(item => item.id === e.target.id);
+        // Unsplash
 
-            let user = !!openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user ?
-                openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")].user
-                : "Иван Оленев";
+        const unsplash = createApi({
+            accessKey: "NhcRJz0lTzcxiZusH5ss4Up8-hBz5DTED3UE8rLCjbo"
+        });
 
-            //    console.log(user);
-            asyncFirebaseGetObjectNode(
-                {
-                    url: "/usersCraft/" + quiz.email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts/" + quiz.id,
-                    type: "object"
-                })
-                .then(foundquiz => {
-                    //    console.log(foundquiz);
-
-                    if (foundquiz?.type === "spreadsheet") {
-                        vanillajsQuizCard("quiz", { ...foundquiz, user });
-                        document.getElementById("studentquiz")
-                            .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.content, 0, 0)));
-                    }
-
-                    if (foundquiz?.type === "html") {
-                        vanillajsQuizCard("quiz", { ...foundquiz, quizString: foundquiz?.content, user });
-                    }
-
-                    if (foundquiz?.type === "multiplechoices") {
-                        vanillajsQuizCard("quiz", { ...foundquiz, quizString: foundquiz?.content + "<br> " + foundquiz?.answer, user });
-                    }
+        async function getPicturesFromCollection({ collectionId = "aH98dheb50M", perPage = 30 }) {
+            let pics = await unsplash.collections.getPhotos({ collectionId, page: 1, perPage });
+            let pages = Math.ceil(pics.response.total / 30);
+            let allPics = [];
+            await Promise.all(
+                new Array(pages).fill(0).map((page, index) => {
+                    return unsplash.collections.getPhotos({ collectionId, page: index + 1, perPage: 30 })
+                }))
+                .then((pages) => {
+                    pages.forEach(page => {
+                        page.response.results.forEach(pic => {
+                            allPics.push(pic)
+                        })
+                    });
+                });
+            return allPics
+                .filter(item => !item.description?.includes("krain") && !item.alt_description?.includes("krain"))
+                .sort(({ likes: a }, { likes: b }) => b - a)
+        }
 
 
+        // Redux RTK Query Config
+
+        const appStore = window.RTK;
+        const appApi = window.RTKQ;
 
 
-                    if (!foundquiz) {
-                        //        console.log("Try Again");
-                        let altid = "-N" + quiz.id.split("-N").pop();
-                        asyncFirebaseGetObjectNode(
-                            {
-                                url: "quizescases/quizesCasesEntyties/" + altid + "/" + quiz.email.replace(/[^a-zA-Z0-9]/g, "_"),
-                                type: "object"
-                            })
-                            .then(hint => {
-                                if (hint?.type === "spreadsheet") {
-                                    vanillajsQuizCard("quiz", { ...hint, user });
+        
+        const api = appApi.createApi({
+            reducerPath: 'api',
+            tagTypes: ["OpenAvatar", "Unsplash", "WorkbookPost", "QuizesCasesEntyty", "QuizCase", "Apexchart"],
+            baseQuery: appApi.fakeBaseQuery(),
+            endpoints: (builder) => ({
+
+                fetchQuizesCasesByDate: builder.query({
+                    async queryFn(url = "/currentDay/Wed__Feb_14__2024/") {
+                        try {
+                            let quizes = await getFirebaseNode({ url: url + "posts", type: "array" });
+                            let cases = await getFirebaseNode({ url: url + "cases", type: "array" });
+                            //    console.log(list)
+                            return {
+                                data: [
+                                    ...quizes.map(item => { return { ...item, source: "posts" } }),
+                                    ...cases.map(item => { return { ...item, source: "cases" } })
+                                ]
+                            }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: (result, error, arg) =>
+                        result
+                            ? [...result.map(({ id }) => ({ type: "QuizCase", id })), "QuizCase"]
+                            : ["QuizCase"],
+                }),
+
+                getPicturesFromCollection: builder.query({
+                    async queryFn(collectionId = "aH98dheb50M") {
+                        try {
+                            let list = await getPicturesFromCollection({ collectionId, perPage: 30 });
+                            //     console.log(list)
+                            return { data: list }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: (result, error, arg) =>
+                        result
+                            ? [...result.map(({ id }) => ({ type: "Unsplash", id })), "Unsplash"]
+                            : ["Unsplash"],
+                }),
+
+                fetchOpenAvatars: builder.query({
+                    async queryFn(url = "openavatars") {
+                        try {
+                            let list = await getFirebaseNode({ url, type: "array" });
+                            //     console.log(list)
+                            return { data: list }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: (result, error, arg) =>
+                        result
+                            ? [...result.map(({ id }) => ({ type: "OpenAvatar", id })), "OpenAvatar"]
+                            : ["OpenAvatar"],
+                }),
+
+                fetchOpenAvatar: builder.query({
+                    async queryFn(url = "johndoe_gmail_com") {
+                        try {
+                            let list = await getFirebaseNode({ url: "openavatars/" + url, type: "object" });
+                            //     console.log(list)
+                            return { data: list }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: (result, error, id) => [{ type: "OpenAvatar", id }]
+                }),
+
+                getApexChart: builder.query({
+                    queryFn() {
+                        try {
+                            return { data: null }
+                        }
+                        catch (err) { console.log(err); return { error: err } }
+                    },
+                    providesTags: ["Apexchart"],
+                }),
+
+
+
+
+                fetchWorkbookPost: builder.query({
+                    async queryFn({ userEmail = "temp@google.com", id = "xxx" }) {
+                        //     console.log(userEmail, id)
+                        try {
+                            let list = await getFirebaseNode({ url: "usersCraft/" + userEmail + "/posts/" + id, type: "object" });
+                            return { data: list }
+                        }
+                        catch (err) {
+                            console.log(err);
+                            return { error: err }
+                        }
+                    },
+                    providesTags: (result, error, id) => [{ type: "WorkbookPost", id }]
+
+                }),
+
+                fetchQuizesCasesEntyty: builder.query({
+                    async queryFn({ userEmail = "temp@google.com", id = "xxx" }) {
+                        //          console.log(userEmail, id)
+                        try {
+                            let list = await getFirebaseNode({ url: "quizescases/quizesCasesEntyties/" + id + "/" + userEmail, type: "object" });
+                            return { data: list }
+                        }
+                        catch (err) {
+                            console.log(err);
+                            return { error: err }
+                        }
+                    },
+                    providesTags: (result, error, id) => [{ type: "WorkbookPost", id }]
+
+                }),
+
+
+            }),
+        })
+
+        const store = appStore.configureStore({
+            reducer: {
+                [api.reducerPath]: api.reducer
+            },
+            middleware: (getDefaultMiddleware) =>
+                getDefaultMiddleware().concat(api.middleware),
+        })
+        appApi.setupListeners(store.dispatch);
+
+
+        // Selectors
+        let apexchart = null;
+        const selectedDate = document.getElementById("selecteddate");
+
+        // Functions
+
+        async function getAvatar(userEmail) {
+            let res = await store.dispatch(api.endpoints.fetchOpenAvatar.initiate(userEmail))
+            return !!res.data ? res.data : null;
+        }
+
+
+        function doSelectQuiz(id, userEmail) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = "";
+
+            let user, avatarUrl;
+
+            var myModal = new bootstrap.Modal(document.getElementById('quizcaseModal')); //, options
+
+            getAvatar(userEmail)
+                .then(info => {
+                    user = !!info?.user ? info.user : "Иван Оленев";
+                    avatarUrl = !!info?.avatarUrl ? info?.avatarUrl :
+                        "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
+
+                    store.dispatch(api.endpoints.fetchWorkbookPost.initiate({ userEmail, id }))
+                        .then(foundquiz => {
+
+                            if (!!foundquiz?.data) {
+                                if (foundquiz.data?.type === "spreadsheet") {
+                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, user, avatarUrl });
                                     document.getElementById("studentquiz")
-                                        .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(hint.content, 0, 0)));
+                                        .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.data?.content, 0, 0)));
                                 }
 
-                                if (hint?.type === "html") {
-                                    vanillajsQuizCard("quiz", { ...hint, quizString: hint?.content, user });
+                                if (foundquiz.data?.type === "html") {
+                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, quizString: foundquiz.data?.content, user, avatarUrl });
                                 }
 
-                                if (hint?.type === "multiplechoices") {
-                                    vanillajsQuizCard("quiz", { ...hint, quizString: hint?.content + "<br> " + hint?.answer, user });
+                                if (foundquiz.data?.type === "multiplechoices") {
+                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, quizString: foundquiz.data?.content + "<br> " + foundquiz.data?.answer, user, avatarUrl });
                                 }
-                            })
+                            } else {
+                                let altid = "-N" + id.split("-N").pop();
 
-                    }
+                                store.dispatch(api.endpoints.fetchQuizesCasesEntyty.initiate({ userEmail, id: altid }))
+                                    .then(hint => {
+                                        if (hint.data?.type === "spreadsheet") {
+                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, user, avatarUrl });
+                                            document.getElementById("studentquiz")
+                                                .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(hint.data.content, 0, 0)));
+                                        }
+
+                                        if (hint.data?.type === "html") {
+                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, quizString: hint.data?.content, user, avatarUrl });
+                                        }
+
+                                        if (hint.data?.type === "multiplechoices") {
+                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, quizString: hint.data?.content + "<br> " + hint.data?.answer, user, avatarUrl });
+                                        }
+                                    })
+                            }
+                        });
                 })
+                .then(() => myModal.show())
+        }
 
+        function doSelectCaseMedia(casemedia) {
+            apexchart ? apexchart.destroy() : null
+            document.getElementById("modalbody").innerHTML = "";
+            //, options
+
+            if (casemedia.type === "html") {
+                document.getElementById("modalbody").innerHTML = casemedia.content;
+            }
+
+            if (casemedia.type.includes("apex")) {
+                var chart = new ApexCharts(document.getElementById("modalbody"), getApexchartOptionsFromCase({ type: casemedia.type, content: casemedia.content }));
+                chart.render();
+                apexchart = chart;
+            }
+            myModal.show();
+        }
+
+
+        function showCaseRecords(usercase) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = vanillajsShowAccountingRecords(usercase.content);
+            myModal.show()
+        }
+
+        function showBalanceMarkUp(usercase) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = vanillajsShowBalanceMarkUp(
+                usercase.content,
+                [
+                    { id: 1, title: "", type: 'asset' },
+                    { id: 2, title: "Основные средства", type: 'asset' },
+                    { id: 3, title: "Материалы", type: 'asset' },
+                    { id: 4, title: "Незавершенное производство", type: 'asset' },
+                    { id: 5, title: "Готовая продукция", type: 'asset' },
+                    { id: 6, title: "Дебиторская задолженность", type: 'asset' },
+                    { id: 7, title: "Деньги", type: 'asset' },
+
+                    { id: 8, title: "", type: 'equity' },
+
+                    { id: 9, title: "Уставный капитал", type: 'equity' },
+                    { id: 10, title: "Нераспределенная прибыль", type: 'equity' },
+
+                    { id: 11, title: "", type: "liability" },
+                    { id: 12, title: "Долгосрочный банковский кредит", type: 'liability' },
+                    { id: 13, title: "Краткосрочный банковский кредит", type: 'liability' },
+                    { id: 14, title: "Кредиторская задолженность", type: 'liability' }
+                ]);
+            myModal.show()
+        }
+
+        function showShowCashFlowMarkUp(usercase) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = vanillajsShowCashFlowMarkUp(
+                usercase.content,
+                [
+                    "Кэш-фло",
+                    "Поступления по текущей деятельности",
+                    "Платежи по текущей деятельности",
+                    "Поступления по инвестиционной деятельности",
+                    "Платежи по инвестиционной деятельности",
+                    "Поступления по финансовой деятельности",
+                    "Платежи по финансовой деятельности"
+                ]
+            );
+            myModal.show()
+        }
+
+        function showFinancialResultsMarkUp(usercase) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = vanillajsShowFinancialResultsMarkUp(
+                usercase.content,
+                [
+                    "Финансовые результаты",
+                    "Выручка",
+                    "Себестоимость продукции, работ, услуг",
+                    "Коммерческие расходы",
+                    "Управленческие расходы",
+                    "Проценты к уплате",
+                    "Прочие расходы",
+                    "Налог на прибыль",
+                    "Дивиденды к начислению"]
+            );
+            myModal.show()
+        }
+
+        function showCaseBalance(usercase) {
+            apexchart ? apexchart.destroy() : null
+            let quizcontainer = "modalbody"; // "quiz";
+            document.getElementById(quizcontainer).innerHTML = "";
+
+            var chart = new ApexCharts(document.getElementById("modalbody"),
+                vanillajsShowBalanceStackedBars(
+                    usercase.content,
+                    [
+
+                        { id: 1, title: "", type: 'asset' },
+                        { id: 2, title: "Деньги", type: 'asset' },
+                        { id: 3, title: "Дебиторская задолженность", type: 'asset' },
+                        { id: 4, title: "Готовая продукция", type: 'asset' },
+                        { id: 5, title: "Незавершенное производство", type: 'asset' },
+                        { id: 6, title: "Материалы", type: 'asset' },
+
+                        { id: 7, title: "Основные средства", type: 'asset' },
+
+
+                        { id: 8, title: "", type: "liability" },
+
+                        { id: 9, title: "Кредиторская задолженность", type: 'liability' },
+                        { id: 10, title: "Краткосрочный банковский кредит", type: 'liability' },
+                        { id: 11, title: "Долгосрочный банковский кредит", type: 'liability' },
+                        { id: 12, title: "Нераспределенная прибыль", type: 'equity' },
+
+                        { id: 13, title: "", type: 'equity' },
+
+                        { id: 14, title: "Уставный капитал", type: 'equity' }
+                    ]
+                )
+            );
+            chart.render();
+            apexchart = chart;
+            // console.log(chart);
+            myModal.show()
+        }
+
+        function markupForQuizesCasesByDate(
+            domIdforPosts = "cards",
+            domIdforCases = "cases",
+            domIdForBudgeting = "budgeting",
+            currentDayQuizes = [],
+            openavatarsObject = {},
+            defaultUser = "John Doe",
+            defaultAvatar = "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+        ) {
+
+            let quizes = currentDayQuizes.filter(item => item.source === "posts")
+            let uniqueTitles = [...new Set(quizes.map(item => item?.title))];
+            document.getElementById(domIdforPosts).innerHTML =
+                uniqueTitles.map(title => {
+                    let avatarsmarkup = quizes
+                        .filter(quiz => quiz.title === title)
+                        .map(quiz => {
+                            let openavatar = openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+                            let finduser = openavatar?.user;
+                            let user = !!finduser ? finduser : defaultUser;
+                            let findavatar = openavatar?.avatarUrl;
+                            let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+                            return `<img src=${avatar}
+                                data-bs-toggle="tooltip" data-bs-html="true" 
+                                alt=${quiz.id} id=${quiz.id} class="avatar"
+                                title=${user}>`
+                        }).join("")
+
+                    return `
+                        <div class="card m-1" data-id=${title}>
+                            <div class="card-body">
+                                <h5 class="card-title">${title}</h5>
+                                <div class="class-text">${avatarsmarkup}</div>
+                            </div>
+                        </div>`
+                })
+                    .join("");
+
+            let avatarbuttons = document.getElementsByClassName("avatar");
+            for (var i = 0; i < avatarbuttons.length; i++) {
+                avatarbuttons[i].addEventListener('click',
+                    (e) => doSelectQuiz(
+                        e.target.id,
+                        quizes.find(item => item.id === e.target.id).email.replace(/[^a-zA-Z0-9]/g, "_")
+                    ));
+            }
+
+            let caseswithmediatypes = currentDayQuizes.filter(item => item.source === "cases" && item.type !== "accountingwithprofitscash")
+            let uniqueTimeStamps = [...new Set(caseswithmediatypes.map(item => item?.timestamp))];
+
+            document.getElementById(domIdforCases).innerHTML =
+                uniqueTimeStamps.map(timestamp => {
+                    let filteredquizes = caseswithmediatypes.filter(quiz => quiz.timestamp === timestamp);
+                    //   console.log(filteredquizes);
+                    let quiz = filteredquizes[0];
+                    let openavatar = openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+                    let finduser = openavatar?.user;
+                    let user = !!finduser ? finduser : defaultUser;
+                    let findavatar = openavatar?.avatarUrl;
+                    let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+
+                    let casetimestampmarkup = filteredquizes.map(labcase => {
+                        return `<div class="col">
+                        <button class="btn btn-sm btn-outline-secondary casemediabutton" id=${labcase.id}>
+                            ${labcase?.type}
+                           </button>
+                           </div>`
+                    })
+                        .join("");
+
+                    return `<div class="card my-1">
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <div class="col-12 col-lg-3">
+                                            <img src=${avatar}
+                                            data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
+                                                alt=${quiz.id} id=${quiz.id} 
+                                            title=${user}>
+                                        </div>    
+                                        <div  <div class="col-12 col-lg-9">
+                                            <h5 class="card-title">${quiz.title}</h5>
+                                            <div class="class-text">${quiz.comment}</div>
+                                        </div>    
+                                    </div>
+
+
+                                   <div class=container>
+                                    <div class="row">
+                                       ${casetimestampmarkup}
+                                    </div>
+                                   </div>        
+                                </div>
+                            </div>`
+                }).join("");
+
+            let casemediabuttons = document.getElementsByClassName("casemediabutton");
+            for (var i = 0; i < casemediabuttons.length; i++) {
+                casemediabuttons[i].addEventListener('click',
+                    (e) => doSelectCaseMedia(caseswithmediatypes.find(item => item.id === e.target.id)));
+            }
+
+
+            let caseswithbudgeting = currentDayQuizes.filter(item => item.source === "cases" && item.type === "accountingwithprofitscash")
+
+            document.getElementById(domIdForBudgeting).innerHTML =
+                caseswithbudgeting.map(casewithbudgeting => {
+
+                    let openavatar = openavatarsObject[casewithbudgeting.email.replace(/[^a-zA-Z0-9]/g, "_")];
+                    let finduser = openavatar?.user;
+                    let user = !!finduser ? finduser : defaultUser;
+                    let findavatar = openavatar?.avatarUrl;
+                    let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+
+
+                    return `<div class="card my-1">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-3">
+                                            <img src=${avatar}
+                                            data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
+                                                alt=${casewithbudgeting.id} id=${casewithbudgeting.id} 
+                                            title=${user}>
+                                        </div>    
+                                        <div  <div class="col-12 col-lg-9">
+                                            <h5 class="card-title">${casewithbudgeting.title}</h5>
+                                            <div class="class-text">${casewithbudgeting.comment}</div>
+                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingrecords" id=${casewithbudgeting.id}>Операции</button>  
+                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingbalance" id=${casewithbudgeting.id}>Баланс</button>
+                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingfinancialresults" id=${casewithbudgeting.id}>Фин Рез</button>        
+                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingcashflow" id=${casewithbudgeting.id}>Кэш фло</button>
+                                            <button class="btn btn-sm btn-outline-secondary m-1 btnbalancecase" id=${casewithbudgeting.id}>Диаг Баланс</button> 
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>`
+                }).join("");
+
+       
+            let accountingrecordsbuttons = document.getElementsByClassName("btnaccountingrecords");
+            for (var i = 0; i < accountingrecordsbuttons.length; i++) {
+                accountingrecordsbuttons[i].addEventListener('click',
+                    (e) => showCaseRecords(currentDayQuizes.find(item => item.id === e.target.id)));
+            }
+
+            let accountingbalancebuttons = document.getElementsByClassName("btnaccountingbalance");
+            for (var i = 0; i < accountingbalancebuttons.length; i++) {
+                accountingbalancebuttons[i].addEventListener('click',
+                    (e) => showBalanceMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
+            }
+
+            let accountingcashflowbuttons = document.getElementsByClassName("btnaccountingcashflow");
+            for (var i = 0; i < accountingcashflowbuttons.length; i++) {
+                accountingcashflowbuttons[i].addEventListener('click',
+                    (e) => showShowCashFlowMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
+            }
+
+            let accountingfinancialresultsbuttons = document.getElementsByClassName("btnaccountingfinancialresults");
+            for (var i = 0; i < accountingfinancialresultsbuttons.length; i++) {
+                accountingfinancialresultsbuttons[i].addEventListener('click',
+                    (e) => showFinancialResultsMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
+            }
+
+            let balancecasesbuttons = document.getElementsByClassName("btnbalancecase");
+            for (var i = 0; i < balancecasesbuttons.length; i++) {
+                balancecasesbuttons[i].addEventListener('click',
+                    (e) => showCaseBalance(currentDayQuizes.find(item => item.id === e.target.id)));
+            }
 
         }
 
+
+
         function doSelectDate(e) {
-            document.getElementById("quiz").innerHTML = "";
+            apexchart ? apexchart.destroy() : null;
             e.preventDefault();
-            //   console.log(e.target.value);
+
             var d = new Date(e.target.value);
 
             let currentDay = new Intl.DateTimeFormat("en", {
@@ -368,70 +701,67 @@
                 .replace(/[^a-zA-Z0-9]/g, "_");
 
 
-            asyncFirebaseGetObjectNode(
-                {
-                    url: "/currentDay/" + currentDay + "/posts/",
-                    type: "array"
-                })
-                .then(quizes => {
-                    //    console.log(quizes);
-                    globalquizes = quizes;
-                    let uniqueEmails = [...new Set(quizes.map(item => item?.email))];
-                    let uniqueTitles = [...new Set(quizes.map(item => item?.title))];
-                    let uniqueUserEmails = uniqueEmails.map(email => email.replace(/[^a-zA-Z0-9]/g, "_"));
+            store.dispatch(api.endpoints.fetchQuizesCasesByDate.initiate("/currentDay/" + currentDay + "/"))
+                .then(res => {
+                    let quizesbyDate = res.data;
+                    let uniqueEmails = [...new Set(res.data.map(item => item?.email))];
 
-                    let avatarsObjectKeys = Object.keys(openavatars);
-                    let difference = uniqueUserEmails.filter(x => !avatarsObjectKeys.includes(x));
+                    let updatedopenavatars = {};
 
-                    if (!!(difference.length / uniqueUserEmails.length) && (difference.length / uniqueUserEmails.length > 0.8)) {
-                        uniqueEmails.forEach(email => {
-                            openavatars[email.replace(/[^a-zA-Z0-9]/g, "_")] =
-                                openavatars[avatarsObjectKeys[(randomIntFromInterval(1, avatarsObjectKeys.length - 1))]];
-                            openavatars[email.replace(/[^a-zA-Z0-9]/g, "_")].user = quizes.find(item => item.email === email).user
-                        })
-                    };
+                    Promise.all(uniqueEmails.map(email => { return getAvatar(email.replace(/[^a-zA-Z0-9]/g, "_")) }))
+                        .then(values => {
+                            values.forEach((result, index) => updatedopenavatars[uniqueEmails[index].replace(/[^a-zA-Z0-9]/g, "_")] = result)
 
+                            if ((1 - values.filter(item => !!item).length / values.length) > 0.8) {
+                                let getImages = store.dispatch(api.endpoints.getPicturesFromCollection.initiate("aH98dheb50M"));
+                                getImages.then(images => {
 
-                    document.getElementById("cards").innerHTML =
-                        uniqueTitles.map(title => {
-                            let filteredquizes = quizes.filter(quiz => quiz.title === title);
+                                    uniqueEmails.forEach((email, index) => {
+                                        if (!values[index]) {
+                                            let quizuser = quizesbyDate.find(item => item.email === email).user;
+                                            updatedopenavatars[uniqueEmails[index].replace(/[^a-zA-Z0-9]/g, "_")] = {
+                                                id: email.replace(/[^a-zA-Z0-9]/g, "_"),
+                                                avatarUrl: findUnspalshImageByGender(!(quizuser.includes("а ")), images.data),
+                                                user: quizuser
+                                            };
+                                        }
+                                    });
 
-                            let avatarsmarkup = filteredquizes.map(quiz => {
+                                    markupForQuizesCasesByDate(
+                                        "cards",
+                                        "cases",
+                                        "budgeting",
+                                        quizesbyDate,
+                                        updatedopenavatars,
+                                        "John Doe",
+                                        "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+                                    );
 
-                                let finduser = openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.user;
-                                let user = !!finduser ? finduser : "Иван Оленев";
+                                    uniqueEmails.forEach((email, index) => {
+                                        store.dispatch(
+                                            api.util.upsertQueryData('fetchOpenAvatar', email.replace(/[^a-zA-Z0-9]/g, "_"),
+                                                updatedopenavatars[email.replace(/[^a-zA-Z0-9]/g, "_")]
+                                            ));
+                                    })
+                                })
+                            };
 
-                                let findavatar = openavatars[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")]?.avatarUrl;
+                            markupForQuizesCasesByDate(
+                                "cards",
+                                "cases",
+                                "budgeting",
+                                quizesbyDate,
+                                updatedopenavatars,
+                                "John Doe",
+                                "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+                            );
 
-                                let avatar = !!findavatar ? findavatar :
-                                    "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
-
-                                return `<img src=${avatar}
-                                data-bs-toggle="tooltip" data-bs-html="true" 
-                                alt=${quiz.id} id=${quiz.id} class="avatar"
-                                title=${user}>`
-                            }).join("")
-
-                            return `<div class="card m-1">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${title}</h5>
-                                            <div class="class-text">${avatarsmarkup}</div>
-                                        </div>
-                                    </div>`
-                        })
-                            .join("");
-
-                    var items = document.getElementsByClassName("avatar");
-                    for (var i = 0; i < items.length; i++) {
-                        items[i].addEventListener('click', doSelectQuiz);
-                    }
+                        });
 
                 });
-
         }
 
-
-        // Firebase listeners
+        //    store.subscribe(() => {})
 
 
         // HTML event listeners
@@ -439,11 +769,7 @@
 
     </script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
 </body>
-
-</html>
