@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
+        article {
+            width: 60%;
+            margin: auto;
+        }
+
+        blockquote,
+        div,
+        h1 {
+            text-align: center;
+        }
+
+        blockquote {
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background-color: #eee;
+            background-image: linear-gradient(to bottom, #fcfcfc 0, #eee 100%);
+            border-radius: 3px;
+            border: 1px solid #d5d5d5;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-size: .5rem;
+            font-weight: bold;
+            padding: 4px 6px 4px 6px;
+            text-decoration: none;
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            height: 48px;
+            outline: none;
+            padding: 0;
+            width: 48px;
+        }
+
+        html {
+            font-size: 16pt;
+            font-family: crimson text;
+        }
+
+        #play {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+        }
+
+        #play.played {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+        }
+
+        #pause {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
+        }
+
+        #pause.paused {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+        }
+
+        #stop {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop.svg);
+        }
+
+        #stop.stopped {
+            background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+        }
+
+        @media (max-width: 700px) {
+            html {
+                font-size: 14pt;
+            }
+
+            article {
+                width: 90%;
+            }
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /*  demo decor */
+
+        #-demo-title {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 36px;
+            background-color: #D5FFD1;
+            color: #0F316C;
+            line-height: 36px;
+            font-weight: bold;
+            font-size: 16pt;
+            text-align: center;
+        }
+
+        #-demo-profile {
+            float: left;
+            height: 100%;
+            opacity: .4;
+        }
+
+        #-demo-profile:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 400px) {
+            #-demo-title {
+                font-size: 12pt;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <div>
+        <button id=play></button> &nbsp;
+        <button id=pause></button> &nbsp;
+        <button id=stop></button>
+    </div>
+    <article>
+        <h1>Speech</h1>
+        <div class="text-center">
+            <img src="https://sun7-21.userapi.com/s/v1/ig2/Z759fs8NtRBTn0AR2OBqWrGolFxhl_8aMQWMnGrt1uDv3edP1QWxktYoiv4LBF7eB1ntbvE3_2sfRvYkQ-qOIjT4.jpg?quality=95&crop=303,103,518,518&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480&ava=1&u=tVO62jiI66OJ7w_Ps4Nq2YfanElIEeqfUhEiMtIAP0M&cs=200x200"
+                style="margin: auto;filter: brightness(1.2);">
+        </div>
+
+        <p>Our business model is to develop, decorate, renovate homes and other buildings</p>
+        <p>
+            The company keeps pace with the times, builds our dynamic competitiveness, and achieves long-term
+            sustainable development and prosperity.
+        </p>
+        <p>
+            We strive to actively participate in market competition and
+            vigorously expand our operations through changes and resource integration.
+        </p>
+        <p> Our focus on customer
+            satisfaction is reflected in our responsive, reliable, and efficient customer service. </p>
+        <p>The company will
+            firmly adhere to the concept of green development, grasp the opportunities of national policies, forge
+            ahead, reform and innovate. </p>
+        <p>We have a strong presence in our region</p>
+        <p>
+            Sanctions have significantly impacted Russia's construction sector, leading to challenges such as high
+            building materials prices, disruptions in the supply chain, and a shortage of foreign materials and labor
+        </p>
+        <p>
+        <p>
+            China is a great choice to get your tiles!
+        </p>
+        <p>Their ceramic
+            industry supplies nearly half the world’s entire ceramic tile demands.</p>
+        <p>
+            I am planning to take through the important points of purchasing construction materials from China - what
+            standards to check, where you can get them, and how to get them shipped from China to Russia.
+        </p>
+        <p>
+            There are various kinds of building materials used by our company while construction process, like steel,
+            cement, concrete, ready mix concrete, binding wires, wood, stone, brick blocks, and aggregate.
+        </p>
+        <p>
+            We are interested in wide range of products like Glazed porcelain tiles, Polished tiles, M Stone, Non
+            Rectified
+            tile, Ceramic wall tiles, Mosaics
+            Because of the China company’s large-scale operations, they ensure a low price that can fit our budget and
+            shouldn’t worry because their products are high quality and their products have a steady and stable supply
+            for
+            our needs.</p>
+        </p>
+        Ceramic tiles are a great choice of building material for our next project, but it can be hard to know what to
+        look for when one want good quality and design.
+        </p>
+        <p>Our special goal is to examine reasonably prices and well-designed Fire Proof Carpets. We are dedicated to
+            building long-term relationships with suppliers of these products based on trust, reliability, and mutual
+            benefit.</p>
+        <p>
+            China's once-thriving housing market is in turmoil, with the crisis triggered by a liquidity crunch that
+            severely impacted developers, notably the Evergrande Group.</p>
+        <p> The sector's previous growth, driven by
+            speculative investment and excessive borrowing, has given way to a stark reality of financial instability.
+            The government's interventions, including policy adjustments and financial support, aim to stabilize the
+            market and restore confidence.</p>
+        <p> However, the crisis has had widespread economic effects, dampening spending
+            on contruction materials in China </p>
+
+
+        <p>We pay special attention to payment arrangements for imported goods.
+            As the threat of secondary sanctions deters Chinese banks from facilitating trade with Russia, companies are
+            flocking to the one Russian bank with a Chinese branch and facing up to six months of delays... some people
+            say.
+        </p>
+        <p> Another person familiar with the situation once said there was a queue of two to three months for
+            Chinese suppliers trying to open accounts with VTB Shanghai... "If the account is already open, then there
+            are no special delays, but not all companies on the other side (foreign) are ready to work through VTB.</p>
+        <blockquote>Thank you</blockquote>
+    </article>
+    <script>
+        onload = function () {
+            if ('speechSynthesis' in window) with (speechSynthesis) {
+
+
+                var playEle = document.querySelector('#play');
+                var pauseEle = document.querySelector('#pause');
+                var stopEle = document.querySelector('#stop');
+                var flag = false;
+
+
+                playEle.addEventListener('click', onClickPlay);
+                pauseEle.addEventListener('click', onClickPause);
+                stopEle.addEventListener('click', onClickStop);
+
+                function onClickPlay() {
+                    if (!flag) {
+                        flag = true;
+                        utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+                        utterance.voice = getVoices()[7];
+                        utterance.rate = 0.8;
+                        utterance.onend = function () {
+                            flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
+                        };
+                        playEle.className = 'played';
+                        stopEle.className = '';
+                        speak(utterance);
+                    }
+                    if (paused) { /* unpause/resume narration */
+                        playEle.className = 'played';
+                        pauseEle.className = '';
+                        resume();
+                    }
+                }
+
+                function onClickPause() {
+                    if (speaking && !paused) { /* pause narration */
+                        pauseEle.className = 'paused';
+                        playEle.className = '';
+                        pause();
+                    }
+                }
+
+                function onClickStop() {
+                    if (speaking) { /* stop narration */
+                        /* for safari */
+                        stopEle.className = 'stopped';
+                        playEle.className = pauseEle.className = '';
+                        flag = false;
+                        cancel();
+
+                    }
+                }
+
+            }
+
+            else { /* speech synthesis not supported */
+                msg = document.createElement('h5');
+                msg.textContent = "Detected no support for Speech Synthesis";
+                msg.style.textAlign = 'center';
+                msg.style.backgroundColor = 'red';
+                msg.style.color = 'white';
+                msg.style.marginTop = msg.style.marginBottom = 0;
+                document.body.insertBefore(msg, document.querySelector('div'));
+            }
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
