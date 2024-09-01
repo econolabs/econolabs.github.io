@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Econolabs My Book</title>
+  <link href="../libs/bootstrap.min.css" rel="stylesheet" >
+</head>
+
+<body>
+
+  
+
+    <main>
+      <div class="container">
+
+     
+   
+    
+
+
+        <form id="useremailform">
+          <div class="mb-3">
+            <label for="useremail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="useremail" aria-describedby="useremail">          
+          </div>          
+          <button class="btn btn-primary" id="saveemail">Submit</button>
+        </form>
+
+        <div class="btn-group m-1" role="group" aria-label="Group" id="buttongroup" style="display: none;">
+          <button type="button" class="btn btn-outline-primary" id="newnotebutton">Новая Заметка</button>
+          <button type="button" class="btn btn-outline-secondary" id="documentbutton">Документ</button>
+          <button type="button" class="btn btn-outline-secondary" id="templatesbutton">Шаблоны</button>
+          <button type="button" class="btn btn-outline-secondary" id="editbutton">Редактирование</button>
+        </div>
+
+        <div class="m-1" id="editview" style="display: none;">
+          Edit
+        </div>
+
+
+        <div class="m-3" id="newnoteview">
+
+
+ 
+          <form action="#" class="was-validated" >
+            <div class="container text-center">
+
+              <div class="row  mb-3">
+
+                <div class="col">
+                  <input class="form-control" type="text" id="chapter" name="chapter" placeholder="chapter 00-99" required/>
+                  <div class="valid-feedback">Глава (chapter)</div>
+                  <div class="invalid-feedback">H1</div>
+                </div>
+
+                <div class="col">
+                 
+                  <input class="form-control" type="text" id="section" name="section" placeholder="section 00-99" required/>
+                  <div class="valid-feedback">Раздел (section)</div>
+                  <div class="invalid-feedback">H2</div>
+                </div>
+
+                <div class="col">
+                  <input class="form-control" type="text" id="paragraph" name="paragraph"
+                    placeholder="paragraph 00-99" required/>
+                    <div class="valid-feedback">Подраздел</div>
+                    <div class="invalid-feedback">H3</div>
+                </div>
+
+                <div class="col">
+                  <input class="form-control" type="text" id="sentence" name="sentence" placeholder="sentence 00-99" required/>
+                  <div class="valid-feedback">Блок</div>
+                  <div class="invalid-feedback">H4</div>
+                </div>
+
+              </div>
+
+              <div class="row mb-3">
+                <div id="noteid" style="display: none"></div>
+                <div class="col">
+                  <textarea class="form-control" id="mynote" rows="3" required></textarea>
+                  <div class="valid-feedback">Текст</div>
+                  <div class="invalid-feedback">Текст</div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+
+                <div class="col-3">
+                  <input class="form-control" type="url" id="url" name="url" placeholder="url source" />
+                </div>
+
+                <div class="col">
+                  <input class="form-control" type="text" id="comment" name="comment" placeholder="comment" />
+                </div>
+
+
+
+                <div class="col-1">
+                  <button type="button" type="submit" class="btn btn-primary" id="savenotebutton" name="savenotebutton">
+                    Save
+                  </button>
+
+                </div>
+
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+
+
+        <div class="m-1" id="documentview" style="display: none;">
+          Document
+        </div>
+
+        <div class="m-1" id="templateview" style="display: none;">
+          Template
+        </div>
+
+      </div>
+    </main>
+
+
+  <script type="module" src="./mybook.js"></script>
+  <script src="../libs/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
