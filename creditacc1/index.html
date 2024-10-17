@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Выполнение работ по профессии "Агент Банка"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script>
+
+        //https://www.consultant.ru/document/cons_doc_LAW_436264/f9b73002ac6cce373f88199b123986c6d8911a54/
+
+        let quizesSets = [
+
+            {
+                id: "bankaccountingbasics6",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Сформирован уставный капитал банка",
+                theme: "Балансовые операции по учету в кредитных организациях  ",
+                text: "Сформирован уставный капитал банка",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А+Х, П+X"],
+                hint: "До этого момент активы и пассивы были равны нулю"
+            },
+
+            {
+                id: "bankaccountingbasics7",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Клиент внес деньги на расчетный счет в нашем банке",
+                theme: "Балансовые операции по учету в кредитных организациях  ",
+                text: "Клиент внес деньги на расчетный счет в нашем банке",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А+Х, П+X"],
+                hint: "Долг перед клиентом вырос, денег в нашей кассе стало больше"
+            },
+
+            {
+                id: "bankaccountingbasics8",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Перевели деньги с расчетного счета клиента на расчетный счет в ДРУГОМ банке",
+                theme: "Балансовые операции по учету в кредитных организациях  ",
+                text: "Перевели деньги с расчетного счета клиента на расчетный счет в ДРУГОМ банке",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А+Х, П+X"],
+                hint: "Долг перед клиентом уменьшился, денег на нашем корр.счете стало меньше"
+            },
+
+            {
+                id: "bankaccountingbasics9",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Перевели деньги с расчетного счета одного клиента на расчетный счет в НАШЕМ банке",
+                theme: "Балансовые операции по учету в кредитных организациях  ",
+                text: "Перевели деньги с расчетного счета одного клиента на расчетный счет в НАШЕМ банке",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["П+Х, П-Х"],
+                hint: "Долг перед одним клиентом уменьшился, долг перед другим клиентом увеличился"
+            },
+
+            {
+                id: "bankaccountingbasics9",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Мы выплатили сотрудникам заработную плату",
+                theme: "Балансовые операции по учету в кредитных организациях  ",
+                text: "Мы выплатили сотрудникам заработную плату",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А-Х, П-Х"],
+                hint: "Долг перед сотрудниками уменьшился, денег у нас стало меньше"
+            },
+
+
+
+
+
+            {
+                id: "bankaccountingbasics1",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 1",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Остатки средств нашего банка на корреспондентском счете в другом банке являются",
+                choices: [
+                    "активным счетом второго порядка",
+                    "пассивным счетом второго порядка"
+                ],
+                answers: ["активным счетом второго порядка"],
+                hint: `
+                    30102 Корреспондентские счета кредитных организаций в Банке России А
+                    30104 Корреспондентские счета расчетных небанковских кредитных организаций А
+                    30106 Корреспондентские счета расчетных центров платежных систем, в рамках которых осуществляются переводы денежных средств по операциям Банка России А                
+                    `
+            },
+
+            {
+                id: "bankaccountingbasics2",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 2",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Остатки средств другого банка на корреспондентском счете в нашем банке являются",
+                choices: [
+                    "активным счетом второго порядка",
+                    "пассивным счетом второго порядка"
+                ],
+                answers: ["пассивным счетом второго порядка"],
+                hint: `
+                        30109 Корреспондентские счета кредитных организаций - корреспондентов
+                        30111 Корреспондентские счета банков-нерезидентов
+                        30122 Корреспондентские счета банков-нерезидентов в валюте Российской Федерации - счета типа "К" (конвертируемые) П
+                        30123 Корреспондентские счета банков-нерезидентов в валюте Российской Федерации - счета типа "Н" (неконвертируемые) П
+                    `
+            },
+
+            {
+                id: "bankaccountingbasics3",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 3",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Увеличение остатков средств нашего банка на корреспондентском счете в другом банке отражатся в операции по",
+                choices: [
+                    "дебету счета",
+                    "кредиту счета"
+                ],
+                answers: ["дебету счета"],
+                hint: `
+                    В бухгалтерских операциях слева - по дебету - указываются счета второго порядка, если необходимо<br>
+                    увеличить остаток по активному счету<br>
+                    уменьшить остаток по пассивному счету
+                    `
+            },
+
+
+            {
+                id: "bankaccountingbasics4",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 3",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Уменьшение остатков средств нашего банка на корреспондентском счете в другом банке отражатся в операции по",
+                choices: [
+                    "дебету счета",
+                    "кредиту счета"
+                ],
+                answers: ["кредиту счета"],
+                hint: `
+                    В бухгалтерских операциях справа - по кредиту - указываются счета второго порядка, если необходимо<br>
+                    уменьшить остаток по активному счету<br>
+                    увеличить остаток по пассивному счету
+                    `
+            },
+
+
+            {
+                id: "bankaccountingbasics5",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 3",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Увеличение остатков средств другого банка на корреспондентском счете в нашем банке отражатся в операции по",
+                choices: [
+                    "дебету счета",
+                    "кредиту счета"
+                ],
+                answers: ["кредиту счета"],
+                hint: `
+                    В бухгалтерских операциях справа - по кредиту - указываются счета второго порядка, если необходимо<br>
+                    уменьшить остаток по активному счету<br>
+                    увеличить остаток по пассивному счету
+                    `
+            },
+
+            {
+                id: "bankaccountingbasics5",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Операции по корреспондентским счетам 3",
+                theme: "Основы бухгалтерского учета в банке",
+                text: "Уменьшение остатков средств другого банка на корреспондентском счете в нашем банке отражатся в операции по",
+                choices: [
+                    "дебету счета",
+                    "кредиту счета"
+                ],
+                answers: ["дебету счета"],
+                hint: `
+                    В бухгалтерских операциях слева - по дебету - указываются счета второго порядка, если необходимо<br>
+                    увеличить остаток по активному счету<br>
+                    уменьшить остаток по пассивному счету
+                    `
+            },
+
+            // {
+            //     id: "bankaccountingbasics2",
+            //     type: "multiplechoices",
+            //     header: "Тест",
+            //     title: "Оплачен счет клиента",
+            //     theme: "Балансовые операции по учету в кредитных организациях  ",
+            //     text: "Что из перечисленного НЕ относится к факторам производства?",
+            //     choices: [
+            //         "А+Х, А-Х",
+            //         "А+Х, П+X",
+            //         "А-Х, П-Х",
+            //         "П+Х, П-Х"
+            //     ],
+            //     answers: ["А-Х, П-Х"],
+            //     hint: "Д расчетный счет (405, 406, 407, 408) К 30109 "
+            // }
+
+        ]
+
+        window.quizesSets = quizesSets;
+
+    </script>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <a href="https://vk.com/dmglvn">
+
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            filter: grayscale(100%);
+                            object-fit: cover;" />
+
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <h1 class="display-5">Учёт кредитных операций банка 1</h1>
+        <h5 class="display-6">Проверка остаточных знаний</h5>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1668498008908-45beada813b6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="bank" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Обобщенный баланс банка</h5>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Активы (Что?)</th>
+                            <th scope="col">Пассивы (Откуда?)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>А1 200</th>
+                            <td>П1 100</td>
+                        </tr>
+                        <tr>
+                            <th>A2 200</th>
+                            <td>П2 100</td>
+
+                        </tr>
+                        <tr>
+                            <th>A3 200</th>
+                            <td>П3 100</td>
+                        </tr>
+                        <tr>
+                            <th>A4 200</th>
+                            <td>П4 100</td>
+                        </tr>
+                        <tr>
+                            <th>A5 200</th>
+                            <td>П5 600</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h5> Что может случиться с балансом? </h5>
+
+                А+Х, А-Х<br>
+                А+Х, П+X<br>
+                А-Х, П-Х<br>
+                П+Х, П-Х<br>
+                <br>
+
+                <h5>Бухгалтерские записи</h5>
+
+                <div class="row">
+                    <div class="col-5">
+                        <select class="form-select form-select-sm" aria-label="Default select example">
+                            <option selected>Дебет (слева) - увелич. акт, уменьш. пас</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A3">A3</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+
+                            <option value="П1">П1</option>
+                            <option value="П2">П2</option>
+                            <option value="П3">П3</option>
+                            <option value="П4">П4</option>
+                            <option value="П5">П5</option>
+
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <select class="form-select form-select-sm" aria-label="Default select example">
+                            <option selected>Кредит (справа) - уменьш. акт, увелич. пас</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A3">A3</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+
+                            <option value="П1">П1</option>
+                            <option value="П2">П2</option>
+                            <option value="П3">П3</option>
+                            <option value="П4">П4</option>
+                            <option value="П5">П5</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control form-control-sm" placeholder="Sum" aria-label="Sum">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1674049406292-4d4e355a9853?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="bank" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Обобщенный баланс банка c воможностью расчета финансового результата</h5>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Активы (Что?)</th>
+                            <th scope="col">Пассивы (Откуда?)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>А1 200</th>
+                            <td>П1 Обязательство 100</td>
+                        </tr>
+                        <tr>
+                            <th>A2 200</th>
+                            <td>П2 Обязательство 100</td>
+
+                        </tr>
+                        <tr>
+                            <th>A3 200</th>
+                            <td>П3 Обязательство 100</td>
+                        </tr>
+                        <tr>
+                            <th>A4 200</th>
+                            <td>П4 Обязательство 100</td>
+                        </tr>
+                        <tr>
+                            <th>A5 200</th>
+                            <td>П5 Собственные средства 600</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h5> Что может случиться с балансом? </h5>
+
+                А+Х, А-Х<br>
+                А+Х, П+X<br>
+                А-Х, П-Х<br>
+                П+Х, П-Х<br>
+                <br>
+
+                <h5>Бухгалтерские записи</h5>
+
+                <div class="row">
+                    <div class="col-5">
+                        <select class="form-select form-select-sm" aria-label="Default select example">
+                            <option selected>Дебет (слева) - увелич. акт, уменьш. пас</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A3">A3</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+
+                            <option value="П1">П1</option>
+                            <option value="П2">П2</option>
+                            <option value="П3">П3</option>
+                            <option value="П4">П4</option>
+                            <option value="П5">П5</option>
+
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <select class="form-select form-select-sm" aria-label="Default select example">
+                            <option selected>Кредит (справа) - уменьш. акт, увелич. пас</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A3">A3</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+
+                            <option value="П1">П1</option>
+                            <option value="П2">П2</option>
+                            <option value="П3">П3</option>
+                            <option value="П4">П4</option>
+                            <option value="П5">П5</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control form-control-sm" placeholder="Sum" aria-label="Sum">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="bank" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Отчетность ПАО Сбербанк</h5>
+
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <th>АКТИВЫ</th>
+                            <th>ПАССИВЫ</th>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Денежные средства 2373</td>
+                            <td>Средства банков 3377</td>
+                        </tr>
+                        <tr>
+                            <td>Обязательные резервы 152</td>
+                            <td>Обязательства по производным фининструментам и цб 305</td>
+                        </tr>
+                        <tr>
+                            <td>Средства в банках 1306</td>
+                            <td>Средства физических лиц 25625</td>
+                        </tr>
+                        <tr>
+                            <td>Кредиты и авансы клиентам 40085</td>
+                            <td>Средства корпративных клиентов 15220</td>
+                        </tr>
+                        <tr>
+                            <td>Ценные бумаги 8050</td>
+                            <td>Выпущенные долговые ценные бумаги 593</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Отложенное налоговое обязательство 30</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Прочие обязательства 3440</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Субординированные займы 423</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Уставный капитал 320</td>
+                        </tr>
+
+                        <tr>
+                            <td>Отложенный налоговый актив 147</td>
+                            <td>Бессрочный субординированный займ 150</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Основные средства 1073</td>
+                            <td>Собственные акции (478)</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Прочие активы 2242</td>
+                            <td>Нераспределенная прибыль 6425</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="./oldtown.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Межбанковские расчеты</h5>
+                <h5 class="card-title">Расчетные и корреспондентские счета</h5>
+
+                <img src="./conto.png" style="filter: grayscale(1);" class="img-fluid" alt="conto">
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="bank" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Разработочная таблица для составления бухгалтерского баланса</h5>
+
+                <div class="alert alert-primary" role="alert">
+                    Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                    учета
+                    для кредитных организаций и порядке его применения"
+                </div>
+
+
+
+                <div>
+                    <table class="table table-sm">
+                        <colgroup>
+                            <col width="62.35pt;">
+                            <col width="144.5pt;">
+                            <col width="246.6pt;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136537"></a>Номер строки</p>
+                                </td>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136538"></a>Наименование статьи
+                                        бухгалтерского баланса (публикуемой формы)</p>
+                                </td>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136539"></a>Номера балансовых счетов в
+                                        соответствии с Планом счетов бухгалтерского учета в кредитных организациях и их
+                                        расшифровок в соответствии с отчетностью по
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136540"></a>1</p>
+                                </td>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136541"></a>2</p>
+                                </td>
+                                <td>
+                                    <p class="align_center no-indent"><a id="dst136542"></a>3</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p class="align_center no-indent"><a id="dst136543"></a>I. АКТИВЫ</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136544"></a>1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136545"></a>Денежные средства</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136546"></a>202 + 20302 + 20303 + 20305 +
+                                        204</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136547"></a>2</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136548"></a>Средства кредитной организации
+                                        в Центральном банке Российской Федерации</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136549"></a>30102 + 30104 + 30106 + 30125
+                                        + 30202 + 30208 + 30210 + A30215/2 + 30224 + 30228 + 30235 + 30417 + 30419 -
+                                        A/3.3 - A/3.4</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136550"></a>2.1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136551"></a>обязательные резервы</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136552"></a>30202</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136553"></a>3</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136554"></a>Средства в кредитных
+                                        организациях</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136555"></a>30110 + 30114 + 30118 + 30119
+                                        + 30131 + 30213 + 30215 - A30215/2 - 30410 + 30413 + 30416 + 30418 - 30420 -
+                                        30421 - 30422 - 30423 + 30424 + 30425 + 30427 + 30428 - 30429 + A/3.3 + A/3.4 +
+                                        A/3.5 + A/3.6 - A/3.1 <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136693">&lt;2&gt;</a>
+                                        + A47427/3</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136556"></a>4</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136557"></a>Финансовые активы, оцениваемые
+                                        по справедливой стоимости через прибыль или убыток</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136558"></a>47456 - 47462 + 47809 - 47810
+                                        + 501 (А - П) + 506 (А - П) + 512 (А - П) + 52601 + A474/5.10 + A474/5.13 +
+                                        A50505/4 - A50507/4 + A505/4 + A/5.6 + A/5.5.2 + A/4.1</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136559"></a>5</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136560"></a>Чистая ссудная задолженность,
+                                        оцениваемая по амортизированной стоимости</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136561"></a>319 + 320 (А - П) + 321 (кроме
+                                        32115, 32116, 32117) + 322 (А - П) + 323 (кроме 32311, 32312, 32313) + 324
+                                        (кроме 32403, 32407, 32408) + 325 (А - П) + 32902 + (40111 - 40110) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136694">&lt;3&gt;</a>
+                                        + 40308 + 441 (А - П) + 442 (А - П) + 443 (А - П) + 444 (А - П) + 445 (А - П) +
+                                        446 (А - П) + 447 (А - П) + 448 (А - П) + 449 (А - П) + 450 (А - П) + 451 (А -
+                                        П) + 452 (А - П) + 453 (А - П) + 454 (А - П) + 455 (А - П) + 456 (кроме 45615,
+                                        45616, 45617) + 457 (кроме 45715, 45713, 45714) + 458 (кроме 45818, 45820,
+                                        45821) + 459 (А - П) + 460 (А - П) + 461 (А - П) + 462 (А - П) + 463 (А - П) +
+                                        464 (А - П) + 465 (А - П) + 466 (А - П) + 467 (А - П) + 468 (А - П) + 469 (А -
+                                        П) + 470 (А - П) + 471 (А - П) + 472 (А - П) + 473 (кроме 47308, 47312, 47313) +
+                                        47402 + 47410 + 47427 - A47427/3 + 47431 + 47447 - 47452 + 477 (А - П) + 47817 +
+                                        47818 + 47819 + 47820 + 47821 + 47822 + 47823 + 47824 + 47825 + 47826 + 47827 +
+                                        47828 + 47829 + 47830 + 47831 + 47832 + 47833 + 47834 + 47835 - 47804 + 47805 -
+                                        47806 + 47807 - 47808 + 515 (А - П) + 60315 + A40109/5.1 + A/5.3 + A/5.5 -
+                                        A/5.5.1 - A/5.5.2 + A474/5.9 + A474/5.11 - A/5.2 - A/5.4 - A/5.6 - A/5.7 - A/5.8
+                                        - A474/5.13 - A474/5.14 - A/13.3 - A/4.1</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136562"></a>6</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136563"></a>Чистые вложения в финансовые
+                                        активы, оцениваемые по справедливой стоимости через прочий совокупный доход</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136564"></a>47455 - 47461 + 47811 - 47812
+                                        + 502 (А - П) + 507 (А - П) + 513 (А - П) + A50505/6.1 - A50507/6.2 + A505/6.2 +
+                                        A474/5.12 + A474/5.14 + A474/6.3 + A/5.5.1 + A/5.7 + A/5.8</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136565"></a>7</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136566"></a>Чистые вложения в ценные
+                                        бумаги и иные финансовые активы, оцениваемые по амортизированной стоимости
+                                        (кроме ссудной задолженности)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136567"></a>504 (А - П) + 505 (А - П) -
+                                        A50505/6.1 + A50507/6.2 + A50427/22 - A50505/4 + A50507/4 - A505/4 - A505/6.2
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136568"></a>8</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136569"></a>Инвестиции в дочерние и
+                                        зависимые организации</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136570"></a>601 (А - П) + 602 (А - П)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136571"></a>9</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136572"></a>Требования по текущему налогу
+                                        на прибыль</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136573"></a>A60302/9</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136574"></a>10</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136575"></a>Отложенный налоговый актив</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136576"></a>61702 + 61703</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136577"></a>11</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136578"></a>Основные средства, активы в
+                                        форме права пользования и нематериальные активы</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136579"></a>604 (А - П) + 60804 - 60805 +
+                                        609 (А - П) + 610 (А - П) + 619 (А - П)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136580"></a>12</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136581"></a>Долгосрочные активы,
+                                        предназначенные для продажи</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136582"></a>620 (А - П)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136583"></a>13</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136584"></a>Прочие активы</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136585"></a>20308 + 30211 + (30221 -
+                                        30222) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + (30233 - 30232) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 30242 - 30243 + 303 <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 30602 + (40908 - 40907) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 47404 + 47406 + 47408 + 47413 + 47415 + 47417 + 47420 + 47423 + (47421 -
+                                        47424) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 47443 - 47441 + 47816 - 47814 + 479 (А - П) + 509 (А - П) + 52802 - 52801 +
+                                        603 (А) (кроме 60315,60351) + 60807 - 60808 + 621 (А - П) - 30226 + A30226/3.1 -
+                                        A474/5.10 - A474/5.11 - A474/5.12 - A60302/9 - A/3.6 - A/5.3 - A/9.2 + A/9.3 +
+                                        A/13.3</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136586"></a>14</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent">
+                                    <div class="info-link">
+                                        <div class="info-link__button"></div>
+                                        <div class="info-link__window info-link__window_hidden"><button
+                                                class="info-link__close"></button>
+                                            <div class="info-link__content"></div>
+                                        </div>
+                                    </div><a id="dst136587"></a>Всего активов</p>
+                                    <p class="align_left no-indent">(<a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136544">строка
+                                            1</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136547">строка
+                                            2</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136553">строка
+                                            3</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136556">строка
+                                            4</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136559">строка
+                                            5</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136562">строка
+                                            6</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136565">строка
+                                            7</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136568">строка
+                                            8</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136571">строка
+                                            9</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136574">строка
+                                            10</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136577">строка
+                                            11</a>+ <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136580">строка
+                                            12</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136583">строка
+                                            13</a>)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136588"></a>-</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p class="align_center no-indent"><a id="dst136589"></a>II. ПАССИВЫ</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136590"></a>15</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136591"></a>Кредиты, депозиты и прочие
+                                        средства Центрального банка Российской Федерации</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136592"></a>312 + 31701 + 31704 + 31801 +
+                                        31804 + 32901 + A474/16.10 + A474/16.11</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136593"></a>16</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136594"></a>Средства клиентов, оцениваемые
+                                        по амортизированной стоимости</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136595"></a><a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136596">строка
+                                            16.1</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136599">строка
+                                            16.2</a></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136596"></a>16.1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136597"></a>средства кредитных организаций</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136598"></a>301 (П) (кроме 30126, 30129) +
+                                        30219 + 30230 + 30231 + 30236 + 30411 + 30412 + 30414 + 30415 + 30430 + 30431 +
+                                        313 + 314 + 315 + 316 + 31702 + 31703 + 31802 + 31803 + 47426 - 47469 + 47445 -
+                                        47450 - A474/16.1 - A474/16.3 - A474/16.4 - A474/16.5 - A474/16.6 - A474/16.10 -
+                                        A474/16.11 + A/12 - A/16.7 - A474/16.13 + A40827/16.1 - A474/19.3</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136599"></a>16.2</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136600"></a>средства клиентов, не являющихся
+                                        кредитными организациями</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136601"></a>30220 + 30223 + 30227 + 30601
+                                        + 30606 + 30610 + 40102 + 40105 + 40106 + (40108 - (40109 - A40109/5.1) + (40110
+                                        - 40111) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136694">&lt;3&gt;</a>
+                                        + 40116 + 402 + 403 (П) (кроме 40312) + 404 + 405 + 406 + 407 + 408 + 409 (П)
+                                        (кроме 40907) + 410 + 411 + 412 + 413 + 414 + 415 + 416 + 417 + 418 + 419 + 420
+                                        + 421 + 422 + 423 + 425 + 426 + 427 + 428 + 429 + 430 + 431 + 432 + 433 + 434 +
+                                        435 + 436 + 437 + 438 + 439 + 440 + 47401 + 47411 - 47468 + 47418 + 476 +
+                                        A474/16.3 + A474/16.5 + A/13.2.2 - A474/16.2 - A474/17.1 - A/12 - A/16.8 -
+                                        A40827/16.1 - A474/16.14</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136602"></a>16.2.1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136603"></a>вклады (средства) физических лиц, в том
+                                        числе индивидуальных предпринимателей</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136604"></a>423 + 426 + 47603 + 47605 +
+                                        47608 + 47609 + 47610 + 47611 + A/13.1 - A/16.8.1 + A/13.2.2 + A474/16.5.1 +
+                                        A474/16.12 + A474/16.3.1</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136605"></a>17</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136606"></a>Финансовые обязательства,
+                                        оцениваемые по справедливой стоимости через прибыль или убыток</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136607"></a>52602 + 47453 - 47459 +
+                                        A13.2.1 + A474/16.4 + A474/16.6 + A474/17.1 + A/16.7 + A/16.8 - A474/19.5</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136608"></a>17.1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136609"></a>вклады (средства) физических лиц, в том
+                                        числе индивидуальных предпринимателей</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136610"></a>A/16.8.1 + A474/17.2 +
+                                        A/13.2.1 + A474/16.6.1 + A474/17.1</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136611"></a>18</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136612"></a>Выпущенные долговые ценные
+                                        бумаги</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136613"></a><a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136614">строка
+                                            18.1</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136617">строка
+                                            18.2</a></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136614"></a>18.1</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136615"></a>оцениваемые по справедливой стоимости
+                                        через прибыль или убыток</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136616"></a>47454 - 47460 + 520 + 521 +
+                                        522 + 523 + 524 + 52501 + A474/18.2 - A/13.2.1 - A/18.4 - A/18.5 - A/18.6 -
+                                        A474/19.6</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136617"></a>18.2</p>
+                                </td>
+                                <td>
+                                    <p class="align_left"><a id="dst136618"></a>оцениваемые по амортизированной
+                                        стоимости</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136619"></a>47446 - 47451 + A/18.4 -
+                                        A/13.2.2 - A474/18.1 - A474/18.2 + A/18.5 - A474/19.4</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136620"></a>19</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136621"></a>Привлеченные субординированные
+                                        кредиты (депозиты, займы) и выпущенные субординированные облигационные займы,
+                                        классифицированные в качестве обязательств</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136622"></a>496 + 529 - A496/35 - A529/35
+                                        + A474/16.13 + A474/16.14 + A/18.6 - A474/19.2 + A474/19.3 + A474/19.4 +
+                                        A474/19.5 + A474/19.6</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136623"></a>20</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136624"></a>Обязательства по текущему
+                                        налогу на прибыль</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136625"></a>A60301/19</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136626"></a>21</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136627"></a>Отложенные налоговые
+                                        обязательства</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136628"></a>61701</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136629"></a>22</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136630"></a>Прочие обязательства</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136631"></a>(30222 - 30221) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + (30232 - 30233) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 303 <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 30603 + 30604 + 40312 + (40907 - 40908) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 47403 + 47405 + 47407 + 47412 + 47414 + 47416 + 47419 + 47422 + (47424 -
+                                        47421) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136695">&lt;4&gt;</a>
+                                        + 47444 + 47448 - 47467 + 47449 + 47457 - 47463 + 47458 - 47464 + 475 (П - А) +
+                                        47815 - 47813 + 52803 - 52804 + 603 (П) (кроме 60324, 60352) + 60806 + 61501 +
+                                        A102/16 - A60301/19 - A/5.4 + 47442 - 47440 + A474/5.9 + A474/6.3 + A474/16.1 +
+                                        A474/16.2 + A474/18.1 - A474/19.1 + A474/19.2</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136632"></a>23</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136633"></a>Резервы на возможные потери по
+                                        условным обязательствам кредитного характера, прочим возможным потерям и
+                                        операциям с резидентами офшорных зон</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136634"></a>30126 - 30128 + 30129 + 30607
+                                        - 30608 + 30609 + 32115 - 32116 + 32117 + 32311 - 32312 + 32313+ 32403 - 32407 +
+                                        32408 + 45615 - 45616 + 45617 - 45713 + 45714 + 45715 + 45818 - 45820 + 45821 +
+                                        47308 - 47312 + 47313 + 47425 - 47465 + 47466 + 60324 - 60351 + 60352 +
+                                        A50427/22 - A30126/3.1 + A/3.5 - A/5.2 + A/5.5 - A/9.2 + A/9.3 + A474/19.1</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136635"></a>24</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136636"></a>Всего обязательств (<a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136590">строка
+                                            15</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136593">строка
+                                            16</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136605">строка
+                                            17</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136611">строка
+                                            18</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136620">строка
+                                            19</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136623">строка
+                                            20</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136626">строка
+                                            21</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136629">строка
+                                            22</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136632">строка
+                                            23</a>)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136637"></a>-</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p class="align_center no-indent"><a id="dst136638"></a>III. ИСТОЧНИКИ СОБСТВЕННЫХ
+                                        СРЕДСТВ</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136639"></a>25</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136640"></a>Средства акционеров
+                                        (участников)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136641"></a>102 - A102/16</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136642"></a>26</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136643"></a>Собственные акции (доли),
+                                        выкупленные у акционеров (участников)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136644"></a>105</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136645"></a>27</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136646"></a>Эмиссионный доход</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136647"></a>10602</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136648"></a>28</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136649"></a>Резервный фонд</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136650"></a>10701</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136651"></a>29</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136652"></a>Переоценка финансовых активов,
+                                        оцениваемых по справедливой стоимости через прочий совокупный доход, уменьшенная
+                                        на отложенное налоговое обязательство (увеличенная на отложенный налоговый
+                                        актив)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136653"></a>10603 - 10605 + 10609 -
+                                        A10609/28 - 10610 + A10610/28 + 10622 - 10623 + 10628 - 10629</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136654"></a>30</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136655"></a>Переоценка основных средств,
+                                        активов в форме права пользования и нематериальных активов, уменьшенная на
+                                        отложенное налоговое обязательство</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136656"></a>10601 + 10611 + A10609/28 -
+                                        A10610/28</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136657"></a>31</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136658"></a>Переоценка обязательств
+                                        (требований) по выплате долгосрочных вознаграждений</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136659"></a>10612 - 10613</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136660"></a>32</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136661"></a>Переоценка инструментов
+                                        хеджирования</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136662"></a>10619 - 10620 + 10624 - 10625
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136663"></a>33</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136664"></a>Денежные средства
+                                        безвозмездного финансирования (вклады в имущество)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136665"></a>10614 + 10621</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136666"></a>34</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136667"></a>Изменение справедливой
+                                        стоимости финансового обязательства, обусловленное изменением кредитного риска
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136668"></a>10627 - 10626</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136669"></a>35</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136670"></a>Привлеченные субординированные
+                                        кредиты (депозиты, займы) и выпущенные субординированные облигационные займы,
+                                        классифицированные в качестве долевых инструментов</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136671"></a>A529/35 + A496/35 + 114 (П -
+                                        А)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136672"></a>36</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136673"></a>Оценочные резервы под
+                                        ожидаемые кредитные убытки</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136674"></a>10630 + 10631 + 10632 - 10633
+                                        + 10634 - 10635</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136675"></a>37</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136676"></a>Неиспользованная прибыль
+                                        (убыток)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136677"></a>108 - 109 + 706 (П - А) + (707
+                                        (П) - 707 (А) + 70801 - 70802) <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136696">&lt;5&gt;</a>
+                                        - 11101</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136678"></a>38</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136679"></a>Всего источников собственных
+                                        средств (<a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136639">строка
+                                            25</a> - <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136642">строка
+                                            26</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136645">строка
+                                            27</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136648">строка
+                                            28</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136651">строка
+                                            29</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136654">строка
+                                            30</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136657">строка
+                                            31</a>+ <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136660">строка
+                                            32</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136663">строка
+                                            33</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136666">строка
+                                            34</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136669">строка
+                                            35</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136672">строка
+                                            36</a> + <a
+                                            href="/document/cons_doc_LAW_478419/8e12a6e82d5e065e6fbab77571a84176c2672bd3/#dst136675">строка
+                                            37</a>)</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136680"></a>-</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p class="align_center no-indent"><a id="dst136681"></a>IV. ВНЕБАЛАНСОВЫЕ
+                                        ОБЯЗАТЕЛЬСТВА</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136682"></a>39</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136683"></a>Безотзывные обязательства
+                                        кредитной организации</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136684"></a>91314 + 91317 + 91319 + 91705
+                                        + 963 + 964 + 965 + 966 + 967 + 969 + 970 + 971</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136685"></a>40</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136686"></a>Выданные кредитной
+                                        организацией банковские гарантии и поручительства</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136687"></a>91315</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136688"></a>41</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136689"></a>Условные обязательства
+                                        некредитного характера</p>
+                                </td>
+                                <td>
+                                    <p class="align_left no-indent"><a id="dst136690"></a>91318</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Материал к дисциплине</h5>
+
+                <p><a class="link-opacity-100" href="https://disk.yandex.ru/i/fAdG_7yNIRcnyw">Сбербанк Полугодовая
+                        отчетность за 2024 год</a>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="card" style="max-width:800px;" id="quizcardwithstorage">
+            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist">
+                    ...
+                </div>
+
+
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title" id="quizTitle">Задача</h5>
+                            <div class="card-text" id="quizString"></div>
+
+                            <div id="quizChecks" class="m-1 p-1"></div>
+
+                            <div id="quizHint" class="m-1 p-1"></div>
+
+
+                            <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="./quizcardwithstorage.js"></script>
+
+
+</body>
+
+</html>
