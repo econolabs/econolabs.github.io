@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Фирма. Производство и издержки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+        //https://www.consultant.ru/document/cons_doc_LAW_436264/f9b73002ac6cce373f88199b123986c6d8911a54/
+
+        let quizesSets = [
+
+
+            {
+                id: "governmentregulation40",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Тарифные меры воздействия на импорт",
+                theme: "Фирма. Производство и издержки",
+                text: "Что из перечисленного не относится к внешним источникам финансирования фирмы?",
+                choices: [
+                    "Кредиты",
+                    "Амортизационные отчисления",
+                    "Привлечение капитала инвесторов",
+                    "Продажа акций"
+                ],
+                answers: ["Амортизационные отчисления"]
+            }
+
+
+
+
+
+        ]
+
+        window.quizesSets = quizesSets;
+
+    </script>
+
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <a href="https://vk.com/dmglvn">
+
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                filter: grayscale(100%);
+                                object-fit: cover;" />
+
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <h1 class="display-5">Тема 5 Фирма. Производство и издержки</h1>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTR8NjAwMTU5MXx8ZW58MHx8fHx8"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Балансовый метод анализа фирмы как юридического лица</h5>
+
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <th>АКТИВЫ</th>
+                            <th scope="col" style="text-align: center;">
+                                ПАССИВЫ
+                            </th>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Основные средства</td>
+                            <td>Уставный капитал</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Нераспределенная прибыль</td>
+                        </tr>
+                        <tr>
+                            <td>Материалы</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Незавершенное производство</td>
+                            <td>Долгосрочный банковский кредит</td>
+                        </tr>
+                        <tr>
+                            <td>Готовая продукция</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Дебиторская задолженность</td>
+                            <td>Краткосрочный банковский кредит</td>
+                        </tr>
+                        <tr>
+                            <td>Деньги</td>
+                            <td>Кредиторская задолженность</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <a class="link-opacity-100 my-3" href="https://econolabs.github.io/business_budgeting/">
+                        Планирование и бюджетирование фирмы
+                    </a>
+                </p>
+
+                <p>
+                    <a class="link-opacity-100 my-3" href="https://econolabs.github.io/company_analyses/">
+                        Анализ финансового состояния и хозяйственной деятельности компании
+                    </a>
+                </p>
+
+                <p>
+                    <a class="link-opacity-100 my-3" href="https://econolabs.github.io/corporate_taxes/">
+                        Основные корпоративные налоги
+                    </a>
+                </p>
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTR8NjAwMTU5MXx8ZW58MHx8fHx8"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Издержки. Затраты. Маржинальный анализ. Рычаги</h5>
+
+                Издержки (затраты) производства — это затраты производителя (владельца фирмы) на приобретение и
+                использование факторов производства.<br>
+
+                Альтернативные издержки представляют собой ценность других благ, которые можно было бы получить при
+                наиболее выгодном из всех возможных способов использования данного ресурса. Они больше бухгалтерских
+                издержек на величину неявных издержек.<br>
+
+                Виды издержек (затрат):<br>
+                Внутренние (неявные) — стоимость собственного ресурса (равны денежным выплатам, которые могли бы быть
+                получены за самосто­ятельно используемый ресурс, если бы его собствен­ник вложил его в чужое дело).<br>
+                Внешние (явные, бухгалтерские) — выплаты поставщикам трудовых ре­сурсов, сырья, топлива, услуг и т. д.
+                (сумма денежных выплат, которые фирма осуществляет для оплаты не­обходимых ресурсов).<br>
+
+
+
+                Внешние издержки, в свою очередь, делятся на:
+
+                Постоянные издержки — та часть общих издержек, кото­рая не зависит на данный момент времени от объёма
+                выпускаемой продукции (арендная плата фир­мы за помещение, расходы на содержание здания, затраты на
+                подготовку и переподготовку кадров, заработная плата управленческого персонала, расходы на коммунальные
+                услуги, амор­тизация — постепенное снашивание основных фондов). Постоянные издержки предприятие несёт
+                даже в том случае, если оно не работает.<br>
+
+                Переменные издержки — та часть общих издержек, величина которых на дан­ный период времени нахо­дится в
+                прямой зависимос­ти от объёма производства и реализации продукции (приобретение сырья, опла­та труда,
+                энергии, топлива, транспортных услуг, расхо­ды на тару и упаковку и т. п.). Переменные издержки
+                изменяются при любом колебании объёмов выпуска товаров и в том же направлении (увеличиваются при росте
+                объёмов и падают при их сокращении).<br>
+
+                Средние издержки — это издержки фирмы, приходящиеся на одну единицу продукции.<br>
+
+                Средние издержки показывают, во что обходится фирме производство одной единицы продукции.<br>
+
+                Экономическая прибыль — это разница между общей выручкой фирмы и экономическими издержками.<br>
+
+                Бухгалтерская прибыль — это разница между общей выручкой и бухгалтерскими издержками.<br>
+
+
+                <div id="chart" class="container my-3"> </div>
+
+                <p><a class="link-opacity-100 my-3" href="https://econolabs.github.io/margins_leverages/">Маржинальный
+                        анализ. Рычаги</a></p>
+
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist">...</div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title" id="quizTitle">Задача</h5>
+                            <div class="card-text" id="quizString"></div>
+                            <div id="quizChecks" class="m-1 p-1"></div>
+                            <div id="quizHint" class="m-1 p-1"></div>
+                            <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+
+    <script>
+        var options = {
+            chart: {
+                type: 'line'
+            },
+            series: [
+                { name: "Выручка", data: [0, 400] },
+                { name: "Постоянные затраты", data: [100, 100] },
+                { name: "Переменные затраты", data: [0, 200] },
+                { name: "Полные затраты", data: [100, 300] },
+            ],
+            xaxis: {
+                categories: [0, 400]
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+              <p><a class="link-opacity-100" href="https://npd.nalog.ru/">Дополнительно</a></p>
+
+             
+
+                <div class="accordion accordion-flush my-3" id="accordionthemeOne">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThemeOneOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Сущность и характеристика организации (предприятия)
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThemeOneOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionthemeOne">
+                            <div class="accordion-body">
+                                Что управляет распределением ресурсов в экономической системе?<br>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Причины появления предприятия
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionthemeOne">
+                            <div class="accordion-body">
+                                Фирма – это система отношений, возникающих, когда направление ресурсов начинает зависеть
+                                от предпринимателя.<br>                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Факторы размера фирмы 1 (Рональд Коуз)
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionthemeOne">
+                            <div class="accordion-body">
+                                1. По мере расширения фирмы может происходить процесс «убывающей отдачи» - с увеличением
+                                объема
+                                производства издержки на производство каждой последующей единицы товара возрастают.
+                                Параллельно с определенной точки происходит удорожание трансакционных издержек фирмы.
+                                <br>                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                                Факторы размера фирмы 2 (Теория Найта)
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionthemeOne">
+                            <div class="accordion-body">
+                                Теория Найта утверждает, что в экономической системе существует неопределенность по
+                                поводу будущего, которая заставляет людей предугадывать это самое будущее.<br>
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+-->
