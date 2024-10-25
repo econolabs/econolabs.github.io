@@ -7,6 +7,148 @@
     <title>Выполнение работ по профессии "Агент Банка"</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script>
+        let quizesSets = [
+
+            {
+                id: "bankaccounting1",
+                type: "accounting",
+                header: "Тест",
+                title: "Проводки",
+                theme: "Типовые операции по учету в кредитных организациях",
+                text: "Перечислены средств клиента с расчетного счета в другой банк через ЦБ РФ",
+                choices: [
+                    "102",
+                    "301",
+                    "40702",
+                    "452",
+                    "603"
+                ],
+                answers: ["40702301"],
+                hint: `
+                <div class="row m-1">
+                    <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/cd9dff97697f94ed33851013a6bd0c346fdf6faa/#dst106225">40702</a>
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/0dd6470ab5f728a5c74438a60d9a5a458c4c71be/#dst105650">301</a>
+                        </div>
+                    </div>              
+                </div>`
+            },
+
+            {
+                id: "bankaccounting2",
+                type: "accounting",
+                header: "Тест",
+                title: "Проводки",
+                theme: "Типовые операции по учету в кредитных организациях",
+                text: "Выдан кредит негосударственной коммерческой организации",
+                choices: [
+                    "102",
+                    "301",
+                    "407",
+                    "452",
+                    "603"
+                ],
+                answers: ["45240702"],
+                hint: `
+                <div class="row m-1">
+                   
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/ae12320584a00fd0faad62ec09cb21b953554df5/#dst106500">452</a>
+                        </div>
+                    </div>  
+                    
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/cd9dff97697f94ed33851013a6bd0c346fdf6faa/#dst106225">407</a>
+                        </div>
+                    </div>
+
+                </div>`
+            },
+
+            {
+                id: "bankaccounting3",
+                type: "accounting",
+                header: "Тест",
+                title: "Проводки",
+                theme: "Типовые операции по учету в кредитных организациях",
+                text: "Начисление процентов по кредиту",
+                choices: [
+                    "102",
+                    "301",
+                    "407",
+                    "452",
+                    "47427",
+                    "603",
+                    "70601"
+                ],
+                answers: ["4742770601"],
+                hint: `
+                <div class="row m-1">
+                   
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/c9c6e49bcaf01c1be3469f95b47c0708ac9beb7a/">47427</a>
+                        </div>
+                    </div>  
+                    
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/14e4ac8b72cb5e1169ca56068121aa8a013c2ad0/">70601</a>
+                        </div>
+                    </div>
+
+                </div>`
+            },
+
+            {
+                id: "bankaccounting3",
+                type: "accounting",
+                header: "Тест",
+                title: "Проводки",
+                theme: "Типовые операции по учету в кредитных организациях",
+                text: "Оплата процентов негосударственной коммерческой организацией",
+                choices: [
+                    "102",
+                    "301",
+                    "40702",
+                    "452",
+                    "47427",
+                    "603",
+                    "70601"
+                ],
+                answers: ["4742770601"],
+                hint: `
+                <div class="row m-1">
+                   
+                   <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/cd9dff97697f94ed33851013a6bd0c346fdf6faa/#dst106225">40702</a>
+                        </div>
+                    </div>
+                    
+                     <div class="col">
+                        <div class="alert alert-secondary" role="alert">
+                            <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/14e4ac8b72cb5e1169ca56068121aa8a013c2ad0/">70601</a>
+                        </div>
+                    </div>
+
+                </div>`
+            }
+
+
+        ]
+
+        window.quizesSets = quizesSets;
+    </script>
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
@@ -62,7 +204,8 @@
                 <h5 class="card-title">Темы</h5>
 
                 Характеристика счетов, необходимых для учета различных видов кредитов<br>
-                Оформление и отражение в учете операций по выдаче кредитов физическим и юридическим лицам, погашение ими кредитов<br>
+                Оформление и отражение в учете операций по выдаче кредитов физическим и юридическим лицам, погашение ими
+                кредитов<br>
                 Оформление и ведение учета обеспечения по предоставленным кредитам<br>
                 Оформление и отражение в учете начисления и взыскания процентов по кредитам<br>
 
@@ -74,7 +217,8 @@
                 Учет потребительского кредитования<br>
                 Учет операций с кредитными картами<br>
                 Учет операций по предоставлению кредитов путем открытия кредитной линии<br>
-                Порядок осуществления контроля своевременности и полноты поступления платежей по кредиту и учета просроченных платежей<br>
+                Порядок осуществления контроля своевременности и полноты поступления платежей по кредиту и учета
+                просроченных платежей<br>
                 Расчет суммы лизинговых платежей и учет лизинговых операций<br>
                 Расчет вознаграждения банка при факторинговых операциях банка<br>
                 Учёт вексельного кредитования<br>
@@ -85,9 +229,9 @@
             </div>
         </div>
 
-        
 
-       
+
+
         <div class="card" style="max-width:800px;" id="quizcardwithstorage">
             <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
                 class="card-img-top" style="filter: grayscale(1);" alt="quiz">
@@ -125,6 +269,23 @@
 
                             <div id="quizHint" class="m-1 p-1"></div>
 
+                            <div class="row my-3">
+                                <div class="col">
+                                    <select class="form-select form-select-sm" aria-label="debet" id="debet">
+                                        <option selected>Дебет счета</option>
+                                        <option value="1">...</option>
+
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select class="form-select form-select-sm" aria-label="credit" id="credit">
+                                        <option selected>Кредит счета</option>
+                                        <option value="1">...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
 
                             <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
                         </div>
@@ -135,7 +296,7 @@
         </div>
 
 
-        
+
         <div class="card my-3" style="max-width:800px">
             <p>
                 <img loading="lazy" class="card-img-top"
@@ -143,22 +304,41 @@
                     alt="1" style="filter: grayscale(1);">
             </p>
             <div class="card-body">
-                <h5 class="card-title">Материал к дисциплине</h5>   
+                <h5 class="card-title">Материал к дисциплине</h5>
 
-                <p><a class="link-opacity-100"
-                    target="_blank"
-                    href="https://www.consultant.ru/document/cons_doc_LAW_436264/">
-                    Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского учета для кредитных организаций и порядке его применения" 
-                </a>
+                <p><a class="link-opacity-100" target="_blank" target="_blank"
+                        href="https://normativ.kontur.ru/document?moduleId=1&documentId=466405">
+                        Удобный формат! <br>
+                        Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                        учета для кредитных организаций и порядке его применения"
+                    </a>
                 </p>
 
-                
-                
 
-                <p><a class="link-opacity-100"
-                    target="_blank"
-                    href="https://disk.yandex.ru/i/fAdG_7yNIRcnyw">Сбербанк Полугодовая отчетность за 2024 год</a>
+                <p><a class="link-opacity-100" target="_blank"
+                        href="https://www.consultant.ru/document/cons_doc_LAW_436264/">
+                        Консультант Плюс <br>
+                        Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                        учета для кредитных организаций и порядке его применения"
+                    </a>
                 </p>
+
+
+                <p>
+                    <a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/fAdG_7yNIRcnyw">Сбербанк
+                        Полугодовая отчетность за 2024 год
+                    </a>
+                </p>
+
+                <p>
+                    <a class="link-opacity-100" target="_blank"
+                        href="https://www.sberbank.com/common/img/uploaded/files/info/2023_rsbu/sberbank_ras_2023.pdf">
+                        Бухгалтерская (финансовая) отчетность ПАО Сбербанк за 2023 год
+                    </a>
+                </p>
+
+
+
 
             </div>
         </div>
@@ -171,25 +351,17 @@
                     alt="1" style="filter: grayscale(1);">
             </p>
             <div class="card-body">
-                <h5 class="card-title">Методички</h5>   
+                <h5 class="card-title">Методички</h5>
 
-                <p><a class="link-opacity-100"
-                    href="https://www.asu.ru/sveden/education/programs/subject/309398/">Учет кредитных операций банка
-                    рабочая программа дисциплины  Алтайский государственный университет</a>
-                </p> 
+                <p><a class="link-opacity-100" href="https://www.asu.ru/sveden/education/programs/subject/309398/">Учет
+                        кредитных операций банка
+                        рабочая программа дисциплины Алтайский государственный университет</a>
+                </p>
 
-                <p><a class="link-opacity-100"
-                    href="https://studfile.net/preview/849610/">Тесты с ответами</a>
-                </p> 
-
+                <p><a class="link-opacity-100" href="https://studfile.net/preview/849610/">Тесты с ответами</a>
+                </p>
 
 
-                
-
-
-                
-
-               
             </div>
         </div>
 
@@ -203,8 +375,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
 
- 
+
 </body>
 
 </html>

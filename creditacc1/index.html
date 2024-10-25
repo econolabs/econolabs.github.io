@@ -1026,20 +1026,20 @@
 
             {
 
-id: "bankaccountingbasics106",
-type: "multiplechoices",
-header: "Тест",
-title: "Клиенту выдан кредит и зачислен на расчетный счет",
-theme: "Балансовые операции по учету в кредитных организациях",
-text: "Клиенту выдан кредит и зачислен на расчетный счет",
-choices: [
-    "А+Х, А-Х",
-    "А+Х, П+X",
-    "А-Х, П-Х",
-    "П+Х, П-Х"
-],
-answers: ["А+Х, П+X"],
-hint: `
+                id: "bankaccountingbasics106",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Клиенту выдан кредит и зачислен на расчетный счет",
+                theme: "Балансовые операции по учету в кредитных организациях",
+                text: "Клиенту выдан кредит и зачислен на расчетный счет",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А+Х, П+X"],
+                hint: `
 <div class='container'>
 <p>Дт 452 Кредиты, предоставленные негосударственным коммерческим организациям.. 45204	на срок от 31 дня до 90 дней</p>
 <p>Кт 407 Счета негосударственных организаций... 40702 Коммерческие организации</p>
@@ -1096,7 +1096,7 @@ hint: `
 
 
 
-            
+
             {
                 id: "bankaccountingbasics7",
                 type: "multiplechoices",
@@ -1130,20 +1130,20 @@ hint: `
 
             {
 
-id: "bankaccountingbasics107",
-type: "multiplechoices",
-header: "Тест",
-title: "Погашаем кредит клиента",
-theme: "Балансовые операции по учету в кредитных организациях",
-text: "Погашаем кредит клиента",
-choices: [
-    "А+Х, А-Х",
-    "А+Х, П+X",
-    "А-Х, П-Х",
-    "П+Х, П-Х"
-],
-answers: ["А-Х, П-Х"],
-hint: `
+                id: "bankaccountingbasics107",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Погашаем кредит клиента",
+                theme: "Балансовые операции по учету в кредитных организациях",
+                text: "Погашаем кредит клиента",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А-Х, П-Х"],
+                hint: `
 <div class='container'>
 <p>Дт 407 Счета негосударственных организаций... 40702 Коммерческие организации  -</p>
 <p>Кт 452 Кредиты, предоставленные негосударственным коммерческим организациям.. 45204	на срок от 31 дня до 90 дней -</p>
@@ -1198,7 +1198,7 @@ hint: `
 </div>
 `},
 
-            
+
 
 
 
@@ -1236,26 +1236,26 @@ hint: `
                 hint: ""
             },
 
-    
 
 
-   
+
+
             {
 
-id: "bankaccountingbasics107",
-type: "multiplechoices",
-header: "Тест",
-title: "Начисление процентов",
-theme: "Балансовые операции по учету в кредитных организациях",
-text: "Начисление процентов",
-choices: [
-    "А+Х, А-Х",
-    "А+Х, П+X",
-    "А-Х, П-Х",
-    "П+Х, П-Х"
-],
-answers: ["А-Х, П-Х"],
-hint: `
+                id: "bankaccountingbasics107",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Начисление процентов",
+                theme: "Балансовые операции по учету в кредитных организациях",
+                text: "Начисление процентов",
+                choices: [
+                    "А+Х, А-Х",
+                    "А+Х, П+X",
+                    "А-Х, П-Х",
+                    "П+Х, П-Х"
+                ],
+                answers: ["А-Х, П-Х"],
+                hint: `
 <div class='container'>
 
   
@@ -2914,6 +2914,23 @@ hint: `
 
                             <div id="quizHint" class="m-1 p-1"></div>
 
+                            <div class="row">
+                                <div class="col">
+                                    <select class="form-select form-select-sm" aria-label="debet" id="debet">
+                                        <option selected>Дебет счета</option>
+                                        <option value="1">...</option>
+                                     
+                                      </select>
+                                </div>
+                                <div class="col">
+                                    <select class="form-select form-select-sm" aria-label="credit" id="credit">
+                                        <option selected>Кредит счета</option>
+                                        <option value="1">...</option>                                     
+                                      </select>
+                                </div>
+
+                            </div>
+
 
                             <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
                         </div>
@@ -2939,16 +2956,16 @@ hint: `
                 </p>
 
                 <p><a class="link-opacity-100" target="_blank" target="_blank"
-                    href="https://normativ.kontur.ru/document?moduleId=1&documentId=466405">
-                    Удобный формат! <br>
-                    Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
-                    учета для кредитных организаций и порядке его применения"
-                </a>
-            </p>
+                        href="https://normativ.kontur.ru/document?moduleId=1&documentId=466405">
+                        Удобный формат! <br>
+                        Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                        учета для кредитных организаций и порядке его применения"
+                    </a>
+                </p>
 
 
 
-                
+
 
 
                 <p><a class="link-opacity-100" target="_blank" target="_blank"
