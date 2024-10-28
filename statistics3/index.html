@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Основы статистики 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <script>
+
+        let quizesSets = [
+
+            {
+                id: "statistics305",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Предметом изучения статистики",
+                theme: "Основы",
+                text: "Предметом изучения статистики являются",
+                choices: [
+                    "закономерности  социально-экономических массовых явлений и процессов на предприятиях и в экономике в целом",
+                    "результаты статистического наблюдения, сводки и группировки",
+                    "закономерности маркетинговой деятельности предприятий",
+                    "процессы развития общества"],
+                answers: ["закономерности  социально-экономических массовых явлений и процессов на предприятиях и в экономике в целом"]
+            },
+
+            {
+                id: "statistics306",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Ряды распределения вариационные",
+                theme: "Основы",
+                text: "Ряды распределения называют вариационными, если они",
+                choices: [
+                    "построены по количественному признаку",
+                    "остроены по качественному признаку",
+                    "построены в порядке убывания",
+                    "построены в порядке возрастания"],
+                answers: ["построены по количественному признаку"]
+            },
+
+
+            {
+                id: "statistics307",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "По времени регистрации фактов",
+                theme: "Основы",
+                text: "По времени регистрации фактов статистическое наблюдение бывает",
+                choices: [
+                    "единовременное",
+                    "специально организованное",
+                    "выборочное",
+                    "непосредственное"],
+                answers: ["единовременное"]
+            },
+
+
+            {
+                id: "statistics308",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "По охвату единиц совокупности",
+                theme: "Основы",
+                text: "По охвату единиц совокупности статистическое наблюдение бывает",
+                choices: [
+                    "монографическое",
+                    "периодическое",
+                    "в виде отчетности",
+                    "документальное"]
+                ,
+                answers: ["монографическое"]
+            },
+
+
+            {
+                id: "statistics309",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Метод основного массива",
+                theme: "Основы",
+                text: "При методе основного массива обследованию подвергаются",
+                choices: [
+                    "самые существенные, наиболее крупные единицы совокупности, имеющие по основному признаку наибольший удельный вес в совокупности",
+                    "все единицы совокупности",
+                    "самые существенные, наиболее мелкие единицы совокупности, имеющие по основному признаку наименьший удельный вес в совокупности",
+                    "отдельные единицы совокупности, представители новых типов явлений"]
+                ,
+                answers: ["самые существенные, наиболее крупные единицы совокупности, имеющие по основному признаку наибольший удельный вес в совокупности"]
+            },
+
+            {
+                id: "statistics309",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Опрос предполагает",
+                theme: "Основы",
+                text: "Опрос предполагает использование в качестве источника информации",
+                choices: [
+                    "слова респондентов",
+                    "различные документы",
+                    "штат добровольных корреспондентов",
+                    "отдельные единицы совокупности, представители новых типов явлений"]
+                ,
+                answers: ["анкеты"]
+            },
+
+
+
+            {
+                id: "statistics310",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Центральный орган государственной статистики России",
+                theme: "Основы",
+                text: "Центральный орган государственной статистики России",
+                choices: [
+                    "статистическое управление города Москвы",
+                    "различные документы",
+                    "Центральное статистическое управление РФ",
+                    "Комитет статистических данных"]
+                ,
+                answers: ["Росстат РФ"]
+            },
+
+            {
+                id: "statistics311",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Процесс сбора первичных данных",
+                theme: "Основы",
+                text: "Процесс сбора первичных данных о социальных и экономических процессах, организуемый на научной основе систематически и планомерно, это",
+                choices: [
+                    "статистическое наблюдение",
+                    "статистическое планирование",
+                    "статистическое содержание",
+                    "статистическое прогнозирование"]
+                ,
+                answers: ["статистическое наблюдение"]
+            },
+
+
+            {
+                id: "statistics312",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Наблюдение, при котором ответы человека на вопросы фиксируются",
+                theme: "Основы",
+                text: "Наблюдение, при котором ответы человека на вопросы фиксируются на определенном формуляре",
+                choices: [
+                    "опрос",
+                    "допрос",
+                    "донос",
+                    "прогноз"]
+                ,
+                answers: ["статистическое наблюдение"]
+            },
+
+            {
+                id: "statistics313",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Сведения о своей деятельности в виде  обязательных отчетов",
+                theme: "Основы",
+                text: "Форма, при которой организации представляют в органы статистики сведения о своей деятельности в виде  обязательных отчетов по специально утвержденным показателям, в установленные  сроки",
+                choices: [
+                    "отчетность",
+                    "документ",
+                    "формуляр",
+                    "шаблон"]
+                ,
+                answers: ["отчетность"]
+            },
+
+            {
+                id: "statistics313",
+                type: "multiplechoices",
+                header: "Тест",
+                title: "Система упорядоченных горизонтальных строк и вертикальных столбцов",
+                theme: "Основы",
+                text: "Система упорядоченных горизонтальных строк и вертикальных столбцов, в которой записываются статистические данны",
+                choices: [
+                    "статистическая таблица",
+                    "статистический макет",
+                    "формуляр",
+                    "cтатистическая диаграмма"]
+                ,
+                answers: ["статистическая таблица"]
+            },
+
+
+
+            {
+                id: "statistics300",
+                header: "Типовая задача",
+                type: "quizwithrandomnumber",
+                title: "Чему равна мода этой совокупности?",
+                theme: "Задачи и виды статистической сводки",
+                text: `
+                <div>{=5000-4*{var1-10}*100}</div>              
+                <div>{=5000-2*{var1-10}*100}</div>
+                <div>{=5000-5*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>               
+                <div>{=5000-3*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                `,
+                answer: "5000-4*{var1-10}*100",
+                hint: "Мода - значение, которое встречается в выборке чаще всего"
+            },
+
+            {
+                id: "statistics301",
+                header: "Типовая задача",
+                type: "quizwithrandomnumber",
+                title: "Чему равно среднее арифметическое значение этой совокупности?",
+                theme: "Задачи и виды статистической сводки",
+                text: `
+                <div>{=5000-4*{var1-10}*100}</div>              
+                <div>{=5000-2*{var1-10}*100}</div>
+                <div>{=5000-5*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>               
+                <div>{=5000-3*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                `,
+                answer: "5000-3*{var1-10}*100",
+                hint: "Необходимо все сложить и поделить на количество"
+            },
+
+            {
+                id: "statistics301",
+                header: "Типовая задача",
+                type: "quizwithrandomnumber",
+                title: "Чему равна медиана этой совокупности?",
+                theme: "Задачи и виды статистической сводки",
+                text: `
+                <div>{=5000-4*{var1-10}*100}</div>              
+                <div>{=5000-2*{var1-10}*100}</div>
+                <div>{=5000-5*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>    
+                 <div>{=5000-4*{var1-10}*100}</div>            
+                <div>{=5000-3*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                <div>{=5000-4*{var1-10}*100}</div>
+                <div>{=5000-1*{var1-10}*100}</div>
+                `,
+                answer: "5000-4*{var1-10}*100",
+                hint: `Медиана — «серединное» значение.
+                Если построить все данные в ряд по возрастанию, медианное значение окажется ровно посреди ряда: половина остальных значений меньше, половина больше`
+            },
+
+
+
+
+
+
+        ];
+        window.quizesSets = quizesSets;
+
+    </script>
+
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <a href="https://vk.com/dmglvn">
+
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              filter: grayscale(100%);
+              object-fit: cover;" />
+
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <h1 class="display-5">Основы статистики 3</h1>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1628655501160-323860eab1ec?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 6.2. Методы анализа основной
+                    тенденции (тренда) в рядах динамики
+                    сезонных колебаний</h5>
+
+                Основные компоненты динамического ряда.<br> Тренд. Методы анализа основной
+                тенденции в рядах динамики.<br> Сезонные колебания. Индексы сезонных колебаний и сезонная волна.<br>
+                Практическая работа: Расчет показателей ряда динамики. Анализ основной тенденции ряда динамики,
+                построение сезонной волны
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1630673394533-b13bef31abf2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 7.1. Индексы в статистике</h5>
+                Индексы. Классификация индексов. Индивидуальные и общие индексы.
+                Агрегатный индекс. Средние индексы. Индексы структурных сдвигов.
+                Факторный анализ.
+                <br>
+                Практическая работа: Расчет индивидуальных, общих, агрегатных индексов. Расчет средних индексов,
+                индексов структурных сдвигов
+            </div>
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 8.1. Способы формирования выборочной совокупности</h5>
+                Выборочное наблюдение. Индивидуальный, групповой и комбинированный
+                отбор.<br> Бесповторный и повторный отбор.<br>Виды выборки. Малая выборка в
+                статистике.
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 8.2. Методы оценки результатов
+                    выборочного наблюдения</h5>
+                Генеральная и выборочные совокупности.<br> Ошибки выборочного наблюдения.<br>
+                Корректировка выборки.<br> Распространение результатов выборочного наблюдения
+                на генеральную совокупность.<br>
+                Практическая работа: Расчет ошибки выборки, генеральной совокупности.<br>
+                Самостоятельная работа: Разработать программу и организационный план проведения выборочного наблюдения в
+                соответствии с
+                поставленными целями и задачами, провести выборочное обследование,
+                обработать и проанализировать результаты выборочного наблюдения
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1616587226157-48e49175ee20?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 9.1. Методы изучения связи между явлениями</h5>
+                Причинно-следственные связи между явлениями.<br> Качественный анализ
+                изучаемого явления.<br> Построение модели связи.<br> Интерпретация результатов.
+                Функциональная связь и стохастическая зависимость.<br> Прямая и обратная связь.
+                Линейные и нелинейные связи.<br>
+                Практическая работа: Построение модели связи. Интерпретация результатов.
+                результаты выборочного наблюдения
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 9.2. Корреляционнорегрессионный анализ</h5>
+
+                Корреляция. Парная, частная и множественная корреляция.<br> Корреляционный
+                анализ. Корреляционно-регрессионный анализ.<br> Множественная
+                (многофакторная) регрессия. Уравнение регрессии. Коэффициенты регрессии.<br>
+                Интерпретация моделей регрессии.<br>
+                Практическая работа: Корреляционно-регрессионный анализ. Множественная (многофакторная) регрессия.
+                Составление уравнения регрессии.
+                <br>
+                Самостоятельная работа обучающихся. Адекватность моделей, построенных на основе уравнения регрессии
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1586892477838-2b96e85e0f96?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Тема 9.2. Корреляционнорегрессионный анализ</h5>
+
+                Корреляция. Парная, частная и множественная корреляция.<br> Корреляционный
+                анализ. Корреляционно-регрессионный анализ.<br> Множественная
+                (многофакторная) регрессия. Уравнение регрессии. Коэффициенты регрессии.<br>
+                Интерпретация моделей регрессии.<br>
+                Практическая работа: Корреляционно-регрессионный анализ. Множественная (многофакторная) регрессия.
+                Составление уравнения регрессии.
+                <br>
+                Самостоятельная работа обучающихся. Адекватность моделей, построенных на основе уравнения регрессии
+
+            </div>
+        </div>
+
+
+        <div class="card mb-1" style="max-width:800px;">
+            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+
+
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title" id="quizTitle">Задача</h5>
+                            <div class="card-text" id="quizString"></div>
+
+                            <div id="quizChecks" class="m-1 p-1"></div>
+
+                            <div id="quizHint" class="m-1 p-1"></div>
+
+                            <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+
+                                <div class="row m-1 g-1">
+                                    <div class="col-12 col-md-6">
+                                        <select class="form-select form-select-sm" aria-label="debet" id="debet">
+                                            <option selected>Дебет счета</option>
+                                            <option value="1">...</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <select class="form-select form-select-sm" aria-label="credit" id="credit">
+                                            <option selected>Кредит счета</option>
+                                            <option value="1">...</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <textarea class="form-control my-3" id="userComment" rows="2">Мой комментарий</textarea>
+
+
+
+
+                            <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="./quizcardwithstorage.js"></script>
+</body>
+
+</html>
