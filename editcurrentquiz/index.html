@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Current Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body 
+  data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+  data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  data-hash1 = "a5bd29f89d06e17fbd926cac1e7d5d555611da90"
+  >
+  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+              <a class="navbar-brand" target="_blank" href="econolabs.github.io">Econolabs</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                  aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" target="_blank" href="econolabs.github.io"></a>
+                      </li>
+                  </ul>
+                  <form class="d-flex">
+  
+                      <a target="_blank" href="https://vk.com/dmglvn">
+  
+                          <img loading="lazy"
+                              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                              style="
+                              width: 40px;
+                              height: 40px;
+                              border-radius: 50%;
+                              filter: grayscale(100%);
+                              object-fit: cover;" />
+  
+                      </a>
+                  </form>
+              </div>
+          </div>
+      </nav>
+
+
+      <div class="card m-3" style="width: 800px;" id="loading">
+        <img src="../freelancer.jpg" class="card-img-top" alt="free">
+        <div class="card-body">
+          <div class="container" id="authblock" style="display: none;" >
+            <form>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                </div>
+               
+    
+                <div class="mb-3" id="passwordblock">
+                    <label for="password" class="form-label">Pass</label>
+                    <input type="password" class="form-control" id="userPass">
+                </div>
+    
+                <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                    id="loginbutton">Сохранить</button>
+            </form>
+        </div>
+        </div>
+      </div>
+
+  
+    
+   
+
+  
+      <div class="container" style="display: none;" id="addquizbuttons">
+        <div class="d-flex justify-content-evenly p-1">
+          <button type="button" class="btn btn-sm btn-outline-primary m-1 selectquiztype" id="addbankaccountingquiz">Add Accounting Quiz</button>
+            <button type="button" class="btn btn-sm btn-outline-primary m-1 selectquiztype" id="addonechoicequiz">Add Multiple Choice Quiz One Answer</button>
+            <button type="button" class="btn btn-sm btn-outline-primary m-1 selectquiztype" id="addmultiplechoicequiz">Add Multiple Choice Quiz Many Anaswers</button>
+            <button type="button" class="btn btn-sm btn-outline-primary m-1 selectquiztype" id="addbankaccountingquiz">Add Accounting Quiz</button>
+            <button type="button" class="btn btn-sm btn-outline-primary m-1 selectquiztype" id="addrandomnumberquiz">Add Random Number Quiz</button>
+            <button type="button" class="btn btn-sm btn-outline-danger m-1 selectquiztype" id="deletecurrentquiz">Delete Current Day Quiz</button>
+        </div>
+      </div>
+
+      
+      <div class="container" >
+
+        <div class="m-1 p-1" id="quiznewquizlayout"></div>
+
+        <button class="btn btn-outline-secondary m-1" id="quizaction" style="display: none;">Далее</button>
+
+        <button class="btn btn-primary m-1" id="savenewquizbutton" style="display: none;">Сохранить</button>
+        
+
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="../dist/editcurrentquiz.js"></script>
+  </body>
+</html>
