@@ -27812,7 +27812,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     const initialState = {
         isLoading: true,
-        conto: ["102", "30102", "40702", "452", "603"],
+        conto: ["47427", " 70601", "474727", "45204", "91314", "45215",
+            "45812", "70606", "45912", "45812", "91315",
+            "102", "30102", "40702", "45204", "603", "91315", "99998"],
         quizId: "bankaccounting1",
         type: "accounting",
         header: "Тест",
