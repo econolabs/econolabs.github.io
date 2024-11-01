@@ -27790,8 +27790,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
         let email = $("#emailInput")?.value;
         let password = $("#userPass")?.value;
-        
-        
+
+
 
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -27816,7 +27816,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         quizId: "bankaccounting1",
         type: "accounting",
         header: "Тест",
-        title: "Проводки",
+        title: "Перечислены средств клиента с расчетного счета в другой банк через ЦБ РФ",
         theme: "Типовые операции по учету в кредитных организациях",
         text: "Перечислены средств клиента с расчетного счета в другой банк через ЦБ РФ",
         choices: [
@@ -27827,18 +27827,17 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         ],
         //   answers: ["40702301"],
         hint: `
-        <div class="row m-1">
-            <div class="col">
-                <div class="alert alert-secondary" role="alert">
-                    <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/cd9dff97697f94ed33851013a6bd0c346fdf6faa/#dst106225">40702</a>
-                </div>
-            </div>
-             <div class="col">
-                <div class="alert alert-secondary" role="alert">
-                    <a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_436264/0dd6470ab5f728a5c74438a60d9a5a458c4c71be/#dst105650">301</a>
-                </div>
-            </div>              
-        </div>`
+         <p><a class="link-opacity-100" target="_blank" target="_blank"
+                    href="https://normativ.kontur.ru/document?moduleId=1&documentId=466405">
+                    Удобный формат! <br>
+                    Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                    учета для кредитных организаций и порядке его применения"
+                </a>
+                </p>
+                 <p><a class="link-opacity-100" target="_blank" target="_blank"
+                    href="https://disk.yandex.ru/i/N0H9hQpoSCRZoA">
+                    Пособие
+                </a>`
 
     };
 
@@ -28002,15 +28001,70 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
       * Functions
     */
 
+    function addCommonMarkup() {
+        let { header, title, theme, text: quizText, hint = "" } = store.getState().application;
+        let idQuiz = getFirebaseNodeKey("openquizes");
+        return `
+    <div class="row">    
+        
+        <div class="col-12 col-md-2">
+            <div class="m-1">
+                <label for="quizId" class="form-label">quiz Id</label>
+                <input type="text" class="form-control" id="quizId" value="${idQuiz}">
+            </div>
+        </div>
+
+       <div class="col-12 col-md-4">
+            <div class="m-1">
+                <label for="header" class="form-label">header</label>
+                <input type="text" class="form-control" id="header" value="${header}">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="m-1">
+                <label for="theme" class="form-label">theme</label>
+                <input type="text" class="form-control" id="theme" value="${theme}">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="m-1">
+                <label for="title" class="form-label">title</label>
+                <input type="text" class="form-control" id="title" value="${title}">
+            </div>
+        </div>
+
+      
+
+ 
+             
+
+
+        <div class="col-12">
+            <div class="m-1">
+                <label for="quizText" class="form-label">Quiz Text</label>
+                <input type="text" class="form-control" id="quizText" value="${html_beautify(quizText, { "indent_size": 3 })}">
+            </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="hint" class="form-label">hint</label>
+            <textarea class="form-control" id="hint" rows="4">${html_beautify(hint, { "indent_size": 3 })}</textarea>
+          </div>
+        </div>
+
+    </div>
+`
+    }
+
 
     function addOneChoiceQuiz(id) {
-        let { type, header, title, theme, text: quizText, hint = "", choices } = store.getState().application;
-        getFirebaseNodeKey("openquizes");
+        let { choices } = store.getState().application;
 
-        console.log(id);
-
-        $("#quiznewquizlayout").innerHTML =
-            "<form>"
+        $("#quiznewquizlayout").innerHTML = addCommonMarkup();
+        "<form>"
             +
             Array.isArray(choices) && choices
                 .map((item, index) => {
@@ -28032,53 +28086,11 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     }
 
-    function addBankAccountingQuiz(id) {
-        let { type, header, title, theme, text: quizText, hint = "", conto } = store.getState().application;
-        let idQuiz = getFirebaseNodeKey("openquizes");
+    function addBankAccountingQuiz() {
+        let { conto } = store.getState().application;
 
-        console.log(id);
-
-        let commonMarkup = `
-    <div class="row">    
-        
-        <div class="col-12 col-md-4">
-            <div class="m-1">
-                <label for="quizId" class="form-label">quiz Id</label>
-                <input type="text" class="form-control" id="quizId" value="${idQuiz}">
-            </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-            <div class="m-1">
-                <label for="type" class="form-label">type</label>
-                <input type="text" class="form-control" id="type" value="${type}">
-            </div>
-        </div>
-
-         <div class="col-12 col-md-4">
-            <div class="m-1">
-                <label for="header" class="form-label">header</label>
-                <input type="text" class="form-control" id="header" value="${header}">
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-            <div class="m-1">
-                <label for="title" class="form-label">title</label>
-                <input type="text" class="form-control" id="title" value="${title}">
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-            <div class="m-1">
-                <label for="theme" class="form-label">theme</label>
-                <input type="text" class="form-control" id="theme" value="${theme}">
-            </div>
-        </div>
-
-        <div class="col-12">
-
-            <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+        $("#quiznewquizlayout").innerHTML = addCommonMarkup() + "<hr>" + `
+        <div class="container p-1 m-1" id="accountingblock" style="display: none;">
 
                 <div class="row m-1 g-1">
                     
@@ -28098,30 +28110,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
                 </div>
 
-            </div>
-
-        </div>
-             
-
-
-        <div class="col-12">
-            <div class="m-1">
-                <label for="quizText" class="form-label">Quiz Text</label>
-                <input type="text" class="form-control" id="quizText" value="${html_beautify(quizText, { "indent_size": 3 })}">
-            </div>
-        </div>
-
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="hint" class="form-label">hint</label>
-            <textarea class="form-control" id="hint" rows="4">${html_beautify(hint, { "indent_size": 3 })}</textarea>
-          </div>
-        </div>
-
-    </div>
-`;
-
-        $("#quiznewquizlayout").innerHTML = commonMarkup + "<hr>";
+        </div>`;
 
         $("#debet").innerHTML = '<option value="...">Дебет</option>' + conto
             .map(item => {
