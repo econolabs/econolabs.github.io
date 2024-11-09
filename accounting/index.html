@@ -69,31 +69,31 @@
             </form>
         </div>
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs my-3" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="newrecord-tab" data-bs-toggle="tab" data-bs-target="#newrecord"
                     type="button" role="tab" aria-controls="newrecord" aria-selected="true">Нов. операция</button>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item" role="presentation" style="display: none;">
                 <button class="nav-link" id="addconto-tab" data-bs-toggle="tab" data-bs-target="#addconto" type="button"
                     role="tab" aria-controls="addconto" aria-selected="false">Нов. счет</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="transactions-tab" data-bs-toggle="tab" data-bs-target="#transactions" type="button"
-                    role="tab" aria-controls="transactions" aria-selected="false">Журнал</button>
+                <button class="nav-link" id="transactions-tab" data-bs-toggle="tab" data-bs-target="#transactions"
+                    type="button" role="tab" aria-controls="transactions" aria-selected="false">Журнал</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="balance-tab" data-bs-toggle="tab" data-bs-target="#balance" type="button"
                     role="tab" aria-controls="balance" aria-selected="false">Баланс</button>
             </li>
-            
-            <li class="nav-item" role="presentation">
+
+            <li class="nav-item" role="presentation" style="display: none;">
                 <button class="nav-link" id="delconto-tab" data-bs-toggle="tab" data-bs-target="#delconto" type="button"
                     role="tab" aria-controls="delconto" aria-selected="false">Уд. Счет</button>
             </li>
 
 
-            
+
 
         </ul>
 
@@ -124,9 +124,25 @@
                             id="sum">
                     </div>
 
+                    <div class="col-12 p-1">
+                        <label for="commentInput" class="form-label">Comment</label>
+                        <textarea class="form-control form-control-sm" id="commentInput" rows="3"></textarea>
+                    </div>
+                    
+
                     <div class="col-12">
                         <button class="btn btn-sm btn-outline-secondary" id="addrecord">Добавить</button>
                     </div>
+
+                    <div class="col-12 col-md-6 p-1">
+                        <div id="debetDescription"></div>                       
+                    </div>
+
+                    <div class="col-12 col-md-6 p-1">
+                        <div id="creditDescription"></div>                       
+                    </div>
+
+                   
                 </div>
             </div>
 
@@ -140,24 +156,48 @@
                             id="conto">
                     </div>
 
-                     
+
                     <div class="col-12 col-md-4 p-1">
                         <select class="form-select form-select-sm" aria-label="Default select example" id="contotype">
                             <option value="asset">Актив</option>
                             <option value="liability">Обязательства</option>
                             <option value="equity">Капитал</option>
-                        </select>                     
+                        </select>
                     </div>
 
                     <div class="col-12 col-md-4 p-1">
-                        <input type="number" class="form-control form-control-sm" placeholder="sortby" aria-label="sortby"
-                        id="sortby">
+                        <input type="number" class="form-control form-control-sm" placeholder="sortby"
+                            aria-label="sortby" id="sortby">
                     </div>
-                 
+
 
                     <div class="col-12 p-1">
                         <input type="text" class="form-control form-control-sm" placeholder="name" aria-label="name"
                             id="name">
+                    </div>
+
+                    <div class="col-12 col-md-8 p-1">
+                        <select class="form-select form-select-sm" aria-label="Default select example"
+                            id="balancerecords">
+                            <option value="Default">...</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-md-4 p-1">
+                        <div class="form-check form-check-sm">
+                            <input class="form-check-input" type="radio" name="balancetrueCheck" id="flexRadioDefaultTrue"
+                                checked>
+                            <label class="form-check-label" for="flexRadioDefaultTrue">
+                                Увеличивать балансовую статью
+                            </label>
+                        </div>
+                        <div class="form-check form-check">
+                            <input class="form-check-input" type="radio" name="balancetrueCheck" id="flexRadioDefaultFalse">
+                            <label class="form-check-label" for="flexRadioDefaultFalse">
+                                Уменьшать балансовую статью
+                            </label>
+                        </div>
+                    
                     </div>
 
                     <div class="col-12 m-1">
@@ -166,17 +206,17 @@
 
                 </div>
 
-                <p><a class="link-opacity-100"
-                    target="_blank"
-                    href="https://www.consultant.ru/document/cons_doc_LAW_436264/">
-                    Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского учета для кредитных организаций и порядке его применения" 
-                </a>
+                <p><a class="link-opacity-100" target="_blank"
+                        href="https://www.consultant.ru/document/cons_doc_LAW_436264/">
+                        Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+                        учета для кредитных организаций и порядке его применения"
+                    </a>
                 </p>
 
 
- 
 
-      
+
+
             </div>
 
             <div class="tab-pane fade" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
@@ -184,7 +224,27 @@
             </div>
 
             <div class="tab-pane fade" id="balance" role="tabpanel" aria-labelledby="balance-tab">
-                ...
+
+                <div class="row">
+                    <div class="col">
+                        <div class="m-1 text-primary">Активы</div>
+                        <div class="m-1" id="assetsMarkup">
+                            ...
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="m-1">Пассивы</div>
+                        <div class="m-1 text-danger">Обязательства</div>
+                        <div class="m-1" id="liabilitiesMarkup">
+                            ...
+                        </div>
+                        <div class="m-1 text-success">Собственные средства</div>
+                        <div class="m-1" id="equityMarkup">
+                            ...
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="tab-pane fade" id="delconto" role="tabpanel" aria-labelledby="delconto-tab">
