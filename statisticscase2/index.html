@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Построение модели линейной регрессии</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="m-1 p-1" style="clear:both;"><p>Имеются данные о количестве проданного товара и его цене:</p>
+            <div class="m-1 p-1"><table class="table table-sm">
+            <thead>
+            <tr>
+            <th style="text-align: center;">Количество (тыс. / день)</th>
+            <th style="text-align: center;">Цена (руб. / за ед.)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td style="text-align: center;">8</td>
+            <td style="text-align: center;">5,0</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">10</td>
+            <td style="text-align: center;">3,5</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">24</td>
+            <td style="text-align: center;">2,0</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">16</td>
+            <td style="text-align: center;">2,5</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <p>Изобразить данные на графике, построить модель линейной регрессии, определить тесноту связи. Объяснить значение коэффициентов.</p>
+            <p>&nbsp;<span id="cut" name="cut" title="Решение">&nbsp;</span></p>
+            <h3>Решение:</h3>
+            <p>Изобразим данные на графике:</p>
+            <p><img src="https://static1.ecson.ru/image/g0/c7/q5.png" alt="Поле корреляции"></p>
+            <p>Для расчёта параметров уравнения линейной регрессии:</p>
+            <p><img id="img-5po0kd"   src="https://static1.ecson.ru/image/t2/e5/v1.png" alt="Формула линейной регрессии"></p>
+            <p>(<img src="https://static1.ecson.ru/image/s4/60/sv.png" alt="Количество проданного товара, зависящее от цены Р">– количество проданного товара, зависящее от цены Р),</p>
+            <p>необходимо решить систему нормальных уравнений относительно a и b:</p>
+            <p><img id="img-ADzgOl"   src="https://static1.ecson.ru/image/n6/17/dp.png" alt="Система нормальных уравнений"></p>
+            <p>Построим таблицу исходных и расчётных данных.</p>
+            <p>Таблица 1 Расчетные данные для оценки линейной регрессии</p>
+            <div class="m-1 p-1"><table class="table table-sm">
+            <thead>
+            <tr>
+            <th style="text-align: center;">№ п/п</th>
+            <th style="text-align: center;">Р</th>
+            <th style="text-align: center;">Q</th>
+            <th style="text-align: center;">P<sup>2</sup></th>
+            <th style="text-align: center;">Q<sup>2</sup></th>
+            <th style="text-align: center;">P×Q</th>
+            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/s4/60/sv.png" alt="Количество проданного товара, зависящее от цены Р">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1</td>
+            <td>5</td>
+            <td>8</td>
+            <td>25</td>
+            <td>64</td>
+            <td>40</td>
+            <td>6</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>3,5</td>
+            <td>10</td>
+            <td>12,25</td>
+            <td>100</td>
+            <td>35</td>
+            <td>13,28571</td>
+            </tr>
+            <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>24</td>
+            <td>4</td>
+            <td>576</td>
+            <td>48</td>
+            <td>20,57143</td>
+            </tr>
+            <tr>
+            <td>4</td>
+            <td>2</td>
+            <td>16</td>
+            <td>6,25</td>
+            <td>256</td>
+            <td>40</td>
+            <td>18,14286</td>
+            </tr>
+            <tr>
+            <td>Итого</td>
+            <td>13</td>
+            <td class="c-white" style="background-color: green;"><strong>58</strong></td>
+            <td>47,5</td>
+            <td>996</td>
+            <td>163</td>
+            <td class="c-white" style="background-color: green;"><strong>58</strong></td>
+            </tr>
+            <tr>
+            <td>Среднее</td>
+            <td>3,25</td>
+            <td>14,5</td>
+            <td>х</td>
+            <td>х</td>
+            <td>40,75</td>
+            <td>х</td>
+            </tr>
+            <tr>
+            <td><img id="img-bhmEF3"   src="https://static1.ecson.ru/image/0m/4d/qd.png" alt="Дисперсия"></td>
+            <td>1,3125</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            </tr>
+            <tr>
+            <td><img src="https://static1.ecson.ru/image/ih/62/sp.png" alt="Среднее квадратическое отклонение"></td>
+            <td>1,145644</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            <td>х</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <p>Средние значения P и Q определим по формуле средней арифметической простой:</p>
+            <p><img id="img-1Zd0aK"   src="https://static1.ecson.ru/image/3p/7o/b8.png" alt="Формула средней арифметической простой"></p>
+            <p>Среднее квадратическое отклонение рассчитаем по формуле:</p>
+            <p><img id="img-i8NVI6"   src="https://static1.ecson.ru/image/rs/h7/8h.png" alt="Формула среднего квадратического отклонения"></p>
+            <p>Возведя в квадрат полученное значение, получим дисперсию:</p>
+            <p><img id="img-qvHPYV"   src="https://static1.ecson.ru/image/h4/wo/7k.png" alt="Формула дисперсии"></p>
+            <p>Параметры уравнения можно определить также и по формулам:</p>
+            <p><img id="img-g3fN0Q"   src="https://static1.ecson.ru/image/xm/is/x5.png" alt="Формула и расчёт коэффициента регрессии"></p>
+            <p><img id="img-abTYwv"   src="https://static1.ecson.ru/image/oh/wd/ll.png" alt="Формула и расчёт параметра а"></p>
+            <p>Таким образом, уравнение регрессии имеет вид:</p>
+            <p><img id="img-yGnpPB"   src="https://static1.ecson.ru/image/o3/8u/5b.png" alt="Уравнение линейной регрессии"></p>
+            <p>Подставим в данное уравнение исходные значения Р и найдём сумму расчётных значений Q (последняя графа таблицы).</p>
+            <p><img id="img-8UNOI8"   src="https://static1.ecson.ru/image/t1/b8/ki.png" alt="Равенство фактических и расчётных данных"></p>
+            <p>Так как суммы исходных и расчётных значений Q совпадают, следовательно, параметры уравнения найдены верно.</p>
+            <p>С увеличением цены на 1 руб. количество проданного товара снизится&nbsp; в среднем на 4,86 тыс.</p>
+            <p>Найдём коэффициент корреляции для оценки силы связи между двумя переменными – количеством проданного товара (Q) и ценой (P):</p>
+            <p><img id="img-FiRpDp"   src="https://static1.ecson.ru/image/su/a7/qd.png" alt="Формула и расчёт коэффициента корреляции"></p>
+            <p>Расчётная таблица:</p>
+            <div class="m-1 p-1"><table class="table table-sm">
+            <thead>
+            <tr>
+            <th style="text-align: center;">№ п/п</th>
+            <th style="text-align: center;">P</th>
+            <th style="text-align: center;">Q</th>
+            <td style="text-align: center;"><img id="img-SnrG56"   src="https://static1.ecson.ru/image/vp/aw/dh.png" alt="Произведение отклонений"></td>
+            <td style="text-align: center;"><img id="img-NiGuAq"   src="https://static1.ecson.ru/image/j6/td/6q.png" alt="Квадрат отклонения от среднего значения"></td>
+            <td style="text-align: center;"><img id="img-YtQMXd"   src="https://static1.ecson.ru/image/fs/o3/2z.png" alt="Квадрат отклонения от среднего значения"></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">5</td>
+            <td style="text-align: center;">8</td>
+            <td style="text-align: center;">-11,375</td>
+            <td style="text-align: center;">3,0625</td>
+            <td style="text-align: center;">42,25</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">2</td>
+            <td style="text-align: center;">3,5</td>
+            <td style="text-align: center;">10</td>
+            <td style="text-align: center;">-1,125</td>
+            <td style="text-align: center;">0,0625</td>
+            <td style="text-align: center;">20,25</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">2</td>
+            <td style="text-align: center;">24</td>
+            <td style="text-align: center;">-11,875</td>
+            <td style="text-align: center;">1,5625</td>
+            <td style="text-align: center;">90,25</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">4</td>
+            <td style="text-align: center;">2,5</td>
+            <td style="text-align: center;">16</td>
+            <td style="text-align: center;">-1,125</td>
+            <td style="text-align: center;">0,5625</td>
+            <td style="text-align: center;">2,25</td>
+            </tr>
+            <tr>
+            <th style="text-align: center;">Итого</th>
+            <td style="text-align: center;">13</td>
+            <td style="text-align: center;">58</td>
+            <td style="text-align: center;">-25,5</td>
+            <td style="text-align: center;">5,25</td>
+            <td style="text-align: center;">155</td>
+            </tr>
+            <tr>
+            <th style="text-align: center;">Среднее</th>
+            <td style="text-align: center;">3,25</td>
+            <td style="text-align: center;">14,5</td>
+            <td style="text-align: center;">-</td>
+            <td><img src="https://static1.ecson.ru/image/h7/ug/yn.png" alt="Корень квадратный из суммы квадратов отклонений вариант от среднего значения"></td>
+            <td><img src="https://static1.ecson.ru/image/ov/2d/pp.png" alt="Корень квадратный из суммы квадратов отклонений вариант от среднего значения"></td>
+            </tr>
+            </tbody>
+            </table></div>
+            <p>Оценим корреляцию по шкале Чеддока.</p>
+            <div class="m-1 p-1"><table class="table table-sm">
+            <thead>
+            <tr>
+            <th style="text-align: center;">Коэффициент корреляции по абсолютной величине</th>
+            <th style="text-align: center;">Интерпретация</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td style="text-align: center;">до 0,3</td>
+            <td style="text-align: center;">слабая</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">0,3 - 0,5</td>
+            <td style="text-align: center;">умеренная</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">0,5 - 0,7</td>
+            <td style="text-align: center;">заметная</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">0,7 - 0,9</td>
+            <td style="text-align: center;">высокая</td>
+            </tr>
+            <tr>
+            <td style="text-align: center;">0,9 - 1,0</td>
+            <td style="text-align: center;">весьма высокая</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <p>Полученный коэффициент корреляции указывает на высокую связь между ценой и количеством проданного товара. Знак минус показывает обратную зависимость между ценой и объёмом продаж.</p></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

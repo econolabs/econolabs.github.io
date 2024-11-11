@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Средние величины и показатели вариации</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 class="m-1 p-1">Задача №6. Расчёт показателей вариации</h1>
+  
+        <div class="m-1 p-1" style="clear:both;">
+            <p>По данным выборочного обследования произведена группировка вкладчиков по размеру вклада в Сбербанке
+                города:
+            </p>
+            <div class="m-1 p-1">
+                <table class='table table-sm'>
+                    <tbody>
+                        <tr>
+                            <th>Размер вклада, руб.</th>
+                            <td style="text-align: center;">До 400</td>
+                            <td style="text-align: center;">400 - 600</td>
+                            <td style="text-align: center;">600 - 800</td>
+                            <td style="text-align: center;">800 - 1000</td>
+                            <td style="text-align: center;">Свыше 1000</td>
+                        </tr>
+                        <tr>
+                            <th>Число вкладчиков</th>
+                            <td style="text-align: center;">32</td>
+                            <td style="text-align: center;">56</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">104</td>
+                            <td style="text-align: center;">88</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Определите:</h3>
+            <p>1) размах вариации;</p>
+            <p>2) средний размер вклада;</p>
+            <p>3) среднее линейное отклонение;</p>
+            <p>4) дисперсию;</p>
+            <p>5) среднее квадратическое отклонение;</p>
+            <p>6) коэффициент вариации вкладов.</p>
+            <p><span id="cut" name="cut" title="Решение">&nbsp;</span></p>
+            <h3>Решение:</h3>
+            <p>Данный ряд распределения содержит открытые интервалы. В таких рядах условно принимается величина
+                интервала
+                первой группы равна величине интервала последующей, а величина интервала последней группы равна величине
+                интервала предыдущей.</p>
+            <p>Величина интервала второй группы равна 200, следовательно, и величина первой группы также равна 200.
+                Величина
+                интервала предпоследней группы равна 200, значит и последний интервал будет иметь величину, равную 200.
+            </p>
+            <div class="m-1 p-1">
+                <table class='table table-sm'>
+                    <tbody>
+                        <tr>
+                            <th>Размер вклада, руб.</th>
+                            <td style="text-align: center;">200 - 400</td>
+                            <td style="text-align: center;">400 - 600</td>
+                            <td style="text-align: center;">600 - 800</td>
+                            <td style="text-align: center;">800 - 1000</td>
+                            <td style="text-align: center;">1000 - 1200</td>
+                        </tr>
+                        <tr>
+                            <th>Число вкладчиков</th>
+                            <td style="text-align: center;">32</td>
+                            <td style="text-align: center;">56</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">104</td>
+                            <td style="text-align: center;">88</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>1) Определим размах вариации как разность между наибольшим и наименьшим значением признака:</p>
+            <p><img src="https://static1.ecson.ru/image/d2/ht/bg.png" alt="Формула и расчёт размаха вариации"></p>
+            <p>Размах вариации размера вклада равен 1000 рублей.</p>
+            <p>2) Средний размер вклада определим по формуле средней арифметической взвешенной.</p>
+            <p>Предварительно определим дискретную величину признака в каждом интервале. Для этого по формуле средней
+                арифметической простой найдём середины интервалов.</p>
+            <p>Среднее значение первого интервала будет равно:</p>
+            <p><img src="https://static1.ecson.ru/image/9o/4f/a9.png" alt="Средняя арифметическая простая"></p>
+            <p>второго - 500 и т. д.</p>
+            <p>Занесём результаты вычислений в таблицу:</p>
+            <div class="m-1 p-1">
+                <table class='table table-sm'>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">Размер вклада, руб.</th>
+                            <th style="text-align: center;">Число вкладчиков, f</th>
+                            <th style="text-align: center;">Середина интервала, х</th>
+                            <th style="text-align: center;">xf</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">200-400</td>
+                            <td style="text-align: center;">32</td>
+                            <td style="text-align: center;">300</td>
+                            <td style="text-align: center;">9600</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">400-600</td>
+                            <td style="text-align: center;">56</td>
+                            <td style="text-align: center;">500</td>
+                            <td style="text-align: center;">28000</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">600-800</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">700</td>
+                            <td style="text-align: center;">84000</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">800-1000</td>
+                            <td style="text-align: center;">104</td>
+                            <td style="text-align: center;">900</td>
+                            <td style="text-align: center;">93600</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">1000-1200</td>
+                            <td style="text-align: center;">88</td>
+                            <td style="text-align: center;">1100</td>
+                            <td style="text-align: center;">96800</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">Итого</td>
+                            <td style="text-align: center;">400</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">312000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Средний размер вклада в Сбербанке города будет равен 780 рублей:</p>
+            <p><img src="https://static1.ecson.ru/image/z9/zb/kq.png"
+                    alt="Формула и расчёт средней арифметической взвешенной"></p>
+            <p>3) Среднее линейное отклонение есть средняя арифметическая из абсолютных отклонений отдельных значений
+                признака от общей средней:</p>
+            <p>&nbsp;<img src="https://static1.ecson.ru/image/z1/v7/f2.png" alt="Формула среднего линейного отклонения">
+            </p>
+            <p>Порядок расчёта среднего линейонго отклонения в интервальном ряду распределения следующий:</p>
+            <p>1. Вычисляется средняя арифметическая взвешенная, как показано в п. 2).</p>
+            <p>2. Определяются абсолютные отклонения вариант от средней:</p>
+            <p><img src="https://static1.ecson.ru/image/2p/22/hx.png" alt="Абсолютное отклонение варианта от средней">
+            </p>
+            <p>3. Полученные отклонения умножаются на частоты:</p>
+            <p><img src="https://static1.ecson.ru/image/nv/yh/k0.png" alt="Взвешенные абсолютные отклонения"></p>
+            <p>4. Находится сумма взвешенных отклонений без учёта знака:</p>
+            <p><img src="https://static1.ecson.ru/image/a5/nh/ha.png" alt="Сумма взвешенных абсолютных отклонений"></p>
+            <p>5. Сумма взвешенных отклонений делится на сумму частот:</p>
+            <p><img src="https://static1.ecson.ru/image/oe/pt/zw.png"
+                    alt="Отношение суммы взвешенных отклонений и суммы весов"></p>
+            <p>Удобно пользоваться таблицей расчётных данных:</p>
+            <div class="m-1 p-1">
+                <table class='table table-sm'>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">Размер вклада, руб.</th>
+                            <th style="text-align: center;">Число вкладчиков, f</th>
+                            <th style="text-align: center;">Середина интервала, х</th>
+                            <th style="text-align: center;">&nbsp;<img src="https://static1.ecson.ru/image/uh/m2/ld.png"
+                                    alt="Отклонение варианта от средней"></th>
+                            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/2p/22/hx.png"
+                                    alt="Абсолютное отклонение варианта от средней"></th>
+                            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/nv/yh/k0.png"
+                                    alt="Взвешенные абсолютные отклонения"></th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">200-400</td>
+                            <td style="text-align: center;">32</td>
+                            <td style="text-align: center;">300</td>
+                            <td style="text-align: center;">-480</td>
+                            <td style="text-align: center;">480</td>
+                            <td style="text-align: center;">15360</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">400-600</td>
+                            <td style="text-align: center;">56</td>
+                            <td style="text-align: center;">500</td>
+                            <td style="text-align: center;">-280</td>
+                            <td style="text-align: center;">280</td>
+                            <td style="text-align: center;">15680</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">600-800</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">700</td>
+                            <td style="text-align: center;">-80</td>
+                            <td style="text-align: center;">80</td>
+                            <td style="text-align: center;">9600</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">800-1000</td>
+                            <td style="text-align: center;">104</td>
+                            <td style="text-align: center;">900</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">12480</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">1000-1200</td>
+                            <td style="text-align: center;">88</td>
+                            <td style="text-align: center;">1100</td>
+                            <td style="text-align: center;">320</td>
+                            <td style="text-align: center;">320</td>
+                            <td style="text-align: center;">28160</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">Итого</td>
+                            <td style="text-align: center;">400</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">81280</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>&nbsp;<img src="https://static1.ecson.ru/image/2e/un/c8.png"
+                    alt="Формула и расчёт среднего линейного отклонения"></p>
+            <p>Среднее линейное отклонение размера вклада клиентов Сбербанка составляет 203,2 рубля.</p>
+            <p>4) Дисперсия - это средняя арифметическая квадратов отклонений каждого значения признака от средней
+                арифметической.</p>
+            <p>Расчёт дисперсии в интервальных рядах распределения производится по формуле:</p>
+            <p>&nbsp;<img src="https://static1.ecson.ru/image/jy/ke/jd.png" alt="Формула дисперсии"></p>
+            <p>Порядок расчёта дисперсии в этом случае следующий:</p>
+            <p>1. Определяют среднюю арифметическую взвешенную, как показано в п. 2).</p>
+            <p>2. Находят отклонения вариант от средней:</p>
+            <p><img src="https://static1.ecson.ru/image/uh/m2/ld.png" alt="Отклонение варианта от средней"></p>
+            <p>3. Возводят в квадрат отклонения каждой варианты от средней:</p>
+            <p><img src="https://static1.ecson.ru/image/de/2z/b2.png" alt="Квадрат отклонений варианта от средней"></p>
+            <p>4. Умножают квадраты отклонений на веса (частоты):</p>
+            <p><img src="https://static1.ecson.ru/image/c8/vk/dh.png"
+                    alt="Произведение отклонения варианта от средей на частоту"></p>
+            <p>5. Суммируют полученные произведения:</p>
+            <p><img src="https://static1.ecson.ru/image/ig/gu/9p.png"
+                    alt="Сумма произведений отклонений варианта от средней на частоту"></p>
+            <p>6. Полученная сумма делится на сумму весов (частот):</p>
+            <p><img src="https://static1.ecson.ru/image/mu/f1/2m.png" alt="Формула дисперсии"></p>
+            <p>Расчёты оформим в таблицу:</p>
+            <div class="m-1 p-1">
+                <table class='table table-sm'>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">Размер вклада, руб.</th>
+                            <th style="text-align: center;">Число вкладчиков, f</th>
+                            <th style="text-align: center;">Середина интервала, х</th>
+                            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/uh/m2/ld.png"
+                                    alt="Отклонение варианта от средней"></th>
+                            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/de/2z/b2.png"
+                                    alt="Абсолютное отклонение варианта от средней"></th>
+                            <th style="text-align: center;"><img src="https://static1.ecson.ru/image/c8/vk/dh.png"
+                                    alt="Взвешенные абсолютные отклонения"></th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">200-400</td>
+                            <td style="text-align: center;">32</td>
+                            <td style="text-align: center;">300</td>
+                            <td style="text-align: center;">-480</td>
+                            <td style="text-align: center;">230400</td>
+                            <td style="text-align: center;">7372800</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">400-600</td>
+                            <td style="text-align: center;">56</td>
+                            <td style="text-align: center;">500</td>
+                            <td style="text-align: center;">-280</td>
+                            <td style="text-align: center;">78400</td>
+                            <td style="text-align: center;">4390400</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">600-800</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">700</td>
+                            <td style="text-align: center;">-80</td>
+                            <td style="text-align: center;">6400</td>
+                            <td style="text-align: center;">768000</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">800-1000</td>
+                            <td style="text-align: center;">104</td>
+                            <td style="text-align: center;">900</td>
+                            <td style="text-align: center;">120</td>
+                            <td style="text-align: center;">14400</td>
+                            <td style="text-align: center;">1497600</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">1000-1200</td>
+                            <td style="text-align: center;">88</td>
+                            <td style="text-align: center;">1100</td>
+                            <td style="text-align: center;">320</td>
+                            <td style="text-align: center;">102400</td>
+                            <td style="text-align: center;">9011200</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">Итого</td>
+                            <td style="text-align: center;">400</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">23040000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><img src="https://static1.ecson.ru/image/04/7d/gd.png" alt="Формула и расчёт дисперсии"></p>
+            <p>5) Среднее квадратическое отклонение размера вклада определяется как корень квадратный из дисперсии:</p>
+            <p><img src="https://static1.ecson.ru/image/of/tl/9e.png" alt="Расчёт среднего квадратического отклонения">
+            </p>
+            <p>6) Коэффициент вариации - это отношение среднего квадратического отклонения к средней арифметической:</p>
+            <p>&nbsp;<img src="https://static1.ecson.ru/image/81/fd/we.png"
+                    alt="Формула и расчёт коэффициента вариации">
+            </p>
+            <p>По величине коэффициента вариации можно судить о степени вариации признаков совокупности. Чем больше его
+                величина, тем больше разброс значений признаков вокруг средней, тем менее однородна совокупность по
+                своему
+                составу и тем менее представительна средняя.</p>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
