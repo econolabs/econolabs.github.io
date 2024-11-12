@@ -70,8 +70,7 @@ data-app="1:892270777573:web:bdc13e9b47334b4319700c">
                 Надежность и доходность ценных бумаг
             </div>
         </div>
-
-        <div class="card" style="max-width:800px;">
+        <div class="card mb-1" style="max-width:800px;">
             <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
                 class="card-img-top" style="filter: grayscale(1);" alt="quiz">
             <div class="card-body">
@@ -91,10 +90,7 @@ data-app="1:892270777573:web:bdc13e9b47334b4319700c">
                             id="loginbutton">Сохранить</button>
                     </form>
                 </div>
-
-                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist">...</div>
-
-
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
                 <div class="container" id="quizcontainer" style="display: none;">
                     <div class="card">
                         <div class="card-header" id="quizHeader"></div>
@@ -103,6 +99,23 @@ data-app="1:892270777573:web:bdc13e9b47334b4319700c">
                             <div class="card-text" id="quizString"></div>
                             <div id="quizChecks" class="m-1 p-1"></div>
                             <div id="quizHint" class="m-1 p-1"></div>
+                            <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                <div class="row m-1 g-1">
+                                    <div class="col-12 col-md-6">
+                                        <select class="form-select form-select-sm" aria-label="debet" id="debet">
+                                            <option selected>Дебет счета</option>
+                                            <option value="1">...</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <select class="form-select form-select-sm" aria-label="credit" id="credit">
+                                            <option selected>Кредит счета</option>
+                                            <option value="1">...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea class="form-control my-3" id="userComment" rows="2">Мой комментарий</textarea>
                             <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
                         </div>
                     </div>
@@ -121,7 +134,7 @@ data-app="1:892270777573:web:bdc13e9b47334b4319700c">
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-        <script type="module" src="./quizcardwithstorage.js"></script>
+        <script type="module" src="../dist/quizcardwithstorage.js"></script>
 </body>
 
 </html>
