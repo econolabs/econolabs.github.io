@@ -21737,21 +21737,21 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         let avatarUrl = store.getState().application.avatarUrl;
         let user = store.getState().application.user;
         let email = store.getState().application.email;
-        let mediaId = !!store.getState().mediaId ? 
-        !!store.getState().mediaId :
+        let mediaId = !!store.getState().application.mediaId ? 
+        !!store.getState().application.mediaId :
         getFirebaseNodeKey("usersCraft/" + userEmail + "/data/");
-        let idPost = 
-        !!store.getState().postId ? store.getState().postId :
+        let id = 
+        !!store.getState().application.postId ? store.getState().application.postId :
         getFirebaseNodeKey("usersCraft/" + userEmail + "/posts/");
 
         let postObject = {
-            id: idPost,
+            id: id,
             title: "Кейс по учету операций в банке " + (resUserPosts.data.length + 1),
             theme: "Кейс по учету операций в банке",
             answer: "",
             comment: "Проводки",
             type: "media",
-            content: mediaId,
+          //  content: mediaId,
             quizString: "",
             deleted: false,
             email: email,
@@ -21777,7 +21777,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             .replace(/[^a-zA-Z0-9]/g, "_");
 
         let currentDayObject = {
-            id: postObject.idPost+"htmlversion",
+            id: id,
             title: postObject.title,
             theme: postObject.theme,
             email: postObject.email,
@@ -21792,8 +21792,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         // updates["usersCraft/" + userEmail + "/posts/" + idPost] = postObject;
         // updates["usersCraft/" + userEmail + "/data/" + mediaId] = { "html":  content };
 
-        updates["usersCraft/" + userEmail + "/posts/" + postObject.idPost+"htmlversion"] = {...postObject, id: postObject.idPost+"htmlversion", type: "html", content: content } ;
-        updates["currentDay/" + currentDay + "/posts/" + postObject.idPost+"htmlversion" ] = currentDayObject;
+        updates["usersCraft/" + userEmail + "/posts/" + id] = {...postObject, id: id, type: "html", content: content } ;
+        updates["currentDay/" + currentDay + "/posts/" + id ] = currentDayObject;
        // updates["currentDay/" + currentDay + "/cases/" + postObject.idPost+"htmlversion" ] = currentDayObject;
 
 
@@ -21803,7 +21803,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         }))
             .then((res) => {
                 console.log(res);
-                store.dispatch(setPostId(idPost));
+                store.dispatch(setPostId(id));
                 store.dispatch(setMediaId(mediaId));
           //      setTimeout(()=>window.location.reload(), 5000)
                          
