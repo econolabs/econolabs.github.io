@@ -120,7 +120,6 @@
                 theme: "Основы",
                 text: "Центральный орган государственной статистики России",
                 choices: [
-                    "Росстат РФ",
                     "статистическое управление города Москвы",
                     "различные документы",
                     "Центральное статистическое управление РФ",
@@ -462,29 +461,21 @@
                             id="loginbutton">Сохранить</button>
                     </form>
                 </div>
-
                 <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
-
-
                 <div class="container" id="quizcontainer" style="display: none;">
                     <div class="card">
                         <div class="card-header" id="quizHeader"></div>
                         <div class="card-body">
                             <h5 class="card-title" id="quizTitle">Задача</h5>
                             <div class="card-text" id="quizString"></div>
-
                             <div id="quizChecks" class="m-1 p-1"></div>
-
                             <div id="quizHint" class="m-1 p-1"></div>
-
                             <div class="container p-1 m-1" id="accountingblock" style="display: none;">
-
                                 <div class="row m-1 g-1">
                                     <div class="col-12 col-md-6">
                                         <select class="form-select form-select-sm" aria-label="debet" id="debet">
                                             <option selected>Дебет счета</option>
                                             <option value="1">...</option>
-
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -493,16 +484,9 @@
                                             <option value="1">...</option>
                                         </select>
                                     </div>
-
                                 </div>
-
                             </div>
-
                             <textarea class="form-control my-3" id="userComment" rows="2">Мой комментарий</textarea>
-
-
-
-
                             <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
                         </div>
                     </div>
@@ -517,7 +501,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script type="module" src="./quizcardwithstorage.js"></script>
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
 </body>
 
 </html>
