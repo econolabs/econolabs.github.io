@@ -1,4 +1,4 @@
-var simpleaccounting = (function () {
+var bankaccounting = (function () {
     'use strict';
 
     (function() {
@@ -21279,6 +21279,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         pageLength: 10,
         mediaObject: null,
         mediaId: null,
+        filteredTheme: "Кейс по учету операций в банке"
         // balanceIndicatorId: null
     };
 
@@ -21383,7 +21384,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                         return {
                             data: Array.isArray(userPosts) ?
                                 //     userPosts.filter(item => item.id === "-MYG8b6xMzB14G8F4bEg")
-                                userPosts.filter(item => item.type === "html" || item.type === "media" || item.type === "accountingwithprofitscash")
+                                userPosts.filter(item => item.type === "html" || item.type === "media")
                                 : []
                         }
                     }
@@ -21756,18 +21757,18 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     function setDebetDiscription(e) {
         e.preventDefault();
         let id = e.target.value;
-        let conto = contoUpdates.find(item => item.id === id);
-        $("#debetDescription").innerHTML = `<span>${conto.name}</span> <br> <span>${conto.type}</span>` +
-            !conto.debetDescription.includes("...") ? conto.debetDescription : ""
+        let conto = store.getState().application.contoArray.find(item => item.id === id);
+        $("#debetDescription").innerHTML = `<span>${conto.name}</span> <br> <span>${conto.type}</span>`
+      //   + !conto.debetDescription.includes("...") ? conto.debetDescription : ""
             ;
     }
 
     function setCreditDiscription(e) {
         e.preventDefault();
         let id = e.target.value;
-        let conto = contoUpdates.find(item => item.id === id);
-        $("#creditDescription").innerHTML = `<span>${conto.name}</span> <br> <span>${conto.type}</span>` +
-            !conto.creditDescription.includes("...") ? conto.debetDescription : "";
+        let conto = store.getState().application.contoArray.find(item => item.id === id);
+        $("#creditDescription").innerHTML = `<span>${conto.name}</span> <br> <span>${conto.type}</span>`;
+      //    + !conto.creditDescription.includes("...") ? conto.debetDescription : "";
     }
 
     function doSavePost(e) {
@@ -21873,8 +21874,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 type: type,  // "asset",
                 add: true,
                 parentbalanceId: parentbalanceId,
-                debetDescription: res?.debetDescriptionInput && res.debetDescriptionInput.length > 5 ? res.debetDescriptionInput :  "По дебету счета отражаются...",
-                creditDescription: res?.creditDescriptionInput && res.creditDescriptionInput.length > 5 ? res.creditDescriptionInput :  "По кредиту счета отражаются...",
+                debetDescription: res?.debetDescriptionInput && res.debetDescriptionInput.length > 5 ? res.debetDescriptionInput : "По дебету счета отражаются...",
+                creditDescription: res?.creditDescriptionInput && res.creditDescriptionInput.length > 5 ? res.creditDescriptionInput : "По кредиту счета отражаются...",
             };
             // console.log(newconto);   
             store.dispatch(addContoToArray(newconto));
@@ -21947,6 +21948,28 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         });
     }
 
+    function renderTabContent(tabTrigger) {
+
+        console.log(tabTrigger._config.target);
+        if (tabTrigger._config.target === "#internship") {
+            console.log("loading");
+            let markup = resUserPosts.data
+                .filter(item => item.theme === store.getState().application.filteredTheme)
+                .map(item => {
+                    return `<div class="card">
+  <img src="../freelancer.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${item.theme}</h5>
+    <p class="card-text">${item.title}</p>
+    <div class="card-text">${item.content}</div>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>`})
+                .join(" ");
+            $("#internship").innerHTML = markup;
+        }
+    }
+
 
 
     /**
@@ -21965,6 +21988,16 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     $("#addcontoform").addEventListener(`submit`, addConto);
 
+    const triggerTabList = $$('#myTab button');
+    triggerTabList.forEach(triggerEl => {
+        const tabTrigger = new bootstrap.Tab(triggerEl);
+
+        triggerEl.addEventListener('click', event => {
+            event.preventDefault();
+            renderTabContent(tabTrigger);
+            //   tabTrigger.show()
+        });
+    });
 
 
 
