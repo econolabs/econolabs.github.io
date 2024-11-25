@@ -9,7 +9,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/StefanieStoppel/d3ML@develop/lib/d3ml.min.js"></script>
 
     <script src="./quizesSets.js"></script>
 </head>
@@ -288,6 +287,28 @@
             </div>
         </div>
 
+        <div class="card-body">
+            <h5 class="card-title">Материал к дисциплине</h5>
+
+            <p><a class="link-opacity-100" target="_blank" href="">
+                Statistical Analysis with Excel For Dummies Cheat Sheet    
+            </a>
+            </p>
+
+            <p><a class="link-opacity-100" target="_blank" target="_blank"
+                    href="https://support.microsoft.com/ru-ru/office/%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8-%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0-624dac86-a375-4435-bc25-76d659719ffd">
+                    Статистические функции (справка)
+                </a>
+            </p>
+
+            <p><a class="link-opacity-100" target="_blank" target="_blank"
+                    href="https://www.excel-vba.ru/general/funkcii-excel/statisticheskie-funkcii/">
+                    Статистические функции
+                </a>
+            </p>
+
+
+        </div>
 
 
 
@@ -338,6 +359,7 @@
                             </div>
                             <textarea class="form-control my-3" id="userComment" rows="2">Мой комментарий</textarea>
                             <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
+                            <form id="spreadsheetform"></form>
                         </div>
                     </div>
                 </div>
@@ -347,12 +369,16 @@
 
     </div>
 
+
+
+   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script type="module" src="../dist/quizcardwithstorage.js"></script>
-    <script>
+    <script type="module" src="./quizcardwithstorage.js"></script>
+    <!-- <script>
         const options = {
             rootNode: '#chart',
             width: 775,
@@ -370,7 +396,7 @@
         ];
         const vis = new d3ml.LinearRegressionVisualization(data, options, types);
         vis.draw();
-    </script>
+    </script> -->
 
 </body>
 
