@@ -20663,14 +20663,42 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     }
 
+    const alphabet = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+    ];
+
     /**
       * Const and Selectors
     */
 
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
-
-
+    const parser = new formulaParser.Parser();
     if (getApps().length > 1) {
         deleteApp(getApps()[1])
             .then(function () {
@@ -20680,7 +20708,6 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 console.log("Error deleting app:", error);
             });
     }
-
     if (getApps().length < 1) {
         let fireconf = {};
         try {
@@ -20695,10 +20722,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         };
         initializeApp(firebaseConfig);
     }
-
     const db = getDatabase();
-
-
 
     async function getFirebaseNode({
         url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
@@ -20722,8 +20746,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     async function updateFirebaseNode(updates = { temp: "temp" }) {
         try {
-            //   let res = await timeout(3000);
-            //  console.log(updates);
+            //let res = await timeout(3000); console.log(updates);
             await update(ref(db), updates);
             return true
         }
@@ -20746,15 +20769,11 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         userEmail: "",
         user: '',
         avatarUrl: '',
-
         isLoading: true,
-
         selectedoption: null,
         selectedoptions: [],
-
         activePage: null,
         previousPage: null,
-
         correctquizes: []
     };
 
@@ -20764,22 +20783,15 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         name: 'application',
         initialState,
         reducers: {
+            loadCorrectquizes: (state, action) => { state.correctquizes = action.payload; },
+            addCorrectQuiz: (state, action) => { state.correctquizes.push(action.payload); },
 
-            loadCorrectquizes: (state, action) => {
-                state.correctquizes = action.payload;
+            setInitialQuizOptions: (state) => {
+                state.selectedoptions = [];
+                state.selectedoption = Math.random() * 9 + 1;
             },
-
-            addCorrectQuiz: (state, action) => {
-                state.correctquizes.push(action.payload);
-            },
-
-            setSelectedOptions: (state, action) => {
-                state.selectedoptions = action.payload;
-            },
-
-            setSelectedOption: (state, action) => {
-                state.selectedoption = action.payload;
-            },
+            setSelectedOptions: (state, action) => { state.selectedoptions = action.payload; },
+            setSelectedOption: (state, action) => { state.selectedoption = action.payload; },
 
 
             setUser: (state, action) => {
@@ -20789,26 +20801,19 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                     state.avatarUrl = action.payload?.avatarUrl ? action.payload?.avatarUrl : 'https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop',
                     state.isLoading = false;
             },
-
-
             setAvatar: (state, action) => {
                 state.avatarUrl = action.payload;
             },
-
-
-
             setActivePage: (state, action) => {
                 state.previousPage = state.activePage;
                 state.activePage = action.payload;
-            },
-
-
-
+            }
         }
     });
 
     // Action creators are generated for each case reducer function
-    const { setUser, setSelectedOption, setAvatar, setActivePage, setSelectedOptions, addCorrectQuiz, loadCorrectquizes
+    const { setUser, setSelectedOption, setInitialQuizOptions,
+        setAvatar, setActivePage, setSelectedOptions, addCorrectQuiz, loadCorrectquizes
     } = applicationSlice.actions;
 
 
@@ -20860,9 +20865,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
             fetchQuizesArray: builder.query({
                 async queryFn() {
-
                     let d = new Date();
-
                     let currentDay = new Intl.DateTimeFormat("en", {
                         weekday: "short",
                         year: "numeric",
@@ -20872,47 +20875,33 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                         .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
                         .replace(/[^a-zA-Z0-9]/g, "_");
                     //       console.log(currentDay);
-
                     try {
-
-
                         let currentQuizArray = await getFirebaseNode({
                             url: "/currentquiz/" + currentDay + "/",
                             type: "array"
                         });
-
-                        let resArray = [ ...window?.quizesSets ? window.quizesSets : [], ...currentQuizArray];
-
-                        // if (pageQuizesSets.length > 0) {
-
-                        //     let reqIds = pageQuizesSets.map(item => item.id);
-                        //     Array.isArray(res) &&
-                        //         res.forEach(item => {
-                        //             if (reqIds.includes(item.id)) {
-                        //                 let theme = !!pageQuizesSets.find(q => item.id === q.id)?.theme ? pageQuizesSets.find(q => item.id === q.id).theme : false
-                        //                 if (theme) { resArray.push({ ...item, theme: theme }) }
-                        //                 else { resArray.push(item) }
-                        //             }
-                        //         })
-
-                        // } else {
-                        //     resArray = currentQuizArray
-                        // }
-
-                        // let quizes = await Promise.all(
-                        //     array.map((quiz, index) => {
-                        //         return getFirebaseNode({ url: "openquizes/" + quiz.id, type: "object" });
-                        //     }))
-                        //               console.log(quizes);    
-                        return { data: resArray }
+                        let resArray = [...window?.quizesSets ? window.quizesSets : [], ...currentQuizArray];
+                        let quizeswithtype =  resArray.map(quiz => {
+                            let updatedquiz = {...quiz};
+                            if (Array.isArray(quiz?.quizes)) {
+                                updatedquiz = {...quiz, type: "onerandommanyanswers" };
+                            }
+                            if (Array.isArray(quiz?.choices) && Array.isArray(quiz?.answers) && quiz?.type !== "accounting") {
+                                updatedquiz = {...quiz, type: "multiplechoices" };
+                            }
+                        
+                            if (!!quiz?.answer && quiz.answer.includes("{var1-10}")) {
+                                console.log("Quiz With Random Number");
+                                updatedquiz = {...quiz, type: "quizwithrandomnumber" };      
+                            }
+                            return updatedquiz                    
+                    }); 
+                        return { data: quizeswithtype }
                     }
                     catch (err) { console.log(err); return { error: err } }
                 },
                 providesTags: (result, error, id) => [{ type: "Quiz", id }]
             }),
-
-
-
             // fetchUserAvatar: builder.query({
             //     async queryFn(userEmail) {
             //         try {
@@ -20927,7 +20916,6 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             //     },
             //     providesTags: (result, error, id) => [{ type: "Avatar", id }]
             // }),
-
             updatesForOpenQuizes: builder.mutation({
                 async queryFn({ base = "", updates = { temp: "temp" }
                 }) {
@@ -20955,8 +20943,6 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     });
     setupListeners(store.dispatch);
 
-
-
     //let resOpenQuizes;
     //let resUserAvatar;
     let resUserPosts;
@@ -20965,6 +20951,15 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     /**
       * Functions
     */
+
+    function identifyQuiz(title, text) {
+        if (typeof (text) === 'string' && text.includes('<br>')) {
+            //       console.log(item.quizString.split('<br>')[0])
+            return title + " " + text.split('<br>')[0]
+        } else {
+            return title + " " + !!text ? text : ""
+        }
+    }
 
     async function getUser() {
         let localstrg = loadState();
@@ -20998,58 +20993,168 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 return str.match(matcher).map(normalise);
             };
         }
-        let parser = new formulaParser.Parser();
-        // It returns `Object {error: null, result: 14}`
-        //  console.log(parser.parse('SUM(1, 6, 7)'));
-         const searchRegExp = /{var1-10}/g;
+        let parser = new formulaParser.Parser(); // It returns `Object {error: null, result: 14}`
+        const searchRegExp = /{var1-10}/g;
         const replaceWith = randomNumber.toString();
         quizString = quizString.replace(searchRegExp, replaceWith);
-
         answer = answer.replace(searchRegExp, replaceWith);
         answer = Math.round(parser.parse(answer).result * 10000) / 10000;
-
         let stringExtractor = extract(["{=", "}"]);
         let stuffIneed = stringExtractor(quizString);
-
-
         for (let i = 0; i < stuffIneed.length; i++) {
             let feedback = Math.round(parser.parse(stuffIneed[i]).result * 10000) / 10000;
             quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
         }
-
         return {
             quizString: quizString,
             answer: answer
         }
     }
 
-    function handleCheckAnswer(e) {
+    function markupForDataArray(data) {
+        let markup =
+            `<div class='row g-2'>
+       <div class="col-1">
+           <input type="text" class="form-control form-control-sm m-1" placeholder="" aria-label="letter" disabled>
+       </div>   
+    ` +
+            data[0].map((_, index) => {
+                return `
+           <div class="col">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${alphabet[index]}" aria-label="letter" disabled>
+           </div>        
+     `
+            }).join("")
+            + "</div>";
+        markup += data.map((row, index) => {
+            return `
+       <div class="row g-2">
+           <div class="col-1">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${0 + index + 1}" aria-label="number" disabled>
+           </div>
+           <div class="col">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${row[0]}" aria-label="month">
+           </div>
+           <div class="col">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${row[1]}" aria-label="X1">            
+           </div>
+           <div class="col">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${row[2]}" aria-label="X2">            
+           </div>
+            <div class="col">
+               <input type="text" class="form-control form-control-sm m-1" placeholder="${row[3]}" aria-label="Y">            
+           </div>
+       </div>`
+        }).join("");
 
-        e.preventDefault();
 
-        let { userEmail, user, avatarUrl, email, selectedoption, selectedoptions, activePage } = store.getState().application;
-        let { title, theme, answers, text, type, answer, hint = "" } = resQuizesArray.data[activePage];
+        markup += `<div class="row g-3 align-items-center">
+   <div class="col-auto">
+     <label for="formulacell" class="col-form-label">A${data.length + 1}</label>
+   </div>
+   <div class="col-auto">
+     <input name="formulacell" type="text id="formulacell" class="form-control" aria-describedby="formulacell">
+   </div>
+    <div class="col-auto">
+       <span class="form-text" id="formularesult">...</span>
+     </div>
+   </div>`;
 
-        let checkquiz = false;
-        let reqanswer;
-        let quizString;
-        let posttype;
+        return markup
+    }
 
-        let comment = "";
+    function doSaveQuiz(answer, type, content, quizString) {
+        let { userEmail, user, avatarUrl, email, activePage } = store.getState().application;
+        let { title, theme, text, hint = "", dataArray = [] } = resQuizesArray.data[activePage];
+        let idPost = getFirebaseNodeKey("usersCraft/" + userEmail + "/posts");
+        let currentDay = new Intl.DateTimeFormat("en", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        })
+            .format(new Date())
+            .replace(/[^a-zA-Z0-9]/g, "_");
+
+        let postObject = {
+            id: idPost,
+            title: title,
+            theme: theme,
+            comment: title + " (" + theme + ")",
+            type, answer, content, quizString,
+            deleted: false,
+            email: email,
+            user: user,
+            avatarUrl: avatarUrl,
+            date: new Intl.DateTimeFormat("ru", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+            }).format(new Date()), //Date().toJSON()
+        };
+
+        let currentDayObject = {
+            id: idPost,
+            title: title,
+            theme: theme,
+            email: email,
+            user: user,
+            avatarUrl: avatarUrl,
+            timestamp: +Date.now(),
+        };
+        let updates = {};
+
+        updates["usersCraft/" + userEmail + "/posts/" + idPost] = postObject;
+        updates[
+            "currentDay/" + currentDay + "/posts/" + idPost
+        ] = currentDayObject;
+        //     console.log(updates);
+
+        store.dispatch(api.endpoints.updatesForOpenQuizes.initiate({
+            base: "",
+            updates: updates
+        }))
+            .then(() => {
+                store.dispatch(addCorrectQuiz(identifyQuiz(title, text)));
+                $("#answerButton").classList.toggle("btn-outline-primary");
+                $("#answerButton").classList.toggle("btn-success");
+                $("#quizHint").innerHTML = hint;
+                $("#answerButton").disabled = true;
+            });
+    }
+
+
+    function handleCheckQuiz(e) {
+         e.preventDefault();
+        console.log("Do Calculate");
+        let { selectedoption, selectedoptions, activePage } = store.getState().application;
+        let { text, answer, hint = "",
+            dataArray = [], type, answers = []
+        } = resQuizesArray.data[activePage];
+        let checkquiz = false, comment = "", reqanswer, quizString, posttype;
+        $("#userComment").style.display = "none";
+
         try {
             let feedback = $("#userComment").value;
-            console.log(feedback);
+            //     console.log(feedback);
             comment = feedback !== "Мой комментарий" ? feedback : "";
-
         } catch {
             comment = "";
         }
+        //    let idsToDelete = null;
 
+
+        const formData = new FormData($("#quizform"));
+        let formulares = {};
+        for (const [key, value] of formData) { formulares[key] = value; }
+        console.log(formulares);
 
         if (type === "accounting" && ($("#debet").value + $("#credit").value === answers[0])) {
             //   console.log($("#debet").value + $("#credit").value);
             //   console.log(answers[0]);
-
             checkquiz = true;
             reqanswer = "Дт " + $("#debet").value + " Кт " + $("#credit").value;
             quizString = text + "<br>" + hint + "<br>" + comment;
@@ -21060,12 +21165,13 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             checkquiz = true;
             reqanswer = selectedoption;
             quizString = text + "<br>" + hint + "<br>" + comment;        posttype = "multiplechoices";
+            // idsToDelete = resUserPosts.data
+            //     .filter(item => item.content === text)
+            //     .map(item => item.id);
         }
 
         if (type === "multiplechoices" && answers.length > 1) {
-            if (selectedoptions.length !== answers.length) {
-                checkquiz = false;
-            } else {
+            if (selectedoptions.length === answers.length) {
                 checkquiz = true;
                 selectedoptions.map(item => {
                     if (!answers.includes(item)) { checkquiz = false; }
@@ -21073,93 +21179,67 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             }
             reqanswer = selectedoptions.map(item => item).join("   ");
             quizString = text + "<br>" + hint + "<br>" + comment;        posttype = "multiplechoices";
-
+            // idsToDelete = checkquiz ? resUserPosts.data
+            //     .filter(item => item.content === text)
+            //     .map(item => item.id) : null;
         }
+
         if (type === "quizwithrandomnumber") {
             let res = processquizwithrandomnumber({ quizString: text, answer: answer, randomNumber: store.getState().application.selectedoption });
             reqanswer = res.answer;
-            quizString = res.quizString  + "<br>" + hint + "<br>" + comment;        posttype = "multiplechoices";
+            quizString = res.quizString + "<br>" + hint + "<br>" + comment;        posttype = "multiplechoices";
             //   console.log(reqanswer);
             let value = $("#feedback").value;
+            console.log(value);
+            console.log(reqanswer);
             if (
                 parseFloat(value) / parseFloat(reqanswer) < 1.02 &&
                 parseFloat(value) / parseFloat(reqanswer) > 0.98
             ) { checkquiz = true; }
         }
 
-        if (checkquiz) {
-            //    console.log("Right")
-            let idPost = getFirebaseNodeKey("usersCraft/" + userEmail + "/posts");
-
-            let currentDay = new Intl.DateTimeFormat("en", {
-                weekday: "short",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            })
-                .format(new Date())
-                .replace(/[^a-zA-Z0-9]/g, "_");
-
-            let postObject = {
-                id: idPost,
-                title: title,
-                theme: theme,
-                answer: reqanswer,
-                comment: title + " (" + theme + ")",
-                type: posttype,
-                content: quizString,
-                quizString: quizString,
-                deleted: false,
-                email: email,
-                user: user,
-                avatarUrl: avatarUrl,
-                date: new Intl.DateTimeFormat("ru", {
-                    weekday: "short",
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                    hour: "numeric",
-                    minute: "numeric",
-                }).format(new Date()), //Date().toJSON()
-            };
-
-            let currentDayObject = {
-                id: idPost,
-                title: title,
-                theme: theme,
-                email: email,
-                user: user,
-                avatarUrl: avatarUrl,
-                timestamp: +Date.now(),
-            };
-
-            let updates = {};
-            updates["usersCraft/" + userEmail + "/posts/" + idPost] = postObject;
-            updates[
-                "currentDay/" + currentDay + "/posts/" + idPost
-            ] = currentDayObject;
-            //   console.log(updates);
-
-            store.dispatch(api.endpoints.updatesForOpenQuizes.initiate({
-                base: "",
-                updates: updates
-            }))
-                .then((res) => {
-                    store.dispatch(addCorrectQuiz(text));
-                    $("#answerButton").className = "btn btn-sm btn-success";
-                    //          console.log(res)
-                });
-        } else {
-            //      console.log("Wrong");
-            $("#answerButton").className = "btn btn-sm btn-outline-danger";
-            $("#quizHint").innerHTML = hint;
-            setTimeout(() => $("#answerButton").style.display = "none", 5000);
-
+        if (type === "casewithrandomnumber") {
+            parser.on('callRangeValue', function (startCellCoord, endCellCoord, done) {
+                var fragment = [];
+                for (var row = startCellCoord.row.index; row <= endCellCoord.row.index; row++) {
+                    var rowData = dataArray[row];
+                    var colFragment = [];
+                    for (var col = startCellCoord.column.index; col <= endCellCoord.column.index; col++) {
+                        colFragment.push(rowData[col]);
+                    }
+                    fragment.push(colFragment);
+                }
+                if (fragment) { done(fragment); }
+            });
+            //  let res = parser.parse('INTERCEPT(D2:D12, B2:B12)');
+            let res = parser.parse(formulares[Object.keys(formulares)[0]].slice(1));
+            console.log(res);
+            let quizres = parser.parse(answer);
+            console.log(quizres.result);
+            if (!res?.error && !quizres?.error) {
+                if (
+                    parseFloat(quizres.result) / parseFloat(res.result) < 1.02 &&
+                    parseFloat(quizres.result) / parseFloat(res.result) > 0.98
+                ) {
+                    checkquiz = true;
+                    $("#formularesult").innerHTML = res.result;
+                    reqanswer = "=" + answer;
+                    quizString = text + "<br>" + markupForDataArray(dataArray) +
+                        "<br>" + hint + "<br>" + comment;                posttype = "multiplechoices";
+                }
+            }
         }
 
+        if (checkquiz) {
+            doSaveQuiz(reqanswer, posttype, quizString, quizString);
 
+        } else {
+            $("#answerButton").classList.toggle("btn-danger");
+            $("#answerButton").classList.toggle("btn-outline-primary");
+            $("#quizHint").innerHTML = hint;
+            $("#answerButton").disabled = true;
+        }
     }
-
     function doCheck(value) { store.dispatch(setSelectedOption(value)); }
 
     function doToggleCheck(value) {
@@ -21174,17 +21254,94 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         }
     }
 
+    function updateQuiz(activePage) {
+        let quiz = resQuizesArray.data[activePage];
+        console.log(quiz);
+        $("#answerButton").disabled = false;
+        $("#quizTitle").innerHTML = quiz.title;
+        $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
+
+        $("#userComment").style.display = "block";
+        $("#answerButton").className = "btn btn-outline-primary m-3";
+        $("#answerButton").style.display = "block";
+
+
+
+        if (quiz?.type === "casewithrandomnumber" && Array.isArray(quiz?.dataArray)) {
+            $("#quizformdataarray").innerHTML = markupForDataArray(quiz?.dataArray);
+        }
+
+        if (quiz.type === "multiplechoices") {
+            $("#quizString").innerHTML = quiz.text;
+            if (quiz.answers.length > 1) {
+                chectQuiz.addEvents(quiz.choices);
+            } else { choiceQuiz.addEvents(quiz.choices); }
+        //    $("#quizcontainer").style.display = "block";
+        }
+
+        if (quiz.type === "accounting") {
+            $("#quizString").innerHTML = quiz.text;
+
+
+            let markup = `
+           <div class="row m-1 g-1">
+                <div class="col-12 col-md-6">
+                    <select class="form-select form-select-sm" aria-label="debet" id="debet" name="debet"">
+                    ${'<option value="...">Дебет</option>' +
+            quiz.choices
+                .map(item => {
+                    return `<option value="${item}">${item}</option>`
+                })
+                .join("")
+            }                       
+                    </select>
+                </div>
+                <div class="col-12 col-md-6">
+                    <select class="form-select form-select-sm" aria-label="credit" id="credit" name="credit">
+                       ${'<option value="...">Кредит</option>' +
+            quiz.choices
+                .map(item => {
+                    return `<option value="${item}">${item}</option>`
+                })
+                .join("")
+            }
+                    </select>
+                </div>
+           </div>
+           `;
+
+            $("#accountingblock").innerHTML = markup;
+        }
+
+        if (quiz.type === "quizwithrandomnumber") {
+            let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
+            //     console.log(res.answer)
+            $("#quizString").innerHTML = res.quizString;
+            $("#quizChecks").innerHTML = `
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Число</span>
+                <input type="text" class="form-control" aria-label="quizinput" aria-describedby="quiz-input-sm" id="feedback">
+            </div>`;
+        }
+
+        renderPagination();
+    }
+
+    function foundQuiz(correctquizes, text) {
+        let res = false;
+        correctquizes.forEach(item => {
+            if (typeof (item) === 'string' && item.includes(text)) { res = true; }
+        });
+        return res
+    }
+
 
     function renderPagination() {
         let correctquizes = store.getState().application.correctquizes;
-        //     console.log(correctquizes);
-        //     console.log(resQuizesArray.data);
-        // let currentPage = store.getState().application.activePage;
         $("#quizbuttonslist").innerHTML = resQuizesArray.data.map((item, index) => {
-            //   console.log(item.text);
-            //   console.log(correctquizes.includes(item.text))
             return `<button
-        class='${correctquizes.includes(item.text) ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
+        class='${foundQuiz(correctquizes, item.text)
+                ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
         page=${index}
        >
         ${index + 1}
@@ -21197,10 +21354,16 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         pagesLi.forEach(function (btn) {
             btn.addEventListener('click', function (event) {
                 const pageNumber = parseInt(event.target.getAttribute("page"));
-                store.dispatch(setSelectedOptions([]));
-                store.dispatch(setSelectedOption(Math.random() * 9 + 1));
+                store.dispatch(setInitialQuizOptions());
                 store.dispatch(setActivePage(pageNumber));
-                setTimeout(() => store.dispatch(store.dispatch(setActivePage(pageNumber))), 275);
+                $("#userComment").value = "Мой комментарий";
+                $("#quizChecks").innerHTML = "";
+                $("#accountingblock").style.display = "none";
+                $("#quizHint").innerHTML = "";
+                $("#quizTitle").innerHTML = "";
+                $("#quizString").innerHTML = "";
+
+                updateQuiz(pageNumber);
             }, false);
         });
     }
@@ -21211,7 +21374,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     */
 
     $("#loginbutton").addEventListener("click", (e) => doLogin(e), false);
-    $("#answerButton").addEventListener("click", (e) => handleCheckAnswer(e), false);
+    $("#quizform").addEventListener(`submit`, handleCheckQuiz);
     const choiceQuiz = new EconolabsChoiceQuiz("quizChecks", doCheck);
     const chectQuiz = new EconolabsCheckQuiz("quizChecks", doToggleCheck);
 
@@ -21221,116 +21384,38 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
       * Initial load
     */
 
-
     async function initialLoad() {
-
         let res = await getUser();
-
+        //   console.log(res);
         if (!res) {
             $("#formcontainer").style.display = "block";
         } else {
             resUserPosts = await store.dispatch(api.endpoints.fetchUserPosts.initiate(res.userEmail));
             resQuizesArray = await store.dispatch(api.endpoints.fetchQuizesArray.initiate());
-            store.dispatch(loadCorrectquizes([...new Set(resUserPosts.data.map(item => item.quizString))]));
+            store.dispatch(loadCorrectquizes([...new Set(
+                resUserPosts.data
+                    .map(item => {
+                        return identifyQuiz(item.title, item?.quizString)
+                        // if (typeof (item?.quizString) === 'string' && item.quizString.includes('<br>')) {
+                        //     //       console.log(item.quizString.split('<br>')[0])
+                        //     return item.title + " " + item.quizString.split('<br>')[0]
+                        // } else {
+                        //     return item.title + " " + !!item?.quizString ? item.quizString : ""
+                        // }
+                    }
+                    ))]));
             store.dispatch(setUser(res));
-           
         }
     }
 
 
     initialLoad().then(() => {
-        console.log(
-            renderPagination()
-        );
+        console.log("Done");
+        $("#quizcontainer").style.display = "block";
+        renderPagination();
     });
 
-    store.subscribe(() => {
-        if (
-            resQuizesArray?.status === "fulfilled" && resQuizesArray.data.length > 0 &&
-            store.getState().application.activePage !== store.getState().application.previousPage) {
-            let quiz = resQuizesArray.data[store.getState().application.activePage];
-
-            if (quiz.type === "multiplechoices") {
-                $("#userComment").value = "Мой комментарий";
-
-                $("#quizChecks").innerHTML = "";
-                $("#accountingblock").style.display = "none";
-                $("#quizHint").innerHTML = "";
-                $("#quizTitle").innerHTML = "";
-
-                $("#quizString").innerHTML = quiz.text;
-                $("#quizHeader").innerText = quiz.header + " " + (store.getState().application.activePage + 1);
-
-                if (quiz.answers.length > 1) {
-                    chectQuiz.addEvents(quiz.choices);
-                } else { choiceQuiz.addEvents(quiz.choices); }
-
-
-                $("#quizcontainer").style.display = "block";
-                $("#answerButton").className = "btn btn-sm btn-primary";
-                $("#answerButton").style.display = "block";
-            }
-
-            if (quiz.type === "accounting") {
-                $("#userComment").value = "Мой комментарий";
-
-                $("#quizChecks").innerHTML = "";
-                $("#quizHint").innerHTML = "";
-                $("#quizTitle").innerHTML = "";
-
-                $("#quizString").innerHTML = quiz.text;
-                $("#quizHeader").innerText = quiz.header + " " + (store.getState().application.activePage + 1);
-
-              
-
-
-                $("#debet").innerHTML = '<option value="...">Дебет</option>' + quiz.choices
-                    .map(item => {
-                        return `<option value="${item}">${item}</option>`
-                    })
-                    .join("");
-
-                $("#credit").innerHTML = '<option value="...">Кредит</option>' + quiz.choices
-                    .map(item => {
-                        return `<option value="${item}">${item}</option>`
-                    })
-                    .join("");
-                
-                $("#accountingblock").style.display = "block";
-
-                $("#quizcontainer").style.display = "block";
-                $("#answerButton").className = "btn btn-sm btn-primary";
-                $("#answerButton").style.display = "block";
-            }
-
-
-
-
-
-            if (quiz.type === "quizwithrandomnumber") {
-                $("#userComment").value = "Мой комментарий";
-
-                $("#accountingblock").style.display = "none";
-                $("#quizHint").innerHTML = "";
-                $("#quizTitle").innerHTML = quiz.title;
-                $("#quizHeader").innerText = quiz.header + " " + (store.getState().application.activePage + 1);
-                $("#quizcontainer").style.display = "block";
-                $("#answerButton").className = "btn btn-sm btn-primary";
-                $("#answerButton").style.display = "block";
-                //  randomNumberQuiz.addEvents(quiz.text, quiz.answer, store.getState().application.selectedoption);
-                let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
-                //     console.log(res.answer)
-                $("#quizString").innerHTML = res.quizString;
-                $("#quizChecks").innerHTML = `
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Число</span>
-                <input type="text" class="form-control" aria-label="quizinput" aria-describedby="quiz-input-sm" id="feedback">
-            </div>`;
-            }
-
-            renderPagination();
-        }
-    });
+    //store.subscribe(() => { })
 
     return index;
 
