@@ -21309,8 +21309,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 </div>
            </div>
            `;
-
+                
             $("#accountingblock").innerHTML = markup;
+            $("#accountingblock").style.display = "block";
         }
 
         if (quiz.type === "quizwithrandomnumber") {
