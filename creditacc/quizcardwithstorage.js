@@ -21118,6 +21118,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             updates: updates
         }))
             .then(() => {
+                console.log(identifyQuiz(title, text));
                 store.dispatch(addCorrectQuiz(identifyQuiz(title, text)));
                 $("#answerButton").classList.toggle("btn-outline-primary");
                 $("#answerButton").classList.toggle("btn-success");
@@ -21328,7 +21329,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         renderPagination();
     }
 
-    function foundQuiz(correctquizes, text) {
+    function foundQuiz(text) {
+        let correctquizes = store.getState().application.correctquizes;
         let res = false;
         correctquizes.forEach(item => {
             if (typeof (item) === 'string' && item.includes(text)) { res = true; }
@@ -21338,10 +21340,12 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
 
     function renderPagination() {
-        let correctquizes = store.getState().application.correctquizes;
+        store.getState().application.correctquizes;
         $("#quizbuttonslist").innerHTML = resQuizesArray.data.map((item, index) => {
             return `<button
-        class='${foundQuiz(correctquizes, item.text)
+        class='${foundQuiz(
+            identifyQuiz(item.title, item.text)
+            )
                 ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
         page=${index}
        >
