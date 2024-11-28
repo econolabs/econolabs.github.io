@@ -20881,21 +20881,21 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                             type: "array"
                         });
                         let resArray = [...window?.quizesSets ? window.quizesSets : [], ...currentQuizArray];
-                        let quizeswithtype =  resArray.map(quiz => {
-                            let updatedquiz = {...quiz};
+                        let quizeswithtype = resArray.map(quiz => {
+                            let updatedquiz = { ...quiz };
                             if (Array.isArray(quiz?.quizes)) {
-                                updatedquiz = {...quiz, type: "onerandommanyanswers" };
+                                updatedquiz = { ...quiz, type: "onerandommanyanswers" };
                             }
                             if (Array.isArray(quiz?.choices) && Array.isArray(quiz?.answers) && quiz?.type !== "accounting") {
-                                updatedquiz = {...quiz, type: "multiplechoices" };
+                                updatedquiz = { ...quiz, type: "multiplechoices" };
                             }
-                        
+
                             if (!!quiz?.answer && quiz.answer.includes("{var1-10}")) {
                                 console.log("Quiz With Random Number");
-                                updatedquiz = {...quiz, type: "quizwithrandomnumber" };      
+                                updatedquiz = { ...quiz, type: "quizwithrandomnumber" };
                             }
-                            return updatedquiz                    
-                    }); 
+                            return updatedquiz
+                        });
                         return { data: quizeswithtype }
                     }
                     catch (err) { console.log(err); return { error: err } }
@@ -21129,7 +21129,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
 
     function handleCheckQuiz(e) {
-         e.preventDefault();
+        e.preventDefault();
         console.log("Do Calculate");
         let { selectedoption, selectedoptions, activePage } = store.getState().application;
         let { text, answer, hint = "",
@@ -21196,7 +21196,12 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             if (
                 parseFloat(value) / parseFloat(reqanswer) < 1.02 &&
                 parseFloat(value) / parseFloat(reqanswer) > 0.98
-            ) { checkquiz = true; }
+            ) {
+                checkquiz = true;
+                if ($("#inputFormula").value.length > 2) {
+                    hint = hint + "<br>" + $("#inputFormula").value;
+                }
+            }
         }
 
         if (type === "casewithrandomnumber") {
@@ -21258,6 +21263,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     function updateQuiz(activePage) {
         let quiz = resQuizesArray.data[activePage];
         console.log(quiz);
+        $("#usercalculations").style.display = "none";
+        $("#inputFormula").value = "";
+        $("#resformula").innerText = "Калькулятор";
         $("#answerButton").disabled = false;
         $("#quizTitle").innerHTML = quiz.title;
         $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
@@ -21277,7 +21285,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             if (quiz.answers.length > 1) {
                 chectQuiz.addEvents(quiz.choices);
             } else { choiceQuiz.addEvents(quiz.choices); }
-        //    $("#quizcontainer").style.display = "block";
+            //    $("#quizcontainer").style.display = "block";
         }
 
         if (quiz.type === "accounting") {
@@ -21310,12 +21318,13 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 </div>
            </div>
            `;
-                
+
             $("#accountingblock").innerHTML = markup;
             $("#accountingblock").style.display = "block";
         }
 
         if (quiz.type === "quizwithrandomnumber") {
+            $("#usercalculations").style.display = "block";
             let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
             //     console.log(res.answer)
             $("#quizString").innerHTML = res.quizString;
@@ -21345,7 +21354,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             return `<button
         class='${foundQuiz(
             identifyQuiz(item.title, item.text)
-            )
+        )
                 ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
         page=${index}
        >
@@ -21373,6 +21382,17 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         });
     }
 
+    function doCalcRes(e) {
+        e.preventDefault();
+        let answer = $("#inputFormula").value;
+        $("#resformula").innerText = processquizwithrandomnumber({
+            quizString: "this {={var1-10}+1} some {=2+{var1-10}} that can be {=3+{var1-10}} with a {=4+{var1-10}} function",
+            answer: answer,
+            randomNumber: 0.5
+        }).answer;
+
+    }
+
 
     /**
       * HTML event listeners
@@ -21382,6 +21402,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     $("#quizform").addEventListener(`submit`, handleCheckQuiz);
     const choiceQuiz = new EconolabsChoiceQuiz("quizChecks", doCheck);
     const chectQuiz = new EconolabsCheckQuiz("quizChecks", doToggleCheck);
+    $("#inputFormula").addEventListener("input", (e) => doCalcRes(e), false);
+
 
 
 
@@ -21410,6 +21432,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                     }
                     ))]));
             store.dispatch(setUser(res));
+
+
+
         }
     }
 
