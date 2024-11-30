@@ -17,13 +17,17 @@
       margin: .1rem;
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
+  
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
   data-app="1:892270777573:web:bdc13e9b47334b4319700c">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Econolabs</a>
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -65,11 +69,17 @@
           <input type="text" class="form-control" id="userInput" />
         </div>
 
-        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom" id="loginbutton">
-          Сохранить
-        </button>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom" id="loginbutton">
+            Сохранить
+          </button>           
+        </div>
+
+        
       </form>
     </div>
+
+
 
     <div class="container" id="main">
       <ul class="nav nav-tabs my-3" id="myTab" role="tablist">
@@ -119,10 +129,17 @@
           </button>
         </li>
 
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="editpost-tab" data-bs-toggle="tab" data-bs-target="#editpost" type="button"
+            role="tab" aria-controls="editpost" aria-selected="false">
+            Здн
+          </button>
+        </li>
+
       </ul>
 
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active p-2" id="newrecord" role="tabpanel" aria-labelledby="newrecord-tab">
+        <div class="tab-pane fade show active p-2" data-bs-parent="#myTabContent" id="newrecord" role="tabpanel" aria-labelledby="newrecord-tab">
           <form id="addrecordform">
             <div class="row">
               <div class="col-12 col-md-4 p-1">
@@ -176,7 +193,7 @@
 
         </div>
 
-        <div class="tab-pane fade" id="addconto" role="tabpanel" aria-labelledby="addconto-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="addconto" role="tabpanel" aria-labelledby="addconto-tab">
           <form id="addcontoform">
             <div class="row p-2">
 
@@ -198,10 +215,13 @@
               </div>
 
               <div class="col-12 col-md-2 p-1">
-                <button type="submit" name="addconto" class="btn btn-sm btn-outline-primary" value="saveconto"
+                <div class="d-grid gap-2">
+                  <button type="submit" name="addconto" class="btn btn-sm btn-outline-primary" value="saveconto"
                   id="addconto">
                   Добавить счет
-                </button>
+                </button>          
+                </div>
+                
               </div>
 
               <div class="col-12 col-lg-6 p-1">
@@ -231,11 +251,11 @@
           </p>
         </div>
 
-        <div class="tab-pane fade" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
           <div id="records">...</div>
         </div>
 
-        <div class="tab-pane fade" id="save" role="tabpanel" aria-labelledby="save-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="save" role="tabpanel" aria-labelledby="save-tab">
           <div class="container">
             <div class="row">
               <div class="col">
@@ -269,7 +289,7 @@
           </div>
         </div>
 
-        <div class="tab-pane fade" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="balance" role="tabpanel" aria-labelledby="balance-tab">
           <div class="row">
             <div class="col">
               <div class="m-1 text-primary">Активы</div>
@@ -280,17 +300,53 @@
               <div class="m-1 text-danger">Обязательства</div>
               <div class="m-1" id="liabilitiesMarkup">...</div>
               <div class="m-1 text-success">Собственные средства</div>
-              <div class="m-1" id="equityMarkup">...</div>
+              <div  class="m-1" id="equityMarkup">...</div>
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="delconto" role="tabpanel" aria-labelledby="delconto-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="delconto" role="tabpanel" aria-labelledby="delconto-tab">
           ...
         </div>
 
-        <div class="tab-pane fade" id="internship" role="tabpanel" aria-labelledby="internship-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="internship" role="tabpanel" aria-labelledby="internship-tab">
           УчПр
+        </div>
+
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="editpost" role="tabpanel" aria-labelledby="editpost-tab">
+          <form id="editpostform">
+            <div class="row p-2">
+
+              <div class="col-12 col-xl-6 p-1">
+                <input type="text" class="form-control form-control-sm" placeholder="Задание"
+                 aria-label="postTitle"
+                  name="postTitle" id="postTitle" />
+              </div>
+
+             <div class="col-12 col-xl-6 p-1">
+                <input type="text" class="form-control form-control-sm" 
+                placeholder="Комментарий" aria-label="postComment" name="postComment"
+                  id="postComment" />
+              </div>
+
+              <div class="col-12">
+                <label for="postContent" class="form-label form-label-sm">Содержание</label>
+                <textarea
+                name="postContent" class="form-control form-control-sm"
+                id="postContent" rows="5"></textarea>
+              </div>
+
+                      
+
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" name="editpostformbutton" 
+              class="btn btn-sm btn-outline-primary" value="editpostformbutton"
+                id="editpostformbutton">Сохранить задание (post)</button>            
+            </div>
+
+          </form>
         </div>
 
         
