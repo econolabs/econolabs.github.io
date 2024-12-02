@@ -367,7 +367,6 @@
         </div>
 
 
-
         <div class="card mb-1" style="max-width:800px;">
             <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
                 class="card-img-top" style="filter: grayscale(1);" alt="quiz">
@@ -390,31 +389,26 @@
                 </div>
                 <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
                 <div class="container" id="quizcontainer" style="display: none;">
-                    <div class="card">
+                    <div class="card" style="min-height: 100px;">
                         <div class="card-header" id="quizHeader"></div>
                         <div class="card-body">
-                            <h5 class="card-title" id="quizTitle">Задача</h5>
-                            <div class="card-text" id="quizString"></div>
-                            <div id="quizChecks" class="m-1 p-1"></div>
-                            <div id="quizHint" class="m-1 p-1"></div>
-                            <div class="container p-1 m-1" id="accountingblock" style="display: none;">
-                                <div class="row m-1 g-1">
-                                    <div class="col-12 col-md-6">
-                                        <select class="form-select form-select-sm" aria-label="debet" id="debet">
-                                            <option selected>Дебет счета</option>
-                                            <option value="1">...</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <select class="form-select form-select-sm" aria-label="credit" id="credit">
-                                            <option selected>Кредит счета</option>
-                                            <option value="1">...</option>
-                                        </select>
-                                    </div>
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
                                 </div>
-                            </div>
-                            <textarea class="form-control my-3" id="userComment" rows="2">Мой комментарий</textarea>
-                            <a href="#" class="btn btn-sm btn-primary" id="answerButton">Ответ</a>
+                                <div id="quizformdataarray"></div>
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                  </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
                         </div>
                     </div>
                 </div>
