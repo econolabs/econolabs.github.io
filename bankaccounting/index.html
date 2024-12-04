@@ -20,7 +20,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
-  
+
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
@@ -72,10 +72,10 @@
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom" id="loginbutton">
             Сохранить
-          </button>           
+          </button>
         </div>
 
-        
+
       </form>
     </div>
 
@@ -139,7 +139,8 @@
       </ul>
 
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active p-2" data-bs-parent="#myTabContent" id="newrecord" role="tabpanel" aria-labelledby="newrecord-tab">
+        <div class="tab-pane fade show active p-2" data-bs-parent="#myTabContent" id="newrecord" role="tabpanel"
+          aria-labelledby="newrecord-tab">
           <form id="addrecordform">
             <div class="row">
               <div class="col-12 col-md-4 p-1">
@@ -193,7 +194,8 @@
 
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="addconto" role="tabpanel" aria-labelledby="addconto-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="addconto" role="tabpanel"
+          aria-labelledby="addconto-tab">
           <form id="addcontoform">
             <div class="row p-2">
 
@@ -217,11 +219,11 @@
               <div class="col-12 col-md-2 p-1">
                 <div class="d-grid gap-2">
                   <button type="submit" name="addconto" class="btn btn-sm btn-outline-primary" value="saveconto"
-                  id="addconto">
-                  Добавить счет
-                </button>          
+                    id="addconto">
+                    Добавить счет
+                  </button>
                 </div>
-                
+
               </div>
 
               <div class="col-12 col-lg-6 p-1">
@@ -251,7 +253,8 @@
           </p>
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="transactions" role="tabpanel"
+          aria-labelledby="transactions-tab">
           <div id="records">...</div>
         </div>
 
@@ -276,9 +279,12 @@
               <div class="col">
                 <button class="btn btn-outline-danger m-3" id="delRecordsArray">
                   Удалить из браузера
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                    <path
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                   </svg>
                 </button>
               </div>
@@ -289,7 +295,8 @@
           </div>
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="balance" role="tabpanel"
+          aria-labelledby="balance-tab">
           <div class="row">
             <div class="col">
               <div class="m-1 text-primary">Активы</div>
@@ -300,56 +307,269 @@
               <div class="m-1 text-danger">Обязательства</div>
               <div class="m-1" id="liabilitiesMarkup">...</div>
               <div class="m-1 text-success">Собственные средства</div>
-              <div  class="m-1" id="equityMarkup">...</div>
+              <div class="m-1" id="equityMarkup">...</div>
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="delconto" role="tabpanel" aria-labelledby="delconto-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="delconto" role="tabpanel"
+          aria-labelledby="delconto-tab">
           ...
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="internship" role="tabpanel" aria-labelledby="internship-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="internship" role="tabpanel"
+          aria-labelledby="internship-tab">
           УчПр
         </div>
 
-        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="editpost" role="tabpanel" aria-labelledby="editpost-tab">
+        <div class="tab-pane fade" data-bs-parent="#myTabContent" id="editpost" role="tabpanel"
+          aria-labelledby="editpost-tab">
           <form id="editpostform">
             <div class="row p-2">
 
               <div class="col-12 col-xl-6 p-1">
-                <input type="text" class="form-control form-control-sm" placeholder="Задание"
-                 aria-label="postTitle"
+                <input type="text" class="form-control form-control-sm" placeholder="Задание" aria-label="postTitle"
                   name="postTitle" id="postTitle" />
               </div>
 
-             <div class="col-12 col-xl-6 p-1">
-                <input type="text" class="form-control form-control-sm" 
-                placeholder="Комментарий" aria-label="postComment" name="postComment"
-                  id="postComment" />
+              <div class="col-12 col-xl-6 p-1">
+                <input type="text" class="form-control form-control-sm" placeholder="Комментарий"
+                  aria-label="postComment" name="postComment" id="postComment" />
               </div>
 
               <div class="col-12">
                 <label for="postContent" class="form-label form-label-sm">Содержание</label>
-                <textarea
-                name="postContent" class="form-control form-control-sm"
-                id="postContent" rows="5"></textarea>
+                <textarea name="postContent" class="form-control form-control-sm" id="postContent" rows="5"></textarea>
               </div>
 
-                      
+
 
             </div>
 
             <div class="d-grid gap-2">
-              <button type="submit" name="editpostformbutton" 
-              class="btn btn-sm btn-outline-primary" value="editpostformbutton"
-                id="editpostformbutton">Сохранить задание (post)</button>            
+              <button type="submit" name="editpostformbutton" class="btn btn-sm btn-outline-primary"
+                value="editpostformbutton" id="editpostformbutton">Сохранить задание (post)</button>
             </div>
 
           </form>
+
+
+          <hr>
+
+          Задание - Сформулировать..., Проанализировать динамику..., Провести анализ..., Разработать рекомендации..., Составить план беседы с клиентом по проблеме..., Сформировать инвестиционный портфель..., Оценить структуру... и Содержание - ответ на это задание...<br>
+          Задание и ответы не должны повторяться, так как индивидуальны для каждого студента. 
+
+          <hr>
+
+          <div class="text-secondary m-2">Материал к практике по дисциплине Агент Банка</div>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/K7fyQvsYU4UDBQ">Прогноз
+              социально-экономического развития РФ на 2025-2027 от Минэкономразвития России</a></p>
+          <p><a class="link-opacity-100" href="https://disk.yandex.ru/i/LPx9b1k6lXK07Q">Итоги банковского
+              сектораза 1 полугодие 2024 Э</a></p>
+          <p><a class="link-opacity-100" href="https://disk.yandex.ru/i/_4xx4A8292j6zQ">Основные направления
+              развития финансового рынка Российской Федерации на 2025 год и период 2026 и 2027 годов от Банка
+              России</a></p>
+
+          <br>
+          <p><a class="link-opacity-100" href="https://disk.yandex.ru/i/UqWIFBTDTriXTg">Текущий уровень и
+              перспективы развития российского банковского ритейла и платёжной индустрии (сентябрь 2024) Я</a>
+          </p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/_QKD2GTtJWk2nA">Обзор
+              потребительского сектора РФ (итоги сентября 2024) от Ал</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/1GQv_HAcd1wOqw">Демографическая
+              оценка потребителей и будущее
+              торговой недвижимости</a></p>
+          <br>
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/KYvJYd8U6WLEog">Лизинговая
+              отрасль в условиях текущей ДКП (октябрь 2024) Н</a></p>
+
+          <br>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/I6oWdEVN_H6vZA">Рынок
+              факторинга России по итогам 9 месяцев 2024 года от АФК</a></p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/bWi2ipu-qCc5zA">Рентабельность
+              активов российских предприятий в
+              контексте ключевой ставки</a></p>
+
+          <br>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/fIqQ6TgPMqEOsw">Брокерское
+              консультирование (ВТБ)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/VY3tQ0FFEk2SZg">Брокерское
+              консультирование (ПСБ)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/tqenG3qld5ZZEA">Брокерское
+              консультирование (Солид)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/G4Vdn-LC5KQsaw">Брокерское
+              консультирование (Финам)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/dd5C_P-k27DL-w">Брокерское
+              консультирование (Цифра)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/4fH0xBu7uSfuCQ">Брокерское
+              консультирование (Альфа)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/zW0UebJ7uH0LCw">Брокерское
+              консультирование (Атон)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/vRNK5RS9sxXAvw">Брокерское
+              консультирование (БКС)</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/dN88Bi5vI42FRw">Брокерское
+              консультирование (Обзор долгового рынка 2024)</a></p>
+
+
+
+
+
+          <br>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/NxSVfBBWEcBoIA">Обзор
+              рынка ипотечного кредитования в России (октябрь 2024) А</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/s_tfvH-EcbPpOA">Итоги
+              работы крупнейших ипотечных банков в августе 2024 от ДОМ.РФ</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://xn--d1aqf.xn--p1ai/">ДОМ.РФ</a></p>
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/O14jPy0kpW6OsA">Обзор
+              рынка аренды жилья в России за 3 квартал 2024 года</a></p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/ruGlrO-5ebNurw">
+              Альфа Обзор рынка жилой недвижимости октябрь 2024
+            </a></p>
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/jOZ37D_HOOI40A">
+              Игра на опережение: на пути к банкингу будущего 2024
+            </a></p>
+
+
+
+
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/Mlwurds9-mGZFA">Прогноз
+              развития рынка кибербезопасности в Российской Федерации на 2024-2028 годы (октябрь 2024) ЦСР</a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/vL0p79rSxb07oA">Обзор
+              рынка золота (сентябрь 2024) А</a></p>
+
+
+
+          <hr>
+
+          <div class="text-secondary m-2">Материал к практике по дисциплине Учет в кредитных организациях</div>
+
+
+          <p><a class="link-opacity-100" target="_blank"
+              href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=466405">
+              Удобный формат! <br>
+              Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+              учета для кредитных организаций и порядке его применения"
+            </a>
+          </p>
+
+
+
+
+
+
+          <p><a class="link-opacity-100" target="_blank"
+              href="https://www.consultant.ruhttps://www.consultant.ru/document/cons_doc_LAW_436264/">
+              Положение Банка России от 24.11.2022 N 809-П (ред. от 10.01.2024) "О Плане счетов бухгалтерского
+              учета для кредитных организаций и порядке его применения"
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/N0H9hQpoSCRZoA">
+              Пособие
+            </a>
+          </p>
+
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/MR2uGPYRAPl3hA">
+              Уст. пособие Курныкина О.В., Нестерова Т.Н., Соколинская Н.Э. - Бухгалтерский учет в
+              коммерческих банках (Бакалавриат)
+            </a>
+          </p>
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/V8jvwGGnZv24zA">
+              Уст. Учеб.пособие_главы_1-4
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/0WWo5fadbftJhw">
+              Уст. Учеб.пособие_главы_5-8
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/V8jvwGGnZv24zA">
+              Уст. Учеб.пособие_главы_1-4
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/0WWo5fadbftJhw">
+              Уст. Учеб.пособие_главы_5-8
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/7GGTwP2Mw72Xag">
+              Уст. Учеб.пособие_главы_9-12
+            </a>
+          </p>
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/y39ApO_cZEQpyQ">
+              Уст. Учеб.пособие_главы_13-14
+            </a>
+          </p>
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/xMd9KL1mZmcL5Q">
+              Уст. Учеб.пособие_главы_15-16
+            </a>
+          </p>
+
+
+
+
+
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/KNjSUMwfUP5LUQ">
+              Уст. Проводки_главы_1-8
+            </a>
+          </p>
+
+          <p><a class="link-opacity-100" target="_blank" href="https://disk.yandex.ru/i/IW8DZOSRPTI6zQ">
+              Уст. Проводки_главы_9-15
+            </a>
+          </p>
+
+
+
+          <p><a class="link-opacity-100" target="_blank" href="http://old.lib.unn.ru/students/src/buh_uchet_ks.pdf">
+              Бухгалтерский учет, анализ и аудит в кредитной сфере
+            </a>
+          </p>
+
+
+
+
+          <p><a class="link-opacity-100" target="_blank" href="https://elib.fa.ru/fbook/tarasova1-yar.pdf/en/view">
+              Учет и операционная деятельность в кредитных организациях: учебное пособие
+            </a>
+          </p>
+
+
+          <p><a class="link-opacity-100" target="_blank"
+              href="https://rsue.ru/sveden/files/aiq/38.03.01.01_Buxgalterskii_uchet_v_kreditnyx_organizaciyax(6).pdf">
+              Бухгалтерский учет в кредитных организациях
+            </a>
+          </p>
+
+
         </div>
 
-        
+
 
       </div>
 
