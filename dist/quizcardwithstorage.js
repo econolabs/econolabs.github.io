@@ -22031,6 +22031,43 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     //store.subscribe(() => { })
 
+
+
+
+
+    // function processSpreadsheet(protoDataSpreadsheetObjectWithFormula) {
+    //     console.log(protoDataSpreadsheetObjectWithFormula);
+    //     let result =
+    //         createNewDraft(
+    //             createMinimalProtoArray(
+    //                 protoDataSpreadsheetObjectWithFormula
+    //                 ))
+        // createMinimalProtoArray({
+        //     A1: "2",
+        //     A2: "2",
+        //     A3: "=A1+A2"
+        // }, 6, 6)
+     //   console.log(result);
+    //     $("#resformula").innerText = result[result.length - 1][0];
+    // }
+
+    // function reСalculation() {
+    //     let protoDataSpreadsheetObject = store.getState().application.protoDataSpreadsheetObject;
+    //     let answer = $("#inputFormula").value;
+    //     console.log(answer);
+
+    //     let lastRowIndex = 1;
+    //     Object.keys(protoDataSpreadsheetObject)
+    //         .forEach(objKey => {
+    //             if (Number(objKey.slice(1)) > lastRowIndex) { lastRowIndex = Number(objKey.slice(1)) + 1 }
+    //         });
+    //     console.log(lastRowIndex);
+    //     let protoDataSpreadsheetObjectWithFormula = {
+    //         ...protoDataSpreadsheetObject, ["A" + (lastRowIndex + 1)]: answer
+    //     }
+    //     processSpreadsheet(protoDataSpreadsheetObjectWithFormula);
+    //   };
+
     return index;
 
 })();
