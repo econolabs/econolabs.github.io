@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Финансовые рынки и институты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <a href="https://vk.com/dmglvn">
+
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            filter: grayscale(100%);
+                            object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <h1 class="display-5">Портфельная теория. Платежный баланс. Криптовалюты</h1>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://opis-cdn.tinkoffjournal.ru/mercury/mpt-1desk.ozxiwcvjqqb7.png"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Портфельная теория</h5>
+
+                <div>
+                    Портфельная теория Марковица (англ. mean-variance analysis — подход, основанный на анализе ожидаемых
+                    средних значений и вариаций случайных величин) — разработанная Гарри Марковицем методика
+                    формирования инвестиционного портфеля, направленная на оптимальный выбор активов, исходя из
+                    требуемого соотношения доходность/риск.
+                </div>
+
+                <table class="table my-3">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>USD</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Импортер</td>
+                            <td>80 ? 120</td>
+                            <td>Экспортер</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="chart"></div>
+
+
+                За счет балансирования долей активов можно управлять рисками портфеля и оптимизировать его
+                доходность.<br>
+                Множество оптимальных портфелей с разным распределением долей активов образуют эффективную границу.<br>
+                Под риском подразумевается стандартное отклонение портфеля, то есть его волатильность. В вопросе оценки
+                рисков важны метрики: стандартное отклонение, бета-коэффициент, коэффициент Шарпа и корреляция с широким
+                рынком.<br>
+                В последние десятилетия рынки стали более капризными, а корреляция между различными классами активов
+                возросла. Поэтому инвесторы все чаще используют в портфеле альтернативные диверсификаторы.<br>
+                Золото сейчас рассматривается как стратегический актив и считается важной частью сбалансированного
+                портфеля.<br>
+
+
+                <p><a class="link-opacity-100 my-3" href="https://journal.tinkoff.ru/mpt/" target="_blank">
+                        Подробнее
+                    </a></p>
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://www.vincenzomusumeci.com/wp-content/uploads/2017/09/cropped-invisible_hand.jpg" alt="1"
+                    style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Иностранная валюта. Спрос, предложение и рыночное равновесие</h5>
+                <div id="hint" class="mb-3">
+                    <p>Общая сумма купленной валюты равняется сумму проданной валюты!</p>
+                    <p><i>Кредитовые</i> суммы формируются в результате экспорта товаров и услуг и притока капитала, что
+                        приводит к поступлению иностранной валюты на счет; они отражаются со знаком "+".</p>
+                    <p><i>Дебетовые</i> суммы формируются в результате импорта товаров и услуг и оттока капитала,
+                        приводящих к расходу иностранной валюты; они отражаются со знаком "-".</p>
+                    <p><br>&nbsp;</p>
+                    <figure class="table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Приток в страну иностранной валюты (предложение иностранной валюты
+                                        на финансовом рынке +)</th>
+                                    <th scope="col">Отток из страны иностранной валюты (спрос на иностранную валюту -)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Экспорт </th>
+                                    <td>Импорт </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ввоз капитала</th>
+                                    <td>Вывоз капитала</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Продажа валюты ЦБР (ЗВР-)</th>
+                                    <td>Покупка валюты ЦБР (ЗВР+)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <figcaption>Равновесие</figcaption>
+                    </figure>
+                </div>
+
+                <div>
+                    Экспорт страны 100 млрд. долл, импорт 80 млрд. долл. Ввоз капитала 9,5 млрд. долл, вывоз должен
+                    составить... млрд. долл.
+                </div>
+                <div>
+                    Экспорт страны 100 млрд. долл, импорт 80 млрд. долл. Ввоз капитала 9,5, вывоз 50 млрд. долл.
+                    Центральный банк этой страны должен продать (+) или купить (-) иностранную валюту на сумму... млрд.
+                    долл
+                </div>
+
+            </div>
+        </div>
+
+    
+   
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Основные понятия блокчейна</h5>
+
+                <p>
+                    Сато́си Накамо́то (англ. Satoshi Nakamoto) — псевдоним человека или группы людей, разработавших
+                    протокол криптовалюты биткойн и создавших первую версию программного обеспечения, в котором этот
+                    протокол был реализован. Было предпринято несколько попыток раскрыть реальную личность или группу,
+                    стоящую за этим именем, но ни одна из них не была успешной.<br>
+                    31 октября 2008 года Накамото опубликовал статью «Bitcoin: A Peer-to-Peer Electronic Cash System» в
+                    списке рассылки о криптографии (The Cryptography Mailing list) metzdowd.com[3], в которой описал
+                    полностью децентрализованную систему электронной наличности, не требующую доверия или
+                    администрирования.<br>
+                    В начале 2009 года он опубликовал первую версию клиентского модуля сети Биткойн и запустил его
+                    работу.<br>
+                    Накамото выходил в Интернет, используя сеть Tor и прочие средства, которые обеспечивали анонимность.
+                </p>
+
+                <div class="alert alert-success" role="alert">
+                    Блокчейн — это непрерывная цепочка блоков. В ней содержатся все записи о сделках, но в отличие от
+                    обычных
+                    баз данных, изменить или удалить эти записи нельзя, можно только добавить новые
+                </div>
+
+                <p>Если активов стало меньше, в книге учета сохраняется информация, сколько их было прежде. Она не
+                    редактируется
+                    и не удаляется, но появляется новая запись, куда они пропали</p>
+
+                <p>Это технология распределенных (децентрализованных, распределенных, реплицированных) реестров - всю
+                    цепочку
+                    сделок и актуальный список владельцев хранят на своих компьютерах множество независимых
+                    пользователей. Даже
+                    если один или несколько компьютеров дадут сбой, информация не пропадет</p>
+
+                <p>Самый первый блок в цепочке — первичный блок (англ. genesis block) — рассматривается как отдельный
+                    случай,
+                    так как у него отсутствует родительский блок</p>
+
+
+                <div class="alert alert-success" role="alert">
+                    Трансакция - процесс передачи активов друг другу
+                </div>
+
+                <p>Проблемы с системами банка, Госреестра (Госуслуг) хакерские атаки, мошенничество или ошибки
+                    сотрудников могут
+                    вызвать сбой на любом из этих трансакции в централизованных системах</p>
+                <p>В блокчейне реестр владельцев одновременно обновляется на множестве независимых компьютеров,
+                    объединенных
+                    через интернет. Поэтому реестры с данными о владельцах активов невозможно подделать</p>
+
+                <div class="alert alert-success" role="alert">
+                    Процедура консенсуса - достижение согласия
+                </div>
+
+                <p>Перед тем как записать следующую строчку, все участники сверяют свои записи(блокноты). Верным
+                    признается тот
+                    вариант, который зафиксирован у большинства.</p>
+
+                <p>Транзакции проходят практически мгновенно, но на их подтверждение может потребоваться время. Какое
+                    именно —
+                    определяет алгоритм Консенсуса конкретной блокчейн-сети.</p>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary active" aria-current="page" href="/blockchain">Theory</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/hash">Hash</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/block">Block</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/basicblockchain">Blockchain</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/distributed">Distributed</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/tokens">Tokens</a>
+                </div>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/coinbase">Coinbase</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/keys">Keys</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signatures">Signatures</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/transaction">Transaction</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signedblockchain">Signed Blckchn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1523848309072-c199db53f137?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Майнинг</h5>
+
+
+                <div class="alert alert-success" role="alert">
+                    Цепь блокчейна неразрывна - каждый блок содержит ССЫЛКУ на предыдущий
+                </div>
+
+                <p>Блоки нельзя изменить или удалить, можно только добавить новые.</p>
+
+                <p>Каждый блок содержит свою собственную Хеш-сумму и Хеш-сумму предыдущего блока. Изменение любой
+                    информации в блоке изменит его хеш-сумму</p>
+
+
+                <p>
+                    Блок состоит из заголовка и списка транзакций. Заголовок блока включает в себя свой хеш, хеш
+                    предыдущего блока, хеши транзакций и cлужебную информацию. В системе Биткойн первой транзакцией в
+                    блоке всегда
+                    указывается получение комиссии, которая станет наградой майнеру за созданный блок.
+                    Далее идёт список транзакций, сформированный из очереди транзакций, ещё не записанных в предыдущие
+                    блоки.<br>
+                    Критерий отбора из очереди задаёт майнер самостоятельно.
+                    Это не обязательно должна быть хронология по времени.
+                    Например, могут включаться только операции с высокой комиссией или с участием заданного списка
+                    адресов.
+                </p>
+
+                <p>
+                    Созданный блок будет принят остальными пользователями, если числовое значение хеша заголовка равно
+                    или меньше определённого целевого числа, величина которого периодически корректируется.<br>
+                    Так как результат хеширования функции SHA-256 считается необратимым, на данный момент нет алгоритма
+                    получения
+                    желаемого результата, кроме случайного перебора.<br>
+                    Если хеш не удовлетворяет условию, то в заголовке изменяется параметр nonce и хеш пересчитывается.
+                    Обычно (статистически) требуется большое количество пересчётов. Когда вариант найден, узел рассылает
+                    полученный блок другим подключенным узлам, которые проверяют блок.
+                    Если ошибок нет, то блок считается добавленным в цепочку и следующий блок должен включить в себя его
+                    хеш.<br>
+                    Величина целевого числа, с которым сравнивается хеш, в системе Биткойн корректируется через каждые
+                    2016 блоков. Вся сеть системы Биткойн должна тратить на генерацию одного блока примерно 10 минут, на
+                    2016 блоков
+                    — около двух недель.<br>
+                    Если 2016 блоков сформированы быстрее, то целевое число немного уменьшается и получить
+                    удовлетворяющий ему хеш подбором параметра nonce становится труднее, в противном случае целевое
+                    число увеличивается.<br>
+                    Изменение сложности вычислений не влияет на надёжность сети Биткойн и требуется лишь для того, чтобы
+                    система
+                    генерировала блоки почти с постоянной скоростью, не зависящей от вычислительной мощности участников
+                    сети.
+                </p>
+
+                <div class="alert alert-success" role="alert">
+                    Майнеры - добавляют в цепь новые блоки
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">хранят копии блокчейна и тем самым защищают информацию от потери или
+                        подделки
+                    </li>
+                    <li class="list-group-item">подтверждают транзакции</li>
+                    <li class="list-group-item">проверяют транзакции, которые зарегистрировали другие майнеры</li>
+                </ul>
+
+                <p>Чем их больше, тем лучше — такая сеть надежнее, а трансакции дешевле. Майнерами могут стать все
+                    желающие.
+                    Для этого им нужны специализированные компьютеры и программное обеспечение</p>
+
+                <div class="alert alert-success" role="alert">
+                    Награда - комиссии от всех участников транзакций, записанных в блоке, и вознаграждение от самой сети
+                </div>
+
+                <p>Сеть генерирует это вознаграждение по определенному алгоритму</p>
+
+                <p>Наградой является определенное количество криптомонет. Они возникают буквально как результат
+                    программных
+                    алгоритмов и попадают на счет майнера. Происходит выпуск новых единиц виртуальных денег и общее
+                    количество
+                    виртуальной валюты увеличивается. Но при этом чаще всего есть ограничение: когда сумма монет
+                    достигает
+                    определенного максимума, их выпуск прекращается. Дальше майнеры могут работать только за
+                    вознаграждение от
+                    участников.</p>
+
+                <p>Вероятность удачи для майнера — что именно он решит предложенную сетью математическую задачу первым,
+                    присоединит блок и получит за это вознаграждение — зависит от мощности его оборудования. Чем
+                    производительнее его компьютеры, тем больше шансы заработать.</p>
+
+
+
+
+                <div class="alert alert-success" role="alert">
+                    Кошелек - это специальный идентификатор. В нем хранится запись о состоянии счета участника и всю
+                    историю его
+                    транзакций.
+                </div>
+
+                <p>Если владелец кошелька, забудет его номер, то никак не сможет доказать, что счет принадлежит именно
+                    ему. Все,
+                    что хранилось в кошельке, окажется потерянным навсегда.</p>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary active" aria-current="page" href="/blockchain">Theory</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/hash">Hash</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/block">Block</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/basicblockchain">Blockchain</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/distributed">Distributed</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/tokens">Tokens</a>
+                </div>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/coinbase">Coinbase</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/keys">Keys</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signatures">Signatures</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/transaction">Transaction</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signedblockchain">Signed Blckchn</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1630873711387-c8835df3c1f3?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Криптосистема (шифрование) с открытым ключом, асимметричного шифрования</h5>
+
+
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Можно сгенерировать пару очень больших чисел (открытый ключ и закрытый
+                        ключ)
+                        так, чтобы, зная открытый ключ, нельзя было вычислить закрытый ключ за разумный срок. При этом
+                        механизм
+                        генерации является общеизвестным</li>
+                    <li class="list-group-item">Имеются надёжные методы шифрования, позволяющие зашифровать сообщение
+                        открытым
+                        ключом так, чтобы расшифровать его можно было только закрытым ключом. Механизм шифрования
+                        является
+                        общеизвестным</li>
+                    <li class="list-group-item">Владелец двух ключей никому не сообщает закрытый ключ, но передает
+                        открытый ключ
+                        контрагентам или делает его общеизвестным</li>
+                </ul>
+
+                <p>
+                    Если необходимо передать зашифрованное сообщение владельцу ключей, то отправитель должен получить
+                    открытый
+                    ключ.
+                    Отправитель шифрует свое сообщение открытым ключом получателя и передает его получателю (владельцу
+                    ключей)
+                    по открытым каналам.
+                    При этом расшифровать сообщение не может никто, кроме владельца закрытого ключа.
+                </p>
+
+
+
+                <p>Идея криптографии с открытым ключом очень тесно связана с идеей односторонних функций, то есть таких
+                    функций
+                    f(x), что по известному x довольно просто найти значение f(x), тогда как определение x из f(x)
+                    невозможно за
+                    разумный срок.</p>
+
+
+                <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading">Применение в блокчейне</h4>
+                    <p>
+                        Открытый ключ является адресом (счетом), на который пересылаются цифровые деньги.<br>
+                        Его могут видеть другие пользователи, поэтому он и называется публичным.<br>
+                        При помощи открытого ключа выполняется процесс шифрования – создания транзакции.<br>
+                        Но перевод не будет одобрен администраторами сети, если в нем отсутствует цифровая подпись.<br>
+                        Для создания подписи используется приватный ключ.<br>
+                        Без него пользователь не сможет отправлять криптовалюту на другие кошельки
+                    </p>
+                </div>
+
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary active" aria-current="page" href="/blockchain">Theory</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/hash">Hash</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/block">Block</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/basicblockchain">Blockchain</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/distributed">Distributed</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/tokens">Tokens</a>
+                </div>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/coinbase">Coinbase</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/keys">Keys</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signatures">Signatures</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/transaction">Transaction</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signedblockchain">Signed Blckchn</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top"
+                    src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h5 class="card-title">Алгоритм поиска консессуса</h5>
+                <div>
+                    <p>
+                        Регулярно возникают ситуации, когда несколько новых блоков в разных частях распределённой сети
+                        называют
+                        предыдущим один и тот же блок, то есть цепочка блоков может ветвиться.<br>
+                        Специально или случайно можно ограничить ретрансляцию информации о новых блоках (например, одна
+                        из цепочек
+                        может развиваться в рамках локальной сети).<br>
+                        В этом случае возможно параллельное наращивание различных ветвей.<br>
+                        В каждом из новых блоков могут встречаться как одинаковые транзакции, так и разные, вошедшие
+                        только в один
+                        из них.<br>
+                        Когда ретрансляция блоков возобновляется, майнеры начинают считать главной цепочку с учётом
+                        уровня сложности
+                        хеша и длины цепочки.<br>
+                        При равенстве сложности и длины предпочтение отдаётся той цепочке, конечный блок которой
+                        появился раньше.
+                        Транзакции, вошедшие только в отвергнутую ветку (в том числе по выплате вознаграждения), теряют
+                        статус
+                        подтверждённых.<br>
+                        Если это транзакция по передаче биткойнов, то она будет поставлена в очередь и затем включена в
+                        очередной
+                        блок.<br>
+                        Транзакции получения вознаграждения за создание отсечённых блоков не дублируются в другой ветке,
+                        то есть
+                        «лишние» биткойны, выплаченные за формирование отсечённых блоков, не получают дальнейших
+                        подтверждений и
+                        «утрачиваются»
+                    </p>
+                </div>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary active" aria-current="page" href="/blockchain">Theory</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/hash">Hash</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/block">Block</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/basicblockchain">Blockchain</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/distributed">Distributed</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/tokens">Tokens</a>
+                </div>
+
+                <div class="btn-group btn-group-sm my-1" role="group" aria-label="btns1">
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/coinbase">Coinbase</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/keys">Keys</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signatures">Signatures</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/transaction">Transaction</a>
+                    <a class="btn btn-outline-secondary" aria-current="page" href="/signedblockchain">Signed Blckchn</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mb-1" style="max-width:800px;">
+            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+    <script>
+
+
+        var options = {
+            chart: {
+                type: 'line'
+            },
+            series: [
+                { name: 'Оценка Экспортера', data: [100, 120, 120, 140, 140, 160, 160] },
+                { name: 'Оценка Импортера', data: [100, 100, 120, 120, 140, 140, 160] },
+                { name: 'Портфель 50%+50%', data: [100, 110, 120, 130, 140, 150, 160] }
+            ],
+            xaxis: {
+                //  type: "numeric",
+                categories: [
+                    [...new Array(7)]
+                        .map((item, index) => {
+                            var d = new Date();
+                            return d.setFullYear(d.getFullYear() - 7 + index)
+                        })
+                ],
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+    </script>
+</body>
+
+</html>
