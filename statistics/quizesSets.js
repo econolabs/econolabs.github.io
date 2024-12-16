@@ -2607,4 +2607,4 @@ window.quizesSets = quizesSets;
 
 // ];
 
-export default quizesSets
+//export default quizesSets
