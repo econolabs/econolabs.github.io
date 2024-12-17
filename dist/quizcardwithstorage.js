@@ -21254,7 +21254,6 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         selectedoption: null,
         selectedoptions: [],
         activePage: null,
-        previousPage: null,
         correctquizes: []
     };
 
@@ -21286,7 +21285,6 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 state.avatarUrl = action.payload;
             },
             setActivePage: (state, action) => {
-                state.previousPage = state.activePage;
                 state.activePage = action.payload;
             }
         }
@@ -21320,7 +21318,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 providesTags: (result, error, id) => [{ type: "Post", id }]
             }),
 
-          
+
 
             fetchQuizesArray: builder.query({
                 async queryFn() {
@@ -21407,7 +21405,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 invalidatesTags: ["Answer"]
             }),
 
-              // fetchOpenQuizes: builder.query({
+            // fetchOpenQuizes: builder.query({
             //     async queryFn() {
             //         try {
             //             let openQuizes = await getFirebaseNode({ url: "openquizes/", type: "array" });
@@ -21777,7 +21775,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
         $("#usercalculations").style.display = "none";
         $("#inputFormula").value = "";
-        $("#resformula").innerHTML = "<small class='text-muted'>Песочница (например, =2+2 или =B2+B3)</small>";
+        $("#resformula").innerHTML = "<small class='text-muted'>Песочница, попробуйте =2+2 или =AVERAGE(B2:B13)</small>";
         $("#answerButton").disabled = false;
         $("#quizTitle").innerHTML = quiz.title;
         $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
@@ -21792,8 +21790,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             $("#usercalculations").style.display = "block";
             //     let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
             //     console.log(res.answer)
-             $("#quizformdataarray").innerHTML = markupForDataArray(quiz?.dataArray) + "<br>" + quiz?.text + "<hr>";
+            $("#quizformdataarray").innerHTML = markupForDataArray(quiz?.dataArray) + "<br>" + quiz?.text + "<hr>";
             $("#quizformdataarray").style.display = "block";
+            $("#quizHint").innerHTML = quiz?.hint;
         }
 
         if (quiz.type === "multiplechoices") {
@@ -21920,7 +21919,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     }, 275);
 
     let debounce_callCellValueСalculation = debounce(function (answer) {
-        parser.on('callCellValue', function(cellCoord, done) {
+        parser.on('callCellValue', function (cellCoord, done) {
             // using label
             // if (cellCoord.label === 'B$6') {
             //   done('hello');
@@ -21929,15 +21928,15 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
             // if (cellCoord.row.index === 5 && cellCoord.row.isAbsolute && cellCoord.column.index === 1 && !cellCoord.column.isAbsolute) {
             //   done('hello');
             // }
-          
+
             // if (cellCoord.label === 'C6') {
             //   done(0.75);
             // }
-             if (!!cellCoord) {
-               done();
-             }
-          });
-          
+            if (!!cellCoord) {
+                done();
+            }
+        });
+
         //   parser.parse('B$6'); // returns `"hello"`
         //   parser.parse('B$6&" world"'); // returns `"hello world"`
         //   parser.parse('FISHER(C6)');
@@ -21964,16 +21963,12 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
         let answer = $("#inputFormula").value;
         let activePage = store.getState().application.activePage;
-        let quiz = resQuizesArray.data[activePage];
         let { dataArray = [], type } = resQuizesArray.data[activePage];
-        console.log(quiz);
 
         if (type.includes("case")) {
             if (answer.includes(":")) {
                 debounce_callRangeValueСalculation(dataArray, answer);
-            } else {
-                debounce_callCellValueСalculation(answer);
-            }        
+            } else { debounce_callCellValueСalculation(answer); }
         } else {
             debounce_cellcalculation(answer);
         }
@@ -22042,12 +22037,12 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     //             createMinimalProtoArray(
     //                 protoDataSpreadsheetObjectWithFormula
     //                 ))
-        // createMinimalProtoArray({
-        //     A1: "2",
-        //     A2: "2",
-        //     A3: "=A1+A2"
-        // }, 6, 6)
-     //   console.log(result);
+    // createMinimalProtoArray({
+    //     A1: "2",
+    //     A2: "2",
+    //     A3: "=A1+A2"
+    // }, 6, 6)
+    //   console.log(result);
     //     $("#resformula").innerText = result[result.length - 1][0];
     // }
 
