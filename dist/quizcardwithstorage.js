@@ -21301,9 +21301,39 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
 
     const api = createApi({
         reducerPath: 'api',
-        tagTypes: ["OpenQuiz", "Quiz", "Answer", "Avatar", "Post"],
+        tagTypes: ["OpenQuiz", "Quiz", "Answer", "Avatar", "Post", "QuizCase", "OpenQuizCase"],
         baseQuery: fakeBaseQuery(),
         endpoints: (builder) => ({
+
+            fetchOpenQuizCaseById: builder.query({
+                async queryFn(id) {
+                    try {
+                        let quiz = await getFirebaseNode({ url: "quizescases/quizesCasesIds/" + id, type: "object" });
+                        return { data: !!quiz ? quiz : {} };
+                    } catch (err) {
+                        console.log(err);
+                        return { error: err };
+                    }
+                },
+                providesTags: (result, error, id) => [{ type: "OpenQuizCase", id }]
+            }),
+
+            fetchOpenQuizesCasesIds: builder.query({
+                async queryFn() {
+                    try {
+                        let list = await getFirebaseNode({ url: "quizescases/quizesCasesIds", type: "array" });
+                        return { data: list };
+                    } catch (err) {
+                        console.log(err);
+                        return { error: err };
+                    }
+                },
+                providesTags: (result = [], error2, arg) => [
+                    "QuizCase",
+                    ...result.map(({ id }) => ({ type: "QuizCase", id }))
+                ]
+            }),
+
 
             fetchUserPosts: builder.query({
                 async queryFn(userEmail) {
@@ -21445,6 +21475,8 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     //let resUserAvatar;
     let resUserPosts;
     let resQuizesArray;
+    let resOpenQuizesCasesIds;
+    let resOpenQuizCaseById;
 
     /**
       * Functions
@@ -21768,9 +21800,26 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
         }
     }
 
+
+    async function fetchQuizHint(activePage) {
+        let quiz = resQuizesArray.data[activePage];
+        console.log("fetchQuizHint(activePage)");
+        resOpenQuizCaseById =  await store.dispatch(api.endpoints.fetchOpenQuizCaseById.initiate(quiz.quizesCasesId));
+        console.log(resOpenQuizCaseById.data);
+        let hint = quiz?.hint ? quiz.hint : "";
+        if (!!resOpenQuizCaseById.data?.hint) {
+            hint = resOpenQuizCaseById.data.hint + "<br>" + hint;
+        }
+        if (!!resOpenQuizCaseById.data?.exampleSpreadsheet) {
+            hint =resOpenQuizCaseById.data.exampleSpreadsheet + "<br>" + hint;
+        }
+        $("#quizHint").innerHTML = hint;   
+        updateQuiz(activePage);
+    }
+
     function updateQuiz(activePage) {
         let quiz = resQuizesArray.data[activePage];
-        console.log(quiz);
+         console.log(quiz);
         $("#quizformdataarray").style.display = "none";
 
         $("#usercalculations").style.display = "none";
@@ -21891,8 +21940,9 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 $("#quizHint").innerHTML = "";
                 $("#quizTitle").innerHTML = "";
                 $("#quizString").innerHTML = "";
-
-                updateQuiz(pageNumber);
+                if (!!resQuizesArray.data[pageNumber]?.quizesCasesId) {
+                    fetchQuizHint(pageNumber);
+                } else { updateQuiz(pageNumber); }            
             }, false);
         });
     }
@@ -21949,10 +21999,10 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
     }, 275);
 
 
-    let debounce_cellcalculation = debounce(function (answer) {
+    let debounce_OneCellValculation = debounce(function (answer) {
         $("#resformula").innerText = processquizwithrandomnumber({
             quizString: "this {={var1-10}+1} some {=2+{var1-10}} that can be {=3+{var1-10}} with a {=4+{var1-10}} function",
-            answer: answer,
+            answer: answer.substring(1),
             randomNumber: 0.5
         }).answer;
     }, 275);
@@ -21970,7 +22020,7 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 debounce_callRangeValueСalculation(dataArray, answer);
             } else { debounce_callCellValueСalculation(answer); }
         } else {
-            debounce_cellcalculation(answer);
+            debounce_OneCellValculation(answer);
         }
     }
 
@@ -22005,15 +22055,12 @@ If you have multiple apis, you *have* to specify the reducerPath option when usi
                 resUserPosts.data
                     .map(item => {
                         return identifyQuiz(item.title, item?.quizString)
-                        // if (typeof (item?.quizString) === 'string' && item.quizString.includes('<br>')) {
-                        //     //       console.log(item.quizString.split('<br>')[0])
-                        //     return item.title + " " + item.quizString.split('<br>')[0]
-                        // } else {
-                        //     return item.title + " " + !!item?.quizString ? item.quizString : ""
-                        // }
-                    }
-                    ))]));
+                    }))]));
             store.dispatch(setUser(res));
+
+            resOpenQuizesCasesIds = await store.dispatch(api.endpoints.fetchOpenQuizesCasesIds.initiate());
+            console.log(resOpenQuizesCasesIds.data.filter(item => item.theme === 'Основные корпоративные налоги'));
+
         }
     }
 
