@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по Финансовой грамотности</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <script src="../economics/quizesSets.js"></script>
+
+    <style>
+        .avatar {
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem;
+        }
+    </style>
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c" data-hash1="a5bd29f89d06e17fbd926cac1e7d5d555611da90">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://econolabs.github.io"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" id="quizButton" class="btn btn-sm btn-outline-secondary mx-3">Quit</button>
+                    <a href="https://vk.com/dmglvn">
+                        <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 50%;
+                                    filter: grayscale(100%);
+                                    object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="layout">
+
+        <form id="authform">
+            <div id="loginform" style="display: none; margin: 1rem">
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="emailInput" name="emailInput"
+                        aria-describedby="emailInput" />
+                </div>
+                <div class="mb-3">
+                    <label for="passwordInput" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="passwordInput" id="passwordInput" />
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" name="authformbutton" class="btn btn-sm btn-outline-primary"
+                        value="authformbutton" id="authformbutton">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div id="main" class="container">
+            <div class="input-group m-1 p-1">
+                <span class="input-group-text" id="classdate">Дата</span>
+                <input type="date" id="selectedDate" class="form-control" aria-label="selectedDate"
+                    aria-describedby="classdate">
+            </div>
+            <div id="users"></div>
+            <div id="quizbuttonslist"></div>
+            <div id="userposts"></div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../dist/groupevaluation.js"></script>
+</body>
