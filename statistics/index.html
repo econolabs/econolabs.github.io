@@ -331,8 +331,7 @@
 
 
 
-
-
+               
 
                 <b>Оверсемплинг</b> — способ, когда данные в минориторном классе клонируют, чтобы их стало больше.<br>
                 Причем клонируют так, чтобы не нарушить изначальные соотношения значений и распределение.<br>
@@ -418,6 +417,40 @@
                 Элементы вариационного ряда.<br> Дискретные и интервальные вариационные ряды
                 распределения.<br> Графическое изображение рядов распределения: полигон,
                 гистограмма, кумулята и огива<br>
+
+                <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading">Нормальное распределение</h4>
+                    <p class="m-1">Python<br>
+                        <code>
+                            <pre>
+    # importing numpy as np
+    import numpy as np
+
+    # importing pyplot as plt
+    import matplotlib.pyplot as plt
+
+    # position
+    pos = 100
+    # scale
+    scale = 5
+
+    # size
+    size = 100000
+
+    # creating a normal distribution data
+     values = np.random.normal(pos, scale, size)
+
+    # plotting histograph
+    plt.hist(values, 100)
+
+    # showing the graph
+    plt.show()
+                            </pre>
+                        </code>
+                    </p> 
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20201101003913/final577.png" />                  
+                  </div>
+
 
                 Полигон<br>
                 <img class="fit-picture"
