@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Add React in One Minute</title>
-    <link href="../dist/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  </head>
-  <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Add React in One Minute</title>
+  <link href="../dist/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="
+https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js
+"></script>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
   data-app="1:892270777573:web:bdc13e9b47334b4319700c">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -50,11 +55,11 @@
     <p>
       This is the first comment.
       <!-- We will put our React component inside this div. -->
-      <div class="root container" data-commentid="1"></div>
+    <div class="root container" data-commentid="1"></div>
     </p>
 
-    </div>
-<!--
+  </div>
+  <!--
     <p>
       This is the second comment.
        We will put our React component inside this div.
@@ -67,18 +72,59 @@
     </p>
 -->
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script type="module" data-presets="env,react" src="./basicfirebasecrudservices.js"></script>
-    <script src="../dist/react.production.min.js" crossorigin></script>
-    <script src="../dist/react-dom.production.min.js" crossorigin></script>
-    <script src="../dist/react-bootstrap.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script type="module" data-presets="env,react" src="./basicfirebasecrudservices.js"></script>
+  <script src="../dist/react.production.min.js" crossorigin></script>
+  <script src="../dist/react-dom.production.min.js" crossorigin></script>
+  <script src="../dist/react-bootstrap.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 
-    <!-- Load our React component. -->
-    <script type="text/babel" data-presets="env,react" src="./index.js"></script>
- 
+  <!-- Load our React component. -->
+  <script type="text/babel" data-presets="env,react" src="./index.js"></script>
 
-  </body>
+  <script>
+    console.log(formulaParser.SUPPORTED_FORMULAS);
+    var parser = new formulaParser.Parser();
+    console.log(parser.parse('SUM(1, 6, 7)'));
+
+    parser.on('callRangeValue', function (startCellCoord, endCellCoord, done) {
+      var data = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20],
+      ];
+      var fragment = [];
+
+      for (var row = startCellCoord.row.index; row <= endCellCoord.row.index; row++) {
+        var rowData = data[row];
+        var colFragment = [];
+
+        for (var col = startCellCoord.column.index; col <= endCellCoord.column.index; col++) {
+          colFragment.push(rowData[col]);
+        }
+        fragment.push(colFragment);
+      }
+
+      if (fragment) {
+        done(fragment);
+      }
+    });
+
+console.log("JOIN(A1:A4) "+parser.parse('JOIN(A1:A4)').result) 
+console.log("AVERAGE(A1:A4) "+ parser.parse('AVERAGE(A1:A4)').result);
+
+// returns `"1,2,3,4,5,6,7,8,9,10"`
+ //   parser.parse('COLUMNS(A1:E2)'); // returns `5`
+ //   parser.parse('ROWS(A1:E2)'); // returns `2`
+ //   parser.parse('COUNT(A1:E2)'); // returns `10`
+ //   parser.parse('COUNTIF(A1:E2, ">5")'); // returns `5`
+
+  </script>
+
+
+</body>
+
 </html>
