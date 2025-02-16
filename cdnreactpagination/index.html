@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>CDN React Pagination</title>
+  <link href="../dist/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="
+https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js
+"></script>
+<script src="https://unpkg.com/immer@6.0.3/dist/immer.umd.production.min.js "></script>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a href="https://vk.com/dmglvn">
+            <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+              style="
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  filter: grayscale(100%);
+                  object-fit: cover;
+                " />
+          </a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="root container" data-commentid="1"></div>
+  </div>
+ 
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script type="module" data-presets="env,react" src="./basicfirebasecrudservices.js"></script>
+  <script src="../dist/react.production.min.js" crossorigin></script>
+  <script src="../dist/react-dom.production.min.js" crossorigin></script>
+  <script src="../dist/react-bootstrap.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+  <script type="text/babel" data-presets="env,react" src="./index.js"></script>
+ <!-- 
+  <script>
+    console.log(formulaParser.SUPPORTED_FORMULAS);
+    var parser = new formulaParser.Parser();
+    console.log(parser.parse('SUM(1, 6, 7)'));
+
+    parser.on('callRangeValue', function (startCellCoord, endCellCoord, done) {
+      var data = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20],
+      ];
+      var fragment = [];
+
+      for (var row = startCellCoord.row.index; row <= endCellCoord.row.index; row++) {
+        var rowData = data[row];
+        var colFragment = [];
+
+        for (var col = startCellCoord.column.index; col <= endCellCoord.column.index; col++) {
+          colFragment.push(rowData[col]);
+        }
+        fragment.push(colFragment);
+      }
+
+      if (fragment) {
+        done(fragment);
+      }
+    });
+
+console.log("JOIN(A1:A4) "+parser.parse('JOIN(A1:A4)').result) 
+console.log("AVERAGE(A1:A4) "+ parser.parse('AVERAGE(A1:A4)').result);
+
+// returns `"1,2,3,4,5,6,7,8,9,10"`
+ //   parser.parse('COLUMNS(A1:E2)'); // returns `5`
+ //   parser.parse('ROWS(A1:E2)'); // returns `2`
+ //   parser.parse('COUNT(A1:E2)'); // returns `10`
+ //   parser.parse('COUNTIF(A1:E2, ">5")'); // returns `5`
+
+  </script>
+ -->
+
+</body>
+
+</html>
