@@ -293,5 +293,6 @@ console.log("basicfirebasecrudservices");
 export {
     getFirebaseNode,
     updateFirebaseNode,
-    getFirebaseNodeKey
+    getFirebaseNodeKey,
+    commonReducer
 }
