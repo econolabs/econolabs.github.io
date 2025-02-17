@@ -235,6 +235,58 @@
                 технике выполнения.<br> Программа статистической сводки.<br> Результаты сводки.<br>
 
                 <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Минимальное значение </h4>
+                    <p>— минимальное значение</p>
+                    <hr>
+                    <p class="m-1">Excel<br>
+                        =MIN(2,2,4,7,7,7)
+                        =МИН(...)
+                    </p>
+                    <hr>
+                    <p class="m-1">Google<br>
+                        =MIN(4;5;5;5;5;7)
+                        =МИН(...)
+                    </p>
+                    <hr>
+                    <p class="m-1">Python<br>
+                        <code>
+                            <pre>
+                                from scipy import stats
+                                speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+                                x = stats.mode(speed)
+                                print(x)
+                            </pre>
+                        </code>
+                    </p>
+                </div>
+
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Максимальное значение </h4>
+                    <p>— максимальное значение</p>
+                    <hr>
+                    <p class="m-1">Excel<br>
+                        =MAX(2,2,4,7,7,7)
+                        =МАКС(...)
+                    </p>
+                    <hr>
+                    <p class="m-1">Google<br>
+                        =Max(4;5;5;5;5;7)
+                        =МАКС(...)
+                    </p>
+                    <hr>
+                    <p class="m-1">Python<br>
+                        <code>
+                            <pre>
+                                from scipy import stats
+                                speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+                                x = stats.mode(speed)
+                                print(x)
+                            </pre>
+                        </code>
+                    </p>
+                </div>
+
+                <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Мода</h4>
                     <p>— значение, которое встречается в выборке чаще всего</p>
                     <hr>
@@ -259,6 +311,32 @@
                 </div>
 
                 <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading">Среднее значение</h4>
+                    <p>"сложить и поделить на количество значений"</p>
+                    <hr>
+                    <p class="m-1">Excel<br>
+                        =AVERAGE(2,2,4,7,7,7)
+                        =СРЗНАЧ(2,2,4,7,7,7)
+                    </p>
+                    <hr>
+                    <p class="m-1">Google<br>
+                        =AVERAGE(4;5;5;5;5;7)
+                    </p>
+                    <hr>
+                    <p class="m-1">Python<br>
+                        <code>
+                            <pre>
+                                import numpy
+                                speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+                                x = numpy.median(speed)
+                                print(x)
+                            </pre>
+                        </code>
+                    </p>
+                </div>
+
+
+                <div class="alert alert-primary" role="alert">
                     <h4 class="alert-heading">Медиана</h4>
                     <p>— «серединное» значение. Если построить все данные в ряд по возрастанию, медианное
                         значение окажется ровно посреди ряда: половина остальных значений меньше, половина больше.</p>
@@ -267,6 +345,7 @@
                     <hr>
                     <p class="m-1">Excel<br>
                         =MEDIAN(2,2,4,7,7,7)
+                        =МЕДИАНА(2,2,4,7,7,7)
                     </p>
                     <hr>
                     <p class="m-1">Google<br>
