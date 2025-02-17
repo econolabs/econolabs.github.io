@@ -9,6 +9,7 @@ const Container = ReactBootstrap.Container;
 const Pagination = ReactBootstrap.Pagination;
 //https://www.testkarts.com/blog/post/implementing-pagination-in-react-js-using-react-bootstrap-without-using-library
 const Alert = ReactBootstrap.Alert;
+const Modal = ReactBootstrap.Modal;
 
 
 const e = React.createElement;
@@ -91,53 +92,6 @@ function createNewDraft(data) {
   return newdata;
 }
 
-
-// function calcData(data) {
-//     let newdata = JSON.parse(JSON.stringify(data));
-//     //let formulas = [];
-
-//     let oneMoreLoop = true;
-//     while (oneMoreLoop) {
-//       oneMoreLoop = false;
-//       for (let row = 0; row < newdata.length; row++) {
-//         for (let ix = 0; ix < newdata[row].length; ix++) {
-//           let cellValue = newdata[row][ix];
-//           //    console.log(cellValue);
-//           if (
-//             (typeof cellValue === "string" || cellValue instanceof String) &&
-//             cellValue.toString().includes("=")
-//           ) {
-
-//             let mapObj = {
-//                СТЕПЕНЬ: "POWER",
-//                ЧПС: "NPV",
-//                ВСД: "IRR",
-//                МВСД: "MIRR",
-//                СУММ: "SUM",
-//                СРЗНАЧ: "AVERAGE",
-//                ОКРУГЛ: "ROUND",
-//                СТАНДОТКЛОН: "STDEV"
-//               };
-//             let re = new RegExp(Object.keys(mapObj).join("|"), "gi");
-//             cellValue = cellValue.replace(re, function (matched) {
-//               return mapObj[matched];
-//             });
-
-//             let result = calculateFormula(newdata, cellValue.slice(1));
-//             //       formulas.push({ formula: cellValue, result: result })
-//             if (result.later) {
-//               newdata[row][ix] = cellValue;
-//               oneMoreLoop = true;
-//             } else {
-//               newdata[row][ix] = result.res.result;
-//             }
-//           } else newdata[row][ix] = cellValue;
-//         }
-//       }
-//     }
-//     // console.log(newdata);
-//     return newdata;
-//   }
 
 function calculateFormula(data, formula) {
   //    let parser = new FormulaParser();
@@ -237,84 +191,76 @@ const CaseDispatchContext = createContext(null);
 
 //https://dev.to/franciscomendes10866/use-context-api-and-immer-to-manage-the-state-of-your-react-app-1hem
 let initialCase = {
+  email: "johndoe@yandex.ru",
+  user: "DmGl",
+  avatarUrl: "../freelancer.jpg",
   formulaValue: 0,
   formulaRowIndex: 0,
   formulaColumnIndex: 0,
   data: createNewDraft(createProtoArray({}, 6, 6)),
   protoData: createProtoArray({}, 6, 6)
 };
+
 function caseReducer(state = {}, action) {
   console.log(action);
-     switch (action.type) {
-      case "ADD_BOOK":
-      return produce(state, (draft) => {
-        draft.books.list.push({ ...payload });
-      });
+  switch (action.type) {
+
+    // case "ADD_BOOK":
+    // return produce(state, (draft) => {
+    //   draft.books.list.push({ ...payload });
+    // });
 
 
-      case 'UPDATE_FORMULA':
+    case 'UPDATE_FORMULA':
       return immer.produce(state, (draft) => {
         draft.formulaValue = action.payload.formulaValue;
         draft.formulaRowIndex = action.payload.formulaRowIndex;
         draft.formulaColumnIndex = action.payload.formulaColumnIndex;
       });
 
-      
 
-      case 'UPDATE_DATA': {
+
+    case 'UPDATE_DATA': {
+      return immer.produce(state, (draft) => {
         let newProtoData = draft.protoData;
-        return immer.produce(state, (draft) => {          
-          newProtoData[action.payload.rowIndex][action.payload.columnIndex] = action.payload.value;
-          draft.data = createNewDraft(newProtoData);
-          draft.protoData = newProtoData;
-        
-        })        
-      }
+        newProtoData[action.payload.rowIndex][action.payload.columnIndex] = action.payload.value;
+        draft.data = createNewDraft(newProtoData);
+        draft.protoData = newProtoData;
 
-      case 'NEW_EMPTY_SPREADSHEET': {
-        let protoArray = createProtoArray({}, 6, 6);
-        return immer.produce(state, (draft) => { 
-          draft.protoData = protoArray;
-          draft.data = createNewDraft(protoArray);
-          draft.formulaValue = protoArray[0][0];
-          draft.expandView = true;
-         })
-        
-      }
-
-
-
-      default:
-        return state;
+      })
     }
+
+    case 'NEW_EMPTY_SPREADSHEET': {
+      let protoArray = createProtoArray({}, 6, 6);
+      return immer.produce(state, (draft) => {
+        draft.protoData = protoArray;
+        draft.data = createNewDraft(protoArray);
+        draft.formulaValue = protoArray[0][0];
+        draft.expandView = true;
+      })
+    }
+
+
+    case "SET_STORE_OBJECT": 
+    return immer.produce(state, (draft) => {
+      draft[action.payload.key] = action.payload.value;     
+    });
+     
+
+
+    default:
+      return state;
+  }
   ;
 
   /*  switch (action.type) {
  
-     case "UPDATE_FORMULA":
-       return {
-         ...state,
-         formulaValue: action.payload.formulaValue,
-         formulaRowIndex: action.payload.formulaRowIndex,
-         formulaColumnIndex: action.payload.formulaColumnIndex,
-       }
-     case "UPDATE_DATA":
-       return {
-         ...state,
-         formulaValue: action.payload.formulaValue,
-         formulaRowIndex: action.payload.formulaRowIndex,
-         formulaColumnIndex: action.payload.formulaColumnIndex,
-       }
+   
  
  
  
  
-         case "SET_STORE_OBJECT":
-           return {
-             ...state,
-             [action.payload.key]: action.payload.value
-           }
-     
+       
          case "SEED_ARRAY":
            return {
              ...state,
@@ -391,11 +337,106 @@ function useCaseDispatch() {
 }
 
 function LoginLogout() {
-  return <div>LoginLogout</div>
+  const [show, setShow] = useState(false);
+  const mycase = useCase();
+  const dispatch = useCaseDispatch();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    dispatch({
+      type: "SET_STORE_OBJECT",
+      payload: { key: "email", value: e.currentTarget.elements.formEmail.value}
+    });
+    dispatch({
+      type: "SET_STORE_OBJECT",
+      payload: { key: "user", value: e.currentTarget.elements.formUser.value}
+    });   
+    handleClose();
+  };
+
+  let user = !!mycase && !!mycase?.user && mycase.user.length > 0 ? mycase.user : 'Anonymous';
+  let email = !!mycase && !!mycase?.email && mycase.email.length > 0 ? mycase.email : "Enter email";
+
+  return (
+    <>
+     <span onClick={handleShow} style={{ marginRight: "1rem" }}>
+    {user}
+        </span>
+
+      {/* <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button> */}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formEmail">
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email"        
+         placeholder={email}          
+         />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formUser">
+        <Form.Label>User</Form.Label>
+        <Form.Control type="text" 
+        placeholder={user} 
+         />
+      </Form.Group>
+      
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form></Modal.Body>
+        {/* <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer> */}
+      </Modal>
+    </>
+  );
 }
 
 function SavePostModal() {
-  return <div>Save Post Modal</div>
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+      SavePostModal
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
 function SelectAndOpenModal() {
@@ -479,13 +520,11 @@ function PostsButtonGroup(props) {
 function FormulaBlock() {
   const mycase = useCase();
   //const formulaValue = useSelector(selectSpreadsheetFormulaValue);
-  const formulaRowIndex = 0 //useSelector(selectSpreadsheetFormulaRowIndex);
-  const formulaColumnIndex = 0 // useSelector(selectSpreadsheetFormulaColumnIndex);
-
   const [formula, setFormula] = useState('');
   const dispatch = useCaseDispatch();
 
-
+let formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase. formulaRowIndex: 0;
+let formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
@@ -494,10 +533,16 @@ function FormulaBlock() {
   }
 
   function handleSubmit() {
-
-    // console.log(formulaValue);
-
     let valueChecked = isNaN(formula) ? !!formula ? formula : "" : +formula;
+
+    dispatch({
+      type: "UPDATE_DATA",
+      payload: {
+        rowIndex: formulaRowIndex,
+        columnIndex: formulaColumnIndex,
+        value: valueChecked,
+      }
+    });
 
     dispatch({
       type: "UPDATE_FORMULA",
@@ -506,21 +551,9 @@ function FormulaBlock() {
         formulaRowIndex: formulaRowIndex,
         formulaColumnIndex: formulaColumnIndex
       }
-    }
-
-      //   update_data({
-      //   rowIndex: formulaRowIndex,
-      //   columnIndex: formulaColumnIndex,
-      //   value: valueChecked,
-      // })
-    );
+    } );
     setFormula("");
 
-    // dispatch(update_formula({
-    //   rowIndex: formulaRowIndex,
-    //   columnIndex: formulaColumnIndex,
-    //   value: "",
-    // }));
   }
 
   return (
@@ -637,11 +670,10 @@ function ActiveCells() {
 }
 
 function Cell({
-  rowIndex=0,
-  columnIndex=0,
-  active=true
-})
- {
+  rowIndex = 0,
+  columnIndex = 0,
+  active = true
+}) {
   const mycase = useCase();
   const data = !!mycase && !!mycase?.data ?
     mycase?.data[rowIndex][columnIndex] : "";
@@ -683,7 +715,7 @@ function Cell({
   }
 
   function clicked() {
-   
+
     dispatch({
       type: "UPDATE_FORMULA",
       payload: {
@@ -719,16 +751,14 @@ function SpreadsheetLayout({
   const [expandView, toggle_expand_view] = useState(false);
 
   const mycase = useCase();
-  const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
+ // const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
 
-  let userProfile = {
-    avatarUrl: '../freelancer.jpg',
-    email: "johndoe@gmail.com"
-  }
+  let avatarUrl = !!mycase && mycase?.avatarUrl ? mycase.avatarUrl : '../freelancer.jpg';
+  let email = !!mycase && mycase?.email ? mycase.email : "johndoe@gmail.com";
 
   let numberOfX = !!mycase && mycase?.data ? mycase.data[0].length - 1 : 6;
-  let numberOfY = !!mycase && mycase?.data ? mycase.data.length: 6;
- 
+  let numberOfY = !!mycase && mycase?.data ? mycase.data.length : 6;
+
   return <div>
     <div className="excelstyle">
       <div
@@ -739,9 +769,9 @@ function SpreadsheetLayout({
           padding: ".4rem",
         }}
       >
-        {userProfile?.avatarUrl && userProfile.avatarUrl.length > 10 ?
+        {!!avatarUrl && avatarUrl.length > 10 ?
           <img
-            src={userProfile.avatarUrl}
+            src={avatarUrl}
             alt=""
             style={{
               verticalAlign: 'middle',
@@ -757,7 +787,7 @@ function SpreadsheetLayout({
       </div>
       <div className="icon-bar">
 
-        {!!userProfile?.email ?
+        {!!email ?
           <PostsButtonGroup
             expandView={expandView}
             toggle_expand_view={toggle_expand_view}
@@ -844,7 +874,7 @@ function SpreadsheetLayout({
           </Button>
         </ButtonGroup>
 
-        {!!userProfile?.email ?
+        {!!email ?
           <ButtonGroup aria-label="Workbook Buttons" size="sm">
           </ButtonGroup>
           : null}
