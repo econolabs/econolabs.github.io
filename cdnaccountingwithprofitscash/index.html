@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>CDN AccountingWithProfitsCashLayout</title>
+  <link href="../dist/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <script src="
+https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js
+"></script>
+  <script src="https://unpkg.com/immer@6.0.3/dist/immer.umd.production.min.js "></script>
+
+  <script type="module">
+    import { getApps, deleteApp, initializeApp } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js';
+    import { getDatabase, get, ref, update, push, child } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js';
+
+    //Firebase
+
+    let app;
+    if (getApps().length > 1) {
+      deleteApp(getApps()[1])
+        .then(function () {
+          console.log("App deleted successfully");
+        })
+        .catch(function (error) {
+          console.log("Error deleting app:", error);
+        });
+    }
+    if (getApps().length < 1) {
+      let fireconf = {};
+      try {
+        fireconf = document.body.dataset;
+      } catch (err) {
+        throw new Error('Unable to get params' + err)
+      }
+      const firebaseConfig = {
+        apiKey: fireconf.api,
+        databaseURL: "https://" + fireconf.base + ".firebaseio.com",
+        appId: fireconf.app
+      };
+      app = initializeApp(firebaseConfig);
+    }
+    const db = getDatabase();
+
+    async function getFirebaseNode({
+      url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
+      type = "array"
+    }) {
+      try {
+        let snapshot = await get(ref(db, url));
+        if (snapshot.exists()) {
+          let res = snapshot.val();
+          if (type === "array") { return Object.keys(res).map(objKey => res[objKey]) }
+          return res
+        } else {
+          if (type === "array") { return [] } else { return null }
+        }
+      }
+      catch (err) {
+        console.log(err);
+        if (type === "array") { return [] } else { return {} }
+      }
+    }
+
+    async function updateFirebaseNode(updates = { temp: "temp" }) {
+      try {
+        //let res = await timeout(3000); console.log(updates);
+        await update(ref(db), updates);
+        return true
+      }
+      catch (error) {
+        console.error(error)
+        return error
+      }
+    }
+
+    function getFirebaseNodeKey(url) {
+      return push(child(ref(db), url + "/")).key;
+    }
+
+  </script>
+
+
+
+
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a href="https://vk.com/dmglvn">
+            <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+              style="
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  filter: grayscale(100%);
+                  object-fit: cover;
+                " />
+          </a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="root container" data-commentid="1"></div>
+  </div>
+
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+
+  <script src="../dist/react.production.min.js" crossorigin></script>
+  <script src="../dist/react-dom.production.min.js" crossorigin></script>
+  <script src="../dist/react-bootstrap.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+  <script type="text/babel" data-presets="env,react" src="./index.js"></script>
+
+
+
+</body>
+
+</html>
