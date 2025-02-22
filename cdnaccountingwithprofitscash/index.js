@@ -16,44 +16,6 @@ const Col = ReactBootstrap.Col;
 
 
 
-const caseReducer = window.immer.produce((draft, action) => {
-  switch (action.type) {
-
-    case "SET_STORE_OBJECT":
-      draft[action.payload.key] = action.payload.value;
-      break
-
-    case "SEED_ARRAY":
-      draft[action.payload.arrayName] = action.payload.arrayItems;
-      break
-
-    case "PUSH_SOME_ITEMS_TO_ARRAY":
-      console.log(draft[action.payload.arrayName]);
-      console.log(action.payload.newArrayItems);
-      draft[action.payload.arrayName] = [...draft[action.payload.arrayName], ...action.payload.newArrayItems];
-      break
-
-    case "EMPTY_ARRAY":
-      draft[action.payload.arrayName] = [];
-      break
-
-    case "PUSH_ITEM_TO_ARRAY":
-      draft[action.payload.arrayName].push(action.payload.item);
-      break
-
-    case "DELETE_ITEM_FROM_ARRAY":
-      draft[action.payload.arrayName] = draft[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
-      break
-
-    case "UPDATE_ITEM_IN_ARRAY_BY_ID":
-      const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
-      if (index !== -1) { draft[action.payload.arrayName][index] = action.payload };
-      break
-
-    default:
-      break
-  }
-})
 
 const CaseContext = createContext(null);
 const CaseDispatchContext = createContext(null);
@@ -72,7 +34,7 @@ let initialCase = {
 
 function AccountingProvider({ children }) {
   const [mycase, dispatch] = useReducer(
-    caseReducer,
+    basicfirebasecrudservices.caseReducer,
     initialCase
   );
 
@@ -320,6 +282,14 @@ function CreateCase() {
 
 
 function AccountingWithProfitsCashLayout() {
+
+  const {data, loading, error} = basicfirebasecrudservices.useFirebaseNode(
+    "usersCraft/accounting_yandex_ru/posts",
+   // { type: "array" }
+  )
+
+  console.log(data);
+
   return <AccountingProvider>
     Accounting With Profits Cash Layout
 
@@ -344,3 +314,43 @@ document.querySelectorAll('.root')
       )
     );
   });
+
+
+// const caseReducer = window.immer.produce((draft, action) => {
+//   switch (action.type) {
+
+//     case "SET_STORE_OBJECT":
+//       draft[action.payload.key] = action.payload.value;
+//       break
+
+//     case "SEED_ARRAY":
+//       draft[action.payload.arrayName] = action.payload.arrayItems;
+//       break
+
+//     case "PUSH_SOME_ITEMS_TO_ARRAY":
+//       console.log(draft[action.payload.arrayName]);
+//       console.log(action.payload.newArrayItems);
+//       draft[action.payload.arrayName] = [...draft[action.payload.arrayName], ...action.payload.newArrayItems];
+//       break
+
+//     case "EMPTY_ARRAY":
+//       draft[action.payload.arrayName] = [];
+//       break
+
+//     case "PUSH_ITEM_TO_ARRAY":
+//       draft[action.payload.arrayName].push(action.payload.item);
+//       break
+
+//     case "DELETE_ITEM_FROM_ARRAY":
+//       draft[action.payload.arrayName] = draft[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
+//       break
+
+//     case "UPDATE_ITEM_IN_ARRAY_BY_ID":
+//       const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
+//       if (index !== -1) { draft[action.payload.arrayName][index] = action.payload };
+//       break
+
+//     default:
+//       break
+//   }
+// })
