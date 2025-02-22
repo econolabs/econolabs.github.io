@@ -277,18 +277,102 @@ function CreateCase() {
     </Form>
   </Container>
 }
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function loadState() {
+  try {
+    const serializedState = localStorage.getItem('econolabs');
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined
+  }
+}
+
+const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+   // console.log(serializedState);
+    localStorage.setItem('econolabs', serializedState);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
+function useLocalStorageUser() {
+  const [status, setStatus] = useState({
+    loading: true,
+    user: false,
+    avatarUrl: false,
+    email: false,
+    posts: []
+  });
 
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const user = await loadState();
+        console.log(user.application.email);
+        const response = await timeout(5000);
+        const userCrafts = await basicfirebasecrudservices.getFirebaseNode({
+          url: "usersCraft/"+
+          user.application.email.replace(/[^a-zA-Z0-9]/g, "_")
+          + "/posts"
+        });
+       
+
+        console.log(userCrafts);
+        setStatus({
+          loading: false,
+          user: "John Doe",
+          avatarUrl: "../freelancer.jpg",
+          email: "accounting_yandex_ru",
+          posts: userCrafts
+        })
+      }
+      catch (error) {
+        setStatus({
+          loading: false,
+          user: false,
+          avatarUrl: false,
+          email: false,
+          posts: []
+        })
+      }
+    }
+    fetchUser();
+  }, []);
+
+  return { ...status };
+}
 
 function AccountingWithProfitsCashLayout() {
 
-  const {data, loading, error} = basicfirebasecrudservices.useFirebaseNode(
-    "usersCraft/accounting_yandex_ru/posts",
-   // { type: "array" }
-  )
+  // const {data, loading, error} = basicfirebasecrudservices.useFirebaseNode(
+  //   "usersCraft/accounting_yandex_ru/posts",
+  // { type: "array" }
+  // )
 
-  console.log(data);
+  const { user, posts, loading: userProfileLoading } = useLocalStorageUser();
+
+  if (userProfileLoading) {
+    return <div className="card my-5" style={{ width: "640px", height: "480px" }}>
+      <img src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        className="card-img-top" alt="loading" />
+      <div className="card-body">
+        Loading
+      </div>
+    </div>
+
+
+  }
+  console.log(posts, user);
 
   return <AccountingProvider>
     Accounting With Profits Cash Layout
@@ -316,41 +400,3 @@ document.querySelectorAll('.root')
   });
 
 
-// const caseReducer = window.immer.produce((draft, action) => {
-//   switch (action.type) {
-
-//     case "SET_STORE_OBJECT":
-//       draft[action.payload.key] = action.payload.value;
-//       break
-
-//     case "SEED_ARRAY":
-//       draft[action.payload.arrayName] = action.payload.arrayItems;
-//       break
-
-//     case "PUSH_SOME_ITEMS_TO_ARRAY":
-//       console.log(draft[action.payload.arrayName]);
-//       console.log(action.payload.newArrayItems);
-//       draft[action.payload.arrayName] = [...draft[action.payload.arrayName], ...action.payload.newArrayItems];
-//       break
-
-//     case "EMPTY_ARRAY":
-//       draft[action.payload.arrayName] = [];
-//       break
-
-//     case "PUSH_ITEM_TO_ARRAY":
-//       draft[action.payload.arrayName].push(action.payload.item);
-//       break
-
-//     case "DELETE_ITEM_FROM_ARRAY":
-//       draft[action.payload.arrayName] = draft[action.payload.arrayName].filter(item => item.id !== action.payload.item.id);
-//       break
-
-//     case "UPDATE_ITEM_IN_ARRAY_BY_ID":
-//       const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
-//       if (index !== -1) { draft[action.payload.arrayName][index] = action.payload };
-//       break
-
-//     default:
-//       break
-//   }
-// })
