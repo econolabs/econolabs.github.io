@@ -25,8 +25,8 @@ let initialCase = {
   avatarUrl: "",
   caseLayout: [
     { id: "showlogin", label: "Логин", status: true },
-    { id: "showselectcase", label: "Выбрать кейс", status: true },
-    { id: "showcreatecase", label: "Новый кейс", status: true },
+    { id: "showselectcase", label: "Выбрать кейс", status: false },
+    { id: "showcreatecase", label: "Новый кейс", status: false },
 
   ],
   casesArray: []
@@ -56,7 +56,9 @@ function useCaseDispatch() {
   return useContext(CaseDispatchContext);
 }
 
-function Login() {
+function Login({
+  user, email
+}) {
   const myCase = useCase();
   const dispatch = useCaseDispatch();
 
@@ -72,37 +74,57 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // let idPost = firebase.database().ref(userEmail).child("posts").push().key;
-    let selectedCase = {
-      email: e.currentTarget.elements.formEmail.value,
-      user: e.currentTarget.elements.formUser.value,
-    }
-
-    console.log(selectedCase);
-
     dispatch({
       type: "SET_STORE_OBJECT",
       payload: { key: "email", value: e.currentTarget.elements.formEmail.value }
     });
-
     dispatch({
       type: "SET_STORE_OBJECT",
       payload: { key: "user", value: e.currentTarget.elements.formUser.value }
     });
-
-    // dispatch({
-    //   type: "PUSH_ITEM_TO_ARRAY",
-    //   payload: { arrayName: "casesArray", item: selectedCase }
-    // });
+    saveState({
+      application: {
+        user: e.currentTarget.elements.formUser.value,
+        email: e.currentTarget.elements.formEmail.value
+      }
+    });
+    setTimeout(() => {
+      window.location.reload()
+    }, 3000)   
   };
+
+  function quit() {
+    console.log("quit");
+    saveState({
+      application: {
+        user: null,
+        email: null
+      }
+    })
+    setTimeout(() => {
+      window.location.reload()
+    }, 3000)
+  }
+
+  function doContinue() {
+      let updatedCaseLayout = myCase.caseLayout.map(obj => {
+        if (obj.id === "showlogin") {
+          return { id: obj.id, label: obj.label, status: false }
+        }
+        return obj
+      });
+      dispatch({
+        type: "SEED_ARRAY",
+        payload: { arrayName: "caseLayout", arrayItems: updatedCaseLayout }
+      });
+  }
 
 
   return <Container>
     <Form onSubmit={handleSubmit} className="p-3">
       <Form.Group className="mb-3" controlId="formEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder={!!myCase?.email && myCase.email.length > 6 ? myCase.email : "email"} required />
+        <Form.Control type="email" placeholder={!!email && email.length > 6 ? email : "email"} required />
         <Form.Text className="text-muted">
           Пароль НЕ требуется
         </Form.Text>
@@ -110,12 +132,32 @@ function Login() {
 
       <Form.Group className="mb-3" controlId="formUser">
         <Form.Label>ФИО Группа</Form.Label>
-        <Form.Control type="text" placeholder={!!myCase?.user && myCase.user.length > 6 ? myCase.user : "ФИО Группа"} required />
+        <Form.Control type="text" placeholder={!!user && user.length > 6 ? user : "ФИО Группа"} required />
       </Form.Group>
 
-      <Button variant="outline-secondary" size="sm" type="submit">
-        Сохранить
-      </Button>
+      <Container>
+        <Row>
+          <Col>
+            <Button variant="outline-secondary" size="sm" type="submit">
+              Сохранить
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="outline-success" size="sm" onClick={() => doContinue()} >
+              Продолжить
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="outline-danger" size="sm" onClick={() => quit()} >
+              Выйти
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+
+
+
+
     </Form>
   </Container>
 }
@@ -296,7 +338,7 @@ function loadState() {
 const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-   // console.log(serializedState);
+    // console.log(serializedState);
     localStorage.setItem('econolabs', serializedState);
   } catch (err) {
     console.log(err);
@@ -304,7 +346,7 @@ const saveState = (state) => {
 };
 
 
-function useLocalStorageUser() {
+function useLocalStorageUserCraft() {
   const [status, setStatus] = useState({
     loading: true,
     user: false,
@@ -313,27 +355,28 @@ function useLocalStorageUser() {
     posts: []
   });
 
-
   useEffect(() => {
     async function fetchUser() {
       try {
         const user = await loadState();
-        console.log(user.application.email);
         const response = await timeout(5000);
-        const userCrafts = await basicfirebasecrudservices.getFirebaseNode({
-          url: "usersCraft/"+
-          user.application.email.replace(/[^a-zA-Z0-9]/g, "_")
-          + "/posts"
+        const crafts = await basicfirebasecrudservices.getFirebaseNode({
+          url: "usersCraft/" + user.application.email.replace(/[^a-zA-Z0-9]/g, "_"),
+          type: "object"
         });
-       
-
-        console.log(userCrafts);
+        const userMeta = await basicfirebasecrudservices.getFirebaseNode({
+          url: "openavatars/" +
+            user.application.email.replace(/[^a-zA-Z0-9]/g, "_")
+          ,
+          type: "object"
+        });
+        console.log(userMeta?.avatarUrl);
         setStatus({
           loading: false,
-          user: "John Doe",
-          avatarUrl: "../freelancer.jpg",
-          email: "accounting_yandex_ru",
-          posts: userCrafts
+          user: user.application.user,
+          avatarUrl: !!userMeta?.avatarUrl ? userMeta.avatarUrl : null,
+          email: user.application.email,
+          crafts: crafts
         })
       }
       catch (error) {
@@ -342,7 +385,7 @@ function useLocalStorageUser() {
           user: false,
           avatarUrl: false,
           email: false,
-          posts: []
+          crafts: false
         })
       }
     }
@@ -354,32 +397,29 @@ function useLocalStorageUser() {
 
 function AccountingWithProfitsCashLayout() {
 
-  // const {data, loading, error} = basicfirebasecrudservices.useFirebaseNode(
-  //   "usersCraft/accounting_yandex_ru/posts",
-  // { type: "array" }
-  // )
+  const { user, email, crafts, loading } = useLocalStorageUserCraft();
 
-  const { user, posts, loading: userProfileLoading } = useLocalStorageUser();
-
-  if (userProfileLoading) {
+  if (loading) {
     return <div className="card my-5" style={{ width: "640px", height: "480px" }}>
       <img src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         className="card-img-top" alt="loading" />
       <div className="card-body">
-        Loading
+        <div class="text-center">
+          <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     </div>
-
-
   }
-  console.log(posts, user);
+  console.log(crafts, user);
 
   return <AccountingProvider>
     Accounting With Profits Cash Layout
 
     <AccountingNavBar />
     <CreateCase />
-    <Login />
+    <Login user={user} email={email} />
     <SelectCase />
   </AccountingProvider>
 }
