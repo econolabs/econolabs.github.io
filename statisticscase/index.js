@@ -219,11 +219,12 @@ let initialCase = {
   formulaColumnIndex: 0,
   data: createNewDraft(createProtoArray({}, 12, 2)),
   protoData: createProtoArray({}, 12, 2),
-  expandView: false
+  expandView: false,
+  posts: []
 };
 
 function caseReducer(state = {}, action) {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
 
     // case "ADD_BOOK":
@@ -231,6 +232,12 @@ function caseReducer(state = {}, action) {
     //   draft.books.list.push({ ...payload });
     // });
 
+
+    case "SEED_ARRAY":
+      return immer.produce(state, (draft) => {
+        draft[action.payload.arrayName] = action.payload.arrayItems;
+
+      })
 
     case 'LOAD_DATA':
       return immer.produce(state, (draft) => {
@@ -291,11 +298,7 @@ function caseReducer(state = {}, action) {
  
  
        
-         case "SEED_ARRAY":
-           return {
-             ...state,
-             [action.payload.arrayName]: action.payload.arrayItems
-           }
+     
      
          case "PUSH_SOME_ITEMS_TO_ARRAY":
            return {
@@ -591,7 +594,7 @@ function SavePostModal() {
   );
 }
 
-function SelectAndOpenModal() {
+function SelectAndOpenModal({showOpen, handleClose}) {
   const [show, setShow] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState("");
   const [spreadsheets, setSpreadsheets] = useState([]);
@@ -599,20 +602,32 @@ function SelectAndOpenModal() {
   const dispatch = useCaseDispatch();
 
   useEffect(() => {
-    let email = !!mycase && !!mycase?.email && mycase.email.length > 0 ? mycase.email : "test@test.com";
-    console.log(email.replace(/[^a-zA-Z0-9]/g, "_"))
-    getFirebaseNode({
-      url: "usersCraft/" + email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts",
-      type: "array"
-    })
-      .then(res => {
-        let data = res.filter((quiz) => quiz.type === "spreadsheet").filter((post) => !post.deleted);
-        setSpreadsheets(data);
-        setShow(true);
+    if (mycase?.posts && mycase.posts.length > 0) {
+      setSpreadsheets(mycase.posts);
+      setShow(showOpen);
+    } else {
+      let email = !!mycase && !!mycase?.email && mycase.email.length > 0 ? mycase.email : "test@test.com";
+      console.log(email.replace(/[^a-zA-Z0-9]/g, "_"))
+      getFirebaseNode({
+        url: "usersCraft/" + email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts",
+        type: "array"
       })
-  }, [])
+        .then(res => {
+          let data = res.filter((quiz) => quiz.type === "spreadsheet").filter((post) => !post.deleted);
+          setSpreadsheets(data);
+          setShow(showOpen);
+          dispatch({
+            type: "SEED_ARRAY",
+            payload: { arrayName: "posts", arrayItems: data }
+          });
+        })
+    }
+  }, [showOpen])
 
-  const handleClose = () => setShow(false);
+  const doHandleClose = () => {
+    setShow(false);
+    handleClose()
+  }
 
   function closeModalopenSpreadsheet(content, title) {
     console.log(content);
@@ -620,7 +635,8 @@ function SelectAndOpenModal() {
       type: "LOAD_DATA",
       payload: { protoData: content }
     });
-    setTimeout(handleClose(), 3000);
+    handleClose();
+    setShow(false)
   }
 
   let uniqueThemes = !!spreadsheets
@@ -676,12 +692,12 @@ function SelectAndOpenModal() {
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" size="sm" onClick={handleClose}>
+        <Button variant="secondary" size="sm" onClick={doHandleClose}>
           Close
         </Button>
-        <Button variant="primary" size="sm" onClick={handleClose}>
+        {/* <Button variant="primary" size="sm" onClick={handleClose}>
           Save Changes
-        </Button>
+        </Button> */}
       </Modal.Footer>
     </Modal>
   </>
@@ -730,7 +746,11 @@ function PostsButtonGroup(props) {
           data-placement="bottom"
           title="Открыть расчет"
         >
-          Откр
+          {showOpen ? <span
+           className="spinner-grow spinner-grow-sm"
+            role="status" aria-hidden="true">             
+            </span> : "Откр" }
+          
         </Button>
         <Button
           variant="outline-secondary"
@@ -755,7 +775,7 @@ function PostsButtonGroup(props) {
         />
       ) : null}
       {showOpen ? (
-        <SelectAndOpenModal show={showOpen} handleClose={handleClose} {...props} />
+        <SelectAndOpenModal handleClose={handleClose} showOpen={showOpen} />
       ) : null}
     </>
   );
@@ -1208,7 +1228,7 @@ let pages = [
 
 
 
-   {
+  {
     id: 6, formula: "CORREL",
     title: "Коэффициент корреляции двух диапазонов ячеек",
     html: `
@@ -1219,7 +1239,7 @@ let pages = [
       </div>     
    `},
 
-   {
+  {
     id: 7, formula: "CORREL",
     title: "Коэффициент корреляции двух диапазонов ячеек 2",
     html: `
@@ -1231,7 +1251,7 @@ let pages = [
    `},
 
 
-   {
+  {
     id: 8, formula: "CORREL",
     title: "Коэффициент корреляции двух диапазонов ячеек 3",
     html: `
@@ -1243,7 +1263,7 @@ let pages = [
    `},
 
 
-   {
+  {
     id: 9, formula: "COVARIANCE.P",
     title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 1",
     html: `
@@ -1254,7 +1274,7 @@ let pages = [
       </div>     
    `},
 
-   {
+  {
     id: 10, formula: "COVARIANCE.P",
     title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 2",
     html: `
@@ -1266,7 +1286,7 @@ let pages = [
    `},
 
 
-   {
+  {
     id: 11, formula: "COVARIANCE.P",
     title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 3",
     html: `
@@ -1279,7 +1299,7 @@ let pages = [
 
 
 
- 
+
 
 ]
 
@@ -1320,42 +1340,42 @@ function CaseLayout() {
 
 
   const pageNumbers = pages
-  .map((_, index) => {
-    console.log(pageNumber);
-    const pageNumber = index + 1;
-    const isPageNumberFirst = pageNumber === 1;
-    const isPageNumberLast = pageNumber === pagesCount;
-    console.log(currentPage);
-    console.log(Math.abs(pageNumber - currentPage));
-    const isCurrentPageWithinTwoPageNumbers = Math.abs(pageNumber - currentPage)<3 ? true: false
+    .map((_, index) => {
+      // console.log(pageNumber);
+      const pageNumber = index + 1;
+      const isPageNumberFirst = pageNumber === 1;
+      const isPageNumberLast = pageNumber === pagesCount;
+      //  console.log(currentPage);
+      //  console.log(Math.abs(pageNumber - currentPage));
+      const isCurrentPageWithinTwoPageNumbers = Math.abs(pageNumber - currentPage) < 3 ? true : false
 
-    if (
-      isPageNumberFirst ||
-      isPageNumberLast ||
-      isCurrentPageWithinTwoPageNumbers
-    ) {
-      isPageNumberOutOfRange = false;
-      return (
-        <Pagination.Item
-          activeLabel=""
-          key={pageNumber}
-          onClick={() => onPageNumberClick(pageNumber)}
-          active={pageNumber === currentPage}
-        >
-          {pageNumber}
-        </Pagination.Item>
-      );
-    }
+      if (
+        isPageNumberFirst ||
+        isPageNumberLast ||
+        isCurrentPageWithinTwoPageNumbers
+      ) {
+        isPageNumberOutOfRange = false;
+        return (
+          <Pagination.Item
+            activeLabel=""
+            key={pageNumber}
+            onClick={() => onPageNumberClick(pageNumber)}
+            active={pageNumber === currentPage}
+          >
+            {pageNumber}
+          </Pagination.Item>
+        );
+      }
 
-    if (!isPageNumberOutOfRange) {
-      isPageNumberOutOfRange = true;
-      return <Pagination.Ellipsis key={pageNumber} className="muted" />;
-    }
+      if (!isPageNumberOutOfRange) {
+        isPageNumberOutOfRange = true;
+        return <Pagination.Ellipsis key={pageNumber} className="muted" />;
+      }
 
-    return null;
-  });
+      return null;
+    });
 
-  console.log(pages.find(item => item.id === currentPage))
+  //  console.log(pages.find(item => item.id === currentPage))
 
 
   return <Container style={{ padding: 20 }} >
@@ -1363,7 +1383,7 @@ function CaseLayout() {
       <h4>Task {currentPage + " "} {pages.find(item => item.id === currentPage)?.title} </h4>
       <Pagination size="sm" >
         <Pagination.Prev onClick={onPreviousPageClick} />
-          {pageNumbers} 
+        {pageNumbers}
         <Pagination.Next onClick={onNextPageClick} />
       </Pagination>
     </div>
