@@ -267,6 +267,10 @@ function BasicExample() {
         // scrollToTop();
     };
 
+    const onPageNumberClick = pageNumber => {
+      changePage(pageNumber);
+  };
+
     const onPreviousPageClick = () => {
         if (currentPage <= 1) {
             return (changePage(currentPage => currentPage = 1));

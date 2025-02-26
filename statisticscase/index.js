@@ -1,15 +1,21 @@
 'use strict';
 
 //https://daily.dev/blog/form-on-react-best-practices
+//https://www.testkarts.com/blog/post/implementing-pagination-in-react-js-using-react-bootstrap-without-using-library
+//https://www.codingforentrepreneurs.com/blog/create-a-standalone-react-app
+
+
 
 const Button = ReactBootstrap.Button;
 const ButtonGroup = ReactBootstrap.ButtonGroup;
 const Form = ReactBootstrap.Form;
 const Container = ReactBootstrap.Container;
 const Pagination = ReactBootstrap.Pagination;
-//https://www.testkarts.com/blog/post/implementing-pagination-in-react-js-using-react-bootstrap-without-using-library
+
 const Alert = ReactBootstrap.Alert;
 const Modal = ReactBootstrap.Modal;
+const Row = ReactBootstrap.Row;
+const Col = ReactBootstrap.Col;
 
 
 const e = React.createElement;
@@ -19,7 +25,7 @@ const createContext = React.createContext;
 const useContext = React.useContext;
 const useReducer = React.useReducer;
 
-function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
+function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
   Object.keys(protoDataObject).map((objKey) => {
     const [col, ...row] = objKey;
     let currentColIndex = alphabet.findIndex(item => item === col);
@@ -40,6 +46,20 @@ function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
     array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
   });
   return array;
+}
+
+
+function createProtoObject(protoArray) {
+  let protoObject = {};
+  for (var i = 0; i < protoArray.length; i++) {
+    var row = protoArray[i];
+    for (var j = 0; j < row.length; j++) {
+      if (protoArray[i][j] !== "") {
+        protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
+      }
+    }
+  }
+  return protoObject;
 }
 
 function createNewDraft(data) {
@@ -197,8 +217,9 @@ let initialCase = {
   formulaValue: 0,
   formulaRowIndex: 0,
   formulaColumnIndex: 0,
-  data: createNewDraft(createProtoArray({}, 6, 6)),
-  protoData: createProtoArray({}, 6, 6)
+  data: createNewDraft(createProtoArray({}, 12, 2)),
+  protoData: createProtoArray({}, 12, 2),
+  expandView: false
 };
 
 function caseReducer(state = {}, action) {
@@ -209,6 +230,15 @@ function caseReducer(state = {}, action) {
     // return produce(state, (draft) => {
     //   draft.books.list.push({ ...payload });
     // });
+
+
+    case 'LOAD_DATA':
+      return immer.produce(state, (draft) => {
+        draft.data = createNewDraft(action.payload.protoData);
+        draft.protoData = action.payload.protoData;;
+        draft.expandView = true;;
+      });
+
 
 
     case 'UPDATE_FORMULA':
@@ -231,7 +261,7 @@ function caseReducer(state = {}, action) {
     }
 
     case 'NEW_EMPTY_SPREADSHEET': {
-      let protoArray = createProtoArray({}, 6, 6);
+      let protoArray = createProtoArray({}, 12, 2);
       return immer.produce(state, (draft) => {
         draft.protoData = protoArray;
         draft.data = createNewDraft(protoArray);
@@ -241,11 +271,11 @@ function caseReducer(state = {}, action) {
     }
 
 
-    case "SET_STORE_OBJECT": 
-    return immer.produce(state, (draft) => {
-      draft[action.payload.key] = action.payload.value;     
-    });
-     
+    case "SET_STORE_OBJECT":
+      return immer.produce(state, (draft) => {
+        draft[action.payload.key] = action.payload.value;
+      });
+
 
 
     default:
@@ -345,15 +375,15 @@ function LoginLogout() {
   const handleShow = () => setShow(true);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     dispatch({
       type: "SET_STORE_OBJECT",
-      payload: { key: "email", value: e.currentTarget.elements.formEmail.value}
+      payload: { key: "email", value: e.currentTarget.elements.formEmail.value }
     });
     dispatch({
       type: "SET_STORE_OBJECT",
-      payload: { key: "user", value: e.currentTarget.elements.formUser.value}
-    });   
+      payload: { key: "user", value: e.currentTarget.elements.formUser.value }
+    });
     handleClose();
   };
 
@@ -362,9 +392,9 @@ function LoginLogout() {
 
   return (
     <>
-     <span onClick={handleShow} style={{ marginRight: "1rem" }}>
-    {user}
-        </span>
+      <span onClick={handleShow} style={{ marginRight: "1rem" }}>
+        {user}
+      </span>
 
       {/* <Button variant="primary" onClick={handleShow}>
         Launch demo modal
@@ -375,27 +405,28 @@ function LoginLogout() {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body><Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email"        
-         placeholder={email}          
-         />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+          <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email"
+              placeholder={email}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formUser">
-        <Form.Label>User</Form.Label>
-        <Form.Control type="text" 
-        placeholder={user} 
-         />
-      </Form.Group>
-      
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form></Modal.Body>
+          <Form.Group className="mb-3" controlId="formUser">
+            <Form.Label>User</Form.Label>
+            <Form.Control type="text"
+              placeholder={user}
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+        </Modal.Body>
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -411,28 +442,149 @@ function LoginLogout() {
 
 function SavePostModal() {
   const [show, setShow] = useState(false);
+  const mycase = useCase();
+  const [savedSuccessfully, doSavedSuccessfully] = useState(false);
+  const dispatch = useCaseDispatch();
+
+  useEffect(() => {
+    setShow(true)
+  }, [])
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    savePost(
+      e.currentTarget.elements.formTitle.value,
+      e.currentTarget.elements.formComment.value
+    )
+    // dispatch({
+    //   type: "SET_STORE_OBJECT",
+    //   payload: { key: "email", value: e.currentTarget.elements.formEmail.value }
+    // });
+  };
+
+
+
+  function savePost(title, comment) {
+    const content = mycase?.protoData;
+    const email = mycase?.email;
+    const user = mycase?.user;
+    const avatarUrl = mycase?.avatarUrl;
+
+    let currentDay = new Intl.DateTimeFormat("en", {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+      .format(new Date())
+      .replace(/[^a-zA-Z0-9]/g, "_");
+
+    if (email.length > 6) {
+      let userEmail = email.replace(/[^a-zA-Z0-9]/g, "_");
+      let idPost = getFirebaseNodeKey('/usersTemplates/posts/');
+      let postObject = {
+        id: idPost,
+        title: title, // formDataObject.title.length > 2 ? formDataObject.title : props?.title,
+        theme: "Кейсы в Excel",
+        answer: "",
+        comment: comment, // formDataObject.comment, //Тема
+        type: "spreadsheet",
+        content: createProtoObject(content),
+        quizString: "", //!!props?.quizString ? props.quizString : "",
+        deleted: false,
+        email: email,
+        user: user,
+        avatarUrl: !!avatarUrl ? avatarUrl : null,
+        date: new Intl.DateTimeFormat("ru", {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        }).format(new Date()), //Date().toJSON()
+      };
+
+      let currentDayObject = {
+        id: idPost,
+        title: title,
+        theme: "Кейсы в Excel", // theme,
+        email: email,
+        user: user,
+        avatarUrl: !!avatarUrl ? avatarUrl : null,
+        timestamp: +Date.now(),
+      };
+      //  dispatch(createPost(postObject));
+      var updates = {};
+      updates['/usersCraft/' + userEmail + '/posts/' + idPost] = postObject;
+      // updates['/usersTemplates/posts/' + idPost] = postObject;
+      updates['/currentDay/' + currentDay + '/posts/' + idPost] = currentDayObject;
+
+      console.log(updates);
+
+      updateFirebaseNode(updates).then(() => {
+        doSavedSuccessfully(true);
+        setTimeout(() => {
+          handleClose();
+        }, 3000);
+      });
+
+    }
+
+
+
+  }
+
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-      SavePostModal
-      </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formTitle">
+              <Form.Label>Title</Form.Label>
+              <Form.Control type="text"
+                placeholder={"Заголовок"}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formComment">
+              <Form.Label>Comment</Form.Label>
+              <Form.Control type="text"
+                placeholder={"Комментарий"}
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Сохранить
+            </Button>
+          </Form>
+
+
+          {/* {savedSuccessfully ? "Сохранено" :  
+          <Button
+            variant="outline-secondary"
+            onClick={() => savePost()}>
+            Сохранить шаблон
+          </Button>
+          */}
+
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" size="sm" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
@@ -440,7 +592,99 @@ function SavePostModal() {
 }
 
 function SelectAndOpenModal() {
-  return <div>Select And Open Modal</div>
+  const [show, setShow] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState("");
+  const [spreadsheets, setSpreadsheets] = useState([]);
+  let mycase = useCase();
+  const dispatch = useCaseDispatch();
+
+  useEffect(() => {
+    let email = !!mycase && !!mycase?.email && mycase.email.length > 0 ? mycase.email : "test@test.com";
+    console.log(email.replace(/[^a-zA-Z0-9]/g, "_"))
+    getFirebaseNode({
+      url: "usersCraft/" + email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts",
+      type: "array"
+    })
+      .then(res => {
+        let data = res.filter((quiz) => quiz.type === "spreadsheet").filter((post) => !post.deleted);
+        setSpreadsheets(data);
+        setShow(true);
+      })
+  }, [])
+
+  const handleClose = () => setShow(false);
+
+  function closeModalopenSpreadsheet(content, title) {
+    console.log(content);
+    dispatch({
+      type: "LOAD_DATA",
+      payload: { protoData: content }
+    });
+    setTimeout(handleClose(), 3000);
+  }
+
+  let uniqueThemes = !!spreadsheets
+    ? [...new Set(spreadsheets.map((item) => item.theme))]
+    : [];
+
+  // if (!show) {
+  //   return <div className="spinner-grow-sm" style="width: 3rem; height: 3rem;" role="status">
+  //     <span className="visually-hidden">Loading...</span>
+  //   </div>
+  // }
+
+  return <>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal heading</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+
+        {!!uniqueThemes &&
+          uniqueThemes.map((theme) =>
+            <Button
+              key={theme}
+              variant="outline-secondary"
+              onClick={() => setSelectedTheme(theme)}
+              className="m-1"
+              size="sm"
+            >
+              {theme}
+            </Button>
+          )}
+
+        <Container>
+          {spreadsheets
+            .filter((quiz) => quiz.theme === selectedTheme)
+            .map((calc, index) =>
+              // {data.map(calc =>
+              <Row className="justify-content-md-center" key={index}>
+                <Col md="auto">
+                  <Button variant="outline-secondary"
+                    size="sm"
+                    onClick={() => closeModalopenSpreadsheet(createProtoArray(calc.content), calc.title)}>
+                    Откр
+                  </Button>
+                </Col>
+                <Col>{calc.title}</Col>
+                <Col>{calc.comment}</Col>
+              </Row>
+            )}
+        </Container>
+
+
+
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" size="sm" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary" size="sm" onClick={handleClose}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </>
 }
 
 function PostsButtonGroup(props) {
@@ -523,8 +767,8 @@ function FormulaBlock() {
   const [formula, setFormula] = useState('');
   const dispatch = useCaseDispatch();
 
-let formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase. formulaRowIndex: 0;
-let formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
+  let formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
+  let formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
@@ -551,7 +795,7 @@ let formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formu
         formulaRowIndex: formulaRowIndex,
         formulaColumnIndex: formulaColumnIndex
       }
-    } );
+    });
     setFormula("");
 
   }
@@ -751,7 +995,7 @@ function SpreadsheetLayout({
   const [expandView, toggle_expand_view] = useState(false);
 
   const mycase = useCase();
- // const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
+  // const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
 
   let avatarUrl = !!mycase && mycase?.avatarUrl ? mycase.avatarUrl : '../freelancer.jpg';
   let email = !!mycase && mycase?.email ? mycase.email : "johndoe@gmail.com";
@@ -900,8 +1144,238 @@ function SpreadsheetLayout({
   </div>
 }
 
+//https://support.microsoft.com/en-us/office/statistical-functions-reference-624dac86-a375-4435-bc25-76d659719ffd
+let pages = [
+  {
+    id: 1,
+    formula: "AVERAGE",
+    title: "Среднее значение",
+    html: `
+      <div class="alert alert-primary" role="alert">
+  Введите в колонку заголовок и 11 цифр. Рассчитайте для них среднее значение 
+      </div>
+      <div>
+      Returns the average (arithmetic mean) of the arguments. For example, if the range A1:A20 contains numbers, the formula =AVERAGE(A1:A20) returns the average of those numbers.<br><hr>
+   Возвращает среднее (среднее арифметическое) аргументов. Например, если диапазон A1:A20 содержит числа, формула =AVERAGE(A1:A20) возвращает среднее значение этих чисел.
+      </div>   
+   `},
+
+  {
+    id: 2, formula: "MIN",
+    title: "Минимальное значение",
+    html: `
+     <div class="alert alert-primary" role="alert">
+Введите в колонку заголовок и 11 цифр. Рассчитайте для них минимальное значение 
+    </div>    
+ `},
+
+  {
+    id: 3, formula: "MAX",
+    title: "Максимальное значение",
+    html: `
+   <div class="alert alert-primary" role="alert">
+Введите в колонку заголовок и 11 цифр. Рассчитайте для них максимальное значение
+  </div>    
+`},
+
+
+
+
+
+  {
+    id: 4, formula: "AVEDEV",
+    title: "Среднее абсолютных значений отклонений точек данных от среднего",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в колонку заголовок и 11 цифр. Рассчитайте для них среднее абсолютных значений отклонений точек данных от среднего 
+      </div>
+      <div>
+   Returns the average of the absolute deviations of data points from their mean.<br><hr>
+   Возвращает среднее абсолютных значений отклонений точек данных от среднего. СРОТКЛ является мерой разброса множества данных.<br>
+   Уравнение для среднего отклонения<br>
+   <img src='https://cxcs.microsoft.net/static/public/office/ru-ru/2c328fff-b4af-4e42-bb34-4f7bf5e2e85c/ee16ba75f4d39db65ad8550c92983268af136c0b.gif' />
+   </div>
+   `},
+
+  {
+    id: 5, formula: "DEVSQ",
+    title: "Сумма квадратов отклонений точек данных от их среднего",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в колонку заголовок и 11 цифр. Рассчитайте для них сумму квадратов отклонений точек данных от их среднего 
+      </div>     
+   `},
+
+
+
+   {
+    id: 6, formula: "CORREL",
+    title: "Коэффициент корреляции двух диапазонов ячеек",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две  колонки заголовок и по 11 цифр. Во второй колонке все цифры ВДВОЕ больше.<br>
+  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
+  Сделайте вывод
+      </div>     
+   `},
+
+   {
+    id: 7, formula: "CORREL",
+    title: "Коэффициент корреляции двух диапазонов ячеек 2",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две колонки заголовок и по 11 цифр. В первой колонке числа увеличиваются, во второй уменьшаются.<br>
+  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
+  Сделайте вывод
+      </div>     
+   `},
+
+
+   {
+    id: 8, formula: "CORREL",
+    title: "Коэффициент корреляции двух диапазонов ячеек 3",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две колонки заголовок и по 11 цифр. Все цифры рандомные.<br>
+  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
+  Сделайте вывод
+      </div>     
+   `},
+
+
+   {
+    id: 9, formula: "COVARIANCE.P",
+    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 1",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две  колонки заголовок и по 11 цифр. Во второй колонке все цифры ВДВОЕ больше.<br>
+  Рассчитайте для них ковариацию двух диапазонов ячеек<br>
+  Сделайте вывод
+      </div>     
+   `},
+
+   {
+    id: 10, formula: "COVARIANCE.P",
+    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 2",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две колонки заголовок и по 11 цифр. В первой колонке числа увеличиваются, во второй уменьшаются.<br>
+ Рассчитайте для них ковариацию двух диапазонов ячеек<br>
+  Сделайте вывод
+      </div>     
+   `},
+
+
+   {
+    id: 11, formula: "COVARIANCE.P",
+    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 3",
+    html: `
+       <div class="alert alert-primary" role="alert">
+  Введите в две колонки заголовок и по 11 цифр. Все цифры рандомные.<br>
+  Рассчитайте для них ковариацию двух диапазонов ячеек<br>
+  Сделайте вывод
+      </div>     
+   `},
+
+
+
+ 
+
+]
+
+function CaseLayout() {
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const changePage = number => {
+    if (currentPage === number) return;
+    setCurrentPage(number);
+    // scrollToTop();
+  };
+
+  const onPageNumberClick = pageNumber => {
+    changePage(pageNumber);
+  };
+
+  const onPreviousPageClick = () => {
+    if (currentPage <= 1) {
+      return (changePage(currentPage => currentPage = 1));
+    } else {
+      changePage(currentPage => currentPage - 1);
+    }
+
+  };
+
+  const onNextPageClick = () => {
+    changePage(currentPage => currentPage + 1);
+  };
+
+
+
+  let itemsPerPage = 1;
+  let itemsCount = pages.length;
+  const pagesCount = Math.ceil(itemsCount / itemsPerPage);
+
+  let isPageNumberOutOfRange;
+
+
+  const pageNumbers = pages
+  .map((_, index) => {
+    console.log(pageNumber);
+    const pageNumber = index + 1;
+    const isPageNumberFirst = pageNumber === 1;
+    const isPageNumberLast = pageNumber === pagesCount;
+    console.log(currentPage);
+    console.log(Math.abs(pageNumber - currentPage));
+    const isCurrentPageWithinTwoPageNumbers = Math.abs(pageNumber - currentPage)<3 ? true: false
+
+    if (
+      isPageNumberFirst ||
+      isPageNumberLast ||
+      isCurrentPageWithinTwoPageNumbers
+    ) {
+      isPageNumberOutOfRange = false;
+      return (
+        <Pagination.Item
+          activeLabel=""
+          key={pageNumber}
+          onClick={() => onPageNumberClick(pageNumber)}
+          active={pageNumber === currentPage}
+        >
+          {pageNumber}
+        </Pagination.Item>
+      );
+    }
+
+    if (!isPageNumberOutOfRange) {
+      isPageNumberOutOfRange = true;
+      return <Pagination.Ellipsis key={pageNumber} className="muted" />;
+    }
+
+    return null;
+  });
+
+  console.log(pages.find(item => item.id === currentPage))
+
+
+  return <Container style={{ padding: 20 }} >
+    <div style={{ display: 'block', maxWidth: 900, padding: 10 }}>
+      <h4>Task {currentPage + " "} {pages.find(item => item.id === currentPage)?.title} </h4>
+      <Pagination size="sm" >
+        <Pagination.Prev onClick={onPreviousPageClick} />
+          {pageNumbers} 
+        <Pagination.Next onClick={onNextPageClick} />
+      </Pagination>
+    </div>
+    <div
+      dangerouslySetInnerHTML={{ __html: pages.find(item => item.id === currentPage)?.html }}>
+    </div>
+  </Container>
+}
+
 function SpreadsheetCase() {
   return <CaseProvider>
+    <CaseLayout />
     <SpreadsheetLayout />
   </CaseProvider>
 }
