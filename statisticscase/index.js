@@ -25,6 +25,7 @@ const createContext = React.createContext;
 const useContext = React.useContext;
 const useReducer = React.useReducer;
 
+
 function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
   Object.keys(protoDataObject).map((objKey) => {
     const [col, ...row] = objKey;
@@ -49,23 +50,8 @@ function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
 }
 
 
-function createProtoObject(protoArray) {
-  let protoObject = {};
-  for (var i = 0; i < protoArray.length; i++) {
-    var row = protoArray[i];
-    for (var j = 0; j < row.length; j++) {
-      if (protoArray[i][j] !== "") {
-        protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
-      }
-    }
-  }
-  return protoObject;
-}
 
 function createNewDraft(data) {
-  //let newdata = JSON.parse(JSON.stringify(data));
-  //let formulas = [];
-
   const newdata = immer.produce(data, draft => {
     let oneMoreLoop = true;
     while (oneMoreLoop) {
@@ -223,131 +209,12 @@ let initialCase = {
   posts: []
 };
 
-function caseReducer(state = {}, action) {
-  // console.log(action);
-  switch (action.type) {
 
-    // case "ADD_BOOK":
-    // return produce(state, (draft) => {
-    //   draft.books.list.push({ ...payload });
-    // });
-
-
-    case "SEED_ARRAY":
-      return immer.produce(state, (draft) => {
-        draft[action.payload.arrayName] = action.payload.arrayItems;
-
-      })
-
-    case 'LOAD_DATA':
-      return immer.produce(state, (draft) => {
-        draft.data = createNewDraft(action.payload.protoData);
-        draft.protoData = action.payload.protoData;;
-        draft.expandView = true;;
-      });
-
-
-
-    case 'UPDATE_FORMULA':
-      return immer.produce(state, (draft) => {
-        draft.formulaValue = action.payload.formulaValue;
-        draft.formulaRowIndex = action.payload.formulaRowIndex;
-        draft.formulaColumnIndex = action.payload.formulaColumnIndex;
-      });
-
-
-
-    case 'UPDATE_DATA': {
-      return immer.produce(state, (draft) => {
-        let newProtoData = draft.protoData;
-        newProtoData[action.payload.rowIndex][action.payload.columnIndex] = action.payload.value;
-        draft.data = createNewDraft(newProtoData);
-        draft.protoData = newProtoData;
-
-      })
-    }
-
-    case 'NEW_EMPTY_SPREADSHEET': {
-      let protoArray = createProtoArray({}, 12, 2);
-      return immer.produce(state, (draft) => {
-        draft.protoData = protoArray;
-        draft.data = createNewDraft(protoArray);
-        draft.formulaValue = protoArray[0][0];
-        draft.expandView = true;
-      })
-    }
-
-
-    case "SET_STORE_OBJECT":
-      return immer.produce(state, (draft) => {
-        draft[action.payload.key] = action.payload.value;
-      });
-
-
-
-    default:
-      return state;
-  }
-  ;
-
-  /*  switch (action.type) {
- 
-   
- 
- 
- 
- 
-       
-     
-     
-         case "PUSH_SOME_ITEMS_TO_ARRAY":
-           return {
-             ...state,
-             [action.payload.arrayName]: [
-               ...state[action.payload.arrayName],
-               ...action.payload.newArrayItems
-             ]
-           }
-     
-     
-         case "PUSH_ITEM_TO_ARRAY":
-           let pushnewarray = [...state[action.payload.arrayName]].push(action.payload.item);
-           return {
-             ...state,
-             [action.payload.arrayName]: pushnewarray
-           }
-     
-         case "DELETE_ITEM_FROM_ARRAY":
-           let deletenewarray = [...state[action.payload.arrayName]].filter(item => item.id !== action.payload.item.id);
-           return {
-             ...state,
-             [action.payload.arrayName]: deletenewarray
-           }
-     
-     
-         case "UPDATE_ITEM_IN_ARRAY":
-           const index = state[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
-           if (index !== -1) {
-             let updatenewarray = [...state[action.payload.arrayName]]
-             updatenewarray[index] = action.payload.item
-             return {
-               ...state,
-               [action.payload.arrayName]: updatenewarray
-             }
-     
-           } else {
-             return { ...state }
-           }
-     
-         default:
-           return { ...state }
-       } */
-};
 
 
 function CaseProvider({ children }) {
   const [mycase, dispatch] = useReducer(
-    caseReducer,
+    window.caseReducer,
     initialCase
   );
 
@@ -594,7 +461,7 @@ function SavePostModal() {
   );
 }
 
-function SelectAndOpenModal({showOpen, handleClose}) {
+function SelectAndOpenModal({ showOpen, handleClose }) {
   const [show, setShow] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState("");
   const [spreadsheets, setSpreadsheets] = useState([]);
@@ -629,11 +496,15 @@ function SelectAndOpenModal({showOpen, handleClose}) {
     handleClose()
   }
 
+
   function closeModalopenSpreadsheet(content, title) {
     console.log(content);
     dispatch({
       type: "LOAD_DATA",
-      payload: { protoData: content }
+      payload: {
+        data: createNewDraft(content),
+        protoData: content
+      }
     });
     handleClose();
     setShow(false)
@@ -715,15 +586,22 @@ function PostsButtonGroup(props) {
   const handleSaveShow = () => setShowSave(true);
   const handleOpenShow = () => setShowOpen(true);
 
+
+
   return (
     <>
       <ButtonGroup aria-label="Posts Buttons" size="sm">
         <Button
           variant="outline-secondary"
-          onClick={() => dispatch({
-            type: 'NEW_EMPTY_SPREADSHEET',
-            payload: {}
-          })}
+          onClick={() =>
+            dispatch({
+              type: "NEW_EMPTY_SPREADSHEET",
+              payload: {
+                data: createNewDraft(createProtoArray({}, 12, 2)),
+                protoData: content
+              }
+            })
+          }
           data-toggle="tooltip"
           data-placement="bottom"
           title="Новый расчет"
@@ -747,10 +625,10 @@ function PostsButtonGroup(props) {
           title="Открыть расчет"
         >
           {showOpen ? <span
-           className="spinner-grow spinner-grow-sm"
-            role="status" aria-hidden="true">             
-            </span> : "Откр" }
-          
+            className="spinner-grow spinner-grow-sm"
+            role="status" aria-hidden="true">
+          </span> : "Откр"}
+
         </Button>
         <Button
           variant="outline-secondary"
@@ -798,13 +676,14 @@ function FormulaBlock() {
 
   function handleSubmit() {
     let valueChecked = isNaN(formula) ? !!formula ? formula : "" : +formula;
+    let newProtoData = mycase?.protoData;
+    newProtoData[formulaRowIndex][formulaColumnIndex] = valueChecked;
 
     dispatch({
-      type: "UPDATE_DATA",
+      type: "LOAD_DATA",
       payload: {
-        rowIndex: formulaRowIndex,
-        columnIndex: formulaColumnIndex,
-        value: valueChecked,
+        data: createNewDraft(newProtoData),
+        protoData: newProtoData
       }
     });
 
@@ -933,6 +812,28 @@ function ActiveCells() {
   );
 }
 
+function useDebounce(value, delay) {
+  // value and delay in ms (1000ms = 1s)
+  // debounced values
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(
+    () => {
+      // Update debounced value after delay
+      const t = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+
+      // clean up the timeout after value changes
+      return () => {
+        clearTimeout(t);
+      };
+    },
+    [value, delay] // re-run if value or delay changes
+  );
+  return debouncedValue;
+}
+
 function Cell({
   rowIndex = 0,
   columnIndex = 0,
@@ -944,36 +845,70 @@ function Cell({
   const proDataValue = !!mycase && !!mycase?.data ?
     mycase?.protoData[rowIndex][columnIndex] : "";
   const [value, setValue] = useState(data);
-
+  const debouncedValue = useDebounce(value, 2000);
   const dispatch = useCaseDispatch();
 
-
   useEffect(() => {
-    setValue(data);
-  }, [data]);
+    if (debouncedValue) {
+      updateCellValue(debouncedValue)
+    }
+      setValue(data);
+  }, [debouncedValue, data]);
+
+  function updateCellValue(value) {
+    let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
+
+    dispatch({
+      type: "UPDATE_FORMULA",
+      payload: {
+        formulaRowIndex: rowIndex,
+        formulaColumnIndex: columnIndex,
+        formulaValue: !!value ? value : "",
+      }
+    });
+
+    const newProtoData = immer.produce(mycase?.protoData, draft => {
+      draft[rowIndex][columnIndex] = valueChecked
+    })
+
+    dispatch({
+      type: "LOAD_DATA",
+      payload: {
+        data: createNewDraft(newProtoData),
+        protoData: newProtoData
+      }
+    });
+  }
+
+
+ 
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
-      let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
+      updateCellValue(value);
 
-      dispatch({
-        type: "UPDATE_FORMULA",
-        payload: {
-          formulaRowIndex: rowIndex,
-          formulaColumnIndex: columnIndex,
-          formulaValue: !!value ? value : "",
-        }
-      });
+      // let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
 
+      // dispatch({
+      //   type: "UPDATE_FORMULA",
+      //   payload: {
+      //     formulaRowIndex: rowIndex,
+      //     formulaColumnIndex: columnIndex,
+      //     formulaValue: !!value ? value : "",
+      //   }
+      // });
 
-      dispatch({
-        type: "UPDATE_DATA",
-        payload: {
-          rowIndex: rowIndex,
-          columnIndex: columnIndex,
-          value: valueChecked,
-        }
-      });
+      // const newProtoData = immer.produce(mycase?.protoData, draft => {
+      //   draft[rowIndex][columnIndex] = valueChecked
+      // })
+
+      // dispatch({
+      //   type: "LOAD_DATA",
+      //   payload: {
+      //     data: createNewDraft(newProtoData),
+      //     protoData: newProtoData
+      //   }
+      // });
 
     }
   }
@@ -1064,7 +999,16 @@ function SpreadsheetLayout({
           :
           <ButtonGroup aria-label="Posts Buttons" size="sm">
             <Button variant="outline-secondary"
-              onClick={() => dispatch(new_empty_spreadsheet())}
+              onClick={() =>
+                dispatch({
+                  type: "NEW_EMPTY_SPREADSHEET",
+                  payload: {
+                    data: createNewDraft(createProtoArray({}, 12, 2)),
+                    protoData: content
+                  }
+                })
+
+              }
               data-toggle="tooltip"
               data-placement="bottom"
               title="Новый расчет"

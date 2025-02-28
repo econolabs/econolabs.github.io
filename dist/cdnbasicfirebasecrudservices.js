@@ -1,7 +1,9 @@
 import { getApps, deleteApp, initializeApp } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js';
 import { getDatabase, get, ref, update, push, child } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js';
+import { produce } from "https://unpkg.com/immer@10.1.1/dist/immer.production.mjs"
 
-console.log("basicfirebasecrudservices");
+console.log("cdnbasicfirebasecrudservices");
+
 
 //Firebase
 
@@ -125,6 +127,191 @@ function commonReducer(state = {}, action) {
     }
 };
 
+
+
+
+function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
+    Object.keys(protoDataObject).map((objKey) => {
+        const [col, ...row] = objKey;
+        let currentColIndex = alphabet.findIndex(item => item === col);
+        if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
+        if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
+    });
+    //  console.log(maxColumn, maxRow);
+
+    var array = new Array(maxRow);
+    for (var i = 0; i < array.length; i++) {
+        array[i] = Array(maxColumn + 1).fill('');
+    }
+
+    Object.keys(protoDataObject).map((objKey) => {
+        const [col, ...row] = objKey;
+        let colArrayIndex = alphabet.findIndex((item) => item === col);
+        let rowArrayIndex = parseInt(row) - 1;
+        array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+    });
+    return array;
+}
+
+
+function createProtoObject(protoArray) {
+    let protoObject = {};
+    for (var i = 0; i < protoArray.length; i++) {
+        var row = protoArray[i];
+        for (var j = 0; j < row.length; j++) {
+            if (protoArray[i][j] !== "") {
+                protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
+            }
+        }
+    }
+    return protoObject;
+}
+
+function caseReducer(state = {}, action) {
+    // console.log(action);
+    switch (action.type) {
+
+        // case "ADD_BOOK":
+        // return produce(state, (draft) => {
+        //   draft.books.list.push({ ...payload });
+        // });
+
+
+        case "SEED_ARRAY":
+            return produce(state, (draft) => {
+                draft[action.payload.arrayName] = action.payload.arrayItems;
+
+            })
+
+        case 'LOAD_DATA':
+            return produce(state, (draft) => {
+                draft.data = action.payload.data;
+                draft.protoData = action.payload.protoData;;
+                draft.expandView = true;
+            });
+
+
+        case 'NEW_EMPTY_SPREADSHEET': {
+            return produce(state, (draft) => {
+                draft.data = action.payload.data;
+                draft.protoData = action.payload.protoData;;
+                draft.formulaValue = action.payload.protoData[0][0];
+                draft.expandView = true;
+            })
+        }
+
+
+
+        case 'UPDATE_FORMULA':
+            return produce(state, (draft) => {
+                draft.formulaValue = action.payload.formulaValue;
+                draft.formulaRowIndex = action.payload.formulaRowIndex;
+                draft.formulaColumnIndex = action.payload.formulaColumnIndex;
+            });
+
+
+
+
+
+
+        case "SET_STORE_OBJECT":
+            return produce(state, (draft) => {
+                draft[action.payload.key] = action.payload.value;
+            });
+
+
+
+        default:
+            return state;
+    }
+    ;
+
+    //   case 'UPDATE_DATA': {
+    //     return produce(state, (draft) => {
+    //       let newProtoData = draft.protoData;
+    //       newProtoData[action.payload.rowIndex][action.payload.columnIndex] = action.payload.value;
+    //       draft.data = createNewDraft(newProtoData);
+    //       draft.protoData = newProtoData;  
+    //     })
+    //   }
+
+    //   case 'NEW_EMPTY_SPREADSHEET': {
+    //     let protoArray = createProtoArray({}, 12, 2);
+    //     return produce(state, (draft) => {
+    //       draft.protoData = protoArray;
+    //       draft.data = createNewDraft(protoArray);
+    //       draft.formulaValue = protoArray[0][0];
+    //       draft.expandView = true;
+    //     })
+    //   }
+
+    /*  switch (action.type) {
+   
+           case "PUSH_SOME_ITEMS_TO_ARRAY":
+             return {
+               ...state,
+               [action.payload.arrayName]: [
+                 ...state[action.payload.arrayName],
+                 ...action.payload.newArrayItems
+               ]
+             }
+       
+       
+           case "PUSH_ITEM_TO_ARRAY":
+             let pushnewarray = [...state[action.payload.arrayName]].push(action.payload.item);
+             return {
+               ...state,
+               [action.payload.arrayName]: pushnewarray
+             }
+       
+           case "DELETE_ITEM_FROM_ARRAY":
+             let deletenewarray = [...state[action.payload.arrayName]].filter(item => item.id !== action.payload.item.id);
+             return {
+               ...state,
+               [action.payload.arrayName]: deletenewarray
+             }
+       
+       
+           case "UPDATE_ITEM_IN_ARRAY":
+             const index = state[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
+             if (index !== -1) {
+               let updatenewarray = [...state[action.payload.arrayName]]
+               updatenewarray[index] = action.payload.item
+               return {
+                 ...state,
+                 [action.payload.arrayName]: updatenewarray
+               }
+       
+             } else {
+               return { ...state }
+             }
+       
+           default:
+             return { ...state }
+         } */
+};
+
+
+window.getFirebaseNode = getFirebaseNode;
+window.getFirebaseNodeKey = getFirebaseNodeKey;
+window.updateFirebaseNode = updateFirebaseNode;
+window.caseReducer = caseReducer;
+window.createProtoArray = createProtoArray;
+window.createProtoObject = createProtoObject;
+window.produce = produce;
+
+
+export {
+    getFirebaseNode,
+    updateFirebaseNode,
+    getFirebaseNodeKey,
+    commonReducer,
+
+
+    produce,
+    createProtoArray,
+    createProtoObject
+}
 
 
 // export const fincalculationsApi = createApi({
@@ -288,59 +475,3 @@ function commonReducer(state = {}, action) {
 //         // }),
 //     }),
 // })
-
-function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
-    Object.keys(protoDataObject).map((objKey) => {
-      const [col, ...row] = objKey;
-      let currentColIndex = alphabet.findIndex(item => item === col);
-      if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
-      if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
-    });
-    //  console.log(maxColumn, maxRow);
-  
-    var array = new Array(maxRow);
-    for (var i = 0; i < array.length; i++) {
-      array[i] = Array(maxColumn + 1).fill('');
-    }
-  
-    Object.keys(protoDataObject).map((objKey) => {
-      const [col, ...row] = objKey;
-      let colArrayIndex = alphabet.findIndex((item) => item === col);
-      let rowArrayIndex = parseInt(row) - 1;
-      array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
-    });
-    return array;
-  }
-  
-  
-  function createProtoObject(protoArray) {
-    let protoObject = {};
-    for (var i = 0; i < protoArray.length; i++) {
-      var row = protoArray[i];
-      for (var j = 0; j < row.length; j++) {
-        if (protoArray[i][j] !== "") {
-          protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
-        }
-      }
-    }
-    return protoObject;
-  }
-
-
-
-window.getFirebaseNode = getFirebaseNode;
-window.getFirebaseNodeKey = getFirebaseNodeKey;
-window.updateFirebaseNode = updateFirebaseNode;
-window.createProtoArray = createProtoArray;
-window.createProtoObject = createProtoObject;
-
-
-export {
-    getFirebaseNode,
-    updateFirebaseNode,
-    getFirebaseNodeKey,
-    commonReducer,
-
-    createProtoArray,
-    createProtoObject
-}

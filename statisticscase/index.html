@@ -7,9 +7,11 @@
   <link href="../dist/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link href="./spreadsheet.css" rel="stylesheet">
   <script src="
-https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js
-"></script>
+https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
 <script src="https://unpkg.com/immer@6.0.3/dist/immer.umd.production.min.js "></script>
+
+
+
 
 </head>
 
@@ -52,19 +54,15 @@ https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js
   <!-- Load React. -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js".
   https://www.codingforentrepreneurs.com/blog/create-a-standalone-react-app 
-  -->
-  <script type="module" data-presets="env,react" src="../dist/basicfirebasecrudservices.js"></script>
+   <script type="module" data-presets="env,react" src="../dist/basicfirebasecrudservices.js"></script>
+   -->
   <script src="../dist/react.production.min.js" crossorigin></script>
   <script src="../dist/react-dom.production.min.js" crossorigin></script>
   <script src="../dist/react-bootstrap.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-
-  <script type="text/babel" data-presets="env,react" data-type="module" src="./index.js" async></script>
-
-  <script type="text/babel" data-type="module" src="./basicfirebasecrudservices.js" async></script>
- 
- 
+  <script type="text/babel" data-presets="env,react" data-type="module" src="./index.js" async></script> 
+  <script type="text/babel" data-type="module" src="../dist/cdnbasicfirebasecrudservices.js" async></script>
 
 </body>
 
