@@ -206,7 +206,8 @@ let initialCase = {
   data: createNewDraft(createProtoArray({}, 12, 2)),
   protoData: createProtoArray({}, 12, 2),
   expandView: false,
-  posts: []
+  posts: [],
+  selectedPage: null
 };
 
 
@@ -852,7 +853,7 @@ function Cell({
     if (debouncedValue) {
       updateCellValue(debouncedValue)
     }
-      setValue(data);
+    setValue(data);
   }, [debouncedValue, data]);
 
   function updateCellValue(value) {
@@ -881,7 +882,7 @@ function Cell({
   }
 
 
- 
+
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
@@ -1247,7 +1248,7 @@ let pages = [
 
 ]
 
-function CaseLayout() {
+function PaginationLayout({ pages, doSelectId }) {
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -1259,6 +1260,7 @@ function CaseLayout() {
 
   const onPageNumberClick = pageNumber => {
     changePage(pageNumber);
+    doSelectId(pages[pageNumber - 1].id)
   };
 
   const onPreviousPageClick = () => {
@@ -1331,16 +1333,48 @@ function CaseLayout() {
         <Pagination.Next onClick={onNextPageClick} />
       </Pagination>
     </div>
-    <div
-      dangerouslySetInnerHTML={{ __html: pages.find(item => item.id === currentPage)?.html }}>
-    </div>
+
   </Container>
+}
+
+function ShowPage({
+  pageMarkup
+}) {
+  
+  return <div
+   className="m-1 text-secondary"
+   dangerouslySetInnerHTML={{ __html: pageMarkup}}
+   />
+}
+
+function doPreparePage() {
+  const mycase = useCase();
+  console.log(mycase);
+  if (!!mycase?.selectedPage?.html) {
+    return <ShowPage pageMarkup={mycase.selectedPage.html}/>
+  }
+  return <div className="m-1 text-secondary">Выберите страницу</div>
+}
+
+function App() {
+  const dispatch = useCaseDispatch();
+  function doSelectId(id) {
+    dispatch({
+      type: "SET_STORE_OBJECT",
+      payload: { key: "selectedPage", value: pages.find(item => item.id === id) }
+    });
+    //  console.log(id)
+  }
+  return <div>
+    <PaginationLayout pages={pages} doSelectId={doSelectId} />
+    <doPreparePage />
+    <SpreadsheetLayout />
+  </div>
 }
 
 function SpreadsheetCase() {
   return <CaseProvider>
-    <CaseLayout />
-    <SpreadsheetLayout />
+    <App />
   </CaseProvider>
 }
 
