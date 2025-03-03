@@ -847,7 +847,7 @@ function Cell({
   const proDataValue = !!mycase && !!mycase?.protoData ?
     mycase?.protoData[rowIndex][columnIndex] : "";
   const [value, setValue] = useState(data);
-  const debouncedValue = useDebounce(value, 2000);
+  const debouncedValue = useDebounce(value, 1000);
   const dispatch = useCaseDispatch();
 
   useEffect(() => {
@@ -856,7 +856,7 @@ function Cell({
     }
     setValue(data);
     console.log(debouncedValue);
-  }, [debouncedValue, data]);
+  }, [debouncedValue]);
 
   function updateCellValue(updatedValue) {
     console.log(updatedValue);
