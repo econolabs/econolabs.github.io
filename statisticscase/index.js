@@ -788,7 +788,8 @@ function ActiveCells() {
   const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
   const formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
 
-  console.log(mycase);
+ // console.log(mycase?.data);
+ // console.log(mycase?.protoData);
 
   return (
     <>
@@ -843,7 +844,7 @@ function Cell({
   const mycase = useCase();
   const data = !!mycase && !!mycase?.data ?
     mycase?.data[rowIndex][columnIndex] : "";
-  const proDataValue = !!mycase && !!mycase?.data ?
+  const proDataValue = !!mycase && !!mycase?.protoData ?
     mycase?.protoData[rowIndex][columnIndex] : "";
   const [value, setValue] = useState(data);
   const debouncedValue = useDebounce(value, 2000);
@@ -854,31 +855,36 @@ function Cell({
       updateCellValue(debouncedValue)
     }
     setValue(data);
+    console.log(debouncedValue);
   }, [debouncedValue, data]);
 
-  function updateCellValue(value) {
-    let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
-
-    dispatch({
-      type: "UPDATE_FORMULA",
-      payload: {
-        formulaRowIndex: rowIndex,
-        formulaColumnIndex: columnIndex,
-        formulaValue: !!value ? value : "",
-      }
-    });
-
+  function updateCellValue(updatedValue) {
+    console.log(updatedValue);
+    let valueChecked = isNaN(updatedValue) ? !!updatedValue ? updatedValue : "" : +updatedValue;
+    console.log(valueChecked);
     const newProtoData = immer.produce(mycase?.protoData, draft => {
       draft[rowIndex][columnIndex] = valueChecked
     })
 
-    dispatch({
+    console.log(newProtoData);
+
+   dispatch({
       type: "LOAD_DATA",
       payload: {
         data: createNewDraft(newProtoData),
         protoData: newProtoData
       }
     });
+
+   dispatch({
+        type: "UPDATE_FORMULA",
+        payload: {
+          formulaRowIndex: rowIndex,
+          formulaColumnIndex: columnIndex,
+          formulaValue: !!valueChecked ? valueChecked : "",
+        }
+      });
+   
   }
 
 
@@ -886,10 +892,23 @@ function Cell({
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
-      updateCellValue(value);
 
-      // let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
+      let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
 
+      const newProtoData = immer.produce(mycase?.protoData, draft => {
+        draft[rowIndex][columnIndex] = valueChecked
+      })
+      
+
+      dispatch({
+        type: "LOAD_DATA",
+        payload: {
+          data: createNewDraft(newProtoData),
+          protoData: newProtoData
+        }
+      });
+
+   
       // dispatch({
       //   type: "UPDATE_FORMULA",
       //   payload: {
@@ -915,6 +934,8 @@ function Cell({
   }
 
   function clicked() {
+
+    console.log(proDataValue);
 
     dispatch({
       type: "UPDATE_FORMULA",
@@ -1109,144 +1130,8 @@ function SpreadsheetLayout({
   </div>
 }
 
-//https://support.microsoft.com/en-us/office/statistical-functions-reference-624dac86-a375-4435-bc25-76d659719ffd
-let pages = [
-  {
-    id: 1,
-    formula: "AVERAGE",
-    title: "Среднее значение",
-    html: `
-      <div class="alert alert-primary" role="alert">
-  Введите в колонку заголовок и 11 цифр. Рассчитайте для них среднее значение 
-      </div>
-      <div>
-      Returns the average (arithmetic mean) of the arguments. For example, if the range A1:A20 contains numbers, the formula =AVERAGE(A1:A20) returns the average of those numbers.<br><hr>
-   Возвращает среднее (среднее арифметическое) аргументов. Например, если диапазон A1:A20 содержит числа, формула =AVERAGE(A1:A20) возвращает среднее значение этих чисел.
-      </div>   
-   `},
 
-  {
-    id: 2, formula: "MIN",
-    title: "Минимальное значение",
-    html: `
-     <div class="alert alert-primary" role="alert">
-Введите в колонку заголовок и 11 цифр. Рассчитайте для них минимальное значение 
-    </div>    
- `},
-
-  {
-    id: 3, formula: "MAX",
-    title: "Максимальное значение",
-    html: `
-   <div class="alert alert-primary" role="alert">
-Введите в колонку заголовок и 11 цифр. Рассчитайте для них максимальное значение
-  </div>    
-`},
-
-
-
-
-
-  {
-    id: 4, formula: "AVEDEV",
-    title: "Среднее абсолютных значений отклонений точек данных от среднего",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в колонку заголовок и 11 цифр. Рассчитайте для них среднее абсолютных значений отклонений точек данных от среднего 
-      </div>
-      <div>
-   Returns the average of the absolute deviations of data points from their mean.<br><hr>
-   Возвращает среднее абсолютных значений отклонений точек данных от среднего. СРОТКЛ является мерой разброса множества данных.<br>
-   Уравнение для среднего отклонения<br>
-   <img src='https://cxcs.microsoft.net/static/public/office/ru-ru/2c328fff-b4af-4e42-bb34-4f7bf5e2e85c/ee16ba75f4d39db65ad8550c92983268af136c0b.gif' />
-   </div>
-   `},
-
-  {
-    id: 5, formula: "DEVSQ",
-    title: "Сумма квадратов отклонений точек данных от их среднего",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в колонку заголовок и 11 цифр. Рассчитайте для них сумму квадратов отклонений точек данных от их среднего 
-      </div>     
-   `},
-
-
-
-  {
-    id: 6, formula: "CORREL",
-    title: "Коэффициент корреляции двух диапазонов ячеек",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две  колонки заголовок и по 11 цифр. Во второй колонке все цифры ВДВОЕ больше.<br>
-  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
-  Сделайте вывод
-      </div>     
-   `},
-
-  {
-    id: 7, formula: "CORREL",
-    title: "Коэффициент корреляции двух диапазонов ячеек 2",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две колонки заголовок и по 11 цифр. В первой колонке числа увеличиваются, во второй уменьшаются.<br>
-  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
-  Сделайте вывод
-      </div>     
-   `},
-
-
-  {
-    id: 8, formula: "CORREL",
-    title: "Коэффициент корреляции двух диапазонов ячеек 3",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две колонки заголовок и по 11 цифр. Все цифры рандомные.<br>
-  Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
-  Сделайте вывод
-      </div>     
-   `},
-
-
-  {
-    id: 9, formula: "COVARIANCE.P",
-    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 1",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две  колонки заголовок и по 11 цифр. Во второй колонке все цифры ВДВОЕ больше.<br>
-  Рассчитайте для них ковариацию двух диапазонов ячеек<br>
-  Сделайте вывод
-      </div>     
-   `},
-
-  {
-    id: 10, formula: "COVARIANCE.P",
-    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 2",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две колонки заголовок и по 11 цифр. В первой колонке числа увеличиваются, во второй уменьшаются.<br>
- Рассчитайте для них ковариацию двух диапазонов ячеек<br>
-  Сделайте вывод
-      </div>     
-   `},
-
-
-  {
-    id: 11, formula: "COVARIANCE.P",
-    title: "Ковариация (среднее произведений отклонений для каждой пары точек в двух наборах данных) 3",
-    html: `
-       <div class="alert alert-primary" role="alert">
-  Введите в две колонки заголовок и по 11 цифр. Все цифры рандомные.<br>
-  Рассчитайте для них ковариацию двух диапазонов ячеек<br>
-  Сделайте вывод
-      </div>     
-   `},
-
-
-
-
-
-]
+let pages = window.casesSets;
 
 function PaginationLayout({ pages, doSelectId }) {
 
@@ -1340,18 +1225,18 @@ function PaginationLayout({ pages, doSelectId }) {
 function ShowPage({
   pageMarkup
 }) {
-  
+
   return <div
-   className="m-1 text-secondary"
-   dangerouslySetInnerHTML={{ __html: pageMarkup}}
-   />
+    className="m-1 text-secondary"
+    dangerouslySetInnerHTML={{ __html: pageMarkup }}
+  />
 }
 
-function doPreparePage() {
+function DoPreparePage() {
   const mycase = useCase();
-  console.log(mycase);
+ // console.log(mycase);
   if (!!mycase?.selectedPage?.html) {
-    return <ShowPage pageMarkup={mycase.selectedPage.html}/>
+    return <ShowPage pageMarkup={mycase.selectedPage.html} />
   }
   return <div className="m-1 text-secondary">Выберите страницу</div>
 }
@@ -1367,7 +1252,7 @@ function App() {
   }
   return <div>
     <PaginationLayout pages={pages} doSelectId={doSelectId} />
-    <doPreparePage />
+    <DoPreparePage />
     <SpreadsheetLayout />
   </div>
 }
