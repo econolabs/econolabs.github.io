@@ -207,7 +207,8 @@ let initialCase = {
   protoData: createProtoArray({}, 12, 2),
   expandView: false,
   posts: [],
-  selectedPage: null
+  selectedPage: null,
+  formulaIsInFocus: false
 };
 
 
@@ -237,10 +238,37 @@ function useCaseDispatch() {
   return useContext(CaseDispatchContext);
 }
 
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('econolabs');
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined
+  }
+};
+
 function LoginLogout() {
   const [show, setShow] = useState(false);
+  // const [user, setUser] = useState(false);
+  // const [email, setEmail] = useState(false);
   const mycase = useCase();
   const dispatch = useCaseDispatch();
+
+  useEffect(()=>{
+    let localstrg = !!loadState() && !!loadState()?.application ? { ...loadState().application}: {} 
+    console.log(localstrg);
+    // dispatch({
+    //   type: "SET_STORE_OBJECT",
+    //   payload: { key: "email", value: localstrg?.email }
+    // });
+    // dispatch({
+    //   type: "SET_STORE_OBJECT",
+    //   payload: { key: "user", value: localstrg?.user }
+    // });
+  },[])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -310,6 +338,184 @@ function LoginLogout() {
     </>
   );
 }
+
+
+
+  function SaveGroupPostModal() {
+    const [show, setShow] = useState(false);
+    const [users, setUsers] = useState(false);
+    const mycase = useCase();
+    const [savedSuccessfully, doSavedSuccessfully] = useState(false);
+    const dispatch = useCaseDispatch();
+  
+    useEffect(() => {
+      getFirebaseNode({
+        url: "openavatars/", // + email.replace(/[^a-zA-Z0-9]/g, "_") + "/posts",
+        type: "array"
+      })
+        .then(res => {
+          console.log(res);
+          let users = res
+          .filter(item => !!item?.group && item.group.includes("pso"))
+         // .map(item => item.id);
+       //   console.log(emails);
+          setUsers(users)
+          setShow(true)          
+        })
+      
+    }, [])
+  
+    const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+  
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      savePost(
+        e.currentTarget.elements.formTitle.value,
+        e.currentTarget.elements.formComment.value
+      )
+      // dispatch({
+      //   type: "SET_STORE_OBJECT",
+      //   payload: { key: "email", value: e.currentTarget.elements.formEmail.value }
+      // });
+    };
+  
+  
+  
+    function savePost(title, comment) {
+      const content = mycase?.protoData;
+  
+      let currentDay = new Intl.DateTimeFormat("en", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+        .format(new Date())
+        .replace(/[^a-zA-Z0-9]/g, "_");
+
+        let updates = {};
+        users && users.forEach(user => {
+
+          console.log(user)
+
+        let idPost = getFirebaseNodeKey('/usersTemplates/posts/');
+        let postObject = {
+          id: idPost,
+          title: title, // formDataObject.title.length > 2 ? formDataObject.title : props?.title,
+          theme: "Кейсы в Excel",
+          answer: "",
+          comment: comment, // formDataObject.comment, //Тема
+          type: "spreadsheet",
+          content: createProtoObject(content),
+          quizString: "", //!!props?.quizString ? props.quizString : "",
+          deleted: false,
+          email: user?.id,
+          user: user?.user,
+          avatarUrl: !!user?.avatarUrl ? user.avatarUrl : null,
+          date: new Intl.DateTimeFormat("ru", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          }).format(new Date()), //Date().toJSON()
+        };
+  
+        let currentDayObject = {
+          id: idPost,
+          title: title,
+          theme: "Кейсы в Excel", // theme,
+          email: user?.id,
+          user: user?.user,
+          avatarUrl: !!user?.avatarUrl ? user.avatarUrl : null,
+          timestamp: +Date.now(),
+        };
+        //  dispatch(createPost(postObject));
+        
+        updates['/usersCraft/' + user?.id + '/posts/' + idPost] = postObject;
+        // updates['/usersTemplates/posts/' + idPost] = postObject;
+        updates['/currentDay/' + currentDay + '/posts/' + idPost] = currentDayObject;
+
+        })
+ 
+  
+     //   console.log(updates);
+  
+        updateFirebaseNode(updates).then(() => {
+          doSavedSuccessfully(true);
+          setTimeout(() => {
+            handleClose();
+          }, 3000);
+        });
+  
+      }
+  
+  
+  
+    
+  
+  
+    return (
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Сохранить пост в группу</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+  
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formTitle">
+                <Form.Label>Title</Form.Label>
+                <Form.Control type="text"
+                  placeholder={"Заголовок"}
+                />
+              </Form.Group>
+  
+              <Form.Group className="mb-3" controlId="formComment">
+                <Form.Label>Comment</Form.Label>
+                <Form.Control type="text"
+                  placeholder={"Комментарий"}
+                />
+              </Form.Group>
+  
+              <Button variant="primary" type="submit">
+                Сохранить
+              </Button>
+            </Form>
+  
+  
+            {/* {savedSuccessfully ? "Сохранено" :  
+            <Button
+              variant="outline-secondary"
+              onClick={() => savePost()}>
+              Сохранить шаблон
+            </Button>
+            */}
+
+            {!!users && users.map(item => {
+              return <div className="m-1">
+                {item.user}
+              </div>
+            })}
+  
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" size="sm" onClick={handleClose}>
+              Close
+            </Button>
+            {/* <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button> */}
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+
+
 
 function SavePostModal() {
   const [show, setShow] = useState(false);
@@ -578,14 +784,18 @@ function SelectAndOpenModal({ showOpen, handleClose }) {
 function PostsButtonGroup(props) {
   const dispatch = useCaseDispatch();
   const [showSave, setShowSave] = useState(false);
+  const [showGroupSave, setShowGroupSave] = useState(false);
   const [showOpen, setShowOpen] = useState(false);
 
   const handleClose = () => {
     setShowSave(false);
     setShowOpen(false);
+    setShowGroupSave(false)
   };
   const handleSaveShow = () => setShowSave(true);
   const handleOpenShow = () => setShowOpen(true);
+  const handleSaveGroupShow = () => setShowGroupSave(true);
+
 
 
 
@@ -617,6 +827,15 @@ function PostsButtonGroup(props) {
           title="Сохранить расчет"
         >
           Сохр
+        </Button>
+        <Button
+          variant="outline-secondary"
+          onClick={() => handleSaveGroupShow()}
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="Сохранить расчет"
+        >
+          Сохр Гр
         </Button>
         <Button
           variant="outline-secondary"
@@ -653,6 +872,23 @@ function PostsButtonGroup(props) {
           {...props}
         />
       ) : null}
+
+{showGroupSave ? (
+        <SaveGroupPostModal
+          show={showSave}
+          handleClose={handleClose}
+          quizString={props?.quizString}
+          title={props?.title}
+          answer={props?.answer}
+          theme={props?.theme}
+          answerIsRight={props?.answerIsRight}
+          {...props}
+        />
+      ) : null}
+
+
+
+
       {showOpen ? (
         <SelectAndOpenModal handleClose={handleClose} showOpen={showOpen} />
       ) : null}
@@ -668,21 +904,30 @@ function FormulaBlock() {
   const [formula, setFormula] = useState(formulaValue);
   const dispatch = useCaseDispatch();
 
-  // useEffect(()=>{},[formulaValue])
+  useEffect(()=>{
+    setFormula(formulaValue)
+  },[formulaValue])
 
-         
+  function clicked() {
+    dispatch({
+      type: "SET_STORE_OBJECT",
+      payload: { key: "formulaIsInFocus", value: true }
+    });
+  } 
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
+      console.log(formula);
       handleSubmit();
     }
   }
 
-  function handleSubmit() {
+   function handleSubmit() {
+    console.log(formula);
     let valueChecked = isNaN(formula) ? !!formula ? formula : "" : +formula;
       const newProtoData = immer.produce(mycase.protoData, draft => {
       draft[formulaRowIndex][formulaColumnIndex] = valueChecked
-    })
+   })
 
     dispatch({
       type: "LOAD_DATA",
@@ -692,17 +937,18 @@ function FormulaBlock() {
       }
     });
 
-    dispatch({
-      type: "UPDATE_FORMULA",
-      payload: {
-        formulaValue: valueChecked,
-        formulaRowIndex: formulaRowIndex,
-        formulaColumnIndex: formulaColumnIndex
-      }
-    });
+  //   dispatch({
+  //     type: "UPDATE_FORMULA",
+  //     payload: {
+  //       formulaValue: valueChecked,
+  //       formulaRowIndex: formulaRowIndex,
+  //       formulaColumnIndex: formulaColumnIndex
+  //     }
+  //   });
    //  setFormula("");
-
   }
+
+ // let value = !!mycase && !!mycase?.formulaValue ? mycase.formulaValue : "" : formula;
 
   return (
     <div className="cell-content">
@@ -721,9 +967,10 @@ function FormulaBlock() {
             marginLeft: "3px",
             fontSize: "1.2rem"
           }}
-          value={formula === "" ? !!mycase && !!mycase?.formulaValue ? mycase.formulaValue : "" : formula}
+          value={formula}
           onChange={(e) => setFormula(e.target.value)}
           onKeyPress={(e) => onKeyPressOnInput(e)}
+          onClick={()=>clicked()}
         />
       </div>
     </div>
@@ -784,7 +1031,7 @@ function ActiveCells() {
           }
 
           if (formulaRowIndex === rowIndex &&
-            formulaColumnIndex === columnIndex) {
+            formulaColumnIndex === columnIndex && !mycase.formulaIsInFocus) {
             return <EditCellValue
               rowIndex={rowIndex}
               columnIndex={columnIndex}
@@ -841,7 +1088,8 @@ function Cell({
   rowIndex = 0,
   columnIndex = 0,
   value = "",
-  proDataValue = ""
+  proDataValue = "",
+  active = false
 }) {
   const dispatch = useCaseDispatch();
 
@@ -859,7 +1107,7 @@ function Cell({
   return (
     <input
       type="text"
-      className={"cells__input"}
+      className={active ? "cells__input__active" : "cells__input"}
       value={value}
       onClick={() => clicked()}
     />

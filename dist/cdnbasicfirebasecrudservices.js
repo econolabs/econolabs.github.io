@@ -233,6 +233,7 @@ function caseReducer(state = {}, action) {
                 draft.formulaValue = action.payload.formulaValue;
                 draft.formulaRowIndex = action.payload.formulaRowIndex;
                 draft.formulaColumnIndex = action.payload.formulaColumnIndex;
+                draft.formulaIsInFocus = false;                
             });
 
         case 'SAVE_CELL_AND_SET_NEXT_CELL_ACTIVE':
