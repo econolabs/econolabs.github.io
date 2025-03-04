@@ -154,8 +154,8 @@ const alphabet = [
     "X",
     "Y",
     "Z"
-  ];
-  
+];
+
 
 
 function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
@@ -214,7 +214,7 @@ function caseReducer(state = {}, action) {
         case 'LOAD_DATA':
             return produce(state, (draft) => {
                 draft.data = action.payload.data;
-                draft.protoData = action.payload.protoData;;
+                draft.protoData = action.payload.protoData;
                 draft.expandView = true;
             });
 
@@ -228,8 +228,6 @@ function caseReducer(state = {}, action) {
             })
         }
 
-
-
         case 'UPDATE_FORMULA':
             return produce(state, (draft) => {
                 draft.formulaValue = action.payload.formulaValue;
@@ -237,10 +235,15 @@ function caseReducer(state = {}, action) {
                 draft.formulaColumnIndex = action.payload.formulaColumnIndex;
             });
 
-
-
-
-
+        case 'SAVE_CELL_AND_SET_NEXT_CELL_ACTIVE':
+            return produce(state, (draft) => {
+                draft.data = action.payload.data;
+                draft.protoData = action.payload.protoData;
+               // action.payload.value
+                draft.formulaValue = action.payload.formulaValue;
+                draft.formulaRowIndex = action.payload.formulaRowIndex;
+                draft.formulaColumnIndex = action.payload.formulaColumnIndex;
+            });
 
         case "SET_STORE_OBJECT":
             return produce(state, (draft) => {
@@ -327,6 +330,7 @@ window.caseReducer = caseReducer;
 window.createProtoArray = createProtoArray;
 window.createProtoObject = createProtoObject;
 window.produce = produce;
+window.alphabet = alphabet;
 
 
 export {
@@ -335,8 +339,6 @@ export {
     getFirebaseNodeKey,
     commonReducer,
 
-
-    produce,
     createProtoArray,
     createProtoObject
 }

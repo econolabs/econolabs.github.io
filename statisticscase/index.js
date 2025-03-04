@@ -29,7 +29,7 @@ const useReducer = React.useReducer;
 function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
   Object.keys(protoDataObject).map((objKey) => {
     const [col, ...row] = objKey;
-    let currentColIndex = alphabet.findIndex(item => item === col);
+    let currentColIndex = window.alphabet.findIndex(item => item === col);
     if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
     if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
   });
@@ -42,7 +42,7 @@ function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
 
   Object.keys(protoDataObject).map((objKey) => {
     const [col, ...row] = objKey;
-    let colArrayIndex = alphabet.findIndex((item) => item === col);
+    let colArrayIndex = window.alphabet.findIndex((item) => item === col);
     let rowArrayIndex = parseInt(row) - 1;
     array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
   });
@@ -273,7 +273,7 @@ function LoginLogout() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Пользователь</Modal.Title>
         </Modal.Header>
         <Modal.Body><Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formEmail">
@@ -415,7 +415,7 @@ function SavePostModal() {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Сохранить пост</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
@@ -524,7 +524,7 @@ function SelectAndOpenModal({ showOpen, handleClose }) {
   return <>
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>Выбрать тему</Modal.Title>
       </Modal.Header>
       <Modal.Body>
 
@@ -662,12 +662,15 @@ function PostsButtonGroup(props) {
 
 function FormulaBlock() {
   const mycase = useCase();
-  //const formulaValue = useSelector(selectSpreadsheetFormulaValue);
-  const [formula, setFormula] = useState('');
-  const dispatch = useCaseDispatch();
-
   let formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
   let formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
+  let formulaValue = !!mycase && mycase?.formulaValue ? mycase.formulaValue  : '';
+  const [formula, setFormula] = useState(formulaValue);
+  const dispatch = useCaseDispatch();
+
+  // useEffect(()=>{},[formulaValue])
+
+         
 
   function onKeyPressOnInput(e) {
     if (e.key === "Enter") {
@@ -677,8 +680,9 @@ function FormulaBlock() {
 
   function handleSubmit() {
     let valueChecked = isNaN(formula) ? !!formula ? formula : "" : +formula;
-    let newProtoData = mycase?.protoData;
-    newProtoData[formulaRowIndex][formulaColumnIndex] = valueChecked;
+      const newProtoData = immer.produce(mycase.protoData, draft => {
+      draft[formulaRowIndex][formulaColumnIndex] = valueChecked
+    })
 
     dispatch({
       type: "LOAD_DATA",
@@ -696,7 +700,7 @@ function FormulaBlock() {
         formulaColumnIndex: formulaColumnIndex
       }
     });
-    setFormula("");
+   //  setFormula("");
 
   }
 
@@ -726,34 +730,7 @@ function FormulaBlock() {
   );
 }
 
-const alphabet = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z"
-];
+
 
 
 function AlphabetRow(props) {
@@ -788,16 +765,38 @@ function ActiveCells() {
   const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
   const formulaColumnIndex = !!mycase && !!mycase?.formulaColumnIndex ? mycase.formulaColumnIndex : 0;
 
- // console.log(mycase?.data);
- // console.log(mycase?.protoData);
+  // console.log(mycase?.data);
+  // console.log(mycase?.protoData);
 
   return (
     <>
       {!!mycase && !!mycase?.data && mycase.data.map((row, rowIndex) => {
         return row.map((column, columnIndex) => {
+          let value = "";
+          let cellKey = "" + columnIndex + "_" + rowIndex;
+          let proDataValue = "";
+        
+          if (!!mycase && !!mycase?.data && !!mycase?.data[rowIndex][columnIndex]) {
+            value = mycase.data[rowIndex][columnIndex];
+            cellKey = cellKey + "_" + mycase.data[rowIndex][columnIndex];
+            proDataValue = mycase.protoData[rowIndex][columnIndex];
+          //  console.log("length " + mycase.data.length);            
+          }
+
+          if (formulaRowIndex === rowIndex &&
+            formulaColumnIndex === columnIndex) {
+            return <EditCellValue
+              rowIndex={rowIndex}
+              columnIndex={columnIndex}
+              proDataValue={proDataValue}
+              numberOfY = {mycase.data.length}
+              nextProDataValue={""}
+              />
+          }
+
           return (
             <Cell
-              key={"" + rowIndex + "_" + columnIndex}
+              key={cellKey}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               active={
@@ -806,6 +805,8 @@ function ActiveCells() {
                   ? true
                   : false
               }
+              value={value}
+              proDataValue={proDataValue}
             />
           );
         });
@@ -839,67 +840,53 @@ function useDebounce(value, delay) {
 function Cell({
   rowIndex = 0,
   columnIndex = 0,
-  active = true
+  value = "",
+  proDataValue = ""
+}) {
+  const dispatch = useCaseDispatch();
+
+  function clicked() {
+    dispatch({
+      type: "UPDATE_FORMULA",
+      payload: {
+        formulaRowIndex: rowIndex,
+        formulaColumnIndex: columnIndex,
+        formulaValue: proDataValue
+      }
+    });
+  }
+
+  return (
+    <input
+      type="text"
+      className={"cells__input"}
+      value={value}
+      onClick={() => clicked()}
+    />
+  );
+}
+
+function EditCellValue({
+  rowIndex,
+  columnIndex,
+  proDataValue,
+  numberOfY,
+  nextProDataValue
 }) {
   const mycase = useCase();
-  const data = !!mycase && !!mycase?.data ?
-    mycase?.data[rowIndex][columnIndex] : "";
-  const proDataValue = !!mycase && !!mycase?.protoData ?
-    mycase?.protoData[rowIndex][columnIndex] : "";
-  const [value, setValue] = useState(data);
+  // const nextProDataValue = !!mycase && !!mycase?.protoData ?
+  //   mycase?.protoData[rowIndex + 1][columnIndex] : "";
+  const [value, setValue] = useState(proDataValue);
   const debouncedValue = useDebounce(value, 1000);
   const dispatch = useCaseDispatch();
 
   useEffect(() => {
     if (debouncedValue) {
-      updateCellValue(debouncedValue)
-    }
-    setValue(data);
-    console.log(debouncedValue);
-  }, [debouncedValue]);
-
-  function updateCellValue(updatedValue) {
-    console.log(updatedValue);
-    let valueChecked = isNaN(updatedValue) ? !!updatedValue ? updatedValue : "" : +updatedValue;
-    console.log(valueChecked);
-    const newProtoData = immer.produce(mycase?.protoData, draft => {
-      draft[rowIndex][columnIndex] = valueChecked
-    })
-
-    console.log(newProtoData);
-
-   dispatch({
-      type: "LOAD_DATA",
-      payload: {
-        data: createNewDraft(newProtoData),
-        protoData: newProtoData
-      }
-    });
-
-   dispatch({
-        type: "UPDATE_FORMULA",
-        payload: {
-          formulaRowIndex: rowIndex,
-          formulaColumnIndex: columnIndex,
-          formulaValue: !!valueChecked ? valueChecked : "",
-        }
-      });
-   
-  }
-
-
-
-
-  function onKeyPressOnInput(e) {
-    if (e.key === "Enter") {
-
+      console.log(debouncedValue);
       let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
-
       const newProtoData = immer.produce(mycase?.protoData, draft => {
         draft[rowIndex][columnIndex] = valueChecked
       })
-      
-
       dispatch({
         type: "LOAD_DATA",
         payload: {
@@ -907,55 +894,62 @@ function Cell({
           protoData: newProtoData
         }
       });
+    }
 
-   
-      // dispatch({
-      //   type: "UPDATE_FORMULA",
-      //   payload: {
-      //     formulaRowIndex: rowIndex,
-      //     formulaColumnIndex: columnIndex,
-      //     formulaValue: !!value ? value : "",
-      //   }
-      // });
 
-      // const newProtoData = immer.produce(mycase?.protoData, draft => {
-      //   draft[rowIndex][columnIndex] = valueChecked
-      // })
+  }, [debouncedValue]);
 
-      // dispatch({
-      //   type: "LOAD_DATA",
-      //   payload: {
-      //     data: createNewDraft(newProtoData),
-      //     protoData: newProtoData
-      //   }
-      // });
+
+  // console.log(
+  //   rowIndex,
+  //   columnIndex,
+  //   proDataValue);
+
+  function onKeyPressOnInput(e) {
+
+    let valueChecked = isNaN(value) ? !!value ? value : "" : +value;
+
+    let newProtoData;
+
+    if (numberOfY === (rowIndex + 1) ) {
+      newProtoData = immer.produce(mycase.protoData, draft => {
+        draft[rowIndex][columnIndex] = valueChecked;
+        draft[rowIndex +1] = new Array(mycase.protoData[0].length).fill("");
+      })
+
+    } else {
+      newProtoData = immer.produce(mycase.protoData, draft => {
+        draft[rowIndex][columnIndex] = valueChecked
+      })
+    }
+     
+
+    
+
+    if (e.key === "Enter") {
+      //   console.log(value);
+      dispatch({
+        type: "SAVE_CELL_AND_SET_NEXT_CELL_ACTIVE",
+        payload: {
+          value: value,
+          data: createNewDraft(newProtoData),
+          protoData: newProtoData,
+          formulaRowIndex: rowIndex + 1,
+          formulaColumnIndex: columnIndex,
+          formulaValue: nextProDataValue,
+        }
+      });
 
     }
   }
 
-  function clicked() {
-
-    console.log(proDataValue);
-
-    dispatch({
-      type: "UPDATE_FORMULA",
-      payload: {
-        formulaRowIndex: rowIndex,
-        formulaColumnIndex: columnIndex,
-        formulaValue: proDataValue,
-      }
-    });
-
-
-  }
-
   return (
     <input
+      autoFocus
       type="text"
-      className={active ? "cells__input__active" : "cells__input"}
+      className={"cells__input__active"}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      onClick={() => clicked()}
       onKeyPress={(e) => onKeyPressOnInput(e)}
     />
   );
@@ -1234,7 +1228,7 @@ function ShowPage({
 
 function DoPreparePage() {
   const mycase = useCase();
- // console.log(mycase);
+  // console.log(mycase);
   if (!!mycase?.selectedPage?.html) {
     return <ShowPage pageMarkup={mycase.selectedPage.html} />
   }
