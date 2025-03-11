@@ -1,3 +1,5 @@
+console.log("spreadsheet");
+
 'use strict';
 
 //https://daily.dev/blog/form-on-react-best-practices
@@ -796,7 +798,6 @@ function PostsButtonGroup(props) {
   const handleOpenShow = () => setShowOpen(true);
   const handleSaveGroupShow = () => setShowGroupSave(true);
 
- 
 
 
 
@@ -1034,6 +1035,7 @@ function ActiveCells() {
           if (formulaRowIndex === rowIndex &&
             formulaColumnIndex === columnIndex && !mycase.formulaIsInFocus) {
             return <EditCellValue
+            key={""+rowIndex+"_"+columnIndex}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               proDataValue={proDataValue}
@@ -1111,6 +1113,7 @@ function Cell({
       className={active ? "cells__input__active" : "cells__input"}
       value={value}
       onClick={() => clicked()}
+      readOnly 
     />
   );
 }
@@ -1213,9 +1216,6 @@ function LocalSpreadsheetLayout({
   answerIsRight = true
 }) {
   const [expandView, toggle_expand_view] = useState(false);
-  const [showFormulas, setShowFormulas] = useState(false);
-
-
 
   const mycase = useCase();
   // const formulaRowIndex = !!mycase && !!mycase?.formulaRowIndex ? mycase.formulaRowIndex : 0;
@@ -1281,9 +1281,6 @@ function LocalSpreadsheetLayout({
               data-placement="bottom"
               title="Новый расчет"
             >Нов</Button>
-
-            
-
             <Button variant="outline-secondary"
               onClick={() => toggle_expand_view(!expandView)}
               data-toggle="tooltip"
@@ -1353,18 +1350,6 @@ function LocalSpreadsheetLayout({
           </Button>
         </ButtonGroup>
 
-        <ButtonGroup aria-label="Columns Buttons" size="sm">
-        <Button variant="outline-secondary"
-              onClick={() => setShowFormulas(true)}
-              data-toggle="tooltip"
-              data-placement="bottom"
-              title="Формулы"
-            >Формулы</Button>
-
-        </ButtonGroup>
-
-        
-
         {!!email ?
           <ButtonGroup aria-label="Workbook Buttons" size="sm">
           </ButtonGroup>
@@ -1387,150 +1372,20 @@ function LocalSpreadsheetLayout({
         <ActiveCells />
       </div> : null}
 
-      {showFormulas && !expandView ? <div>
-        {formulaParser.SUPPORTED_FORMULAS.map(item => <small>{item +" "}</small>)}
-      </div>: null}
-
     </div>
   </div>
 }
 
-
-let pages = window.casesSets;
-
-function PaginationLayout({ pages, doSelectId }) {
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const changePage = number => {
-    if (currentPage === number) return;
-    setCurrentPage(number);
-    // scrollToTop();
-  };
-
-  const onPageNumberClick = pageNumber => {
-    changePage(pageNumber);
-    doSelectId(pages[pageNumber - 1].id)
-  };
-
-  const onPreviousPageClick = () => {
-    if (currentPage <= 1) {
-      return (changePage(currentPage => currentPage = 1));
-    } else {
-      changePage(currentPage => currentPage - 1);
-    }
-
-  };
-
-  const onNextPageClick = () => {
-    changePage(currentPage => currentPage + 1);
-  };
-
-
-
-  let itemsPerPage = 1;
-  let itemsCount = pages.length;
-  const pagesCount = Math.ceil(itemsCount / itemsPerPage);
-
-  let isPageNumberOutOfRange;
-
-
-  const pageNumbers = pages
-    .map((_, index) => {
-      // console.log(pageNumber);
-      const pageNumber = index + 1;
-      const isPageNumberFirst = pageNumber === 1;
-      const isPageNumberLast = pageNumber === pagesCount;
-      //  console.log(currentPage);
-      //  console.log(Math.abs(pageNumber - currentPage));
-      const isCurrentPageWithinTwoPageNumbers = Math.abs(pageNumber - currentPage) < 3 ? true : false
-
-      if (
-        isPageNumberFirst ||
-        isPageNumberLast ||
-        isCurrentPageWithinTwoPageNumbers
-      ) {
-        isPageNumberOutOfRange = false;
-        return (
-          <Pagination.Item
-            activeLabel=""
-            key={pageNumber}
-            onClick={() => onPageNumberClick(pageNumber)}
-            active={pageNumber === currentPage}
-          >
-            {pageNumber}
-          </Pagination.Item>
-        );
-      }
-
-      if (!isPageNumberOutOfRange) {
-        isPageNumberOutOfRange = true;
-        return <Pagination.Ellipsis key={pageNumber} className="muted" />;
-      }
-
-      return null;
-    });
-
-  //  console.log(pages.find(item => item.id === currentPage))
-
-
-  return <Container style={{ padding: 20 }} >
-    <div style={{ display: 'block', maxWidth: 900, padding: 10 }}>
-      <h4>Task {currentPage + " "} {pages.find(item => item.id === currentPage)?.title} </h4>
-      <Pagination size="sm" >
-        <Pagination.Prev onClick={onPreviousPageClick} />
-        {pageNumbers}
-        <Pagination.Next onClick={onNextPageClick} />
-      </Pagination>
-    </div>
-
-  </Container>
-}
-
-function ShowPage({
-  pageMarkup
-}) {
-
-  return <div
-    className="m-1 text-secondary"
-    dangerouslySetInnerHTML={{ __html: pageMarkup }}
-  />
-}
-
-function DoPreparePage() {
-  const mycase = useCase();
-  // console.log(mycase);
-  if (!!mycase?.selectedPage?.html) {
-    return <ShowPage pageMarkup={mycase.selectedPage.html} />
-  }
-  return <div className="m-1 text-secondary">Выберите страницу</div>
-}
-
-function App() {
-  const dispatch = useCaseDispatch();
-  function doSelectId(id) {
-    dispatch({
-      type: "SET_STORE_OBJECT",
-      payload: { key: "selectedPage", value: pages.find(item => item.id === id) }
-    });
-    //  console.log(id)
-  }
-  return <div>
-    <PaginationLayout pages={pages} doSelectId={doSelectId} />
-    <DoPreparePage />
-    <LocalSpreadsheetLayout />
-  </div>
-}
 
 function SpreadsheetCase() {
   return <CaseProvider>
-    <App />
+    <LocalSpreadsheetLayout />
   </CaseProvider>
 }
 
 
 // Find all DOM containers, and render Like buttons into them.
-document.querySelectorAll('.root')
+document.querySelectorAll('.spreadsheet')
   .forEach(domContainer => {
     // Read the comment ID from a data-* attribute.
     //   const commentID = parseInt(domContainer.dataset.commentid, 10);

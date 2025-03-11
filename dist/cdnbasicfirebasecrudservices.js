@@ -233,14 +233,14 @@ function caseReducer(state = {}, action) {
                 draft.formulaValue = action.payload.formulaValue;
                 draft.formulaRowIndex = action.payload.formulaRowIndex;
                 draft.formulaColumnIndex = action.payload.formulaColumnIndex;
-                draft.formulaIsInFocus = false;                
+                draft.formulaIsInFocus = false;
             });
 
         case 'SAVE_CELL_AND_SET_NEXT_CELL_ACTIVE':
             return produce(state, (draft) => {
                 draft.data = action.payload.data;
                 draft.protoData = action.payload.protoData;
-               // action.payload.value
+                // action.payload.value
                 draft.formulaValue = action.payload.formulaValue;
                 draft.formulaRowIndex = action.payload.formulaRowIndex;
                 draft.formulaColumnIndex = action.payload.formulaColumnIndex;
@@ -249,6 +249,11 @@ function caseReducer(state = {}, action) {
         case "SET_STORE_OBJECT":
             return produce(state, (draft) => {
                 draft[action.payload.key] = action.payload.value;
+            });
+
+        case "PUSH_ITEM_TO_ARRAY":
+            return produce(state, (draft) => {
+                draft[action.payload.arrayName].push(action.payload.item)
             });
 
 
