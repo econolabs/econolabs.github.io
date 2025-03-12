@@ -1,0 +1,122 @@
+/*Excel */
+
+.chartLayout {
+    display: flex;
+  }
+  
+  .excelstyle {
+    box-sizing: border-box;
+    background: #fff;
+    font-family: "Noto Sans", sans-serif;
+    color: #444;
+    font-size: 14px;
+  }
+  
+  .title {
+    background: #217346;
+    min-height: 2rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    color: #fff;
+  }
+  
+  .icon-bar {
+    background: #f3f2f1;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: grid;
+    padding: 4px 6px;
+    grid-template-columns: repeat(8, max-content);
+    grid-template-rows: auto 0.5rem;
+    grid-auto-flow: dense;
+  }
+  .icon-bar > * {
+  padding: 0.5rem;
+  margin-right: .5rem;
+  } 
+  
+  .cell-content {
+    border: 1px solid #e6e6e6;
+    background: #e6e6e6;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 50px 25px auto;
+    animation: mymove 5s infinite;
+  }
+  .cell-content div {
+    border: 1px solid #cdcdcd;
+    background: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .cell-content div:nth-child(1) {
+    justify-content: center;
+    color: #999;
+    font: italic 700 18px "Merriweather", serif;
+    border-right: none;
+  }
+    
+  .cells {
+    position: relative;
+    display: grid;
+    /* grid-template-columns: 40px repeat(4, calc((100% - 50px) / 4));
+    grid-template-rows: repeat(5, 25px); */
+    grid-gap: 1px;
+    background: #cdcdcd;
+    grid-auto-flow: dense;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .cells__spacer {
+    background: #e6e6e6;
+    position: relative;
+  }
+  .cells__spacer:after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    height: 80%;
+    width: 100%;
+    background: linear-gradient(135deg, transparent 30px, #bbb 30px, #bbb 55px, transparent 55px);
+  }
+  .cells__alphabet {
+    background: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cells__number {
+    background: #e6e6e6;
+    grid-column: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cells__input {
+    border: none;
+    padding: 0 6px;  
+    animation-name: flash_green;
+    animation-duration: 1s;
+  }
+  
+  @keyframes flash_green {
+    from {background-color: #217346;}
+    to {background-color: white;}
+  }
+  
+  
+  .cells__input__active {
+    border: none;
+    padding: 0 6px;
+    box-shadow: inset -2px -2px 0px 0px #bbb;
+  }
+  .cells input, .cells button {
+    border: none;
+    background: #fff;
+    padding: 0 6px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  

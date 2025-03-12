@@ -1034,6 +1034,7 @@ function ActiveCells() {
           if (formulaRowIndex === rowIndex &&
             formulaColumnIndex === columnIndex && !mycase.formulaIsInFocus) {
             return <EditCellValue
+            key={cellKey}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               proDataValue={proDataValue}
@@ -1107,6 +1108,7 @@ function Cell({
 
   return (
     <input
+    readOnly
       type="text"
       className={active ? "cells__input__active" : "cells__input"}
       value={value}

@@ -110,7 +110,9 @@
     function ExternalSpreadsheet() {
         const [mySpreadsheet, dispatch] = useReducer(spreadsheetReducer, initialSpreadsheet);
 
-           return (React.createElement(React.Fragment, null, [].map((todo) => (React.createElement("div", { key: todo.id },
+           return (React.createElement(React.Fragment, null, [
+            {id: "1", title: "title", complete: false}
+           ].map((todo) => (React.createElement("div", { key: todo.id },
             React.createElement("label", null,
                 React.createElement("input", { type: "checkbox", checked: todo.complete, onChange: () => handleComplete(todo) }),
                 todo.title))))));

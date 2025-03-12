@@ -27,6 +27,7 @@ const ShowFinancialResults = EconolabsReactComponents.ShowFinancialResults;
 const ShowCashFlow = EconolabsReactComponents.ShowCashFlow;
 const RecordsList = EconolabsReactComponents.RecordsList;
 const SimpleAccounting = EconolabsReactComponents.SimpleAccounting;
+const ExternalSpreadsheet = EconolabsReactComponents.ExternalSpreadsheet;
 const timeout = EconolabsReactComponents.timeout;
 const loadState = EconolabsReactComponents.loadState;
 
@@ -94,7 +95,7 @@ function SimpleAccountingLayout() {
     const dispatch = useCaseDispatch();
     let records = mycase?.records ? mycase.records : [];
 
-    return <SimpleAccounting records={records} dispatch={dispatch}/>
+    return <SimpleAccounting records={records} dispatch={dispatch} />
 }
 
 
@@ -551,9 +552,160 @@ function AccountingNavBar({ myAccountingWithProfitsCashProjects = [] }) {
     );
 }
 
-function SpreadsheetLayout() {
-    return <div>SpreadsheetLayout</div>
+let alphabet = [];
+
+function AlphabetRow(props) {
+    const alphabetRow = [];
+    for (let x = 0; x < props.x + 1; x += 1) {
+        alphabetRow.push(
+            <div key={alphabet[x]} className="cells__alphabet">
+                {alphabet[x]}
+            </div>
+        );
+    }
+    return <React.Fragment>{alphabetRow}</React.Fragment>;
 }
+
+
+function NumbersColumns(props) {
+
+    const numbersColumns = [];
+    for (let y = 1; y < props.y + 1; y += 1) {
+        numbersColumns.push(
+            <div key={y} className="cells__number">
+                {y}
+            </div>
+        );
+    }
+
+    return <React.Fragment>{numbersColumns}</React.Fragment>;
+}
+
+
+let initialSpreadsheetState = {
+    expandView: true,
+    showFormulas: false,
+    numberOfX: 2,
+    numberOfY: 2,
+    formulaRowIndex: 0,
+    formulaColumnIndex: 0,
+    formulaValue: "",
+    formulaIsInFocus: false,
+    data: [
+        ["1", "2"],
+        ["3", "4"],
+    ],
+    protoData: [
+        ["1", "2"],
+        ["3", "4"],
+    ]
+}
+
+const SpreadsheetContext = createContext(null);
+const SpreadsheetDispatchContext = createContext(null);
+
+const SheetDataContext = createContext(null);
+const CalculateFormulaDispatchContext = createContext(null);
+
+
+
+function createProtoArray() {
+    return null
+}
+
+
+//https://dev.to/franciscomendes10866/use-context-api-and-immer-to-manage-the-state-of-your-react-app-1hem
+let initialSpreadsheet = {
+    email: "johndoe@yandex.ru",
+    user: "DmGl",
+    avatarUrl: "../freelancer.jpg",
+    formulaValue: 0,
+    formulaRowIndex: 0,
+    formulaColumnIndex: 0,
+    data: createNewDraft(createProtoArray({}, 12, 2)),
+    protoData: createProtoArray({}, 12, 2),
+    expandView: false,
+    posts: [],
+    selectedPage: null,
+    formulaIsInFocus: false
+};
+
+let initialSheetData = {
+    data: [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
+    ]
+};
+
+function createNewDraft(data) {
+    return data
+}
+
+function calculateReducer(state = {}, action) {
+    // console.log(action);
+    switch (action.type) {
+        case "LOAD_DATA":
+            return immer.produce(state, (draft) => {
+                draft[data] = createNewDraft(action.payload.protoData);
+            })
+
+        default:
+            return state;
+    }
+};
+
+
+function useSpreadsheet() {
+    return useContext(SpreadsheetContext);
+}
+
+function useSpreadsheetDispatch() {
+    return useContext(SpreadsheetDispatchContext);
+}
+
+function useCalculateSheetData() {
+    return useContext(CalculateFormulaDispatchContext);
+}
+
+function useSheetData() {
+    return useContext(SheetDataContext);
+}
+
+
+function SpreadsheetContextWrapper({ children }) {
+    const [spreadsheetState, dispatch] = useReducer(
+        window.caseReducer,
+        initialSpreadsheet
+    );
+    const [data, calculateFormulaDispatch] = useReducer(
+        calculateReducer,
+        initialSheetData
+    );
+
+
+
+    return (
+        <SpreadsheetContext.Provider value={spreadsheetState}>
+            <SpreadsheetDispatchContext.Provider value={dispatch}>
+                <SheetDataContext.Provider value={data}>
+                    <CalculateFormulaDispatchContext.Provider value={calculateFormulaDispatch}>
+                        {children}
+                    </CalculateFormulaDispatchContext.Provider>
+                </SheetDataContext.Provider>
+            </SpreadsheetDispatchContext.Provider>
+        </SpreadsheetContext.Provider>
+    );
+}
+
+
+function SpreadsheetLayout() {
+    return <SpreadsheetContextWrapper>
+        SpreadsheetLayout
+    </SpreadsheetContextWrapper>
+}
+
+
 
 
 
@@ -661,12 +813,12 @@ function AccountingMachine() {
         e.preventDefault();
         const currentTarget = e.currentTarget;
         const formdata = new FormData(currentTarget);
-        let {d, k, sum, contod, contok, type, period} = Object.fromEntries(formdata);
+        let { d, k, sum, contod, contok, type, period } = Object.fromEntries(formdata);
         globalDispatch({
             type: "PUSH_ITEM_TO_ARRAY",
             payload: {
                 arrayName: "dataArray",
-                item: {d, k, sum, type }
+                item: { d, k, sum, type }
             }
         });
         globalDispatch({
@@ -681,7 +833,7 @@ function AccountingMachine() {
         });
     };
 
-  
+
     function onSave(updatedRecs) {
         if (email.length > 6) {
             let userEmail = email.replace(/[^a-zA-Z0-9]/g, "_");
@@ -827,10 +979,10 @@ function AccountingMachine() {
                                 name="contod"
                                 // {...register("d")}
                                 required>
-                                    <option>...</option>
-                                    {Array.isArray(formState.conto) && formState.conto.map(item => { 
-                                        return <option key={item}>{item}</option>
-                                    })}
+                                <option>...</option>
+                                {Array.isArray(formState.conto) && formState.conto.map(item => {
+                                    return <option key={item}>{item}</option>
+                                })}
                             </Form.Control>
                         </Form.Group>
                     </Col>
@@ -842,10 +994,10 @@ function AccountingMachine() {
                                 name="contok"
                                 // {...register("k")}
                                 required>
-                                 <option>...</option>
-                                    {Array.isArray(formState.conto) && formState.conto.map(item => {
-                                     return   <option key={item}>{item}</option>
-                                    })}
+                                <option>...</option>
+                                {Array.isArray(formState.conto) && formState.conto.map(item => {
+                                    return <option key={item}>{item}</option>
+                                })}
                             </Form.Control>
                         </Form.Group>
                     </Col>
