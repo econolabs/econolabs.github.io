@@ -19,14 +19,7 @@
     const Row = ReactBootstrap.Row;
     const Col = ReactBootstrap.Col;
 
-   
-
-
-    
     const initialSpreadsheet = {
-        email: "johndoe@yandex.ru",
-        user: "DmGl",
-        avatarUrl: "../freelancer.jpg",
         formulaValue: 0,
         formulaRowIndex: 0,
         formulaColumnIndex: 0,
@@ -37,40 +30,32 @@
         selectedPage: null,
         formulaIsInFocus: false
     };
-
     function spreadsheetReducer(state = {}, action) {
         // console.log(action);
         switch (action.type) {
-    
             // case "ADD_BOOK":
             // return produce(state, (draft) => {
             //   draft.books.list.push({ ...payload });
             // });
-    
-    
             case "SEED_ARRAY":
                 return produce(state, (draft) => {
                     draft[action.payload.arrayName] = action.payload.arrayItems;
-    
-                })
-    
+                });
             case 'LOAD_DATA':
                 return produce(state, (draft) => {
                     draft.data = action.payload.data;
                     draft.protoData = action.payload.protoData;
                     draft.expandView = true;
                 });
-    
-    
             case 'NEW_EMPTY_SPREADSHEET': {
                 return produce(state, (draft) => {
                     draft.data = action.payload.data;
-                    draft.protoData = action.payload.protoData;;
+                    draft.protoData = action.payload.protoData;
+                    ;
                     draft.formulaValue = action.payload.protoData[0][0];
                     draft.expandView = true;
-                })
+                });
             }
-    
             case 'UPDATE_FORMULA':
                 return produce(state, (draft) => {
                     draft.formulaValue = action.payload.formulaValue;
@@ -78,7 +63,6 @@
                     draft.formulaColumnIndex = action.payload.formulaColumnIndex;
                     draft.formulaIsInFocus = false;
                 });
-    
             case 'SAVE_CELL_AND_SET_NEXT_CELL_ACTIVE':
                 return produce(state, (draft) => {
                     draft.data = action.payload.data;
@@ -88,40 +72,28 @@
                     draft.formulaRowIndex = action.payload.formulaRowIndex;
                     draft.formulaColumnIndex = action.payload.formulaColumnIndex;
                 });
-    
             case "SET_STORE_OBJECT":
                 return produce(state, (draft) => {
                     draft[action.payload.key] = action.payload.value;
                 });
-    
             case "PUSH_ITEM_TO_ARRAY":
                 return produce(state, (draft) => {
-                    draft[action.payload.arrayName].push(action.payload.item)
+                    draft[action.payload.arrayName].push(action.payload.item);
                 });
-    
-    
-    
             default:
                 return state;
-        }}
-        ;
-    
-
-    function ExternalSpreadsheet() {
-        const [mySpreadsheet, dispatch] = useReducer(spreadsheetReducer, initialSpreadsheet);
-
-           return (React.createElement(React.Fragment, null, [
-            {id: "1", title: "title", complete: false}
-           ].map((todo) => (React.createElement("div", { key: todo.id },
-            React.createElement("label", null,
-                React.createElement("input", { type: "checkbox", checked: todo.complete, onChange: () => handleComplete(todo) }),
-                todo.title))))));
+        }
+    }
+    ;
+    function ExternalSpreadsheet({ email = "johndoe@yandex.ru", user = "DmGl", avatarUrl = "../freelancer.jpg", }) {
+        const [mySpreadsheet, dispatch] = useReducer(spreadsheetReducer, Object.assign({ email,
+            user,
+            avatarUrl }, initialSpreadsheet));
+        console.log(mySpreadsheet);
+        return React.createElement("div", null, "ExternalSpreadsheet");
     }
     
-   
-   
-
-
+  
 
     function processRecords(records, indicator) {
         let DValues = 0;

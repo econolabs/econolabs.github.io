@@ -39,6 +39,7 @@ const useEffect = React.useEffect;
 const createContext = React.createContext;
 const useContext = React.useContext;
 const useReducer = React.useReducer;
+const produce = immer.produce;
 
 // function timeout(ms) {
 //     return new Promise(resolve => setTimeout(resolve, ms));
@@ -552,34 +553,8 @@ function AccountingNavBar({ myAccountingWithProfitsCashProjects = [] }) {
     );
 }
 
-let alphabet = [];
-
-function AlphabetRow(props) {
-    const alphabetRow = [];
-    for (let x = 0; x < props.x + 1; x += 1) {
-        alphabetRow.push(
-            <div key={alphabet[x]} className="cells__alphabet">
-                {alphabet[x]}
-            </div>
-        );
-    }
-    return <React.Fragment>{alphabetRow}</React.Fragment>;
-}
-
-
-function NumbersColumns(props) {
-
-    const numbersColumns = [];
-    for (let y = 1; y < props.y + 1; y += 1) {
-        numbersColumns.push(
-            <div key={y} className="cells__number">
-                {y}
-            </div>
-        );
-    }
-
-    return <React.Fragment>{numbersColumns}</React.Fragment>;
-}
+const SpreadsheetContext = createContext(null);
+const SpreadsheetDispatchContext = createContext(null);
 
 
 let initialSpreadsheetState = {
@@ -601,17 +576,195 @@ let initialSpreadsheetState = {
     ]
 }
 
-const SpreadsheetContext = createContext(null);
-const SpreadsheetDispatchContext = createContext(null);
+function createProtoArray(protoDataObject = {}, maxRow = 12, maxColumn = 2) {
+    Object.keys(protoDataObject).map((objKey) => {
+      const [col, ...row] = objKey;
+      let currentColIndex = window.alphabet.findIndex(item => item === col);
+      if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
+      if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
+    });
+    //  console.log(maxColumn, maxRow);
+  
+    var array = new Array(maxRow);
+    for (var i = 0; i < array.length; i++) {
+      array[i] = Array(maxColumn + 1).fill('');
+    }
+  
+    Object.keys(protoDataObject).map((objKey) => {
+      const [col, ...row] = objKey;
+      let colArrayIndex = window.alphabet.findIndex((item) => item === col);
+      let rowArrayIndex = parseInt(row) - 1;
+      array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+    });
+    return array;
+  }
+  
 
-const SheetDataContext = createContext(null);
-const CalculateFormulaDispatchContext = createContext(null);
 
 
 
-function createProtoArray() {
-    return null
+
+
+function useSpreadsheet() {
+    return useContext(SpreadsheetContext);
 }
+
+function useSpreadsheetDispatch() {
+    return useContext(SpreadsheetDispatchContext);
+}
+
+
+
+function createNewDraft(data) {
+    const newdata = immer.produce(data, draft => {
+      let oneMoreLoop = true;
+      while (oneMoreLoop) {
+        oneMoreLoop = false;
+        for (let row = 0; row < draft.length; row++) {
+          for (let ix = 0; ix < draft[row].length; ix++) {
+            let cellValue = draft[row][ix];
+            //    console.log(cellValue);
+            if (
+              (typeof cellValue === "string" || cellValue instanceof String) &&
+              cellValue.toString().includes("=")
+            ) {
+  
+              let mapObj = {
+                СТЕПЕНЬ: "POWER",
+                ЧПС: "NPV",
+                ВСД: "IRR",
+                МВСД: "MIRR",
+                СУММ: "SUM",
+                СРЗНАЧ: "AVERAGE",
+                ОКРУГЛ: "ROUND",
+                СТАНДОТКЛОН: "STDEV"
+              };
+              let re = new RegExp(Object.keys(mapObj).join("|"), "gi");
+              cellValue = cellValue.replace(re, function (matched) {
+                return mapObj[matched];
+              });
+  
+              let result = calculateFormula(draft, cellValue.slice(1));
+              //       formulas.push({ formula: cellValue, result: result })
+              if (result.later) {
+                draft[row][ix] = cellValue;
+                oneMoreLoop = true;
+              } else {
+                draft[row][ix] = result.res.result;
+              }
+            } else draft[row][ix] = cellValue;
+          }
+        }
+      }
+  
+    })
+  
+    return newdata;
+  }
+  
+  
+  function calculateFormula(data, formula) {
+    //    let parser = new FormulaParser();
+    let parser = new formulaParser.Parser();
+  
+    let dependencies = [];
+  
+    //     console.log(data, formula);
+  
+    parser.on("callCellValue", (cellCoord, done) => {
+      const x = cellCoord.column.index + 1;
+      const y = cellCoord.row.index + 1;
+  
+      dependencies.push({ x: x, y: y });
+  
+      // if (data[y - 1][x - 1].toString().slice(0, 1) === "=") {
+      //   return done(parseFloat(calculateFormula(data[y - 1][x - 1].toString().slice(1))));
+      // }
+  
+      if (!data[y - 1] || !data[y - 1][x - 1]) {
+        return done("");
+      }
+      //  console.log(y - 1, x - 1);
+      done(data[y - 1][x - 1]);
+    });
+  
+    parser.on("callRangeValue", (startCellCoord, endCellCoord, done) => {
+      var fragment = [];
+  
+      for (
+        var row = startCellCoord.row.index;
+        row <= endCellCoord.row.index;
+        row++
+      ) {
+        var rowData = data[row];
+        var colFragment = [];
+  
+        for (
+          var col = startCellCoord.column.index;
+          col <= endCellCoord.column.index;
+          col++
+        ) {
+          var value = rowData[col];
+  
+          dependencies.push({ x: col, y: row });
+  
+          colFragment.push(value);
+        }
+        fragment.push(colFragment);
+      }
+  
+      // console.log(fragment);
+  
+      if (fragment) {
+        done(fragment);
+      }
+    });
+  
+    let resultObj = parser.parse(formula);
+  
+    // console.log('formula: ' + formula);
+    let later = false;
+    let dependendentOn = [];
+    dependencies.forEach(item => {
+      let cellValue = null;
+      try {
+        cellValue = data[item.y - 1][item.x - 1];
+        //   console.log(cellValue);
+        dependendentOn.push(cellValue);
+      } catch {
+        //      console.log(formula);
+      }
+  
+      if (
+        (typeof cellValue === "string" || cellValue instanceof String) &&
+        cellValue.toString().includes("=")
+      ) {
+        later = true;
+      }
+    });
+    // console.log('dependendentOn: ' + dependendentOn);
+    // console.log('---------');
+  
+    return {
+      res: resultObj,
+      dependencies: dependencies,
+      later: later,
+      dependendentOn: dependendentOn
+    };
+  }
+
+  function calculateReducer(state = {}, action) {
+    // console.log(action);
+    switch (action.type) {
+        case "LOAD_DATA":
+            return immer.produce(state, (draft) => {
+                draft[data] = createNewDraft(action.payload.protoData);
+            })
+
+        default:
+            return state;
+    }
+};
 
 
 //https://dev.to/franciscomendes10866/use-context-api-and-immer-to-manage-the-state-of-your-react-app-1hem
@@ -638,61 +791,17 @@ let initialSheetData = {
     ]
 };
 
-function createNewDraft(data) {
-    return data
-}
-
-function calculateReducer(state = {}, action) {
-    // console.log(action);
-    switch (action.type) {
-        case "LOAD_DATA":
-            return immer.produce(state, (draft) => {
-                draft[data] = createNewDraft(action.payload.protoData);
-            })
-
-        default:
-            return state;
-    }
-};
-
-
-function useSpreadsheet() {
-    return useContext(SpreadsheetContext);
-}
-
-function useSpreadsheetDispatch() {
-    return useContext(SpreadsheetDispatchContext);
-}
-
-function useCalculateSheetData() {
-    return useContext(CalculateFormulaDispatchContext);
-}
-
-function useSheetData() {
-    return useContext(SheetDataContext);
-}
-
 
 function SpreadsheetContextWrapper({ children }) {
     const [spreadsheetState, dispatch] = useReducer(
         window.caseReducer,
         initialSpreadsheet
     );
-    const [data, calculateFormulaDispatch] = useReducer(
-        calculateReducer,
-        initialSheetData
-    );
-
-
 
     return (
         <SpreadsheetContext.Provider value={spreadsheetState}>
-            <SpreadsheetDispatchContext.Provider value={dispatch}>
-                <SheetDataContext.Provider value={data}>
-                    <CalculateFormulaDispatchContext.Provider value={calculateFormulaDispatch}>
-                        {children}
-                    </CalculateFormulaDispatchContext.Provider>
-                </SheetDataContext.Provider>
+            <SpreadsheetDispatchContext.Provider value={dispatch}>            
+                        {children}             
             </SpreadsheetDispatchContext.Provider>
         </SpreadsheetContext.Provider>
     );
@@ -722,8 +831,7 @@ function AccountingReports() {
             <ShowFinancialResults records={records} />
             <hr />
             <ShowCashFlow records={records} />
-            <hr />
-            <SpreadsheetLayout />
+           
             <hr className="mb-3 mt-3" />
             <Button
                 onClick={() => setOpen(!open)}
@@ -743,9 +851,6 @@ function AccountingReports() {
     );
 }
 
-function CKEditorClassic() {
-    return <div>CKEditorClassic</div>
-}
 
 
 let formInitialCase = {
@@ -1161,23 +1266,16 @@ function NoPrjectLayout() {
         return <div>...</div>;
     }
 
-    function setHtmlfeedback(content) {
-        // dispatch(set_currentProject({ currentProjectComment: content }));
-    }
-
-
-    return (
+     return (
         <div>
-            <AccountingNavBar />
-            <AccountingReports />
-            <Container className="mt-3 mb-3">
-                <CKEditorClassic
-                    id={"new_comment_accountingwithprofitscashcomment"} content={"<p>Комментарий</p>"}
-                    htmlfeedback={"<p>Комментарий</p>"}
-                    setHtmlfeedback={setHtmlfeedback}
-                />
-            </Container>
+            <AccountingNavBar />        
             <AccountingMachine />
+            <hr />
+            <SpreadsheetLayout />
+            <hr />
+            <ExternalSpreadsheet />
+            <hr />
+            <AccountingReports />
         </div>
     );
 }

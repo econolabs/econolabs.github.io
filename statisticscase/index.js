@@ -796,9 +796,6 @@ function PostsButtonGroup(props) {
   const handleOpenShow = () => setShowOpen(true);
   const handleSaveGroupShow = () => setShowGroupSave(true);
 
- 
-
-
 
   return (
     <>
@@ -1295,65 +1292,8 @@ function LocalSpreadsheetLayout({
 
           </ButtonGroup>}
 
-        <ButtonGroup aria-label="Rows Buttons" size="sm">
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Добавить строку ниже"
-            onClick={() => dispatch(add_row_under())}
-          >
-            +_
-          </Button>
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Добавить строку выше"
-            onClick={() => dispatch(add_row_before())}
-          >
-            +-
-          </Button>
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Удалить эту строку"
-            onClick={() => dispatch(delete_row())}
-          >
-            x-
-          </Button>
-        </ButtonGroup>
+    
 
-        <ButtonGroup aria-label="Columns Buttons" size="sm">
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Добавить колонку справа"
-            onClick={() => dispatch(add_column_after())}
-          >
-            +|
-          </Button>
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Добавить колонку слева"
-            onClick={() => dispatch(add_column_before())}
-          >
-            |+
-          </Button>
-          <Button
-            variant="outline-secondary"
-            data-toggle="tooltip"
-            data-placement="bottom"
-            title="Удалить эту колонку"
-            onClick={() => dispatch(delete_column())}
-          >
-            x|
-          </Button>
-        </ButtonGroup>
 
         <ButtonGroup aria-label="Columns Buttons" size="sm">
         <Button variant="outline-secondary"
