@@ -22,7 +22,7 @@ let casesSets = [
       title: "Показатели центра распределения. Мода",
       html: `
           <div class="alert alert-primary" role="alert">
-      Введите в колонку заголовок и 11 цифр. Рассчитайте для них моду 
+      Введите в колонку заголовок и 11 цифр. Некоторые из них должны повторяться. Рассчитайте для них моду 
           </div>
           <div>
          MODE.SNGL function Returns the most frequently occurring, or repetitive, value in an array or range of data.<br>
@@ -119,18 +119,19 @@ let casesSets = [
 
    {
       id: 9,
-      formula: "PERCENTILE",
+      formula: "PERCENTILE.INC",
       title: "Показатели распределения. ПЕРСЕНТИЛЬ",
       html: `
           <div class="alert alert-primary" role="alert">
-      Введите в колонку заголовок и 11 цифр. Рассчитайте для них 67& квартиль 
+      Введите в колонку заголовок и 11 цифр. Рассчитайте для них 67 персентиль
           </div>
           <div>
          PERCENTILE function Returns the k-th percentile of values in a range. You can use this function to establish a threshold of acceptance. For example, you can decide to examine candidates who score above the 90th percentile.<br>
-         =PERCENTILE(array,k) k Required. The percentile value in the range 0..1, inclusive
+         =PERCENTILE.INC(array,k) k Required. The percentile value in the range 0..1, inclusive
          <hr>
         =Функция ПЕРСЕНТИЛЬ ПРОЦЕНТИЛЬ.ИСКЛ и Функция ПРОЦЕНТИЛЬ.ВКЛ.<br>
-       ПЕРСЕНТИЛЬ(массив;k) k  Обязательный. Значение процентили в интервале от 0 до 1, включая эти числа.
+       ПЕРСЕНТИЛЬ(массив;k) k  Обязательный. Значение процентили в интервале от 0 до 1, включая эти числа.<br>
+       То есть процент указывается в виде десятичной дроби!
           </div>   
        `},
 
@@ -156,11 +157,11 @@ let casesSets = [
       html: `
          <div class="alert alert-primary" role="alert">
     Введите в колонку заголовок и 11 цифр. Рассчитайте для них сумму квадратов отклонений точек данных от их среднего 
-        </div>     
+        </div>   
+        <div>Найдите формулу в поисковой системе самостоятельно!</div>
+
      `,
-      hint: `<div>
-               DEVSQ
-            </div>`
+      hint: `<div>DEVSQ</div>`
    },
 
 
@@ -173,7 +174,9 @@ let casesSets = [
     Введите в две  колонки заголовок и по 11 цифр. Во второй колонке все цифры ВДВОЕ больше.<br>
     Рассчитайте для них коэффициент корреляции двух диапазонов ячеек <br>
     Сделайте вывод
-        </div>  `
+        </div>
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
+        `
       ,
       hint: `<div>
                CORREL
@@ -189,6 +192,7 @@ let casesSets = [
             Рассчитайте для них коэффициент корреляции двух диапазонов ячеек<br>
     Сделайте вывод
         </div>
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
       hint: `<div>
             CORREL
@@ -204,6 +208,7 @@ let casesSets = [
          Рассчитайте для них коэффициент корреляции двух диапазонов ячеек < br >
             Сделайте вывод
         </div >
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
       hint: `<div>
             CORREL
@@ -219,6 +224,7 @@ let casesSets = [
          Рассчитайте для них ковариацию двух диапазонов ячеек < br >
             Сделайте вывод
         </div>
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
       hint: `<div>
             COVARIANCE.P
@@ -233,6 +239,7 @@ let casesSets = [
          Рассчитайте для них ковариацию двух диапазонов ячеек < br >
             Сделайте вывод
         </div >
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
       hint: `<div>
             COVARIANCE.P
@@ -248,6 +255,7 @@ let casesSets = [
          Рассчитайте для них ковариацию двух диапазонов ячеек < br >
             Сделайте вывод
         </div >
+         <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
       hint: `<div>
             COVARIANCE.P
@@ -269,9 +277,8 @@ let casesSets = [
          Negative skewness indicates a distribution with an asymmetric tail extending toward more negative values.< br >
             Функция НАКЛОН.Возвращает наклон линии линейной регрессии для точек данных в аргументах известные_значения_y и известные_значения_x.< br >
                Наклон определяется как частное от деления расстояния по вертикали на расстояние по горизонтали между двумя любыми точками прямой; иными словами, наклон — это скорость изменения значений вдоль прямой.
-
-
-          </div >
+         </div >
+          <div>Найдите формулу в поисковой системе самостоятельно!</div>
    `,
    hint: `<div>
          SLOPE
@@ -290,9 +297,9 @@ let casesSets = [
    Calculates the point at which a line will intersect the y-axis by using existing x-values and y-values. The intercept point is based on a best-fit regression line plotted through the known x-values and known y-values. Use the INTERCEPT function when you want to determine the value of the dependent variable when the independent variable is 0 (zero). For example, you can use the INTERCEPT function to predict a metal's electrical resistance at 0°C when your data points were taken at room temperature and higher<br>
       Функция НАКЛОН. Возвращает наклон линии линейной регрессии для точек данных в аргументах известные_значения_y и известные_значения_x.<br>
          Наклон определяется как частное от деления расстояния по вертикали на расстояние по горизонтали между двумя любыми точками прямой; иными словами, наклон — это скорость изменения значений вдоль прямой.
+      </div>   
+          <div>Найдите формулу в поисковой системе самостоятельно!</div>
 
-
-      </div>     
        `,
        hint: `<div>
              INTERCEPT
