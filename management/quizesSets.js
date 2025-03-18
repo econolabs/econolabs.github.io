@@ -392,8 +392,8 @@ let quizesSets = [
             "Дэвид МакКлелланд",
             "Виктор Врум"
         ],
-        answers: ["Дэвид МакКлелланд"],
-        hint: `
+        answers: [ "Виктор Врум"],
+        hint: ` 
             <a href="https://www.hr-director.ru/article/67746-teoriya-motivatsii-makgregora-20-m8"
             target="_blank">Подробнее</a>
         `
