@@ -1439,7 +1439,7 @@ function ShowPage({
   />
 }
 
-function DoPreparePage() {
+function PageLayout() {
   const mycase = useCase();
   // console.log(mycase);
   if (!!mycase?.selectedPage?.html) {
@@ -1459,7 +1459,7 @@ function App() {
   }
   return <div>
     <PaginationLayout pages={pages} doSelectId={doSelectId} />
-    <DoPreparePage />
+    <PageLayout />
     <LocalSpreadsheetLayout />
   </div>
 }
