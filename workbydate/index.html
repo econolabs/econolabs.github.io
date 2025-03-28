@@ -319,6 +319,7 @@
         // Functions
 
         async function getAvatar(userEmail) {
+            console.log(userEmail);
             let res = await store.dispatch(api.endpoints.fetchOpenAvatar.initiate(userEmail))
             return !!res.data ? res.data : null;
         }
