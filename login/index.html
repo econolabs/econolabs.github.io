@@ -93,7 +93,9 @@
 
                 function vkidOnSuccess(data) {
                     console.log(data);
-                console.log(VKID.Auth.publicInfo(data.id_token));
+                VKID.Auth.publicInfo(data.id_token)
+                .them(res => {
+                    console.log(res);
                     console.log("vk" + data?.user_id + "@vk.com");
                     // saveState({
                     //     application: { 
@@ -103,6 +105,9 @@
                     //      },
                     // });
                     // Обработка полученного результата
+                })
+                
+                   
                 }
 
                 function vkidOnError(error) {
