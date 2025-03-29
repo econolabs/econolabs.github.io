@@ -99,7 +99,7 @@
                             console.log(res);
                             let email, avatarUrl, user;
 
-                            if (res.user.hasOwnProperty(first_name) && res.user.hasOwnProperty(last_name)) {
+                            if (res.user.hasOwnProperty(res.user.first_name) && res.user.hasOwnProperty(res.user.last_name)) {
                                 user = res.user.first_name + " " + res.user.last_name;
                             } else { res.user.first_name }
 
@@ -108,16 +108,15 @@
                             } else { avatarUrl = "../freelancer.jpg" }
                             saveState({
                                 application: {
-                                    email: "vk" + data?.user_id + "@vk.com",
+                                    email: "vk" + data.user_id + "@vk.com",
                                     user,
                                     avatarUrl: avatarUrl
                                 },
                             });
-                            const newDiv = document.createElement("div");       
-                    const newContent = newDiv.innerText(user);
-                    newDiv.classList.add("alert", "alert-danger", "my-5");
-                    document.append(newDiv);  
-
+                            const newDiv = document.createElement("div");
+                            const newContent = newDiv.innerText("Welcome " + "vk" + data.user_id + "@vk.com");
+                            newDiv.classList.add("alert", "alert-danger", "my-5");
+                            document.append(newDiv);
                             // Обработка полученного результата
                         })
 
@@ -126,10 +125,10 @@
 
                 function vkidOnError(error) {
                     console.log(error);
-                    const newDiv = document.createElement("div");       
+                    const newDiv = document.createElement("div");
                     const newContent = newDiv.innerText(error);
                     newDiv.classList.add("alert", "alert-danger", "my-5");
-                    document.append(newDiv);                   
+                    document.append(newDiv);
 
                     // Обработка ошибки
                 }
