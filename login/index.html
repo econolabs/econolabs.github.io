@@ -114,7 +114,7 @@
                                 },
                             });
                             const newDiv = document.createElement("div");
-                            const newContent = newDiv.innerText("Welcome " + "vk" + data.user_id + "@vk.com");
+                      newDiv.innerHTML("Welcome " + "vk" + data.user_id + "@vk.com");
                             newDiv.classList.add("alert", "alert-danger", "my-5");
                             document.append(newDiv);
                             // Обработка полученного результата
@@ -126,7 +126,7 @@
                 function vkidOnError(error) {
                     console.log(error);
                     const newDiv = document.createElement("div");
-                    const newContent = newDiv.innerText(error);
+                    newDiv.innerHTML(error);
                     newDiv.classList.add("alert", "alert-danger", "my-5");
                     document.append(newDiv);
 
