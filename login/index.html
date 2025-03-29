@@ -93,7 +93,7 @@
 
                 function vkidOnSuccess(data) {
                     console.log(data);
-                    VKID.Auth.publicInfo(data.id_token);
+                console.log(VKID.Auth.publicInfo(data.id_token));
                     console.log("vk" + data?.user_id + "@vk.com");
                     // saveState({
                     //     application: { 
