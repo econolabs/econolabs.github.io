@@ -99,11 +99,11 @@
                             console.log(res.user);
                             let email, avatarUrl, vkuser;
 
-                            if (res.user.hasOwnProperty(first_name) && res.user.hasOwnProperty(last_name)) {
+                            if (res.user.hasOwnProperty("first_name") && res.user.hasOwnProperty("last_name")) {
                                 vkuser = res.user.first_name + " " + res.user.last_name;
                             } else { vkuser = res.user.first_name }
 
-                            if (res.user.hasOwnProperty(avatar)) {
+                            if (res.user.hasOwnProperty("avatar")) {
                                 avatarUrl = res.user.avatar;
                             } else { avatarUrl = "../freelancer.jpg" }
                             saveState({
