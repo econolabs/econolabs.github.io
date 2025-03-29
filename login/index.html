@@ -44,7 +44,7 @@
         </div>
     </nav>
 
-    <div>
+    <div class="container">
         <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
         <script type="text/javascript">
 
@@ -93,27 +93,44 @@
 
                 function vkidOnSuccess(data) {
                     console.log(data);
-                VKID.Auth.publicInfo(data.id_token)
-           //     VKID.Auth.publicInfo(data.access_token)
-                .then(res => {
-                    console.log(res);
-                    console.log("vk" + data?.user_id + "@vk.com");
-                    // saveState({
-                    //     application: { 
-                    //         email: "vk" + data?.user_id + "@vk.com",
-                    //         user,
-                    //         avatarUrl: "../freelancer.jpg"
-                    //      },
-                    // });
-                    // Обработка полученного результата
-                })
-                
-                   
+                    VKID.Auth.publicInfo(data.id_token)
+                        //     VKID.Auth.publicInfo(data.access_token)
+                        .then(res => {
+                            console.log(res);
+                            let email, avatarUrl, user;
+
+                            if (res.user.hasOwnProperty(first_name) && res.user.hasOwnProperty(last_name)) {
+                                user = res.user.first_name + " " + res.user.last_name;
+                            } else { res.user.first_name }
+
+                            if (res.user.hasOwnProperty(avatar)) {
+                                avatarUrl = res.user.avatar;
+                            } else { avatarUrl = "../freelancer.jpg" }
+                            saveState({
+                                application: {
+                                    email: "vk" + data?.user_id + "@vk.com",
+                                    user,
+                                    avatarUrl: avatarUrl
+                                },
+                            });
+                            const newDiv = document.createElement("div");       
+                    const newContent = newDiv.innerText(user);
+                    newDiv.classList.add("alert", "alert-danger", "my-5");
+                    document.append(newDiv);  
+
+                            // Обработка полученного результата
+                        })
+
+
                 }
 
                 function vkidOnError(error) {
-                    console.log(error)
-                   
+                    console.log(error);
+                    const newDiv = document.createElement("div");       
+                    const newContent = newDiv.innerText(error);
+                    newDiv.classList.add("alert", "alert-danger", "my-5");
+                    document.append(newDiv);                   
+
                     // Обработка ошибки
                 }
             }
