@@ -95,7 +95,7 @@
                     console.log(data);
            //     VKID.Auth.publicInfo(data.id_token);
                 VKID.Auth.publicInfo(data.access_token)
-                .them(res => {
+                .then(res => {
                     console.log(res);
                     console.log("vk" + data?.user_id + "@vk.com");
                     // saveState({
