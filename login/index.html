@@ -96,12 +96,12 @@
                     VKID.Auth.publicInfo(data.id_token)
                         //     VKID.Auth.publicInfo(data.access_token)
                         .then(res => {
-                            console.log(res);
-                            let email, avatarUrl, user;
+                            console.log(res.user);
+                            let email, avatarUrl, vkuser;
 
-                            if (res.user.hasOwnProperty(res.user.first_name) && res.user.hasOwnProperty(res.user.last_name)) {
-                                user = res.user.first_name + " " + res.user.last_name;
-                            } else { res.user.first_name }
+                            if (res.user.hasOwnProperty(first_name) && res.user.hasOwnProperty(last_name)) {
+                                vkuser = res.user.first_name + " " + res.user.last_name;
+                            } else { vkuser = res.user.first_name }
 
                             if (res.user.hasOwnProperty(avatar)) {
                                 avatarUrl = res.user.avatar;
@@ -109,7 +109,7 @@
                             saveState({
                                 application: {
                                     email: "vk" + data.user_id + "@vk.com",
-                                    user,
+                                    user: vkuser,
                                     avatarUrl: avatarUrl
                                 },
                             });
