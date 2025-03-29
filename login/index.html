@@ -7,60 +7,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./original.css">
     <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
 
     <title>Login</title>
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    filter: grayscale(100%);
+                    object-fit: cover;
+                  " />
+                </a>
+            </form>
+        </div>
+    </nav>
 
     <div>
         <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
         <script type="text/javascript">
-          if ('VKIDSDK' in window) {
-            const VKID = window.VKIDSDK;
-      
-            VKID.Config.init({
-              app: 53350454,
-              redirectUrl: 'https://econolabs.github.io',
-              responseMode: VKID.ConfigResponseMode.Callback,
-              source: VKID.ConfigSource.LOWCODE,
-              scope: '', // Заполните нужными доступами по необходимости
-            });
-      
-            const oAuth = new VKID.OAuthList();
-      
-            oAuth.render({
-              container: document.currentScript.parentElement,
-              oauthList: [
-                'vkid'
-              ]
-            })
-            .on(VKID.WidgetEvents.ERROR, vkidOnError)
-            .on(VKID.OAuthListInternalEvents.LOGIN_SUCCESS, function (payload) {
-              const code = payload.code;
-              const deviceId = payload.device_id;
-      
-              VKID.Auth.exchangeCode(code, deviceId)
-                .then(vkidOnSuccess)
-                .catch(vkidOnError);
-            });
-          
-            function vkidOnSuccess(data) {
-                console.log(data);
-              // Обработка полученного результата
+
+            function saveState(state) {
+                try {
+                    const serializedState = JSON.stringify(state);
+                    // console.log(serializedState);
+                    localStorage.setItem('econolabs', serializedState);
+                } catch (err) {
+                    console.log(err)
+                }
             }
-          
-            function vkidOnError(error) {
-                console.log(data);
-              // Обработка ошибки
+
+
+            if ('VKIDSDK' in window) {
+                const VKID = window.VKIDSDK;
+
+                VKID.Config.init({
+                    app: 53350454,
+                    redirectUrl: 'https://econolabs.github.io',
+                    responseMode: VKID.ConfigResponseMode.Callback,
+                    source: VKID.ConfigSource.LOWCODE,
+                    scope: '', // Заполните нужными доступами по необходимости
+                });
+
+                const oAuth = new VKID.OAuthList();
+
+                oAuth.render({
+                    container: document.currentScript.parentElement,
+                    oauthList: [
+                        VKID.OAuthName.MAIL,
+                        VKID.OAuthName.OK,
+                        VKID.OAuthName.VK
+
+                    ]
+                })
+                    .on(VKID.WidgetEvents.ERROR, vkidOnError)
+                    .on(VKID.OAuthListInternalEvents.LOGIN_SUCCESS, function (payload) {
+                        const code = payload.code;
+                        const deviceId = payload.device_id;
+
+                        VKID.Auth.exchangeCode(code, deviceId)
+                            .then(vkidOnSuccess)
+                            .catch(vkidOnError);
+                    });
+
+                function vkidOnSuccess(data) {
+                    console.log(data);
+                    VKID.Auth.publicInfo(data.id_token);
+                    console.log("vk" + data?.user_id + "@vk.com");
+                    // saveState({
+                    //     application: { 
+                    //         email: "vk" + data?.user_id + "@vk.com",
+                    //         user,
+                    //         avatarUrl: "../freelancer.jpg"
+                    //      },
+                    // });
+                    // Обработка полученного результата
+                }
+
+                function vkidOnError(error) {
+                    console.log(err)
+                   
+                    // Обработка ошибки
+                }
             }
-          }
         </script>
-      </div>
+    </div>
 
 </body>
 
