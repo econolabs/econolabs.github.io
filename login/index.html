@@ -115,7 +115,7 @@
                             });
                             var newDiv = document.createElement("div");
                             newDiv.innerHTML = "Welcome " + "vk" + data.user_id + "@vk.com";
-                            newDiv.classList.add("alert", "alert-danger", "my-5");
+                            newDiv.classList.add("alert", "alert-primary", "m-5");
                             document.body.appendChild(newDiv);
                             // Обработка полученного результата
                         })
@@ -127,7 +127,7 @@
                     console.log(error);
                     var newDiv = document.createElement("div");
                     newDiv.innerHTML = error;
-                    newDiv.classList.add("alert", "alert-danger", "my-5");
+                    newDiv.classList.add("alert", "alert-danger", "m-5");
                     document.body.appendChild(newDiv);
 
                     // Обработка ошибки
