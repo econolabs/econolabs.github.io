@@ -27129,7 +27129,8 @@
 	      bookD,
 	      bookK,
 	      comment,
-	      period
+	      period,
+	      type
 	    } = Object.fromEntries(formdata);
 	    // console.log(d, k, sum, bookD, bookK, comment, period);
 
@@ -27160,6 +27161,7 @@
 	          d,
 	          k,
 	          sum,
+	          type,
 	          period,
 	          bookD,
 	          bookK,
@@ -27179,7 +27181,8 @@
 	          bookK,
 	          comment,
 	          period,
-	          task
+	          task,
+	          type
 	        }
 	      }
 	    });
@@ -27754,7 +27757,7 @@
 	  }), /*#__PURE__*/React.createElement(SaveCaseComponent, {
 	    state: state
 	  }), /*#__PURE__*/React.createElement(ShowRecords, {
-	    key: "" + state.records.length + !!state?.currentTaskIndex,
+	    key: "" + state.records.length + state.currentTaskIndex,
 	    state: state,
 	    dispatch: dispatch
 	  }));
