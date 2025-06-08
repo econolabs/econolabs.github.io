@@ -178,8 +178,14 @@ function SimpleAccounting() {
             <div id="example-collapse-text">
                 <Container>
                     {Array.isArray(projectSelector.content) && projectSelector.content.map((row, index) => <Row key={index}>
-                        <Col>{row.d}</Col>
-                        <Col>{row.k}</Col>
+                        <Col>
+                  <div><small class="text-muted">{row.d}</small></div>
+                        <div>{row.bookD}</div>
+                        </Col>
+                        <Col>
+                          <div><small class="text-muted">{row.k}</small></div>
+                           <div>{row.bookK}</div>
+                        </Col>
                         <Col>{row.sum}</Col>
                     </Row>)}
                 </Container>
@@ -457,7 +463,7 @@ function App() {
 
                 let userprojectpostcontent = await basicfirebasecrudservices.getFirebaseNode({
                     url: "/usersCraft/" + userEmail + "/posts/" + openquiz.id + "/content",
-                    type: "object",
+                    type: "array",
                 });
           
 
