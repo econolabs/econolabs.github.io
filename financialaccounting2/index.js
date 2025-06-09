@@ -28,19 +28,6 @@ let projectInitialState = {
     triggerRerender: null
 };
 
-let balanceItems = [
-    "Основные средства",
-    "Материалы",
-    "Незавершенное производство",
-    "Готовая продукция",
-    "Дебиторская задолженность",
-    "Деньги",
-    "Уставный капитал",
-    "Нераспределенная прибыль",
-    "Долгосрочный банковский кредит",
-    "Краткосрочный банковский кредит",
-    "Кредиторская задолженность"
-];
 
 let balanceContoArray = [
     { id: "Основные средства", children: ["01", "08", "07", "04", "02"] },
@@ -67,7 +54,7 @@ function SimpleAccounting() {
 
     if (applicationSelector.loading) return null;
 
-  //  console.log(projectSelector);
+    //  console.log(projectSelector);
 
     // useEffect(()=>{
     //     console.log(project.content)
@@ -75,7 +62,7 @@ function SimpleAccounting() {
 
     function handleChange(e) {
         let { name, value } = e.target;
-     //   console.log(name, value);
+        //   console.log(name, value);
         if (name === "d") { setD(value) }
         if (name === "k") { setK(value) }
     }
@@ -85,7 +72,7 @@ function SimpleAccounting() {
         const currentTarget = e.currentTarget;
         const formdata = new FormData(currentTarget);
         let { d, k, sum, bookD, bookK } = Object.fromEntries(formdata);
-      //  console.log(d, k, sum, bookD, bookK);
+        //  console.log(d, k, sum, bookD, bookK);
         handleAdd({ d, k, sum, bookD, bookK });
         basicfirebasecrudservices.timeout(275).then(() => {
             setD(null);
@@ -96,7 +83,7 @@ function SimpleAccounting() {
 
     // const handleAdd = useCallback(({ d, k, sum }) => {
     function handleAdd({ d, k, sum, bookD, bookK }) {
-      //  let records = project.content;
+        //  let records = project.content;
         dispatch({
             type: "SEED_STATE",
             payload: {
@@ -179,12 +166,12 @@ function SimpleAccounting() {
                 <Container>
                     {Array.isArray(projectSelector.content) && projectSelector.content.map((row, index) => <Row key={index}>
                         <Col>
-                  <div><small class="text-muted">{row.d}</small></div>
-                        <div>{row.bookD}</div>
+                            <div><small class="text-muted">{row.d}</small></div>
+                            <div>{row.bookD}</div>
                         </Col>
                         <Col>
-                          <div><small class="text-muted">{row.k}</small></div>
-                           <div>{row.bookK}</div>
+                            <div><small class="text-muted">{row.k}</small></div>
+                            <div>{row.bookK}</div>
                         </Col>
                         <Col>{row.sum}</Col>
                     </Row>)}
@@ -199,7 +186,7 @@ function SimpleAccounting() {
                     <Form.Group controlId="formStateD">
                         <Form.Label>Д</Form.Label>
                         <Form.Control as="select" name="d" onChange={handleChange} required>
-                            {["...", ...balanceItems]
+                            {["...", ...balanceContoArray.map(item => item.id)]
                                 .map(item => { return <option key={item}>{item}</option> })}
                         </Form.Control>
                     </Form.Group>
@@ -209,7 +196,7 @@ function SimpleAccounting() {
                     <Form.Group controlId="formStateK">
                         <Form.Label>К</Form.Label>
                         <Form.Control as="select" name="k" onChange={handleChange} required>
-                            {["...", ...balanceItems]
+                            {["...", ...balanceContoArray.map(item => item.id)]
                                 .map(item => { return <option key={item}>{item}</option> })}
                         </Form.Control>
                     </Form.Group>
@@ -266,9 +253,7 @@ function SaveProject() {
 
 
     useEffect(() => {
-
-        async function getUser() {
-
+        async function saveContent() {
             if (content.length > 0) {
                 let postObject = {
                     ...projectSelector,
@@ -338,21 +323,22 @@ function SaveProject() {
                     type: "html",
                 };
 
+                console.log(updates);
 
                 return await basicfirebasecrudservices.updateFirebaseNode(updates);
             }
             return null
         }
 
-        getUser().then((res) => {
+        saveContent().then((res) => {
             console.log("Saved");
-          //  console.log(projectSelector);
-          //  console.log(applicationSelector);
+            //  console.log(projectSelector);
+            //  console.log(applicationSelector);
         })
 
 
 
-    }, [projectSelector?.triggerRerenderh])
+    }, [projectSelector?.triggerRerender])
 
     //  console.log(selectApplication)
 
@@ -432,23 +418,38 @@ function App() {
 
             console.log(document.getElementById("simpleaccounting").dataset.openquizid);
 
-            let openquiz = await basicfirebasecrudservices.getFirebaseNode({
+            let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
                 url: "openquiz/" + document.getElementById("simpleaccounting").dataset.openquizid,
                 type: "object",
             });
 
-            //  console.log(openquiz);
+
             // let updates = {};
-            // updates["/openquiz/financialaccounting1"] = {
-            //     id: "financialaccounting1",
-            //     title: "Общее знакомство c БФУ",
+            // updates["/openquiz/financialaccounting4"] = {
+            //     id: "financialaccounting3",
+            //     title: "Учет денежных средств и финансовых вложений",
             //     theme: "БФУ",
-            //     answer: "Операции и прогнозная отчетность",
-            //     comment: "Операции и прогнозная отчетность",
-            //     type: "accountingwithprofitscash",            
+            //     answer: "Операции и отчетность",
+            //     comment: "Операции и отчетность",
+            //     type: "accountingwithprofitscash",
             // };
             // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
             // console.log(res);
+
+            let openquiz = typeof onlineopenquiz === 'object' && Object.keys(onlineopenquiz).length > 0 ? onlineopenquiz :
+                {
+                    id: document.getElementById("simpleaccounting").dataset.openquizid,
+                    title: "Задание от " + new Intl.DateTimeFormat("ru", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric"
+                    }).format(new Date()),
+                    theme: "Бухгалтерский учет и прогнозирование",
+                    answer: "Операции и отчетность",
+                    comment: "Операции и отчетность",
+                    type: "accountingwithprofitscash",
+                };
+
 
             if (!!localStorageData?.application?.email) {
                 let userEmail = localStorageData?.application?.email.replace(
@@ -462,10 +463,10 @@ function App() {
                 });
 
                 let userprojectpostcontent = await basicfirebasecrudservices.getFirebaseNode({
-                    url: "/usersCraft/" + userEmail + "/posts/" + openquiz.id + "/content",
+                    url: "/usersCraft/" + userEmail + "/posts/" + document.getElementById("simpleaccounting").dataset.openquizid + "/content",
                     type: "array",
                 });
-          
+
 
                 return {
                     email: localStorageData?.application?.email,
@@ -521,7 +522,7 @@ function App() {
                 },
             });
 
-    
+
             projectDispatch({
                 type: "SEED_STATE",
                 payload: {
