@@ -67,7 +67,7 @@ function SimpleAccounting() {
 
     if (applicationSelector.loading) return null;
 
-  //  console.log(projectSelector);
+    //  console.log(projectSelector);
 
     // useEffect(()=>{
     //     console.log(project.content)
@@ -75,7 +75,7 @@ function SimpleAccounting() {
 
     function handleChange(e) {
         let { name, value } = e.target;
-     //   console.log(name, value);
+        //   console.log(name, value);
         if (name === "d") { setD(value) }
         if (name === "k") { setK(value) }
     }
@@ -85,7 +85,7 @@ function SimpleAccounting() {
         const currentTarget = e.currentTarget;
         const formdata = new FormData(currentTarget);
         let { d, k, sum, bookD, bookK } = Object.fromEntries(formdata);
-      //  console.log(d, k, sum, bookD, bookK);
+        //  console.log(d, k, sum, bookD, bookK);
         handleAdd({ d, k, sum, bookD, bookK });
         basicfirebasecrudservices.timeout(275).then(() => {
             setD(null);
@@ -96,7 +96,7 @@ function SimpleAccounting() {
 
     // const handleAdd = useCallback(({ d, k, sum }) => {
     function handleAdd({ d, k, sum, bookD, bookK }) {
-      //  let records = project.content;
+        //  let records = project.content;
         dispatch({
             type: "SEED_STATE",
             payload: {
@@ -179,12 +179,12 @@ function SimpleAccounting() {
                 <Container>
                     {Array.isArray(projectSelector.content) && projectSelector.content.map((row, index) => <Row key={index}>
                         <Col>
-                  <div><small class="text-muted">{row.d}</small></div>
-                        <div>{row.bookD}</div>
+                            <div><small class="text-muted">{row.d}</small></div>
+                            <div>{row.bookD}</div>
                         </Col>
                         <Col>
-                          <div><small class="text-muted">{row.k}</small></div>
-                           <div>{row.bookK}</div>
+                            <div><small class="text-muted">{row.k}</small></div>
+                            <div>{row.bookK}</div>
                         </Col>
                         <Col>{row.sum}</Col>
                     </Row>)}
@@ -346,8 +346,8 @@ function SaveProject() {
 
         getUser().then((res) => {
             console.log("Saved");
-          //  console.log(projectSelector);
-          //  console.log(applicationSelector);
+            //  console.log(projectSelector);
+            //  console.log(applicationSelector);
         })
 
 
@@ -437,15 +437,15 @@ function App() {
                 type: "object",
             });
 
-            //  console.log(openquiz);
+            console.log(openquiz);
             // let updates = {};
-            // updates["/openquiz/financialaccounting1"] = {
-            //     id: "financialaccounting1",
-            //     title: "Общее знакомство c БФУ",
+            // updates["/openquiz/financialaccounting3"] = {
+            //     id: "financialaccounting3",
+            //     title: "Учет запасов",
             //     theme: "БФУ",
-            //     answer: "Операции и прогнозная отчетность",
-            //     comment: "Операции и прогнозная отчетность",
-            //     type: "accountingwithprofitscash",            
+            //     answer: "Операции и отчетность",
+            //     comment: "Операции и отчетность",
+            //     type: "accountingwithprofitscash",
             // };
             // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
             // console.log(res);
@@ -465,7 +465,7 @@ function App() {
                     url: "/usersCraft/" + userEmail + "/posts/" + openquiz.id + "/content",
                     type: "array",
                 });
-          
+
 
                 return {
                     email: localStorageData?.application?.email,
@@ -521,7 +521,7 @@ function App() {
                 },
             });
 
-    
+
             projectDispatch({
                 type: "SEED_STATE",
                 payload: {
