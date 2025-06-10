@@ -10,7 +10,7 @@ let useContext = React.useContext;
 //import { produce } from "immer";
 //let produce = immer.produce;
 
-let { Container, Row, Col, Form, Button, Collapse, Navbar } = ReactBootstrap;
+let { Container, Row, Col, Form, Button, Collapse, Navbar, Modal } = ReactBootstrap;
 
 const ApplicationContext = createContext(null);
 const ProjectContext = createContext(null);
@@ -30,12 +30,12 @@ let projectInitialState = {
 
 
 let balanceContoArray = [
-    { id: "Основные средства", children: ["01", "08", "07", "04", "02"] },
-    { id: "Материалы", children: ["10", "14", "15", "16", "19"] },
-    { id: "Незавершенное производство", children: ["20", "23", "25", "26", "44", "21"] },
-    { id: "Готовая продукция", children: ["41", "43"] },
-    { id: "Дебиторская задолженность", children: ["62.1", "60.2", "75.1", "76", "68"] },
-    { id: "Деньги", children: ["50", "51", "52", "55"] },
+    { id: "Основные средства", children: ["01", "08", "07", "04", "02"], disposition: "asset" },
+    { id: "Материалы", children: ["10", "14", "15", "16", "19"], disposition: "asset" },
+    { id: "Незавершенное производство", children: ["20", "23", "25", "26", "44", "21"], disposition: "asset" },
+    { id: "Готовая продукция", children: ["41", "43"], disposition: "asset" },
+    { id: "Дебиторская задолженность", children: ["62.1", "60.2", "75.1", "76", "68"] , disposition: "asset"},
+    { id: "Деньги", children: ["50", "51", "52", "55"], disposition: "asset" },
     { id: "Уставный капитал", children: ["80", "82", "83", "81"] },
     { id: "Нераспределенная прибыль", children: ["84", "90.1", "90.2", "90.3", "90.4", "90.5", "90.9", "91.1", "91.2", "91.9", "99"] },
     { id: "Долгосрочный банковский кредит", children: ["67"] },
@@ -43,6 +43,98 @@ let balanceContoArray = [
     { id: "Кредиторская задолженность", children: ["70", "62.2", "60.1", "68", "75.2", "76", "69"] },
 ]
 
+function LoginLogout() {
+    const applicationSelector = useContext(ApplicationContext);
+    const [show, setShow] = useState(false);
+
+    let user = applicationSelector?.user;
+    let email = applicationSelector?.email;
+
+
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log(e.currentTarget.elements.formEmail.value);
+        console.log(e.currentTarget.elements.formUser.value);
+
+        basicfirebasecrudservices.saveState({
+            application: {
+                email: e.currentTarget.elements.formEmail.value,
+                user: e.currentTarget.elements.formUser.value,
+                avatarUrl: "../freelancer.jpg",
+                userEmail: e.currentTarget.elements.formEmail.value.replace(
+                    /[^a-zA-Z0-9]/g, "_")
+            }
+        });
+
+
+        //   dispatch({
+        //     type: "SET_STORE_OBJECT",
+        //     payload: { key: "email", value: e.currentTarget.elements.formEmail.value }
+        //   });
+        //   dispatch({
+        //     type: "SET_STORE_OBJECT",
+        //     payload: { key: "user", value: e.currentTarget.elements.formUser.value }
+        //   });
+        setTimeout(() => window.location.reload(), 3000)
+        handleClose();
+    };
+
+
+
+    return (
+        <>
+            <span onClick={handleShow} style={{ marginRight: "1rem" }}>
+                {user}
+            </span>
+
+            {/* <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button> */}
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Пользователь</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email"
+                            placeholder={email}
+                        />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formUser">
+                        <Form.Label>User</Form.Label>
+                        <Form.Control type="text"
+                            placeholder={user}
+                        />
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+                </Modal.Body>
+                {/* <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer> */}
+            </Modal>
+        </>
+    );
+}
 
 function SimpleAccounting() {
     const applicationSelector = useContext(ApplicationContext);
@@ -93,15 +185,20 @@ function SimpleAccounting() {
                 },
             },
         });
-        // updateRecords(
-        //     basicfirebasecrudservices.produce((draft) => {
-        //         draft.push({ d, k, sum, bookD, bookK });
-        //     })
-        // );
+
     }
     //}, []);
 
-
+    function deleteRecord(e) {
+        console.log(e.target.id);
+        dispatch({
+            type: "DELETE_FROM_ARRAY_BY_INDEX",
+            payload: {
+                arrayName: "content",
+                itemIndex: e.target.id
+            }
+        })
+    }
 
 
 
@@ -113,9 +210,14 @@ function SimpleAccounting() {
             if (item.k === indicator) { KValues = KValues + parseFloat(item.sum) }
             return null
         })
-        if (indicator === "Основные средства" || indicator === "Материалы" ||
-            indicator === "Незавершенное производство" || indicator === "Готовая продукция" ||
-            indicator === "Дебиторская задолженность" || indicator === "Деньги") { return DValues - KValues } else { return KValues - DValues }
+        if (
+            balanceContoArray.find(item => item.id === indicator)?.disposition === "asset"
+            // indicator === "Основные средства" || indicator === "Материалы" ||
+            // indicator === "Незавершенное производство" || indicator === "Готовая продукция" ||
+            // indicator === "Дебиторская задолженность" || indicator === "Деньги"
+        )
+            
+            { return DValues - KValues } else { return KValues - DValues }
     }
 
     console.log()
@@ -174,6 +276,7 @@ function SimpleAccounting() {
                             <div>{row.bookK}</div>
                         </Col>
                         <Col>{row.sum}</Col>
+                        <Col><Button id={index} variant="outline-danger" size="sm" onClick={deleteRecord}>X</Button></Col>
                     </Row>)}
                 </Container>
             </div>
@@ -357,14 +460,15 @@ function SaveProject() {
                         objectFit: "cover",
                     }}
                 />
-                <span className="mx-3">{projectSelector.title}</span>
+                <small className="mx-3">{projectSelector.title + "   (" + content.length + ")"}</small>
 
             </Navbar.Brand>
 
         </Container>
 
         <Form inline>
-            <Button variant="outline-secondary" size="sm">{content.length}</Button>
+            <LoginLogout />
+            {/* <Button variant="outline-secondary" size="sm">{content.length}</Button> */}
         </Form>
 
     </Navbar>
@@ -374,6 +478,7 @@ function SaveProject() {
 
 function caseReducer(state = {}, action) {
     // console.log(action);
+    //https://immerjs.github.io/immer/update-patterns
     switch (action.type) {
         case "SEED_STATE": {
             return basicfirebasecrudservices.produce(state, (draft) => {
@@ -382,6 +487,21 @@ function caseReducer(state = {}, action) {
                 });
             });
         }
+
+        case "DELETE_FROM_ARRAY_BY_INDEX": {
+            return basicfirebasecrudservices.produce(state, (draft) => {
+                draft[action.payload.arrayName].splice(action.payload.itemIndex, 1);
+                draft.triggerRerender = action.payload.itemIndex;
+            });
+        }
+
+        case "UPDATE_ITEM_IN_ARRAY":
+            return basicfirebasecrudservices.produce(state, (draft) => {
+                console.log(action.payload);
+                const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.item.id);
+                if (index !== -1) draft[action.payload.arrayName][index] = action.payload.item
+            });
+
         default:
             return state;
     }
