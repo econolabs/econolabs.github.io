@@ -969,24 +969,34 @@ function App() {
                 type: "object",
             });
 
+            console.log(onlineopenquiz)
 
-            let updates = {};
-            updates["/openquiz/propertyplantandequipment01"] = {
-                id: "propertyplantandequipment01",
-                title: "Учет основных средств 1",
-                theme: "БФУ",
-                answer: "Операции и отчетность",
-                comment: "Операции и отчетность",
-                type: "accountingwithprofitscash",
-                tasks: [{
-                    id: 0,
-                    text: `Организация купила оборудование в январе 2025 года и в этом же месяце ввела его в эксплуатацию.<br>
-             Стоимость оборудования 120 000 руб.(в том числе НДС 20 000 руб.). Получен акт приема-передачи и счет-фактура.<br>
-             Стоимость доставки – 24 000 руб. (в том числе НДС 4000 руб.) оплачена в январе, получен счет-фактура и акт.<br>
-            Оборудование относится к 5 амортизационной группе со сроком полезного использования 7-10 лет.<br>
-             Организация приняла решение об использовании оборудования в течение 10 лет. В том же месяце оборудование полностью оплачено.<br>
-            Указать бухгалтерские записи`
-                }],
+            if (!!onlineopenquiz?.theme) {
+                console.log(onlineopenquiz?.theme);
+                document.querySelector(".card-title").innerText = onlineopenquiz?.theme;
+                document.querySelector(".quiztitle").innerText = onlineopenquiz?.title;
+            }
+
+
+            
+
+            // let updates = {};
+            // updates["/openquiz/propertyplantandequipment01"] = {
+            //     id: "propertyplantandequipment01",
+            //     title: "Учет основных средств 1",
+            //     theme: "БФУ",
+            //     answer: "Операции и отчетность",
+            //     comment: "Операции и отчетность",
+            //     type: "accountingwithprofitscash",
+            //     tasks: [{
+            //         id: 0,
+            //         text: `Организация купила оборудование в январе 2025 года и в этом же месяце ввела его в эксплуатацию.<br>
+            //  Стоимость оборудования 120 000 руб.(в том числе НДС 20 000 руб.). Получен акт приема-передачи и счет-фактура.<br>
+            //  Стоимость доставки – 24 000 руб. (в том числе НДС 4000 руб.) оплачена в январе, получен счет-фактура и акт.<br>
+            // Оборудование относится к 5 амортизационной группе со сроком полезного использования 7-10 лет.<br>
+            //  Организация приняла решение об использовании оборудования в течение 10 лет. В том же месяце оборудование полностью оплачено.<br>
+            // Указать бухгалтерские записи`
+            //     }],
                 // hint: `<p>
                 // <a target="_blank"
                 // href="https://buhexpert8.ru/1s-buhgalteriya/fsbu-5-2019-zapasy-1s-buhgalteriya/metodika-ucheta-nesushhestvennyh-obektov.htm"
@@ -994,9 +1004,9 @@ function App() {
                 //     Учет малоценных ОС и запасов (ОСНО) в 1С
                 // </a>
                 // </p>`
-            };
-            let res = basicfirebasecrudservices.updateFirebaseNode(updates);
-            console.log(res);
+            // };
+            // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
+            // console.log(res);
 
             let openquiz = !!onlineopenquiz && Object.keys(onlineopenquiz).length > 0 ?
                 onlineopenquiz :
