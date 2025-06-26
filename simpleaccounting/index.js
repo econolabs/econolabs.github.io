@@ -9,12 +9,14 @@ let useContext = React.useContext;
 //import { produce } from "immer";
 //let produce = immer.produce;
 
-let { Container, Row, Col, Form, Button, Collapse, Navbar, Modal } = ReactBootstrap;
+let { Container, Row, Col, Form, Button, Collapse, Navbar, Modal, InputGroup, FormControl } = ReactBootstrap;
 
 const ApplicationContext = createContext(null);
 const ApplicationDispatchContext = createContext(null);
 const ProjectContext = createContext(null);
 const ProjectDispatchContext = createContext(null);
+const SpreadsheetContext = createContext(null);
+const SpreadsheetDispatchContext = createContext(null);
 
 let projectInitialState = {
     // id: "financialaccounting1",
@@ -26,7 +28,10 @@ let projectInitialState = {
     content: [],
     deleted: false,
     triggerRerender: null,
-    openLedger: false
+    triggerSave: false,
+    saveOptions: {},
+    openLedger: false,
+    openSpreadsheet: false,
 };
 
 
@@ -97,9 +102,98 @@ function LoginLogout() {
     </Form>
 }
 
+function EditRecordPeriod() {
+    const applicationSelector = useContext(ApplicationContext);
+    const applicationDispatch = useContext(ApplicationDispatchContext)
+    const projectSelector = useContext(ProjectContext);
+    const projectDispatch = useContext(ProjectDispatchContext);
+    let record = projectSelector.content.find(item => item.id === applicationSelector?.modal?.item?.id);
+    let orderInArray = projectSelector.content.findIndex(item => item.id === applicationSelector?.modal?.item?.id) + 1;
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const currentTarget = e.currentTarget;
+        const formdata = new FormData(currentTarget);
+        console.log(Object.fromEntries(formdata));
+        let period = Object.fromEntries(formdata).period;
+        console.log(period);
+        projectDispatch({
+            type: "UPDATE_ITEM_PROPERTY_IN_ARRAY",
+            payload: {
+                arrayName: "content",
+                id: record.id,
+                objKey: "period",
+                objValue: period
+            },
+        });
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+        projectDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    triggerRerender: Math.random(),
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "content" }
+                },
+            },
+        });
+    }
+
+    let periods = ["2022", "2023", "2024", "2025", "2026", "2027", "2028"]
+
+    return <Form onSubmit={handleSubmit}>
+        <Container>
+            <Row>
+                <Col><small>{"N " + orderInArray}</small> </Col>
+                <Col>{record?.bookD}</Col>
+                <Col>{record?.bookK}</Col>
+                <Col>{record?.sum}</Col>
+                <Col><div><small>{record?.type}</small></div>
+
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+
+                    <Form.Group controlId="formStatePeriod">
+                        <Form.Label>Комментарий</Form.Label>
+                        <Form.Control as="select" name="period" size="sm" required>
+                            {["...", ...periods]
+                                .map(item => {
+                                    return <option key={item} id={item}>
+                                        {item}
+                                    </option>
+                                })}
+                        </Form.Control>
+                    </Form.Group>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <Button variant="outline-secondary" size="sm" type="submit" >Сохранить</Button>
+                </Col>
+            </Row>
+
+        </Container>
+    </Form>
+
+
+}
+
 
 function EditRecordComment() {
     const applicationSelector = useContext(ApplicationContext);
+    const applicationDispatch = useContext(ApplicationDispatchContext);
     const projectSelector = useContext(ProjectContext);
     const projectDispatch = useContext(ProjectDispatchContext);
     let record = projectSelector.content.find(item => item.id === applicationSelector?.modal?.item?.id);
@@ -119,6 +213,25 @@ function EditRecordComment() {
                 id: record.id,
                 objKey: "comment",
                 objValue: comment
+            },
+        });
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+        projectDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    triggerRerender: Math.random(),
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "content" }
+                },
             },
         });
     }
@@ -170,6 +283,7 @@ function EditRecordComment() {
 
 function EditRecordType() {
     const [analyticsDimension, setAnalyticsDimension] = useState(null);
+    const applicationDispatch = useContext(ApplicationDispatchContext);
     const projectDispatch = useContext(ProjectDispatchContext);
     const applicationSelector = useContext(ApplicationContext);
     const projectSelector = useContext(ProjectContext)
@@ -253,6 +367,26 @@ function EditRecordType() {
                 objValue: analyticsItem
             },
         });
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+        projectDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    triggerRerender: Math.random(),
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "content" }
+                },
+            },
+        });
+
     }
 
 
@@ -264,6 +398,16 @@ function EditRecordType() {
                 id: record.id,
                 objKey: "type",
                 objValue: null
+            },
+        });
+        projectDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    triggerRerender: Math.random(),
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "content" }
+                },
             },
         });
     }
@@ -327,10 +471,108 @@ function EditRecordType() {
     </Form>
 }
 
+function ProjectOptionsNavigation() {
+    const applicationSelector = useContext(ApplicationContext);
+    const projectSelector = useContext(ProjectContext);
+    // const projectDispatch = useContext(ProjectDispatchContext);
+    const [editorMode, modeDispatch] = useReducer(
+        caseReducer,
+        {
+            openLedger: false,
+            openSpreadsheet: false
+        }
+    );
+
+
+    useEffect(() => {
+        console.log(applicationSelector);
+    }, [applicationSelector?.modal, applicationSelector?.modal?.component])
+
+    if (applicationSelector?.showModal && applicationSelector?.modal?.component === "EditRecordType") {
+        return <EditRecordType />
+    }
+
+    if (applicationSelector?.showModal && applicationSelector?.modal?.component === "EditRecordPeriod") {
+        return <EditRecordPeriod />
+    }
+
+    if (applicationSelector?.showModal && applicationSelector?.modal?.component === "EditRecordComment") {
+        return <EditRecordComment />
+    }
+
+
+
+    function setOpenLedger() {
+        modeDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    "openLedger": !editorMode.openLedger,
+                    "openSpreadsheet": false,
+                    //  triggerRerender: Math.random()
+                },
+            },
+        });
+        console.log("Set Open Ledger")
+    }
+
+    function setOpenSpreadsheet() {
+        modeDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    "openLedger": false,
+                    "openSpreadsheet": !editorMode.openSpreadsheet,
+                    //    triggerRerender: Math.random()
+                },
+            },
+        });
+        console.log("setOpenSpreadsheet")
+    }
+
+    return <Container>
+
+        <Row>
+            <Col> <Button
+                onClick={setOpenLedger}
+                //     aria-controls="example-collapse-text"
+                //     aria-expanded={openLedger}
+                variant="outline-secondary"
+                className="mb-3"
+            >
+                {editorMode.openLedger ? "Скрыть Журнал" : "Показать журнал"}
+            </Button></Col>
+            <Col> <Button
+                onClick={setOpenSpreadsheet}
+                //    aria-controls="example-collapse-text"
+                //    aria-expanded={openLedger}
+                variant="outline-success"
+                className="mb-3"
+            >
+                {editorMode.openSpreadsheet ? "Скрыть Расчет" : "Показать расчет"}
+            </Button></Col>
+        </Row>
+
+        <Row>
+            {editorMode.openLedger && <Ledger />}
+            {editorMode.openSpreadsheet && <SpreadsheetLayout />}
+        </Row>
+    </Container>
+}
+
 function Ledger() {
+
     const dispatch = useContext(ProjectDispatchContext);
     const applicationDispatch = useContext(ApplicationDispatchContext);
     const projectSelector = useContext(ProjectContext);
+
+    let openLedger = true;
+
+    //  let { openLedger, triggerRerender } = projectSelector;
+
+    //   useEffect(() => { }, [triggerRerender, openLedger])
+
+    //    if (!openLedger) return null
 
     function deleteRecord(e) {
         console.log(e.target.id);
@@ -363,6 +605,28 @@ function Ledger() {
         }
     }
 
+    function editPeriod(e) {
+        if (e.target.id.length > 5) {
+            applicationDispatch({
+                type: "SEED_STATE",
+                payload: {
+                    objects: {
+                        showModal: true,
+                        modal: {
+                            title: "Редактор Периода операции",
+                            component: "EditRecordPeriod",
+                            item: {
+                                id: e.target.id
+                            }
+                        }
+                    },
+                },
+            });
+        }
+    }
+
+
+
 
     function editComment(e) {
         if (e.target.id.length > 5) {
@@ -384,30 +648,41 @@ function Ledger() {
         }
     }
 
-    let updateKey = "" + projectSelector?.openLedger + projectSelector?.triggerRerender
 
-    return <Collapse key={updateKey} in={projectSelector?.openLedger}>
-        <div id="example-collapse-text">
-            <Container>
+
+
+    return <Container>
+
+
+        <Collapse in={openLedger}>
+            <div id="example-collapse-text">
+
                 {Array.isArray(projectSelector.content) && projectSelector.content.map((row, index) =>
 
                     <div key={index} className="border-bottom m-1">
 
                         <Row>
-                            <Col>
-                                <small class="text-muted">{index + 1}</small>
 
+                            <Col>
+                                <div><small class="text-muted">{"N " + (index + 1)}</small></div>
+                                <div><small class="text-muted">{row?.period}</small></div>
                             </Col>
+
                             <Col>
                                 <div><small class="text-muted">{row.d}</small></div>
                                 <div>{row.bookD}</div>
                             </Col>
+
                             <Col>
                                 <div><small class="text-muted">{row.k}</small></div>
                                 <div>{row.bookK}</div>
                             </Col>
-                            <Col>{row.sum}</Col>
-                            <Col><small class="text-muted">{row?.type}</small></Col>
+
+                            <Col><div>{row.sum}</div>
+                                <div><small class="text-muted">{row?.type}</small></div>
+                            </Col>
+
+
                         </Row>
 
                         <Row>
@@ -417,39 +692,48 @@ function Ledger() {
                         </Row>
 
                         <Row className="p-1">
-                            <Col><Button id={row.id} variant="outline-primary" size="sm" onClick={editType}>
+                            <Col><Button id={row.id} variant="outline-primary" size="sm" onClick={editPeriod}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                     <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                                </svg> {" type"}
+                                </svg> {" period"}
                             </Button></Col>
+
                             <Col><Button id={row.id} variant="outline-primary" size="sm" onClick={editComment}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                     <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                                 </svg> {" comment"}
                             </Button></Col>
+
                             <Col><Button id={row.id} variant="outline-danger" size="sm" onClick={deleteRecord}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                 </svg>{" record"}</Button>
                             </Col>
+                            <Col><Button id={row.id} variant="outline-primary" size="sm" onClick={editType}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                </svg> {" type"}
+                            </Button></Col>
                         </Row>
 
                     </div>
 
                 )}
 
-            </Container>
-        </div>
-    </Collapse>
+
+            </div>
+        </Collapse>
+    </Container>
 
 }
 
 function SimpleAccounting() {
     const applicationSelector = useContext(ApplicationContext);
-    const dispatch = useContext(ProjectDispatchContext);
+    const projectDispatch = useContext(ProjectDispatchContext);
     const projectSelector = useContext(ProjectContext);
     const [d, setD] = useState(null);
     const [k, setK] = useState(null);
@@ -486,12 +770,14 @@ function SimpleAccounting() {
     // const handleAdd = useCallback(({ d, k, sum }) => {
     function handleAdd({ d, k, sum, bookD, bookK }) {
         //  let records = project.content;
-        dispatch({
+        projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
                     content: [...projectSelector.content, { d, k, sum, bookD, bookK }],
-                    triggerRerender: Math.random()
+                    triggerRerender: Math.random(),
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "content" }
                 },
             },
         });
@@ -510,13 +796,7 @@ function SimpleAccounting() {
     //     })
     // }
 
-    function setOpenLedger() {
-        console.log("Open Ledger")
-        dispatch({
-            type: "SET_STORE_OBJECT",
-            payload: { key: "openLedger", value: !projectSelector.openLedger }
-        });
-    }
+
 
 
     function processRecords(indicator) {
@@ -568,17 +848,6 @@ function SimpleAccounting() {
                 <Col>Кредиторская задолженность {processRecords("Кредиторская задолженность")} </Col>
             </Row>
         </Container>
-        <hr />
-        <Button
-            onClick={() => setOpenLedger()}
-            aria-controls="example-collapse-text"
-            aria-expanded={projectSelector.openLedger}
-            variant="outline-secondary"
-            className="mb-3"
-        >
-            {projectSelector.openLedger ? "Скрыть Журнал" : "Показать журнал"}
-        </Button>
-        <Ledger />
         <hr />
         <Container>{Array.isArray(projectSelector.tasks) && projectSelector.tasks.map(task => {
             return <div key={task.id} className="text-muted"
@@ -657,34 +926,98 @@ function SimpleAccounting() {
 
 function SaveProject() {
     const projectSelector = useContext(ProjectContext);
+    const spreadsheetSelector = useContext(SpreadsheetContext);
     const applicationSelector = useContext(ApplicationContext);
     let applicationDispatch = useContext(ApplicationDispatchContext);
 
-    let defaultPeriod = new Intl.DateTimeFormat("ru", {
-        year: "numeric",
-    }).format(new Date());
-    console.log(defaultPeriod)
-
-    let content = Array.isArray(projectSelector.content) ? projectSelector.content : [];
-    content = content.map(item => {
-        if (!item?.period) {
-            return { ...item, period: defaultPeriod }
-        }
-        return item
-    })
-
+    let { id, content, quizString, triggerSave, theme, title, saveOptions = false, mediaItems = [], tasks = [] } = projectSelector;
+    let { userEmail, email, user, avatarUrl } = applicationSelector;
+    let { spreadsheetContent } = spreadsheetSelector;
 
 
     useEffect(() => {
+
+        let currentDay = new Intl.DateTimeFormat("en", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        })
+            .format(new Date())
+            .replace(/[^a-zA-Z0-9]/g, "_");
+
+        let defaultPeriod = new Intl.DateTimeFormat("ru", {
+            year: "numeric",
+        }).format(new Date());
+        console.log(defaultPeriod)
+
+
         async function saveContent() {
-            if (content.length > 0) {
+
+            if (saveOptions?.type === "content" && Array.isArray(content) && content.length > 0) {
+                content = content.map(item => {
+                    if (!item?.period) {
+                        return { ...item, period: defaultPeriod }
+                    }
+                    return item
+                })
+                let updates = {};
+                updates["/usersCraft/" + userEmail + "/posts/" + id + "/content"] = content;
+                updates[
+                    "/usersTemplates/projects/" + userEmail + "/" + id + "/content"] = content;
+                updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                console.log(updates);
+                return await basicfirebasecrudservices.updateFirebaseNode(updates);
+            }
+
+
+            let filteredMediaItemsWithoutComment = mediaItems.filter(item => item?.comment !== "Комментарий");
+            let filteredMediaItemsWithoutCalculations = filteredMediaItemsWithoutComment.filter(item => item?.comment !== "Расчет");
+            console.log(filteredMediaItemsWithoutCalculations);
+
+            let comment = "";
+            tasks.map(task => {
+                comment += task.text;
+            })
+
+            let mediaItemsForSaving = [
+                { mediaType: "html", comment: "Задание", content: comment },
+                {
+                    mediaType: "spreadsheet",
+                    comment: "Расчет",
+                    content: spreadsheetContent,
+                },
+                ...filteredMediaItemsWithoutCalculations
+            ];
+
+            if (saveOptions?.type === "spreadsheet") {
+                let updates = {};
+                updates["/usersCraft/" + userEmail + "/posts/" + id + "/mediaItems"] = mediaItemsForSaving;
+                updates[
+                    "/usersTemplates/projects/" + userEmail + "/" + id + "/mediaItems"] = mediaItemsForSaving;
+                // updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                // updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                console.log(updates);
+                return await basicfirebasecrudservices.updateFirebaseNode(updates);
+            }
+
+
+
+            if (Array.isArray(content) && content.length > 0 && saveOptions?.type !== "spreadsheet" && saveOptions?.type !== "content") {
                 let postObject = {
+                    type: "accountingwithprofitscash",
+                    theme: theme,
+                    title: title,
                     deleted: false,
                     content: content,
+                    quizString: quizString,
+                    answer: "",
+                    mediaItems: mediaItemsForSaving,
                     comment: basicfirebasecrudservices.transactionsListFull(content),
-                    email: applicationSelector.email,
-                    user: applicationSelector.user,
-                    avatarUrl: applicationSelector.avatarUrl,
+                    email: email,
+                    user: user,
+                    avatarUrl: avatarUrl,
                     date: new Intl.DateTimeFormat("ru", {
                         weekday: "short",
                         year: "numeric",
@@ -696,13 +1029,18 @@ function SaveProject() {
                 };
 
                 let htmlPost = {
+                    id: id + userEmail + "media",
+                    content: basicfirebasecrudservices.transactionsListFull(content),
+                    type: "html",
+                    theme: theme,
+                    title: title + " " + user,
                     answer: "",
                     comment: "Проводки",
                     quizString: "",
                     deleted: false,
-                    email: applicationSelector.email,
-                    user: applicationSelector.user,
-                    avatarUrl: applicationSelector.avatarUrl,
+                    email: email,
+                    user: user,
+                    avatarUrl: avatarUrl,
                     date: new Intl.DateTimeFormat("ru", {
                         weekday: "short",
                         year: "numeric",
@@ -713,39 +1051,17 @@ function SaveProject() {
                     }).format(new Date()), //Date().toJSON()
                 };
 
-                let currentDay = new Intl.DateTimeFormat("en", {
-                    weekday: "short",
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                })
-                    .format(new Date())
-                    .replace(/[^a-zA-Z0-9]/g, "_");
+
 
 
                 let updates = {};
-                updates["/usersCraft/" + applicationSelector.userEmail + "/posts/" + projectSelector.id] = postObject;
+                updates["/usersCraft/" + userEmail + "/posts/" + id] = postObject;
                 updates[
-                    "/usersTemplates/projects/" + applicationSelector.userEmail + "/" + projectSelector.id
+                    "/usersTemplates/projects/" + userEmail + "/" + id
                 ] = postObject;
 
-                updates["currentDay/" + currentDay + "/posts/" + projectSelector.id + applicationSelector.userEmail + "media"] =
-                {
-                    ...htmlPost,
-                    id: projectSelector.id + applicationSelector.userEmail + "media",
-                    theme: projectSelector.theme,
-                    title: projectSelector.title + " " + applicationSelector.user,
-                    content: basicfirebasecrudservices.transactionsListFull(content),
-                    type: "html",
-                };
-                updates["/usersCraft/" + applicationSelector.userEmail + "/posts/" + projectSelector.id + applicationSelector.userEmail + "media"] = {
-                    ...htmlPost,
-                    id: projectSelector.id + applicationSelector.userEmail + "media",
-                    theme: projectSelector.theme,
-                    title: projectSelector.title + " " + applicationSelector.user,
-                    content: basicfirebasecrudservices.transactionsListFull(content),
-                    type: "html",
-                };
+                updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media"] = htmlPost;
+                updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media"] = htmlPost;
 
                 console.log(updates);
 
@@ -754,7 +1070,7 @@ function SaveProject() {
             return null
         }
 
-        saveContent().then((res) => {
+        saveContent().then(() => {
             console.log("Saved");
             //  console.log(projectSelector);
             //  console.log(applicationSelector);
@@ -762,7 +1078,7 @@ function SaveProject() {
 
 
 
-    }, [projectSelector?.triggerRerender])
+    }, [triggerSave])
 
     //  console.log(selectApplication)
 
@@ -847,12 +1163,15 @@ function GlobalModal() {
 
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
 
+            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />}
+
+
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
             <Button variant="secondary" size="sm" onClick={handleClose}>
                 Close
             </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
     </Modal>
 }
 
@@ -930,6 +1249,21 @@ let initialState = {
     modal: {}
 }
 
+let spreadsheetInitialState = {
+    expandView: true,
+
+    spreadsheetContent: {},
+
+    protoData: createProtoArray({}, 6, 6),
+    data: createNewDraft(createProtoArray({}, 6, 6)),
+    formulaValue: "", //createProtoArray(emptyProtoDataObject)[0][0],
+    formulaRowIndex: 0,
+    formulaColumnIndex: 0,
+    spreadsheetTitle: '',
+    countLetter: 0,
+    title: "Задача",
+};
+
 
 
 function App() {
@@ -943,7 +1277,10 @@ function App() {
         projectInitialState
     );
 
-
+    const [spreadsheetState, spreadsheetDispatch] = useReducer(
+        caseReducer,
+        spreadsheetInitialState
+    );
 
 
     useEffect(() => {
@@ -969,41 +1306,29 @@ function App() {
                 type: "object",
             });
 
-            console.log(onlineopenquiz)
-
-            if (!!onlineopenquiz?.theme) {
+              if (!!onlineopenquiz?.theme) {
                 console.log(onlineopenquiz?.theme);
                 document.querySelector(".card-title").innerText = onlineopenquiz?.theme;
                 document.querySelector(".quiztitle").innerText = onlineopenquiz?.title;
             }
 
-
-            
-
             // let updates = {};
-            // updates["/openquiz/propertyplantandequipment01"] = {
-            //     id: "propertyplantandequipment01",
-            //     title: "Учет основных средств 1",
+            // updates["/openquiz/propertyplantandequipment03"] = {
+            //     id: "propertyplantandequipment03",
+            //     title: "Учет основных средств 3",
             //     theme: "БФУ",
             //     answer: "Операции и отчетность",
             //     comment: "Операции и отчетность",
             //     type: "accountingwithprofitscash",
             //     tasks: [{
             //         id: 0,
-            //         text: `Организация купила оборудование в январе 2025 года и в этом же месяце ввела его в эксплуатацию.<br>
-            //  Стоимость оборудования 120 000 руб.(в том числе НДС 20 000 руб.). Получен акт приема-передачи и счет-фактура.<br>
-            //  Стоимость доставки – 24 000 руб. (в том числе НДС 4000 руб.) оплачена в январе, получен счет-фактура и акт.<br>
-            // Оборудование относится к 5 амортизационной группе со сроком полезного использования 7-10 лет.<br>
-            //  Организация приняла решение об использовании оборудования в течение 10 лет. В том же месяце оборудование полностью оплачено.<br>
-            // Указать бухгалтерские записи`
+            //         text: `В соответствии с решением руководства организации объект ОС первоначальной стоимостью 100 000 руб., подлежит ликвидации в связи сморальным износом.<br>
+            //         Срок полезного использования данного объекта ОС –5 лет. Объект находился в эксплуатации в течение 3-х лет, сумма начис-ленной амортизации за это время составляет 60 000 руб.<br>
+            //         После разборки ОС на склад были оприходованы материалы стоимостью 20 000 руб.<br>
+            //         Заработная плата рабочих, занятых в ликвидации ОС составляет10 000 руб., отчисления по социальному страхованию и обеспечению со-ставили 2 600 руб.<br>
+            //         Указать бухгалтерские записи.`
             //     }],
-                // hint: `<p>
-                // <a target="_blank"
-                // href="https://buhexpert8.ru/1s-buhgalteriya/fsbu-5-2019-zapasy-1s-buhgalteriya/metodika-ucheta-nesushhestvennyh-obektov.htm"
-                // >
-                //     Учет малоценных ОС и запасов (ОСНО) в 1С
-                // </a>
-                // </p>`
+                
             // };
             // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
             // console.log(res);
@@ -1051,11 +1376,19 @@ function App() {
                     return item
                 })
 
-                // let posts = await basicfirebasecrudservices.getFirebaseNode({
-                //     url: "/usersCraft/" + userEmail + "/posts/",
-                //     type: "array",
-                // });
-                // console.log(posts.filter(item => item.type === "accountingwithprofitscash"))
+                let userprojectspreadsheet = await basicfirebasecrudservices.getFirebaseNode({
+                    url: "/usersCraft/" + userEmail + "/posts/" + openquizid + "/mediaItems/1/content",
+                    type: "object",
+                });
+
+                userprojectspreadsheet = !!userprojectspreadsheet ? userprojectspreadsheet : {}
+
+
+                let posts = await basicfirebasecrudservices.getFirebaseNode({
+                    url: "/usersCraft/" + userEmail + "/posts/",
+                    type: "array",
+                });
+                console.log(posts.filter(item => item.type === "accountingwithprofitscash"))
 
 
                 return {
@@ -1068,7 +1401,8 @@ function App() {
                             : "../freelancer.jpg",
                     userEmail: userEmail,
                     openquiz: openquiz,
-                    userprojectpostcontent: userprojectpostcontent
+                    userprojectpostcontent: userprojectpostcontent,
+                    userprojectspreadsheet: userprojectspreadsheet
                 }
             } else {
                 let identity = basicfirebasecrudservices.generateUser();
@@ -1086,7 +1420,8 @@ function App() {
                     avatarUrl: "../freelancer.jpg",
                     userEmail: identity.userEmail,
                     openquiz: openquiz,
-                    userprojectpostcontent: []
+                    userprojectpostcontent: [],
+                    userprojectspreadsheet: userprojectspreadsheet
                 }
             }
         }
@@ -1120,10 +1455,26 @@ function App() {
                         ...projectInitialState,
                         ...res.openquiz,
                         content: res.userprojectpostcontent,
+                        quizString: res.userprojectspreadsheet
+                        //   triggerRerender: "loaded"
+                    },
+                },
+            });
+
+
+            spreadsheetDispatch({
+                type: "SEED_STATE",
+                payload: {
+                    objects: {
+                        spreadsheetContent: res.userprojectspreadsheet,
+                        protoData: createProtoArray(res.userprojectspreadsheet, 6, 6),
+                        data: createNewDraft(createProtoArray(res.userprojectspreadsheet, 6, 6)),
                         triggerRerender: "loaded"
                     },
                 },
             });
+
+
 
         })
     }, []);
@@ -1134,24 +1485,419 @@ function App() {
 
     return <ApplicationContext.Provider value={state}>
         <ApplicationDispatchContext.Provider value={applicationDispatch}>
-            <ProjectContext.Provider value={projectState}>
-                <ProjectDispatchContext.Provider value={projectDispatch}>
-                    <GlobalModal />
-                    <SaveProject />
-                    <SimpleAccounting
-                        avatarUrl={state.avatarUrl}
-                        user={state.user}
-                        setTitle="Тесты по балансовым уравнениям"
 
-                    />
-                </ProjectDispatchContext.Provider>
-            </ProjectContext.Provider>
+
+            <SpreadsheetContext.Provider value={spreadsheetState}>
+                <SpreadsheetDispatchContext.Provider value={spreadsheetDispatch}>
+                    <ProjectContext.Provider value={projectState}>
+                        <ProjectDispatchContext.Provider value={projectDispatch}>
+                            {/* <GlobalModal /> */}
+                            <SaveProject />
+                            <SimpleAccounting
+                                avatarUrl={state.avatarUrl}
+                                user={state.user}
+                                setTitle="Тесты по балансовым уравнениям"
+                            />
+                            <ProjectOptionsNavigation />
+                            {/* <Ledger /> 
+                            <SpreadsheetLayout />*/}
+                        </ProjectDispatchContext.Provider>
+                    </ProjectContext.Provider>
+
+                </SpreadsheetDispatchContext.Provider>
+            </SpreadsheetContext.Provider>
+
         </ApplicationDispatchContext.Provider>
     </ApplicationContext.Provider>
 }
 
 ReactDOM.createRoot(document.querySelector("#simpleaccounting")).render(<App />);
 
-//  const getMessage = () => "Hello World";
-//   document.getElementById("root").innerHTML = getMessage();
 
+function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
+    Object.keys(protoDataObject).map((objKey) => {
+        const [col, ...row] = objKey;
+        let currentColIndex = alphabet.findIndex(item => item === col);
+        if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
+        if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
+    });
+    //  console.log(maxColumn, maxRow);
+
+    var array = new Array(maxRow);
+    for (var i = 0; i < array.length; i++) {
+        array[i] = Array(maxColumn + 1).fill('');
+    }
+
+    Object.keys(protoDataObject).map((objKey) => {
+        const [col, ...row] = objKey;
+        let colArrayIndex = alphabet.findIndex((item) => item === col);
+        let rowArrayIndex = parseInt(row) - 1;
+        array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+    });
+    return array;
+}
+
+function createProtoObject(protoArray) {
+    let protoObject = {};
+    for (var i = 0; i < protoArray.length; i++) {
+        var row = protoArray[i];
+        for (var j = 0; j < row.length; j++) {
+            if (protoArray[i][j] !== "") {
+                protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
+            }
+        }
+    }
+    return protoObject;
+}
+
+function isNumeric(str) {
+    return !isNaN(str) && !isNaN(parseFloat(str));
+}
+
+function createNewDraft(data) {
+    //   console.log(data);
+    //    return calcData(data);
+    return calcDataWithImmer(data)
+}
+
+
+
+function calcDataWithImmer(data) {
+    //let newdata = JSON.parse(JSON.stringify(data));
+    //let formulas = [];
+
+    const newdata = basicfirebasecrudservices.produce(data, draft => {
+        let oneMoreLoop = true;
+        while (oneMoreLoop) {
+            oneMoreLoop = false;
+            for (let row = 0; row < draft.length; row++) {
+                for (let ix = 0; ix < draft[row].length; ix++) {
+                    let cellValue = draft[row][ix];
+                    //    console.log(cellValue);
+                    if (
+                        (typeof cellValue === "string" || cellValue instanceof String) &&
+                        cellValue.toString().includes("=")
+                    ) {
+
+                        let mapObj = {
+                            СТЕПЕНЬ: "POWER",
+                            ЧПС: "NPV",
+                            ВСД: "IRR",
+                            МВСД: "MIRR",
+                            СУММ: "SUM",
+                            СРЗНАЧ: "AVERAGE",
+                            ОКРУГЛ: "ROUND",
+                            СТАНДОТКЛОН: "STDEV"
+                        };
+                        let re = new RegExp(Object.keys(mapObj).join("|"), "gi");
+                        cellValue = cellValue.replace(re, function (matched) {
+                            return mapObj[matched];
+                        });
+
+                        let result = calculateFormula(draft, cellValue.slice(1));
+                        //       formulas.push({ formula: cellValue, result: result })
+                        if (result.later) {
+                            draft[row][ix] = cellValue;
+                            oneMoreLoop = true;
+                        } else {
+                            draft[row][ix] = result.res.result;
+                        }
+                    } else draft[row][ix] = cellValue;
+                }
+            }
+        }
+        //    draft["id1"].done = true
+    })
+    // console.log(newdata);
+    return newdata;
+}
+
+function CompactActiveCells() {
+    let spreadsheetSelector = useContext(SpreadsheetContext);
+    let letter = alphabet[spreadsheetSelector.countLetter];
+    let arrayOfRows = Array.from({ length: spreadsheetSelector.protoData.length }, (_, i) => i + 1);
+    //  console.log(arrayOfRows);
+    return <div>
+        {arrayOfRows.map((item, index) => {
+            return <CompactActiveCell cellAddress={letter + item} rowIndex={index} />
+        })}
+    </div>
+}
+
+
+function CompactActiveCell({ rowIndex = 0 }) {
+    let projectDispatch = useContext(ProjectDispatchContext);
+    let spreadsheetDispatch = useContext(SpreadsheetDispatchContext);
+    let spreadsheetSelector = useContext(SpreadsheetContext);
+    const protoDataValue = spreadsheetSelector.protoData
+    [rowIndex]
+    [spreadsheetSelector.countLetter];
+    const [value, setValue] = React.useState(protoDataValue)
+    const debouncedValue = useDebounce(value, 2000);
+
+
+
+    useEffect(() => {
+
+        let valueChecked = isNaN(debouncedValue)
+            ? !!debouncedValue
+                ? debouncedValue.trim()
+                : ""
+            : +debouncedValue;
+
+        let newSpreadsheetContent = basicfirebasecrudservices.produce(
+            spreadsheetSelector.spreadsheetContent, (draft) => {
+                //    console.log(action.payload);
+                draft[cellAddress] = valueChecked;
+            });
+
+        let newProtoData = createProtoArray(newSpreadsheetContent, 6, 6)
+        let newData = createNewDraft(newProtoData);
+
+        spreadsheetDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    spreadsheetContent: newSpreadsheetContent,
+                    protoData: newProtoData,
+                    data: newData
+                }
+            }
+        })
+
+        projectDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    quizString: newSpreadsheetContent,
+                    triggerSave: Math.random(),
+                    saveOptions: { type: "spreadsheet" }
+                }
+            }
+        })
+
+
+    }, [debouncedValue])
+
+    const calculatedDataValue = spreadsheetSelector.data
+    [rowIndex]
+    [spreadsheetSelector.countLetter];
+
+
+
+    console.log(calculatedDataValue);
+    let cellAddress = (alphabet[spreadsheetSelector.countLetter] + (rowIndex + 1))
+
+
+    // function setValue(value) {
+    //     console.log(value);
+    // }
+
+    let dataValue = isNumeric(calculatedDataValue) ?
+        calculatedDataValue : " ";
+
+    return <InputGroup className="my-1">
+        <InputGroup.Prepend>
+            <InputGroup.Text id={cellAddress}>
+                <small style={{ minWidth: "3rem" }}>{cellAddress + " " + dataValue}</small>
+            </InputGroup.Text>
+        </InputGroup.Prepend>
+        <FormControl
+            value={value}
+            //      placeholder={value}
+            aria-label={cellAddress}
+            aria-describedby={cellAddress}
+            onChange={(e) => setValue(e.target.value)}
+        />
+    </InputGroup>
+}
+
+
+function CompactSpreadsheetLayout() {
+    let spreadsheetDispatch = useContext(SpreadsheetDispatchContext);
+    let spreadsheetSelector = useContext(SpreadsheetContext);
+    let numberOfRows = spreadsheetSelector.protoData.length;
+
+
+    function addRowUnder() {
+
+        let newProtoData = createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6)
+        let newData = createNewDraft(newProtoData);
+
+        spreadsheetDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    //   spreadsheetContent: spreadsheetSelector.spreadsheetContent,
+                    protoData: newProtoData,
+                    data: newData
+                }
+            }
+        })
+
+        //  console.log(createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6 ));
+        // spreadsheetDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //             protoData: createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6 ),
+        //             triggerRerender: Math.random()
+        //         },
+        //     },
+        // });
+    }
+
+
+
+    return <div>
+        <CompactActiveCells />
+        <Button
+            onClick={addRowUnder}
+            variant="outline-secondary">{"+ " + (numberOfRows + 1) + " ячейку"}</Button>
+
+    </div>
+}
+
+function SpreadsheetLayout() {
+    const projectSelector = useContext(ProjectContext);
+    let { triggerRerender } = projectSelector;
+    useEffect(() => { }, [triggerRerender])
+    //  if (!openSpreadsheet) return null
+
+    return <div className="container excel">
+        <CompactSpreadsheetLayout />
+    </div>
+}
+
+const alphabet = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z"
+];
+
+function calculateFormula(data, formula) {
+    let parser = new formulaParser.Parser();
+    // let parser = new FormulaParser.Parser();
+
+    let dependencies = [];
+
+    //     console.log(data, formula);
+
+    parser.on("callCellValue", (cellCoord, done) => {
+        const x = cellCoord.column.index + 1;
+        const y = cellCoord.row.index + 1;
+
+        dependencies.push({ x: x, y: y });
+
+        // if (data[y - 1][x - 1].toString().slice(0, 1) === "=") {
+        //   return done(parseFloat(calculateFormula(data[y - 1][x - 1].toString().slice(1))));
+        // }
+
+        if (!data[y - 1] || !data[y - 1][x - 1]) {
+            return done("");
+        }
+        //  console.log(y - 1, x - 1);
+        done(data[y - 1][x - 1]);
+    });
+
+    parser.on("callRangeValue", (startCellCoord, endCellCoord, done) => {
+        var fragment = [];
+
+        for (
+            var row = startCellCoord.row.index;
+            row <= endCellCoord.row.index;
+            row++
+        ) {
+            var rowData = data[row];
+            var colFragment = [];
+
+            for (
+                var col = startCellCoord.column.index;
+                col <= endCellCoord.column.index;
+                col++
+            ) {
+                var value = rowData[col];
+
+                dependencies.push({ x: col, y: row });
+
+                colFragment.push(value);
+            }
+            fragment.push(colFragment);
+        }
+
+        // console.log(fragment);
+
+        if (fragment) {
+            done(fragment);
+        }
+    });
+
+    let resultObj = parser.parse(formula);
+
+    // console.log('formula: ' + formula);
+    let later = false;
+    let dependendentOn = [];
+    dependencies.forEach(item => {
+        let cellValue = null;
+        try {
+            cellValue = data[item.y - 1][item.x - 1];
+            //   console.log(cellValue);
+            dependendentOn.push(cellValue);
+        } catch {
+            //      console.log(formula);
+        }
+
+        if (
+            (typeof cellValue === "string" || cellValue instanceof String) &&
+            cellValue.toString().includes("=")
+        ) {
+            later = true;
+        }
+    });
+    // console.log('dependendentOn: ' + dependendentOn);
+    // console.log('---------');
+
+    return {
+        res: resultObj,
+        dependencies: dependencies,
+        later: later,
+        dependendentOn: dependendentOn
+    };
+}
+
+const useDebounce = (value, delay = 500) => {
+    const [debouncedValue, setDebouncedValue] = useState(value)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDebouncedValue(value)
+        }, delay)
+
+        return () => clearTimeout(timeout)
+    }, [value, delay])
+
+    return debouncedValue
+}
