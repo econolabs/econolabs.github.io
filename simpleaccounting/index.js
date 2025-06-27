@@ -974,7 +974,7 @@ function SaveProject() {
 
             let filteredMediaItemsWithoutComment = mediaItems.filter(item => item?.comment !== "Комментарий");
             let filteredMediaItemsWithoutCalculations = filteredMediaItemsWithoutComment.filter(item => item?.comment !== "Расчет");
-            console.log(filteredMediaItemsWithoutCalculations);
+        //    console.log(filteredMediaItemsWithoutCalculations);
 
             let comment = "";
             tasks.map(task => {
@@ -1158,20 +1158,12 @@ function GlobalModal() {
         <Modal.Body>
 
             {applicationSelector?.modal?.component === "LoginLogout" && <LoginLogout />}
-
-            {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
-
+            {/* {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
-
-            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />}
-
+            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />} */}
 
         </Modal.Body>
-        {/* <Modal.Footer>
-            <Button variant="secondary" size="sm" onClick={handleClose}>
-                Close
-            </Button>
-        </Modal.Footer> */}
+
     </Modal>
 }
 
@@ -1289,7 +1281,7 @@ function App() {
 
             const paramsString = window.location.search;
             const searchParams = new URLSearchParams(paramsString);
-            console.log(searchParams.get("openquizid"));
+          //  console.log(searchParams.get("openquizid"));
 
             let openquizid;
 
@@ -1299,9 +1291,9 @@ function App() {
                 openquizid = document.getElementById("simpleaccounting").dataset.openquizid
             }
 
-            console.log(openquizid);
+         //   console.log(openquizid);
 
-            let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
+          let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
                 url: "openquiz/" + openquizid,
                 type: "object",
             });
@@ -1311,6 +1303,9 @@ function App() {
                 document.querySelector(".card-title").innerText = onlineopenquiz?.theme;
                 document.querySelector(".quiztitle").innerText = onlineopenquiz?.title;
             }
+
+           
+
 
             // let updates = {};
             // updates["/openquiz/propertyplantandequipment03"] = {
@@ -1328,7 +1323,7 @@ function App() {
             //         Заработная плата рабочих, занятых в ликвидации ОС составляет10 000 руб., отчисления по социальному страхованию и обеспечению со-ставили 2 600 руб.<br>
             //         Указать бухгалтерские записи.`
             //     }],
-                
+
             // };
             // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
             // console.log(res);
@@ -1376,6 +1371,16 @@ function App() {
                     return item
                 })
 
+                console.log(userprojectpostcontent.length);
+                console.log(!!openquiz?.importcontent);
+
+                if (Array.isArray(userprojectpostcontent) && userprojectpostcontent.length === 0 && !!openquiz?.importcontent) {
+                    userprojectpostcontent = await basicfirebasecrudservices.getFirebaseNode({
+                        url: "/usersCraft/" + userEmail + "/posts/" + openquiz.importcontent + "/content",
+                        type: "array",
+                    });
+                }
+
                 let userprojectspreadsheet = await basicfirebasecrudservices.getFirebaseNode({
                     url: "/usersCraft/" + userEmail + "/posts/" + openquizid + "/mediaItems/1/content",
                     type: "object",
@@ -1384,11 +1389,11 @@ function App() {
                 userprojectspreadsheet = !!userprojectspreadsheet ? userprojectspreadsheet : {}
 
 
-                let posts = await basicfirebasecrudservices.getFirebaseNode({
-                    url: "/usersCraft/" + userEmail + "/posts/",
-                    type: "array",
-                });
-                console.log(posts.filter(item => item.type === "accountingwithprofitscash"))
+                // let posts = await basicfirebasecrudservices.getFirebaseNode({
+                //     url: "/usersCraft/" + userEmail + "/posts/",
+                //     type: "array",
+                // });
+                // console.log(posts.filter(item => item.type === "accountingwithprofitscash"))
 
 
                 return {
@@ -1491,7 +1496,7 @@ function App() {
                 <SpreadsheetDispatchContext.Provider value={spreadsheetDispatch}>
                     <ProjectContext.Provider value={projectState}>
                         <ProjectDispatchContext.Provider value={projectDispatch}>
-                            {/* <GlobalModal /> */}
+                            <GlobalModal />
                             <SaveProject />
                             <SimpleAccounting
                                 avatarUrl={state.avatarUrl}
@@ -1499,8 +1504,6 @@ function App() {
                                 setTitle="Тесты по балансовым уравнениям"
                             />
                             <ProjectOptionsNavigation />
-                            {/* <Ledger /> 
-                            <SpreadsheetLayout />*/}
                         </ProjectDispatchContext.Provider>
                     </ProjectContext.Provider>
 
@@ -1890,7 +1893,6 @@ function calculateFormula(data, formula) {
 
 const useDebounce = (value, delay = 500) => {
     const [debouncedValue, setDebouncedValue] = useState(value)
-
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDebouncedValue(value)
@@ -1898,6 +1900,5 @@ const useDebounce = (value, delay = 500) => {
 
         return () => clearTimeout(timeout)
     }, [value, delay])
-
     return debouncedValue
 }
