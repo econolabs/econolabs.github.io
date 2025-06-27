@@ -582,7 +582,7 @@ function ProjectOptionsNavigation() {
                 },
             },
         });
-        console.log("Set Open Ledger")
+    //    console.log("Set Open Ledger")
     }
 
     function setOpenSpreadsheet() {
@@ -1254,9 +1254,9 @@ function GlobalModal() {
         <Modal.Body>
 
             {applicationSelector?.modal?.component === "LoginLogout" && <LoginLogout />}
-            {/* {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
+            {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
-            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />} */}
+            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />} 
 
         </Modal.Body>
 
