@@ -471,6 +471,74 @@ function EditRecordType() {
     </Form>
 }
 
+
+function OpenCheatsheetLayout() {
+    const projectSelector = useContext(ProjectContext);
+    const [isLoading, setLoading] = useState(true);
+    const [cheatsheetContent, setCheatsheetContent] = useState([]);
+
+    useEffect(() => {
+        async function getCheatsheetContent() {
+            let cheatsheetcontent = await basicfirebasecrudservices.getFirebaseNode({
+                url: "/usersCraft/" + "nick_golovenkin_yandex_ru" + "/posts/" + projectSelector?.id + "/content",
+                type: "array",
+            });
+            return cheatsheetcontent
+        }
+
+        getCheatsheetContent().then((res) => {
+            setCheatsheetContent(res);
+            setLoading(false)
+        })
+    }, [])
+
+    if (isLoading) return null
+
+
+    return <div>
+        {Array.isArray(cheatsheetContent) && cheatsheetContent.map((row, index) =>
+
+            <div key={index} className="border-bottom m-1">
+
+                <Row>
+
+                    <Col>
+                        <div><small class="text-muted">{"N " + (index + 1)}</small></div>
+                        <div><small class="text-muted">{row?.period}</small></div>
+                    </Col>
+
+                    <Col>
+                        <div><small class="text-muted">{row.d}</small></div>
+                        <div>{row.bookD}</div>
+                    </Col>
+
+                    <Col>
+                        <div><small class="text-muted">{row.k}</small></div>
+                        <div>{row.bookK}</div>
+                    </Col>
+
+                    <Col><div>{row.sum}</div>
+                        <div><small class="text-muted">{row?.type}</small></div>
+                    </Col>
+
+
+                </Row>
+
+                <Row>
+                    <Col>
+                        <small class="text-muted">{row?.comment}</small>
+                    </Col>
+                </Row>
+
+
+            </div>
+
+        )}
+
+
+    </div>
+}
+
 function ProjectOptionsNavigation() {
     const applicationSelector = useContext(ApplicationContext);
     const projectSelector = useContext(ProjectContext);
@@ -479,7 +547,8 @@ function ProjectOptionsNavigation() {
         caseReducer,
         {
             openLedger: false,
-            openSpreadsheet: false
+            openSpreadsheet: false,
+            openCheatsheet: false
         }
     );
 
@@ -530,6 +599,23 @@ function ProjectOptionsNavigation() {
         console.log("setOpenSpreadsheet")
     }
 
+    function setOpenCheatsheet() {
+        modeDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    "openLedger": false,
+                    "openSpreadsheet": false,
+                    "openCheatsheet": !editorMode.openCheatsheet,
+
+                    //    triggerRerender: Math.random()
+                },
+            },
+        });
+        console.log("setOpenSpreadsheet")
+    }
+
+
     return <Container>
 
         <Row>
@@ -551,11 +637,21 @@ function ProjectOptionsNavigation() {
             >
                 {editorMode.openSpreadsheet ? "Скрыть Расчет" : "Показать расчет"}
             </Button></Col>
+            <Col> <Button
+                onClick={setOpenCheatsheet}
+                //    aria-controls="example-collapse-text"
+                //    aria-expanded={openLedger}
+                variant="outline-primary"
+                className="mb-3"
+            >
+                {editorMode.openCheatsheet ? "Скрыть ШПРГЛК" : "Показать ШПРГЛК"}
+            </Button></Col>
         </Row>
 
         <Row>
             {editorMode.openLedger && <Ledger />}
             {editorMode.openSpreadsheet && <SpreadsheetLayout />}
+            {editorMode.openCheatsheet && <OpenCheatsheetLayout />}
         </Row>
     </Container>
 }
@@ -974,7 +1070,7 @@ function SaveProject() {
 
             let filteredMediaItemsWithoutComment = mediaItems.filter(item => item?.comment !== "Комментарий");
             let filteredMediaItemsWithoutCalculations = filteredMediaItemsWithoutComment.filter(item => item?.comment !== "Расчет");
-        //    console.log(filteredMediaItemsWithoutCalculations);
+            //    console.log(filteredMediaItemsWithoutCalculations);
 
             let comment = "";
             tasks.map(task => {
@@ -1281,7 +1377,7 @@ function App() {
 
             const paramsString = window.location.search;
             const searchParams = new URLSearchParams(paramsString);
-          //  console.log(searchParams.get("openquizid"));
+            console.log(searchParams.get("openquizid"));
 
             let openquizid;
 
@@ -1291,20 +1387,19 @@ function App() {
                 openquizid = document.getElementById("simpleaccounting").dataset.openquizid
             }
 
-         //   console.log(openquizid);
+            console.log(openquizid);
 
-          let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
+                let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
                 url: "openquiz/" + openquizid,
                 type: "object",
             });
-
               if (!!onlineopenquiz?.theme) {
                 console.log(onlineopenquiz?.theme);
                 document.querySelector(".card-title").innerText = onlineopenquiz?.theme;
                 document.querySelector(".quiztitle").innerText = onlineopenquiz?.title;
             }
 
-           
+        
 
 
             // let updates = {};
