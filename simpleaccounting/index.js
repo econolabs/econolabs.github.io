@@ -1,13 +1,9 @@
-//import React, { useState, useCallback } from "react";
 let useState = React.useState;
 let useReducer = React.useReducer;
 let useEffect = React.useEffect;
 let createContext = React.createContext;
 let useContext = React.useContext;
 //let useCallback = React.useCallback;
-
-//import { produce } from "immer";
-//let produce = immer.produce;
 
 let { Container, Row, Col, Form, Button, Collapse, Navbar, Modal, InputGroup, FormControl } = ReactBootstrap;
 
@@ -548,7 +544,10 @@ function ProjectOptionsNavigation() {
         {
             openLedger: false,
             openSpreadsheet: false,
-            openCheatsheet: false
+            openCheatsheet: false,
+            openBalance: false,
+            openFinancialResults: false,
+            openFilteredList: false
         }
     );
 
@@ -570,88 +569,129 @@ function ProjectOptionsNavigation() {
     }
 
 
-
-    function setOpenLedger() {
+    function setOpenFunction(modeKey) {
         modeDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    "openLedger": !editorMode.openLedger,
-                    "openSpreadsheet": false,
-                    //  triggerRerender: Math.random()
-                },
-            },
-        });
-    //    console.log("Set Open Ledger")
-    }
-
-    function setOpenSpreadsheet() {
-        modeDispatch({
-            type: "SEED_STATE",
-            payload: {
-                objects: {
-                    "openLedger": false,
-                    "openSpreadsheet": !editorMode.openSpreadsheet,
-                    //    triggerRerender: Math.random()
+                    [modeKey]: !editorMode[modeKey],
                 },
             },
         });
         console.log("setOpenSpreadsheet")
     }
 
-    function setOpenCheatsheet() {
-        modeDispatch({
-            type: "SEED_STATE",
-            payload: {
-                objects: {
-                    "openLedger": false,
-                    "openSpreadsheet": false,
-                    "openCheatsheet": !editorMode.openCheatsheet,
 
-                    //    triggerRerender: Math.random()
-                },
-            },
-        });
-        console.log("setOpenSpreadsheet")
-    }
 
 
     return <Container>
 
         <Row>
+
             <Col> <Button
-                onClick={setOpenLedger}
+                onClick={() => setOpenFunction("openLedger")}
                 //     aria-controls="example-collapse-text"
                 //     aria-expanded={openLedger}
-                variant="outline-secondary"
+                variant={editorMode.openLedger ? "secondary" : "outline-secondary"}
                 className="mb-3"
+                size="sm"
             >
-                {editorMode.openLedger ? "Скрыть Журнал" : "Показать журнал"}
+                Жрнл
             </Button></Col>
+
             <Col> <Button
-                onClick={setOpenSpreadsheet}
+                onClick={() => setOpenFunction("openBalance")}
+                //     aria-controls="example-collapse-text"
+                //     aria-expanded={openLedger}
+                variant={editorMode.openBalance ? "secondary" : "outline-secondary"}
+                className="mb-3"
+                size="sm"
+            >
+                Блнс
+            </Button></Col>
+
+
+            <Col> <Button
+                onClick={() => setOpenFunction("openFinancialResults")}
+                //     aria-controls="example-collapse-text"
+                //     aria-expanded={openLedger}
+                variant={editorMode.openFinancialResults ? "secondary" : "outline-secondary"}
+                className="mb-3"
+                size="sm"
+            >
+                ФнРз
+            </Button></Col>
+
+            <Col> <Button
+                onClick={() => setOpenFunction("openCashFlow")}
+                //     aria-controls="example-collapse-text"
+                //     aria-expanded={openLedger}
+                variant={editorMode.openCashFlow ? "secondary" : "outline-secondary"}
+                className="mb-3"
+                size="sm"
+            >
+                КшФл
+            </Button></Col>
+
+            <Col> <Button
+                onClick={() => setOpenFunction("openFilteredList")}
+                //     aria-controls="example-collapse-text"
+                //     aria-expanded={openLedger}
+                variant={editorMode.openFilteredList ? "secondary" : "outline-secondary"}
+                className="mb-3"
+                size="sm"
+            >
+                Флтр
+            </Button></Col>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Col> <Button
+                onClick={() => setOpenFunction("openSpreadsheet")}
                 //    aria-controls="example-collapse-text"
                 //    aria-expanded={openLedger}
-                variant="outline-success"
+                variant={editorMode.openSpreadsheet ? "secondary" : "outline-secondary"}
+                size="sm"
                 className="mb-3"
             >
-                {editorMode.openSpreadsheet ? "Скрыть Расчет" : "Показать расчет"}
+                Рсчт
             </Button></Col>
             <Col> <Button
-                onClick={setOpenCheatsheet}
+                onClick={() => setOpenFunction("openCheatsheet")}
                 //    aria-controls="example-collapse-text"
                 //    aria-expanded={openLedger}
-                variant="outline-primary"
+                variant={editorMode.openCheatsheet ? "secondary" : "outline-secondary"}
                 className="mb-3"
+                size="sm"
             >
-                {editorMode.openCheatsheet ? "Скрыть ШПРГЛК" : "Показать ШПРГЛК"}
+                Шблн
             </Button></Col>
         </Row>
 
         <Row>
+
             {editorMode.openLedger && <Ledger />}
             {editorMode.openSpreadsheet && <SpreadsheetLayout />}
             {editorMode.openCheatsheet && <OpenCheatsheetLayout />}
+            {editorMode.openBalance && <ShowBalance />}
+            {editorMode.openFinancialResults && <ShowFinancialResults />}
+            {editorMode.openCashFlow && <ShowCashFlow />}
+            {editorMode.openFilteredList && <ShowFilteredList />}
+
+
+
+
         </Row>
     </Container>
 }
@@ -1256,7 +1296,7 @@ function GlobalModal() {
             {applicationSelector?.modal?.component === "LoginLogout" && <LoginLogout />}
             {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
-            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />} 
+            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />}
 
         </Modal.Body>
 
@@ -1389,7 +1429,7 @@ function App() {
 
             console.log(openquizid);
 
-                let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
+            let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
                 url: "openquiz/" + openquizid,
                 type: "object",
             });
@@ -1399,7 +1439,7 @@ function App() {
                 document.querySelector(".quiztitle").innerText = onlineopenquiz?.title;
             }
 
-        
+
 
 
             // let updates = {};
@@ -1635,18 +1675,6 @@ function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
     return array;
 }
 
-function createProtoObject(protoArray) {
-    let protoObject = {};
-    for (var i = 0; i < protoArray.length; i++) {
-        var row = protoArray[i];
-        for (var j = 0; j < row.length; j++) {
-            if (protoArray[i][j] !== "") {
-                protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
-            }
-        }
-    }
-    return protoObject;
-}
 
 function isNumeric(str) {
     return !isNaN(str) && !isNaN(parseFloat(str));
@@ -1996,4 +2024,350 @@ const useDebounce = (value, delay = 500) => {
         return () => clearTimeout(timeout)
     }, [value, delay])
     return debouncedValue
+}
+
+
+
+
+function ShowBalance() {
+    const projectSelector = useContext(ProjectContext);
+
+    let content = Array.isArray(projectSelector.content) ? projectSelector.content : []
+
+    let periods = [...new Set(content.map(item => item.period))];
+
+
+
+    function processRecords(indicator, periodIndex) {
+        //   console.log(periodIndex);
+        let DValues = 0;
+        let KValues = 0;
+        content.forEach((item) => {
+            //    console.log(item.period);
+            let currentOperationPeriodIndex = periods.findIndex(
+                (per) => per === item.period
+            );
+            //    console.log(currentOperationPeriodIndex);
+            if (item.d === indicator && periodIndex > currentOperationPeriodIndex) {
+                DValues = DValues + parseFloat(item.sum);
+            }
+            if (item.k === indicator && periodIndex > currentOperationPeriodIndex) {
+                KValues = KValues + parseFloat(item.sum);
+            }
+            return null;
+        });
+
+        let indctr = balanceContoArray.find(item => item.id === indicator)
+        if (indctr.disposition === "asset") {
+            return DValues - KValues;
+        } else {
+            return KValues - DValues;
+        }
+    }
+
+    return <Container>
+        <Row className="bg-secondary text-white">
+            {["Активы", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {item}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Основные средства", ...periods].map((item, index) => (
+                <Col className="font-weight-bold" key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Основные средства"
+                        : processRecords("Основные средства", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Материалы", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0 ? "Материалы" : processRecords("Материалы", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Незавершенное производство", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Незавершенное производство"
+                        : processRecords("Незавершенное производство", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Готовая продукция", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Готовая продукция"
+                        : processRecords("Готовая продукция", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Дебиторская задолженность", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Дебиторская задолженность"
+                        : processRecords("Дебиторская задолженность", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Деньги", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0 ? "Деньги" : processRecords("Деньги", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row className="bg-secondary text-white">
+            {["Пассивы", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {item}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Уставный капитал", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Уставный капитал"
+                        : processRecords("Уставный капитал", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {["Нераспределенная прибыль", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Нераспределенная прибыль"
+                        : processRecords("Нераспределенная прибыль", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row className="bg-light text-dark">
+            {["Долгосрочный банковский кредит", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Долгосрочный банковский кредит"
+                        : processRecords("Долгосрочный банковский кредит", index)}
+                </Col>
+            ))}
+        </Row>
+        <Row className="bg-light text-dark">
+            {["Краткосрочный банковский кредит", ...periods].map(
+                (item, index) => (
+                    <Col key={item} xs={index > 0 ? 2 : 4}>
+                        {index === 0
+                            ? "Краткосрочный банковский кредит"
+                            : processRecords("Краткосрочный банковский кредит", index)}
+                    </Col>
+                )
+            )}
+        </Row>
+        <Row className="bg-light text-dark">
+            {["Кредиторская задолженность", ...periods].map((item, index) => (
+                <Col key={item} xs={index > 0 ? 2 : 4}>
+                    {index === 0
+                        ? "Кредиторская задолженность"
+                        : processRecords("Кредиторская задолженность", index)}
+                </Col>
+            ))}
+        </Row>
+    </Container>
+
+}
+
+
+function ShowFinancialResults() {
+    const projectSelector = useContext(ProjectContext);
+
+    let content = Array.isArray(projectSelector.content) ? projectSelector.content : []
+    let periods = [...new Set(content.map(item => item.period))];
+
+    function checkTypePeriod(indicator, periodIndex) {
+        let sum = 0;
+        //    console.log(indicator, periodIndex);
+        content.forEach((item) => {
+            //   console.log(item.period, periods[periodIndex]);
+            if (
+                !!item?.type &&
+                item.type.includes(indicator) &&
+                item.period === periods[periodIndex - 1]
+            ) {
+
+                sum = sum + parseFloat(item.sum);
+                //   console.log(sum);
+            }
+            return null;
+        });
+        return sum;
+    }
+
+    return <Container>
+        <Row className="bg-secondary text-white">
+            {["Финансовые результаты", ...periods].map((item, index) => (
+                <Col key={index} xs={index > 0 ? 2 : 4}>
+                    {item}
+                </Col>
+            ))}
+        </Row>
+
+        {["Выручка", "Себестоимость продукции, работ, услуг", "Коммерческие расходы", "Управленческие расходы",
+            "Проценты к уплате", "Прочие расходы", "Налог на прибыль", "Дивиденды к начислению"]
+            .map((row, indexRow) => <Row key={indexRow}>
+                {[row, ...periods].map((item, index) =>
+                    <Col key={index} xs={index > 0 ? 2 : 4}>
+                        {index === 0 ? row : checkTypePeriod(row, index)}
+                    </Col>
+                )}
+            </Row>
+            )}
+
+    </Container>
+}
+
+
+function ShowCashFlow() {
+    const projectSelector = useContext(ProjectContext);
+
+    let content = Array.isArray(projectSelector.content) ? projectSelector.content : []
+    let periods = [...new Set(content.map(item => item.period))];
+
+    function checkTypePeriod(indicator, periodIndex) {
+        let sum = 0;
+        //    console.log(indicator, periodIndex);
+        content.forEach((item) => {
+            //   console.log(item.period, periods[periodIndex]);
+            if (
+                !!item?.type &&
+                item.type.includes(indicator) &&
+                item.period === periods[periodIndex - 1]
+            ) {
+
+                sum = sum + parseFloat(item.sum);
+                //   console.log(sum);
+            }
+            return null;
+        });
+        return sum;
+    }
+
+    return <Container>
+        <Row className="bg-secondary text-white">
+            {["Кэш-фло", ...periods].map((item, index) => (
+                <Col key={index} xs={index > 0 ? 2 : 4}>
+                    {item}
+                </Col>
+            ))}
+        </Row>
+
+        {["Поступления по текущей деятельности", "Платежи по текущей деятельности", "Поступления по инвестиционной деятельности", "Платежи по инвестиционной деятельности", "Поступления по финансовой деятельности", "Платежи по финансовой деятельности"]
+            .map((row, indexRow) => <Row key={indexRow}>
+                {[row, ...periods].map((item, index) =>
+                    <Col key={index} xs={index > 0 ? 2 : 4}>
+                        {index === 0 ? row : checkTypePeriod(row, index)}
+                    </Col>
+                )}
+            </Row>
+            )}
+    </Container>
+
+}
+
+
+function ShowFilteredList() {
+    const projectSelector = useContext(ProjectContext);
+
+
+    const [filter, dispatch] = useReducer(
+        caseReducer,
+        { d: null, k: null }
+    );
+
+    let content = Array.isArray(projectSelector.content) ? projectSelector.content : []
+
+    let uniqueD = [...new Set(content.map((item) => item.d))];
+    let uniqueK = [...new Set(content.map((item) => item.k))];
+
+
+    function handleChange(e) {
+        let { name: key, value } = e.target;
+        dispatch({
+            type: "SET_STORE_OBJECT",
+            payload: { key, value },
+        });
+    }
+
+    let filteredDrecords = !!filter.d && filter.d !=="..."
+        ? content.filter((item) => item.d === filter.d)
+        : content.map((item) => item);
+    let filteredKrecords = !!filter.k && filter.k !=="..."
+        ? content.filter((item) => item.k === filter.k)
+        : filteredDrecords.map((item) => item);
+
+    return <Container>
+
+        <Row>
+            <Col>
+                <Form.Group controlId="formStateAnalyticsArray">
+                    <Form.Label>Активы +, Пассивы -</Form.Label>
+                    <Form.Control as="select" name="d" onChange={handleChange} size="sm" required>
+                        {["...", ...uniqueD]
+                            .map(item => {
+                                return <option key={item} id={item}>
+                                    {item}
+                                </option>
+                            })}
+                    </Form.Control>
+                </Form.Group>
+            </Col>
+
+            <Col><Form.Group controlId="formStateAnalyticsItem">
+                <Form.Label>Активы -, Пассивы +</Form.Label>
+                <Form.Control as="select" name="k" onChange={handleChange} size="sm" required>
+                    {["...", ...uniqueK]
+                        .map(item => { return <option key={item} id={item}>{item}</option> })}
+                </Form.Control>
+            </Form.Group>
+            </Col>
+        </Row>
+
+        {filteredKrecords.map((row, index) => (
+            <div key={index}>
+                <Row key={index}>
+                <Col xs={2}>
+                    <div><small>{index + 1}</small></div>
+                    <div><small>{row.period}</small></div>
+                </Col>
+                <Col xs={3}>
+                    <div> {row.bookD}</div>
+                    <div><small>{row.d}</small></div>
+
+                </Col>
+                <Col xs={3}>
+                    <div>{row.bookK}</div>
+                    <div><small>{row.k}</small></div>
+                </Col>
+                <Col xs={4}>
+                    <small>{row.sum}</small>
+                    {!!row?.type ? <small>{" " + row.type}</small> : <small> </small>}
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                   
+                    {!!row?.comment ? <small>{" " + row.comment}</small> : <hr/>}
+                </Col>
+            </Row>
+            </div>
+            
+        ))}
+
+    </Container>
+
+
 }
