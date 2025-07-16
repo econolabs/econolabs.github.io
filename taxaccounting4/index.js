@@ -1099,7 +1099,7 @@ function SimpleAccounting() {
 
     if (applicationSelector.loading) return null;
 
-    let { periods } = projectSelector;
+    let { periods, content } = projectSelector;
 
     //  console.log(projectSelector);
     // useEffect(()=>{
@@ -1129,15 +1129,17 @@ function SimpleAccounting() {
 
     // const handleAdd = useCallback(({ d, k, sum }) => {
     function handleAdd({ d, k, sum, bookD, bookK, period }) {
-        let content = [...projectSelector.content, { d, k, sum, bookD, bookK, period }];
+        console.log(content)
+        let newcontent = [...content, { d, k, sum, bookD, bookK, period }];
+         console.log(newcontent)
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    content,
+                    content: newcontent,
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: content.length === 1 ? "saveproject" : "content" }
+                    saveOptions: { type: "saveproject"  }
                 },
             },
         });
