@@ -209,7 +209,7 @@ function EditRecordPeriod() {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -297,7 +297,7 @@ function EditRecordOrder() {
                 objects: {
                     //  triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -388,7 +388,7 @@ function EditRecordSum() {
             payload: {
                 objects: {
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -471,7 +471,7 @@ function EditRecordComment() {
                 objects: {
                     //  triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -623,7 +623,7 @@ function EditRecordType() {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -647,7 +647,7 @@ function EditRecordType() {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "content" }
+                    saveOptions: { type: "project" }
                 },
             },
         });
@@ -2918,7 +2918,7 @@ function RecordDragAndDrop() {
                         items: orderedItems,
                         draggedItemIndex: null,
                         //    triggerSave: Math.random(),
-                        //    saveOptions: { type: "content" }
+                        //    saveOptions: { type: "project" }
                     },
                 },
             });
