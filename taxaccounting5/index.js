@@ -203,16 +203,37 @@ function EditRecordPeriod() {
                 },
             },
         });
+
+        let updatednodes = [];
+        updatednodes.push({
+            relativeurl: "content/" + record.id,
+            nodeobject: { ...record, period: period }
+        })
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: {
+                        type: "projectnodes",
+                        updatednodes: updatednodes,
+                    }
                 },
-            },
+            }
         });
+
+        // projectDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //             triggerRerender: Math.random(),
+        //             triggerSave: Math.random(),
+        //             saveOptions: { type: "content" }
+        //         },
+        //     },
+        // });
     }
 
 
@@ -291,16 +312,36 @@ function EditRecordOrder() {
                 },
             },
         });
+
+        let updatednodes = [];
+        updatednodes.push({
+            relativeurl: "content/" + record.id,
+            nodeobject: { ...record, orderBy: orderBy }
+        })
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    //  triggerRerender: Math.random(),
+                    triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: {
+                        type: "projectnodes",
+                        updatednodes: updatednodes,
+                    }
                 },
-            },
+            }
         });
+
+        // projectDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //            triggerSave: Math.random(),
+        //             saveOptions: { type: "content" }
+        //         },
+        //     },
+        // });
     }
 
     return <Form onSubmit={handleSubmit}>
@@ -383,15 +424,37 @@ function EditRecordSum() {
                 },
             },
         });
+
+        let updatednodes = [];
+        updatednodes.push({
+            relativeurl: "content/" + record.id,
+            nodeobject: { ...record, sum: sum }
+        })
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
+                    triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: {
+                        type: "projectnodes",
+                        updatednodes: updatednodes,
+                    }
                 },
-            },
+            }
         });
+
+
+        // projectDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //             triggerSave: Math.random(),
+        //             saveOptions: { type: "content" }
+        //         },
+        //     },
+        // });
     }
 
     return <Form onSubmit={handleSubmit}>
@@ -465,16 +528,37 @@ function EditRecordComment() {
                 },
             },
         });
+
+        let updatednodes = [];
+        updatednodes.push({
+            relativeurl: "content/" + record.id,
+            nodeobject: { ...record, comment: comment }
+        })
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    //  triggerRerender: Math.random(),
+                    triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: {
+                        type: "projectnodes",
+                        updatednodes: updatednodes,
+                    }
                 },
-            },
+            }
         });
+
+        // projectDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //             //  triggerRerender: Math.random(),
+        //             triggerSave: Math.random(),
+        //             saveOptions: { type: "content" }
+        //         },
+        //     },
+        // });
     }
 
     return <Form onSubmit={handleSubmit}>
@@ -617,16 +701,38 @@ function EditRecordType() {
                 },
             },
         });
+
+
+        let updatednodes = [];
+        updatednodes.push({
+            relativeurl: "content/" + record.id,
+            nodeobject: { ...record, type: analyticsItem }
+        })
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: {
+                        type: "projectnodes",
+                        updatednodes: updatednodes,
+                    }
                 },
-            },
+            }
         });
+
+        // projectDispatch({
+        //     type: "SEED_STATE",
+        //     payload: {
+        //         objects: {
+        //             triggerRerender: Math.random(),
+        //             triggerSave: Math.random(),
+        //             saveOptions: { type: "content" }
+        //         },
+        //     },
+        // });
 
     }
 
@@ -647,7 +753,7 @@ function EditRecordType() {
                 objects: {
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "project" }
+                    saveOptions: { type: "content" }
                 },
             },
         });
@@ -1100,6 +1206,7 @@ function SimpleAccounting() {
     if (applicationSelector.loading) return null;
 
     let { periods, content } = projectSelector;
+     let { userEmail, id } = applicationSelector;
 
     //  console.log(projectSelector);
     // useEffect(()=>{
@@ -1117,9 +1224,13 @@ function SimpleAccounting() {
         e.preventDefault();
         const currentTarget = e.currentTarget;
         const formdata = new FormData(currentTarget);
-        let { d, k, sum, bookD, bookK, period } = Object.fromEntries(formdata);
+        let { d, k, sum, bookD, bookK, period } = Object.fromEntries(formdata); 
+        let newRecordId = basicfirebasecrudservices.getFirebaseNodeKey("/usersCraft/" + userEmail + "/posts/" + id + "/content"); 
+        console.log(newRecordId)      
+       
+       let contentoftheyear = content.filter(item => item.period === period)
         //  console.log(d, k, sum, bookD, bookK);
-        handleAdd({ d, k, sum, bookD, bookK, period });
+        handleAdd({ d, k, sum, bookD, bookK, period, orderBy: contentoftheyear.length, id: newRecordId  });
         basicfirebasecrudservices.timeout(275).then(() => {
             setD(null);
             setK(null);
@@ -1128,10 +1239,9 @@ function SimpleAccounting() {
     }
 
     // const handleAdd = useCallback(({ d, k, sum }) => {
-    function handleAdd({ d, k, sum, bookD, bookK, period }) {
-        console.log(content)
-        let newcontent = [...content, { d, k, sum, bookD, bookK, period }];
-         console.log(newcontent)
+    function handleAdd({ d, k, sum, bookD, bookK, period, orderBy,id }) {
+        let newcontent = [...content, { d, k, sum, bookD, bookK, period, orderBy,id }];
+        console.log(content);
         projectDispatch({
             type: "SEED_STATE",
             payload: {
@@ -1139,7 +1249,7 @@ function SimpleAccounting() {
                     content: newcontent,
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
-                    saveOptions: { type: "saveproject"  }
+                    saveOptions: { type: content.length < 2 ? "project" : "content" }
                 },
             },
         });
@@ -1296,8 +1406,6 @@ function SaveProject() {
 
     useEffect(() => {
 
-        console.log(content)
-
         let currentDay = new Intl.DateTimeFormat("en", {
             weekday: "short",
             year: "numeric",
@@ -1349,9 +1457,10 @@ function SaveProject() {
                     console.log("content");
                     let contentObj = {};
                     if (Array.isArray(content) && content.length > 0) {
-                        content = content.forEach(item => {
+                        content.forEach(item => {
+                            console.log(item)
                             if (!item?.period) { return { ...item, period: defaultPeriod } }
-                            if (item?.id) { contentObj[id] = item }
+                            if (!!item?.id) { contentObj[item.id] = item }
                         });
                         updates["/usersCraft/" + userEmail + "/posts/" + id + "/content"] = contentObj;
                         updates["/usersTemplates/projects/" + userEmail + "/" + id + "/content"] = contentObj;
@@ -1372,12 +1481,21 @@ function SaveProject() {
                 default:
                     console.log("default");
                     if (Array.isArray(content) && content.length > 0) {
+
+                        let contentObj = {};
+                        content.forEach(item => {
+                            console.log(item)
+                            if (!item?.period) { return { ...item, period: defaultPeriod } }
+                            if (!!item?.id) { contentObj[item.id] = item }
+                        });
+
+                        console.log(content, contentObj)
                         let postObject = {
                             type: "accountingwithprofitscash",
                             theme: theme,
                             title: title,
                             deleted: false,
-                            content: content,
+                            content: contentObj,
                             quizString: quizString,
                             answer: "",
                             mediaItems: mediaItemsForSaving,
@@ -1431,8 +1549,8 @@ function SaveProject() {
             return await basicfirebasecrudservices.updateFirebaseNode(updates);
         }
 
-        saveContent().then(() => {
-            console.log("Saved");
+        saveContent().then((res) => {
+            console.log("Saved " + res);
 
             applicationDispatch({
                 type: "SEED_STATE",
@@ -2497,7 +2615,7 @@ function ShowFinancialResults() {
             ))}
         </Row>
 
-        {["Выручка", "Себестоимость продукции, работ, услуг", "Коммерческие расходы", "Управленческие расходы",
+        {["Выручка брутто", "Себестоимость продукции, работ, услуг", "Коммерческие расходы", "Управленческие расходы",
             "Проценты к уплате", "Прочие расходы", "Налог на прибыль", "Дивиденды к начислению"]
             .map((row, indexRow) => <Row key={indexRow}>
                 {[row, ...periods].map((item, index) =>
@@ -2922,7 +3040,7 @@ function RecordDragAndDrop() {
                         items: orderedItems,
                         draggedItemIndex: null,
                         //    triggerSave: Math.random(),
-                        //    saveOptions: { type: "project" }
+                        //    saveOptions: { type: "content" }
                     },
                 },
             });
