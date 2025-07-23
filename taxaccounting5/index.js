@@ -1129,7 +1129,7 @@ function Ledger() {
 
                             <Col>
                                 <div><small class="text-muted">{"N " + (index + 1)}</small></div>
-                                <div><small class="text-muted">{row?.id}</small></div>
+                                {/* <div><small class="text-muted">{row?.id}</small></div> */}
                                 <div><small class="text-muted">{row?.period}</small></div>
                             </Col>
 
