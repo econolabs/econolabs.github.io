@@ -324,40 +324,7 @@ let quizesSets =
     ],
     answers: ["Отчет"]
   },
-  {
-    id: "search001",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Поиск информации",
-    theme: "Поиск информации в журналистике",
-    text: "Что такое стратегия поиска информации?",
-    choices: [
-      "Случайный просмотр сайтов",
-      "План действий для быстрого и точного нахождения информации",
-      "Чтение одной книги",
-      "Опрос друзей",
-      "Просмотр телевизора",
-      "Просьба к коллеге найти информацию"
-    ],
-    answers: ["План действий для быстрого и точного нахождения информации"]
-  },
-  {
-    id: "search002",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Библиотечные ресурсы",
-    theme: "Поиск информации в журналистике",
-    text: "Какая из перечисленных библиотек является русскоязычной электронной библиотекой?",
-    choices: [
-      "Wikipedia",
-      "Google",
-      "КиберЛенинка",
-      "YouTube",
-      "Facebook",
-      "Instagram"
-    ],
-    answers: ["КиберЛенинка"]
-  },
+  
   {
     id: "sql001",
     type: "multiplechoices",
@@ -460,74 +427,8 @@ let quizesSets =
     ],
     answers: ["Wi-Fi"]
   },
-  {
-    id: "net005",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Поиск в Интернете",
-    theme: "Локальные и глобальные сети",
-    text: "Что такое поисковая система?",
-    choices: [
-      "База данных с книгами",
-      "Программа для создания сайтов",
-      "Веб-сайт для поиска информации в Интернете",
-      "Электронная почта",
-      "Социальная сеть",
-      "Онлайн-библиотека"
-    ],
-    answers: ["Веб-сайт для поиска информации в Интернете"]
-  },
-  {
-    id: "sec001",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Информационная безопасность",
-    theme: "Информационная безопасность",
-    text: "Что такое политика информационной безопасности?",
-    choices: [
-      "Правила использования принтера",
-      "Набор законов и правил для защиты информации",
-      "Список паролей",
-      "Инструкция по установке программ",
-      "Расписание работы отдела",
-      "План закупки компьютеров"
-    ],
-    answers: ["Набор законов и правил для защиты информации"]
-  },
-  {
-    id: "sec002",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Угрозы безопасности",
-    theme: "Информационная безопасность",
-    text: "Что такое компьютерный вирус?",
-    choices: [
-      "Полезная программа",
-      "Вредоносная программа, которая может повредить компьютер",
-      "Компьютерная игра",
-      "Операционная система",
-      "Программа для просмотра сайтов",
-      "Аппаратная часть компьютера"
-    ],
-    answers: ["Вредоносная программа, которая может повредить компьютер"]
-  },
-  {
-    id: "sec003",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Защита от вирусов",
-    theme: "Информационная безопасность",
-    text: "Для чего нужна антивирусная программа?",
-    choices: [
-      "Для ускорения работы компьютера",
-      "Для создания резервных копий",
-      "Для поиска и удаления вредоносных программ",
-      "Для подключения к Интернету",
-      "Для программирования",
-      "Для обработки фотографий"
-    ],
-    answers: ["Для поиска и удаления вредоносных программ"]
-  },
+  
+  
 
   {
     id: "word003",
@@ -615,24 +516,7 @@ let quizesSets =
     answers: ["Для выборки данных по определенному условию"]
   },
 
-  {
-    id: "os003",
-    type: "multiplechoices",
-    header: "Тест по информатике",
-    title: "Функции ОС",
-    theme: "Операционные системы",
-    text: "Что такое «рабочий стол» в операционной системе?",
-    choices: [
-      "Стол, на котором стоит компьютер",
-      "Основное окно программы",
-      "Главный экран, на котором отображаются значки и папки",
-      "Меню «Пуск»",
-      "Панель задач",
-      "Файловый менеджер"
-    ],
-    answers: ["Главный экран, на котором отображаются значки и папки"]
-  },
-
+  
    {
     id: "win001",
     type: "multiplechoices",
@@ -679,29 +563,7 @@ let quizesSets =
     hint: "Используется клавиша Alt и клавиша переключения вкладок",
     answers: ["Alt + Tab"]
   },
-  {
-    id: "win003", 
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Системные команды",
-    theme: "Системные сочетания",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает диалоговое окно 'Выполнить'?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + R",
-      "Ctrl + R", 
-      "Alt + R",
-      "Win + E",
-      "Ctrl + Shift + Esc",
-      "Win + X"
-    ],
-    hint: "Используется клавиша Windows и первая буква слова 'Run'",
-    answers: ["Win + R"]
-  },
+  
   {
     id: "win004",
     type: "multiplechoices",
@@ -817,147 +679,8 @@ let quizesSets =
     hint: "Просто нажатие одной специальной клавиши",
     answers: ["Print Screen"]
   },
-  {
-    id: "win009",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Виртуальные рабочие столы", 
-    theme: "Многозадачность",
-    text: `<div class="container-fluid">
-      <div class="alert alert-primary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш создает новый виртуальный рабочий стол?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + Ctrl + D",
-      "Win + Tab", 
-      "Win + Ctrl + Left",
-      "Win + Ctrl + F4",
-      "Win + D",
-      "Ctrl + N"
-    ],
-    hint: "Клавиша Windows + Control + первая буква слова 'Desktop'",
-    answers: ["Win + Ctrl + D"]
-  },
-  {
-    id: "win010",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Поиск и навигация",
-    theme: "Поиск в системе",
-    text: `<div class="container-fluid">
-      <div class="alert alert-secondary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает поиск Windows?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + F",
-      "Win + S", 
-      "Ctrl + F",
-      "Win + Q",
-      "Alt + S",
-      "Win + Space"
-    ],
-    hint: "Клавиша Windows и первая буква слова 'Search'",
-    answers: ["Win + S"]
-  },
-  {
-    id: "win011",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Панель управления", 
-    theme: "Системные утилиты",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает Диспетчер задач?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Ctrl + Alt + Delete",
-      "Ctrl + Shift + Esc", 
-      "Win + X then T",
-      "Alt + F4",
-      "Ctrl + Alt + T",
-      "Все варианты верны"
-    ],
-    hint: "Есть несколько способов, но самый прямой - без дополнительных меню",
-    answers: ["Все варианты верны"]
-  },
   
-  {
-    id: "win013",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Масштабирование", 
-    theme: "Изменение масштаба",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш увеличивает масштаб (лупа) в Windows?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + Plus",
-      "Ctrl + Plus", 
-      "Win + M",
-      "Ctrl + Mouse Wheel",
-      "Win + Minus",
-      "Варианты 1 и 4 верны"
-    ],
-    hint: "Используется клавиша Windows и математический символ увеличения",
-    answers: ["Варианты 1 и 4 верны"]
-  },
-
-  {
-    id: "win016",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Управление приложениями", 
-    theme: "Закрытие приложений",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш закрывает активное окно или приложение?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Alt + F4",
-      "Ctrl + F4", 
-      "Ctrl + W",
-      "Win + F4",
-      "Все варианты верны",
-      "Только вариант 1"
-    ],
-    hint: "Разные комбинации для разных типов окон, но есть универсальная",
-    answers: ["Все варианты верны"]
-  },
-
-  {
-    id: "win018",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Командная строка", 
-    theme: "Терминал и консоль",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш в командной строке (CMD) вставляет текст из буфера обмена?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Ctrl + V",
-      "Ctrl + Shift + V", 
-      "Shift + Insert",
-      "Ctrl + Insert",
-      "Варианты 1 и 3 верны",
-      "Только вариант 2"
-    ],
-    hint: "В командной строке работают не все стандартные сочетания",
-    answers: ["Варианты 1 и 3 верны"]
-  },
+  
   
     {
     id: "crypto001",
@@ -1396,991 +1119,228 @@ let quizesSets =
     hint: "Сертификаты связывают открытый ключ с идентификатором владельца",
     answers: ["Для подтверждения подлинности открытых ключей"]
   },
+  
   {
-    id: "crypto020",
+    id: "net005",
     type: "multiplechoices",
-    header: "Тест по основам криптографии", 
-    title: "Криптографические протоколы",
-    theme: "Практическое применение",
-    text: `<div class="container-fluid">
-      <div class="alert alert-warning mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какой протокол использует гибридное шифрование для безопасного веб-соединения?</p>
-      </div>
-    </div>`,
+    header: "Тест по информатике",
+    title: "Поиск в Интернете",
+    theme: "Локальные и глобальные сети",
+    text: "Что такое поисковая система?",
     choices: [
-      "HTTP",
-      "HTTPS (SSL/TLS)", 
-      "FTP",
-      "SMTP",
-      "TCP",
-      "UDP"
+      "База данных с книгами",
+      "Программа для создания сайтов",
+      "Веб-сайт для поиска информации в Интернете",
+      "Электронная почта",
+      "Социальная сеть",
+      "Онлайн-библиотека"
     ],
-    hint: "Этот протокол обеспечивает безопасность соединения в браузере",
-    answers: ["HTTPS (SSL/TLS)"]
-  },
-    {
-    id: "sql001",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Основы SQL",
-    theme: "Введение в SQL",
-    text: "Что означает аббревиатура SQL?",
-    choices: [
-      "Structured Question Language",
-      "Structured Query Language", 
-      "Simple Query Language",
-      "Standard Question Logic"
-    ],
-    hint: "В переводе это означает 'язык структурированных запросов'",
-    answers: ["Structured Query Language"]
-  },
-  {
-    id: "sql002", 
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Команда SELECT",
-    theme: "Основы языка SQL",
-    text: "Что делает команда SQL SELECT?",
-    choices: [
-      "Удаляет данные",
-      "Добавляет новые данные", 
-      "Выбирает данные из таблицы",
-      "Изменяет структуру таблицы",
-      "Создает новую таблицу",
-      "Удаляет таблицу"
-    ],
-    hint: "Select в переводе означает Выбрать",
-    answers: ["Выбирает данные из таблицы"]
-  },
-  {
-    id: "sql003",
-    type: "multiplechoices", 
-    header: "Тест по базам данных",
-    title: "Фильтрация WHERE",
-    theme: "Условия выборки",
-    text: "Какая конструкция используется для фильтрации строк в SQL?",
-    choices: [
-      "FILTER BY",
-      "HAVING",
-      "WHERE",
-      "CONDITION"
-    ],
-    hint: "Эта конструкция переводится как 'Где'",
-    answers: ["WHERE"]
-  },
-  {
-    id: "sql004",
-    type: "multiplechoices",
-    header: "Тест по базам данных", 
-    title: "Сортировка данных",
-    theme: "Упорядочивание результатов",
-    text: "Как отсортировать результаты по убыванию?",
-    choices: [
-      "SORT DESC",
-      "ORDER BY DESC", 
-      "ORDER DESC",
-      "SORT BY DESC"
-    ],
-    hint: "Используется конструкция ORDER BY с дополнительным ключевым словом",
-    answers: ["ORDER BY DESC"]
-  },
-  {
-    id: "sql005",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "JOIN операции", 
-    theme: "Соединение таблиц",
-    text: "Какой тип JOIN возвращает все строки из обеих таблиц, даже если нет совпадений?",
-    choices: [
-      "INNER JOIN",
-      "LEFT JOIN",
-      "RIGHT JOIN", 
-      "FULL OUTER JOIN"
-    ],
-    hint: "Этот JOIN объединяет результаты и левого, и правого JOIN",
-    answers: ["FULL OUTER JOIN"]
-  },
-  {
-    id: "sql006",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Агрегатные функции", 
-    theme: "Вычисления над группами",
-    text: "Какая функция вычисляет среднее значение?",
-    choices: [
-      "SUM()",
-      "COUNT()",
-      "AVG()",
-      "MAX()",
-      "MIN()"
-    ],
-    hint: "Сокращение от Average",
-    answers: ["AVG()"]
-  },
-  {
-    id: "sql007",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Группировка данных", 
-    theme: "Группировка и агрегация",
-    text: "Какая конструкция используется для группировки строк с одинаковыми значениями?",
-    choices: [
-      "GROUP BY",
-      "ORDER BY", 
-      "WHERE",
-      "HAVING"
-    ],
-    hint: "Переводится как 'Группировать по'",
-    answers: ["GROUP BY"]
-  },
-  {
-    id: "sql008",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Фильтрация групп", 
-    theme: "Условия для групп",
-    text: "Чем отличается HAVING от WHERE?",
-    choices: [
-      "HAVING используется до GROUP BY, WHERE - после",
-      "HAVING фильтрует группы, WHERE фильтрует строки",
-      "WHERE работает быстрее чем HAVING", 
-      "Разницы нет, это синонимы"
-    ],
-    hint: "HAVING применяется к результатам группировки",
-    answers: ["HAVING фильтрует группы, WHERE фильтрует строки"]
-  },
-  {
-    id: "sql009",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Подзапросы", 
-    theme: "Вложенные запросы",
-    text: "Где можно использовать подзапрос в SQL?",
-    choices: [
-      "Только в WHERE",
-      "Только в SELECT", 
-      "В WHERE, SELECT, FROM и других разделах",
-      "Только в INSERT"
-    ],
-    hint: "Подзапросы довольно универсальны в SQL",
-    answers: ["В WHERE, SELECT, FROM и других разделах"]
-  },
-  {
-    id: "sql010",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Изменение данных", 
-    theme: "DML команды",
-    text: "Какая команда используется для обновления существующих данных?",
-    choices: [
-      "INSERT",
-      "UPDATE",
-      "MODIFY", 
-      "ALTER"
-    ],
-    hint: "Переводится как 'Обновить'",
-    answers: ["UPDATE"]
-  },
-  {
-    id: "sql011",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Удаление данных", 
-    theme: "Операции удаления",
-    text: "Чем отличается DELETE от TRUNCATE?",
-    choices: [
-      "TRUNCATE можно откатить, DELETE - нет",
-      "DELETE удаляет таблицу, TRUNCATE - только данные",
-      "TRUNCATE быстрее и не логирует удаление каждой строки", 
-      "DELETE работает только с условием WHERE"
-    ],
-    hint: "TRUNCATE работает на уровне таблицы",
-    answers: ["TRUNCATE быстрее и не логирует удаление каждой строки"]
-  },
-  {
-    id: "sql012",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Создание таблиц", 
-    theme: "DDL команды",
-    text: "Какая команда создает новую таблицу?",
-    choices: [
-      "CREATE TABLE",
-      "NEW TABLE",
-      "ADD TABLE", 
-      "MAKE TABLE"
-    ],
-    hint: "Состоит из двух слов: Create + Table",
-    answers: ["CREATE TABLE"]
-  },
-  {
-    id: "sql013",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Ограничения (Constraints)", 
-    theme: "Целостность данных",
-    text: "Какое ограничение гарантирует уникальность значений в столбце?",
-    choices: [
-      "PRIMARY KEY",
-      "FOREIGN KEY", 
-      "CHECK",
-      "DEFAULT"
-    ],
-    hint: "Также автоматически создает индекс",
-    answers: ["PRIMARY KEY"]
-  },
-  {
-    id: "sql014",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Индексы", 
-    theme: "Оптимизация запросов",
-    text: "Для чего используются индексы в базе данных?",
-    choices: [
-      "Для хранения резервных копий",
-      "Для ускорения операций выборки",
-      "Для увеличения размера базы данных", 
-      "Для ограничения доступа к данным"
-    ],
-    hint: "Как индекс в книге помогает быстрее найти информацию",
-    answers: ["Для ускорения операций выборки"]
-  },
-  {
-    id: "sql015",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "UNION оператор", 
-    theme: "Объединение запросов",
-    text: "Что делает оператор UNION?",
-    choices: [
-      "Объединяет таблицы по столбцам",
-      "Объединяет результаты двух запросов в один набор",
-      "Создает связь между таблицами", 
-      "Группирует повторяющиеся строки"
-    ],
-    hint: "Объединяет результаты по строкам, а не по столбцам",
-    answers: ["Объединяет результаты двух запросов в один набор"]
-  },
-  {
-    id: "sql016",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Нереляционные БД", 
-    theme: "Типы баз данных",
-    text: "Какие из перечисленных являются типами NoSQL баз данных?",
-    choices: [
-      "Документные",
-      "Колоночные", 
-      "Ключ-значение",
-      "Графовые",
-      "Все перечисленные"
-    ],
-    hint: "NoSQL включает несколько различных подходов к хранению данных",
-    answers: ["Все перечисленные"]
-  },
-  {
-    id: "sql017",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Транзакции", 
-    theme: "Управление транзакциями",
-    text: "Какие свойства объединяет аббревиатура ACID?",
-    choices: [
-      "Atomicity, Consistency, Isolation, Durability",
-      "Access, Consistency, Integrity, Data", 
-      "Atomicity, Control, Isolation, Database",
-      "All, Commit, Insert, Delete"
-    ],
-    hint: "Атомарность, Согласованность, Изолированность, Долговечность",
-    answers: ["Atomicity, Consistency, Isolation, Durability"]
-  },
-  {
-    id: "sql018",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Нормализация", 
-    theme: "Проектирование БД",
-    text: "Какова цель нормализации базы данных?",
-    choices: [
-      "Увеличить скорость всех запросов",
-      "Устранить избыточность и аномалии данных",
-      "Упростить запросы SELECT", 
-      "Увеличить размер базы данных"
-    ],
-    hint: "Помогает избежать дублирования и противоречивости данных",
-    answers: ["Устранить избыточность и аномалии данных"]
-  },
-  {
-    id: "sql019",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Оконные функции", 
-    theme: "Аналитические функции",
-    text: "Что такое оконные функции в SQL?",
-    choices: [
-      "Функции для работы с датой и временем",
-      "Функции, которые выполняют вычисления над набором строк без их группировки",
-      "Функции для создания новых окон в приложении", 
-      "Функции для управления доступом к данным"
-    ],
-    hint: "Они работают с 'окном' строк относительно текущей строки",
-    answers: ["Функции, которые выполняют вычисления над набором строк без их группировки"]
-  },
-  {
-    id: "sql020",
-    type: "multiplechoices",
-    header: "Тест по базам данных",
-    title: "Хранимые процедуры", 
-    theme: "Программирование в БД",
-    text: "Что такое хранимая процедура?",
-    choices: [
-      "Резервная копия базы данных",
-      "Набор SQL-операторов, сохраненных в базе данных для многократного использования",
-      "Процесс создания индексов", 
-      "Метод шифрования данных"
-    ],
-    hint: "Позволяет хранить и выполнять логику на стороне сервера БД",
-    answers: ["Набор SQL-операторов, сохраненных в базе данных для многократного использования"]
-  },
-
-    {
-    id: "psy001",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с данными пациентов",
-    theme: "Анализ терапевтических сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Пациенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Анна</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Борис</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Виктор</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Дарья</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Елена</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Сергей</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">patient_id</th><th class="p-1">дата</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-10</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-17</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-01-15</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>5</small></td><td class="p-1"><small>2024-01-20</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-01-18</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>8</small></td><td class="p-1"><small>2024-01-22</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Пациенты.id 
-FROM Пациенты 
-LEFT JOIN Сессии ON Пациенты.id = Сессии.patient_id 
-WHERE Сессии.patient_id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id пациентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "2, 4, 6",
-      "2, 4, 5, 6", 
-      "2, 4",
-      "1, 3, 5",
-      "4, 5, 6"
-    ],
-    hint: "Ищем пациентов, у которых никогда не было сессий",
-    answers: ["2, 4"]
-  },
-  {
-    id: "psy002",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "RIGHT JOIN с тестами личности",
-    theme: "Анализ пройденных тестов",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Студенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ольга</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Иван</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Мария</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Алексей</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Наталья</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Дмитрий</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Тесты_результаты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">student_id</th><th class="p-1">тест</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>16-факторов</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>СМИЛ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Айзенк</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>7</small></td><td class="p-1"><small>Кеттелл</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-warning mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Тесты_результаты.id 
-FROM Студенты 
-RIGHT JOIN Тесты_результаты ON Студенты.id = Тесты_результаты.student_id 
-WHERE Студенты.id IS NOT NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Тесты_результаты будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 4", 
-      "1, 2, 3, 4, 6",
-      "5 только",
-      "3, 4, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все результаты тестов, WHERE оставляет только те, где студент существует",
-    answers: ["1, 2, 3, 4"]
-  },
-  {
-    id: "psy003", 
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с фильтрацией по дате",
-    theme: "Анализ последних сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Клиенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Артем</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Светлана</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Павел</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Ирина</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Михаил</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Юлия</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Терапия:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">client_id</th><th class="p-1">дата</th><th class="p-1">длительность</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-01</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-08</small></td><td class="p-1"><small>45</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-02-15</small></td><td class="p-1"><small>90</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>2024-03-10</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-03-05</small></td><td class="p-1"><small>30</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>2024-02-28</small></td><td class="p-1"><small>120</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-success mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Клиенты.id 
-FROM Клиенты 
-LEFT JOIN Терапия ON Клиенты.id = Терапия.client_id 
-WHERE Терапия.дата >= '2024-03-01'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id клиентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 4, 5, 6",
-      "1, 4, 6", 
-      "1, 2, 3, 4, 6",
-      "1, 4 только",
-      "1, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех клиентов, но WHERE фильтрует только сессии с марта 2024",
-    answers: ["1, 4, 6"]
-  },
-  {
-    id: "psy004",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "RIGHT JOIN с комплексным условием", 
-    theme: "Анализ групповой терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Участники:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ксения</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Роман</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Алина</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Глеб</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Вероника</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Станислав</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Групповые_сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">member_id</th><th class="p-1">группа</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Депрессия</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>ПТСР</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Горевание</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>9</small></td><td class="p-1"><small>Гнев</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-danger mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Групповые_сессии.id 
-FROM Участники 
-RIGHT JOIN Групповые_сессии ON Участники.id = Групповые_сессии.member_id 
-WHERE Групповые_сессии.группа = 'Тревожность' OR Участники.id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Групповые_сессии будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 5, 6",
-      "1, 3, 5", 
-      "1, 2, 3, 5",
-      "5, 6 только",
-      "1, 3, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все групповые сессии, WHERE оставляет сессии по тревожности ИЛИ без участника",
-    answers: ["1, 3, 5"]
-  },
-  {
-    id: "psy005",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "LEFT JOIN с условием в JOIN",
-    theme: "Фильтрация методов терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Психологи:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Доктор А</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Доктор Б</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Доктор В</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Доктор Г</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Доктор Д</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Доктор Е</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сеансы:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">psych_id</th><th class="p-1">метод</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Гештальт</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>Психоанализ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>КПТ</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Психологи.id 
-FROM Психологи 
-LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Сеансы.метод = 'КПТ'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id психологов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 6", 
-      "1, 3, 5, 6",
-      "1, 3 только",
-      "1, 2, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех психологов, но соединяет только с сеансами КПТ",
-    answers: ["1, 2, 3, 4, 5, 6"]
+    answers: ["Веб-сайт для поиска информации в Интернете"]
   },
 
    {
-    id: "join006",
+    id: "excel001",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Множественные LEFT JOIN",
-    theme: "Несколько LEFT JOIN",
-    text: `Таблицы: Users(id,name), Orders(id,user_id), Payments(id,order_id).
-    Что вернет запрос?
-    <pre>SELECT u.name, o.id, p.amount
-    FROM Users u
-    LEFT JOIN Orders o ON u.id = o.user_id
-    LEFT JOIN Payments p ON o.id = p.order_id
-    WHERE p.id IS NULL</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Временная ценность денег и базовые функции",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция используется для расчета будущей стоимости инвестиций?",
     choices: [
-      "Пользователей без заказов",
-      "Заказы без платежей", 
-      "Пользователи, у которых есть заказы но нет платежей",
-      "Всех пользователей с заказами и платежами",
-      "Пользователей без заказов и без платежей"
+      "ПС (PV)",
+      "БС (FV)",
+      "СТАВКА (RATE)",
+      "КПЕР (NPER)",
+      "ПЛТ (PMT)",
+      "ЧПС (NPV)"
     ],
-    hint: "Последний JOIN и фильтр по p.id IS NULL - ключевые",
-    answers: ["Пользователи, у которых есть заказы но нет платежей"]
+    answers: ["БС (FV)"]
   },
   {
-    id: "join007",
+    id: "excel002",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "RIGHT JOIN с агрегацией", 
-    theme: "RIGHT JOIN + GROUP BY",
-    text: `Таблицы: Products(id,name), Sales(id,product_id,quantity).
-    Что вычисляет запрос?
-    <pre>SELECT p.name, COUNT(s.id) as sales_count
-    FROM Sales s 
-    RIGHT JOIN Products p ON s.product_id = p.id
-    GROUP BY p.id, p.name</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Аннуитеты и потоки платежей",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает размер периодического платежа по аннуитету?",
     choices: [
-      "Количество продаж по каждому продукту (включая продукты без продаж)",
-      "Только продукты, у которых есть продажи", 
-      "Общее количество всех продаж",
-      "Продукты без продаж",
-      "Среднее количество продаж на продукт"
+      "БС (FV)",
+      "ПС (PV)",
+      "ПЛТ (PMT)",
+      "ОСПЛТ (PPMT)",
+      "ПРПЛТ (IPMT)",
+      "КПЕР (NPER)"
     ],
-    hint: "RIGHT JOIN сохраняет все продукты, COUNT считает только существующие продажи",
-    answers: ["Количество продаж по каждому продукту (включая продукты без продаж)"]
+    answers: ["ПЛТ (PMT)"]
   },
   {
-    id: "join008",
+    id: "excel003",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с подзапросом", 
-    theme: "JOIN с производными таблицами",
-    text: `Что делает этот запрос?
-    <pre>SELECT u.name, recent_orders.total
-    FROM Users u
-    LEFT JOIN (
-        SELECT user_id, SUM(amount) as total 
-        FROM Orders 
-        WHERE order_date >= '2024-01-01'
-        GROUP BY user_id
-    ) recent_orders ON u.id = recent_orders.user_id</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Инвестиционный анализ",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какие функции используются для расчета внутренней нормы доходности?",
     choices: [
-      "Показывает всех пользователей и их общие суммы заказов за 2024 год",
-      "Только пользователей с заказами в 2024 году", 
-      "Общую сумму всех заказов за 2024 год",
-      "Пользователей без заказов в 2024 году",
-      "Заказы сделанные до 2024 года"
+      "ЧПС (NPV) и ЧИСТНЗ (XNPV)",
+      "ВСД (IRR) и ЧИСТВНДОХ (XIRR)",
+      "СТАВКА (RATE) и ЭФФЕКТ (EFFECT)",
+      "ДОХОД (YIELD) и ДОХОДПОГАШ (YIELDMAT)",
+      "БС (FV) и ПС (PV)",
+      "КПЕР (NPER) и ПЛТ (PMT)"
     ],
-    hint: "LEFT JOIN с подзапросом сохраняет всех пользователей",
-    answers: ["Показывает всех пользователей и их общие суммы заказов за 2024 год"]
+    answers: ["ВСД (IRR) и ЧИСТВНДОХ (XIRR)"]
   },
   {
-    id: "join009",
+    id: "excel004",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Фильтрация по связанной таблице", 
-    theme: "WHERE с условием из JOIN",
-    text: `Таблицы: Customers(id,name), Orders(id,customer_id,status).
-    Каких клиентов вернет запрос?
-    <pre>SELECT c.name
-    FROM Customers c
-    LEFT JOIN Orders o ON c.id = o.customer_id
-    WHERE o.status = 'completed' 
-       OR o.customer_id IS NULL</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Анализ облигаций",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает цену облигации с периодической выплатой процентов?",
     choices: [
-      "Только клиентов с завершенными заказами",
-      "Клиентов с завершенными заказами И клиентов без заказов", 
-      "Всех клиентов независимо от заказов",
-      "Только клиентов без заказов",
-      "Клиентов с незавершенными заказами"
+      "ЦЕНАПОГАШ (PRICEMAT)",
+      "ЦЕНАСКИДКА (PRICEDISC)",
+      "ЦЕНА (PRICE)",
+      "ДОХОД (YIELD)",
+      "ДОХОДПОГАШ (YIELDMAT)",
+      "НАКОПДОХОДПОГАШ (ACCRINTM)"
     ],
-    hint: "OR o.customer_id IS NULL включает клиентов без заказов",
-    answers: ["Клиентов с завершенными заказами И клиентов без заказов"]
+    answers: ["ЦЕНА (PRICE)"]
   },
   {
-    id: "join010",
+    id: "excel005",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с HAVING", 
-    theme: "Фильтрация групп после JOIN",
-    text: `Таблицы: Departments(id,name), Employees(id,dept_id,salary).
-    Что найдет этот запрос?
-    <pre>SELECT d.name, COUNT(e.id) as emp_count
-    FROM Departments d
-    LEFT JOIN Employees e ON d.id = e.dept_id
-    GROUP BY d.id, d.name
-    HAVING COUNT(e.id) = 0 
-        OR AVG(e.salary) > 50000</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Амортизация активов",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает амортизацию актива методом уменьшающегося остатка?",
     choices: [
-      "Отделы без сотрудников И отделы со средней зарплатой > 50000",
-      "Только отделы без сотрудников", 
-      "Только отделы с высокой зарплатой",
-      "Все отделы с сотрудниками",
-      "Отделы с количеством сотрудников = 0"
+      "АПЛ (SLN)",
+      "ДДОБ (DDB)",
+      "ФУО (VDB)",
+      "АСЧ (SYD)",
+      "ПУО (DB)",
+      "БС (FV)"
     ],
-    hint: "HAVING работает с результатами агрегации после GROUP BY",
-    answers: ["Отделы без сотрудников И отделы со средней зарплатой > 50000"]
+    answers: ["ДДОБ (DDB)"]
   },
   {
-    id: "join011",
+    id: "excel006",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "RIGHT JOIN с IS NULL фильтром", 
-    theme: "Нахождение отсутствующих связей",
-    text: `Таблицы: Students(id,name), Enrollments(id,student_id,course_id).
-    Как найти курсы, на которые никто не записался?
-    <pre>SELECT c.name
-    FROM Enrollments e
-    RIGHT JOIN Courses c ON e.course_id = c.id
-    WHERE e.course_id IS NULL</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Эффективные и номинальные ставки",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какие функции используются для преобразования номинальной ставки в эффективную и наоборот?",
     choices: [
-      "Курсы без записей",
-      "Студентов без курсов", 
-      "Все курсы со записями",
-      "Курсы с максимальным количеством записей",
-      "Студентов записанных на все курсы"
+      "СТАВКА (RATE) и ПЛТ (PMT)",
+      "ЭФФЕКТ (EFFECT) и НОМИНАЛ (NOMINAL)",
+      "БС (FV) и ПС (PV)",
+      "ВСД (IRR) и ЧПС (NPV)",
+      "КПЕР (NPER) и ПЛТ (PMT)",
+      "ДОХОД (YIELD) и ЦЕНА (PRICE)"
     ],
-    hint: "RIGHT JOIN сохраняет все курсы, WHERE фильтрует те, где нет записей",
-    answers: ["Курсы без записей"]
+    answers: ["ЭФФЕКТ (EFFECT) и НОМИНАЛ (NOMINAL)"]
   },
   {
-    id: "join012",
+    id: "excel007",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с COALESCE", 
-    theme: "Обработка NULL значений",
-    text: `Что делает COALESCE в этом запросе?
-    <pre>SELECT u.name, COALESCE(SUM(o.amount), 0) as total_spent
-    FROM Users u
-    LEFT JOIN Orders o ON u.id = o.user_id
-    GROUP BY u.id, u.name</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "План погашения кредита",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает сумму основного долга в составе платежа по кредиту?",
     choices: [
-      "Заменяет NULL на 0 для пользователей без заказов",
-      "Фильтрует пользователей без заказов", 
-      "Суммирует только ненулевые заказы",
-      "Вычисляет среднее значение заказов",
-      "Группирует пользователей по категориям"
+      "ПЛТ (PMT)",
+      "ПРПЛТ (IPMT)",
+      "ОСПЛТ (PPMT)",
+      "БС (FV)",
+      "ПС (PV)",
+      "КПЕР (NPER)"
     ],
-    hint: "COALESCE возвращает первый не-NULL аргумент",
-    answers: ["Заменяет NULL на 0 для пользователей без заказов"]
+    answers: ["ОСПЛТ (PPMT)"]
   },
   {
-    id: "join013",
+    id: "excel008",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Самостоятельный LEFT JOIN", 
-    theme: "Self JOIN с фильтрацией",
-    text: `Таблица Employees(id,name,manager_id). Как найти сотрудников без подчиненных?
-    <pre>SELECT e1.name
-    FROM Employees e1
-    LEFT JOIN Employees e2 ON e1.id = e2.manager_id
-    WHERE e2.manager_id IS NULL</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Бескупонные облигации",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает доходность бескупонной облигации?",
     choices: [
-      "Сотрудников без менеджеров",
-      "Сотрудников без подчиненных", 
-      "Всех менеджеров",
-      "Сотрудников с максимальным количеством подчиненных",
-      "Всех сотрудников независимо от иерархии"
+      "ДОХОД (YIELD)",
+      "ДОХОДПОГАШ (YIELDMAT)",
+      "ДОХОДСКИДКА (YIELDDISC)",
+      "НАКОПДОХОДПОГАШ (ACCRINTM)",
+      "ЭФФЕКТ (EFFECT)",
+      "СТАВКА (RATE)"
     ],
-    hint: "e2 - это потенциальные подчиненные, их отсутствие означает нет подчиненных",
-    answers: ["Сотрудников без подчиненных"]
+    answers: ["ДОХОДСКИДКА (YIELDDISC)"]
   },
   {
-    id: "join014",
+    id: "excel009",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с LIMIT в подзапросе", 
-    theme: "JOIN с ограниченным подзапросом",
-    text: `Что делает этот запрос?
-    <pre>SELECT p.name, recent.price
-    FROM Products p
-    LEFT JOIN (
-        SELECT product_id, price 
-        FROM PriceHistory 
-        ORDER BY change_date DESC 
-        LIMIT 1
-    ) recent ON p.id = recent.product_id</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Линейное программирование",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какой инструмент Excel используется для решения задач линейного программирования?",
     choices: [
-      "Показывает все продукты с их последней ценой",
-      "Только продукты с историей цен", 
-      "Продукты без истории цен",
-      "Все цены из истории для каждого продукта",
-      "Среднюю цену для каждого продукта"
+      "Диаграммы",
+      "Сводные таблицы",
+      "Поиск решения (Solver)",
+      "Проверка данных",
+      "Условное форматирование",
+      "Менеджер сценариев"
     ],
-    hint: "Подзапрос возвращает последнюю запись из истории цен для каждого продукта",
-    answers: ["Показывает все продукты с их последней ценой"]
+    answers: ["Поиск решения (Solver)"]
   },
   {
-    id: "join015",
+    id: "excel010",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Комбинирование LEFT и INNER JOIN", 
-    theme: "Смешанные типы JOIN",
-    text: `Таблицы: A(id), B(id,a_id), C(id,b_id). Что вернет запрос?
-    <pre>SELECT a.id, b.id, c.id
-    FROM A a
-    LEFT JOIN B b ON a.id = b.a_id
-    INNER JOIN C c ON b.id = c.b_id</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Анализ акций и временные ряды",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какой метод сглаживания временных рядов используется для прогнозирования характеристик акций?",
     choices: [
-      "Все строки из A с соответствующими B и C",
-      "Только строки где есть все три связи A-B-C", 
-      "Строки из A даже если нет B или C",
-      "Только строки где есть A и B, но C может отсутствовать",
-      "Все возможные комбинации A, B, C"
+      "Линейная регрессия",
+      "Скользящее среднее",
+      "Корреляционный анализ",
+      "Факторный анализ",
+      "Кластерный анализ",
+      "Дисперсионный анализ"
     ],
-    hint: "INNER JOIN после LEFT JOIN фильтрует окончательный результат",
-    answers: ["Только строки где есть все три связи A-B-C"]
-  },
-
-    {
-    id: "join001",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с фильтрацией",
-    theme: "LEFT JOIN и WHERE",
-    text: `Даны таблицы: Users (id, name) и Orders (id, user_id, amount). 
-    Какие пользователи будут выбраны этим запросом?
-    <pre>SELECT u.name 
-    FROM Users u 
-    LEFT JOIN Orders o ON u.id = o.user_id 
-    WHERE o.user_id IS NULL</pre>`,
-    choices: [
-      "Все пользователи с заказами",
-      "Только пользователи без заказов", 
-      "Все пользователи независимо от заказов",
-      "Только пользователи с самыми дорогими заказами",
-      "Запрос вернет ошибку"
-    ],
-    hint: "Фильтр WHERE o.user_id IS NULL ищет строки, где соединение не найдено",
-    answers: ["Только пользователи без заказов"]
+    answers: ["Скользящее среднее"]
   },
   {
-    id: "join002",
+    id: "excel011",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц", 
-    title: "RIGHT JOIN с условием",
-    theme: "RIGHT JOIN и фильтрация",
-    text: `Таблицы: Departments (id, name) и Employees (id, name, dept_id).
-    Что вернет этот запрос?
-    <pre>SELECT d.name, e.name 
-    FROM Employees e 
-    RIGHT JOIN Departments d ON e.dept_id = d.id 
-    WHERE e.id IS NOT NULL</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Сложные проценты",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает будущую стоимость при начислении сложных процентов по переменной ставке?",
     choices: [
-      "Все отделы и всех сотрудников",
-      "Только отделы, в которых есть сотрудники",
-      "Всех сотрудников и их отделы", 
-      "Отделы без сотрудников",
-      "Только сотрудников без отделов"
+      "БС (FV)",
+      "БЗРАСПИС (FVSCHEDULE)",
+      "ПС (PV)",
+      "СТАВКА (RATE)",
+      "КПЕР (NPER)",
+      "ЭФФЕКТ (EFFECT)"
     ],
-    hint: "RIGHT JOIN возвращает все отделы, а WHERE фильтрует только те, где есть сотрудники",
-    answers: ["Только отделы, в которых есть сотрудники"]
+    answers: ["БЗРАСПИС (FVSCHEDULE)"]
   },
   {
-    id: "join003", 
+    id: "excel012",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Множественная фильтрация JOIN",
-    theme: "LEFT JOIN с несколькими условиями",
-    text: `Таблицы: Products (id, name, price) и Categories (id, name).
-    Что делает этот запрос?
-    <pre>SELECT p.name, c.name 
-    FROM Products p 
-    LEFT JOIN Categories c ON p.category_id = c.id AND c.name = 'Электроника'
-    WHERE p.price > 1000</pre>`,
+    header: "Тест по финансовым функциям Excel",
+    title: "Чистая приведенная стоимость",
+    theme: "Финансовые вычисления в Excel",
+    text: "Какая функция рассчитывает чистую приведенную стоимость для неравномерных денежных потоков?",
     choices: [
-      "Все продукты дороже 1000 с категорией 'Электроника'",
-      "Все продукты дороже 1000, но категория показывается только если это 'Электроника'", 
-      "Только продукты категории 'Электроника' дороже 1000",
-      "Продукты без категории дороже 1000",
-      "Все продукты с категориями независимо от цены"
+      "ЧПС (NPV)",
+      "ЧИСТНЗ (XNPV)",
+      "ВСД (IRR)",
+      "ЧИСТВНДОХ (XIRR)",
+      "ПС (PV)",
+      "БС (FV)"
     ],
-    hint: "Условие c.name = 'Электроника' в JOIN фильтрует соединение, но не строки продуктов",
-    answers: ["Все продукты дороже 1000, но категория показывается только если это 'Электроника'"]
-  },
-  {
-    id: "join004",
-    type: "multiplechoices", 
-    header: "Тест по соединению таблиц",
-    title: "Комбинирование LEFT и RIGHT JOIN",
-    theme: "Разница между LEFT и RIGHT JOIN",
-    text: `В чем основная разница между этими запросами?
-    <pre>1. SELECT * FROM A LEFT JOIN B ON A.id = B.a_id
-    2. SELECT * FROM B RIGHT JOIN A ON A.id = B.a_id</pre>`,
-    choices: [
-      "Первый быстрее второго",
-      "Они возвращают разные результаты", 
-      "Это идентичные запросы, возвращают одинаковые результаты",
-      "Первый использует индекс, второй - нет",
-      "Второй запрос синтаксически неверен"
-    ],
-    hint: "LEFT JOIN и RIGHT JOIN - зеркальные операции",
-    answers: ["Это идентичные запросы, возвращают одинаковые результаты"]
-  },
-  {
-    id: "join005",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц", 
-    title: "Фильтрация до и после JOIN",
-    theme: "WHERE vs ON условия",
-    text: `Какая разница между этими запросами?
-    <pre>Запрос 1:
-    SELECT * FROM A 
-    LEFT JOIN B ON A.id = B.a_id AND B.status = 'active'
-    
-    Запрос 2:
-    SELECT * FROM A 
-    LEFT JOIN B ON A.id = B.a_id 
-    WHERE B.status = 'active' OR B.a_id IS NULL</pre>`,
-    choices: [
-      "Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи",
-      "Оба запроса возвращают одинаковый результат", 
-      "Запрос 2 вернет ошибку из-за OR",
-      "Запрос 1 вернет только активные связи",
-      "Запрос 2 вернет все строки из A"
-    ],
-    hint: "В Запросе 1 условие в JOIN, в Запросе 2 - в WHERE. Подумайте о строках, где B IS NULL",
-    answers: ["Оба запроса возвращают одинаковый результат"]
+    answers: ["ЧИСТНЗ (XNPV)"]
   }
 
 
