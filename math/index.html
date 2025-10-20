@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="../dist/original.css">
+    <style>
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+
+        .exercise {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .sql-keyword {
+            color: #d73a49;
+            font-weight: bold;
+        }
+
+        .sql-comment {
+            color: #6a737d;
+            font-style: italic;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="./quizesSets.js"></script>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5"></div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title.jpg" class="card-img-top" alt="База данных">
+                <div class="card-body">
+                    <!-- <h3>Автоматизированные информационные технологии в экономике</h3> -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-4">Математика</h1>
+                            <p class="lead text-center">Содержание</p>
+
+                            <!-- Блок с целями обучения -->
+                            <div class="alert alert-primary">
+                                <ul>
+                                    <li>Раздел 1. Числа и вычисления<br>
+                                        Множество,операции над множествами. Диаграммы Эйлера–Венна.
+                                        Рациональные числа. Обыкновенные и десятичные дроби,проценты, бесконечные
+                                        периодические дроби<br>
+                                        Арифметические операции с рациональными числами,преобразованиячисловых
+                                        выражений.
+                                        Применение дробей ипроцентовдлярешенияприкладныхзадачизразличныхотраслейзнаний и
+                                        реальнойжизни<br>
+                                        Действительные числа.Рациональные и иррациональныечисла.<br>
+                                        Арифметическиеоперациисдействительнымичислами.
+                                        Приближённыевычисления,правилаокругления,прикидкаиоценкарезультатавычислений
+                                        <br>
+                                        Тождества и тождественныепреобразования.Уравнение,корень уравнения<br>
+                                        Неравенство, решениенеравенства.Методинтервалов. Решение целых и
+                                        дробно-рациональныхуравненийинеравенств<br>
+                                        Степень с целым показателем. Стандартная форма записи действительного числа.
+                                        Использование подходящей формы записи действительных чисел для решения
+                                        практических задач и представления данных.<br>
+                                        Арифметический корень натуральной степени Свойства арифметического корня
+                                        натуральной степени. Действия с арифметическими корнями n–ой степени<br>
+                                        Решение иррациональных уравнений и неравенств<br>
+                                        Степень с рациональным показателем. Свойства степени. Преобразование выражений,
+                                        содержащих рациональные степени<br>
+                                        Показательные уравнения.<br>
+                                        Логарифм числа. Десятичные логарифмы<br>
+                                        Преобразование выражений, содержащих логарифмы<br>
+                                        Логарифмические уравнения.<br>
+                                        Контрольная работа №2 по теме « Корни, степени, логарифмы
+                                    </li>
+
+                                    <li>Раздел 2. Прямые и плоскости в пространстве<br>
+                                    </li>
+
+                                    <li>Раздел 3. Основы тригонометрии<br>
+                                    </li>
+
+                                    <li>Раздел 4. Векторы и координаты в пространстве<br>
+                                    </li>
+
+                                    <li>Раздел 5. Многограннники<br>
+
+                                    </li>
+
+                                    <li>Раздел 6. Тела вращения<br>
+
+                                    </li>
+
+                                    <li>Раздел 7. Функции и графики<br>
+
+                                    </li>
+
+                                    <li>Раздел 8. Уравнения, неравенства и их системы<br>
+
+                                    </li>
+
+                                    <li>
+                                        Раздел 9. Начала математического анализа<br>
+                                    </li>
+
+                                    <li>
+                                        Раздел 11. Теория вероятности и математическая статистика<br>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title2.jpg" class="card-img-top" alt="Множества">
+                <div class="card-body">
+                    <h3>Множества, операции над множествами. Диаграммы Эйлера–Венна</h3>
+                    <p>Множество - совокупность объектов, объединенных общим свойством. Обозначается заглавными буквами:
+                        A, B, C...</p>
+
+                    <h5>Основные операции над множествами:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Операция</th>
+                                <th>Обозначение</th>
+                                <th>Определение</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Объединение</strong></td>
+                                <td class="math-notation">A ∪ B</td>
+                                <td>Множество, содержащее все элементы, которые принадлежат хотя бы одному из множеств A
+                                    или B</td>
+                                <td class="math-notation">A = {1,2,3}, B = {3,4,5}<br>A ∪ B = {1,2,3,4,5}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Пересечение</strong></td>
+                                <td class="math-notation">A ∩ B</td>
+                                <td>Множество, содержащее все элементы, которые принадлежат и A, и B одновременно</td>
+                                <td class="math-notation">A = {1,2,3}, B = {3,4,5}<br>A ∩ B = {3}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Разность</strong></td>
+                                <td class="math-notation">A \ B</td>
+                                <td>Множество, содержащее элементы, которые принадлежат A, но не принадлежат B</td>
+                                <td class="math-notation">A = {1,2,3}, B = {3,4,5}<br>A \ B = {1,2}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дополнение</strong></td>
+                                <td class="math-notation">A<sup>c</sup> или Ā</td>
+                                <td>Множество всех элементов универсума, не принадлежащих A</td>
+                                <td class="math-notation">U = {1,2,3,4,5}, A = {1,2}<br>A<sup>c</sup> = {3,4,5}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Свойства операций над множествами:</h6>
+                        <ul>
+                            <li><span class="math-notation">A ∪ B = B ∪ A</span> (коммутативность объединения)</li>
+                            <li><span class="math-notation">A ∩ B = B ∩ A</span> (коммутативность пересечения)</li>
+                            <li><span class="math-notation">A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</span> (дистрибутивность)
+                            </li>
+                            <li><span class="math-notation">A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</span> (дистрибутивность)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Диаграммы Эйлера-Венна</strong> используются для наглядного представления множеств и
+                        операций между ними. Множества изображаются в виде кругов или других фигур, а их взаимное
+                        расположение показывает отношения между ними.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title3.jpg" class="card-img-top" alt="Рациональные числа">
+                <div class="card-body">
+                    <h3>Рациональные числа. Обыкновенные и десятичные дроби, проценты, бесконечные периодические дроби
+                    </h3>
+
+                    <p><strong>Рациональные числа</strong> - числа, которые можно представить в виде дроби <span
+                            class="math-notation">m/n</span>, где <span class="math-notation">m</span> - целое число,
+                        <span class="math-notation">n</span> - натуральное число. Множество рациональных чисел
+                        обозначается <span class="math-notation">ℚ</span>.
+                    </p>
+
+                    <h5>Основные формы представления рациональных чисел:</h5>
+
+                    <div class="highlight">
+                        <h6>1. Обыкновенные дроби:</h6>
+                        <p>Записываются в виде <span class="math-notation">a/b</span>, где <span
+                                class="math-notation">a</span> - числитель, <span class="math-notation">b</span> -
+                            знаменатель.</p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">1/2 = 0,5</span> (правильная дробь)</li>
+                            <li><span class="math-notation">5/3 = 1⅔</span> (неправильная дробь)</li>
+                            <li><span class="math-notation">-3/4 = -0,75</span> (отрицательная дробь)</li>
+                            <li><span class="math-notation">7/1 = 7</span> (целое число как дробь)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>2. Десятичные дроби:</h6>
+                        <p><strong>Конечные десятичные дроби:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">1/2 = 0,5</span></li>
+                            <li><span class="math-notation">3/4 = 0,75</span></li>
+                            <li><span class="math-notation">7/8 = 0,875</span></li>
+                        </ul>
+
+                        <p><strong>Бесконечные периодические дроби:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">1/3 = 0,333... = 0,(3)</span></li>
+                            <li><span class="math-notation">2/7 = 0,285714285714... = 0,(285714)</span></li>
+                            <li><span class="math-notation">5/6 = 0,8333... = 0,8(3)</span> (смешанная периодическая)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>3. Проценты:</h6>
+                        <p>Один процент (1%) - это сотая часть числа: <span class="math-notation">1% = 1/100 =
+                                0,01</span></p>
+                        <p><strong>Примеры преобразований:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">25% = 25/100 = 1/4 = 0,25</span></li>
+                            <li><span class="math-notation">150% = 150/100 = 3/2 = 1,5</span></li>
+                            <li><span class="math-notation">0,5% = 0,5/100 = 0,005</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Свойства рациональных чисел:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формулировка</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Замкнутость</strong></td>
+                                <td>Сумма, разность, произведение и частное (кроме деления на 0) двух рациональных чисел
+                                    - рациональное число</td>
+                                <td><span class="math-notation">1/2 + 1/3 = 5/6 ∈ ℚ</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Плотность</strong></td>
+                                <td>Между любыми двумя различными рациональными числами существует бесконечно много
+                                    других рациональных чисел</td>
+                                <td><span class="math-notation">Между 0,1 и 0,2: 0,11; 0,12; 0,15...</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Периодичность</strong></td>
+                                <td>Любое рациональное число представляется либо конечной, либо бесконечной
+                                    периодической десятичной дробью</td>
+                                <td><span class="math-notation">1/7 = 0,(142857)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Преобразование периодической дроби в обыкновенную:</h6>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">0,(6) = x</span></p>
+                        <p><span class="math-notation">10x = 6,(6)</span><br>
+                            <span class="math-notation">10x - x = 6,(6) - 0,(6)</span><br>
+                            <span class="math-notation">9x = 6</span><br>
+                            <span class="math-notation">x = 6/9 = 2/3</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">0,41(6) = x</span></p>
+                        <p><span class="math-notation">1000x = 416,(6)</span><br>
+                            <span class="math-notation">100x = 41,(6)</span><br>
+                            <span class="math-notation">1000x - 100x = 416,(6) - 41,(6)</span><br>
+                            <span class="math-notation">900x = 375</span><br>
+                            <span class="math-notation">x = 375/900 = 5/12</span>
+                        </p>
+                    </div>
+
+                    <p><strong>Применение:</strong> Рациональные числа используются в повседневной жизни для измерений,
+                        финансовых расчетов, статистики, кулинарии и многих других областей.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title4.jpg" class="card-img-top" alt="Арифметические операции">
+                <div class="card-body">
+                    <h3>Арифметические операции с рациональными числами, преобразования числовых выражений</h3>
+
+                    <p><strong>Арифметические операции</strong> - основные математические действия над числами:
+                        сложение, вычитание, умножение и деление.</p>
+
+                    <h5>Операции с обыкновенными дробями:</h5>
+
+                    <div class="highlight">
+                        <h6>1. Сложение и вычитание дробей:</h6>
+                        <p>При одинаковых знаменателях: <span class="math-notation">a/c ± b/c = (a ± b)/c</span></p>
+                        <p>При разных знаменателях: приводим к общему знаменателю</p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">1/3 + 2/3 = (1+2)/3 = 3/3 = 1</span></li>
+                            <li><span class="math-notation">1/2 + 1/3 = 3/6 + 2/6 = 5/6</span></li>
+                            <li><span class="math-notation">5/8 - 1/4 = 5/8 - 2/8 = 3/8</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>2. Умножение дробей:</h6>
+                        <p><span class="math-notation">a/b × c/d = (a × c)/(b × d)</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2/3 × 3/4 = (2×3)/(3×4) = 6/12 = 1/2</span></li>
+                            <li><span class="math-notation">5/7 × 2/5 = (5×2)/(7×5) = 10/35 = 2/7</span></li>
+                            <li><span class="math-notation">-3/4 × 2/3 = -6/12 = -1/2</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>3. Деление дробей:</h6>
+                        <p><span class="math-notation">a/b ÷ c/d = a/b × d/c = (a × d)/(b × c)</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2/3 ÷ 3/4 = 2/3 × 4/3 = 8/9</span></li>
+                            <li><span class="math-notation">5/6 ÷ 2/3 = 5/6 × 3/2 = 15/12 = 5/4</span></li>
+                            <li><span class="math-notation">-4/5 ÷ 2/7 = -4/5 × 7/2 = -28/10 = -14/5</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Свойства арифметических операций:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формулировка</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Коммутативность сложения</strong></td>
+                                <td><span class="math-notation">a + b = b + a</span></td>
+                                <td><span class="math-notation">2/3 + 1/4 = 1/4 + 2/3</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ассоциативность сложения</strong></td>
+                                <td><span class="math-notation">(a + b) + c = a + (b + c)</span></td>
+                                <td><span class="math-notation">(1/2 + 1/3) + 1/6 = 1/2 + (1/3 + 1/6)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Коммутативность умножения</strong></td>
+                                <td><span class="math-notation">a × b = b × a</span></td>
+                                <td><span class="math-notation">3/4 × 2/5 = 2/5 × 3/4</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ассоциативность умножения</strong></td>
+                                <td><span class="math-notation">(a × b) × c = a × (b × c)</span></td>
+                                <td><span class="math-notation">(2/3 × 3/4) × 4/5 = 2/3 × (3/4 × 4/5)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дистрибутивность</strong></td>
+                                <td><span class="math-notation">a × (b + c) = a × b + a × c</span></td>
+                                <td><span class="math-notation">2 × (1/3 + 1/4) = 2×1/3 + 2×1/4</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>Преобразования числовых выражений:</h5>
+
+                    <div class="highlight">
+                        <h6>1. Раскрытие скобок:</h6>
+                        <p><strong>С положительным знаком:</strong> <span class="math-notation">a + (b + c) = a + b +
+                                c</span></p>
+                        <p><strong>С отрицательным знаком:</strong> <span class="math-notation">a - (b + c) = a - b -
+                                c</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">5 + (3 - 2) = 5 + 3 - 2 = 6</span></li>
+                            <li><span class="math-notation">7 - (4 + 1) = 7 - 4 - 1 = 2</span></li>
+                            <li><span class="math-notation">2/3 + (1/4 - 1/6) = 2/3 + 1/4 - 1/6</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>2. Приведение подобных слагаемых:</h6>
+                        <p><span class="math-notation">ax + bx = (a + b)x</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">3x + 5x = 8x</span></li>
+                            <li><span class="math-notation">2a + 3b + 4a - b = 6a + 2b</span></li>
+                            <li><span class="math-notation">1/2x + 1/3x = 3/6x + 2/6x = 5/6x</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>3. Упрощение сложных выражений:</h6>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">(2/3 + 1/4) × 12</span></p>
+                        <p><span class="math-notation">= 2/3 × 12 + 1/4 × 12 = 8 + 3 = 11</span></p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">5/6 ÷ (2/3 - 1/2)</span></p>
+                        <p><span class="math-notation">= 5/6 ÷ (4/6 - 3/6) = 5/6 ÷ 1/6 = 5/6 × 6/1 = 5</span></p>
+
+                        <p><strong>Пример 3:</strong> <span class="math-notation">(1/2 + 1/3) × (1/4 - 1/6)</span></p>
+                        <p><span class="math-notation">= (3/6 + 2/6) × (3/12 - 2/12) = 5/6 × 1/12 = 5/72</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Порядок выполнения операций:</h6>
+                        <ol>
+                            <li>Выражения в скобках</li>
+                            <li>Умножение и деление (слева направо)</li>
+                            <li>Сложение и вычитание (слева направо)</li>
+                        </ol>
+                        <p><strong>Пример:</strong> <span class="math-notation">2 + 3 × (4 - 1) ÷ 3 = 2 + 3 × 3 ÷ 3 = 2
+                                + 9 ÷ 3 = 2 + 3 = 5</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title5.jpg" class="card-img-top" alt="Дроби и проценты">
+                <div class="card-body">
+                    <h3>Применение дробей и процентов для решения прикладных задач</h3>
+                    <p>Дроби и проценты широко используются в реальной жизни: финансовые расчеты (проценты по кредитам,
+                        вкладам), статистика, кулинария, строительство, медицина и другие области.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title6.jpg" class="card-img-top" alt="Действительные числа">
+                <div class="card-body">
+                    <h3>Действительные числа. Рациональные и иррациональные числа</h3>
+                    <p>Действительные числа включают все рациональные и иррациональные числа. Иррациональные числа
+                        нельзя представить в виде дроби m/n (например, √2, π, e).</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title7.jpg" class="card-img-top" alt="Арифметические операции с действительными числами">
+                <div class="card-body">
+                    <h3>Арифметические операции с действительными числами</h3>
+                    <p>Операции с действительными числами сохраняют все свойства операций с рациональными числами.
+                        Особенности: при работе с иррациональными числами часто используются приближенные значения.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title8.jpg" class="card-img-top" alt="Приближённые вычисления">
+                <div class="card-body">
+                    <h3>Приближённые вычисления, правила округления, прикидка и оценка результата вычислений</h3>
+                    <p>Правила округления: если следующая цифра меньше 5, округляем в меньшую сторону; если 5 или больше
+                        - в большую. Прикидка позволяет быстро оценить порядок результата. Оценка погрешности важна для
+                        понимания точности вычислений.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title9.jpg" class="card-img-top" alt="Тождества и уравнения">
+                <div class="card-body">
+                    <h3>Тождества и тождественные преобразования. Уравнение, корень уравнения</h3>
+
+                    <h5>Тождества и тождественные преобразования:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение тождества:</h6>
+                        <p><strong>Тождество</strong> - равенство, которое верно при всех допустимых значениях входящих
+                            в него переменных.</p>
+                        <p><strong>Обозначение:</strong> <span class="math-notation">≡</span> (знак тождественного
+                            равенства)</p>
+                        <p><strong>Примеры тождеств:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">(a + b)² ≡ a² + 2ab + b²</span></li>
+                            <li><span class="math-notation">a² - b² ≡ (a - b)(a + b)</span></li>
+                            <li><span class="math-notation">sin²α + cos²α ≡ 1</span></li>
+                            <li><span class="math-notation">a + b ≡ b + a</span> (коммутативность сложения)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Тождественные преобразования:</h6>
+                        <p>Преобразования, не изменяющие значения выражения при любых допустимых значениях переменных.
+                        </p>
+                        <p><strong>Основные виды тождественных преобразований:</strong></p>
+                        <ul>
+                            <li><strong>Раскрытие скобок:</strong> <span class="math-notation">a(b + c) → ab + ac</span>
+                            </li>
+                            <li><strong>Приведение подобных:</strong> <span class="math-notation">2x + 3x → 5x</span>
+                            </li>
+                            <li><strong>Разложение на множители:</strong> <span class="math-notation">a² - b² → (a -
+                                    b)(a + b)</span></li>
+                            <li><strong>Сокращение дробей:</strong> <span class="math-notation">(ab)/(ac) → b/c</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Примеры тождественных преобразований:</h6>
+                        <p><strong>Пример 1:</strong> Упростить выражение <span class="math-notation">3(x + 2) - 2(x -
+                                1)</span></p>
+                        <p><span class="math-notation">3x + 6 - 2x + 2 = x + 8</span></p>
+
+                        <p><strong>Пример 2:</strong> Доказать тождество <span class="math-notation">(a - b)² ≡ a² - 2ab
+                                + b²</span></p>
+                        <p><span class="math-notation">(a - b)² = (a - b)(a - b) = a² - ab - ab + b² = a² - 2ab +
+                                b²</span></p>
+
+                        <p><strong>Пример 3:</strong> Упростить дробь <span class="math-notation">(x² - 4)/(x -
+                                2)</span></p>
+                        <p><span class="math-notation">(x² - 4)/(x - 2) = ((x - 2)(x + 2))/(x - 2) = x + 2</span> (при
+                            <span class="math-notation">x ≠ 2</span>)
+                        </p>
+                    </div>
+
+                    <h5>Уравнения и корни уравнений:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение уравнения:</h6>
+                        <p><strong>Уравнение</strong> - равенство, содержащее переменную (неизвестное), которое
+                            требуется решить.</p>
+                        <p><strong>Общий вид:</strong> <span class="math-notation">f(x) = g(x)</span></p>
+                        <p><strong>Примеры уравнений:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2x + 3 = 7</span> (линейное)</li>
+                            <li><span class="math-notation">x² - 5x + 6 = 0</span> (квадратное)</li>
+                            <li><span class="math-notation">sin x = 0.5</span> (тригонометрическое)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Корень уравнения:</h6>
+                        <p><strong>Корень уравнения</strong> - значение переменной, которое обращает уравнение в верное
+                            равенство.</p>
+                        <p><strong>Обозначение:</strong> Если <span class="math-notation">x₀</span> - корень уравнения
+                            <span class="math-notation">f(x) = g(x)</span>, то <span class="math-notation">f(x₀) =
+                                g(x₀)</span>
+                        </p>
+                        <p><strong>Примеры нахождения корней:</strong></p>
+                        <ul>
+                            <li>Уравнение: <span class="math-notation">2x - 4 = 0</span><br>
+                                Корень: <span class="math-notation">x = 2</span>, так как <span
+                                    class="math-notation">2×2 - 4 = 0</span></li>
+                            <li>Уравнение: <span class="math-notation">x² - 4 = 0</span><br>
+                                Корни: <span class="math-notation">x₁ = 2</span>, <span class="math-notation">x₂ =
+                                    -2</span>, так как <span class="math-notation">2² - 4 = 0</span> и <span
+                                    class="math-notation">(-2)² - 4 = 0</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Классификация уравнений:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Тип уравнения</th>
+                                <th>Общий вид</th>
+                                <th>Пример</th>
+                                <th>Количество корней</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Линейное</strong></td>
+                                <td><span class="math-notation">ax + b = 0</span></td>
+                                <td><span class="math-notation">3x - 6 = 0</span></td>
+                                <td>1 корень (если a ≠ 0)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Квадратное</strong></td>
+                                <td><span class="math-notation">ax² + bx + c = 0</span></td>
+                                <td><span class="math-notation">x² - 5x + 6 = 0</span></td>
+                                <td>0, 1 или 2 корня</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дробно-рациональное</strong></td>
+                                <td><span class="math-notation">P(x)/Q(x) = 0</span></td>
+                                <td><span class="math-notation">(x-1)/(x+2) = 0</span></td>
+                                <td>Корни P(x)=0, кроме корней Q(x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Иррациональное</strong></td>
+                                <td><span class="math-notation">√f(x) = g(x)</span></td>
+                                <td><span class="math-notation">√(x+1) = x-1</span></td>
+                                <td>Требуется проверка</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Равносильные уравнения:</h6>
+                        <p><strong>Определение:</strong> Уравнения называются равносильными, если они имеют одинаковые
+                            корни.</p>
+                        <p><strong>Пример:</strong> Уравнения <span class="math-notation">2x = 6</span> и <span
+                                class="math-notation">x = 3</span> равносильны</p>
+                        <p><strong>Основные преобразования, сохраняющие равносильность:</strong></p>
+                        <ul>
+                            <li>Прибавление одного и того же числа к обеим частям</li>
+                            <li>Умножение обеих частей на одно и то же ненулевое число</li>
+                            <li>Тождественные преобразования одной или обеих частей</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Алгоритм решения уравнений:</h6>
+                        <ol>
+                            <li>Определить ОДЗ (область допустимых значений)</li>
+                            <li>Выполнить тождественные преобразования</li>
+                            <li>Привести уравнение к простейшему виду</li>
+                            <li>Найти корни</li>
+                            <li>Проверить корни на принадлежность ОДЗ</li>
+                            <li>Записать ответ</li>
+                        </ol>
+                        <p><strong>Пример:</strong> Решить уравнение <span class="math-notation">(x-2)/(x+1) = 0</span>
+                        </p>
+                        <p>ОДЗ: <span class="math-notation">x ≠ -1</span><br>
+                            Числитель равен нулю: <span class="math-notation">x - 2 = 0 → x = 2</span><br>
+                            Проверка ОДЗ: <span class="math-notation">2 ≠ -1</span> - верно<br>
+                            Ответ: <span class="math-notation">x = 2</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title10.jpg" class="card-img-top" alt="Неравенства">
+                <div class="card-body">
+                    <h3>Неравенство, решение неравенства. Метод интервалов. Решение целых и дробно-рациональных
+                        уравнений и неравенств</h3>
+
+                    <h5>Основные понятия о неравенствах:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение неравенства:</h6>
+                        <p><strong>Неравенство</strong> - соотношение между числами или выражениями, показывающее, что
+                            одно число больше или меньше другого.</p>
+                        <p><strong>Виды неравенств:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">a > b</span> (a больше b)</li>
+                            <li><span class="math-notation">a < b</span> (a меньше b)</li>
+                            <li><span class="math-notation">a ≥ b</span> (a больше или равно b)</li>
+                            <li><span class="math-notation">a ≤ b</span> (a меньше или равно b)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Свойства неравенств:</h6>
+                        <ul>
+                            <li>Если <span class="math-notation">a > b</span>, то <span class="math-notation">a + c > b
+                                    + c</span></li>
+                            <li>Если <span class="math-notation">a > b</span> и <span class="math-notation">c >
+                                    0</span>, то <span class="math-notation">ac > bc</span></li>
+                            <li>Если <span class="math-notation">a > b</span> и <span class="math-notation">c < 0</span>
+                                        , то <span class="math-notation">ac < bc</span>
+                            </li>
+                            <li>Если <span class="math-notation">a > b</span> и <span class="math-notation">b >
+                                    c</span>, то <span class="math-notation">a > c</span> (транзитивность)</li>
+                        </ul>
+                    </div>
+
+                    <h5>Метод интервалов:</h5>
+
+                    <div class="highlight">
+                        <h6>Алгоритм метода интервалов:</h6>
+                        <ol>
+                            <li>Найти нули функции (решить уравнение f(x) = 0)</li>
+                            <li>Найти точки разрыва (где функция не определена)</li>
+                            <li>Отметить найденные точки на числовой прямой</li>
+                            <li>Определить знак функции на каждом интервале</li>
+                            <li>Выбрать интервалы, удовлетворяющие неравенству</li>
+                            <li>Записать ответ с учетом строгости неравенства</li>
+                        </ol>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Пример 1: Решение целого неравенства</h6>
+                        <p>Решить неравенство: <span class="math-notation">(x - 2)(x + 3) > 0</span></p>
+                        <p><strong>Решение:</strong></p>
+                        <ol>
+                            <li>Нули функции: <span class="math-notation">x = 2</span>, <span class="math-notation">x =
+                                    -3</span></li>
+                            <li>Точек разрыва нет</li>
+                            <li>Отмечаем точки на числовой прямой:</li>
+                        </ol>
+                        <div class="text-center">
+                            <p>---○-------○---→</p>
+                            <p>-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</p>
+                        </div>
+                        <p>4. Определяем знаки:</p>
+                        <ul>
+                            <li>При <span class="math-notation">x < -3</span>: (-) × (-) = <strong>+</strong></li>
+                            <li>При <span class="math-notation">-3 < x < 2</span>: (-) × (+) = <strong>-</strong></li>
+                            <li>При <span class="math-notation">x > 2</span>: (+) × (+) = <strong>+</strong></li>
+                        </ul>
+                        <p>5. Выбираем интервалы со знаком <strong>+</strong> (т.к. неравенство > 0)</p>
+                        <p><strong>Ответ:</strong> <span class="math-notation">x ∈ (-∞; -3) ∪ (2; +∞)</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Пример 2: Решение дробно-рационального неравенства</h6>
+                        <p>Решить неравенство: <span class="math-notation">(x - 1)/(x + 2) ≤ 0</span></p>
+                        <p><strong>Решение:</strong></p>
+                        <ol>
+                            <li>Нуль числителя: <span class="math-notation">x = 1</span></li>
+                            <li>Точка разрыва (нуль знаменателя): <span class="math-notation">x = -2</span></li>
+                            <li>Отмечаем точки на числовой прямой (○ - нуль, ● - точка разрыва):</li>
+                        </ol>
+                        <div class="text-center">
+                            <p>---●-------○---→</p>
+                            <p>-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</p>
+                        </div>
+                        <p>4. Определяем знаки:</p>
+                        <ul>
+                            <li>При <span class="math-notation">x < -2</span>: (-)/(-) = <strong>+</strong></li>
+                            <li>При <span class="math-notation">-2 < x < 1</span>: (-)/(+) = <strong>-</strong></li>
+                            <li>При <span class="math-notation">x > 1</span>: (+)/(+) = <strong>+</strong></li>
+                        </ul>
+                        <p>5. Выбираем интервалы со знаком <strong>-</strong> (т.к. неравенство ≤ 0), включаем точку
+                            <span class="math-notation">x = 1</span>
+                        </p>
+                        <p><strong>Ответ:</strong> <span class="math-notation">x ∈ (-2; 1]</span></p>
+                    </div>
+
+                    <h5>Решение различных типов неравенств:</h5>
+
+                    <div class="highlight">
+                        <h6>Линейные неравенства:</h6>
+                        <p><strong>Пример:</strong> <span class="math-notation">3x - 6 > 0</span></p>
+                        <p><span class="math-notation">3x > 6 → x > 2</span></p>
+                        <p><strong>Ответ:</strong> <span class="math-notation">(2; +∞)</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Квадратные неравенства:</h6>
+                        <p><strong>Пример:</strong> <span class="math-notation">x² - 5x + 6 < 0</span>
+                        </p>
+                        <p>Разложим на множители: <span class="math-notation">(x - 2)(x - 3) < 0</span>
+                        </p>
+                        <p>Методом интервалов получаем: <span class="math-notation">x ∈ (2; 3)</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Дробно-рациональные неравенства:</h6>
+                        <p><strong>Пример:</strong> <span class="math-notation">(x² - 4)/(x - 1) ≥ 0</span></p>
+                        <p>Разложим числитель: <span class="math-notation">((x - 2)(x + 2))/(x - 1) ≥ 0</span></p>
+                        <p>Критические точки: <span class="math-notation">x = -2</span>, <span class="math-notation">x =
+                                1</span>, <span class="math-notation">x = 2</span></p>
+                        <p>Методом интервалов: <span class="math-notation">x ∈ [-2; 1) ∪ [2; +∞)</span></p>
+                    </div>
+
+                    <h5>Особые случаи:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Тип неравенства</th>
+                                <th>Особенности решения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Строгое неравенство</strong></td>
+                                <td>Точки не включаются в ответ</td>
+                                <td><span class="math-notation">(x-1)/(x+2) < 0 → x ∈ (-2; 1)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Нестрогое неравенство</strong></td>
+                                <td>Нули числителя включаются, нули знаменателя - нет</td>
+                                <td><span class="math-notation">(x-1)/(x+2) ≤ 0 → x ∈ (-2; 1]</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Неравенство с кратными корнями</strong></td>
+                                <td>Знак не меняется при переходе через корень четной кратности</td>
+                                <td><span class="math-notation">(x-1)²(x+2) > 0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Проверка решения:</h6>
+                        <p>Всегда проверяйте:</p>
+                        <ul>
+                            <li>Принадлежность точек ОДЗ</li>
+                            <li>Правильность включения/исключения граничных точек</li>
+                            <li>Знак на каждом интервале</li>
+                        </ul>
+                        <p><strong>Пример проверки:</strong> Для <span class="math-notation">x ∈ (-2; 1]</span> возьмем:
+                        </p>
+                        <ul>
+                            <li><span class="math-notation">x = 0 → (0-1)/(0+2) = -0.5 < 0</span> - верно</li>
+                            <li><span class="math-notation">x = 1 → (1-1)/(1+2) = 0 ≤ 0</span> - верно</li>
+                            <li><span class="math-notation">x = -1 → (-1-1)/(-1+2) = -2 < 0</span> - верно</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title11.jpg" class="card-img-top" alt="Степень с целым показателем">
+                <div class="card-body">
+                    <h3>Степень с целым показателем. Стандартная форма записи действительного числа</h3>
+
+                    <h5>Степень с целым показателем:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение степени:</h6>
+                        <p><strong>Степень числа a с натуральным показателем n</strong> - произведение n множителей,
+                            каждый из которых равен a:</p>
+                        <p class="text-center"><span class="math-notation">aⁿ = a × a × a × ... × a</span> (n раз)</p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2³ = 2 × 2 × 2 = 8</span></li>
+                            <li><span class="math-notation">5² = 5 × 5 = 25</span></li>
+                            <li><span class="math-notation">(-3)³ = (-3) × (-3) × (-3) = -27</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Степень с нулевым и отрицательным показателем:</h6>
+                        <p><strong>Нулевая степень:</strong> <span class="math-notation">a⁰ = 1</span> (при a ≠ 0)</p>
+                        <p><strong>Отрицательная степень:</strong> <span class="math-notation">a⁻ⁿ = 1/aⁿ</span> (при a
+                            ≠ 0)</p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">7⁰ = 1</span></li>
+                            <li><span class="math-notation">2⁻³ = 1/2³ = 1/8 = 0,125</span></li>
+                            <li><span class="math-notation">(-2)⁻² = 1/(-2)² = 1/4 = 0,25</span></li>
+                            <li><span class="math-notation">10⁻¹ = 1/10 = 0,1</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Свойства степеней с целым показателем:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формула</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Умножение степеней</strong></td>
+                                <td><span class="math-notation">aⁿ · aᵐ = aⁿ⁺ᵐ</span></td>
+                                <td><span class="math-notation">2³ · 2⁴ = 2⁷ = 128</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Деление степеней</strong></td>
+                                <td><span class="math-notation">aⁿ ÷ aᵐ = aⁿ⁻ᵐ</span></td>
+                                <td><span class="math-notation">5⁶ ÷ 5² = 5⁴ = 625</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень степени</strong></td>
+                                <td><span class="math-notation">(aⁿ)ᵐ = aⁿᵐ</span></td>
+                                <td><span class="math-notation">(2³)² = 2⁶ = 64</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень произведения</strong></td>
+                                <td><span class="math-notation">(ab)ⁿ = aⁿbⁿ</span></td>
+                                <td><span class="math-notation">(2·3)³ = 2³·3³ = 8·27 = 216</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень частного</strong></td>
+                                <td><span class="math-notation">(a/b)ⁿ = aⁿ/bⁿ</span></td>
+                                <td><span class="math-notation">(4/2)³ = 4³/2³ = 64/8 = 8</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Примеры применения свойств:</h6>
+                        <p><strong>Пример 1:</strong> Упростить выражение <span class="math-notation">(2³ · 2⁻⁵) ÷
+                                2⁻²</span></p>
+                        <p><span class="math-notation">2³ · 2⁻⁵ = 2³⁻⁵ = 2⁻²</span><br>
+                            <span class="math-notation">2⁻² ÷ 2⁻² = 2⁻²⁻⁽⁻²⁾ = 2⁰ = 1</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> Вычислить <span class="math-notation">(3² · 4⁻²) ÷ (6⁻¹)</span>
+                        </p>
+                        <p><span class="math-notation">3² · 4⁻² = 9 · 1/16 = 9/16</span><br>
+                            <span class="math-notation">(9/16) ÷ (1/6) = 9/16 × 6/1 = 54/16 = 27/8</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> Упростить <span class="math-notation">(a²b⁻³)² ÷ (a⁻¹b²)³</span>
+                        </p>
+                        <p><span class="math-notation">(a²b⁻³)² = a⁴b⁻⁶</span><br>
+                            <span class="math-notation">(a⁻¹b²)³ = a⁻³b⁶</span><br>
+                            <span class="math-notation">a⁴b⁻⁶ ÷ a⁻³b⁶ = a⁴⁻⁽⁻³⁾b⁻⁶⁻⁶ = a⁷b⁻¹² = a⁷/b¹²</span>
+                        </p>
+                    </div>
+
+                    <h5>Стандартная форма записи числа:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение стандартной формы:</h6>
+                        <p><strong>Стандартная форма</strong> (научная нотация) - запись числа в виде:</p>
+                        <p class="text-center"><span class="math-notation">a × 10ⁿ</span>, где <span
+                                class="math-notation">1 ≤ |a| < 10</span>, <span class="math-notation">n ∈ ℤ</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">356 000 = 3,56 × 10⁵</span></li>
+                            <li><span class="math-notation">0,000 782 = 7,82 × 10⁻⁴</span></li>
+                            <li><span class="math-notation">-12 300 000 = -1,23 × 10⁷</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Алгоритм перевода в стандартную форму:</h6>
+                        <ol>
+                            <li>Записать число в виде <span class="math-notation">a,bbb...</span> (одна цифра до
+                                запятой)</li>
+                            <li>Подсчитать, на сколько позиций сдвинута запятая относительно исходного числа</li>
+                            <li>Это число (со знаком + при сдвиге влево, - при сдвиге вправо) - показатель степени 10
+                            </li>
+                        </ol>
+                        <p><strong>Пример 1:</strong> Число 45 600</p>
+                        <p><span class="math-notation">45 600 = 4,56 × 10⁴</span> (запятая сдвинута на 4 позиции влево)
+                        </p>
+
+                        <p><strong>Пример 2:</strong> Число 0,000 307</p>
+                        <p><span class="math-notation">0,000 307 = 3,07 × 10⁻⁴</span> (запятая сдвинута на 4 позиции
+                            вправо)</p>
+                    </div>
+
+                    <h5>Применение стандартной формы:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Область применения</th>
+                                <th>Пример</th>
+                                <th>Стандартная форма</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Астрономия</strong></td>
+                                <td>Расстояние до Солнца</td>
+                                <td><span class="math-notation">149 600 000 км = 1,496 × 10⁸ км</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Физика</strong></td>
+                                <td>Масса электрона</td>
+                                <td><span class="math-notation">0,0000000000000000000000000009109 кг = 9,109 × 10⁻³¹
+                                        кг</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Химия</strong></td>
+                                <td>Число Авогадро</td>
+                                <td><span class="math-notation">602 200 000 000 000 000 000 000 = 6,022 × 10²³</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Биология</strong></td>
+                                <td>Размер бактерии</td>
+                                <td><span class="math-notation">0,000 002 м = 2 × 10⁻⁶ м</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Действия с числами в стандартной форме:</h6>
+                        <p><strong>Умножение:</strong> <span class="math-notation">(a × 10ⁿ) × (b × 10ᵐ) = (a × b) ×
+                                10ⁿ⁺ᵐ</span></p>
+                        <p><strong>Пример:</strong> <span class="math-notation">(3 × 10⁵) × (2 × 10³) = 6 × 10⁸</span>
+                        </p>
+
+                        <p><strong>Деление:</strong> <span class="math-notation">(a × 10ⁿ) ÷ (b × 10ᵐ) = (a ÷ b) ×
+                                10ⁿ⁻ᵐ</span></p>
+                        <p><strong>Пример:</strong> <span class="math-notation">(6 × 10⁸) ÷ (2 × 10³) = 3 × 10⁵</span>
+                        </p>
+
+                        <p><strong>Сложение и вычитание:</strong> Приводим к одинаковой степени 10</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">3 × 10⁵ + 2 × 10⁴ = 3 × 10⁵ + 0,2 × 10⁵
+                                = 3,2 × 10⁵</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практическое применение:</h6>
+                        <p>Стандартная форма позволяет:</p>
+                        <ul>
+                            <li>Удобно записывать очень большие и очень малые числа</li>
+                            <li>Упрощать вычисления с такими числами</li>
+                            <li>Сравнивать числа разных порядков</li>
+                            <li>Представлять данные в науке и технике</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title12.jpg" class="card-img-top" alt="Арифметический корень">
+                <div class="card-body">
+                    <h3>Арифметический корень натуральной степени. Свойства арифметического корня. Действия с
+                        арифметическими корнями n–ой степени</h3>
+
+                    <h5>Арифметический корень натуральной степени:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение:</h6>
+                        <p><strong>Арифметический корень n-й степени</strong> из неотрицательного числа a - это такое
+                            неотрицательное число b, что <span class="math-notation">bⁿ = a</span>.</p>
+                        <p><strong>Обозначение:</strong> <span class="math-notation">√[n]{a} = b</span>, где:</p>
+                        <ul>
+                            <li><span class="math-notation">n</span> - показатель корня (натуральное число, n ≥ 2)</li>
+                            <li><span class="math-notation">a</span> - подкоренное выражение (a ≥ 0)</li>
+                            <li><span class="math-notation">b</span> - значение корня (b ≥ 0)</li>
+                        </ul>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">√[2]{9} = 3</span>, так как <span class="math-notation">3² =
+                                    9</span></li>
+                            <li><span class="math-notation">√[3]{8} = 2</span>, так как <span class="math-notation">2³ =
+                                    8</span></li>
+                            <li><span class="math-notation">√[4]{16} = 2</span>, так как <span class="math-notation">2⁴
+                                    = 16</span></li>
+                            <li><span class="math-notation">√[2]{0} = 0</span>, так как <span class="math-notation">0² =
+                                    0</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Особые случаи:</h6>
+                        <p><strong>Квадратный корень:</strong> <span class="math-notation">√[2]{a} = √a</span> (n = 2)
+                        </p>
+                        <p><strong>Кубический корень:</strong> <span class="math-notation">√[3]{a}</span> (n = 3)</p>
+                        <p><strong>Корень из нуля:</strong> <span class="math-notation">√[n]{0} = 0</span> для любого n
+                        </p>
+                        <p><strong>Корень из единицы:</strong> <span class="math-notation">√[n]{1} = 1</span> для любого
+                            n</p>
+                    </div>
+
+                    <h5>Свойства арифметических корней:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формула</th>
+                                <th>Ограничения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Корень из произведения</strong></td>
+                                <td><span class="math-notation">√[n]{ab} = √[n]{a} · √[n]{b}</span></td>
+                                <td><span class="math-notation">a ≥ 0, b ≥ 0</span></td>
+                                <td><span class="math-notation">√[3]{8·27} = √[3]{8}·√[3]{27} = 2·3 = 6</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Корень из частного</strong></td>
+                                <td><span class="math-notation">√[n]{a/b} = √[n]{a} / √[n]{b}</span></td>
+                                <td><span class="math-notation">a ≥ 0, b > 0</span></td>
+                                <td><span class="math-notation">√[2]{9/4} = √9/√4 = 3/2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Корень из степени</strong></td>
+                                <td><span class="math-notation">√[n]{aᵐ} = (√[n]{a})ᵐ</span></td>
+                                <td><span class="math-notation">a ≥ 0</span></td>
+                                <td><span class="math-notation">√[3]{8²} = (√[3]{8})² = 2² = 4</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень корня</strong></td>
+                                <td><span class="math-notation">(√[n]{a})ᵐ = √[n]{aᵐ}</span></td>
+                                <td><span class="math-notation">a ≥ 0</span></td>
+                                <td><span class="math-notation">(√[2]{9})³ = √[2]{9³} = √729 = 27</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Корень из корня</strong></td>
+                                <td><span class="math-notation">√[m]{√[n]{a}} = √[mn]{a}</span></td>
+                                <td><span class="math-notation">a ≥ 0</span></td>
+                                <td><span class="math-notation">√[2]{√[3]{64}} = √[6]{64} = 2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Основное свойство</strong></td>
+                                <td><span class="math-notation">(√[n]{a})ⁿ = a</span></td>
+                                <td><span class="math-notation">a ≥ 0</span></td>
+                                <td><span class="math-notation">(√[3]{8})³ = 2³ = 8</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Примеры применения свойств:</h6>
+                        <p><strong>Пример 1:</strong> Упростить <span class="math-notation">√[3]{54} + √[3]{2}</span>
+                        </p>
+                        <p><span class="math-notation">√[3]{54} = √[3]{27·2} = √[3]{27}·√[3]{2} = 3√[3]{2}</span><br>
+                            <span class="math-notation">3√[3]{2} + √[3]{2} = 4√[3]{2}</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> Упростить <span class="math-notation">√[4]{81x⁸y¹²}</span></p>
+                        <p><span class="math-notation">√[4]{81}·√[4]{x⁸}·√[4]{y¹²} = 3·x²·y³ = 3x²y³</span></p>
+
+                        <p><strong>Пример 3:</strong> Вычислить <span class="math-notation">√[3]{√{64}}</span></p>
+                        <p><span class="math-notation">√[3]{√{64}} = √[3]{8} = 2</span></p>
+                    </div>
+
+                    <h5>Действия с арифметическими корнями:</h5>
+
+                    <div class="highlight">
+                        <h6>Сложение и вычитание корней:</h6>
+                        <p>Корни можно складывать и вычитать только при одинаковых показателях и подкоренных выражениях.
+                        </p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">3√2 + 5√2 = 8√2</span></li>
+                            <li><span class="math-notation">7√[3]{5} - 2√[3]{5} = 5√[3]{5}</span></li>
+                            <li><span class="math-notation">√2 + √3</span> - нельзя упростить</li>
+                            <li><span class="math-notation">√2 + √8 = √2 + 2√2 = 3√2</span> (т.к. <span
+                                    class="math-notation">√8 = 2√2</span>)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Умножение корней:</h6>
+                        <p>При одинаковых показателях: <span class="math-notation">√[n]{a} · √[n]{b} = √[n]{ab}</span>
+                        </p>
+                        <p>При разных показателях: приводим к общему показателю</p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">√2 · √8 = √16 = 4</span></li>
+                            <li><span class="math-notation">√[3]{4} · √[3]{2} = √[3]{8} = 2</span></li>
+                            <li><span class="math-notation">√2 · √[3]{3} = 2^{1/2} · 3^{1/3} = 2^{3/6} · 3^{2/6} =
+                                    √[6]{2³·3²} = √[6]{72}</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Деление корней:</h6>
+                        <p>При одинаковых показателях: <span class="math-notation">√[n]{a} ÷ √[n]{b} = √[n]{a/b}</span>
+                        </p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">√18 ÷ √2 = √{18/2} = √9 = 3</span></li>
+                            <li><span class="math-notation">√[3]{54} ÷ √[3]{2} = √[3]{54/2} = √[3]{27} = 3</span></li>
+                            <li><span class="math-notation">(5√6) ÷ (2√3) = 5/2 · √{6/3} = 2,5√2</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Возведение корня в степень:</h6>
+                        <p><span class="math-notation">(√[n]{a})ᵐ = √[n]{aᵐ}</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">(√5)² = 5</span></li>
+                            <li><span class="math-notation">(√[3]{2})⁶ = √[3]{2⁶} = √[3]{64} = 4</span></li>
+                            <li><span class="math-notation">(2√3)² = 4·3 = 12</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Освобождение от иррациональности в знаменателе:</h5>
+
+                    <div class="highlight">
+                        <h6>Методы устранения иррациональности:</h6>
+                        <p><strong>Случай 1:</strong> В знаменателе один корень</p>
+                        <p><span class="math-notation">a/√b = (a√b)/b</span></p>
+                        <p><strong>Пример:</strong> <span class="math-notation">3/√5 = (3√5)/5</span></p>
+
+                        <p><strong>Случай 2:</strong> В знаменателе сумма/разность корней</p>
+                        <p>Используем формулу сопряженного выражения</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">1/(√a + √b) = (√a - √b)/(a - b)</span>
+                        </p>
+                        <p><strong>Пример:</strong> <span class="math-notation">2/(√3 - 1) = 2(√3 + 1)/(3 - 1) = (2√3 +
+                                2)/2 = √3 + 1</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практические примеры вычислений:</h6>
+                        <p><strong>Пример 1:</strong> Вычислить <span class="math-notation">√12 - √27 + √48</span></p>
+                        <p><span class="math-notation">√12 = 2√3, √27 = 3√3, √48 = 4√3</span><br>
+                            <span class="math-notation">2√3 - 3√3 + 4√3 = 3√3</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> Упростить <span class="math-notation">(√6 + √2)²</span></p>
+                        <p><span class="math-notation">(√6 + √2)² = 6 + 2√12 + 2 = 8 + 4√3</span></p>
+
+                        <p><strong>Пример 3:</strong> Освободиться от иррациональности: <span
+                                class="math-notation">5/(√7 - √2)</span></p>
+                        <p><span class="math-notation">5/(√7 - √2) = 5(√7 + √2)/(7 - 2) = 5(√7 + √2)/5 = √7 + √2</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Важные замечания:</h6>
+                        <ul>
+                            <li>Арифметический корень всегда неотрицателен</li>
+                            <li>Подкоренное выражение неотрицательно для корней четной степени</li>
+                            <li>При преобразованиях проверяйте ОДЗ</li>
+                            <li>Корни нечетной степени определены для отрицательных чисел, но это уже не арифметические
+                                корни</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title13.jpg" class="card-img-top" alt="Иррациональные уравнения и неравенства">
+                <div class="card-body">
+                    <h3>Решение иррациональных уравнений и неравенств</h3>
+
+                    <h5>Иррациональные уравнения:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение:</h6>
+                        <p><strong>Иррациональное уравнение</strong> - уравнение, в котором переменная содержится под
+                            знаком корня (радикала).</p>
+                        <p><strong>Общий вид:</strong> <span class="math-notation">√[n]{f(x)} = g(x)</span>, где <span
+                                class="math-notation">n ≥ 2</span></p>
+                        <p><strong>Примеры иррациональных уравнений:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">√(x + 2) = 3</span></li>
+                            <li><span class="math-notation">√[3]{2x - 1} = x - 1</span></li>
+                            <li><span class="math-notation">√(x + 1) + √(x - 2) = 5</span></li>
+                            <li><span class="math-notation">√(x² - 4) = x - 2</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Основные методы решения иррациональных уравнений:</h5>
+
+                    <div class="highlight">
+                        <h6>Метод 1: Возведение в степень</h6>
+                        <p>Используется для уравнений вида <span class="math-notation">√[n]{f(x)} = g(x)</span></p>
+                        <p><strong>Алгоритм:</strong></p>
+                        <ol>
+                            <li>Найти ОДЗ: <span class="math-notation">f(x) ≥ 0</span> (для четных n)</li>
+                            <li>Возвести обе части в степень n</li>
+                            <li>Решить полученное уравнение</li>
+                            <li>Проверить корни в исходном уравнении</li>
+                        </ol>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">√(x + 2) = 3</span></p>
+                        <p>ОДЗ: <span class="math-notation">x + 2 ≥ 0 → x ≥ -2</span><br>
+                            Возводим в квадрат: <span class="math-notation">x + 2 = 9 → x = 7</span><br>
+                            Проверка: <span class="math-notation">√(7 + 2) = √9 = 3</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 7</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">√(2x - 1) = x - 2</span></p>
+                        <p>ОДЗ: <span class="math-notation">2x - 1 ≥ 0 → x ≥ 0,5</span> и <span class="math-notation">x
+                                - 2 ≥ 0 → x ≥ 2</span><br>
+                            Возводим в квадрат: <span class="math-notation">2x - 1 = (x - 2)² → 2x - 1 = x² - 4x +
+                                4</span><br>
+                            <span class="math-notation">x² - 6x + 5 = 0 → x₁ = 1, x₂ = 5</span><br>
+                            Проверка: <span class="math-notation">x = 1</span> - не входит в ОДЗ<br>
+                            <span class="math-notation">x = 5: √(10 - 1) = 3, 5 - 2 = 3</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 5</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 2: Замена переменной</h6>
+                        <p>Используется для уравнений с повторяющимися радикалами</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">x + √(x - 2) = 4</span></p>
+                        <p>Пусть <span class="math-notation">t = √(x - 2)</span>, тогда <span class="math-notation">t ≥
+                                0</span> и <span class="math-notation">x = t² + 2</span><br>
+                            Подставляем: <span class="math-notation">t² + 2 + t = 4 → t² + t - 2 = 0</span><br>
+                            <span class="math-notation">t₁ = 1, t₂ = -2</span> (не подходит, т.к. <span
+                                class="math-notation">t ≥ 0</span>)<br>
+                            <span class="math-notation">√(x - 2) = 1 → x - 2 = 1 → x = 3</span><br>
+                            Проверка: <span class="math-notation">3 + √(3 - 2) = 3 + 1 = 4</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 3</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 3: Уединение радикала и возведение в степень</h6>
+                        <p>Для уравнений с несколькими радикалами</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">√(x + 3) + √(x - 2) = 5</span></p>
+                        <p>ОДЗ: <span class="math-notation">x + 3 ≥ 0 → x ≥ -3</span> и <span class="math-notation">x -
+                                2 ≥ 0 → x ≥ 2</span>, значит <span class="math-notation">x ≥ 2</span><br>
+                            Уединяем один радикал: <span class="math-notation">√(x + 3) = 5 - √(x - 2)</span><br>
+                            Возводим в квадрат: <span class="math-notation">x + 3 = 25 - 10√(x - 2) + x - 2</span><br>
+                            Упрощаем: <span class="math-notation">10√(x - 2) = 20 → √(x - 2) = 2</span><br>
+                            Возводим в квадрат: <span class="math-notation">x - 2 = 4 → x = 6</span><br>
+                            Проверка: <span class="math-notation">√(6 + 3) + √(6 - 2) = 3 + 2 = 5</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 6</span>
+                        </p>
+                    </div>
+
+                    <h5>Иррациональные неравенства:</h5>
+
+                    <div class="highlight">
+                        <h6>Основные типы и методы решения:</h6>
+                        <p><strong>Тип 1:</strong> <span class="math-notation">√[n]{f(x)} < g(x)</span>
+                        </p>
+                        <p>Для четных n решаем систему:</p>
+                        <ul>
+                            <li><span class="math-notation">f(x) ≥ 0</span> (ОДЗ)</li>
+                            <li><span class="math-notation">g(x) > 0</span></li>
+                            <li><span class="math-notation">f(x) < [g(x)]ⁿ</span>
+                            </li>
+                        </ul>
+
+                        <p><strong>Пример:</strong> <span class="math-notation">√(x - 1) < 3</span>
+                        </p>
+                        <p>Система:
+                            <span class="math-notation">x - 1 ≥ 0 → x ≥ 1</span><br>
+                            <span class="math-notation">3 > 0</span> - верно<br>
+                            <span class="math-notation">x - 1 < 9 → x < 10</span><br>
+                                    <strong>Ответ:</strong> <span class="math-notation">x ∈ [1; 10)</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Тип 2: <span class="math-notation">√[n]{f(x)} > g(x)</span></h6>
+                        <p>Для четных n решаем совокупность двух систем:</p>
+                        <p><strong>Система 1:</strong> <span class="math-notation">g(x) < 0</span> и <span
+                                        class="math-notation">f(x) ≥ 0</span></p>
+                        <p><strong>Система 2:</strong> <span class="math-notation">g(x) ≥ 0</span> и <span
+                                class="math-notation">f(x) > [g(x)]ⁿ</span></p>
+
+                        <p><strong>Пример:</strong> <span class="math-notation">√(x + 2) > x</span></p>
+                        <p><strong>Система 1:</strong> <span class="math-notation">x < 0</span> и <span
+                                        class="math-notation">x + 2 ≥ 0 → x ≥ -2</span><br>
+                                    Решение: <span class="math-notation">x ∈ [-2; 0)</span></p>
+                        <p><strong>Система 2:</strong> <span class="math-notation">x ≥ 0</span> и <span
+                                class="math-notation">x + 2 > x²</span><br>
+                            <span class="math-notation">x² - x - 2 < 0 → (x - 2)(x + 1) < 0 → x ∈ (-1; 2)</span><br>
+                                    С учетом <span class="math-notation">x ≥ 0</span>: <span class="math-notation">x ∈
+                                        [0; 2)</span>
+                        </p>
+                        <p><strong>Объединяем:</strong> <span class="math-notation">x ∈ [-2; 0) ∪ [0; 2) = [-2;
+                                2)</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x ∈ [-2; 2)</span>
+                        </p>
+                    </div>
+
+                    <h5>Особые случаи и замечания:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Тип уравнения/неравенства</th>
+                                <th>Особенности решения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Корень четной степени</strong></td>
+                                <td>Обязательно ОДЗ: подкоренное выражение ≥ 0</td>
+                                <td><span class="math-notation">√(x - 3)</span>, ОДЗ: <span class="math-notation">x ≥
+                                        3</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Корень нечетной степени</strong></td>
+                                <td>ОДЗ не требуется, определен для всех x</td>
+                                <td><span class="math-notation">√[3](x + 1)</span> определен при всех x</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Несколько радикалов</strong></td>
+                                <td>ОДЗ - пересечение ОДЗ всех радикалов</td>
+                                <td><span class="math-notation">√(x - 1) + √(3 - x)</span>, ОДЗ: <span
+                                        class="math-notation">x ∈ [1; 3]</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Посторонние корни</strong></td>
+                                <td>Всегда проверять полученные решения</td>
+                                <td>При возведении в квадрат могут появиться лишние корни</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Типичные ошибки и как их избежать:</h6>
+                        <ul>
+                            <li><strong>Не проверять ОДЗ</strong> - всегда находите область определения</li>
+                            <li><strong>Не делать проверку</strong> - после возведения в степень обязательно проверяйте
+                                корни</li>
+                            <li><strong>Неправильно записывать ответ</strong> для неравенств - используйте метод
+                                интервалов</li>
+                            <li><strong>Забывать про знак</strong> при возведении в квадрат неравенств</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практические примеры для самопроверки:</h6>
+                        <p><strong>Уравнение 1:</strong> <span class="math-notation">√(2x + 5) = x + 1</span></p>
+                        <p><strong>Уравнение 2:</strong> <span class="math-notation">√(x + 1) - √(x - 1) = 1</span></p>
+                        <p><strong>Неравенство 1:</strong> <span class="math-notation">√(x² - 4) ≤ x + 2</span></p>
+                        <p><strong>Неравенство 2:</strong> <span class="math-notation">√(3 - x) > x - 1</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Алгоритм решения иррациональных уравнений:</h6>
+                        <ol>
+                            <li>Найти ОДЗ (для корней четной степени)</li>
+                            <li>Выбрать метод решения</li>
+                            <li>Выполнить преобразования</li>
+                            <li>Найти корни</li>
+                            <li>Проверить корни в исходном уравнении</li>
+                            <li>Исключить посторонние корни</li>
+                            <li>Записать ответ</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title14.jpg" class="card-img-top" alt="Степень с рациональным показателем">
+                <div class="card-body">
+                    <h3>Степень с рациональным показателем. Свойства степени. Преобразование выражений, содержащих
+                        рациональные степени</h3>
+
+                    <h5>Степень с рациональным показателем:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение:</h6>
+                        <p><strong>Степень с рациональным показателем</strong> определяется через корни:</p>
+                        <p class="text-center"><span class="math-notation">a^{m/n} = √[n]{a^m} = (√[n]{a})^m</span></p>
+                        <p>где:</p>
+                        <ul>
+                            <li><span class="math-notation">a</span> - основание степени (<span class="math-notation">a
+                                    > 0</span>)</li>
+                            <li><span class="math-notation">m/n</span> - рациональный показатель (дробь в несократимом
+                                виде)</li>
+                            <li><span class="math-notation">m</span> - целое число</li>
+                            <li><span class="math-notation">n</span> - натуральное число (<span class="math-notation">n
+                                    ≥ 2</span>)</li>
+                        </ul>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">8^{1/3} = √[3]{8} = 2</span></li>
+                            <li><span class="math-notation">16^{3/4} = (√[4]{16})^3 = 2^3 = 8</span></li>
+                            <li><span class="math-notation">27^{-2/3} = 1/(27^{2/3}) = 1/((√[3]{27})^2) = 1/9</span>
+                            </li>
+                            <li><span class="math-notation">(1/25)^{-1/2} = 25^{1/2} = 5</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Особые случаи:</h6>
+                        <p><strong>Нулевой показатель:</strong> <span class="math-notation">a^0 = 1</span> (при <span
+                                class="math-notation">a ≠ 0</span>)</p>
+                        <p><strong>Отрицательный показатель:</strong> <span class="math-notation">a^{-m/n} =
+                                1/(a^{m/n})</span></p>
+                        <p><strong>Единичный показатель:</strong> <span class="math-notation">a^{1/n} = √[n]{a}</span>
+                        </p>
+                        <p><strong>Целый показатель:</strong> <span class="math-notation">a^{n/1} = a^n</span></p>
+                    </div>
+
+                    <h5>Свойства степеней с рациональными показателями:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формула</th>
+                                <th>Ограничения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Умножение степеней</strong></td>
+                                <td><span class="math-notation">a^{p} · a^{q} = a^{p+q}</span></td>
+                                <td><span class="math-notation">a > 0</span></td>
+                                <td><span class="math-notation">2^{1/2} · 2^{1/3} = 2^{5/6}</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Деление степеней</strong></td>
+                                <td><span class="math-notation">a^{p} ÷ a^{q} = a^{p-q}</span></td>
+                                <td><span class="math-notation">a > 0</span></td>
+                                <td><span class="math-notation">3^{4/3} ÷ 3^{1/3} = 3^{1} = 3</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень степени</strong></td>
+                                <td><span class="math-notation">(a^{p})^{q} = a^{pq}</span></td>
+                                <td><span class="math-notation">a > 0</span></td>
+                                <td><span class="math-notation">(4^{1/2})^{3} = 4^{3/2} = 8</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень произведения</strong></td>
+                                <td><span class="math-notation">(ab)^{p} = a^{p}b^{p}</span></td>
+                                <td><span class="math-notation">a > 0, b > 0</span></td>
+                                <td><span class="math-notation">(9·4)^{1/2} = 9^{1/2}·4^{1/2} = 3·2 = 6</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Степень частного</strong></td>
+                                <td><span class="math-notation">(a/b)^{p} = a^{p}/b^{p}</span></td>
+                                <td><span class="math-notation">a > 0, b > 0</span></td>
+                                <td><span class="math-notation">(27/8)^{2/3} = 27^{2/3}/8^{2/3} = 9/4</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Связь с корнями</strong></td>
+                                <td><span class="math-notation">a^{m/n} = √[n]{a^m} = (√[n]{a})^m</span></td>
+                                <td><span class="math-notation">a > 0</span></td>
+                                <td><span class="math-notation">8^{2/3} = √[3]{8^2} = √[3]{64} = 4</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Примеры применения свойств:</h6>
+                        <p><strong>Пример 1:</strong> Упростить <span class="math-notation">(x^{1/3} · x^{1/6}) ÷
+                                x^{1/2}</span></p>
+                        <p><span class="math-notation">x^{1/3 + 1/6 - 1/2} = x^{2/6 + 1/6 - 3/6} = x^0 = 1</span></p>
+
+                        <p><strong>Пример 2:</strong> Вычислить <span class="math-notation">(16^{3/4} · 4^{-1/2}) ÷
+                                2^{1/2}</span></p>
+                        <p><span class="math-notation">16^{3/4} = (2^4)^{3/4} = 2^3 = 8</span><br>
+                            <span class="math-notation">4^{-1/2} = (2^2)^{-1/2} = 2^{-1} = 1/2</span><br>
+                            <span class="math-notation">8 · 1/2 = 4</span>, затем <span class="math-notation">4 ÷
+                                2^{1/2} = 4 ÷ √2 = 2√2</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> Упростить <span class="math-notation">(a^{2/3}b^{-1/2})^6 ÷
+                                (a^{-1}b^{3})</span></p>
+                        <p><span class="math-notation">(a^{2/3}b^{-1/2})^6 = a^4b^{-3}</span><br>
+                            <span class="math-notation">a^4b^{-3} ÷ (a^{-1}b^{3}) = a^{4-(-1)}b^{-3-3} = a^5b^{-6} =
+                                a^5/b^6</span>
+                        </p>
+                    </div>
+
+                    <h5>Преобразование выражений с рациональными степенями:</h5>
+
+                    <div class="highlight">
+                        <h6>Переход от корней к степеням:</h6>
+                        <p><span class="math-notation">√[n]{a^m} = a^{m/n}</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">√a = a^{1/2}</span></li>
+                            <li><span class="math-notation">√[3]{x^2} = x^{2/3}</span></li>
+                            <li><span class="math-notation">√[5]{a^3b^2} = a^{3/5}b^{2/5}</span></li>
+                            <li><span class="math-notation">1/√[4]{x^3} = x^{-3/4}</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Приведение к общему показателю:</h6>
+                        <p>Аналогично приведению дробей к общему знаменателю</p>
+                        <p><strong>Пример:</strong> Упростить <span class="math-notation">x^{1/2} · x^{1/3}</span></p>
+                        <p>Приводим к общему показателю 6:<br>
+                            <span class="math-notation">x^{1/2} = x^{3/6}</span>, <span class="math-notation">x^{1/3} =
+                                x^{2/6}</span><br>
+                            <span class="math-notation">x^{3/6} · x^{2/6} = x^{5/6}</span>
+                        </p>
+
+                        <p><strong>Пример:</strong> Сравнить <span class="math-notation">2^{1/2}</span> и <span
+                                class="math-notation">3^{1/3}</span></p>
+                        <p>Приводим к общему показателю 6:<br>
+                            <span class="math-notation">2^{1/2} = 2^{3/6} = (2^3)^{1/6} = 8^{1/6}</span><br>
+                            <span class="math-notation">3^{1/3} = 3^{2/6} = (3^2)^{1/6} = 9^{1/6}</span><br>
+                            Так как <span class="math-notation">8^{1/6} < 9^{1/6}</span>, то <span
+                                        class="math-notation">2^{1/2} < 3^{1/3}</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Упрощение сложных выражений:</h6>
+                        <p><strong>Пример 1:</strong> Упростить <span class="math-notation">(a^{1/2} + a^{-1/2})^2 -
+                                (a^{1/2} - a^{-1/2})^2</span></p>
+                        <p>Используем формулу разности квадратов:<br>
+                            <span class="math-notation">= (a^{1/2} + a^{-1/2} + a^{1/2} - a^{-1/2})(a^{1/2} + a^{-1/2} -
+                                a^{1/2} + a^{-1/2})</span><br>
+                            <span class="math-notation">= (2a^{1/2})(2a^{-1/2}) = 4a^{1/2 - 1/2} = 4a^0 = 4</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> Упростить <span class="math-notation">(x^{1/3} - y^{1/3})(x^{2/3}
+                                + x^{1/3}y^{1/3} + y^{2/3})</span></p>
+                        <p>Это формула разности кубов:<br>
+                            <span class="math-notation">= (x^{1/3})^3 - (y^{1/3})^3 = x - y</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> Упростить <span class="math-notation">(a^{1/2}b^{-1/3})^6 ÷
+                                (a^{-2}b^{4})</span></p>
+                        <p><span class="math-notation">(a^{1/2}b^{-1/3})^6 = a^3b^{-2}</span><br>
+                            <span class="math-notation">a^3b^{-2} ÷ (a^{-2}b^{4}) = a^{3-(-2)}b^{-2-4} = a^5b^{-6} =
+                                a^5/b^6</span>
+                        </p>
+                    </div>
+
+                    <h5>Решение уравнений с рациональными степенями:</h5>
+
+                    <div class="highlight">
+                        <h6>Методы решения:</h6>
+                        <p><strong>Метод 1:</strong> Приведение к одинаковому основанию</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">8^{x} = 4</span></p>
+                        <p><span class="math-notation">(2^3)^x = 2^2 → 2^{3x} = 2^2 → 3x = 2 → x = 2/3</span></p>
+
+                        <p><strong>Метод 2:</strong> Замена переменной</p>
+                        <p><strong>Пример:</strong> <span class="math-notation">x^{2/3} - 3x^{1/3} + 2 = 0</span></p>
+                        <p>Пусть <span class="math-notation">t = x^{1/3}</span>, тогда <span class="math-notation">t^2 -
+                                3t + 2 = 0</span><br>
+                            <span class="math-notation">t_1 = 1, t_2 = 2</span><br>
+                            <span class="math-notation">x^{1/3} = 1 → x = 1</span>, <span class="math-notation">x^{1/3}
+                                = 2 → x = 8</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практическое применение:</h6>
+                        <p><strong>В физике:</strong> Формулы с дробными показателями для описания нелинейных процессов
+                        </p>
+                        <p><strong>В геометрии:</strong> Длина диагонали куба: <span class="math-notation">d = a√3 =
+                                a·3^{1/2}</span></p>
+                        <p><strong>В финансах:</strong> Сложные проценты с дробными периодами</p>
+                        <p><strong>В биологии:</strong> Модели роста популяций</p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Важные замечания:</h6>
+                        <ul>
+                            <li>Основание степени должно быть положительным: <span class="math-notation">a > 0</span>
+                            </li>
+                            <li>Дробь в показателе должна быть несократимой</li>
+                            <li>При преобразованиях следите за ОДЗ</li>
+                            <li>Свойства степеней работают только для положительных оснований</li>
+                            <li>Рациональные степени удобны для сравнения чисел и упрощения выражений</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Проверочные задания:</h6>
+                        <p><strong>1.</strong> Вычислить: <span class="math-notation">16^{3/4} · 8^{-2/3}</span></p>
+                        <p><strong>2.</strong> Упростить: <span class="math-notation">(x^{1/2} - y^{1/2})^2 +
+                                2x^{1/2}y^{1/2}</span></p>
+                        <p><strong>3.</strong> Решить уравнение: <span class="math-notation">x^{2/3} - 5x^{1/3} + 6 =
+                                0</span></p>
+                        <p><strong>4.</strong> Сравнить: <span class="math-notation">4^{1/2}</span> и <span
+                                class="math-notation">3^{1/3}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title15.jpg" class="card-img-top" alt="Показательные уравнения">
+                <div class="card-body">
+                    <h3>Показательные уравнения</h3>
+
+                    <h5>Определение и основные понятия:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение:</h6>
+                        <p><strong>Показательное уравнение</strong> - уравнение, в котором неизвестная переменная
+                            содержится в показателе степени.</p>
+                        <p><strong>Общий вид:</strong> <span class="math-notation">a^{f(x)} = b^{g(x)}</span> или <span
+                                class="math-notation">a^{f(x)} = c</span></p>
+                        <p>где <span class="math-notation">a > 0</span>, <span class="math-notation">a ≠ 1</span>, <span
+                                class="math-notation">b > 0</span>, <span class="math-notation">b ≠ 1</span>, <span
+                                class="math-notation">c > 0</span></p>
+                        <p><strong>Примеры показательных уравнений:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2^x = 8</span></li>
+                            <li><span class="math-notation">3^{x+1} = 27</span></li>
+                            <li><span class="math-notation">5^{2x} - 6·5^x + 5 = 0</span></li>
+                            <li><span class="math-notation">2^{x+1} + 2^{x-1} = 5</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Основные методы решения показательных уравнений:</h5>
+
+                    <div class="highlight">
+                        <h6>Метод 1: Приведение к одинаковому основанию</h6>
+                        <p>Если <span class="math-notation">a^{f(x)} = a^{g(x)}</span>, то <span
+                                class="math-notation">f(x) = g(x)</span></p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">2^x = 8</span></p>
+                        <p><span class="math-notation">2^x = 2^3 → x = 3</span></p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">9^{x-1} = 27^{2x}</span></p>
+                        <p><span class="math-notation">(3^2)^{x-1} = (3^3)^{2x} → 3^{2(x-1)} = 3^{6x}</span><br>
+                            <span class="math-notation">2(x - 1) = 6x → 2x - 2 = 6x → -4x = 2 → x = -1/2</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> <span class="math-notation">4^x + 2^{x+1} = 80</span></p>
+                        <p><span class="math-notation">(2^2)^x + 2·2^x - 80 = 0 → (2^x)^2 + 2·2^x - 80 = 0</span><br>
+                            Пусть <span class="math-notation">t = 2^x > 0</span>, тогда <span class="math-notation">t^2
+                                + 2t - 80 = 0</span><br>
+                            <span class="math-notation">t_1 = 8</span>, <span class="math-notation">t_2 = -10</span> (не
+                            подходит)<br>
+                            <span class="math-notation">2^x = 8 → 2^x = 2^3 → x = 3</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 2: Вынесение общего множителя</h6>
+                        <p>Используется, когда степени имеют одинаковое основание с разными показателями</p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">2^{x+1} + 2^{x-1} = 5</span></p>
+                        <p><span class="math-notation">2^x·2 + 2^x/2 = 5 → 2^x(2 + 1/2) = 5 → 2^x·(5/2) = 5</span><br>
+                            <span class="math-notation">2^x = 5 · (2/5) = 2 → 2^x = 2^1 → x = 1</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">3^{x+2} - 3^{x-1} = 26</span></p>
+                        <p><span class="math-notation">3^x·9 - 3^x/3 = 26 → 3^x(9 - 1/3) = 26 → 3^x·(26/3) =
+                                26</span><br>
+                            <span class="math-notation">3^x = 26 · (3/26) = 3 → 3^x = 3^1 → x = 1</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> <span class="math-notation">5^{2x-1} - 5^{2x-3} = 4,8</span></p>
+                        <p><span class="math-notation">5^{2x}/5 - 5^{2x}/125 = 4,8 → 5^{2x}(1/5 - 1/125) =
+                                4,8</span><br>
+                            <span class="math-notation">5^{2x}·(24/125) = 4,8 → 5^{2x} = 4,8·125/24 = 25</span><br>
+                            <span class="math-notation">5^{2x} = 5^2 → 2x = 2 → x = 1</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 3: Замена переменной</h6>
+                        <p>Используется для уравнений вида <span class="math-notation">a^{2x} + p·a^x + q = 0</span></p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">4^x - 3·2^x + 2 = 0</span></p>
+                        <p><span class="math-notation">(2^x)^2 - 3·2^x + 2 = 0</span><br>
+                            Пусть <span class="math-notation">t = 2^x > 0</span>, тогда <span class="math-notation">t^2
+                                - 3t + 2 = 0</span><br>
+                            <span class="math-notation">t_1 = 1</span>, <span class="math-notation">t_2 = 2</span><br>
+                            <span class="math-notation">2^x = 1 → x = 0</span>, <span class="math-notation">2^x = 2 → x
+                                = 1</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 0</span>, <span
+                                class="math-notation">x = 1</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">9^x - 4·3^x + 3 = 0</span></p>
+                        <p><span class="math-notation">(3^x)^2 - 4·3^x + 3 = 0</span><br>
+                            Пусть <span class="math-notation">t = 3^x > 0</span>, тогда <span class="math-notation">t^2
+                                - 4t + 3 = 0</span><br>
+                            <span class="math-notation">t_1 = 1</span>, <span class="math-notation">t_2 = 3</span><br>
+                            <span class="math-notation">3^x = 1 → x = 0</span>, <span class="math-notation">3^x = 3 → x
+                                = 1</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> <span class="math-notation">2^{2x} + 2^x - 12 = 0</span></p>
+                        <p>Пусть <span class="math-notation">t = 2^x > 0</span>, тогда <span class="math-notation">t^2 +
+                                t - 12 = 0</span><br>
+                            <span class="math-notation">t_1 = 3</span>, <span class="math-notation">t_2 = -4</span> (не
+                            подходит)<br>
+                            <span class="math-notation">2^x = 3 → x = log₂3</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 4: Логарифмирование</h6>
+                        <p>Используется, когда нельзя привести к одинаковому основанию</p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">2^x = 5</span></p>
+                        <p>Логарифмируем обе части: <span class="math-notation">log(2^x) = log5 → x·log2 =
+                                log5</span><br>
+                            <span class="math-notation">x = log5 / log2 = log₂5</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">3^{x+1} = 7^{x-1}</span></p>
+                        <p>Логарифмируем: <span class="math-notation">(x+1)log3 = (x-1)log7</span><br>
+                            <span class="math-notation">x·log3 + log3 = x·log7 - log7</span><br>
+                            <span class="math-notation">x(log3 - log7) = -log7 - log3</span><br>
+                            <span class="math-notation">x = -(log7 + log3)/(log3 - log7) = (log7 + log3)/(log7 -
+                                log3)</span>
+                        </p>
+
+                        <p><strong>Пример 3:</strong> <span class="math-notation">5^{2x} = 3^{x+1}</span></p>
+                        <p>Логарифмируем: <span class="math-notation">2x·log5 = (x+1)log3</span><br>
+                            <span class="math-notation">2x·log5 = x·log3 + log3</span><br>
+                            <span class="math-notation">x(2log5 - log3) = log3</span><br>
+                            <span class="math-notation">x = log3/(2log5 - log3)</span>
+                        </p>
+                    </div>
+
+                    <h5>Специальные типы показательных уравнений:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Тип уравнения</th>
+                                <th>Метод решения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Однородные</strong></td>
+                                <td>Деление на одну из степеней</td>
+                                <td><span class="math-notation">4^x - 2^x = 2^{x+1}</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Квадратные относительно показательной функции</strong></td>
+                                <td>Замена переменной</td>
+                                <td><span class="math-notation">9^x - 8·3^x - 9 = 0</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>С разными основаниями</strong></td>
+                                <td>Логарифмирование</td>
+                                <td><span class="math-notation">2^x = 3^{x-1}</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>С параметром</strong></td>
+                                <td>Исследование в зависимости от параметра</td>
+                                <td><span class="math-notation">a·2^x - 4 = 0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Решение систем показательных уравнений:</h6>
+                        <p><strong>Пример 1:</strong></p>
+                        <p><span class="math-notation">{ 2^x · 3^y = 72; 2^y · 3^x = 108 }</span></p>
+                        <p>Перемножим уравнения: <span class="math-notation">2^{x+y} · 3^{x+y} = 7776 → 6^{x+y} = 6^5 →
+                                x + y = 5</span><br>
+                            Поделим первое уравнение на второе: <span class="math-notation">2^{x-y} · 3^{y-x} = 2/3 →
+                                (2/3)^{x-y} = (2/3)^1 → x - y = 1</span><br>
+                            Решаем систему: <span class="math-notation">x + y = 5</span>, <span class="math-notation">x
+                                - y = 1 → x = 3</span>, <span class="math-notation">y = 2</span></p>
+
+                        <p><strong>Пример 2:</strong></p>
+                        <p><span class="math-notation">{ 5^x · 2^y = 200; 2^x · 5^y = 8 }</span></p>
+                        <p>Перемножим: <span class="math-notation">10^{x+y} = 1600 → x + y = log₁₀1600 = 2 +
+                                log₁₀16</span><br>
+                            Поделим первое на второе: <span class="math-notation">(5/2)^{x-y} = 25 → (2,5)^{x-y} = 2,5^2
+                                → x - y = 2</span><br>
+                            Решаем систему относительно x и y</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Показательные неравенства:</h6>
+                        <p><strong>Основное правило:</strong> При <span class="math-notation">a > 1</span>: <span
+                                class="math-notation">a^{f(x)} > a^{g(x)} ⇔ f(x) > g(x)</span><br>
+                            При <span class="math-notation">0 < a < 1</span>: <span class="math-notation">a^{f(x)} >
+                                        a^{g(x)} ⇔ f(x) < g(x)</span>
+                        </p>
+
+                        <p><strong>Пример 1:</strong> <span class="math-notation">2^{x-1} > 8</span></p>
+                        <p><span class="math-notation">2^{x-1} > 2^3 → x - 1 > 3 → x > 4</span> (т.к. 2 > 1)</p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">(1/3)^{x+2} < 9</span>
+                        </p>
+                        <p><span class="math-notation">(1/3)^{x+2} < (1/3)^{-2} → x + 2> -2 → x > -4</span> (т.к. 0 <
+                                1/3 < 1, знак меняется)</p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Алгоритм решения показательных уравнений:</h6>
+                        <ol>
+                            <li>Определить тип уравнения</li>
+                            <li>Выбрать подходящий метод решения</li>
+                            <li>Выполнить преобразования</li>
+                            <li>Найти корни</li>
+                            <li>Сделать проверку (если необходимо)</li>
+                            <li>Записать ответ</li>
+                        </ol>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практические задания для самопроверки:</h6>
+                        <p><strong>1.</strong> <span class="math-notation">4^x - 5·2^x + 4 = 0</span></p>
+                        <p><strong>2.</strong> <span class="math-notation">3^{x+1} + 3^{2-x} = 28</span></p>
+                        <p><strong>3.</strong> <span class="math-notation">5^{2x} - 7·5^x + 10 = 0</span></p>
+                        <p><strong>4.</strong> <span class="math-notation">2^{x+3} - 2^{x+1} = 12</span></p>
+                        <p><strong>5.</strong> <span class="math-notation">9^x - 3^x = 6</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Важные замечания:</h6>
+                        <ul>
+                            <li>Показательная функция всегда положительна: <span class="math-notation">a^x > 0</span>
+                                для всех x</li>
+                            <li>При решении проверяйте ОДЗ</li>
+                            <li>При замене переменной не забывайте про условие <span class="math-notation">t > 0</span>
+                            </li>
+                            <li>Внимательно следите за знаком при решении неравенств</li>
+                            <li>Логарифмирование - универсальный метод, но не всегда самый простой</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title16.jpg" class="card-img-top" alt="Логарифмы">
+                <div class="card-body">
+                    <h3>Логарифм числа. Десятичные логарифмы. Преобразование выражений, содержащих логарифмы</h3>
+
+                    <h5>Определение логарифма:</h5>
+
+                    <div class="highlight">
+                        <h6>Основное определение:</h6>
+                        <p><strong>Логарифм числа b по основанию a</strong> - это показатель степени, в которую нужно
+                            возвести основание a, чтобы получить число b.</p>
+                        <p class="text-center"><span class="math-notation">logₐb = c ⇔ a^c = b</span></p>
+                        <p>где:</p>
+                        <ul>
+                            <li><span class="math-notation">a</span> - основание логарифма (<span
+                                    class="math-notation">a > 0</span>, <span class="math-notation">a ≠ 1</span>)</li>
+                            <li><span class="math-notation">b</span> - логарифмируемое число (<span
+                                    class="math-notation">b > 0</span>)</li>
+                            <li><span class="math-notation">c</span> - значение логарифма</li>
+                        </ul>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">log₂8 = 3</span>, так как <span class="math-notation">2^3 =
+                                    8</span></li>
+                            <li><span class="math-notation">log₅1 = 0</span>, так как <span class="math-notation">5^0 =
+                                    1</span></li>
+                            <li><span class="math-notation">log₃(1/9) = -2</span>, так как <span
+                                    class="math-notation">3^{-2} = 1/9</span></li>
+                            <li><span class="math-notation">log₇7 = 1</span>, так как <span class="math-notation">7^1 =
+                                    7</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Основное логарифмическое тождество:</h6>
+                        <p><span class="math-notation">a^{logₐb} = b</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">2^{log₂5} = 5</span></li>
+                            <li><span class="math-notation">10^{lg100} = 100</span></li>
+                            <li><span class="math-notation">e^{ln3} = 3</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Виды логарифмов:</h5>
+
+                    <div class="highlight">
+                        <h6>Десятичные логарифмы:</h6>
+                        <p><strong>Десятичный логарифм</strong> - логарифм по основанию 10.</p>
+                        <p><strong>Обозначение:</strong> <span class="math-notation">lg b = log₁₀b</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">lg 10 = 1</span></li>
+                            <li><span class="math-notation">lg 100 = 2</span></li>
+                            <li><span class="math-notation">lg 1000 = 3</span></li>
+                            <li><span class="math-notation">lg 0,1 = -1</span></li>
+                            <li><span class="math-notation">lg 0,01 = -2</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Натуральные логарифмы:</h6>
+                        <p><strong>Натуральный логарифм</strong> - логарифм по основанию e (e ≈ 2,71828...)</p>
+                        <p><strong>Обозначение:</strong> <span class="math-notation">ln b = logₑb</span></p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">ln e = 1</span></li>
+                            <li><span class="math-notation">ln e² = 2</span></li>
+                            <li><span class="math-notation">ln 1 = 0</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Другие специальные логарифмы:</h6>
+                        <p><strong>Двоичный логарифм:</strong> <span class="math-notation">log₂b</span> (в информатике)
+                        </p>
+                        <p><strong>Примеры:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">log₂2 = 1</span></li>
+                            <li><span class="math-notation">log₂4 = 2</span></li>
+                            <li><span class="math-notation">log₂8 = 3</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Свойства логарифмов:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Формула</th>
+                                <th>Ограничения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Логарифм произведения</strong></td>
+                                <td><span class="math-notation">logₐ(bc) = logₐb + logₐc</span></td>
+                                <td><span class="math-notation">b > 0, c > 0</span></td>
+                                <td><span class="math-notation">log₂(4·8) = log₂4 + log₂8 = 2 + 3 = 5</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Логарифм частного</strong></td>
+                                <td><span class="math-notation">logₐ(b/c) = logₐb - logₐc</span></td>
+                                <td><span class="math-notation">b > 0, c > 0</span></td>
+                                <td><span class="math-notation">log₃(27/9) = log₃27 - log₃9 = 3 - 2 = 1</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Логарифм степени</strong></td>
+                                <td><span class="math-notation">logₐbᵐ = m·logₐb</span></td>
+                                <td><span class="math-notation">b > 0</span></td>
+                                <td><span class="math-notation">log₂8³ = 3·log₂8 = 3·3 = 9</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Логарифм корня</strong></td>
+                                <td><span class="math-notation">logₐ√[n]{b} = (1/n)·logₐb</span></td>
+                                <td><span class="math-notation">b > 0</span></td>
+                                <td><span class="math-notation">log₃√9 = (1/2)·log₃9 = (1/2)·2 = 1</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Переход к новому основанию</strong></td>
+                                <td><span class="math-notation">logₐb = logₖb / logₖa</span></td>
+                                <td><span class="math-notation">a > 0, a ≠ 1, b > 0, k > 0, k ≠ 1</span></td>
+                                <td><span class="math-notation">log₂5 = lg5 / lg2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Частные случаи</strong></td>
+                                <td><span class="math-notation">logₐ1 = 0<br>logₐa = 1<br>logₐaᵐ = m</span></td>
+                                <td><span class="math-notation">a > 0, a ≠ 1</span></td>
+                                <td><span class="math-notation">log₅1 = 0<br>log₇7 = 1<br>log₂2⁵ = 5</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Примеры применения свойств:</h6>
+                        <p><strong>Пример 1:</strong> Вычислить <span class="math-notation">log₂48 - log₂3</span></p>
+                        <p><span class="math-notation">log₂48 - log₂3 = log₂(48/3) = log₂16 = 4</span></p>
+
+                        <p><strong>Пример 2:</strong> Упростить <span class="math-notation">2log₃6 - log₃4</span></p>
+                        <p><span class="math-notation">2log₃6 - log₃4 = log₃6² - log₃4 = log₃36 - log₃4 = log₃(36/4) =
+                                log₃9 = 2</span></p>
+
+                        <p><strong>Пример 3:</strong> Выразить через logₐ2 и logₐ3: <span
+                                class="math-notation">logₐ72</span></p>
+                        <p><span class="math-notation">logₐ72 = logₐ(8·9) = logₐ8 + logₐ9 = logₐ2³ + logₐ3² = 3logₐ2 +
+                                2logₐ3</span></p>
+
+                        <p><strong>Пример 4:</strong> Вычислить <span class="math-notation">log₈16</span></p>
+                        <p><span class="math-notation">log₈16 = log₂16 / log₂8 = 4 / 3</span></p>
+                    </div>
+
+                    <h5>Преобразование выражений с логарифмами:</h5>
+
+                    <div class="highlight">
+                        <h6>Упрощение сложных выражений:</h6>
+                        <p><strong>Пример 1:</strong> Упростить <span class="math-notation">(lg5 + lg2) · lg10</span>
+                        </p>
+                        <p><span class="math-notation">(lg5 + lg2) · lg10 = lg(5·2) · 1 = lg10 · 1 = 1</span></p>
+
+                        <p><strong>Пример 2:</strong> Упростить <span class="math-notation">log₂√8 + log₃√27</span></p>
+                        <p><span class="math-notation">log₂√8 + log₃√27 = log₂8^{1/2} + log₃27^{1/2} = (1/2)log₂8 +
+                                (1/2)log₃27 = (1/2)·3 + (1/2)·3 = 3</span></p>
+
+                        <p><strong>Пример 3:</strong> Упростить <span class="math-notation">2^{log₂7} + 3^{log₉4}</span>
+                        </p>
+                        <p><span class="math-notation">2^{log₂7} + 3^{log₉4} = 7 + 3^{log₃²4} = 7 + 3^{(1/2)log₃4} = 7 +
+                                (3^{log₃4})^{1/2} = 7 + 4^{1/2} = 7 + 2 = 9</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Логарифмирование и потенцирование:</h6>
+                        <p><strong>Логарифмирование</strong> - нахождение логарифма выражения</p>
+                        <p><strong>Пример:</strong> Прологарифмировать выражение <span class="math-notation">A =
+                                (x²y)/√z</span> по основанию 2</p>
+                        <p><span class="math-notation">log₂A = log₂(x²y) - log₂√z = log₂x² + log₂y - (1/2)log₂z = 2log₂x
+                                + log₂y - (1/2)log₂z</span></p>
+
+                        <p><strong>Потенцирование</strong> - нахождение выражения по его логарифму</p>
+                        <p><strong>Пример:</strong> Найти x, если <span class="math-notation">lg x = 2lg a + 3lg b -
+                                (1/2)lg c</span></p>
+                        <p><span class="math-notation">lg x = lg a² + lg b³ - lg c^{1/2} = lg(a²b³) - lg√c =
+                                lg(a²b³/√c)</span><br>
+                            <span class="math-notation">x = a²b³/√c</span>
+                        </p>
+                    </div>
+
+                    <h5>Практическое применение логарифмов:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Область</th>
+                                <th>Применение</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Математика</strong></td>
+                                <td>Решение показательных уравнений</td>
+                                <td><span class="math-notation">2^x = 5 → x = log₂5</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Физика</strong></td>
+                                <td>Шкала громкости звука (децибелы)</td>
+                                <td><span class="math-notation">L = 10·lg(I/I₀)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Химия</strong></td>
+                                <td>Водородный показатель pH</td>
+                                <td><span class="math-notation">pH = -lg[H⁺]</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Информатика</strong></td>
+                                <td>Вычисление сложности алгоритмов</td>
+                                <td><span class="math-notation">O(log n)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Финансы</strong></td>
+                                <td>Сложные проценты</td>
+                                <td><span class="math-notation">t = (ln(A/P))/(ln(1+r))</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Проверочные задания:</h6>
+                        <p><strong>1.</strong> Вычислить: <span class="math-notation">log₂32 + log₃(1/9)</span></p>
+                        <p><strong>2.</strong> Упростить: <span class="math-notation">2log₅10 - log₅4</span></p>
+                        <p><strong>3.</strong> Выразить через log₂3: <span class="math-notation">log₂24</span></p>
+                        <p><strong>4.</strong> Решить: <span class="math-notation">logₓ8 = 3</span></p>
+                        <p><strong>5.</strong> Найти x: <span class="math-notation">lg x = 2lg3 + lg2 - lg6</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Важные замечания:</h6>
+                        <ul>
+                            <li>Основание логарифма должно быть положительным и не равным 1</li>
+                            <li>Логарифмируемое выражение всегда положительно</li>
+                            <li>При преобразованиях внимательно следите за знаками</li>
+                            <li>Десятичные логарифмы широко используются в вычислениях</li>
+                            <li>Формула перехода к новому основанию позволяет вычислять логарифмы с любыми основаниями
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title17.jpg" class="card-img-top" alt="Логарифмические уравнения">
+                <div class="card-body">
+                    <h3>Логарифмические уравнения</h3>
+
+                    <h5>Определение и основные понятия:</h5>
+
+                    <div class="highlight">
+                        <h6>Определение:</h6>
+                        <p><strong>Логарифмическое уравнение</strong> - уравнение, в котором неизвестная переменная
+                            содержится под знаком логарифма или в основании логарифма.</p>
+                        <p><strong>Общий вид:</strong> <span class="math-notation">logₐf(x) = b</span> или <span
+                                class="math-notation">logₐf(x) = logₐg(x)</span></p>
+                        <p>где <span class="math-notation">a > 0</span>, <span class="math-notation">a ≠ 1</span>, <span
+                                class="math-notation">f(x) > 0</span>, <span class="math-notation">g(x) > 0</span></p>
+                        <p><strong>Примеры логарифмических уравнений:</strong></p>
+                        <ul>
+                            <li><span class="math-notation">log₂(x + 1) = 3</span></li>
+                            <li><span class="math-notation">log₃(x² - 1) = log₃(2x + 1)</span></li>
+                            <li><span class="math-notation">lg(x - 2) + lg(x + 2) = lg5</span></li>
+                            <li><span class="math-notation">logₓ(2x - 1) = 2</span></li>
+                        </ul>
+                    </div>
+
+                    <h5>Основные методы решения логарифмических уравнений:</h5>
+
+                    <div class="highlight">
+                        <h6>Метод 1: Потенцирование</h6>
+                        <p>Если <span class="math-notation">logₐf(x) = logₐg(x)</span>, то <span
+                                class="math-notation">f(x) = g(x)</span></p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">log₃(x² - 1) = log₃(2x + 1)</span></p>
+                        <p>ОДЗ: <span class="math-notation">x² - 1 > 0</span> и <span class="math-notation">2x + 1 >
+                                0</span><br>
+                            Потенцируем: <span class="math-notation">x² - 1 = 2x + 1</span><br>
+                            <span class="math-notation">x² - 2x - 2 = 0</span><br>
+                            <span class="math-notation">x₁ = 1 + √3</span>, <span class="math-notation">x₂ = 1 -
+                                √3</span><br>
+                            Проверяем ОДЗ: <span class="math-notation">x₂ = 1 - √3 ≈ -0,73</span> не удовлетворяет <span
+                                class="math-notation">2x + 1 > 0</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 1 + √3</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">lg(x - 2) + lg(x + 2) = lg5</span></p>
+                        <p>ОДЗ: <span class="math-notation">x - 2 > 0</span> и <span class="math-notation">x + 2 > 0 → x
+                                > 2</span><br>
+                            <span class="math-notation">lg[(x - 2)(x + 2)] = lg5</span><br>
+                            <span class="math-notation">lg(x² - 4) = lg5</span><br>
+                            Потенцируем: <span class="math-notation">x² - 4 = 5 → x² = 9 → x = ±3</span><br>
+                            С учетом ОДЗ: <span class="math-notation">x = 3</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 3</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 2: Приведение к одному основанию</h6>
+                        <p>Используется, когда логарифмы имеют разные основания</p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">log₂x + log₄x = 3</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span><br>
+                            Приводим к основанию 2: <span class="math-notation">log₄x = log₂x / log₂4 =
+                                (1/2)log₂x</span><br>
+                            <span class="math-notation">log₂x + (1/2)log₂x = 3 → (3/2)log₂x = 3 → log₂x = 2 → x =
+                                4</span><br>
+                            Проверка ОДЗ: <span class="math-notation">x = 4 > 0</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 4</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">log₃x + log₉x + log₈₁x = 7</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span><br>
+                            Приводим к основанию 3:<br>
+                            <span class="math-notation">log₉x = log₃x / log₃9 = (1/2)log₃x</span><br>
+                            <span class="math-notation">log₈₁x = log₃x / log₃81 = (1/4)log₃x</span><br>
+                            <span class="math-notation">log₃x + (1/2)log₃x + (1/4)log₃x = 7</span><br>
+                            <span class="math-notation">(7/4)log₃x = 7 → log₃x = 4 → x = 3⁴ = 81</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 81</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 3: Замена переменной</h6>
+                        <p>Используется для уравнений вида <span class="math-notation">A·log²ₐf(x) + B·logₐf(x) + C =
+                                0</span></p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">log²₂x - 3log₂x + 2 = 0</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span><br>
+                            Пусть <span class="math-notation">t = log₂x</span>, тогда <span class="math-notation">t² -
+                                3t + 2 = 0</span><br>
+                            <span class="math-notation">t₁ = 1</span>, <span class="math-notation">t₂ = 2</span><br>
+                            <span class="math-notation">log₂x = 1 → x = 2</span>, <span class="math-notation">log₂x = 2
+                                → x = 4</span><br>
+                            Оба корня удовлетворяют ОДЗ<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 2</span>, <span
+                                class="math-notation">x = 4</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">lg²x - lg x² - 3 = 0</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span><br>
+                            <span class="math-notation">lg x² = 2lg x</span><br>
+                            <span class="math-notation">lg²x - 2lg x - 3 = 0</span><br>
+                            Пусть <span class="math-notation">t = lg x</span>, тогда <span class="math-notation">t² - 2t
+                                - 3 = 0</span><br>
+                            <span class="math-notation">t₁ = 3</span>, <span class="math-notation">t₂ = -1</span><br>
+                            <span class="math-notation">lg x = 3 → x = 1000</span>, <span class="math-notation">lg x =
+                                -1 → x = 0,1</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 1000</span>, <span
+                                class="math-notation">x = 0,1</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Метод 4: Использование определения логарифма</h6>
+                        <p>Если <span class="math-notation">logₐf(x) = b</span>, то <span class="math-notation">f(x) =
+                                aᵇ</span></p>
+                        <p><strong>Пример 1:</strong> <span class="math-notation">log₂(x + 1) = 3</span></p>
+                        <p>ОДЗ: <span class="math-notation">x + 1 > 0 → x > -1</span><br>
+                            По определению: <span class="math-notation">x + 1 = 2³ = 8 → x = 7</span><br>
+                            Проверка ОДЗ: <span class="math-notation">7 > -1</span> - верно<br>
+                            <strong>Ответ:</strong> <span class="math-notation">x = 7</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">logₓ(2x - 1) = 2</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span>, <span class="math-notation">x ≠ 1</span>,
+                            <span class="math-notation">2x - 1 > 0 → x > 1/2</span><br>
+                            По определению: <span class="math-notation">2x - 1 = x²</span><br>
+                            <span class="math-notation">x² - 2x + 1 = 0 → (x - 1)² = 0 → x = 1</span><br>
+                            Но <span class="math-notation">x ≠ 1</span> по ОДЗ ⇒ решений нет<br>
+                            <strong>Ответ:</strong> корней нет
+                        </p>
+                    </div>
+
+                    <h5>Специальные типы логарифмических уравнений:</h5>
+                    <table class="table table-bordered operation-table">
+                        <thead>
+                            <tr>
+                                <th>Тип уравнения</th>
+                                <th>Метод решения</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>С переменным основанием</strong></td>
+                                <td>Учет ОДЗ и проверка</td>
+                                <td><span class="math-notation">logₓ(2x - 1) = 2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>С модулем</strong></td>
+                                <td>Раскрытие модуля</td>
+                                <td><span class="math-notation">log₂|x - 1| = 1</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>С параметром</strong></td>
+                                <td>Исследование в зависимости от параметра</td>
+                                <td><span class="math-notation">logₐ(x - 1) = 2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Системы уравнений</strong></td>
+                                <td>Комбинация методов</td>
+                                <td><span class="math-notation">{ log₂x + log₂y = 3; x + y = 6 }</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight">
+                        <h6>Решение систем логарифмических уравнений:</h6>
+                        <p><strong>Пример 1:</strong></p>
+                        <p><span class="math-notation">{ log₂x + log₂y = 3; x + y = 6 }</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span>, <span class="math-notation">y > 0</span><br>
+                            <span class="math-notation">log₂x + log₂y = log₂(xy) = 3 → xy = 2³ = 8</span><br>
+                            Решаем систему: <span class="math-notation">{ x + y = 6; xy = 8 }</span><br>
+                            По теореме Виета: <span class="math-notation">x</span> и <span
+                                class="math-notation">y</span> - корни уравнения <span class="math-notation">t² - 6t + 8
+                                = 0</span><br>
+                            <span class="math-notation">t₁ = 2</span>, <span class="math-notation">t₂ = 4</span><br>
+                            <strong>Ответ:</strong> <span class="math-notation">(2; 4)</span>, <span
+                                class="math-notation">(4; 2)</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong></p>
+                        <p><span class="math-notation">{ lg x + lg y = 1; x² + y² = 13 }</span></p>
+                        <p>ОДЗ: <span class="math-notation">x > 0</span>, <span class="math-notation">y > 0</span><br>
+                            <span class="math-notation">lg x + lg y = lg(xy) = 1 → xy = 10</span><br>
+                            <span class="math-notation">(x + y)² = x² + 2xy + y² = 13 + 20 = 33 → x + y = √33</span><br>
+                            Решаем систему: <span class="math-notation">{ x + y = √33; xy = 10 }</span><br>
+                            По теореме Виета: <span class="math-notation">x</span> и <span
+                                class="math-notation">y</span> - корни уравнения <span class="math-notation">t² - √33 t
+                                + 10 = 0</span>
+                        </p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Логарифмические неравенства:</h6>
+                        <p><strong>Основное правило:</strong><br>
+                            При <span class="math-notation">a > 1</span>: <span class="math-notation">logₐf(x) >
+                                logₐg(x) ⇔ f(x) > g(x) > 0</span><br>
+                            При <span class="math-notation">0 < a < 1</span>: <span class="math-notation">logₐf(x) >
+                                        logₐg(x) ⇔ 0 < f(x) < g(x)</span>
+                        </p>
+
+                        <p><strong>Пример 1:</strong> <span class="math-notation">log₂(x - 1) > 3</span></p>
+                        <p>ОДЗ: <span class="math-notation">x - 1 > 0 → x > 1</span><br>
+                            <span class="math-notation">log₂(x - 1) > log₂8 → x - 1 > 8 → x > 9</span> (т.к. 2 > 1)<br>
+                            С учетом ОДЗ: <span class="math-notation">x > 9</span>
+                        </p>
+
+                        <p><strong>Пример 2:</strong> <span class="math-notation">log_{1/2}(x + 1) > log_{1/2}(2x -
+                                1)</span></p>
+                        <p>ОДЗ: <span class="math-notation">x + 1 > 0</span> и <span class="math-notation">2x - 1 > 0 →
+                                x > 1/2</span><br>
+                            Так как <span class="math-notation">0 < 1/2 < 1</span>, знак меняется:<br>
+                                    <span class="math-notation">x + 1 < 2x - 1 → -x < -2 → x> 2</span><br>
+                                    С учетом ОДЗ: <span class="math-notation">x > 2</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Алгоритм решения логарифмических уравнений:</h6>
+                        <ol>
+                            <li>Найти ОДЗ (область допустимых значений)</li>
+                            <li>Определить тип уравнения и выбрать метод решения</li>
+                            <li>Выполнить преобразования</li>
+                            <li>Найти корни</li>
+                            <li>Проверить корни на принадлежность ОДЗ</li>
+                            <li>Исключить посторонние корни</li>
+                            <li>Записать ответ</li>
+                        </ol>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Практические задания для самопроверки:</h6>
+                        <p><strong>1.</strong> <span class="math-notation">log₃(x + 1) + log₃(x + 3) = 1</span></p>
+                        <p><strong>2.</strong> <span class="math-notation">log²₂x - 5log₂x + 6 = 0</span></p>
+                        <p><strong>3.</strong> <span class="math-notation">lg(x - 1) - lg(2x - 11) = lg2</span></p>
+                        <p><strong>4.</strong> <span class="math-notation">logₓ₊₁(2x² + x - 6) = 2</span></p>
+                        <p><strong>5.</strong> <span class="math-notation">log₂|x - 3| = 2</span></p>
+                    </div>
+
+                    <div class="highlight">
+                        <h6>Важные замечания:</h6>
+                        <ul>
+                            <li>Всегда находите ОДЗ перед решением</li>
+                            <li>При потенцировании проверяйте, не теряются ли корни</li>
+                            <li>Внимательно следите за основанием логарифма при решении неравенств</li>
+                            <li>При замене переменной не забывайте про ограничения</li>
+                            <li>Все найденные корни обязательно проверяйте на принадлежность ОДЗ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+                     <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../quiz.avif"
+                    class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+                <div class="card-body">
+                    <div class="container" id="formcontainer" style="display: none;">
+                        <form>
+                            <div class="mb-3">
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="user" class="form-label">ФИО Группа</label>
+                                <input type="text" class="form-control" id="userInput">
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                                id="loginbutton">Сохранить</button>
+                        </form>
+                    </div>
+                    <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                    <div class="container" id="quizcontainer" style="display: none;">
+                        <div class="card mx-auto" style="min-height: 100px;">
+                            <div class="card-header" id="quizHeader"></div>
+                            <div class="card-body">
+                                <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                                <div class="card-text fade-in-div" id="quizString"></div>
+                                <form id="quizform">
+                                    <div id="quizChecks" class="m-1 p-1"></div>
+                                    <div id="quizHint" class="m-1 p-1"></div>
+                                    <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                    </div>
+                                    <div id="quizformdataarray"></div>
+                                    <div id="usercalculations" style="display: none;">
+                                        <label for="inputFormula" class="col-form-label"
+                                            id="resformula">Калькулятор</label>
+                                        <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                    </div>
+                                    <textarea class="form-control my-3" id="userComment" rows="2"
+                                        style="display: none;">Мой комментарий</textarea>
+                                    <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                        style="display: none;">Ответить</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+
+    <script>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
