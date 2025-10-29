@@ -591,12 +591,24 @@
                         ]<br>
                         cursor.executemany(insert_query, students_list)<br>
                         connection.commit()<br><br>
-
-
                     </div>
                     <div class="alert alert-info">
                         <strong>Безопасность:</strong> Всегда используйте параметризованные запросы для предотвращения
                         SQL-инъекций.
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Выбор ВСЕХ записей ДО connection.close() </span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students"</span>)<br>
+                        all_students = cursor.fetchall()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(type(all_students))<br><br>
+
+                        <span class="sql-comment"># Вывод результатов</span><br>
+                        <span class="sql-keyword">for</span> student <span class="sql-keyword">in</span>
+                        all_students:<br>
+                        print(<span class="sql-keyword">f"ID: {student[0]}, Имя: {student[1]},
+                            Возраст: {student[2]}, Оценка: {student[3]}"</span>)
+                        <br>
                     </div>
                 </div>
             </div>
@@ -622,26 +634,6 @@
                         </ul>
                     </div>
 
-                    <div class="alert alert-primary">
-                        <h4>ЧТО ДЕЛАЕТ ЭТОТ ЗАПРОС?</h4>
-                        SELECT<br>
-                        c.customer_name,<br>
-                        COUNT(o.order_id) AS total_orders,<br>
-                        SUM(o.order_total) AS total_spent<br>
-                        FROM<br>
-                        customers c<br>
-                        JOIN<br>
-                        orders o ON c.customer_id = o.customer_id<br>
-                        WHERE<br>
-                        c.country = 'USA' AND o.order_date >= '2024-01-01'<br>
-                        GROUP BY<br>
-                        c.customer_id, c.customer_name<br>
-                        HAVING<br>
-                        SUM(o.order_total) > 1000<br>
-                        ORDER BY<br>
-                        total_spent DESC<br>
-                        LIMIT 10;<br>
-                    </div>
 
 
 
@@ -695,98 +687,41 @@
                 </div>
             </div>
 
-            <!-- Карточка 6: SQL JOIN операции -->
+            <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title12.jpg" class="card-img-top" alt="SQL JOIN операции">
+                <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
                 <div class="card-body">
-                    <h3>Операции соединения таблиц в реляционных базах данных</h3>
-                    <p class="card-text">
-                        Реляционные базы данных нужны для структурированного и надежного хранения больших объемов данных
-                        за счет их организации в виде таблиц со связями между ними. Они обеспечивают целостность данных,
-                        предотвращая дублирование и ошибки, а также позволяют эффективно выполнять сложные запросы,
-                        например, в банковских системах, управлении предприятием и онлайн-торговле.
-                    </p>
-
-                    <p class="card-text">
-                        Связи между таблицами (первичные и внешние ключи) и ограничения (например, NOT NULL, UNIQUE)
-                        гарантируют точность и согласованность данных, предотвращая потерю информации или ввод
-                        некорректных значений.
-                    </p>
-
-                    <div class="alert alert-primary m-5" role="alert">
-                        Первичный ключ — это идентификатор для каждой записи, например, ID покупателя в таблице
-                        «Клиенты». Он гарантирует, что строки не повторяются. Внешний ключ — столбец или набор столбцов,
-                        который ссылается на первичный ключ в другой таблице. Внешние ключи устанавливают связи между
-                        таблицами и гарантируют целостность данных.
-                    </div>
-
-
-                    <p class="card-text">Использование нормализации уменьшает избыточность данных и снижает риск ошибок.
-                    </p>
-
-
-                    <div class="alert alert-dark m-5" role="alert">
-
-
-                        MySQL — СУБД, полностью соответствующая стандартам SQL. Поддерживает транзакционную целостность,
-                        защиту данных, репликацию и хранимые процедуры — заранее сохраненные на сервере наборы
-                        SQL-команд для автоматизации операций. Преимущества MySQL в высокой производительности и
-                        масштабируемости.<br><br>
-
-                        PostgreSQL — мощная БД, которая работает с текстом, числами, форматами JSON, XML и уникальными
-                        данными, например, геометрическими фигурами. Позволяет создавать собственные типы данных, что
-                        делает ее еще более гибкой. <br><br>
-
-                        SQLite встраивается в приложения, поэтому считается легкой и удобной для разных платформ,
-                        включая браузеры Google Chrome и Mozilla Firefox. Но возможности этой БД ограничены: сложно
-                        менять структуру таблиц, а также есть лимиты на количество столбцов (32 000) и объем базы (140
-                        терабайт).<br><br>
-
-                        Oracle Database эффективно обрабатывает большие объемы данных, поэтому ее часто выбирают для
-                        сложных корпоративных задач. Разработчики ценят Oracle Database за удобство, инструменты, четкую
-                        документацию, поддержку функций (JSON, длинные имена, списки) и интеграцию с облачными
-                        сервисами. <br><br>
-
-                        Microsoft SQL Server — популярная коммерческая СУБД с бесплатной версией Express для начинающих.
-                        Поддерживает SQL, непроцедурные языки, нечувствительные к регистру команды и стандартные языки
-                        для работы с БД.<br><br>
-                    </div>
-
-                    <img src="https://thecode.media/wp-content/uploads/2021/09/ssd1_iiw.png"
-                        style="filter: grayscale(100%);" alt="...">
-
-
+                    <h3>Обновление данных</h3>
+                    <p class="card-text">Изменение существующих записей в таблице.</p>
                     <div class="code-block">
-                        <span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> TableA A<br>
-                        <span class="sql-keyword">LEFT JOIN</span> TableB B <span class="sql-keyword">ON</span> A.id =
-                        B.a_id<br>
-                        <span class="sql-keyword">WHERE</span> B.a_id <span class="sql-keyword">IS NULL</span>;
-                    </div>
+                        <span class="sql-comment"># Обновление оценки студента</span><br>
+                        update_query = <span class="sql-keyword">"UPDATE students SET grade = ? WHERE name =
+                            ?"</span><br>
+                        cursor.execute(update_query, (<span class="sql-keyword">'A+'</span>, <span
+                            class="sql-keyword">'Мария Петрова'</span>))<br>
+                        connection.commit()<br><br>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>Типы JOIN:</strong></p>
-                            <ul>
-                                <li><strong>INNER JOIN:</strong> Только совпадающие строки</li>
-                                <li><strong>LEFT JOIN:</strong> Все строки из левой таблицы</li>
-                                <li><strong>RIGHT JOIN:</strong> Все строки из правой таблицы</li>
-                                <li><strong>FULL OUTER JOIN:</strong> Все строки из обеих таблиц</li>
-                                <li><strong>CROSS JOIN:</strong> Декартово произведение</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Практическое применение:</strong></p>
-                            <ul>
-                                <li>Поиск отсутствующих записей</li>
-                                <li>Анализ связей между данными</li>
-                                <li>Объединение информации из разных таблиц</li>
-                                <li>Создание отчетов и аналитики</li>
-                                <li>Очистка данных</li>
-                            </ul>
-                        </div>
+                        <span class="sql-comment"># Обновление возраста всех студентов</span><br>
+                        cursor.execute(<span class="sql-keyword">"UPDATE students SET age = age + 1"</span>)<br>
+                        connection.commit()<br><br>
+
+                        <span class="sql-comment"># Обновление нескольких полей</span><br>
+                        cursor.execute(<span class="sql-keyword">'''</span><br>
+                        <span class="sql-keyword">UPDATE</span> students <br>
+                        <span class="sql-keyword">SET</span> grade = <span class="sql-keyword">?</span>, age = <span
+                            class="sql-keyword">?</span><br>
+                        <span class="sql-keyword">WHERE</span> id = <span class="sql-keyword">?</span><br>
+                        <span class="sql-keyword">'''</span>, (<span class="sql-keyword">'B+'</span>, <span
+                            class="sql-keyword">23</span>, <span class="sql-keyword">5</span>))<br>
+                        connection.commit()<br><br>
+
+                        print(<span class="sql-keyword">f"Количество обновленных строк: {cursor.rowcount}"</span>)
                     </div>
                 </div>
             </div>
+
+
+
 
             <!-- Карточка 5: Выборка данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
@@ -934,8 +869,313 @@
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title8.jpg" class="card-img-top" alt="Удаление данных">
                 <div class="card-body">
-                    <h3>Простейшая визуализация</h3>
-                    <p class="card-text">Графики</p>
+                    <h3>Простейшая визуализация: pandas и matplotlib</h3>
+
+                    <div class="alert alert-primary" role="alert">
+                        Pandas — это библиотека Python для обработки и анализа структурированных данных, ее название
+                        происходит от «panel data» («панельные данные»).<br>
+                        Панельными данными называют информацию, полученную в результате исследований и структурированную
+                        в виде таблиц
+                    </div>
+
+                    <div class="alert alert-secondary" role="alert">
+                        Pandas Series (серия) — это одномерный массив.<br>
+                        Визуально он похож на пронумерованный список: слева в колонке находятся индексы элементов, а
+                        справа — сами элементы
+                    </div>
+
+
+                    <div class="alert alert-success" role="alert">
+                        Pandas DataFrame — это двумерный массив, похожий на таблицу/лист Excel (кстати, данные из
+                        табличных файлов Excel можно читать с помощью команды pandas.read_excel('file.xls')).<br>
+                        В нем можно проводить такие же манипуляции с данными: объединять в группы, сортировать по
+                        определенному признаку, производить вычисления.<br>
+                        Как любая таблица, датафрейм состоит из столбцов и строк, причем столбцами будут уже известные
+                        объекты — Series.
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Чтение данных из CSV файла</span><br>
+                        df = pd.read_csv(<span class="sql-keyword">'filename.csv'</span>)<br>
+                        df = pd.read_csv(<span class="sql-keyword">'filename.csv'</span>, encoding=<span
+                            class="sql-keyword">'utf-8'</span>, sep=<span class="sql-keyword">','</span>)<br><br>
+
+                        <span class="sql-comment"># Чтение данных из Excel файла</span><br>
+                        df = pd.read_excel(<span class="sql-keyword">'filename.xlsx'</span>)<br>
+                        df = pd.read_excel(<span class="sql-keyword">'filename.xlsx'</span>, sheet_name=<span
+                            class="sql-keyword">'Sheet1'</span>)<br><br>
+
+                        <span class="sql-comment"># Чтение данных из SQL базы данных</span><br>
+                        import sqlite3<br>
+                        connection = sqlite3.connect(<span class="sql-keyword">'database.db'</span>)<br>
+                        df = pd.read_sql(<span class="sql-keyword">'SELECT * FROM table_name'</span>, connection)<br>
+                        df = pd.read_sql_query(<span class="sql-keyword">'SELECT * FROM table_name'</span>,
+                        connection)<br><br>
+                    </div>
+
+                    <div class="alert alert-primary" role="alert">
+                        Дата-аналитики составляют наглядные графики с помощью Pandas и библиотеки Matplotlib
+                    </div>
+
+
+                    <div class="code-block">
+                        import matplotlib.pyplot as plt<br><br>
+
+                        <span class="sql-comment"># Линейный график</span><br>
+                        x = [<span class="sql-keyword">1, 2, 3, 4, 5</span>]<br>
+                        y = [<span class="sql-keyword">2, 4, 1, 5, 3</span>]<br>
+                        plt.plot(x, y)<br>
+                        plt.title(<span class="sql-keyword">'Пример линейного графика'</span>)<br>
+                        plt.xlabel(<span class="sql-keyword">'Время'</span>)<br>
+                        plt.ylabel(<span class="sql-keyword">'Значения'</span>)<br>
+                        plt.grid(<span class="sql-keyword">True</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Столбчатая диаграмма</span><br>
+                        categories = [<span class="sql-keyword">'A', 'B', 'C', 'D'</span>]<br>
+                        values = [<span class="sql-keyword">15, 23, 18, 30</span>]<br>
+                        plt.bar(categories, values)<br>
+                        plt.title(<span class="sql-keyword">'Продажи по категориям'</span>)<br>
+                        plt.xticks(rotation=<span class="sql-keyword">45</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Круговая диаграмма</span><br>
+                        sizes = [<span class="sql-keyword">35, 25, 20, 20</span>]<br>
+                        labels = [<span class="sql-keyword">'Python', 'Java', 'C++', 'Другие'</span>]<br>
+                        plt.pie(sizes, labels=labels, autopct=<span class="sql-keyword">'%1.1f%%'</span>)<br>
+                        plt.title(<span class="sql-keyword">'Распределение языков'</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Гистограмма</span><br>
+                        data = [<span class="sql-keyword">1, 2, 2, 3, 3, 3, 4, 4, 5</span>]<br>
+                        plt.hist(data, bins=<span class="sql-keyword">5</span>)<br>
+                        plt.title(<span class="sql-keyword">'Распределение данных'</span>)<br>
+                        plt.xlabel(<span class="sql-keyword">'Значения'</span>)<br>
+                        plt.ylabel(<span class="sql-keyword">'Частота'</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Точечная диаграмма</span><br>
+                        x = [<span class="sql-keyword">1, 2, 3, 4, 5, 6</span>]<br>
+                        y = [<span class="sql-keyword">2, 4, 1, 5, 3, 6</span>]<br>
+                        plt.scatter(x, y)<br>
+                        plt.title(<span class="sql-keyword">'Точечный график'</span>)<br>
+                        plt.show()<br><br>
+                    </div>
+
+
+                    <div class="alert alert-primary" role="alert">
+                        Seaborn — это библиотека Python для статистической визуализации данных, построенная поверх
+                        Matplotlib.<br>
+                        Она упрощает создание сложных и привлекательных графиков, таких как коробчатые диаграммы,
+                        тепловые карты и диаграммы рассеяния, с помощью высокоуровневого интерфейса.<br>
+                        Seaborn тесно интегрируется с библиотекой Pandas, что позволяет напрямую визуализировать данные
+                        из фреймов данных
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <!-- Карточка 7: Обновление данных -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title17.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Комплексный пример 1</h3>
+
+
+
+                    <p class="card-text">numpy, pandas, matplotlib</p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
+                        plt<br>
+                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+                        <span class="sql-keyword">import</span> micropip<br><br>
+
+                        <span class="sql-comment"># Установка зависимостей</span><br>
+                        <span class="sql-keyword">await</span> micropip.install(<span
+                            class="sql-string">"xlrd"</span>)<br><br>
+
+                        <span class="sql-comment"># Чтение данных из Excel файла</span><br>
+                        <span class="sql-keyword">try</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;df = pd.read_excel(<span
+                            class="sql-string">'data/default_of_credit_card_clients__courseware_version_1_21_19.xls'</span>,
+                        engine=<span class="sql-string">'xlrd'</span>)<br>
+                        <span class="sql-keyword">except</span> Exception <span class="sql-keyword">as</span> e:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"Ошибка при чтении файла:
+                            {e}"</span>)<br><br>
+
+                        <span class="sql-comment"># Просмотр основных информации о данных</span><br>
+                        print(<span class="sql-string">"Размер данных:"</span>, df.shape)<br>
+                        print(<span class="sql-string">"\nПервые 5 строк:"</span>)<br>
+                        print(df.head())<br><br>
+
+                        <span class="sql-comment"># Проверка пропущенных значений</span><br>
+                        print(<span class="sql-string">"\nПропущенные значения:"</span>)<br>
+                        print(df.isnull().sum())<br><br>
+
+                        <span class="sql-comment"># Целевая переменная - default payment next month</span><br>
+                        target_column = <span class="sql-string">'default payment next month'</span><br>
+                        print(<span class="sql-string">f"\nРаспределение целевой переменной
+                            ({target_column}):"</span>)<br>
+                        print(df[target_column].value_counts(normalize=<span class="sql-keyword">True</span>))<br><br>
+
+                        <span class="sql-comment"># Визуализация распределения целевой переменной</span><br>
+                        plt.figure(figsize=(<span class="sql-keyword">8</span>, <span class="sql-keyword">6</span>))<br>
+                        df[target_column].value_counts().plot(kind=<span class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'Распределение дефолта по клиентам'</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Дефолт (0-нет, 1-да)'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Количество клиентов'</span>)<br>
+                        plt.xticks(rotation=<span class="sql-keyword">0</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Анализ демографических характеристик</span><br>
+                        print(<span class="sql-string">"\n=== ДЕМОГРАФИЧЕСКИЙ АНАЛИЗ ==="</span>)<br><br>
+
+                        <span class="sql-comment"># Пол (SEX: 1-муж, 2-жен)</span><br>
+                        print(<span class="sql-string">"\nРаспределение по полу:"</span>)<br>
+                        print(df[<span class="sql-string">'SEX'</span>].value_counts())<br><br>
+
+                        <span class="sql-comment"># Образование (EDUCATION: 1-аспирант, 2-университет, 3-школа,
+                            4-другое)</span><br>
+                        print(<span class="sql-string">"\nРаспределение по образованию:"</span>)<br>
+                        print(df[<span class="sql-string">'EDUCATION'</span>].value_counts().sort_index())<br><br>
+
+                        <span class="sql-comment"># Анализ кредитного лимита</span><br>
+                        print(<span class="sql-string">f"\nСтатистики по кредитному лимиту:"</span>)<br>
+                        print(<span class="sql-string">f"Средний лимит: {df['LIMIT_BAL'].mean():.0f}"</span>)<br>
+                        print(<span class="sql-string">f"Медианный лимит:
+                            {df['LIMIT_BAL'].median():.0f}"</span>)<br><br>
+
+                        <span class="sql-comment"># Визуализация кредитного лимита</span><br>
+                        plt.figure(figsize=(<span class="sql-keyword">12</span>, <span
+                            class="sql-keyword">5</span>))<br><br>
+
+                        plt.subplot(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">1</span>)<br>
+                        plt.hist(df[<span class="sql-string">'LIMIT_BAL'</span>], bins=<span
+                            class="sql-keyword">50</span>, edgecolor=<span class="sql-string">'black'</span>,
+                        alpha=<span class="sql-keyword">0.7</span>)<br>
+                        plt.title(<span class="sql-string">'Распределение кредитного лимита'</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Лимит баланса'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Частота'</span>)<br><br>
+
+                        plt.subplot(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">2</span>)<br>
+                        df.groupby(target_column)[<span class="sql-string">'LIMIT_BAL'</span>].mean().plot(kind=<span
+                            class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'Средний лимит по дефолту'</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Дефолт'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Средний лимит'</span>)<br>
+                        plt.xticks(rotation=<span class="sql-keyword">0</span>)<br><br>
+
+                        plt.tight_layout()<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Анализ платежного поведения</span><br>
+                        pay_columns = [<span class="sql-string">f'PAY_{i}'</span> <span class="sql-keyword">for</span> i
+                        <span class="sql-keyword">in</span> range(<span class="sql-keyword">1</span>, <span
+                            class="sql-keyword">7</span>)]<br>
+                        print(<span class="sql-string">f"\n=== АНАЛИЗ ПЛАТЕЖНОГО ПОВЕДЕНИЯ ==="</span>)<br><br>
+
+                        <span class="sql-comment"># Преобразуем PAY_1 в числовой формат если нужно</span><br>
+                        <span class="sql-keyword">if</span> df[<span class="sql-string">'PAY_1'</span>].dtype == <span
+                            class="sql-string">'object'</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;df[<span class="sql-string">'PAY_1'</span>] = pd.to_numeric(df[<span
+                            class="sql-string">'PAY_1'</span>], errors=<span class="sql-string">'coerce'</span>)<br><br>
+
+                        <span class="sql-comment"># Корреляционный анализ с целевой переменной</span><br>
+                        print(<span class="sql-string">f"\n=== КОРРЕЛЯЦИЯ С ЦЕЛЕВОЙ ПЕРЕМЕННОЙ ==="</span>)<br>
+                        numeric_columns = df.select_dtypes(include=[np.number]).columns<br><br>
+
+                        <span class="sql-comment"># Убираем ID и саму целевую переменную из анализа
+                            корреляции</span><br>
+                        cols_to_exclude = [<span class="sql-string">'ID'</span>, target_column]<br>
+                        analysis_columns = [col <span class="sql-keyword">for</span> col <span
+                            class="sql-keyword">in</span> numeric_columns <span class="sql-keyword">if</span> col <span
+                            class="sql-keyword">not in</span> cols_to_exclude]<br><br>
+
+                        correlations = []<br>
+                        <span class="sql-keyword">for</span> col <span class="sql-keyword">in</span>
+                        analysis_columns:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;corr = df[col].corr(df[target_column])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;correlations.append((col, corr))<br><br>
+
+                        <span class="sql-comment"># Сортируем по абсолютному значению корреляции</span><br>
+                        correlations.sort(key=<span class="sql-keyword">lambda</span> x: abs(x[<span
+                            class="sql-keyword">1</span>]), reverse=<span class="sql-keyword">True</span>)<br><br>
+
+                        print(<span class="sql-string">"Топ-10 признаков по корреляции с дефолтом:"</span>)<br>
+                        <span class="sql-keyword">for</span> col, corr <span class="sql-keyword">in</span>
+                        correlations[:<span class="sql-keyword">10</span>]:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"{col}: {corr:.3f}"</span>)<br><br>
+
+                        <span class="sql-comment"># Визуализация возраста</span><br>
+                        plt.figure(figsize=(<span class="sql-keyword">12</span>, <span
+                            class="sql-keyword">5</span>))<br><br>
+
+                        plt.subplot(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">1</span>)<br>
+                        plt.hist(df[<span class="sql-string">'AGE'</span>], bins=<span class="sql-keyword">30</span>,
+                        edgecolor=<span class="sql-string">'black'</span>, alpha=<span
+                            class="sql-keyword">0.7</span>)<br>
+                        plt.title(<span class="sql-string">'Распределение возраста клиентов'</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Возраст'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Количество клиентов'</span>)<br><br>
+
+                        plt.subplot(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">2</span>)<br>
+                        df.groupby(target_column)[<span class="sql-string">'AGE'</span>].mean().plot(kind=<span
+                            class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'Средний возраст по дефолту'</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Дефолт'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Средний возраст'</span>)<br>
+                        plt.xticks(rotation=<span class="sql-keyword">0</span>)<br><br>
+
+                        plt.tight_layout()<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Анализ дефолта по категориям</span><br>
+                        print(<span class="sql-string">f"\n=== АНАЛИЗ ДЕФОЛТА ПО КАТЕГОРИЯМ ==="</span>)<br>
+                        categorical_cols = [<span class="sql-string">'SEX'</span>, <span
+                            class="sql-string">'EDUCATION'</span>, <span class="sql-string">'MARRIAGE'</span>]<br><br>
+
+                        <span class="sql-keyword">for</span> col <span class="sql-keyword">in</span>
+                        categorical_cols:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> col <span
+                            class="sql-keyword">in</span> df.columns:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default_rate =
+                        df.groupby(col)[target_column].mean()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"\nУровень
+                            дефолта по {col}:"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> category,
+                        rate <span class="sql-keyword">in</span> default_rate.items():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span
+                            class="sql-string">f" Категория {category}: {rate:.3f} ({rate*100:.1f}%)"</span>)<br>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Карточка 7: Обновление данных -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Комплексный пример 2</h3>
+
+                    <div class="alert alert-danger" role="alert">
+                        В JupyterLite используем виртуальную базу данных в памяти, чтобы не зависала от операций чтения
+                        и записи в файл!<br>
+                        Это создаёт временную базу данных, которая существует, пока программа выполняется, и все данные
+                        ТЕРЯЮТСЯ после её завершения.<br>
+                    </div>
+
+                    <p class="card-text">sqlite3, faker, pandas, seaborn, matplotlib</p>
                     <div class="code-block">
                         <span class="sql-keyword">import</span> piplite<br>
                         <span class="sql-keyword">import</span> micropip<br><br>
@@ -961,7 +1201,10 @@
                         print(<span class="sql-string">"Все пакеты успешно загружены!"</span>)<br><br>
 
                         <span class="sql-comment"># Подключение к базе данных</span><br>
-                        connection = sqlite3.connect(<span class="sql-string">'students.db'</span>)<br><br>
+                        <span class="sql-comment"># connection = sqlite3.connect(<span
+                                class="sql-string">'students.db'</span>) ИЛИ</span>
+                        <br>
+                        connection = sqlite3.connect(':memory:')<br><br>
 
                         <span class="sql-comment"># Создание курсора для выполнения SQL-запросов</span><br>
                         cursor = connection.cursor()<br><br>
@@ -981,13 +1224,6 @@
                         cursor.execute(<span class="sql-string">"DELETE FROM students"</span>)<br>
                         connection.commit()<br><br>
 
-                        <span class="sql-comment"># Вставка одной записи</span><br>
-                        insert_query = <span class="sql-string">"INSERT INTO students (name, age, grade) VALUES (?, ?,
-                            ?)"</span><br>
-                        student_data = (<span class="sql-string">'Иван Иванов'</span>, <span
-                            class="sql-number">20</span>, <span class="sql-string">'A'</span>)<br>
-                        cursor.execute(insert_query, student_data)<br>
-                        connection.commit()<br><br>
 
                         <span class="sql-comment"># Insert a record into the Students table</span><br>
                         insert_query = <span class="sql-string">'''</span><br>
@@ -1076,48 +1312,387 @@
 
             <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
+                <img src="../h1title16.jpg" class="card-img-top" alt="Обновление данных">
                 <div class="card-body">
-                    <h3>Обновление данных</h3>
-                    <p class="card-text">Изменение существующих записей в таблице.</p>
+                    <h3>Комплексный пример 3</h3>
+
+                    <div class="alert alert-danger" role="alert">
+                        Этот код генерирует реалистичные данные для анализа эффективности рекламной кампании и
+                        записывает их в Excel файл с несколькими листами:<br>
+
+                        Содержание данных:<br>
+
+                        Основные метрики: клики, показы, конверсии, стоимость, доход<br>
+
+                        Каналы: CPC, SEO, SMM, Email<br>
+
+                        Демография: возраст, пол, регион, устройство<br>
+
+                        Аналитика: CTR, ROI, conversion rate<br>
+
+                        Excel файл содержит:<br>
+
+                        Raw_Data - исходные данные<br>
+
+                        Channel_Summary - сводка по каналам<br>
+
+                        Demographic_Analysis - анализ по демографии<br>
+                    </div>
+
+                    <p class="card-text">sqlite3, faker, pandas, seaborn, matplotlib, numpy</p>
+
+
                     <div class="code-block">
-                        <span class="sql-comment"># Обновление оценки студента</span><br>
-                        update_query = <span class="sql-keyword">"UPDATE students SET grade = ? WHERE name =
-                            ?"</span><br>
-                        cursor.execute(update_query, (<span class="sql-keyword">'A+'</span>, <span
-                            class="sql-keyword">'Мария Петрова'</span>))<br>
-                        connection.commit()<br><br>
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
+                        plt<br>
+                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+                        <span class="sql-keyword">from</span> datetime <span class="sql-keyword">import</span> datetime,
+                        timedelta<br>
+                        <span class="sql-keyword">import</span> random<br><br>
 
-                        <span class="sql-comment"># Обновление возраста всех студентов</span><br>
-                        cursor.execute(<span class="sql-keyword">"UPDATE students SET age = age + 1"</span>)<br>
-                        connection.commit()<br><br>
+                        <span class="sql-keyword">import</span> micropip<br>
+                        <span class="sql-comment"># Установка зависимостей</span><br>
+                        <span class="sql-keyword">await</span> micropip.install(<span
+                            class="sql-string">"faker"</span>)<br>
+                        <span class="sql-keyword">await</span> micropip.install(<span
+                            class="sql-string">"openpyxl"</span>)<br><br>
 
-                        <span class="sql-comment"># Обновление нескольких полей</span><br>
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">UPDATE</span> students <br>
-                        <span class="sql-keyword">SET</span> grade = <span class="sql-keyword">?</span>, age = <span
-                            class="sql-keyword">?</span><br>
-                        <span class="sql-keyword">WHERE</span> id = <span class="sql-keyword">?</span><br>
-                        <span class="sql-keyword">'''</span>, (<span class="sql-keyword">'B+'</span>, <span
-                            class="sql-keyword">23</span>, <span class="sql-keyword">5</span>))<br>
-                        connection.commit()<br><br>
+                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span>
+                        Faker<br><br>
 
-                        print(<span class="sql-keyword">f"Количество обновленных строк: {cursor.rowcount}"</span>)
+                        <span class="sql-comment"># Инициализация Faker</span><br>
+                        fake = Faker(<span class="sql-string">'ru_RU'</span>)<br><br>
+
+                        <span class="sql-comment"># Генерация данных для анализа эффективности рекламной
+                            кампании</span><br>
+                        np.random.seed(<span class="sql-keyword">42</span>)<br>
+                        random.seed(<span class="sql-keyword">42</span>)<br><br>
+
+                        <span class="sql-comment"># Создаем датафрейм с данными</span><br>
+                        n_records = <span class="sql-keyword">1000</span><br>
+                        data = []<br><br>
+
+                        <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_records):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;campaign_id = random.choice([<span class="sql-string">'CPC_001'</span>,
+                        <span class="sql-string">'CPC_002'</span>, <span class="sql-string">'SEO_001'</span>, <span
+                            class="sql-string">'SMM_001'</span>, <span class="sql-string">'Email_001'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;channel = campaign_id.split(<span class="sql-string">'_'</span>)[<span
+                            class="sql-keyword">0</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;date = fake.date_between(start_date=<span
+                            class="sql-string">'-30d'</span>, end_date=<span class="sql-string">'today'</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;clicks = np.random.poisson(<span class="sql-keyword">50</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;impressions = clicks + np.random.randint(<span
+                            class="sql-keyword">100</span>, <span class="sql-keyword">500</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;ctr = clicks / impressions<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;conversions = np.random.binomial(clicks, <span
+                            class="sql-keyword">0.03</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;conversion_rate = conversions / clicks <span
+                            class="sql-keyword">if</span> clicks > <span class="sql-keyword">0</span> <span
+                            class="sql-keyword">else</span> <span class="sql-keyword">0</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;cost = clicks * random.uniform(<span class="sql-keyword">0.5</span>,
+                        <span class="sql-keyword">2.5</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;revenue = conversions * random.uniform(<span
+                            class="sql-keyword">50</span>, <span class="sql-keyword">200</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;roi = (revenue - cost) / cost <span class="sql-keyword">if</span> cost >
+                        <span class="sql-keyword">0</span> <span class="sql-keyword">else</span> <span
+                            class="sql-keyword">0</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;device = random.choice([<span class="sql-string">'Mobile'</span>, <span
+                            class="sql-string">'Desktop'</span>, <span class="sql-string">'Tablet'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;region = fake.region()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;age_group = random.choice([<span class="sql-string">'18-24'</span>,
+                        <span class="sql-string">'25-34'</span>, <span class="sql-string">'35-44'</span>, <span
+                            class="sql-string">'45-54'</span>, <span class="sql-string">'55+'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'Male'</span>, <span
+                            class="sql-string">'Female'</span>])<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.append({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'campaign_id'</span>:
+                        campaign_id,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'channel'</span>:
+                        channel,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'date'</span>:
+                        date,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>:
+                        clicks,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'impressions'</span>:
+                        impressions,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'ctr'</span>:
+                        round(ctr, <span class="sql-keyword">4</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
+                        conversions,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="sql-string">'conversion_rate'</span>: round(conversion_rate, <span
+                            class="sql-keyword">4</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>:
+                        round(cost, <span class="sql-keyword">2</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>:
+                        round(revenue, <span class="sql-keyword">2</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'roi'</span>:
+                        round(roi, <span class="sql-keyword">4</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'device'</span>:
+                        device,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'region'</span>:
+                        region,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age_group'</span>:
+                        age_group,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'gender'</span>:
+                        gender<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;})<br><br>
+
+                        <span class="sql-comment"># Создаем DataFrame</span><br>
+                        df_ads = pd.DataFrame(data)<br><br>
+
+                        <span class="sql-comment"># Просмотр сгенерированных данных</span><br>
+                        print(<span class="sql-string">"Размер данных рекламной кампании:"</span>, df_ads.shape)<br>
+                        print(<span class="sql-string">"\nПервые 5 строк:"</span>)<br>
+                        print(df_ads.head())<br><br>
+
+                        print(<span class="sql-string">"\nОсновные статистики:"</span>)<br>
+                        print(df_ads.describe())<br><br>
+
+                        <span class="sql-comment"># Анализ эффективности по каналам</span><br>
+                        print(<span class="sql-string">"\n=== АНАЛИЗ ЭФФЕКТИВНОСТИ ПО КАНАЛАМ ==="</span>)<br>
+                        channel_stats = df_ads.groupby(<span class="sql-string">'channel'</span>).agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'ctr'</span>: <span
+                            class="sql-string">'mean'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversion_rate'</span>: <span
+                            class="sql-string">'mean'</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-keyword">2</span>)<br><br>
+
+                        channel_stats[<span class="sql-string">'roi_total'</span>] = (channel_stats[<span
+                            class="sql-string">'revenue'</span>] - channel_stats[<span
+                            class="sql-string">'cost'</span>]) / channel_stats[<span
+                            class="sql-string">'cost'</span>]<br>
+                        print(channel_stats)<br><br>
+
+                        <span class="sql-comment"># Запись данных в Excel файл</span><br>
+                        output_file = <span class="sql-string">'ad_campaign_analysis.xlsx'</span><br><br>
+
+                        <span class="sql-keyword">with</span> pd.ExcelWriter(output_file, engine=<span
+                            class="sql-string">'openpyxl'</span>) <span class="sql-keyword">as</span> writer:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Основные данные</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;df_ads.to_excel(writer, sheet_name=<span
+                            class="sql-string">'Raw_Data'</span>, index=<span class="sql-keyword">False</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сводная таблица по каналам</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary = df_ads.groupby(<span
+                            class="sql-string">'channel'</span>).agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
+                        <span class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>: <span
+                            class="sql-string">'sum'</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}).reset_index()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary[<span class="sql-string">'profit'</span>] =
+                        channel_summary[<span class="sql-string">'revenue'</span>] - channel_summary[<span
+                            class="sql-string">'cost'</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary[<span class="sql-string">'roi'</span>] =
+                        (channel_summary[<span class="sql-string">'profit'</span>] / channel_summary[<span
+                            class="sql-string">'cost'</span>]).round(<span class="sql-keyword">4</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary.to_excel(writer, sheet_name=<span
+                            class="sql-string">'Channel_Summary'</span>, index=<span
+                            class="sql-keyword">False</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Анализ по демографии</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;demo_analysis = df_ads.groupby([<span
+                            class="sql-string">'age_group'</span>, <span class="sql-string">'gender'</span>]).agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
+                        <span class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
+                            class="sql-string">'sum'</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="sql-string">'conversion_rate'</span>: <span class="sql-string">'mean'</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-keyword">4</span>).reset_index()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;demo_analysis.to_excel(writer, sheet_name=<span
+                            class="sql-string">'Demographic_Analysis'</span>, index=<span
+                            class="sql-keyword">False</span>)<br><br>
+
+                        print(<span class="sql-string">f"\n✅ Данные успешно записаны в файл: {output_file}"</span>)<br>
+                        print(<span class="sql-string">"Листы в файле:"</span>)<br>
+                        print(<span class="sql-string">"- Raw_Data: исходные данные"</span>)<br>
+                        print(<span class="sql-string">"- Channel_Summary: сводка по каналам"</span>)<br>
+                        print(<span class="sql-string">"- Demographic_Analysis: анализ по демографии"</span>)<br><br>
+
+                        <span class="sql-comment"># Визуализация результатов</span><br>
+                        plt.figure(figsize=(<span class="sql-keyword">15</span>, <span
+                            class="sql-keyword">10</span>))<br><br>
+
+                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">1</span>)<br>
+                        df_ads.groupby(<span class="sql-string">'channel'</span>)[<span
+                            class="sql-string">'conversions'</span>].sum().plot(kind=<span
+                            class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'Конверсии по каналам'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Количество конверсий'</span>)<br><br>
+
+                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">2</span>)<br>
+                        df_ads.groupby(<span class="sql-string">'channel'</span>)[<span
+                            class="sql-string">'roi'</span>].mean().plot(kind=<span class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'ROI по каналам'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'ROI'</span>)<br><br>
+
+                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">3</span>)<br>
+                        df_ads.groupby(<span class="sql-string">'device'</span>)[<span
+                            class="sql-string">'conversions'</span>].sum().plot(kind=<span
+                            class="sql-string">'pie'</span>, autopct=<span class="sql-string">'%1.1f%%'</span>)<br>
+                        plt.title(<span class="sql-string">'Распределение конверсий по устройствам'</span>)<br><br>
+
+                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
+                            class="sql-keyword">4</span>)<br>
+                        df_ads.groupby(<span class="sql-string">'age_group'</span>)[<span
+                            class="sql-string">'conversion_rate'</span>].mean().plot(kind=<span
+                            class="sql-string">'bar'</span>)<br>
+                        plt.title(<span class="sql-string">'Конверсия по возрастным группам'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Conversion Rate'</span>)<br><br>
+
+                        plt.tight_layout()<br>
+                        plt.show()<br>
                     </div>
                 </div>
             </div>
+
+
+            <!-- Карточка 6: SQL JOIN операции -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title12.jpg" class="card-img-top" alt="SQL JOIN операции">
+                <div class="card-body">
+                    <h3>Операции соединения таблиц в реляционных базах данных</h3>
+                    <p class="card-text">
+                        Реляционные базы данных нужны для структурированного и надежного хранения больших объемов данных
+                        за счет их организации в виде таблиц со связями между ними. Они обеспечивают целостность данных,
+                        предотвращая дублирование и ошибки, а также позволяют эффективно выполнять сложные запросы,
+                        например, в банковских системах, управлении предприятием и онлайн-торговле.
+                    </p>
+
+                    <p class="card-text">
+                        Связи между таблицами (первичные и внешние ключи) и ограничения (например, NOT NULL, UNIQUE)
+                        гарантируют точность и согласованность данных, предотвращая потерю информации или ввод
+                        некорректных значений.
+                    </p>
+
+                    <div class="alert alert-primary m-5" role="alert">
+                        Первичный ключ — это идентификатор для каждой записи, например, ID покупателя в таблице
+                        «Клиенты». Он гарантирует, что строки не повторяются. Внешний ключ — столбец или набор столбцов,
+                        который ссылается на первичный ключ в другой таблице. Внешние ключи устанавливают связи между
+                        таблицами и гарантируют целостность данных.
+                    </div>
+
+
+                    <p class="card-text">Использование нормализации уменьшает избыточность данных и снижает риск ошибок.
+                    </p>
+
+
+                    <div class="alert alert-dark m-5" role="alert">
+
+
+                        MySQL — СУБД, полностью соответствующая стандартам SQL. Поддерживает транзакционную целостность,
+                        защиту данных, репликацию и хранимые процедуры — заранее сохраненные на сервере наборы
+                        SQL-команд для автоматизации операций. Преимущества MySQL в высокой производительности и
+                        масштабируемости.<br><br>
+
+                        PostgreSQL — мощная БД, которая работает с текстом, числами, форматами JSON, XML и уникальными
+                        данными, например, геометрическими фигурами. Позволяет создавать собственные типы данных, что
+                        делает ее еще более гибкой. <br><br>
+
+                        SQLite встраивается в приложения, поэтому считается легкой и удобной для разных платформ,
+                        включая браузеры Google Chrome и Mozilla Firefox. Но возможности этой БД ограничены: сложно
+                        менять структуру таблиц, а также есть лимиты на количество столбцов (32 000) и объем базы (140
+                        терабайт).<br><br>
+
+                        Oracle Database эффективно обрабатывает большие объемы данных, поэтому ее часто выбирают для
+                        сложных корпоративных задач. Разработчики ценят Oracle Database за удобство, инструменты, четкую
+                        документацию, поддержку функций (JSON, длинные имена, списки) и интеграцию с облачными
+                        сервисами. <br><br>
+
+                        Microsoft SQL Server — популярная коммерческая СУБД с бесплатной версией Express для начинающих.
+                        Поддерживает SQL, непроцедурные языки, нечувствительные к регистру команды и стандартные языки
+                        для работы с БД.<br><br>
+                    </div>
+
+                    <img src="https://thecode.media/wp-content/uploads/2021/09/ssd1_iiw.png"
+                        style="filter: grayscale(100%);" alt="...">
+
+                    <div class="alert alert-primary">
+                        <h4>ЧТО ДЕЛАЕТ ЭТОТ ЗАПРОС?</h4>
+                        SELECT<br>
+                        c.customer_name,<br>
+                        COUNT(o.order_id) AS total_orders,<br>
+                        SUM(o.order_total) AS total_spent<br>
+                        FROM<br>
+                        customers c<br>
+                        JOIN<br>
+                        orders o ON c.customer_id = o.customer_id<br>
+                        WHERE<br>
+                        c.country = 'USA' AND o.order_date >= '2024-01-01'<br>
+                        GROUP BY<br>
+                        c.customer_id, c.customer_name<br>
+                        HAVING<br>
+                        SUM(o.order_total) > 1000<br>
+                        ORDER BY<br>
+                        total_spent DESC<br>
+                        LIMIT 10;<br>
+                    </div>
+
+
+
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> TableA A<br>
+                        <span class="sql-keyword">LEFT JOIN</span> TableB B <span class="sql-keyword">ON</span> A.id =
+                        B.a_id<br>
+                        <span class="sql-keyword">WHERE</span> B.a_id <span class="sql-keyword">IS NULL</span>;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Типы JOIN:</strong></p>
+                            <ul>
+                                <li><strong>INNER JOIN:</strong> Только совпадающие строки</li>
+                                <li><strong>LEFT JOIN:</strong> Все строки из левой таблицы</li>
+                                <li><strong>RIGHT JOIN:</strong> Все строки из правой таблицы</li>
+                                <li><strong>FULL OUTER JOIN:</strong> Все строки из обеих таблиц</li>
+                                <li><strong>CROSS JOIN:</strong> Декартово произведение</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Практическое применение:</strong></p>
+                            <ul>
+                                <li>Поиск отсутствующих записей</li>
+                                <li>Анализ связей между данными</li>
+                                <li>Объединение информации из разных таблиц</li>
+                                <li>Создание отчетов и аналитики</li>
+                                <li>Очистка данных</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Карточка 8: Удаление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title8.jpg" class="card-img-top" alt="Удаление данных">
                 <div class="card-body">
 
-<div class="alert alert-danger" role="alert">
-    Здесь и далее...<br>
-  connection = sqlite3.connect(':memory:')<br>
-  установить соединение с базой данных SQLite, которая будет храниться только в оперативной памяти.<br>
-  Это создаёт временную базу данных, которая существует, пока программа выполняется, и все данные ТЕРЯЮТСЯ после её завершения.<br>
-</div>
+                    <div class="alert alert-dark" role="alert">
+                        В JupyterLite используем виртуальную базу данных в памяти, чтобы не зависала от операций чтения
+                        и записи в файл!<br>
+                        Это создаёт временную базу данных, которая существует, пока программа выполняется, и все данные
+                        ТЕРЯЮТСЯ после её завершения.<br>
+                    </div>
 
                     .
 
@@ -1224,154 +1799,8 @@ WHERE Сессии.patient_id IS NULL</code></pre>
 
                         <span class="sql-comment"># В JupyterLite используем виртуальную базу данных в памяти</span><br>
                         connection = sqlite3.connect(<span class="sql-string">':memory:'</span>)<br>
-                        cursor = connection.cursor()<br><br>
-
+                        cursor = connection.cursor()<br>
                         print(<span class="sql-string">"✅ Создана база данных в памяти"</span>)<br><br>
-
-                        <span class="sql-comment"># Создание объединенной таблицы Пациенты_Сессии</span><br>
-                        create_combined_table = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE</span> Пациенты_Сессии (<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;patient_id <span class="sql-keyword">INTEGER</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;patient_name <span class="sql-keyword">TEXT</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;session_id <span class="sql-keyword">INTEGER</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;session_date <span class="sql-keyword">TEXT</span><br>
-                        );<br>
-                        <span class="sql-string">'''</span><br><br>
-
-                        cursor.execute(create_combined_table)<br>
-                        print(<span class="sql-string">"✅ Таблица создана успешно!"</span>)<br><br>
-
-                        <span class="sql-comment"># Вставляем данные</span><br>
-                        combined_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Пациенты с сессиями</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span
-                            class="sql-string">'Анна'</span>, <span class="sql-number">1</span>, <span
-                            class="sql-string">'2024-01-10'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span
-                            class="sql-string">'Анна'</span>, <span class="sql-number">2</span>, <span
-                            class="sql-string">'2024-01-17'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">3</span>, <span
-                            class="sql-string">'Виктор'</span>, <span class="sql-number">3</span>, <span
-                            class="sql-string">'2024-01-15'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">5</span>, <span
-                            class="sql-string">'Елена'</span>, <span class="sql-number">4</span>, <span
-                            class="sql-string">'2024-01-20'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Пациенты без сессий</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">2</span>, <span
-                            class="sql-string">'Борис'</span>, <span class="sql-keyword">NULL</span>, <span
-                            class="sql-keyword">NULL</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">4</span>, <span
-                            class="sql-string">'Дарья'</span>, <span class="sql-keyword">NULL</span>, <span
-                            class="sql-keyword">NULL</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">6</span>, <span
-                            class="sql-string">'Сергей'</span>, <span class="sql-keyword">NULL</span>, <span
-                            class="sql-keyword">NULL</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сессии без пациентов</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">NULL</span>, <span
-                            class="sql-keyword">NULL</span>, <span class="sql-number">5</span>, <span
-                            class="sql-string">'2024-01-18'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">8</span>, <span
-                            class="sql-keyword">NULL</span>, <span class="sql-number">6</span>, <span
-                            class="sql-string">'2024-01-22'</span>),<br>
-                        ]<br><br>
-
-                        cursor.executemany(<span class="sql-string">"INSERT INTO Пациенты_Сессии VALUES (?, ?, ?,
-                            ?)"</span>, combined_data)<br>
-                        connection.commit()<br>
-                        print(<span class="sql-string">"✅ Все данные добавлены успешно!"</span>)<br><br>
-
-                        <span class="sql-comment"># Запрос: найти пациентов без сессий</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">50</span>)<br>
-                        print(<span class="sql-string">"ПАЦИЕНТЫ БЕЗ СЕССИЙ:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br><br>
-
-                        query = <span class="sql-string">"""</span><br>
-                        <span class="sql-keyword">SELECT</span> patient_id, patient_name <br>
-                        <span class="sql-keyword">FROM</span> Пациенты_Сессии <br>
-                        <span class="sql-keyword">WHERE</span> patient_id <span class="sql-keyword">IS NOT NULL</span>
-                        <br>
-                        <span class="sql-keyword">AND</span> patient_name <span class="sql-keyword">IS NOT NULL</span>
-                        <br>
-                        <span class="sql-keyword">AND</span> session_id <span class="sql-keyword">IS NULL</span><br>
-                        <span class="sql-string">"""</span><br><br>
-
-                        cursor.execute(query)<br>
-                        patients_without_sessions = cursor.fetchall()<br><br>
-
-                        <span class="sql-keyword">if</span> patients_without_sessions:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> patient <span
-                            class="sql-keyword">in</span> patients_without_sessions:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"ID:
-                            {patient[0]}, Имя: {patient[1]}"</span>)<br>
-                        <span class="sql-keyword">else</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">"Нет пациентов без
-                            сессий"</span>)<br><br>
-
-                        <span class="sql-comment"># Визуализация данных через pandas</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">50</span>)<br>
-                        print(<span class="sql-string">"ВИЗУАЛИЗАЦИЯ ДАННЫХ:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br><br>
-
-                        <span class="sql-comment"># Получаем все данные для отображения</span><br>
-                        cursor.execute(<span class="sql-string">"SELECT * FROM Пациенты_Сессии ORDER BY patient_id,
-                            session_id"</span>)<br>
-                        all_data = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Создаем DataFrame для красивого отображения</span><br>
-                        df = pd.DataFrame(all_data, columns=[<span class="sql-string">'Patient ID'</span>, <span
-                            class="sql-string">'Patient Name'</span>, <span class="sql-string">'Session ID'</span>,
-                        <span class="sql-string">'Session Date'</span>])<br><br>
-
-                        <span class="sql-comment"># Заменяем None на более читаемые значения</span><br>
-                        df_display = df.fillna(<span class="sql-string">'---'</span>)<br>
-                        print(df_display.to_string(index=<span class="sql-keyword">False</span>))<br><br>
-
-                        <span class="sql-comment"># Аналитика через pandas</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">50</span>)<br>
-                        print(<span class="sql-string">"АНАЛИТИКА:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br><br>
-
-                        <span class="sql-comment"># 1. Все пациенты</span><br>
-                        print(<span class="sql-string">"\n1. Все зарегистрированные пациенты:"</span>)<br>
-                        patients = df[df[<span class="sql-string">'Patient Name'</span>].notna()][[<span
-                            class="sql-string">'Patient ID'</span>, <span class="sql-string">'Patient
-                            Name'</span>]].drop_duplicates()<br>
-                        print(patients.to_string(index=<span class="sql-keyword">False</span>))<br><br>
-
-                        <span class="sql-comment"># 2. Статистика</span><br>
-                        print(<span class="sql-string">"\n2. Статистика:"</span>)<br>
-                        total_patients = df[<span class="sql-string">'Patient ID'</span>].nunique()<br>
-                        patients_with_sessions = df[df[<span class="sql-string">'Session ID'</span>].notna()][<span
-                            class="sql-string">'Patient ID'</span>].nunique()<br>
-                        total_sessions = df[<span class="sql-string">'Session ID'</span>].nunique()<br><br>
-
-                        print(<span class="sql-string">f" Всего пациентов: {total_patients}"</span>)<br>
-                        print(<span class="sql-string">f" Всего сессий: {total_sessions}"</span>)<br>
-                        print(<span class="sql-string">f" Пациентов с сессиями: {patients_with_sessions}"</span>)<br>
-                        print(<span class="sql-string">f" Пациентов без сессий: {total_patients -
-                            patients_with_sessions}"</span>)<br><br>
-
-                        <span class="sql-comment"># 3. Сессии без привязки</span><br>
-                        print(<span class="sql-string">"\n3. Сессии без привязки к пациентам:"</span>)<br>
-                        orphan_sessions = df[df[<span class="sql-string">'Patient ID'</span>].isna() & df[<span
-                            class="sql-string">'Session ID'</span>].notna()]<br>
-                        <span class="sql-keyword">if</span> <span class="sql-keyword">not</span>
-                        orphan_sessions.empty:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(orphan_sessions[[<span class="sql-string">'Session ID'</span>,
-                        <span class="sql-string">'Session Date'</span>]].to_string(index=<span
-                            class="sql-keyword">False</span>))<br>
-                        <span class="sql-keyword">else</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">" Нет сессий без
-                            привязки"</span>)<br><br>
-
-                        <span class="sql-comment"># Альтернативный способ с чистыми данными</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">50</span>)<br>
-                        print(<span class="sql-string">"ЧИСТЫЕ ДАННЫЕ (разделенные):"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br><br>
 
                         <span class="sql-comment"># Создаем чистые таблицы отдельно</span><br>
                         cursor.execute(<span class="sql-string">'CREATE TABLE Пациенты (id INTEGER PRIMARY KEY, имя
@@ -1381,27 +1810,33 @@ WHERE Сессии.patient_id IS NULL</code></pre>
 
                         <span class="sql-comment"># Вставляем данные</span><br>
                         patients_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span
-                            class="sql-string">'Анна'</span>), (<span class="sql-number">2</span>, <span
-                            class="sql-string">'Борис'</span>), (<span class="sql-number">3</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">1</span>, <span
+                            class="sql-string">'Анна'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">2</span>, <span
+                            class="sql-string">'Борис'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">3</span>, <span
                             class="sql-string">'Виктор'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">4</span>, <span
-                            class="sql-string">'Дарья'</span>), (<span class="sql-number">5</span>, <span
-                            class="sql-string">'Елена'</span>), (<span class="sql-number">6</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">4</span>, <span
+                            class="sql-string">'Дарья'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">5</span>, <span
+                            class="sql-string">'Елена'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">6</span>, <span
                             class="sql-string">'Сергей'</span>)<br>
                         ]<br><br>
 
                         sessions_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span class="sql-number">1</span>,
-                        <span class="sql-string">'2024-01-10'</span>), (<span class="sql-number">2</span>, <span
-                            class="sql-number">1</span>, <span class="sql-string">'2024-01-17'</span>), (<span
-                            class="sql-number">3</span>, <span class="sql-number">3</span>, <span
-                            class="sql-string">'2024-01-15'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">4</span>, <span class="sql-number">5</span>,
-                        <span class="sql-string">'2024-01-20'</span>), (<span class="sql-number">5</span>, <span
-                            class="sql-keyword">NULL</span>, <span class="sql-string">'2024-01-18'</span>), (<span
-                            class="sql-number">6</span>, <span class="sql-number">8</span>, <span
-                            class="sql-string">'2024-01-22'</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>,
+                        <span class="sql-string">'2024-01-10'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">2</span>, <span class="sql-keyword">1</span>,
+                        <span class="sql-string">'2024-01-17'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">3</span>, <span class="sql-keyword">3</span>,
+                        <span class="sql-string">'2024-01-15'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">4</span>, <span class="sql-keyword">5</span>,
+                        <span class="sql-string">'2024-01-20'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">5</span>, <span
+                            class="sql-keyword">None</span>, <span class="sql-string">'2024-01-18'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">6</span>, <span class="sql-keyword">8</span>,
+                        <span class="sql-string">'2024-01-22'</span>)<br>
                         ]<br><br>
 
                         cursor.executemany(<span class="sql-string">"INSERT INTO Пациенты VALUES (?, ?)"</span>,
@@ -1411,30 +1846,22 @@ WHERE Сессии.patient_id IS NULL</code></pre>
                         connection.commit()<br><br>
 
                         <span class="sql-comment"># Выполняем исходный запрос</span><br>
-                        original_query = <span class="sql-string">"""</span><br>
-                        <span class="sql-keyword">SELECT</span> Пациенты.id, Пациенты.имя <br>
-                        <span class="sql-keyword">FROM</span> Пациенты <br>
-                        <span class="sql-keyword">LEFT JOIN</span> Сессии <span class="sql-keyword">ON</span>
-                        Пациенты.id = Сессии.patient_id <br>
-                        <span class="sql-keyword">WHERE</span> Сессии.patient_id <span class="sql-keyword">IS
-                            NULL</span><br>
-                        <span class="sql-string">"""</span><br><br>
+                        original_query = <span class="sql-string">"""<br>
+                            SELECT Пациенты.id, Пациенты.имя<br>
+                            FROM Пациенты<br>
+                            LEFT JOIN Сессии ON Пациенты.id = Сессии.patient_id<br>
+                            WHERE Сессии.patient_id IS NULL<br>
+                            """</span><br><br>
 
                         cursor.execute(original_query)<br>
-                        result = cursor.fetchall()<br><br>
-
-                        print(<span class="sql-string">"\nРезультат исходного запроса (пациенты без
-                            сессий):"</span>)<br>
+                        result = cursor.fetchall()<br>
+                        print(<span class="sql-string">"\nРезультат запроса:"</span>)<br>
                         <span class="sql-keyword">for</span> row <span class="sql-keyword">in</span> result:<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"ID: {row[0]}, Имя:
                             {row[1]}"</span>)<br><br>
 
                         <span class="sql-comment"># Закрытие соединения</span><br>
                         connection.close()<br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">50</span>)<br>
-                        print(<span class="sql-string">"✅ ПРОГРАММА УСПЕШНО ВЫПОЛНЕНА!"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
                     </div>
                 </div>
             </div>
@@ -1548,232 +1975,99 @@ WHERE Студенты.id IS NOT NULL</code></pre>
                         <span class="sql-keyword">import</span> sqlite3<br>
                         <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br><br>
 
-                        <span class="sql-comment"># Создаем базу данных в памяти для JupyterLite</span><br>
+                        <span class="sql-comment"># Создаем базу данных в памяти</span><br>
                         connection = sqlite3.connect(<span class="sql-string">':memory:'</span>)<br>
-                        cursor = connection.cursor()<br><br>
-
+                        cursor = connection.cursor()<br>
                         print(<span class="sql-string">"✅ Создана база данных в памяти"</span>)<br><br>
 
-                        <span class="sql-comment"># Создание таблицы Студенты</span><br>
-                        create_students_table = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE</span> Студенты (<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;id <span class="sql-keyword">INTEGER PRIMARY KEY</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;имя <span class="sql-keyword">TEXT NOT NULL</span><br>
-                        );<br>
-                        <span class="sql-string">'''</span><br><br>
-
-                        <span class="sql-comment"># Создание таблицы Тесты_результаты</span><br>
-                        create_tests_table = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE</span> Тесты_результаты (<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;id <span class="sql-keyword">INTEGER PRIMARY KEY</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;student_id <span class="sql-keyword">INTEGER</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;тест <span class="sql-keyword">TEXT NOT NULL</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">FOREIGN KEY</span> (student_id) <span
-                            class="sql-keyword">REFERENCES</span> Студенты(id)<br>
-                        );<br>
-                        <span class="sql-string">'''</span><br><br>
-
-                        cursor.execute(create_students_table)<br>
-                        cursor.execute(create_tests_table)<br>
-                        print(<span class="sql-string">"✅ Таблицы созданы успешно!"</span>)<br><br>
+                        <span class="sql-comment"># Создаем таблицы</span><br>
+                        cursor.execute(<span class="sql-string">'CREATE TABLE Студенты (id INTEGER PRIMARY KEY, имя
+                            TEXT)'</span>)<br>
+                        cursor.execute(<span class="sql-string">'CREATE TABLE Тесты_результаты (id INTEGER PRIMARY KEY,
+                            student_id INTEGER, тест TEXT)'</span>)<br><br>
 
                         <span class="sql-comment"># Вставляем данные в таблицу Студенты</span><br>
                         students_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">1</span>, <span
                             class="sql-string">'Ольга'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">2</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">2</span>, <span
                             class="sql-string">'Иван'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">3</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">3</span>, <span
                             class="sql-string">'Мария'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">4</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">4</span>, <span
                             class="sql-string">'Алексей'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">5</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">5</span>, <span
                             class="sql-string">'Наталья'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">6</span>, <span
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">6</span>, <span
                             class="sql-string">'Дмитрий'</span>)<br>
+                        ]<br><br>
+
+                        <span class="sql-comment"># Вставляем данные в таблицу Тесты_результаты</span><br>
+                        tests_data = [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>,
+                        <span class="sql-string">'MMPI'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">2</span>, <span class="sql-keyword">1</span>,
+                        <span class="sql-string">'16-факторов'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">3</span>, <span class="sql-keyword">2</span>,
+                        <span class="sql-string">'MMPI'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">4</span>, <span class="sql-keyword">4</span>,
+                        <span class="sql-string">'СМИЛ'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">5</span>, <span
+                            class="sql-keyword">None</span>, <span class="sql-string">'Айзенк'</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-keyword">6</span>, <span class="sql-keyword">7</span>,
+                        <span class="sql-string">'Кеттелл'</span>)<br>
                         ]<br><br>
 
                         cursor.executemany(<span class="sql-string">"INSERT INTO Студенты VALUES (?, ?)"</span>,
                         students_data)<br>
-                        print(<span class="sql-string">"✅ Данные студентов добавлены"</span>)<br><br>
-
-                        <span class="sql-comment"># Вставляем данные в таблицу Тесты_результаты</span><br>
-                        tests_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">1</span>, <span class="sql-number">1</span>,
-                        <span class="sql-string">'MMPI'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">2</span>, <span class="sql-number">1</span>,
-                        <span class="sql-string">'16-факторов'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">3</span>, <span class="sql-number">2</span>,
-                        <span class="sql-string">'MMPI'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">4</span>, <span class="sql-number">4</span>,
-                        <span class="sql-string">'СМИЛ'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">5</span>, <span
-                            class="sql-keyword">NULL</span>, <span class="sql-string">'Айзенк'</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql-number">6</span>, <span class="sql-number">7</span>,
-                        <span class="sql-string">'Кеттелл'</span>)<br>
-                        ]<br><br>
-
                         cursor.executemany(<span class="sql-string">"INSERT INTO Тесты_результаты VALUES (?, ?,
                             ?)"</span>, tests_data)<br>
-                        print(<span class="sql-string">"✅ Данные тестов добавлены"</span>)<br><br>
+                        connection.commit()<br><br>
 
-                        <span class="sql-comment"># Выполняем SQL запрос RIGHT JOIN</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"ВЫПОЛНЕНИЕ SQL ЗАПРОСА:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
-
-                        query = <span class="sql-string">"""</span><br>
-                        <span class="sql-keyword">SELECT</span> Тесты_результаты.id <br>
-                        <span class="sql-keyword">FROM</span> Студенты <br>
-                        <span class="sql-keyword">RIGHT JOIN</span> Тесты_результаты <span class="sql-keyword">ON</span>
-                        Студенты.id = Тесты_результаты.student_id <br>
-                        <span class="sql-keyword">WHERE</span> Студенты.id <span class="sql-keyword">IS NOT
-                            NULL</span><br>
-                        <span class="sql-string">"""</span><br><br>
-
-                        print(<span class="sql-string">"SQL запрос:"</span>)<br>
-                        print(<span class="sql-string">"SELECT Тесты_результаты.id"</span>)<br>
-                        print(<span class="sql-string">"FROM Студенты"</span>)<br>
-                        print(<span class="sql-string">"RIGHT JOIN Тесты_результаты ON Студенты.id =
-                            Тесты_результаты.student_id"</span>)<br>
-                        print(<span class="sql-string">"WHERE Студенты.id IS NOT NULL"</span>)<br><br>
+                        <span class="sql-comment"># Выполняем SQL запрос</span><br>
+                        query = <span class="sql-string">"""<br>
+                            SELECT Тесты_результаты.id <br>
+                            FROM Студенты <br>
+                            RIGHT JOIN Тесты_результаты ON Студенты.id = Тесты_результаты.student_id <br>
+                            WHERE Студенты.id IS NOT NULL<br>
+                            """</span><br><br>
 
                         cursor.execute(query)<br>
-                        result = cursor.fetchall()<br><br>
-
-                        print(<span class="sql-string">f"\n✅ Результат запроса: {[row[0] for row in
-                            result]}"</span>)<br>
-                        print(<span class="sql-string">"\nID из Тесты_результаты, которые будут в
-                            результате:"</span>)<br><br>
-
+                        result = cursor.fetchall()<br>
+                        print(<span class="sql-string">"Результат запроса - id из Тесты_результаты:"</span>)<br>
                         <span class="sql-keyword">for</span> row <span class="sql-keyword">in</span> result:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f" ID: {row[0]}"</span>)<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"ID: {row[0]}"</span>)<br><br>
 
-                        <span class="sql-comment"># Визуализация данных для лучшего понимания</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"ВИЗУАЛИЗАЦИЯ ДАННЫХ:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
+                        <span class="sql-comment"># Альтернативный вариант с pandas для наглядности</span><br>
+                        print(<span class="sql-string">"\n📊 Полная информация о результате:"</span>)<br>
+                        full_query = <span class="sql-string">"""<br>
+                            SELECT Студенты.id as student_id, Студенты.имя, <br>
+                            Тесты_результаты.id as test_id, Тесты_результаты.тест<br>
+                            FROM Студенты <br>
+                            RIGHT JOIN Тесты_результаты ON Студенты.id = Тесты_результаты.student_id <br>
+                            WHERE Студенты.id IS NOT NULL<br>
+                            """</span><br><br>
 
-                        <span class="sql-comment"># Получаем все данные для отображения</span><br>
-                        cursor.execute(<span class="sql-string">"SELECT * FROM Студенты ORDER BY id"</span>)<br>
-                        students = cursor.fetchall()<br><br>
-
-                        cursor.execute(<span class="sql-string">"SELECT * FROM Тесты_результаты ORDER BY id"</span>)<br>
-                        tests = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Создаем DataFrame для красивого отображения</span><br>
-                        students_df = pd.DataFrame(students, columns=[<span class="sql-string">'ID'</span>, <span
-                            class="sql-string">'Имя'</span>])<br>
-                        tests_df = pd.DataFrame(tests, columns=[<span class="sql-string">'ID'</span>, <span
-                            class="sql-string">'Student ID'</span>, <span class="sql-string">'Тест'</span>])<br><br>
-
-                        print(<span class="sql-string">"\nТаблица Студенты:"</span>)<br>
-                        print(students_df.to_string(index=<span class="sql-keyword">False</span>))<br><br>
-
-                        print(<span class="sql-string">"\nТаблица Тесты_результаты:"</span>)<br>
-                        print(tests_df.fillna(<span class="sql-string">'NULL'</span>).to_string(index=<span
-                            class="sql-keyword">False</span>))<br><br>
-
-                        <span class="sql-comment"># Аналитика данных</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"АНАЛИТИКА ДАННЫХ:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
-
-                        <span class="sql-comment"># 1. Все тесты с информацией о студентах (INNER JOIN)</span><br>
-                        print(<span class="sql-string">"\n1. Все тесты с информацией о студентах (INNER
-                            JOIN):"</span>)<br>
-                        inner_query = <span class="sql-string">"""</span><br>
-                        <span class="sql-keyword">SELECT</span> Тесты_результаты.id, Студенты.имя,
-                        Тесты_результаты.тест<br>
-                        <span class="sql-keyword">FROM</span> Тесты_результаты<br>
-                        <span class="sql-keyword">JOIN</span> Студенты <span class="sql-keyword">ON</span> Студенты.id =
-                        Тесты_результаты.student_id<br>
-                        <span class="sql-keyword">ORDER BY</span> Тесты_результаты.id<br>
-                        <span class="sql-string">"""</span><br>
-                        cursor.execute(inner_query)<br>
-                        inner_results = cursor.fetchall()<br>
-                        <span class="sql-keyword">for</span> row <span class="sql-keyword">in</span> inner_results:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f" ID теста: {row[0]}, Студент: {row[1]},
-                            Тест: {row[2]}"</span>)<br><br>
-
-                        <span class="sql-comment"># 2. Тесты без привязки к студентам</span><br>
-                        print(<span class="sql-string">"\n2. Тесты без привязки к студентам:"</span>)<br>
-                        orphan_tests = tests_df[tests_df[<span class="sql-string">'Student ID'</span>].isna()]<br>
-                        <span class="sql-keyword">if</span> <span class="sql-keyword">not</span> orphan_tests.empty:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> _, test <span
-                            class="sql-keyword">in</span> orphan_tests.iterrows():<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f" ID теста:
-                            {test['ID']}, Тест: {test['Тест']}"</span>)<br>
-                        <span class="sql-keyword">else</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">" Нет тестов без
-                            привязки"</span>)<br><br>
-
-                        <span class="sql-comment"># 3. Тесты с несуществующими студентами</span><br>
-                        print(<span class="sql-string">"\n3. Тесты с несуществующими студентами:"</span>)<br>
-                        invalid_tests = []<br>
-                        <span class="sql-keyword">for</span> _, test <span class="sql-keyword">in</span>
-                        tests_df.iterrows():<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> test[<span
-                            class="sql-string">'Student ID'</span>] <span class="sql-keyword">is</span> <span
-                            class="sql-keyword">not</span> <span class="sql-keyword">None</span> <span
-                            class="sql-keyword">and</span> test[<span class="sql-string">'Student ID'</span>] <span
-                            class="sql-keyword">not</span> <span class="sql-keyword">in</span> [s[<span
-                            class="sql-number">0</span>] <span class="sql-keyword">for</span> s <span
-                            class="sql-keyword">in</span> students]:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invalid_tests.append(test)<br><br>
-
-                        <span class="sql-keyword">if</span> invalid_tests:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> test <span
-                            class="sql-keyword">in</span> invalid_tests:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f" ID теста:
-                            {test['ID']}, Student ID: {test['Student ID']}, Тест: {test['Тест']}"</span>)<br>
-                        <span class="sql-keyword">else</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">" Нет тестов с несуществующими
-                            студентами"</span>)<br><br>
-
-                        <span class="sql-comment"># Объяснение RIGHT JOIN</span><br>
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"ОБЪЯСНЕНИЕ RIGHT JOIN:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
-
-                        print(<span class="sql-string">"""</span><br>
-                        <span class="sql-keyword">RIGHT JOIN</span> возвращает все записи из правой таблицы
-                        (Тесты_результаты)<br>
-                        и соответствующие записи из левой таблицы (Студенты).<br><br>
-
-                        В данном запросе:<br>
-                        - Берем ВСЕ записи из Тесты_результаты<br>
-                        - Присоединяем к ним записи из Студенты по student_id<br>
-                        - Фильтруем только те, где Студенты.id <span class="sql-keyword">IS NOT NULL</span><br><br>
-
-                        Это означает, что мы оставляем только те тесты, у которых есть<br>
-                        существующий студент в таблице Студенты.<br><br>
-
-                        Тесты, которые НЕ войдут в результат:<br>
-                        - ID <span class="sql-number">5</span>: student_id = <span class="sql-keyword">NULL</span> (нет
-                        привязки к студенту)<br>
-                        - ID <span class="sql-number">6</span>: student_id = <span class="sql-number">7</span> (студента
-                        с ID <span class="sql-number">7</span> не существует)<br>
-                        <span class="sql-string">"""</span>)<br><br>
+                        df = pd.read_sql_query(full_query, connection)<br>
+                        print(df)<br><br>
 
                         <span class="sql-comment"># Закрытие соединения</span><br>
-                        connection.close()<br><br>
-
-                        print(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span
-                            class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"✅ ОТВЕТ:"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
-                        print(<span class="sql-string">"В результате будут ID тестов: 1, 2, 3, 4"</span>)<br>
-                        print(<span class="sql-string">"Эти тесты имеют существующих студентов в таблице
-                            Студенты"</span>)<br>
-                        print(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+                        connection.close()<br>
                     </div>
                 </div>
             </div>
+
+
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title15.jpg" class="card-img-top" alt="Несколько таблиц">
+                <div class="card-body">
+                    <h3> Сгенереруйте Python код с Faker для всех тестов, содержащих SQL запрос SELECT, JOIN </h3>
+                    <p class="card-text">JOIN операции и связи между таблицами.</p>
+                </div>
+            </div>
+
+
+
 
 
             <!-- Карточка 9: Работа с несколькими таблицами -->
