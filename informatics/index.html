@@ -981,9 +981,171 @@
 
             <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title11.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Комплексный пример Имитация статистического исследования</h3>
+
+
+
+                    <p class="card-text">numpy, pandas, matplotlib</p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
+                        plt<br>
+                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+                        <span class="sql-keyword">import</span> random<br>
+                        <span class="sql-keyword">import</span> micropip<br><br>
+
+                        <span class="sql-comment"># Установка зависимостей</span><br>
+                        <span class="sql-keyword">await</span> micropip.install(<span
+                            class="sql-string">"faker"</span>)<br>
+                        <span class="sql-keyword">await</span> micropip.install(<span
+                            class="sql-string">"openpyxl"</span>)<br><br>
+
+                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span>
+                        Faker<br><br>
+
+                        <span class="sql-comment"># Инициализация Faker</span><br>
+                        fake = Faker(<span class="sql-string">'ru_RU'</span>)<br><br>
+
+                        <span class="sql-comment"># Генерация данных для исследования роста</span><br>
+                        np.random.seed(<span class="sql-number">42</span>)<br>
+                        random.seed(<span class="sql-number">42</span>)<br><br>
+
+                        <span class="sql-comment"># Создаем датафрейм с данными</span><br>
+                        n_records = <span class="sql-number">1000</span><br>
+                        data = []<br><br>
+
+                        <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_records):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'male'</span>, <span
+                            class="sql-string">'female'</span>])<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> gender == <span
+                            class="sql-string">'male'</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = fake.first_name_male()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span
+                            class="sql-number">177.2</span>, <span class="sql-number">7</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = fake.first_name_female()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span
+                            class="sql-number">164.5</span>, <span class="sql-number">6</span>)<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;height = max(<span class="sql-number">150</span>, min(<span
+                            class="sql-number">210</span>, height))<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;age = random.randint(<span class="sql-number">18</span>, <span
+                            class="sql-number">65</span>)<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> age &lt; <span
+                            class="sql-number">25</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height += random.uniform(<span
+                            class="sql-number">0</span>, <span class="sql-number">2</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">elif</span> age &gt; <span
+                            class="sql-number">55</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height -= random.uniform(<span
+                            class="sql-number">0</span>, <span class="sql-number">2</span>)<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.append({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'id'</span>: i + <span
+                            class="sql-number">1</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'first_name'</span>:
+                        first_name,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'last_name'</span>:
+                        fake.last_name(),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age'</span>: age,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'gender'</span>:
+                        gender.capitalize(),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'height'</span>:
+                        round(height, <span class="sql-number">1</span>),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'city'</span>:
+                        fake.city()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;})<br><br>
+
+                        <span class="sql-comment"># Создаем DataFrame</span><br>
+                        df_height = pd.DataFrame(data)<br><br>
+
+                        <span class="sql-comment"># Просмотр сгенерированных данных</span><br>
+                        print(<span class="sql-string">"Размер данных:"</span>, df_height.shape)<br>
+                        print(<span class="sql-string">"\nПервые 5 строк:"</span>)<br>
+                        print(df_height.head())<br><br>
+
+                        <span class="sql-comment"># Основные статистики</span><br>
+                        print(<span class="sql-string">"\nОсновные статистики по росту:"</span>)<br>
+                        print(df_height[<span class="sql-string">'height'</span>].describe())<br><br>
+
+                        <span class="sql-comment"># Статистика по полу</span><br>
+                        print(<span class="sql-string">"\nСредний рост по полу:"</span>)<br>
+                        height_by_gender = df_height.groupby(<span class="sql-string">'gender'</span>)[<span
+                            class="sql-string">'height'</span>].agg([<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'count'</span>, <span
+                            class="sql-string">'mean'</span>, <span class="sql-string">'std'</span>, <span
+                            class="sql-string">'min'</span>, <span class="sql-string">'max'</span><br>
+                        ]).round(<span class="sql-number">1</span>)<br>
+                        print(height_by_gender)<br><br>
+
+                        <span class="sql-comment"># Запись данных в Excel файл</span><br>
+                        output_file = <span class="sql-string">'height_research_russia.xlsx'</span><br><br>
+
+                        <span class="sql-keyword">with</span> pd.ExcelWriter(output_file, engine=<span
+                            class="sql-string">'openpyxl'</span>) <span class="sql-keyword">as</span> writer:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;df_height.to_excel(writer, sheet_name=<span
+                            class="sql-string">'Height_Data'</span>, index=<span class="sql-keyword">False</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;summary_stats = df_height.groupby(<span
+                            class="sql-string">'gender'</span>).agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'height'</span>: [<span
+                            class="sql-string">'mean'</span>, <span class="sql-string">'std'</span>, <span
+                            class="sql-string">'min'</span>, <span class="sql-string">'max'</span>],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age'</span>: <span
+                            class="sql-string">'mean'</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-number">1</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;summary_stats.to_excel(writer, sheet_name=<span
+                            class="sql-string">'Summary_Statistics'</span>)<br><br>
+
+                        print(<span class="sql-string">f"\n✅ Данные успешно записаны в файл: {output_file}"</span>)<br>
+
+                        <span class="sql-comment"># Визуализация результатов</span><br>
+                        plt.figure(figsize=(<span class="sql-number">12</span>, <span
+                            class="sql-number">8</span>))<br><br>
+
+                        plt.subplot(<span class="sql-number">2</span>, <span class="sql-number">2</span>, <span
+                            class="sql-number">1</span>)<br>
+                        <span class="sql-keyword">for</span> gender <span class="sql-keyword">in</span> [<span
+                            class="sql-string">'Male'</span>, <span class="sql-string">'Female'</span>]:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;plt.hist(df_height[df_height[<span class="sql-string">'gender'</span>]
+                        == gender][<span class="sql-string">'height'</span>], <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=<span
+                            class="sql-number">0.7</span>, label=gender, bins=<span class="sql-number">20</span>)<br>
+                        plt.xlabel(<span class="sql-string">'Рост (см)'</span>)<br>
+                        plt.ylabel(<span class="sql-string">'Количество'</span>)<br>
+                        plt.title(<span class="sql-string">'Распределение роста по полу'</span>)<br>
+                        plt.legend()<br><br>
+
+                        plt.subplot(<span class="sql-number">2</span>, <span class="sql-number">2</span>, <span
+                            class="sql-number">2</span>)<br>
+                        gender_data = [df_height[df_height[<span class="sql-string">'gender'</span>] == <span
+                            class="sql-string">'Male'</span>][<span class="sql-string">'height'</span>],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;df_height[df_height[<span
+                            class="sql-string">'gender'</span>] == <span class="sql-string">'Female'</span>][<span
+                            class="sql-string">'height'</span>]]<br>
+                        plt.boxplot(gender_data, labels=[<span class="sql-string">'Мужчины'</span>, <span
+                            class="sql-string">'Женщины'</span>])<br>
+                        plt.ylabel(<span class="sql-string">'Рост (см)'</span>)<br>
+                        plt.title(<span class="sql-string">'Боксплот распределения роста'</span>)<br><br>
+
+                        plt.tight_layout()<br>
+                        plt.show()<br>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Карточка 7: Обновление данных -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title17.jpg" class="card-img-top" alt="Обновление данных">
                 <div class="card-body">
-                    <h3>Комплексный пример 1</h3>
+                    <h3>Комплексный пример. Исследование базы данных с неизвестной структурой</h3>
 
 
 
@@ -1166,7 +1328,7 @@
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
                 <div class="card-body">
-                    <h3>Комплексный пример 2</h3>
+                    <h3>Комплексный пример Анализ оценок студентов</h3>
 
                     <div class="alert alert-danger" role="alert">
                         В JupyterLite используем виртуальную базу данных в памяти, чтобы не зависала от операций чтения
@@ -1314,10 +1476,10 @@
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title16.jpg" class="card-img-top" alt="Обновление данных">
                 <div class="card-body">
-                    <h3>Комплексный пример 3</h3>
+                    <h3>Комплексный пример Анализ эффективности рекламной кампании</h3>
 
                     <div class="alert alert-danger" role="alert">
-                        Этот код генерирует реалистичные данные для анализа эффективности рекламной кампании и
+                        Код генерирует реалистичные данные для анализа эффективности рекламной кампании и
                         записывает их в Excel файл с несколькими листами:<br>
 
                         Содержание данных:<br>
@@ -2061,7 +2223,8 @@ WHERE Студенты.id IS NOT NULL</code></pre>
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title15.jpg" class="card-img-top" alt="Несколько таблиц">
                 <div class="card-body">
-                    <h3> Сгенереруйте Python код с Faker для всех тестов, содержащих SQL запрос SELECT, JOIN </h3>
+                    <h3> Сгенереруйте Python код с Faker для всех тестов в нижней части страницы, содержащих SQL запрос
+                        SELECT, JOIN </h3>
                     <p class="card-text">JOIN операции и связи между таблицами.</p>
                 </div>
             </div>
@@ -2214,179 +2377,7 @@ WHERE Студенты.id IS NOT NULL</code></pre>
                 </div>
             </div>
 
-            <!-- Карточка 12: Практический пример для журналистов -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title12.jpg" class="card-img-top" alt="Журналистика">
-                <div class="card-body">
-                    <h3>Практический пример: База данных для журналистов</h3>
-                    <p class="card-text">Полный пример создания и работы с базой данных для журналистских проектов.</p>
-                    <div class="code-block">
-                        <span class="sql-keyword">import</span> sqlite3<br>
-                        <span class="sql-keyword">import</span> datetime<br><br>
-
-                        <span class="sql-comment"># Создание базы данных журналистов</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        cursor = conn.cursor()<br><br>
-
-                        <span class="sql-comment"># Создание таблиц</span><br>
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE</span> IF NOT EXISTS articles (<br>
-                        id INTEGER <span class="sql-keyword">PRIMARY KEY AUTOINCREMENT</span>,<br>
-                        title TEXT <span class="sql-keyword">NOT NULL</span>,<br>
-                        content TEXT,<br>
-                        author_id INTEGER,<br>
-                        publication_date DATE,<br>
-                        category TEXT,<br>
-                        views INTEGER <span class="sql-keyword">DEFAULT</span> 0,<br>
-                        status TEXT <span class="sql-keyword">DEFAULT</span> 'draft'<br>
-                        )<br>
-                        <span class="sql-keyword">'''</span>)<br><br>
-
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE</span> IF NOT EXISTS authors (<br>
-                        id INTEGER <span class="sql-keyword">PRIMARY KEY AUTOINCREMENT</span>,<br>
-                        name TEXT <span class="sql-keyword">NOT NULL</span>,<br>
-                        email TEXT <span class="sql-keyword">UNIQUE</span>,<br>
-                        specialization TEXT,<br>
-                        hire_date DATE<br>
-                        )<br>
-                        <span class="sql-keyword">'''</span>)<br><br>
-
-                        <span class="sql-comment"># Добавление данных</span><br>
-                        authors_data = [<br>
-                        (<span class="sql-keyword">'Алексей Смирнов'</span>, <span
-                            class="sql-keyword">'alex@news.ru'</span>, <span class="sql-keyword">'Политика'</span>,
-                        <span class="sql-keyword">'2020-01-15'</span>),<br>
-                        (<span class="sql-keyword">'Елена Воробьева'</span>, <span
-                            class="sql-keyword">'elena@news.ru'</span>, <span class="sql-keyword">'Культура'</span>,
-                        <span class="sql-keyword">'2019-03-20'</span>),<br>
-                        (<span class="sql-keyword">'Дмитрий Ковалев'</span>, <span
-                            class="sql-keyword">'dmitry@news.ru'</span>, <span class="sql-keyword">'Спорт'</span>, <span
-                            class="sql-keyword">'2021-06-10'</span>)<br>
-                        ]<br><br>
-
-                        cursor.executemany(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">INSERT INTO</span> authors (name, email, specialization,
-                        hire_date)<br>
-                        <span class="sql-keyword">VALUES</span> (?, ?, ?, ?)<br>
-                        <span class="sql-keyword">'''</span>, authors_data)<br><br>
-
-                        <span class="sql-comment"># Сложные запросы для анализа</span><br>
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> a.name, <span class="sql-keyword">COUNT</span>(ar.id) as
-                        article_count, <span class="sql-keyword">AVG</span>(ar.views) as avg_views<br>
-                        <span class="sql-keyword">FROM</span> authors a<br>
-                        <span class="sql-keyword">LEFT JOIN</span> articles ar <span class="sql-keyword">ON</span> a.id
-                        =
-                        ar.author_id<br>
-                        <span class="sql-keyword">WHERE</span> ar.publication_date >= date('now', '-30 days')<br>
-                        <span class="sql-keyword">GROUP BY</span> a.id<br>
-                        <span class="sql-keyword">ORDER BY</span> article_count <span
-                            class="sql-keyword">DESC</span><br>
-                        <span class="sql-keyword">'''</span>)<br><br>
-
-                        author_stats = cursor.fetchall()<br>
-                        <span class="sql-keyword">for</span> stat <span class="sql-keyword">in</span> author_stats:<br>
-                        print(<span class="sql-keyword">f"Автор: {stat[0]}, Статей: {stat[1]},
-                            Средние просмотры: {stat[2]}"</span>)<br><br>
-
-                        conn.commit()<br>
-                        conn.close()
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 13: Работа в Jupyter Lite -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title13.jpg" class="card-img-top" alt="Jupyter">
-                <div class="card-body">
-                    <h3>Особенности работы в Jupyter Lite</h3>
-                    <p class="card-text">Специфика использования SQLite3 в браузерной среде Jupyter Lite.</p>
-                    <div class="alert alert-info">
-                        <strong>Важно для Jupyter Lite:</strong>
-                        <ul>
-                            <li>SQLite3 уже предустановлен в Jupyter Lite</li>
-                            <li>База данных создается в виртуальной файловой системе браузера</li>
-                            <li>Данные могут не сохраняться после закрытия браузера</li>
-                            <li>Для постоянного хранения экспортируйте данные в файл</li>
-                            <li>Идеально для обучения и прототипирования</li>
-                        </ul>
-                    </div>
-                    <div class="code-block">
-                        <span class="sql-comment"># Проверка доступности SQLite3 в Jupyter Lite</span><br>
-                        <span class="sql-keyword">import</span> sqlite3<br>
-                        print(<span class="sql-keyword">f"Версия SQLite: {sqlite3.sqlite_version}"</span>)<br><br>
-
-                        <span class="sql-comment"># Создание тестовой базы данных</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'test.db'</span>)<br>
-                        cursor = conn.cursor()<br>
-                        cursor.execute(<span class="sql-keyword">"CREATE TABLE test (id INTEGER, name TEXT)"</span>)<br>
-                        conn.commit()<br>
-                        conn.close()<br>
-                        print(<span class="sql-keyword">"База данных успешно создана!"</span>)<br><br>
-
-                        <span class="sql-comment"># Проверка существования таблиц</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'test.db'</span>)<br>
-                        cursor = conn.cursor()<br>
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> name <span class="sql-keyword">FROM</span> sqlite_master
-                        <br>
-                        <span class="sql-keyword">WHERE</span> type=<span class="sql-keyword">'table'</span> <span
-                            class="sql-keyword">AND</span> name=<span class="sql-keyword">'test'</span><br>
-                        <span class="sql-keyword">'''</span>)<br>
-                        table_exists = cursor.fetchone()<br>
-                        print(<span class="sql-keyword">f"Таблица существует: {table_exists is not None}"</span>)<br>
-                        conn.close()
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 14: Визуализация данных - основы -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title3.jpg" class="card-img-top" alt="Визуализация данных">
-                <div class="card-body">
-                    <h3>Визуализация данных из SQLite</h3>
-                    <p class="card-text">Построение диаграмм на основе данных из базы данных.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Установка библиотек для визуализации (в Jupyter Lite)</span><br>
-                        <span class="sql-comment"># !pip install matplotlib</span><br>
-                        <span class="sql-comment"># !pip install seaborn</span><br><br>
-
-                        <span class="sql-keyword">import</span> sqlite3<br>
-                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
-                        plt<br>
-                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
-                        <span class="sql-keyword">import</span> seaborn <span class="sql-keyword">as</span> sns<br><br>
-
-                        <span class="sql-comment"># Подключение к базе данных</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        <br>
-                        <span class="sql-comment"># Чтение данных в DataFrame</span><br>
-                        df = pd.read_sql_query(<span class="sql-keyword">"SELECT * FROM articles"</span>, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Базовая статистика</span><br>
-                        print(df.describe())<br>
-                        print(df.info())
-                    </div>
-                    <p><strong>Библиотеки для визуализации:</strong></p>
-                    <ul>
-                        <li>Matplotlib - базовые диаграммы</li>
-                        <li>Seaborn - статистическая визуализация</li>
-                        <li>Pandas - встроенные методы визуализации</li>
-                        <li>Plotly - интерактивные диаграммы</li>
-                    </ul>
-
-
-
-
-                    import piplite<br>
-                    await piplite.install('seaborn')<br>
-                    import matplotlib.pyplot as plt<br>
-                    import seaborn as sns<br>
-                </div>
-            </div>
-
+        
             <!-- Карточка 15: Столбчатые диаграммы -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title.jpg" class="card-img-top" alt="Столбчатые диаграммы">
