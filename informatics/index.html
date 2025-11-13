@@ -634,13 +634,6 @@
                         </ul>
                     </div>
 
-
-
-
-
-
-
-
                     <div class="code-block">
                         <span class="sql-comment"># Выбор всех записей</span><br>
                         cursor.execute(<span class="sql-keyword">"SELECT * FROM students"</span>)<br>
@@ -1140,6 +1133,244 @@
                 </div>
             </div>
 
+            <!-- Карточка 7: Обновление данных -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title11.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Функции в Python</h3>
+
+
+
+                    <p class="card-text">Определение функции: Для создания функции используется конструкция def
+                        имя_функции():, а затем с ОТСТУПОМ - indent - (Tab) пишется тело функции<br>
+
+                        def имя_функции (аргументы):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;тело_функции<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return результат
+                    </p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">def</span> <span class="sql-function">add</span>(a, b):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> a + b<br><br>
+
+                        result = add(<span class="sql-number">3</span>, <span class="sql-number">5</span>)<br>
+                        print(result) <span class="sql-comment"># Вывод: 8</span><br><br>
+
+                        <span class="sql-keyword">def</span> <span class="sql-function">greet</span>(name=<span
+                            class="sql-string">'Посетитель'</span>, message=<span class="sql-string">'Привет,
+                            '</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(message, name)<br><br>
+
+                        <span class="sql-comment"># Вызов функции без указания значения по умолчанию</span><br>
+                        greet() <span class="sql-comment"># Вывод: Привет, Посетитель</span><br><br>
+
+                        <span class="sql-comment"># Вызов функции с изменённым значением по умолчанию</span><br>
+                        greet(<span class="sql-string">'Артём'</span>) <span class="sql-comment"># Вывод: Привет,
+                            Артём</span><br>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+                <!-- Карточка 7: Обновление данных -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title12.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Функции в Python</h3>
+
+
+
+                   <div class="code-block">
+<span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+<span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+<span class="sql-keyword">import</span> random<br>
+<span class="sql-keyword">import</span> sqlite3<br><br>
+
+<span class="sql-comment"># Списки самых распространенных имен и фамилий в России</span><br>
+male_names = [<span class="sql-string">'Александр'</span>, <span class="sql-string">'Сергей'</span>, <span class="sql-string">'Владимир'</span>, <span class="sql-string">'Андрей'</span>, <span class="sql-string">'Алексей'</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Дмитрий'</span>, <span class="sql-string">'Михаил'</span>, <span class="sql-string">'Евгений'</span>, <span class="sql-string">'Иван'</span>, <span class="sql-string">'Максим'</span>]<br><br>
+
+female_names = [<span class="sql-string">'Елена'</span>, <span class="sql-string">'Ольга'</span>, <span class="sql-string">'Наталья'</span>, <span class="sql-string">'Ирина'</span>, <span class="sql-string">'Анна'</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Татьяна'</span>, <span class="sql-string">'Мария'</span>, <span class="sql-string">'Светлана'</span>, <span class="sql-string">'Екатерина'</span>, <span class="sql-string">'Юлия'</span>]<br><br>
+
+surnames = [<span class="sql-string">'Иванов'</span>, <span class="sql-string">'Петров'</span>, <span class="sql-string">'Сидоров'</span>, <span class="sql-string">'Смирнов'</span>, <span class="sql-string">'Кузнецов'</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Попов'</span>, <span class="sql-string">'Васильев'</span>, <span class="sql-string">'Соколов'</span>, <span class="sql-string">'Михайлов'</span>, <span class="sql-string">'Новиков'</span>]<br><br>
+
+<span class="sql-keyword">def</span> <span class="sql-function">generate_height_data</span>(n_records=<span class="sql-number">1000</span>):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">Генерирует данные о росте мужчин и женщин со статистикой, близкой к реальной по России</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;np.random.seed(<span class="sql-number">42</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;random.seed(<span class="sql-number">42</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data = []<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_records):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Случайно выбираем пол</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'male'</span>, <span class="sql-string">'female'</span>])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Выбираем имя и фамилию в соответствии с полом</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> gender == <span class="sql-string">'male'</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = random.choice(male_names)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_name = random.choice(surnames)  <span class="sql-comment"># Мужская фамилия</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Нормальное распределение для роста мужчин: mean=177.2, std=7</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span class="sql-number">177.2</span>, <span class="sql-number">7</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = random.choice(female_names)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_name = random.choice(surnames) + <span class="sql-string">'а'</span>  <span class="sql-comment"># Женская фамилия</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Нормальное распределение для роста женщин: mean=164.5, std=6</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span class="sql-number">164.5</span>, <span class="sql-number">6</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Ограничиваем разумные пределы роста</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = max(<span class="sql-number">150</span>, min(<span class="sql-number">210</span>, height))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Добавляем небольшую вариацию в зависимости от возраста</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age = random.randint(<span class="sql-number">18</span>, <span class="sql-number">65</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> age &lt; <span class="sql-number">25</span>:  <span class="sql-comment"># Молодежь немного выше</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height += random.uniform(<span class="sql-number">0</span>, <span class="sql-number">2</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">elif</span> age &gt; <span class="sql-number">55</span>:  <span class="sql-comment"># Старшее поколение немного ниже</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height -= random.uniform(<span class="sql-number">0</span>, <span class="sql-number">2</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data.append({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'id'</span>: i + <span class="sql-number">1</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'first_name'</span>: first_name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'last_name'</span>: last_name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age'</span>: age,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'gender'</span>: gender.capitalize(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'height'</span>: round(height, <span class="sql-number">1</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> pd.DataFrame(data)<br><br>
+
+<span class="sql-keyword">def</span> <span class="sql-function">save_to_xls</span>(df, filename=<span class="sql-string">'height_data.xls'</span>):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">Сохраняет DataFrame в XLS файл</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">try</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;df.to_excel(filename, index=<span class="sql-keyword">False</span>, engine=<span class="sql-string">'openpyxl'</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"✅ Данные успешно сохранены в файл: {filename}"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">except</span> Exception <span class="sql-keyword">as</span> e:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"❌ Ошибка при сохранении файла: {e}"</span>)<br><br>
+
+<span class="sql-keyword">def</span> <span class="sql-function">save_to_sqlite</span>(df, db_name=<span class="sql-string">':memory:'</span>):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">Сохраняет DataFrame в базу данных SQLite в памяти</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">try</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Создаем соединение с базой данных в памяти</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conn = sqlite3.connect(db_name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сохраняем DataFrame в таблицу</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;df.to_sql(<span class="sql-string">'people_height'</span>, conn, if_exists=<span class="sql-string">'replace'</span>, index=<span class="sql-keyword">False</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Проверяем, что данные сохранены</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor = conn.cursor()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor.execute(<span class="sql-string">"SELECT COUNT(*) FROM people_height"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = cursor.fetchone()[<span class="sql-number">0</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"✅ Данные успешно сохранены в SQLite (в памяти)"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"📊 Количество записей в базе: {count}"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> conn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">except</span> Exception <span class="sql-keyword">as</span> e:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"❌ Ошибка при сохранении в SQLite: {e}"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-keyword">None</span><br><br>
+
+<span class="sql-keyword">def</span> <span class="sql-function">query_sqlite_data</span>(conn):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">Выполняет запросы к данным в SQLite</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">try</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor = conn.cursor()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Средний рост по полу</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">"\n=== ДАННЫЕ ИЗ SQLite ==="</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor.execute(<span class="sql-string">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">SELECT gender, </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">COUNT(*) as count,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ROUND(AVG(height), 1) as avg_height,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ROUND(MIN(height), 1) as min_height,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ROUND(MAX(height), 1) as max_height</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">FROM people_height </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">GROUP BY gender</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results = cursor.fetchall()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">"Средний рост по полу:"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> row <span class="sql-keyword">in</span> results:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"  {row[0]}: {row[1]} чел., средний рост: {row[2]} см"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Распределение по возрастным группам</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">"\nСредний рост по возрастным группам:"</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor.execute(<span class="sql-string">"""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">SELECT </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">CASE </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">WHEN age &lt; 25 THEN '18-24'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">WHEN age &lt; 35 THEN '25-34' </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">WHEN age &lt; 45 THEN '35-44'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">WHEN age &lt; 55 THEN '45-54'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ELSE '55+'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">END as age_group,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">gender,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ROUND(AVG(height), 1) as avg_height,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">COUNT(*) as count</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">FROM people_height </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">GROUP BY age_group, gender</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">ORDER BY age_group, gender</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age_results = cursor.fetchall()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> row <span class="sql-keyword">in</span> age_results:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"  {row[0]} ({row[1]}): {row[2]} см, {row[3]} чел."</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">except</span> Exception <span class="sql-keyword">as</span> e:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"❌ Ошибка при запросе данных: {e}"</span>)<br><br>
+
+<span class="sql-comment"># Генерируем и анализируем данные</span><br>
+df_height = generate_height_data(<span class="sql-number">1000</span>)<br><br>
+
+print(<span class="sql-string">"Размер данных:"</span>, df_height.shape)<br>
+print(<span class="sql-string">"\nПервые 10 строк:"</span>)<br>
+print(df_height.head(<span class="sql-number">10</span>))<br><br>
+
+print(<span class="sql-string">"\n=== СТАТИСТИКА ПО ПОЛАМ ==="</span>)<br>
+height_stats = df_height.groupby(<span class="sql-string">'gender'</span>)[<span class="sql-string">'height'</span>].agg([<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'count'</span>, <span class="sql-string">'mean'</span>, <span class="sql-string">'std'</span>, <span class="sql-string">'min'</span>, <span class="sql-string">'max'</span><br>
+]).round(<span class="sql-number">1</span>)<br>
+print(height_stats)<br><br>
+
+print(<span class="sql-string">"\n=== ПРОВЕРКА СООТВЕТСТВИЯ РЕАЛЬНОЙ СТАТИСТИКЕ ==="</span>)<br>
+real_stats = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Male'</span>: {<span class="sql-string">'real_mean'</span>: <span class="sql-number">177.2</span>, <span class="sql-string">'generated_mean'</span>: df_height[df_height[<span class="sql-string">'gender'</span>] == <span class="sql-string">'Male'</span>][<span class="sql-string">'height'</span>].mean()},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Female'</span>: {<span class="sql-string">'real_mean'</span>: <span class="sql-number">164.5</span>, <span class="sql-string">'generated_mean'</span>: df_height[df_height[<span class="sql-string">'gender'</span>] == <span class="sql-string">'Female'</span>][<span class="sql-string">'height'</span>].mean()}<br>
+}<br><br>
+
+<span class="sql-keyword">for</span> gender, stats <span class="sql-keyword">in</span> real_stats.items():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;difference = abs(stats[<span class="sql-string">'real_mean'</span>] - stats[<span class="sql-string">'generated_mean'</span>])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"{gender}: Реальный средний = {stats['real_mean']} см, "</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">f"Сгенерированный = {stats['generated_mean']:.1f} см, "</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">f"Разница = {difference:.1f} см"</span>)<br><br>
+
+<span class="sql-comment"># Сохраняем данные в XLS файл</span><br>
+save_to_xls(df_height, <span class="sql-string">'russian_height_research.xls'</span>)<br><br>
+
+<span class="sql-comment"># Сохраняем данные в SQLite в памяти</span><br>
+conn = save_to_sqlite(df_height)<br><br>
+
+<span class="sql-comment"># Выполняем запросы к данным в SQLite</span><br>
+<span class="sql-keyword">if</span> conn:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;query_sqlite_data(conn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Закрываем соединение</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;conn.close()<br>
+</div>
+
+
+
+                </div>
+            </div>
 
             <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
@@ -2377,7 +2608,7 @@ WHERE Студенты.id IS NOT NULL</code></pre>
                 </div>
             </div>
 
-        
+
             <!-- Карточка 15: Столбчатые диаграммы -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title.jpg" class="card-img-top" alt="Столбчатые диаграммы">
@@ -3084,16 +3315,7 @@ WHERE Студенты.id IS NOT NULL</code></pre>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../dist/quizcardwithstorage.js"></script>
 
-    <script>
-        function toggleSolution(id) {
-            var solution = document.getElementById(id);
-            if (solution.style.display === "none") {
-                solution.style.display = "block";
-            } else {
-                solution.style.display = "none";
-            }
-        }
-    </script>
+
 </body>
 
 </html>
