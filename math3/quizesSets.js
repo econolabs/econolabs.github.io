@@ -1257,8 +1257,8 @@ let quizesSets = [
   "title": "Высота крыши",
   "theme": "Геометрия",
   "text": "Угол между стропильными ногами черепичной крыши составляет 90°. Вычислить высоту крыши, если расстояние между концами стропильных ног равно {var1-10} м.",
-  "answer": "{var1-10}*SQRT(2)/2",
-  "hint": "Крыша образует равнобедренный прямоугольный треугольник<br>Расстояние между концами - это гипотенуза<br>Высота к гипотенузе в таком треугольнике равна: $$h = \\frac{a\\sqrt{2}}{2}$$<br>где $$a$$ - гипотенуза<br>Подставьте: $$\\frac{{var1-10} \\times \\sqrt{2}}{2} \\approx \\frac{{var1-10} \\times 1.414}{2}$$",
+  "answer": "{var1-10}/2",
+  "hint": "Крыша образует равнобедренный прямоугольный треугольник<br>Расстояние между концами - это гипотенуза<br>В равнобедренном прямоугольном треугольнике высота к гипотенузе равна половине гипотенузы<br>Высота крыши: $$h = \\frac{a}{2}$$<br>где $$a$$ - гипотенуза<br>Подставьте: $$h = \\frac{{var1-10}}{2}$$ м",
   "randomfrom": [8, 10, 12, 14, 16, 18, 20]
 },
 
@@ -1270,7 +1270,7 @@ let quizesSets = [
   "theme": "Геометрия",
   "text": "Угол между стропильными ногами крыши составляет {var1-10}°. Вычислить высоту крыши, если расстояние между концами стропил равно 10 м.",
   "answer": "5*TAN({var1-10}*PI()/360)",
-  "hint": "Высота крыши находится по формуле: $$h = \\frac{L}{2} \\times \\tan(\\frac{\\alpha}{2})$$<br>где $$L$$ = 10 м - расстояние между концами, $$\\alpha$$ = {var1-10}° - угол<br>Подставьте: $$h = 5 \\times \\tan(\\frac{{var1-10}°}{2})$$",
+  "hint": "Высота крыши находится по формуле: $$h = \\frac{L}{2} \\times \\tan\\left(\\frac{\\alpha}{2}\\right)$$<br>где $$L = 10$$ м - расстояние между концами, $$\\alpha = {var1-10}^\\circ$$ - угол между стропилами<br>Подставьте: $$h = 5 \\times \\tan\\left(\\frac{{var1-10}^\\circ}{2}\\right)$$",
   "randomfrom": [60, 90, 120, 135, 150]
 },
 
@@ -1346,13 +1346,7 @@ let quizesSets = [
       <polygon points="80,140 80,100 180,100" fill="#e8f5e8" opacity="0.5" stroke="#2e7d32" stroke-width="1"/>
       <text x="130" y="125" font-size="10" fill="#2e7d32">вспомогательный треугольник</text>
       
-      <!-- Формулы -->
-      <rect x="40" y="30" width="200" height="80" fill="#fff9c4" stroke="#ff9800" stroke-width="1"/>
-      <text x="50" y="45" font-size="12" fill="#2e7d32">S = a × b × sin(α)</text>
-      <text x="50" y="60" font-size="14" fill="#d32f2f">S = 16 × 12 × sin(150°)</text>
-      <text x="50" y="75" font-size="12" fill="#1976d2">sin(150°) = sin(180° - 30°) = sin(30°) = 0,5</text>
-      <text x="50" y="90" font-size="14" fill="#388e3c">S = 16 × 12 × 0,5 = 96 см²</text>
-      <text x="50" y="105" font-size="16" fill="#d32f2f" font-weight="bold">Ответ: 96 см²</text>
+    
     </svg>
     <ul>
     <li><strong>Формула площади параллелограмма:</strong> S = a × b × sin(α)</li>
@@ -1364,6 +1358,17 @@ let quizesSets = [
     </ul>`
 },
 
+{
+  "id": "parallelogram_area_random",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Площадь параллелограмма",
+  "theme": "Геометрия",
+  "text": "В параллелограмме две стороны {var1-10} см и 12 см, а один из углов 150°. Найдите площадь параллелограмма.",
+  "answer": "{var1-10}*12*0.5",
+  "hint": "Формула площади параллелограмма: $$S = a \\times b \\times \\sin(\\alpha)$$<br>где $$a = {var1-10}$$ см, $$b = 12$$ см, $$\\alpha = 150^\\circ$$<br>$$\\sin(150^\\circ) = \\sin(30^\\circ) = 0,5$$<br>Подставьте: $$S = {var1-10} \\times 12 \\times 0,5$$ см²",
+  "randomfrom": [8, 10, 12, 14, 16, 18, 20]
+},
 
 
 {
@@ -1914,10 +1919,7 @@ let quizesSets = [
       <line x1="70" y1="120" x2="70" y2="60" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="4"/>
       <text x="45" y="90" font-size="10" fill="#7b1fa2">Δy = 7 - 3 = 4</text>
       
-      <!-- Формула -->
-      <rect x="150" y="30" width="120" height="40" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="160" y="50" font-size="12" fill="#2e7d32">\\vec{AB} = (x₂-x₁, y₂-y₁)</text>
-      <text x="160" y="70" font-size="14" fill="#d32f2f">= (5-2, 7-3) = (3,4)</text>
+     
     </svg>
     <ul>
     <li><strong>Формула:</strong> \\vec{AB} = (x_B - x_A, y_B - y_A)</li>
@@ -1980,10 +1982,7 @@ let quizesSets = [
       <line x1="130" y1="130" x2="130" y2="70" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="4"/>
       <text x="140" y="100" font-size="10" fill="#7b1fa2">Δy = 5 - 1 = 4</text>
       
-      <!-- Формула -->
-      <rect x="150" y="30" width="120" height="40" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="160" y="50" font-size="12" fill="#2e7d32">\\vec{CD} = (x_D - x_C, y_D - y_C)</text>
-      <text x="160" y="70" font-size="14" fill="#d32f2f">= (1-4, 5-1) = (-3,4)</text>
+     
     </svg>
     <ul>
     <li><strong>Формула:</strong> \\vec{CD} = (x_D - x_C, y_D - y_C)</li>
@@ -2155,14 +2154,7 @@ let quizesSets = [
       <circle cx="110" cy="90" r="4" fill="#ff9800"/>
       <text x="115" y="85" font-size="12" fill="#ff9800">M(4,6)</text>
       
-      <!-- Формула -->
-      <rect x="160" y="40" width="110" height="60" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="170" y="60" font-size="12" fill="#2e7d32">M = (\\frac{x_A+x_B}{2}, \\frac{y_A+y_B}{2})</text>
-      <text x="170" y="80" font-size="14" fill="#d32f2f">= (\\frac{2+6}{2}, \\frac{4+8}{2})</text>
-      <text x="170" y="100" font-size="16" fill="#1976d2" font-weight="bold">= (4, 6)</text>
-      
-      <!-- Пояснение -->
-      <text x="110" y="120" font-size="10" fill="#666">Среднее арифметическое координат</text>
+     
     </svg>
     <ul>
     <li><strong>Формула середины:</strong> M = (\\frac{x_A+x_B}{2}, \\frac{y_A+y_B}{2})</li>
@@ -2212,14 +2204,7 @@ let quizesSets = [
       <circle cx="110" cy="100" r="4" fill="#ff9800"/>
       <text x="115" y="95" font-size="12" fill="#ff9800">M(4,3)</text>
       
-      <!-- Формула -->
-      <rect x="160" y="40" width="110" height="60" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="170" y="60" font-size="12" fill="#2e7d32">M = (\\frac{x_C+x_D}{2}, \\frac{y_C+y_D}{2})</text>
-      <text x="170" y="80" font-size="14" fill="#d32f2f">= (\\frac{1+7}{2}, \\frac{5+1}{2})</text>
-      <text x="170" y="100" font-size="16" fill="#1976d2" font-weight="bold">= (4, 3)</text>
-      
-      <!-- Пояснение -->
-      <text x="110" y="120" font-size="10" fill="#666">Среднее арифметическое координат</text>
+     
     </svg>
     <ul>
     <li><strong>Формула середины:</strong> M = (\\frac{x_C+x_D}{2}, \\frac{y_C+y_D}{2})</li>
@@ -2631,14 +2616,7 @@ let quizesSets = [
       <!-- Общий угол -->
       <text x="60" y="80" font-size="14" fill="#1976d2">80°</text>
       
-      <!-- Формула -->
-      <rect x="150" y="40" width="120" height="50" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="160" y="55" font-size="12" fill="#2e7d32">Угол между биссектрисой и стороной:</text>
-      <text x="160" y="70" font-size="14" fill="#d32f2f">= исходный угол ÷ 2</text>
-      <text x="160" y="85" font-size="16" fill="#1976d2" font-weight="bold">= 80° ÷ 2 = 40°</text>
-      
-      <!-- Пояснение -->
-      <text x="80" y="160" font-size="10" fill="#666">Биссектриса делит угол пополам</text>
+     
     </svg>
     <ul>
     <li><strong>Определение биссектрисы:</strong> Луч, делящий угол на два равных угла</li>
@@ -2684,14 +2662,7 @@ let quizesSets = [
       <!-- Общий угол -->
       <text x="60" y="80" font-size="14" fill="#1976d2">50°</text>
       
-      <!-- Формула -->
-      <rect x="150" y="40" width="120" height="50" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="160" y="55" font-size="12" fill="#2e7d32">Исходный угол:</text>
-      <text x="160" y="70" font-size="14" fill="#d32f2f">= угол между биссектрисой и стороной × 2</text>
-      <text x="160" y="85" font-size="16" fill="#1976d2" font-weight="bold">= 25° × 2 = 50°</text>
-      
-      <!-- Пояснение -->
-      <text x="80" y="160" font-size="10" fill="#666">Два равных угла по 25°</text>
+     
     </svg>
     <ul>
     <li><strong>Свойство биссектрисы:</strong> Создает два равных угла</li>
@@ -2844,14 +2815,7 @@ let quizesSets = [
       <path d="M 185,140 L 195,135 L 190,145" fill="none" stroke="#388e3c" stroke-width="1.5"/>
       <path d="M 125,75 L 135,70 L 130,80" fill="none" stroke="#ff9800" stroke-width="1.5"/>
       
-      <!-- Формула -->
-      <rect x="50" y="30" width="180" height="50" fill="#e8f5e8" stroke="#2e7d32" stroke-width="1"/>
-      <text x="60" y="45" font-size="12" fill="#2e7d32">Сумма углов треугольника = 180°</text>
-      <text x="60" y="60" font-size="14" fill="#d32f2f">Угол C = 180° - (50° + 60°)</text>
-      <text x="60" y="75" font-size="16" fill="#1976d2" font-weight="bold">= 180° - 110° = 70°</text>
-      
-      <!-- Проверка -->
-      <text x="140" y="100" font-size="10" fill="#666">50° + 60° + 70° = 180° ✓</text>
+     
     </svg>
     <ul>
     <li><strong>Основное свойство:</strong> Сумма углов треугольника всегда равна 180°</li>
@@ -2893,14 +2857,7 @@ let quizesSets = [
       <!-- Второй острый угол -->
       <text x="95" y="95" font-size="12" fill="#ff9800">?°</text>
       
-      <!-- Формула -->
-      <rect x="120" y="40" width="150" height="50" fill="#fff9c4" stroke="#ff9800" stroke-width="1"/>
-      <text x="130" y="55" font-size="12" fill="#2e7d32">Сумма острых углов = 90°</text>
-      <text x="130" y="70" font-size="14" fill="#d32f2f">Второй угол = 90° - 35°</text>
-      <text x="130" y="85" font-size="16" fill="#1976d2" font-weight="bold">= 55°</text>
-      
-      <!-- Проверка -->
-      <text x="140" y="110" font-size="10" fill="#666">35° + 55° = 90° ✓</text>
+     
     </svg>
     <ul>
     <li><strong>Свойство прямоугольного треугольника:</strong> Сумма острых углов = 90°</li>
@@ -3824,9 +3781,7 @@ let quizesSets = [
       <path d="M 50,50 L 60,45 L 55,55" fill="none" stroke="#ff9800" stroke-width="1.5"/>
       <text x="65" y="60" font-size="12" fill="#ff9800">φ</text>
       
-      <!-- Формула -->
-      <rect x="30" y="110" width="220" height="40" fill="#fff9c4" stroke="#ff9800" stroke-width="1"/>
-      <text x="40" y="130" font-size="14" fill="#d32f2f">\\vec{a} · \\vec{b} = |\\vec{a}| · |\\vec{b}| · cos(φ)</text>
+    
       
       <!-- Координатная формула -->
       <text x="20" y="165" font-size="12" fill="#7b1fa2">Координатная формула:</text>
