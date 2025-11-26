@@ -274,26 +274,26 @@ let quizesSets = [
   "randomfrom": [2, 3, 4]
 },
 {
-  "id": "log_quotient", 
+  "id": "logarithm_basic_3",
   "type": "mathwithrandomnumber",
   "header": "Устный счёт",
-  "title": "Логарифм частного",
-  "theme": "Алгебра", 
-  "text": "Чему равно выражение: $$\\log_2({var1-10}^2) - \\log_2({var1-10})$$",
-  "answer": "LOG({var1-10}, 2)",
-  "hint": "Свойства: $$\\log_a(b) - \\log_a(c) = \\log_a(\\frac{b}{c})$$ и $$\\log_2(a^2) = 2\\log_2(a)$$",
-  "randomfrom": [2, 3, 4, 5]
+  "title": "Логарифм 3",
+  "theme": "Алгебра",
+  "text": "Найдите значение: $$\\ln(e^{{var1-10}})$$",
+  "answer": "{var1-10}",
+  "hint": "$$\\ln$$ — это натуральный логарифм (по основанию $$e$$). $$\\ln(e^x) = x$$.",
+  "randomfrom": [1, 2, 3, 4, 5]
 },
 {
-  "id": "log_power",
-  "type": "mathwithrandomnumber", 
-  "header": "Устный счёт",
-  "title": "Логарифм степени",
+  "id": "log_product",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт", 
+  "title": "Логарифм произведения",
   "theme": "Алгебра",
-  "text": "Чему равно выражение: $${var1-10} \\cdot \\ln({var1-10})$$",
-  "answer": "LN({var1-10}^{var1-10})", 
-  "hint": "Свойство логарифма степени: $$n \\cdot \\log_a(b) = \\log_a(b^n)$$",
-  "randomfrom": [2, 3, 4, 5]
+  "text": "Чему равно выражение: $$\\log_{var1-10}({= {var1-10}^{var1-10}})$$",
+  "answer": "{var1-10}",
+  "hint": "Основное логарифмическое тождество: $$\\log_a(a^n) = n$$",
+  "randomfrom": [2, 3, 4]
 },
 {
   "id": "log_base_power",
@@ -605,17 +605,16 @@ let quizesSets = [
   "randomfrom": [2, 3, 4]
 },
 {
-  "id": "quadratic008",
+  "id": "quadratic007",
   "type": "mathwithrandomnumber",
   "header": "Квадратные уравнения",
-  "title": "Наименьший корень 4",
+  "title": "Наибольший корень 4",
   "theme": "Квадратные уравнения",
-  "text": "Найдите наименьший корень уравнения: $$x^2 - {= {var1-10}*6}x + {= {var1-10}*8} = 0$$",
-  "answer": "{= {var1-10}*2}",
-  "hint": "Теорема Виета: $$x_1 + x_2 = {= {var1-10}*6}, x_1 \\cdot x_2 = {= {var1-10}*8}$$ → $$x_1 = {= {var1-10}*2}, x_2 = {= {var1-10}*4}$$. Наименьший корень: $${= {var1-10}*2}$$",
+  "text": "Найдите наибольший корень уравнения: $$x^2 - {= {var1-10}+5}x + {= {var1-10}*5} = 0$$",
+  "answer": "5",
+  "hint": "Теорема Виета: $$x_1 + x_2 = {= {var1-10}+5}, x_1 \\cdot x_2 = {= {var1-10}*5}$$ → $$x_1 = {var1-10}, x_2 = 5$$. Наибольший корень: $$5$$",
   "randomfrom": [2, 3, 4]
 },
-
  {
   id: "stereobasics011",
   type: "multiplechoices",
@@ -2058,7 +2057,7 @@ let quizesSets = [
     "леммами",
     "постулатами"
   ],
-  "answers": ["аксиомами", "постулатами"],
+  "answers": ["аксиомами"],
   "hint": `<p>Основные понятия геометрических утверждений:</p>
     <ul>
     <li><strong>Аксиомы/постулаты:</strong> Исходные положения, принимаемые без доказательств</li>
