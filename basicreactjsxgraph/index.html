@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>React with Babel</title>
+                   
+    <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- Load React and ReactDOM -->
+        <script src="../dist/react18.3.1.production.min.js" crossorigin></script>
+        <script src="../dist/react-dom18.3.1.production.min.js" crossorigin></script>
+
+        <!-- Load Babel for in-browser JSX transformation -->
+        <script src="../dist/babel.standalone7.27.6.min.js">
+           
+        </script>
+
+        <!-- Load your React component -->
+        <script type="text/babel" >
+
+            let  { useEffect, useRef, useState } = React;
+
+
+const TriangleProblemJSXGraph = () => {
+  const boardRef = useRef(null);
+  const boardInstance = useRef(null);
+  const [solution, setSolution] = useState('');
+  const [distance, setDistance] = useState(null);
+  const [step, setStep] = useState(1);
+  const [show3D, setShow3D] = useState(false);
+
+  useEffect(() => {
+    if (boardInstance.current) {
+      boardInstance.current.destroy();
+    }
+
+    // Инициализация доски
+    boardInstance.current = JXG.JSXGraph.initBoard(boardRef.current.id, {
+      boundingbox: show3D ? [-8, 15, 8, -5] : [-8, 12, 8, -3],
+      axis: true,
+      showNavigation: false,
+      showCopyright: false,
+      zoom: { factorX: 1.25, factorY: 1.25, wheel: true },
+      pan: { needshift: false }
+    });
+
+    // Параметры задачи
+    const BC = 12; // основание
+    const AB = 10; // боковая сторона
+    const AD = 6;  // высота перпендикуляра
+    const AC = AB; // равнобедренный треугольник
+
+    // Рассчитываем высоту треугольника ABC
+    const h_ABC = Math.sqrt(AB * AB - (BC/2) * (BC/2));
+
+    // Координаты точек треугольника ABC в плоскости XY
+    const A = boardInstance.current.create('point', [0, h_ABC], {
+      name: 'A',
+      size: 4,
+      color: '#2196F3',
+      fixed: true
+    });
+
+    const B = boardInstance.current.create('point', [-BC/2, 0], {
+      name: 'B',
+      size: 4,
+      color: '#2196F3',
+      fixed: true
+    });
+
+    const C = boardInstance.current.create('point', [BC/2, 0], {
+      name: 'C',
+      size: 4,
+      color: '#2196F3',
+      fixed: true
+    });
+
+    // Треугольник ABC
+    const triangleABC = boardInstance.current.create('polygon', [A, B, C], {
+      borders: { 
+        strokeColor: '#2196F3', 
+        strokeWidth: 2
+      },
+      fillColor: '#2196F3',
+      fillOpacity: 0.1,
+      vertices: { visible: false }
+    });
+
+    // Основание BC (как линия, а не отрезок)
+    const lineBC = boardInstance.current.create('line', [B, C], {
+      strokeColor: '#2196F3',
+      strokeWidth: 2,
+      dash: 1,
+      visible: false
+    });
+
+    const baseBC = boardInstance.current.create('segment', [B, C], {
+      strokeColor: '#2196F3',
+      strokeWidth: 3,
+      name: 'BC = 12'
+    });
+
+    // Боковые стороны
+    const sideAB = boardInstance.current.create('segment', [A, B], {
+      strokeColor: '#4CAF50',
+      strokeWidth: 2,
+      name: 'AB = 10'
+    });
+
+    const sideAC = boardInstance.current.create('segment', [A, C], {
+      strokeColor: '#4CAF50',
+      strokeWidth: 2,
+      name: 'AC = 10'
+    });
+
+    // Высота треугольника ABC к основанию BC
+    const midpointBC = boardInstance.current.create('midpoint', [B, C], {
+      name: 'M',
+      size: 3,
+      color: '#FF9800',
+      visible: true,
+      fixed: true
+    });
+
+    const altitudeAM = boardInstance.current.create('segment', [A, midpointBC], {
+      strokeColor: '#FF9800',
+      strokeWidth: 2,
+      dash: 1,
+      name: () => `AM = ${h_ABC.toFixed(2)}`,
+      label: { offset: [10, -10] }
+    });
+
+    // Перпендикуляр AD к плоскости треугольника
+    let D;
+    if (show3D) {
+      D = boardInstance.current.create('point', [0, h_ABC + AD], {
+        name: 'D',
+        size: 4,
+        color: '#FF5722',
+        fixed: true
+      });
+    } else {
+      D = boardInstance.current.create('point', [1.5, h_ABC + 1], {
+        name: 'D',
+        size: 4,
+        color: '#FF5722',
+        fixed: true
+      });
+    }
+
+    // Отрезок AD
+    const segmentAD = boardInstance.current.create('segment', [A, D], {
+      strokeColor: '#FF5722',
+      strokeWidth: 3,
+      name: 'AD = 6',
+      label: { offset: [15, -10] }
+    });
+
+    // Перпендикулярность AD к плоскости (визуализация через перпендикуляр к AM)
+    // Создаем вспомогательную линию через A, перпендикулярную AM
+    const perpendicularLine = boardInstance.current.create('line', [A, midpointBC], {
+      strokeColor: '#FF5722',
+      strokeWidth: 1,
+      dash: 2,
+      visible: true
+    });
+
+    // Значок прямого угла при A
+    const rightAngle = boardInstance.current.create('angle', [D, A, midpointBC], {
+      radius: 0.6,
+      fillColor: '#FF5722',
+      fillOpacity: 0.2,
+      strokeColor: '#FF5722',
+      strokeWidth: 1
+    });
+
+    // Находим расстояние от D до BC
+    const calculateDistance = () => {
+      // Расстояние от точки D до прямой BC
+      const dist_A_to_BC = h_ABC;
+      const dist_D_to_BC = Math.sqrt(dist_A_to_BC * dist_A_to_BC + AD * AD);
+      
+      setDistance(dist_D_to_BC.toFixed(4));
+
+      // Визуализируем расстояние от D до BC
+      // Находим проекцию D на BC
+      // Для этого создаем перпендикуляр от D к линии BC
+      
+      // Создаем линию BC
+      const lineBC_for_perp = boardInstance.current.create('line', [B, C], {
+        strokeColor: '#2196F3',
+        strokeWidth: 1,
+        dash: 1,
+        visible: false
+      });
+
+      // Проекция D на BC (используем JSXGraph для нахождения проекции)
+      // Создаем перпендикуляр от D к BC
+      const perpToBC = boardInstance.current.create('perpendicular', [D, lineBC_for_perp], {
+        strokeColor: '#FF4081',
+        strokeWidth: 1,
+        dash: 2,
+        visible: true
+      });
+
+      // Находим точку пересечения перпендикуляра с BC
+      const intersectionPoint = boardInstance.current.create('intersection', 
+        [perpToBC, lineBC_for_perp, 0], {
+        name: "P",
+        size: 3,
+        color: '#00BCD4',
+        fixed: true
+      });
+
+      // Линия от D до P (искомое расстояние)
+      const distanceLine = boardInstance.current.create('segment', [D, intersectionPoint], {
+        strokeColor: '#FF4081',
+        strokeWidth: 3,
+        name: () => `DP = ${dist_D_to_BC.toFixed(2)}`,
+        label: { offset: [10, 10] }
+      });
+
+      // Прямоугольный треугольник ADM (для наглядности)
+      const triangleADM = boardInstance.current.create('polygon', [A, D, midpointBC], {
+        borders: { 
+          strokeColor: '#9C27B0', 
+          strokeWidth: 2,
+          dash: 1
+        },
+        fillColor: '#9C27B0',
+        fillOpacity: 0.05,
+        vertices: { visible: false }
+      });
+
+      // Обновляем решение
+      const solutionText = `
+Дано:
+• Равнобедренный треугольник ABC
+• Основание BC = ${BC} м
+• Боковая сторона AB = AC = ${AB} м
+• AD ⟂ плоскости ABC, AD = ${AD} м
+
+Найти: расстояние от точки D до стороны BC.
+
+Решение:
+
+1) Найдем высоту треугольника ABC к основанию BC:
+   AM = √(AB² - (BC/2)²) = √(${AB}² - (${BC}/2)²) 
+      = √(${AB*AB} - ${(BC/2)*(BC/2)}) = √(${AB*AB} - ${(BC/2)*(BC/2)})
+      = √${(AB*AB - (BC/2)*(BC/2)).toFixed(2)} = ${h_ABC.toFixed(2)} м
+
+2) Так как AD перпендикулярен плоскости треугольника, то:
+   • AD ⟂ AM (AM лежит в плоскости ABC)
+   • AD ⟂ BC (BC лежит в плоскости ABC)
+
+3) Треугольник ADM - прямоугольный (∠DAM = 90°), где:
+   • AM = ${h_ABC.toFixed(2)} м - расстояние от A до BC
+   • AD = ${AD} м - известный катет
+
+4) По теореме Пифагора в ΔADM:
+   DM = √(AM² + AD²) = √((${h_ABC.toFixed(2)})² + ${AD}²)
+      = √(${(h_ABC*h_ABC).toFixed(2)} + ${AD*AD}) 
+      = √${(h_ABC*h_ABC + AD*AD).toFixed(2)} 
+      = ${dist_D_to_BC.toFixed(4)} м
+
+5) Заметим, что DM и есть расстояние от D до BC, так как:
+   • AM ⟂ BC (по построению)
+   • AD ⟂ BC (по условию перпендикулярности к плоскости)
+   • Следовательно, плоскость ADM ⟂ BC
+   • Поэтому DM ⟂ BC
+
+Ответ: расстояние от точки D до стороны BC составляет ${dist_D_to_BC.toFixed(2)} м.
+
+Проверка: 
+По теореме о трех перпендикулярах, если AD ⟂ пл. ABC и AM ⟂ BC, то DM ⟂ BC.
+`;
+      setSolution(solutionText);
+    };
+
+    // Запускаем расчет
+    setTimeout(calculateDistance, 100);
+
+    // Легенда и подписи
+    boardInstance.current.create('text', 
+      show3D ? [-7, 13, '3D представление'] : [-7, 10.5, '2D представление'], 
+    {
+      fontSize: 14,
+      color: '#2c3e50',
+      fontWeight: 'bold'
+    });
+
+    boardInstance.current.create('text', 
+      show3D ? [-7, 12.2, 'Равнобедренный ΔABC'] : [-7, 9.7, 'Равнобедренный ΔABC'], 
+    {
+      fontSize: 12,
+      color: '#7f8c8d'
+    });
+
+    // Информация о длинах
+    boardInstance.current.create('text', 
+      show3D ? [-7, 1, `BC = ${BC}`] : [-7, 1, `BC = ${BC}`], 
+    {
+      fontSize: 12,
+      color: '#2196F3'
+    });
+
+    boardInstance.current.create('text', 
+      show3D ? [-7, 0.5, `AB = AC = ${AB}`] : [-7, 0.5, `AB = AC = ${AB}`], 
+    {
+      fontSize: 12,
+      color: '#4CAF50'
+    });
+
+    // Управляющая кнопка
+    const toggleButton = boardInstance.current.create('button', 
+      show3D ? [-7, -3, "2D вид", () => setShow3D(false)] 
+             : [-7, -2, "3D вид", () => setShow3D(true)], 
+    {});
+
+    return () => {
+      if (boardInstance.current) {
+        boardInstance.current.destroy();
+      }
+    };
+  }, [show3D]);
+
+  const steps = [
+    {
+      title: "Условие задачи",
+      description: "Дан равнобедренный треугольник ABC с основанием BC = 12 м и боковыми сторонами AB = AC = 10 м. Из вершины A проведен перпендикуляр AD = 6 м к плоскости треугольника."
+    },
+    {
+      title: "Находим высоту треугольника",
+      description: `По теореме Пифагора: AM = √(AB² - (BC/2)²) = √(10² - 6²) = √(100 - 36) = √64 = 8 м. Где M - середина BC.`
+    },
+    {
+      title: "Строим перпендикуляр AD",
+      description: "AD перпендикулярен плоскости треугольника. Это означает, что AD перпендикулярен любой прямой в плоскости ABC, проходящей через A."
+    },
+    {
+      title: "Применяем теорему о трех перпендикулярах",
+      description: "Поскольку AM ⟂ BC и AD ⟂ плоскости ABC, то DM ⟂ BC. Значит, DM - искомое расстояние от D до BC."
+    },
+    {
+      title: "Вычисляем расстояние",
+      description: "В прямоугольном треугольнике ADM по теореме Пифагора: DM = √(AM² + AD²) = √(8² + 6²) = √(64 + 36) = √100 = 10 м."
+    }
+  ];
+
+  return (
+    <div style={{ 
+      maxWidth: '1200px', 
+      margin: '0 auto', 
+      padding: '20px',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <h1 style={{ 
+        textAlign: 'center', 
+        color: '#2c3e50',
+        marginBottom: '10px'
+      }}>
+        Расстояние от точки до стороны в пространстве
+      </h1>
+      <p style={{ 
+        textAlign: 'center', 
+        color: '#7f8c8d',
+        marginBottom: '30px',
+        fontSize: '16px'
+      }}>
+        Равнобедренный треугольник ABC: BC = 12 м, AB = AC = 10 м, AD = 6 м ⟂ пл. ABC
+      </p>
+
+      <div style={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: '30px',
+        marginBottom: '30px'
+      }}>
+        {/* График JSXGraph */}
+        <div style={{ flex: '1 1 700px' }}>
+          <div style={{ 
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            padding: '15px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            marginBottom: '20px'
+          }}>
+            <h3 style={{ color: '#34495e', marginTop: 0, marginBottom: '10px' }}>
+              {show3D ? '3D Визуализация задачи' : '2D Визуализация задачи'}
+            </h3>
+            <div style={{ 
+              marginBottom: '10px',
+              padding: '8px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '5px',
+              fontSize: '14px'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <span style={{ color: '#2196F3' }}>● ABC</span> | 
+                  <span style={{ color: '#FF5722' }}> ● D</span> | 
+                  <span style={{ color: '#FF9800' }}> ● M</span> | 
+                  <span style={{ color: '#00BCD4' }}> ● P</span>
+                </div>
+                <button
+                  onClick={() => setShow3D(!show3D)}
+                  style={{
+                    padding: '5px 15px',
+                    backgroundColor: '#2196F3',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                >
+                  {show3D ? 'Перейти к 2D виду' : 'Перейти к 3D виду'}
+                </button>
+              </div>
+            </div>
+            <div 
+              id="jxgbox" 
+              ref={boardRef}
+              style={{ 
+                width: '100%', 
+                height: '500px',
+                border: '2px solid #bdc3c7',
+                borderRadius: '8px',
+                backgroundColor: 'white'
+              }}
+            />
+            <div style={{ 
+              marginTop: '10px',
+              padding: '10px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '5px',
+              fontSize: '14px',
+              color: '#6c757d'
+            }}>
+              <strong>Управление:</strong> Перетаскивайте точки для лучшего обзора. 
+              Используйте колесико мыши для масштабирования.
+            </div>
+          </div>
+        </div>
+
+        {/* Информационная панель */}
+        <div style={{ 
+          flex: '1 1 400px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px'
+        }}>
+          {/* Быстрый ответ */}
+          {distance && (
+            <div style={{ 
+              backgroundColor: '#4caf50',
+              color: 'white',
+              borderRadius: '10px',
+              padding: '25px',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+              textAlign: 'center'
+            }}>
+              <div style={{ fontSize: '18px', marginBottom: '10px' }}>Искомое расстояние:</div>
+              <div style={{ fontSize: '36px', fontWeight: 'bold' }}>{distance} м</div>
+              <div style={{ fontSize: '14px', marginTop: '10px', opacity: 0.9 }}>
+                от точки D до стороны BC
+              </div>
+            </div>
+          )}
+
+          {/* Шаги решения */}
+          <div style={{ 
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            padding: '20px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+          }}>
+            <h3 style={{ color: '#34495e', marginTop: 0, marginBottom: '15px' }}>Шаги решения</h3>
+            <div style={{ marginBottom: '15px' }}>
+              {steps.map((s, index) => (
+                <div 
+                  key={index}
+                  style={{
+                    padding: '12px',
+                    marginBottom: '10px',
+                    borderRadius: '8px',
+                    backgroundColor: step === index + 1 ? '#e3f2fd' : '#f5f5f5',
+                    borderLeft: `5px solid ${step === index + 1 ? '#2196f3' : '#bdc3c7'}`,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onClick={() => setStep(index + 1)}
+                  onMouseEnter={(e) => {
+                    if (step !== index + 1) {
+                      e.currentTarget.style.backgroundColor = '#e8eaf6';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (step !== index + 1) {
+                      e.currentTarget.style.backgroundColor = '#f5f5f5';
+                    }
+                  }}
+                >
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center',
+                    marginBottom: '5px' 
+                  }}>
+                    <div style={{
+                      width: '24px',
+                      height: '24px',
+                      backgroundColor: step === index + 1 ? '#2196f3' : '#bdc3c7',
+                      color: 'white',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: '10px',
+                      fontSize: '14px',
+                      fontWeight: 'bold'
+                    }}>
+                      {index + 1}
+                    </div>
+                    <strong style={{ color: '#2c3e50' }}>{s.title}</strong>
+                  </div>
+                  <div style={{ 
+                    color: '#666', 
+                    fontSize: '14px',
+                    paddingLeft: '34px'
+                  }}>
+                    {s.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Подробное решение */}
+      <div style={{ 
+        backgroundColor: 'white',
+        borderRadius: '10px',
+        padding: '25px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        marginBottom: '30px'
+      }}>
+        <h3 style={{ color: '#34495e', marginTop: 0, marginBottom: '20px' }}>
+          Подробное решение задачи
+        </h3>
+        <div style={{ 
+          whiteSpace: 'pre-wrap',
+          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          backgroundColor: '#f8f9fa',
+          padding: '20px',
+          borderRadius: '8px',
+          border: '1px solid #e9ecef',
+          fontSize: '15px',
+          lineHeight: '1.6',
+          maxHeight: '500px',
+          overflowY: 'auto'
+        }}>
+          {solution || 'Решение загружается...'}
+        </div>
+      </div>
+
+      {/* Геометрические факты */}
+      <div style={{ 
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '20px',
+        marginBottom: '30px'
+      }}>
+        <div style={{ 
+          backgroundColor: '#e3f2fd',
+          borderRadius: '10px',
+          padding: '20px'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            marginBottom: '15px' 
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: '#2196f3',
+              color: 'white',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: '15px',
+              fontSize: '20px',
+              fontWeight: 'bold'
+            }}>
+              1
+            </div>
+            <h4 style={{ color: '#1976d2', margin: 0 }}>Теорема Пифагора</h4>
+          </div>
+          <p style={{ color: '#2c3e50', lineHeight: '1.5' }}>
+            В прямоугольном треугольнике квадрат гипотенузы равен сумме квадратов катетов.
+          </p>
+          <div style={{ 
+            fontFamily: 'monospace', 
+            backgroundColor: 'white',
+            padding: '10px',
+            borderRadius: '5px',
+            marginTop: '10px',
+            borderLeft: '3px solid #2196f3'
+          }}>
+            DM² = AM² + AD²
+          </div>
+        </div>
+        
+        <div style={{ 
+          backgroundColor: '#e8f5e9',
+          borderRadius: '10px',
+          padding: '20px'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            marginBottom: '15px' 
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: '#4caf50',
+              color: 'white',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: '15px',
+              fontSize: '20px',
+              fontWeight: 'bold'
+            }}>
+              2
+            </div>
+            <h4 style={{ color: '#388e3c', margin: 0 }}>Теорема о трех перпендикулярах</h4>
+          </div>
+          <p style={{ color: '#2c3e50', lineHeight: '1.5' }}>
+            Если прямая, проведенная на плоскости через основание наклонной, перпендикулярна её проекции, то она перпендикулярна и самой наклонной.
+          </p>
+        </div>
+        
+        <div style={{ 
+          backgroundColor: '#fff3e0',
+          borderRadius: '10px',
+          padding: '20px'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            marginBottom: '15px' 
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: '#ff9800',
+              color: 'white',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: '15px',
+              fontSize: '20px',
+              fontWeight: 'bold'
+            }}>
+              3
+            </div>
+            <h4 style={{ color: '#f57c00', margin: 0 }}>Свойства равнобедренного треугольника</h4>
+          </div>
+          <p style={{ color: '#2c3e50', lineHeight: '1.5' }}>
+            В равнобедренном треугольнике высота, проведенная к основанию, является также медианой и биссектрисой.
+          </p>
+        </div>
+      </div>
+
+      {/* Легенда */}
+      <div style={{ 
+        backgroundColor: 'white',
+        borderRadius: '10px',
+        padding: '20px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+      }}>
+        <h3 style={{ color: '#34495e', marginTop: 0, marginBottom: '20px' }}>Обозначения на чертеже</h3>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '15px'
+        }}>
+          {[
+            { color: '#2196F3', label: 'A, B, C - вершины треугольника ABC' },
+            { color: '#FF5722', label: 'D - точка над плоскостью треугольника' },
+            { color: '#FF9800', label: 'M - середина основания BC' },
+            { color: '#00BCD4', label: 'P - проекция D на BC' },
+            { color: '#2196F3', line: true, label: 'BC = 12 м - основание треугольника' },
+            { color: '#4CAF50', line: true, label: 'AB = AC = 10 м - боковые стороны' },
+            { color: '#FF5722', line: true, label: 'AD = 6 м - перпендикуляр к плоскости' },
+            { color: '#FF9800', line: true, dash: true, label: 'AM - высота ΔABC к основанию' },
+            { color: '#FF4081', line: true, label: 'DP - искомое расстояние' },
+            { color: '#9C27B0', line: true, dash: true, label: 'ΔADM - прямоугольный треугольник' }
+          ].map((item, index) => (
+            <div key={index} style={{ 
+              display: 'flex', 
+              alignItems: 'center',
+              padding: '8px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '5px'
+            }}>
+              {item.line ? (
+                <div style={{ 
+                  width: '25px', 
+                  height: '3px', 
+                  backgroundColor: item.color,
+                  marginRight: '10px',
+                  borderStyle: item.dash ? 'dashed' : 'solid'
+                }}></div>
+              ) : (
+                <div style={{ 
+                  width: '12px', 
+                  height: '12px', 
+                  backgroundColor: item.color,
+                  marginRight: '10px',
+                  borderRadius: '50%'
+                }}></div>
+              )}
+              <span style={{ fontSize: '14px' }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+              const App = () => {
+        return (
+            <div>
+                <h1>Hello from React!</h1>
+                <p>This is a basic React application using Babel for JSX.</p>
+                <TriangleProblemJSXGraph />
+            </div>
+        );
+    };
+
+    const rootElement = document.getElementById('root');
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<App />);
+        </script>
+    </body>
+    </html>
