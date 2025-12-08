@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуализация: расстояние от точки D до стороны BC</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #canvas-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .control-group {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        .value-display {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .explanation {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .formula {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Визуализация задачи: расстояние от точки D до стороны BC</h1>
+        
+        <div class="explanation">
+            <h3>Условие задачи:</h3>
+            <p>В равнобедренном треугольнике ABC основание BC = 12 м, боковая сторона AB = AC = 10 м. 
+            Из вершины A проведен отрезок AD = 6 м, перпендикулярный плоскости треугольника ABC. 
+            Найдите расстояние от точки D до стороны BC.</p>
+            
+            <div class="formula">
+                DH = √(AD² + AH²) = √(6² + 8²) = √(36 + 64) = √100 = 10 м
+            </div>
+            
+            <p><strong>Решение:</strong> DH — перпендикуляр из D на BC. По теореме о трёх перпендикулярах, 
+            если AH ⊥ BC (где AH — высота треугольника), то DH ⊥ BC. В равнобедренном треугольнике 
+            высота AH делит основание BC пополам. По теореме Пифагора в треугольнике ABH находим 
+            AH = 8 м. Затем в прямоугольном треугольнике ADH по теореме Пифагора находим DH = 10 м.</p>
+        </div>
+
+        <div id="canvas-container"></div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="bc-slider">Основание BC: <span id="bc-value">12</span> м</label>
+                <input type="range" id="bc-slider" min="8" max="16" step="0.5" value="12">
+            </div>
+            
+            <div class="control-group">
+                <label for="ab-slider">Боковая сторона: <span id="ab-value">10</span> м</label>
+                <input type="range" id="ab-slider" min="6" max="14" step="0.5" value="10">
+            </div>
+            
+            <div class="control-group">
+                <label for="ad-slider">Высота AD: <span id="ad-value">6</span> м</label>
+                <input type="range" id="ad-slider" min="3" max="12" step="0.5" value="6">
+            </div>
+            
+            <div class="control-group">
+                <label for="rotation-slider">Вращение сцены</label>
+                <input type="range" id="rotation-slider" min="0" max="360" step="1" value="0">
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4CAF50;"></div>
+                <span>Треугольник ABC (основание)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #2196F3;"></div>
+                <span>Перпендикуляр AD (высота)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FF9800;"></div>
+                <span>Высота AH треугольника</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #E91E63;"></div>
+                <span>Искомое расстояние DH</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #9C27B0;"></div>
+                <span>Проекция DH' (равна AH)</span>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h3>Интерактивная демонстрация:</h3>
+            <ul>
+                <li>Используйте ползунки для изменения размеров треугольника и высоты AD</li>
+                <li>Вращайте сцену с помощью мыши (зажмите левую кнопку и двигайте)</li>
+                <li>Приближайте/отдаляйте с помощью колеса мыши</li>
+                <li>Красная линия DH всегда перпендикулярна BC (по теореме о трёх перпендикулярах)</li>
+                <li>Фиолетовая линия DH' показывает проекцию DH на плоскость треугольника (она равна AH)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Параметры задачи
+        let BC = 12;
+        let AB = 10;
+        let AD = 6;
+        
+        // Рассчитываем высоту треугольника AH
+        function calculateAH() {
+            const BH = BC / 2;
+            return Math.sqrt(AB * AB - BH * BH);
+        }
+        
+        // Рассчитываем искомое расстояние DH
+        function calculateDH() {
+            const AH = calculateAH();
+            return Math.sqrt(AD * AD + AH * AH);
+        }
+        
+        // Инициализация Three.js сцены
+        let scene, camera, renderer, controls;
+        let triangle, lineAD, lineAH, lineDH, lineDHProjection;
+        let labels = {};
+        
+        function init() {
+            // Создаем сцену
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            // Создаем камеру
+            camera = new THREE.PerspectiveCamera(
+                45, 
+                document.getElementById('canvas-container').clientWidth / 
+                document.getElementById('canvas-container').clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(20, 15, 20);
+            camera.lookAt(0, 0, 0);
+            
+            // Создаем рендерер
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(
+                document.getElementById('canvas-container').clientWidth,
+                document.getElementById('canvas-container').clientHeight
+            );
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+            
+            // Добавляем управление камерой
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            
+            // Добавляем освещение
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 20, 15);
+            scene.add(directionalLight);
+            
+            // Создаем оси координат (для наглядности)
+            const axesHelper = new THREE.AxesHelper(10);
+            scene.add(axesHelper);
+            
+            // Создаем плоскость (для отображения плоскости треугольника)
+            const planeGeometry = new THREE.PlaneGeometry(20, 20);
+            const planeMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xeeeeee, 
+                transparent: true, 
+                opacity: 0.3,
+                side: THREE.DoubleSide 
+            });
+            const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+            plane.rotation.x = Math.PI / 2;
+            scene.add(plane);
+            
+            // Создаем объекты для визуализации
+            createVisualization();
+            
+            // Добавляем обработчики событий для слайдеров
+            setupEventListeners();
+            
+            // Запускаем анимацию
+            animate();
+        }
+        
+        function createVisualization() {
+            // Очищаем старые объекты
+            if (triangle) scene.remove(triangle);
+            if (lineAD) scene.remove(lineAD);
+            if (lineAH) scene.remove(lineAH);
+            if (lineDH) scene.remove(lineDH);
+            if (lineDHProjection) scene.remove(lineDHProjection);
+            
+            // Удаляем старые метки
+            Object.values(labels).forEach(label => scene.remove(label));
+            labels = {};
+            
+            // Рассчитываем координаты
+            const AH = calculateAH();
+            const DH = calculateDH();
+            const BH = BC / 2;
+            
+            // Координаты точек (располагаем треугольник в плоскости XZ)
+            const A = new THREE.Vector3(0, 0, AH);        // Вершина A
+            const B = new THREE.Vector3(-BH, 0, 0);       // Вершина B
+            const C = new THREE.Vector3(BH, 0, 0);        // Вершина C
+            const H = new THREE.Vector3(0, 0, 0);         // Основание высоты AH (середина BC)
+            const D = new THREE.Vector3(0, AD, AH);       // Точка D (перпендикуляр из A)
+            const H2 = new THREE.Vector3(0, 0, 0);        // Проекция H на BC (та же точка)
+            
+            // 1. Треугольник ABC (зеленый)
+            const triangleGeometry = new THREE.BufferGeometry();
+            const vertices = new Float32Array([
+                A.x, A.y, A.z,
+                B.x, B.y, B.z,
+                C.x, C.y, C.z
+            ]);
+            triangleGeometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+            
+            const triangleMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x4CAF50, 
+                transparent: true, 
+                opacity: 0.6,
+                side: THREE.DoubleSide 
+            });
+            triangle = new THREE.Mesh(triangleGeometry, triangleMaterial);
+            scene.add(triangle);
+            
+            // Контур треугольника
+            const triangleEdges = new THREE.LineSegments(
+                new THREE.EdgesGeometry(triangleGeometry),
+                new THREE.LineBasicMaterial({ color: 0x2E7D32, linewidth: 2 })
+            );
+            scene.add(triangleEdges);
+            
+            // 2. Линия AD (синяя)
+            const lineADGeometry = new THREE.BufferGeometry().setFromPoints([A, D]);
+            const lineADMaterial = new THREE.LineBasicMaterial({ color: 0x2196F3, linewidth: 3 });
+            lineAD = new THREE.Line(lineADGeometry, lineADMaterial);
+            scene.add(lineAD);
+            
+            // 3. Линия AH (оранжевая) - высота треугольника
+            const lineAHGeometry = new THREE.BufferGeometry().setFromPoints([A, H]);
+            const lineAHMaterial = new THREE.LineBasicMaterial({ color: 0xFF9800, linewidth: 3 });
+            lineAH = new THREE.Line(lineAHGeometry, lineAHMaterial);
+            scene.add(lineAH);
+            
+            // 4. Линия DH (красная) - искомое расстояние
+            const lineDHGeometry = new THREE.BufferGeometry().setFromPoints([D, H]);
+            const lineDHMaterial = new THREE.LineBasicMaterial({ color: 0xE91E63, linewidth: 3 });
+            lineDH = new THREE.Line(lineDHGeometry, lineDHMaterial);
+            scene.add(lineDH);
+            
+            // 5. Проекция DH на плоскость (фиолетовая)
+            const lineDHProjectionGeometry = new THREE.BufferGeometry().setFromPoints([D, H2]);
+            const lineDHProjectionMaterial = new THREE.LineBasicMaterial({ 
+                color: 0x9C27B0, 
+                linewidth: 2,
+                lineDash: [1, 1]
+            });
+            lineDHProjection = new THREE.Line(lineDHProjectionGeometry, lineDHProjectionMaterial);
+            scene.add(lineDHProjection);
+            
+            // 6. Линия BC (серая)
+            const lineBCGeometry = new THREE.BufferGeometry().setFromPoints([B, C]);
+            const lineBCMaterial = new THREE.LineBasicMaterial({ color: 0x757575, linewidth: 2 });
+            const lineBC = new THREE.Line(lineBCGeometry, lineBCMaterial);
+            scene.add(lineBC);
+            
+            // Создаем метки для точек
+            createLabel('A', A.x, A.y + 0.5, A.z, 0x000000);
+            createLabel('B', B.x - 1, B.y, B.z, 0x000000);
+            createLabel('C', C.x + 1, C.y, C.z, 0x000000);
+            createLabel('D', D.x, D.y + 0.5, D.z, 0x2196F3);
+            createLabel('H', H.x, H.y, H.z - 0.5, 0xFF9800);
+            
+            // Создаем плавающие метки для длин отрезков
+            createFloatingLabel('AD = ' + AD.toFixed(1) + ' м', 
+                (A.x + D.x) / 2, (A.y + D.y) / 2 + 0.3, (A.z + D.z) / 2, 0x2196F3);
+            
+            createFloatingLabel('AH = ' + AH.toFixed(1) + ' м', 
+                (A.x + H.x) / 2, (A.y + H.y) / 2, (A.z + H.z) / 2 - 0.3, 0xFF9800);
+            
+            createFloatingLabel('DH = ' + DH.toFixed(1) + ' м', 
+                (D.x + H.x) / 2 + 1, (D.y + H.y) / 2, (D.z + H.z) / 2, 0xE91E63);
+            
+            createFloatingLabel('BC = ' + BC.toFixed(1) + ' м', 
+                (B.x + C.x) / 2, 0.2, (B.z + C.z) / 2, 0x757575);
+            
+            createFloatingLabel('AB = AC = ' + AB.toFixed(1) + ' м', 
+                (A.x + B.x) / 2 - 1, 0.2, (A.z + B.z) / 2, 0x4CAF50);
+            
+            // Обновляем формулу
+            document.querySelector('.formula').innerHTML = 
+                `DH = √(AD² + AH²) = √(${AD.toFixed(1)}² + ${AH.toFixed(1)}²) = ` +
+                `√(${(AD*AD).toFixed(1)} + ${(AH*AH).toFixed(1)}) = √${(DH*DH).toFixed(1)} = ` +
+                `<strong>${DH.toFixed(1)} м</strong>`;
+        }
+        
+        function createLabel(text, x, y, z, color) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 64;
+            canvas.height = 32;
+            
+            context.fillStyle = 'white';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            context.fillStyle = `rgb(${(color >> 16) & 255}, ${(color >> 8) & 255}, ${color & 255})`;
+            context.font = 'bold 20px Arial';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.position.set(x, y, z);
+            sprite.scale.set(2, 1, 1);
+            
+            scene.add(sprite);
+            labels[text] = sprite;
+        }
+        
+        function createFloatingLabel(text, x, y, z, color) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 160;
+            canvas.height = 32;
+            
+            context.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            context.fillStyle = `rgb(${(color >> 16) & 255}, ${(color >> 8) & 255}, ${color & 255})`;
+            context.font = 'bold 14px Arial';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.position.set(x, y, z);
+            sprite.scale.set(4, 1, 1);
+            
+            scene.add(sprite);
+            labels[text] = sprite;
+        }
+        
+        function setupEventListeners() {
+            document.getElementById('bc-slider').addEventListener('input', function(e) {
+                BC = parseFloat(e.target.value);
+                document.getElementById('bc-value').textContent = BC;
+                createVisualization();
+            });
+            
+            document.getElementById('ab-slider').addEventListener('input', function(e) {
+                AB = parseFloat(e.target.value);
+                document.getElementById('ab-value').textContent = AB;
+                createVisualization();
+            });
+            
+            document.getElementById('ad-slider').addEventListener('input', function(e) {
+                AD = parseFloat(e.target.value);
+                document.getElementById('ad-value').textContent = AD;
+                createVisualization();
+            });
+            
+            document.getElementById('rotation-slider').addEventListener('input', function(e) {
+                const angle = parseFloat(e.target.value) * Math.PI / 180;
+                camera.position.x = 20 * Math.cos(angle);
+                camera.position.z = 20 * Math.sin(angle);
+                camera.lookAt(0, 5, 0);
+                controls.update();
+            });
+            
+            window.addEventListener('resize', function() {
+                camera.aspect = document.getElementById('canvas-container').clientWidth / 
+                                document.getElementById('canvas-container').clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(
+                    document.getElementById('canvas-container').clientWidth,
+                    document.getElementById('canvas-container').clientHeight
+                );
+            });
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        
+        // Запускаем при загрузке страницы
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
