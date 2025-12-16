@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     -->
     <link rel="stylesheet" href="../dist/original.css" />
-    
+
     <title>Бухгалтерский финансовый учет 1</title>
 </head>
 
@@ -51,14 +51,17 @@
         <h1 class="text-secondary">Бухгалтерский финансовый учет 1</h1>
         <h5 class="text-secondary">Лекции 2 часа</h5>
 
+
         <div class="card my-3" style="max-width:800px;">
             <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
+                <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Система счетов бухгалтерского учета"
+                    style="filter: grayscale(1);">
             </p>
+
+
             <div class="card-body">
                 <h3 class="card-title">Тема 1. Основы организации финансового учета</h3>
+
 
                 1. Методический этап — на нем выбирают определенные способы и приемы бухгалтерского учета, которые
                 станут основой для документирования, инвентаризации, оценки активов и обязательств, использования
@@ -90,11 +93,220 @@
                 будет учитывать свои активы и обязательства.
                 <br>
 
+                <div class="alert alert-primary m-3">
+                    <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
+                        бухгалтерского учета
+                        финансово-хозяйственной деятельности организаций Приказ Минфина России от 31.10.2000 №
+                        94н</a><br>
+                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
+                    Всегда иметь с собой на занятиях <br>
+                    Знать близко к тексту<br>
+                </div>
+
+                <h5>1. Классификация счетов по экономическому содержанию</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1">Активные счета</h6>
+                                <p class="small mb-1">Учет активов (имущества)</p>
+                                <ul class="small mb-0">
+                                    <li><strong>Схема:</strong> Д-т: Увеличение, К-т: Уменьшение</li>
+                                    <li><strong>Пример:</strong> 01 "Основные средства", 10 "Материалы"</li>
+                                    <li><strong>Сальдо:</strong> Только дебетовое или нулевое</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1">Пассивные счета</h6>
+                                <p class="small mb-1">Учет источников (капитал, обязательства)</p>
+                                <ul class="small mb-0">
+                                    <li><strong>Схема:</strong> Д-т: Уменьшение, К-т: Увеличение</li>
+                                    <li><strong>Пример:</strong> 80 "Уставный капитал", 66 "Кредиты"</li>
+                                    <li><strong>Сальдо:</strong> Только кредитовое или нулевое</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mt-3">2. Активно-пассивные счета</h5>
+                <p>Учитывают как активы, так и обязательства. Могут иметь два сальдо.</p>
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Счет</th>
+                                <th>Наименование</th>
+                                <th>Активная часть</th>
+                                <th>Пассивная часть</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>60</strong></td>
+                                <td>Расчеты с поставщиками</td>
+                                <td>Авансы выданные (Дт)</td>
+                                <td>Задолженность перед поставщиками (Кт)</td>
+                                <td>Дт 60 - перечислен аванс; Кт 60 - получен товар</td>
+                            </tr>
+                            <tr>
+                                <td><strong>62</strong></td>
+                                <td>Расчеты с покупателями</td>
+                                <td>Задолженность покупателей (Дт)</td>
+                                <td>Авансы полученные (Кт)</td>
+                                <td>Дт 62 - отгружен товар; Кт 62 - получен аванс</td>
+                            </tr>
+                            <tr>
+                                <td><strong>76</strong></td>
+                                <td>Расчеты с разными дебиторами и кредиторами</td>
+                                <td>Дебиторская задолженность (Дт)</td>
+                                <td>Кредиторская задолженность (Кт)</td>
+                                <td>Дт 76 - претензия к контрагенту; Кт 76 - обязательство</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="mt-3">3. Иерархия счетов: от синтетического к аналитическому</h5>
+
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Синтетический счет</h6>
+                            <div class="display-6">10</div>
+                            <small>"Материалы"</small>
+                        </div>
+                        <div class="mt-1">↓ открывает</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Субсчета</h6>
+                            <div>10.1 "Сырье"<br>10.2 "Топливо"<br>10.3 "Запчасти"</div>
+                        </div>
+                        <div class="mt-1">↓ детализируют</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Аналитические счета<br><small>(субконто)</small></h6>
+                            <div>10.1 "Сталь листовая"<br>10.1 "Пластик ABS"<br>10.2 "Бензин АИ-95"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>4. Субконто (аналитические признаки)</h5>
+                <p>Современные системы учета (1С и аналоги) используют измерения "субконто":</p>
+                <ul>
+                    <li><strong>Виды субконто:</strong>
+                        <ul>
+                            <li>Номенклатура (материалы, товары)</li>
+                            <li>Контрагенты (поставщики, покупатели)</li>
+                            <li>Сотрудники (подотчетные лица)</li>
+                            <li>Проекты, договоры, подразделения</li>
+                        </ul>
+                    </li>
+                    <li><strong>Пример для счета 10:</strong>
+                        <ul>
+                            <li>Субконто 1: Номенклатура (Болт М8, Краска белая)</li>
+                            <li>Субконто 2: Склады (Основной, Производственный)</li>
+                            <li>Субконто 3: Партии (Партия №123 от 15.01.2024)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5 class="mt-3">5. Контрарные (регулирующие) счета</h5>
+                <p>Корректируют оценку основных счетов. Уменьшают стоимость активов.</p>
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Основной счет</th>
+                                <th>Контрарный счет</th>
+                                <th>Назначение</th>
+                                <th>Балансовая стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>01</strong> "Основные средства"<br><em>(первоначальная стоимость)</em></td>
+                                <td><strong>02</strong> "Амортизация ОС"</td>
+                                <td>Учет накопленного износа</td>
+                                <td>01 - 02 = Остаточная стоимость</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10</strong> "Материалы"<br><em>(учетная стоимость)</em></td>
+                                <td><strong>14</strong> "Резервы под снижение стоимости"</td>
+                                <td>Создание резерва при обесценении</td>
+                                <td>10 - 14 = Рыночная стоимость</td>
+                            </tr>
+                            <tr>
+                                <td><strong>58</strong> "Финансовые вложения"</td>
+                                <td><strong>59</strong> "Резервы под обесценение"</td>
+                                <td>Резерв при падении рыночной цены</td>
+                                <td>58 - 59 = Балансовая стоимость</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="mt-3">6. Сопоставляющие (результатные) счета</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>90 "Продажи"</h6>
+                                <ul class="small">
+                                    <li>К-т 90.1 "Выручка"</li>
+                                    <li>Д-т 90.2 "Себестоимость"</li>
+                                    <li>Д-т 90.3 "НДС"</li>
+                                    <li>Д-т 90.9 "Прибыль/убыток"</li>
+                                </ul>
+                                <p class="mb-0"><strong>Итог:</strong> Финансовый результат от продаж</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>91 "Прочие доходы и расходы"</h6>
+                                <ul class="small">
+                                    <li>К-т 91.1 "Прочие доходы"</li>
+                                    <li>Д-т 91.2 "Прочие расходы"</li>
+                                    <li>Д-т/К-т 91.9 "Сальдо"</li>
+                                </ul>
+                                <p class="mb-0"><strong>Итог:</strong> Результат от прочей деятельности</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success mt-3">
+                    <small><strong>Важно:</strong> В современных учетных системах (1С) аналитический учет ведется через
+                        механизм "субконто", что позволяет получать детализированные отчеты по любому измерению: по
+                        контрагентам, номенклатуре, проектам и т.д.</small>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 2. Бухгалтерская отчетность как конечная цель финансового учета</h3>
+
+
                 Отчетность в финансовом учете обычно делят на бухгалтерскую (финансовую), внутрихозяйственную
                 (управленческую), статистическую и налоговую.
                 <br> Но управленческий учет часто выделяют как отдельный вид внутрихозяйственного учета, который, в
-                отличие от бухгалтерского, не обязателен — его ведут только по
-                запросу высшего руководства.
+                отличие от бухгалтерского, не обязателен — его ведут только по запросу высшего руководства.
                 <br> Поэтому рассмотрим бухгалтерскую отчетность, которую составляют в
                 обязательном порядке ежеквартально и раз в год для внешних и внутренних пользователей.<br>
                 Годовая бухгалтерская отчетность включает в себя Баланс и несколько отчетов.<br>
@@ -372,7 +584,7 @@
             </div>
         </div>
 
-       
+
 
 
 
@@ -390,7 +602,7 @@
 
    Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
-   <script src="../dist/babel.standalone7.27.6.min.js"></script>
+    <script src="../dist/babel.standalone7.27.6.min.js"></script>
 
     <script src="../dist/basicfirebasecrudservices.js"></script>
     <script src="../dist/react18.3.1.production.min.js"></script>

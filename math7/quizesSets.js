@@ -1,7 +1,127 @@
 let quizesSets = [
 
+   {
+    "id": "trig-transform-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Преобразования",
+    "title": "Формула синуса суммы",
+    "theme": "Тригонометрические преобразования",
+    "text": "Чему равно $\\sin(\\alpha + \\beta)$?",
+    "choices": [
+      "$\\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$",
+      "$\\sin\\alpha \\cos\\beta - \\cos\\alpha \\sin\\beta$",
+      "$\\cos\\alpha \\cos\\beta - \\sin\\alpha \\sin\\beta$",
+      "$\\cos\\alpha \\cos\\beta + \\sin\\alpha \\sin\\beta$",
+      "$\\sin\\alpha \\sin\\beta + \\cos\\alpha \\cos\\beta$"
+    ],
+    "answers": ["$\\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Формула синуса суммы</h5>
+        <p>Одна из основных формул тригонометрии, которую нужно знать наизусть.</p>
+      </div>
+      
+      $$\\sin(\\alpha + \\beta) = \\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$$
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Мнемоническое правило</strong>
+            </div>
+            <div class="card-body">
+              <p><strong>"Син кос плюс кос син"</strong></p>
+              <p>Первый синус, потом косинус, знак плюс, косинус, потом синус.</p>
+              <p>Запомните: синус суммы = сумма произведений.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Пример</strong>
+            </div>
+            <div class="card-body">
+              <p>$\\sin(30^{\\circ} + 45^{\\circ}) = \\sin 75^{\\circ}$</p>
+              <p>По формуле:</p>
+              <p>$\\sin 30^{\\circ} \\cos 45^{\\circ} + \\cos 30^{\\circ} \\sin 45^{\\circ}$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      $$= \\frac{1}{2} \\cdot \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{3}}{2} \\cdot \\frac{\\sqrt{2}}{2}$$
+      $$= \\frac{\\sqrt{2} + \\sqrt{6}}{4}$$
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Важные следствия:</h6>
+        <p class="mb-0">Из этой формулы получаются формулы для $\\sin(\\alpha - \\beta)$, $\\sin(2\\alpha)$ и другие.</p>
+      </div>
+    </div>`
+  },
   
-
+ {
+    "id": "trig-transform-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Преобразования",
+    "title": "Формула синуса суммы",
+    "theme": "Тригонометрические преобразования",
+    "text": "Чему равно $\\sin(\\alpha + \\beta)$?",
+    "choices": [
+      "$\\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$",
+      "$\\sin\\alpha \\cos\\beta - \\cos\\alpha \\sin\\beta$",
+      "$\\cos\\alpha \\cos\\beta - \\sin\\alpha \\sin\\beta$",
+      "$\\cos\\alpha \\cos\\beta + \\sin\\alpha \\sin\\beta$",
+      "$\\sin\\alpha \\sin\\beta + \\cos\\alpha \\cos\\beta$"
+    ],
+    "answers": ["$\\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Формула синуса суммы</h5>
+        <p>Одна из основных формул тригонометрии, которую нужно знать наизусть.</p>
+      </div>
+      
+      $$\\sin(\\alpha + \\beta) = \\sin\\alpha \\cos\\beta + \\cos\\alpha \\sin\\beta$$
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Мнемоническое правило</strong>
+            </div>
+            <div class="card-body">
+              <p><strong>"Син кос плюс кос син"</strong></p>
+              <p>Первый синус, потом косинус, знак плюс, косинус, потом синус.</p>
+              <p>Запомните: синус суммы = сумма произведений.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Пример</strong>
+            </div>
+            <div class="card-body">
+              <p>sin(30° + 45°) = sin 75°</p>
+              <p>По формуле:</p>
+              <p>sin 30° cos 45° + cos 30° sin 45°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      $$\\sin 30^{\\circ} \\cos 45^{\\circ} + \\cos 30^{\\circ} \\sin 45^{\\circ}$$
+      $$= \\frac{1}{2} \\cdot \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{3}}{2} \\cdot \\frac{\\sqrt{2}}{2}$$
+      $$= \\frac{\\sqrt{2} + \\sqrt{6}}{4}$$
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Важные следствия:</h6>
+        <p class="mb-0">Из этой формулы получаются формулы для sin(α - β), sin(2α) и другие.</p>
+      </div>
+    </div>`
+  },
  
   {
     "id": "sin-values-001",
