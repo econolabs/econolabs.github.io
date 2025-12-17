@@ -1158,6 +1158,7 @@ let quizesSets = [
     "answers": ["$y = x^2 + bx + c$ (Квадратичная функция)"],
     "hint": "Квадратичная функция имеет вид y = ax² + bx + c и представляет собой параболу на графике."
   },
+  
   {
     "id": "functiongraph003",
     "type": "multiplechoices",
