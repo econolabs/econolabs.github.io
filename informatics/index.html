@@ -700,6 +700,66 @@
                 </div>
             </div>
 
+            <!-- Карточка 6: Расширенные операции SELECT -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title6.jpg" class="card-img-top" alt="Расширенный поиск">
+                <div class="card-body">
+                    <h3>Расширенные операции SELECT</h3>
+                    <p class="card-text">Сортировка, группировка и агрегатные функции.</p>
+                    <div class="code-block">
+
+                        <span class="sql-comment"># Удаление всех записей из таблицы (осторожно!) -<br>
+                            вставьте код ДО добавления данных</span><br>
+                        <span class="sql-comment"># cursor.execute("DELETE FROM students")</span><br>
+                        <span class="sql-comment"># connection.commit()</span>
+                    </div>
+                    <div class="alert alert-danger">
+                        <strong>Внимание:</strong> Операция DELETE необратима. Всегда проверяйте условие WHERE.
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Сортировка по возрасту (по возрастанию)</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students ORDER BY age ASC"</span>)<br>
+                        sorted_students = cursor.fetchall()<br><br>
+
+                        <span class="sql-comment"># Сортировка по оценке (по убыванию) и имени</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students ORDER BY grade DESC, name
+                            ASC"</span>)<br>
+                        complex_sorted = cursor.fetchall()<br><br>
+
+                        <span class="sql-comment"># Группировка и агрегатные функции</span><br>
+                        cursor.execute(<span class="sql-keyword">'''</span><br>
+                        <span class="sql-keyword">SELECT</span> grade, <span class="sql-keyword">COUNT</span>(*) as
+                        count,
+                        <span class="sql-keyword">AVG</span>(age) as avg_age<br>
+                        <span class="sql-keyword">FROM</span> students <br>
+                        <span class="sql-keyword">GROUP BY</span> grade<br>
+                        <span class="sql-keyword">HAVING COUNT</span>(*) > 1<br>
+                        <span class="sql-keyword">'''</span>)<br>
+                        grouped_data = cursor.fetchall()<br><br>
+
+                        <span class="sql-comment"># Ограничение количества результатов</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students LIMIT 5"</span>)<br>
+                        limited_results = cursor.fetchall()<br><br>
+
+                        <span class="sql-comment"># Пропуск первых N записей</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students LIMIT 5 OFFSET 2"</span>)<br>
+                        offset_results = cursor.fetchall()<br><br>
+
+                        <span class="sql-comment"># Поиск по шаблону (LIKE)</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students WHERE name LIKE
+                            'И%'"</span>)<br>
+                        pattern_results = cursor.fetchall()
+                    </div>
+
+                </div>
+                <p class="m-5"><strong>Агрегатные функции:</strong> COUNT(), SUM(), AVG(), MIN(), MAX()</p>
+            </div>
+
+
+
+
+
             <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
@@ -736,91 +796,6 @@
 
 
 
-            <!-- Карточка 5: Выборка данных -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title17.jpg" class="card-img-top" alt="Поиск данных">
-                <div class="card-body">
-                    <h3>Генератор данных</h3>
-
-                    <div class="alert alert-primary">
-                        <h4>Faker</h4>
-                        Позволяет разделить процессы сбора и анализа данных<br><br>
-                        fake.random_element(["M", "F"])<br>
-                        fake.name()<br>
-                        fake.random_int(min=18, max=25)<br>
-                        fake.email()<br>
-                        fake.company<br>
-                        fake.job()<br>
-                        fake.date_this_year().isoformat()<br>
-                        fake.boolean(chance_of_getting_true=80)<br>
-                        fake.date_of_birth()<br>
-                        fake.sentence<br>
-                        fake.sentences<br>
-                        ...<br>
-                        https://gist.github.com/digitalashes/185133cd833d78cbc74e9090e10b57d2<br>
-                    </div>
-
-                    <div class="code-block">
-                        <span class="sql-keyword">import</span> piplite<br><br>
-
-                        <span class="sql-keyword">await</span> piplite.install(<span
-                            class="sql-string">"faker"</span>)<br>
-                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span>
-                        Faker<br><br>
-
-                        <span class="sql-comment"># Initialize Faker</span><br>
-                        fake_eng = Faker(<span class="sql-string">'en_US'</span>) <span class="sql-comment"># US
-                            English</span><br>
-                        fake_ru = Faker(<span class="sql-string">'ru_RU'</span>) <span class="sql-comment">#
-                            Russian</span><br><br>
-
-                        print(fake_eng.name())<br>
-                        print(fake_eng.text())<br>
-                        print(fake_eng.random_element([<span class="sql-string">"M"</span>, <span
-                            class="sql-string">"F"</span>]))<br><br>
-
-                        print(fake_ru.name())<br>
-                        print(fake_ru.text())<br><br>
-
-                        <span class="sql-comment"># Added Faker methods</span><br>
-                        print(fake_eng.random_int(min=<span class="sql-number">18</span>, max=<span
-                            class="sql-number">25</span>))<br>
-                        print(fake_eng.email())<br>
-                        print(fake_eng.company())<br>
-                        print(fake_eng.job())<br>
-                        print(fake_eng.date_this_year().isoformat())<br>
-                        print(fake_eng.boolean(chance_of_getting_true=<span class="sql-number">80</span>))<br>
-                        print(fake_eng.date_of_birth())<br>
-                        print(fake_eng.sentence())<br>
-                        print(fake_eng.sentences())<br>
-                    </div>
-
-                    <div class="code-block">
-                        <span class="sql-comment"># Insert a record into the Students table</span><br>
-                        insert_query = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">INSERT INTO</span> students (name, age, grade)<br>
-                        <span class="sql-keyword">VALUES</span> (?, ?, ?);<br>
-                        <span class="sql-string">'''</span><br>
-                        students_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.name(),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.random_int(min=<span
-                            class="sql-number">18</span>, max=<span class="sql-number">25</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.random_element([<span
-                            class="sql-string">"A"</span>, <span class="sql-string">"B"</span>, <span
-                            class="sql-string">"C"</span>, <span class="sql-string">"D"</span>])<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> _ <span
-                            class="sql-keyword">in</span> range(<span class="sql-number">5</span>)]<br><br>
-
-                        <span class="sql-comment"># Execute the query for multiple records</span><br>
-                        cursor.executemany(insert_query, students_data)<br><br>
-
-                        <span class="sql-comment"># Commit the changes</span><br>
-                        connection.commit()<br>
-                    </div>
-                </div>
-            </div>
 
             <div class="container">
                 <div class="alert alert-info" role="alert" style="max-width: 1000px">
@@ -1620,224 +1595,7 @@ def example():
             </div>
 
 
-            <!-- Карточка 6: Расширенные операции SELECT -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title6.jpg" class="card-img-top" alt="Расширенный поиск">
-                <div class="card-body">
-                    <h3>Расширенные операции SELECT</h3>
-                    <p class="card-text">Сортировка, группировка и агрегатные функции.</p>
-                    <div class="code-block">
 
-                        <span class="sql-comment"># Удаление всех записей из таблицы (осторожно!) -<br>
-                            вставьте код ДО добавления данных</span><br>
-                        <span class="sql-comment"># cursor.execute("DELETE FROM students")</span><br>
-                        <span class="sql-comment"># connection.commit()</span>
-                    </div>
-                    <div class="alert alert-danger">
-                        <strong>Внимание:</strong> Операция DELETE необратима. Всегда проверяйте условие WHERE.
-                    </div>
-
-                    <div class="code-block">
-                        <span class="sql-comment"># Сортировка по возрасту (по возрастанию)</span><br>
-                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students ORDER BY age ASC"</span>)<br>
-                        sorted_students = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Сортировка по оценке (по убыванию) и имени</span><br>
-                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students ORDER BY grade DESC, name
-                            ASC"</span>)<br>
-                        complex_sorted = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Группировка и агрегатные функции</span><br>
-                        cursor.execute(<span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> grade, <span class="sql-keyword">COUNT</span>(*) as
-                        count,
-                        <span class="sql-keyword">AVG</span>(age) as avg_age<br>
-                        <span class="sql-keyword">FROM</span> students <br>
-                        <span class="sql-keyword">GROUP BY</span> grade<br>
-                        <span class="sql-keyword">HAVING COUNT</span>(*) > 1<br>
-                        <span class="sql-keyword">'''</span>)<br>
-                        grouped_data = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Ограничение количества результатов</span><br>
-                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students LIMIT 5"</span>)<br>
-                        limited_results = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Пропуск первых N записей</span><br>
-                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students LIMIT 5 OFFSET 2"</span>)<br>
-                        offset_results = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Поиск по шаблону (LIKE)</span><br>
-                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students WHERE name LIKE
-                            'И%'"</span>)<br>
-                        pattern_results = cursor.fetchall()
-                    </div>
-
-                </div>
-                <p class="m-5"><strong>Агрегатные функции:</strong> COUNT(), SUM(), AVG(), MIN(), MAX()</p>
-            </div>
-
-
-
-            <!-- Карточка 7: Обновление данных -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title11.jpg" class="card-img-top" alt="Обновление данных">
-                <div class="card-body">
-                    <h3>Комплексный пример Имитация статистического исследования</h3>
-
-
-
-                    <p class="card-text">numpy, pandas, matplotlib</p>
-
-                    <div class="code-block">
-                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
-                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
-                        plt<br>
-                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
-                        <span class="sql-keyword">import</span> random<br>
-                        <span class="sql-keyword">import</span> micropip<br><br>
-
-                        <span class="sql-comment"># Установка зависимостей</span><br>
-                        <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"faker"</span>)<br>
-                        <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"openpyxl"</span>)<br><br>
-
-                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span>
-                        Faker<br><br>
-
-                        <span class="sql-comment"># Инициализация Faker</span><br>
-                        fake = Faker(<span class="sql-string">'ru_RU'</span>)<br><br>
-
-                        <span class="sql-comment"># Генерация данных для исследования роста</span><br>
-                        np.random.seed(<span class="sql-number">42</span>)<br>
-                        random.seed(<span class="sql-number">42</span>)<br><br>
-
-                        <span class="sql-comment"># Создаем датафрейм с данными</span><br>
-                        n_records = <span class="sql-number">1000</span><br>
-                        data = []<br><br>
-
-                        <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_records):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'male'</span>, <span
-                            class="sql-string">'female'</span>])<br><br>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> gender == <span
-                            class="sql-string">'male'</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = fake.first_name_male()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span
-                            class="sql-number">177.2</span>, <span class="sql-number">7</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name = fake.first_name_female()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height = np.random.normal(<span
-                            class="sql-number">164.5</span>, <span class="sql-number">6</span>)<br><br>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;height = max(<span class="sql-number">150</span>, min(<span
-                            class="sql-number">210</span>, height))<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;age = random.randint(<span class="sql-number">18</span>, <span
-                            class="sql-number">65</span>)<br><br>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> age &lt; <span
-                            class="sql-number">25</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height += random.uniform(<span
-                            class="sql-number">0</span>, <span class="sql-number">2</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">elif</span> age &gt; <span
-                            class="sql-number">55</span>:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height -= random.uniform(<span
-                            class="sql-number">0</span>, <span class="sql-number">2</span>)<br><br>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;data.append({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'id'</span>: i + <span
-                            class="sql-number">1</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'first_name'</span>:
-                        first_name,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'last_name'</span>:
-                        fake.last_name(),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age'</span>: age,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'gender'</span>:
-                        gender.capitalize(),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'height'</span>:
-                        round(height, <span class="sql-number">1</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'city'</span>:
-                        fake.city()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;})<br><br>
-
-                        <span class="sql-comment"># Создаем DataFrame</span><br>
-                        df_height = pd.DataFrame(data)<br><br>
-
-                        <span class="sql-comment"># Просмотр сгенерированных данных</span><br>
-                        print(<span class="sql-string">"Размер данных:"</span>, df_height.shape)<br>
-                        print(<span class="sql-string">"\nПервые 5 строк:"</span>)<br>
-                        print(df_height.head())<br><br>
-
-                        <span class="sql-comment"># Основные статистики</span><br>
-                        print(<span class="sql-string">"\nОсновные статистики по росту:"</span>)<br>
-                        print(df_height[<span class="sql-string">'height'</span>].describe())<br><br>
-
-                        <span class="sql-comment"># Статистика по полу</span><br>
-                        print(<span class="sql-string">"\nСредний рост по полу:"</span>)<br>
-                        height_by_gender = df_height.groupby(<span class="sql-string">'gender'</span>)[<span
-                            class="sql-string">'height'</span>].agg([<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'count'</span>, <span
-                            class="sql-string">'mean'</span>, <span class="sql-string">'std'</span>, <span
-                            class="sql-string">'min'</span>, <span class="sql-string">'max'</span><br>
-                        ]).round(<span class="sql-number">1</span>)<br>
-                        print(height_by_gender)<br><br>
-
-                        <span class="sql-comment"># Запись данных в Excel файл</span><br>
-                        output_file = <span class="sql-string">'height_research_russia.xlsx'</span><br><br>
-
-                        <span class="sql-keyword">with</span> pd.ExcelWriter(output_file, engine=<span
-                            class="sql-string">'openpyxl'</span>) <span class="sql-keyword">as</span> writer:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;df_height.to_excel(writer, sheet_name=<span
-                            class="sql-string">'Height_Data'</span>, index=<span class="sql-keyword">False</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;summary_stats = df_height.groupby(<span
-                            class="sql-string">'gender'</span>).agg({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'height'</span>: [<span
-                            class="sql-string">'mean'</span>, <span class="sql-string">'std'</span>, <span
-                            class="sql-string">'min'</span>, <span class="sql-string">'max'</span>],<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age'</span>: <span
-                            class="sql-string">'mean'</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-number">1</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;summary_stats.to_excel(writer, sheet_name=<span
-                            class="sql-string">'Summary_Statistics'</span>)<br><br>
-
-                        print(<span class="sql-string">f"\n✅ Данные успешно записаны в файл: {output_file}"</span>)<br>
-
-                        <span class="sql-comment"># Визуализация результатов</span><br>
-                        plt.figure(figsize=(<span class="sql-number">12</span>, <span
-                            class="sql-number">8</span>))<br><br>
-
-                        plt.subplot(<span class="sql-number">2</span>, <span class="sql-number">2</span>, <span
-                            class="sql-number">1</span>)<br>
-                        <span class="sql-keyword">for</span> gender <span class="sql-keyword">in</span> [<span
-                            class="sql-string">'Male'</span>, <span class="sql-string">'Female'</span>]:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;plt.hist(df_height[df_height[<span class="sql-string">'gender'</span>]
-                        == gender][<span class="sql-string">'height'</span>], <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=<span
-                            class="sql-number">0.7</span>, label=gender, bins=<span class="sql-number">20</span>)<br>
-                        plt.xlabel(<span class="sql-string">'Рост (см)'</span>)<br>
-                        plt.ylabel(<span class="sql-string">'Количество'</span>)<br>
-                        plt.title(<span class="sql-string">'Распределение роста по полу'</span>)<br>
-                        plt.legend()<br><br>
-
-                        plt.subplot(<span class="sql-number">2</span>, <span class="sql-number">2</span>, <span
-                            class="sql-number">2</span>)<br>
-                        gender_data = [df_height[df_height[<span class="sql-string">'gender'</span>] == <span
-                            class="sql-string">'Male'</span>][<span class="sql-string">'height'</span>],<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;df_height[df_height[<span
-                            class="sql-string">'gender'</span>] == <span class="sql-string">'Female'</span>][<span
-                            class="sql-string">'height'</span>]]<br>
-                        plt.boxplot(gender_data, labels=[<span class="sql-string">'Мужчины'</span>, <span
-                            class="sql-string">'Женщины'</span>])<br>
-                        plt.ylabel(<span class="sql-string">'Рост (см)'</span>)<br>
-                        plt.title(<span class="sql-string">'Боксплот распределения роста'</span>)<br><br>
-
-                        plt.tight_layout()<br>
-                        plt.show()<br>
-                    </div>
-
-                </div>
-            </div>
 
 
             <!-- Карточка 7: Обновление данных -->
@@ -2156,6 +1914,142 @@ def example():
                 </div>
             </div>
 
+
+            <!-- Карточка: Основы работы с Pandas -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title10.jpg" class="card-img-top" alt="Pandas Data Analysis">
+                <div class="card-body">
+                    <h3>Основы работы с Pandas</h3>
+                    <p class="card-text">Pandas - это мощная библиотека Python для анализа и обработки данных,
+                        предоставляющая структуры данных Series и DataFrame.</p>
+                    <p class="card-text">Основные операции импорта, создания и манипуляции с табличными данными.</p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br><br>
+
+                        <span class="sql-comment"># Создание DataFrame из словаря</span><br>
+                        data = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Имя': ['Анна', 'Борис', 'Мария', 'Дмитрий'],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Возраст': [25, 30, 22, 35],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Город': ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск']<br>
+                        }<br><br>
+
+                        df = pd.DataFrame(data)<br>
+                        <span class="sql-comment">print(df)</span><br><br>
+
+                        <span class="sql-comment"># Чтение данных из CSV файла</span><br>
+                        <span class="sql-comment"># df = pd.read_csv('data.csv')</span><br><br>
+
+                        <span class="sql-comment"># Просмотр основных характеристик данных</span><br>
+                        df.info()<br>
+                        df.describe()<br>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <strong>Важно:</strong> Всегда проверяйте данные на наличие пропущенных значений с помощью
+                        df.isnull().sum()
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ключевые возможности Pandas:</strong></p>
+                            <ul>
+                                <li>Работа с табличными данными через DataFrame</li>
+                                <li>Обработка пропущенных значений</li>
+                                <li>Группировка и агрегация данных</li>
+                                <li>Слияние и объединение таблиц</li>
+                                <li>Работа с временными рядами</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Базовые операции с DataFrame:</strong></p>
+                            <ul>
+                                <li>Выбор столбцов: df['столбец']</li>
+                                <li>Фильтрация: df[df['возраст'] > 25]</li>
+                                <li>Добавление столбца: df['новый'] = значения</li>
+                                <li>Удаление столбца: df.drop('столбец', axis=1)</li>
+                                <li>Сортировка: df.sort_values('столбец')</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p><strong>Проведите анализ данных из каталога /data в JupyteeLite</strong></p>
+                            <ul>
+
+
+
+                                <li>df.info()</li>
+                                <li>df.describe()</li>
+                                <li>Добавление столбца: df['новый'] = значения</li>
+                                <li>Удаление столбца: df.drop('столбец', axis=1)</li>
+                                <li>Сортировка: df.sort_values('столбец')</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка: Операции с данными в Pandas -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title12.jpg" class="card-img-top" alt="Pandas Operations">
+                <div class="card-body">
+                    <h3>Продвинутые операции в Pandas</h3>
+                    <p class="card-text">Работа с группами данных, применение функций и обработка пропущенных значений.
+                    </p>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Группировка и агрегация данных</span><br>
+                        grouped = df.groupby('Город')['Возраст'].mean()<br>
+                        <span class="sql-comment">print(grouped)</span><br><br>
+
+                        <span class="sql-comment"># Применение функций к столбцам</span><br>
+                        df['Возраст_группа'] = df['Возраст'].apply(<span class="sql-keyword">lambda</span> x: <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Молодой' <span class="sql-keyword">if</span> x < 30 <span
+                            class="sql-keyword">else</span> 'Взрослый')<br><br>
+
+                            <span class="sql-comment"># Обработка пропущенных значений</span><br>
+                            df.ffill(inplace=True) <span class="sql-comment"># заполнение предыдущим
+                                значением</span><br>
+                            <span class="sql-comment"># или</span><br>
+                            df.dropna(inplace=True) <span class="sql-comment"># удаление строк с
+                                пропусками</span><br><br>
+
+                            <span class="sql-comment"># Сохранение DataFrame в CSV</span><br>
+                            df.to_csv('processed_data.csv', index=False, encoding='utf-8')<br>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <strong>Совет:</strong> Используйте метод .copy() при создании подмножеств DataFrame, чтобы
+                        избежать предупреждений SettingWithCopyWarning
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Методы группировки:</strong></p>
+                            <ul>
+                                <li>.groupby() - группировка по столбцу</li>
+                                <li>.agg() - множественные агрегации</li>
+                                <li>.pivot_table() - сводные таблицы</li>
+                                <li>.merge() / .join() - объединение таблиц</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Практическое применение:</strong></p>
+                            <ul>
+                                <li>Анализ датасетов</li>
+                                <li>Предобработка данных для ML</li>
+                                <li>Анализ временных рядов</li>
+                                <li>Экспорт/импорт данных</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <!-- Карточка 7: Обновление данных -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
                 <img src="../h1title17.jpg" class="card-img-top" alt="Обновление данных">
@@ -2339,405 +2233,292 @@ def example():
             </div>
 
 
-            <!-- Карточка 7: Обновление данных -->
+
+
+
+            <!-- Карточка: Анализ рекламной кампании -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title7.jpg" class="card-img-top" alt="Обновление данных">
+                <img src="../h1title7.jpg" class="card-img-top" alt="Ad Campaign Analysis">
                 <div class="card-body">
-                    <h3>Комплексный пример Анализ оценок студентов</h3>
+                    <h3>Анализ рекламной кампании</h3>
+                    <p class="card-text">На основе данных из файла <code>ad_campaign_analysis.xlsx</code> проведите
+                        исследование эффективности рекламных каналов.</p>
 
-                    <div class="alert alert-danger" role="alert">
-                        В JupyterLite используем виртуальную базу данных в памяти, чтобы не зависала от операций чтения
-                        и записи в файл!<br>
-                        Это создаёт временную базу данных, которая существует, пока программа выполняется, и все данные
-                        ТЕРЯЮТСЯ после её завершения.<br>
-                    </div>
-
-                    <p class="card-text">sqlite3, faker, pandas, seaborn, matplotlib</p>
                     <div class="code-block">
-                        <span class="sql-keyword">import</span> piplite<br>
-                        <span class="sql-keyword">import</span> micropip<br><br>
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
+                        plt<br><br>
+
+                           <span class="sql-keyword">import</span> micropip<br><br>
 
                         <span class="sql-comment"># Установка зависимостей</span><br>
                         <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"faker"</span>)<br>
-                        <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"seaborn"</span>)<br><br>
+                            class="sql-string">"openpyxl"</span>)<br><br>
 
-                        <span class="sql-comment"># Теперь импортируем все остальное</span><br>
-                        <span class="sql-keyword">import</span> sqlite3<br>
-                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
-                        plt<br>
-                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
-                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span> Faker<br>
-                        <span class="sql-keyword">import</span> seaborn <span class="sql-keyword">as</span> sns<br><br>
+                        <span class="sql-comment"># Загрузка данных из Excel</span><br>
+                        df = pd.read_excel('ad_campaign_analysis.xlsx', sheet_name='Raw_Data')<br><br>
 
-                        <span class="sql-comment"># Инициализация Faker</span><br>
-                        fake_eng = Faker(<span class="sql-string">'en_US'</span>)<br>
-                        fake_ru = Faker(<span class="sql-string">'ru_RU'</span>)<br><br>
+                        <span class="sql-comment"># 1. Просмотр структуры данных</span><br>
+                        print("Размер таблицы:", df.shape)<br>
+                        print("\nПервые 5 строк:")<br>
+                        print(df.head())<br><br>
 
-                        print(<span class="sql-string">"Все пакеты успешно загружены!"</span>)<br><br>
+                        <span class="sql-comment"># 2. Проверка типов данных и пропущенных значений</span><br>
+                        print("\nИнформация о данных:")<br>
+                        df.info()<br><br>
 
-                        <span class="sql-comment"># Подключение к базе данных</span><br>
-                        <span class="sql-comment"># connection = sqlite3.connect(<span
-                                class="sql-string">'students.db'</span>) ИЛИ</span>
-                        <br>
-                        connection = sqlite3.connect(':memory:')<br><br>
+                        <span class="sql-comment"># 3. Статистика по числовым столбцам</span><br>
+                        print("\nСтатистика по числовым полям:")<br>
+                        print(df.describe())<br>
+                    </div>
 
-                        <span class="sql-comment"># Создание курсора для выполнения SQL-запросов</span><br>
-                        cursor = connection.cursor()<br><br>
+                    <div class="alert alert-info">
+                        <strong>Задание 1:</strong> Изучите структуру данных. Сколько строк и столбцов содержит таблица?
+                        Какие типы данных представлены в каждом столбце? Есть ли пропущенные значения?
+                    </div>
 
-                        create_table_query = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">CREATE TABLE IF NOT EXISTS</span> students (<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;id <span class="sql-keyword">INTEGER PRIMARY KEY
-                            AUTOINCREMENT</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;name <span class="sql-keyword">TEXT NOT NULL</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;age <span class="sql-keyword">INTEGER</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;grade <span class="sql-keyword">TEXT</span><br>
-                        );<br>
-                        <span class="sql-string">'''</span><br>
-                        cursor.execute(create_table_query)<br>
-                        connection.commit()<br><br>
-
-                        cursor.execute(<span class="sql-string">"DELETE FROM students"</span>)<br>
-                        connection.commit()<br><br>
-
-
-                        <span class="sql-comment"># Insert a record into the Students table</span><br>
-                        insert_query = <span class="sql-string">'''</span><br>
-                        <span class="sql-keyword">INSERT INTO</span> students (name, age, grade)<br>
-                        <span class="sql-keyword">VALUES</span> (?, ?, ?);<br>
-                        <span class="sql-string">'''</span><br>
-                        students_data = [<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;(<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.name(),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.random_int(min=<span
-                            class="sql-number">18</span>, max=<span class="sql-number">25</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fake_ru.random_element([<span
-                            class="sql-string">"A"</span>, <span class="sql-string">"B"</span>, <span
-                            class="sql-string">"C"</span>, <span class="sql-string">"D"</span>])<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> _ <span
-                            class="sql-keyword">in</span> range(<span class="sql-number">25</span>)]<br><br>
-
-                        <span class="sql-comment"># Execute the query for multiple records</span><br>
-                        cursor.executemany(insert_query, students_data)<br><br>
-
-                        <span class="sql-comment"># Commit the changes</span><br>
-                        connection.commit()<br><br>
-
-                        <span class="sql-comment"># Print confirmation message</span><br>
-                        print(<span class="sql-string">"Fake student records inserted successfully!"</span>)<br><br>
-
-                        <span class="sql-comment"># Выбор всех записей</span><br>
-                        cursor.execute(<span class="sql-string">"SELECT * FROM students"</span>)<br>
-                        all_students = cursor.fetchall()<br><br>
-
-                        <span class="sql-comment"># Вывод результатов</span><br>
-                        <span class="sql-keyword">for</span> student <span class="sql-keyword">in</span>
-                        all_students:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-string">f"ID: {student[0]}, Имя: {student[1]},
-                            Возраст: {student[2]}, Оценка: {student[3]}"</span>)<br><br>
-
-                        <span class="sql-comment"># Преобразуем данные в DataFrame</span><br>
-                        df = pd.DataFrame(all_students, columns=[<span class="sql-string">'id'</span>, <span
-                            class="sql-string">'name'</span>, <span class="sql-string">'age'</span>, <span
-                            class="sql-string">'grade'</span>])<br>
-                        df[<span class="sql-string">'grade'</span>] = pd.Categorical(df[<span
-                            class="sql-string">'grade'</span>], categories=[<span class="sql-string">'A'</span>, <span
-                            class="sql-string">'B'</span>, <span class="sql-string">'C'</span>, <span
-                            class="sql-string">'D'</span>])<br><br>
-
-                        <span class="sql-comment"># Создаем subplot</span><br>
-                        fig, axes = plt.subplots(<span class="sql-number">2</span>, <span class="sql-number">2</span>,
-                        figsize=(<span class="sql-number">15</span>, <span class="sql-number">12</span>))<br><br>
-
-                        <span class="sql-comment"># 1. Распределение возрастов</span><br>
-                        sns.histplot(data=df, x=<span class="sql-string">'age'</span>, bins=<span
-                            class="sql-number">8</span>, ax=axes[<span class="sql-number">0</span>,<span
-                            class="sql-number">0</span>])<br>
-                        axes[<span class="sql-number">0</span>,<span class="sql-number">0</span>].set_title(<span
-                            class="sql-string">'Распределение возрастов студентов'</span>)<br><br>
-
-                        <span class="sql-comment"># 2. Распределение оценок</span><br>
-                        sns.countplot(data=df, x=<span class="sql-string">'grade'</span>, ax=axes[<span
-                            class="sql-number">0</span>,<span class="sql-number">1</span>])<br>
-                        axes[<span class="sql-number">0</span>,<span class="sql-number">1</span>].set_title(<span
-                            class="sql-string">'Распределение оценок'</span>)<br><br>
-
-                        <span class="sql-comment"># 3. Boxplot возрастов по оценкам</span><br>
-                        sns.boxplot(data=df, x=<span class="sql-string">'grade'</span>, y=<span
-                            class="sql-string">'age'</span>, ax=axes[<span class="sql-number">1</span>,<span
-                            class="sql-number">0</span>])<br>
-                        axes[<span class="sql-number">1</span>,<span class="sql-number">0</span>].set_title(<span
-                            class="sql-string">'Возрастное распределение по оценкам'</span>)<br><br>
-
-                        <span class="sql-comment"># 4. Violin plot</span><br>
-                        sns.violinplot(data=df, y=<span class="sql-string">'age'</span>, ax=axes[<span
-                            class="sql-number">1</span>,<span class="sql-number">1</span>])<br>
-                        axes[<span class="sql-number">1</span>,<span class="sql-number">1</span>].set_title(<span
-                            class="sql-string">'Распределение возрастов'</span>)<br><br>
-
-                        plt.tight_layout()<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Не забудьте закрыть соединение после работы</span><br>
-                        connection.close()<br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Что нужно сделать:</strong></p>
+                            <ul>
+                                <li>Загрузите данные из файла Excel</li>
+                                <li>Изучите структуру данных с помощью <code>df.info()</code></li>
+                                <li>Проверьте статистику числовых полей через <code>df.describe()</code></li>
+                                <li>Определите типы рекламных каналов (столбец <code>channel</code>)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Ожидаемый результат:</strong></p>
+                            <ul>
+                                <li>Таблица содержит 1000+ строк и 15 столбцов</li>
+                                <li>Все каналы: CPC, Email, SEO, SMM</li>
+                                <li>Найдены столбцы с финансовыми показателями</li>
+                                <li>Отсутствуют пропущенные значения в ключевых полях</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <!-- Карточка 7: Обновление данных -->
+
+            <!-- Карточка: Сравнение рекламных каналов -->
             <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title16.jpg" class="card-img-top" alt="Обновление данных">
+                <img src="../h1title8.jpg" class="card-img-top" alt="Channel Performance Analysis">
                 <div class="card-body">
-                    <h3>Комплексный пример Анализ эффективности рекламной кампании</h3>
-
-                    <div class="alert alert-danger" role="alert">
-                        Код генерирует реалистичные данные для анализа эффективности рекламной кампании и
-                        записывает их в Excel файл с несколькими листами:<br>
-
-                        Содержание данных:<br>
-
-                        Основные метрики: клики, показы, конверсии, стоимость, доход<br>
-
-                        Каналы: CPC, SEO, SMM, Email<br>
-
-                        Демография: возраст, пол, регион, устройство<br>
-
-                        Аналитика: CTR, ROI, conversion rate<br>
-
-                        Excel файл содержит:<br>
-
-                        Raw_Data - исходные данные<br>
-
-                        Channel_Summary - сводка по каналам<br>
-
-                        Demographic_Analysis - анализ по демографии<br>
-                    </div>
-
-                    <p class="card-text">sqlite3, faker, pandas, seaborn, matplotlib, numpy</p>
-
+                    <h3>Сравнение эффективности каналов</h3>
+                    <p class="card-text">Проанализируйте, какой рекламный канал приносит наибольшую прибыль и имеет
+                        лучшие показатели конверсии.</p>
 
                     <div class="code-block">
-                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
-                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
-                        plt<br>
-                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
-                        <span class="sql-keyword">from</span> datetime <span class="sql-keyword">import</span> datetime,
-                        timedelta<br>
-                        <span class="sql-keyword">import</span> random<br><br>
+                        <span class="sql-comment"># 1. Группировка данных по каналам</span><br>
+                        channel_stats = df.groupby('channel').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'clicks': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'impressions': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversions': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'cost': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'sum'<br>
+                        }).reset_index()<br><br>
 
-                        <span class="sql-keyword">import</span> micropip<br>
-                        <span class="sql-comment"># Установка зависимостей</span><br>
-                        <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"faker"</span>)<br>
-                        <span class="sql-keyword">await</span> micropip.install(<span
-                            class="sql-string">"openpyxl"</span>)<br><br>
+                        <span class="sql-comment"># 2. Расчет метрик</span><br>
+                        channel_stats['CTR'] = channel_stats['clicks'] / channel_stats['impressions']<br>
+                        channel_stats['conversion_rate'] = channel_stats['conversions'] / channel_stats['clicks']<br>
+                        channel_stats['ROI'] = (channel_stats['revenue'] - channel_stats['cost']) /
+                        channel_stats['cost']<br>
+                        channel_stats['CPA'] = channel_stats['cost'] / channel_stats['conversions']<br><br>
 
-                        <span class="sql-keyword">from</span> faker <span class="sql-keyword">import</span>
-                        Faker<br><br>
+                        <span class="sql-comment"># 3. Сортировка по ROI</span><br>
+                        channel_stats_sorted = channel_stats.sort_values('ROI', ascending=False)<br>
+                        print(channel_stats_sorted)<br><br>
 
-                        <span class="sql-comment"># Инициализация Faker</span><br>
-                        fake = Faker(<span class="sql-string">'ru_RU'</span>)<br><br>
+                        <span class="sql-comment"># 4. Визуализация</span><br>
+                        plt.figure(figsize=(10, 6))<br>
+                        plt.bar(channel_stats['channel'], channel_stats['ROI'])<br>
+                        plt.title('ROI по рекламным каналам')<br>
+                        plt.ylabel('ROI')<br>
+                        plt.show()<br>
+                    </div>
 
-                        <span class="sql-comment"># Генерация данных для анализа эффективности рекламной
-                            кампании</span><br>
-                        np.random.seed(<span class="sql-keyword">42</span>)<br>
-                        random.seed(<span class="sql-keyword">42</span>)<br><br>
+                    <div class="alert alert-info">
+                        <strong>Задание 2:</strong> Рассчитайте ключевые метрики для каждого канала (CTR, конверсия,
+                        ROI, CPA).
+                        Какой канал имеет наивысший ROI? Какой канал самый дорогой по CPA?
+                    </div>
 
-                        <span class="sql-comment"># Создаем датафрейм с данными</span><br>
-                        n_records = <span class="sql-keyword">1000</span><br>
-                        data = []<br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Метрики для анализа:</strong></p>
+                            <ul>
+                                <li><strong>CTR (Click-Through Rate):</strong> клики / показы</li>
+                                <li><strong>Конверсия:</strong> конверсии / клики</li>
+                                <li><strong>ROI (Return on Investment):</strong> (доход - затраты) / затраты</li>
+                                <li><strong>CPA (Cost Per Action):</strong> затраты / конверсии</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Что выяснить:</strong></p>
+                            <ul>
+                                <li>Самый прибыльный канал (макс. ROI)</li>
+                                <li>Канал с лучшей конверсией</li>
+                                <li>Самый дорогой канал по CPA</li>
+                                <li>Канал с наибольшим количеством показов</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_records):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;campaign_id = random.choice([<span class="sql-string">'CPC_001'</span>,
-                        <span class="sql-string">'CPC_002'</span>, <span class="sql-string">'SEO_001'</span>, <span
-                            class="sql-string">'SMM_001'</span>, <span class="sql-string">'Email_001'</span>])<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;channel = campaign_id.split(<span class="sql-string">'_'</span>)[<span
-                            class="sql-keyword">0</span>]<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;date = fake.date_between(start_date=<span
-                            class="sql-string">'-30d'</span>, end_date=<span class="sql-string">'today'</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;clicks = np.random.poisson(<span class="sql-keyword">50</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;impressions = clicks + np.random.randint(<span
-                            class="sql-keyword">100</span>, <span class="sql-keyword">500</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;ctr = clicks / impressions<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;conversions = np.random.binomial(clicks, <span
-                            class="sql-keyword">0.03</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;conversion_rate = conversions / clicks <span
-                            class="sql-keyword">if</span> clicks > <span class="sql-keyword">0</span> <span
-                            class="sql-keyword">else</span> <span class="sql-keyword">0</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;cost = clicks * random.uniform(<span class="sql-keyword">0.5</span>,
-                        <span class="sql-keyword">2.5</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;revenue = conversions * random.uniform(<span
-                            class="sql-keyword">50</span>, <span class="sql-keyword">200</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;roi = (revenue - cost) / cost <span class="sql-keyword">if</span> cost >
-                        <span class="sql-keyword">0</span> <span class="sql-keyword">else</span> <span
-                            class="sql-keyword">0</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;device = random.choice([<span class="sql-string">'Mobile'</span>, <span
-                            class="sql-string">'Desktop'</span>, <span class="sql-string">'Tablet'</span>])<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;region = fake.region()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;age_group = random.choice([<span class="sql-string">'18-24'</span>,
-                        <span class="sql-string">'25-34'</span>, <span class="sql-string">'35-44'</span>, <span
-                            class="sql-string">'45-54'</span>, <span class="sql-string">'55+'</span>])<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'Male'</span>, <span
-                            class="sql-string">'Female'</span>])<br><br>
+            <!-- Карточка: Анализ по регионам -->
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title10.jpg" class="card-img-top" alt="Regional and Demographic Analysis">
+                <div class="card-body">
+                    <h3>Анализ эффективности по регионам и аудитории</h3>
+                    <p class="card-text">Определите наиболее перспективные регионы и возрастные группы для рекламных
+                        кампаний.</p>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;data.append({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'campaign_id'</span>:
-                        campaign_id,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'channel'</span>:
-                        channel,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'date'</span>:
-                        date,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>:
-                        clicks,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'impressions'</span>:
-                        impressions,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'ctr'</span>:
-                        round(ctr, <span class="sql-keyword">4</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
-                        conversions,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                            class="sql-string">'conversion_rate'</span>: round(conversion_rate, <span
-                            class="sql-keyword">4</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>:
-                        round(cost, <span class="sql-keyword">2</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>:
-                        round(revenue, <span class="sql-keyword">2</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'roi'</span>:
-                        round(roi, <span class="sql-keyword">4</span>),<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'device'</span>:
-                        device,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'region'</span>:
-                        region,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'age_group'</span>:
-                        age_group,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'gender'</span>:
-                        gender<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;})<br><br>
+                    <div class="code-block">
+                        <span class="sql-comment"># 1. Топ-10 регионов по доходу</span><br>
+                        top_regions = df.groupby('region').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'cost': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversions': 'sum'<br>
+                        }).sort_values('revenue', ascending=False).head(10)<br><br>
 
-                        <span class="sql-comment"># Создаем DataFrame</span><br>
-                        df_ads = pd.DataFrame(data)<br><br>
+                        top_regions['profit'] = top_regions['revenue'] - top_regions['cost']<br>
+                        top_regions['ROI'] = top_regions['profit'] / top_regions['cost']<br>
+                        print("Топ-10 регионов по доходу:")<br>
+                        print(top_regions)<br><br>
 
-                        <span class="sql-comment"># Просмотр сгенерированных данных</span><br>
-                        print(<span class="sql-string">"Размер данных рекламной кампании:"</span>, df_ads.shape)<br>
-                        print(<span class="sql-string">"\nПервые 5 строк:"</span>)<br>
-                        print(df_ads.head())<br><br>
+                        <span class="sql-comment"># 2. Анализ по возрастным группам</span><br>
+                        age_group_stats = df.groupby('age_group').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversions': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'mean', <span class="sql-comment"># средний доход на
+                            группу</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'clicks': 'sum'<br>
+                        }).sort_values('conversions', ascending=False)<br><br>
 
-                        print(<span class="sql-string">"\nОсновные статистики:"</span>)<br>
-                        print(df_ads.describe())<br><br>
+                        print("\nАнализ по возрастным группам:")<br>
+                        print(age_group_stats)<br><br>
 
-                        <span class="sql-comment"># Анализ эффективности по каналам</span><br>
-                        print(<span class="sql-string">"\n=== АНАЛИЗ ЭФФЕКТИВНОСТИ ПО КАНАЛАМ ==="</span>)<br>
-                        channel_stats = df_ads.groupby(<span class="sql-string">'channel'</span>).agg({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'ctr'</span>: <span
-                            class="sql-string">'mean'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversion_rate'</span>: <span
-                            class="sql-string">'mean'</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-keyword">2</span>)<br><br>
+                        <span class="sql-comment"># 3. Анализ по устройствам</span><br>
+                        device_stats = df.groupby('device').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversion_rate': 'mean',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'CTR': 'mean',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'sum'<br>
+                        })<br>
+                        print("\nЭффективность по устройствам:")<br>
+                        print(device_stats)<br>
+                    </div>
 
-                        channel_stats[<span class="sql-string">'roi_total'</span>] = (channel_stats[<span
-                            class="sql-string">'revenue'</span>] - channel_stats[<span
-                            class="sql-string">'cost'</span>]) / channel_stats[<span
-                            class="sql-string">'cost'</span>]<br>
-                        print(channel_stats)<br><br>
+                    <div class="alert alert-info">
+                        <strong>Задание 3:</strong> Определите топ-5 регионов по общей выручке.
+                        Какая возрастная группа приносит наибольший доход? На каких устройствах пользователи чаще
+                        конвертируются?
+                    </div>
 
-                        <span class="sql-comment"># Запись данных в Excel файл</span><br>
-                        output_file = <span class="sql-string">'ad_campaign_analysis.xlsx'</span><br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ключевые вопросы:</strong></p>
+                            <ul>
+                                <li>Какие регионы наиболее прибыльны?</li>
+                                <li>Какая возрастная группа чаще конвертируется?</li>
+                                <li>На каких устройствах лучше конверсия?</li>
+                                <li>Есть ли гендерные различия в конверсии?</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Дополнительные задания:</strong></p>
+                            <ul>
+                                <li>Создайте сводную таблицу (pivot table) по регионам и каналам</li>
+                                <li>Рассчитайте средний чек по возрастным группам</li>
+                                <li>Определите ROI для каждого региона</li>
+                                <li>Найдите "золотую" комбинацию: регион + возраст + устройство</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <span class="sql-keyword">with</span> pd.ExcelWriter(output_file, engine=<span
-                            class="sql-string">'openpyxl'</span>) <span class="sql-keyword">as</span> writer:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Основные данные</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;df_ads.to_excel(writer, sheet_name=<span
-                            class="sql-string">'Raw_Data'</span>, index=<span class="sql-keyword">False</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сводная таблица по каналам</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary = df_ads.groupby(<span
-                            class="sql-string">'channel'</span>).agg({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
-                        <span class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'cost'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'revenue'</span>: <span
-                            class="sql-string">'sum'</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}).reset_index()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary[<span class="sql-string">'profit'</span>] =
-                        channel_summary[<span class="sql-string">'revenue'</span>] - channel_summary[<span
-                            class="sql-string">'cost'</span>]<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary[<span class="sql-string">'roi'</span>] =
-                        (channel_summary[<span class="sql-string">'profit'</span>] / channel_summary[<span
-                            class="sql-string">'cost'</span>]).round(<span class="sql-keyword">4</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;channel_summary.to_excel(writer, sheet_name=<span
-                            class="sql-string">'Channel_Summary'</span>, index=<span
-                            class="sql-keyword">False</span>)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Анализ по демографии</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;demo_analysis = df_ads.groupby([<span
-                            class="sql-string">'age_group'</span>, <span class="sql-string">'gender'</span>]).agg({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'conversions'</span>:
-                        <span class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'clicks'</span>: <span
-                            class="sql-string">'sum'</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                            class="sql-string">'conversion_rate'</span>: <span class="sql-string">'mean'</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}).round(<span class="sql-keyword">4</span>).reset_index()<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;demo_analysis.to_excel(writer, sheet_name=<span
-                            class="sql-string">'Demographic_Analysis'</span>, index=<span
-                            class="sql-keyword">False</span>)<br><br>
 
-                        print(<span class="sql-string">f"\n✅ Данные успешно записаны в файл: {output_file}"</span>)<br>
-                        print(<span class="sql-string">"Листы в файле:"</span>)<br>
-                        print(<span class="sql-string">"- Raw_Data: исходные данные"</span>)<br>
-                        print(<span class="sql-string">"- Channel_Summary: сводка по каналам"</span>)<br>
-                        print(<span class="sql-string">"- Demographic_Analysis: анализ по демографии"</span>)<br><br>
+            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+                <img src="../h1title9.jpg" class="card-img-top" alt="Time Series Analysis">
+                <div class="card-body">
+                    <h3>Анализ временных трендов кампании</h3>
+                    <p class="card-text">Изучите, как менялась эффективность рекламной кампании с течением времени.</p>
 
-                        <span class="sql-comment"># Визуализация результатов</span><br>
-                        plt.figure(figsize=(<span class="sql-keyword">15</span>, <span
-                            class="sql-keyword">10</span>))<br><br>
+                    <div class="code-block">
+                        <span class="sql-comment"># 1. Преобразование даты</span><br>
+                        df['date'] = pd.to_datetime(df['date'])<br>
+                        df['month'] = df['date'].dt.month<br>
+                        df['day_of_week'] = df['date'].dt.dayofweek <span class="sql-comment"># 0 =
+                            понедельник</span><br>
+                        df['day'] = df['date'].dt.day<br><br>
 
-                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
-                            class="sql-keyword">1</span>)<br>
-                        df_ads.groupby(<span class="sql-string">'channel'</span>)[<span
-                            class="sql-string">'conversions'</span>].sum().plot(kind=<span
-                            class="sql-string">'bar'</span>)<br>
-                        plt.title(<span class="sql-string">'Конверсии по каналам'</span>)<br>
-                        plt.ylabel(<span class="sql-string">'Количество конверсий'</span>)<br><br>
+                        <span class="sql-comment"># 2. Анализ по месяцам</span><br>
+                        monthly_stats = df.groupby('month').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'cost': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversions': 'sum',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'clicks': 'sum'<br>
+                        }).reset_index()<br><br>
 
-                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
-                            class="sql-keyword">2</span>)<br>
-                        df_ads.groupby(<span class="sql-string">'channel'</span>)[<span
-                            class="sql-string">'roi'</span>].mean().plot(kind=<span class="sql-string">'bar'</span>)<br>
-                        plt.title(<span class="sql-string">'ROI по каналам'</span>)<br>
-                        plt.ylabel(<span class="sql-string">'ROI'</span>)<br><br>
+                        monthly_stats['monthly_ROI'] = (monthly_stats['revenue'] - monthly_stats['cost']) /
+                        monthly_stats['cost']<br>
+                        print("Анализ по месяцам:")<br>
+                        print(monthly_stats)<br><br>
 
-                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
-                            class="sql-keyword">3</span>)<br>
-                        df_ads.groupby(<span class="sql-string">'device'</span>)[<span
-                            class="sql-string">'conversions'</span>].sum().plot(kind=<span
-                            class="sql-string">'pie'</span>, autopct=<span class="sql-string">'%1.1f%%'</span>)<br>
-                        plt.title(<span class="sql-string">'Распределение конверсий по устройствам'</span>)<br><br>
+                        <span class="sql-comment"># 3. Анализ по дням недели</span><br>
+                        day_names = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота',
+                        'Воскресенье']<br>
+                        daily_stats = df.groupby('day_of_week').agg({<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'conversion_rate': 'mean',<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'revenue': 'sum'<br>
+                        }).reset_index()<br>
+                        daily_stats['day_name'] = daily_stats['day_of_week'].apply(lambda x: day_names[x])<br><br>
 
-                        plt.subplot(<span class="sql-keyword">2</span>, <span class="sql-keyword">2</span>, <span
-                            class="sql-keyword">4</span>)<br>
-                        df_ads.groupby(<span class="sql-string">'age_group'</span>)[<span
-                            class="sql-string">'conversion_rate'</span>].mean().plot(kind=<span
-                            class="sql-string">'bar'</span>)<br>
-                        plt.title(<span class="sql-string">'Конверсия по возрастным группам'</span>)<br>
-                        plt.ylabel(<span class="sql-string">'Conversion Rate'</span>)<br><br>
+                        print("\nАнализ по дням недели:")<br>
+                        print(daily_stats[['day_name', 'conversion_rate', 'revenue']])<br><br>
 
+                        <span class="sql-comment"># 4. Визуализация трендов</span><br>
+                        plt.figure(figsize=(12, 5))<br>
+                        plt.subplot(1, 2, 1)<br>
+                        plt.plot(monthly_stats['month'], monthly_stats['revenue'], marker='o')<br>
+                        plt.title('Выручка по месяцам')<br>
+                        plt.xlabel('Месяц')<br>
+                        plt.ylabel('Выручка')<br><br>
+
+                        plt.subplot(1, 2, 2)<br>
+                        plt.bar(daily_stats['day_name'], daily_stats['conversion_rate'])<br>
+                        plt.title('Конверсия по дням недели')<br>
+                        plt.xticks(rotation=45)<br>
                         plt.tight_layout()<br>
                         plt.show()<br>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <strong>Задание 4:</strong> Проанализируйте сезонность рекламной кампании.
+                        В каком месяце была самая высокая выручка? В какие дни недели пользователи лучше конвертируются?
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Что нужно сделать:</strong></p>
+                            <ul>
+                                <li>Преобразуйте столбец даты в datetime формат</li>
+                                <li>Извлеките месяц и день недели</li>
+                                <li>Проанализируйте динамику ключевых метрик</li>
+                                <li>Постройте графики трендов</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Вопросы для исследования:</strong></p>
+                            <ul>
+                                <li>Есть ли сезонные пики активности?</li>
+                                <li>В какие дни ROI выше всего?</li>
+                                <li>Как меняется CPA в течение месяца?</li>
+                                <li>Какие каналы работают лучше в выходные?</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3389,364 +3170,6 @@ WHERE Студенты.id IS NOT NULL</code></pre>
                         <li>Большие таблицы (тысячи записей)</li>
                         <li>Поля, используемые в WHERE, JOIN, ORDER BY</li>
                     </ul>
-                </div>
-            </div>
-
-
-            <!-- Карточка 15: Столбчатые диаграммы -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title.jpg" class="card-img-top" alt="Столбчатые диаграммы">
-                <div class="card-body">
-                    <h3>Столбчатые диаграммы</h3>
-                    <p class="card-text">Визуализация категориальных данных и сравнение величин.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Количество статей по категориям</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> category, <span class="sql-keyword">COUNT</span>(*) as
-                        count<br>
-                        <span class="sql-keyword">FROM</span> articles<br>
-                        <span class="sql-keyword">GROUP BY</span> category<br>
-                        <span class="sql-keyword">ORDER BY</span> count <span class="sql-keyword">DESC</span><br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_categories = pd.read_sql_query(query, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Построение столбчатой диаграммы</span><br>
-                        plt.figure(figsize=(10, 6))<br>
-                        plt.bar(df_categories[<span class="sql-keyword">'category'</span>], df_categories[<span
-                            class="sql-keyword">'count'</span>])<br>
-                        plt.title(<span class="sql-keyword">'Количество статей по категориям'</span>)<br>
-                        plt.xlabel(<span class="sql-keyword">'Категории'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Количество статей'</span>)<br>
-                        plt.xticks(rotation=45)<br>
-                        plt.tight_layout()<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Альтернатива с Seaborn</span><br>
-                        plt.figure(figsize=(10, 6))<br>
-                        sns.barplot(data=df_categories, x=<span class="sql-keyword">'category'</span>, y=<span
-                            class="sql-keyword">'count'</span>)<br>
-                        plt.title(<span class="sql-keyword">'Количество статей по категориям (Seaborn)'</span>)<br>
-                        plt.xticks(rotation=45)<br>
-                        plt.tight_layout()<br>
-                        plt.show()
-                    </div>
-                    <p><strong>Применение в журналистике:</strong> сравнение количества публикаций по темам, анализ
-                        активности авторов.</p>
-                </div>
-            </div>
-
-            <!-- Карточка 16: Круговые диаграммы -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title2.jpg" class="card-img-top" alt="Круговые диаграммы">
-                <div class="card-body">
-                    <h3>Круговые диаграммы</h3>
-                    <p class="card-text">Визуализация пропорций и долей.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Распределение статей по статусам</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> status, <span class="sql-keyword">COUNT</span>(*) as
-                        count<br>
-                        <span class="sql-keyword">FROM</span> articles<br>
-                        <span class="sql-keyword">GROUP BY</span> status<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_status = pd.read_sql_query(query, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Круговая диаграмма</span><br>
-                        plt.figure(figsize=(8, 8))<br>
-                        plt.pie(df_status[<span class="sql-keyword">'count'</span>], <br>
-                        labels=df_status[<span class="sql-keyword">'status'</span>], <br>
-                        autopct=<span class="sql-keyword">'%1.1f%%'</span>,<br>
-                        startangle=90,<br>
-                        colors=[<span class="sql-keyword">'#ff9999'</span>, <span class="sql-keyword">'#66b3ff'</span>,
-                        <span class="sql-keyword">'#99ff99'</span>])<br>
-                        plt.title(<span class="sql-keyword">'Распределение статей по статусам'</span>)<br>
-                        plt.axis(<span class="sql-keyword">'equal'</span>)<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Улучшенная версия с выносками</span><br>
-                        plt.figure(figsize=(10, 8))<br>
-                        patches, texts, autotexts = plt.pie(<br>
-                        df_status[<span class="sql-keyword">'count'</span>], <br>
-                        labels=df_status[<span class="sql-keyword">'status'</span>], <br>
-                        autopct=<span class="sql-keyword">'%1.1f%%'</span>,<br>
-                        shadow=True,<br>
-                        explode=(0.1, 0, 0)<br>
-                        )<br>
-                        plt.title(<span class="sql-keyword">'Статусы статей с акцентом на опубликованные'</span>,
-                        fontsize=14)<br>
-                        plt.show()
-                    </div>
-                    <p><strong>Применение:</strong> распределение контента по типам, анализ долей тем в издании.</p>
-                </div>
-            </div>
-
-            <!-- Карточка 17: Линейные графики -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title3.jpg" class="card-img-top" alt="Линейные графики">
-                <div class="card-body">
-                    <h3>Линейные графики и временные ряды</h3>
-                    <p class="card-text">Анализ тенденций и изменений во времени.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Динамика публикаций по месяцам</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> <br>
-                        strftime('%Y-%m', publication_date) as month,<br>
-                        COUNT(*) as publications<br>
-                        <span class="sql-keyword">FROM</span> articles <br>
-                        <span class="sql-keyword">WHERE</span> publication_date IS NOT NULL<br>
-                        <span class="sql-keyword">GROUP BY</span> strftime('%Y-%m', publication_date)<br>
-                        <span class="sql-keyword">ORDER BY</span> month<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_timeline = pd.read_sql_query(query, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Линейный график</span><br>
-                        plt.figure(figsize=(12, 6))<br>
-                        plt.plot(df_timeline[<span class="sql-keyword">'month'</span>], df_timeline[<span
-                            class="sql-keyword">'publications'</span>], <br>
-                        marker=<span class="sql-keyword">'o'</span>, linewidth=2, markersize=6)<br>
-                        plt.title(<span class="sql-keyword">'Динамика публикаций по месяцам'</span>, fontsize=14)<br>
-                        plt.xlabel(<span class="sql-keyword">'Месяц'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Количество публикаций'</span>)<br>
-                        plt.xticks(rotation=45)<br>
-                        plt.grid(True, alpha=0.3)<br>
-                        plt.tight_layout()<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Несколько линий на одном графике</span><br>
-                        query_categories = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> <br>
-                        strftime('%Y-%m', publication_date) as month,<br>
-                        category,<br>
-                        COUNT(*) as publications<br>
-                        <span class="sql-keyword">FROM</span> articles <br>
-                        <span class="sql-keyword">WHERE</span> publication_date IS NOT NULL<br>
-                        AND category IN ('Политика', 'Спорт', 'Культура')<br>
-                        <span class="sql-keyword">GROUP BY</span> strftime('%Y-%m', publication_date), category<br>
-                        <span class="sql-keyword">ORDER BY</span> month, category<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_multi = pd.read_sql_query(query_categories, conn)<br>
-                        <br>
-                        <span class="sql-comment"># Pivot для многолинейного графика</span><br>
-                        df_pivot = df_multi.pivot(index=<span class="sql-keyword">'month'</span>, columns=<span
-                            class="sql-keyword">'category'</span>, values=<span
-                            class="sql-keyword">'publications'</span>)<br>
-                        <br>
-                        plt.figure(figsize=(12, 6))<br>
-                        <span class="sql-keyword">for</span> column <span class="sql-keyword">in</span>
-                        df_pivot.columns:<br>
-                        plt.plot(df_pivot.index, df_pivot[column], marker=<span class="sql-keyword">'o'</span>,
-                        label=column)<br>
-                        plt.title(<span class="sql-keyword">'Динамика публикаций по категориям'</span>, fontsize=14)<br>
-                        plt.xlabel(<span class="sql-keyword">'Месяц'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Количество публикаций'</span>)<br>
-                        plt.legend()<br>
-                        plt.xticks(rotation=45)<br>
-                        plt.grid(True, alpha=0.3)<br>
-                        plt.tight_layout()<br>
-                        plt.show()
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 18: Гистограммы и распределения -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title.jpg" class="card-img-top" alt="Гистограммы">
-                <div class="card-body">
-                    <h3>Гистограммы и анализ распределений</h3>
-                    <p class="card-text">Анализ распределения числовых данных.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Распределение просмотров статей</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query = <span class="sql-keyword">"SELECT views FROM articles WHERE views > 0"</span><br>
-                        df_views = pd.read_sql_query(query, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Гистограмма</span><br>
-                        plt.figure(figsize=(10, 6))<br>
-                        plt.hist(df_views[<span class="sql-keyword">'views'</span>], bins=20, edgecolor=<span
-                            class="sql-keyword">'black'</span>, alpha=0.7)<br>
-                        plt.title(<span class="sql-keyword">'Распределение количества просмотров статей'</span>)<br>
-                        plt.xlabel(<span class="sql-keyword">'Количество просмотров'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Количество статей'</span>)<br>
-                        plt.grid(True, alpha=0.3)<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Боксплот для анализа выбросов</span><br>
-                        plt.figure(figsize=(8, 6))<br>
-                        plt.boxplot(df_views[<span class="sql-keyword">'views'</span>])<br>
-                        plt.title(<span class="sql-keyword">'Распределение просмотров (боксплот)'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Просмотры'</span>)<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Сравнение распределений по категориям</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query_comparison = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> category, views<br>
-                        <span class="sql-keyword">FROM</span> articles <br>
-                        <span class="sql-keyword">WHERE</span> views > 0 <br>
-                        AND category IN ('Политика', 'Спорт', 'Культура')<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_comparison = pd.read_sql_query(query_comparison, conn)<br>
-                        conn.close()<br><br>
-
-                        plt.figure(figsize=(10, 6))<br>
-                        categories = df_comparison[<span class="sql-keyword">'category'</span>].unique()<br>
-                        <span class="sql-keyword">for</span> category <span class="sql-keyword">in</span>
-                        categories:<br>
-                        data = df_comparison[df_comparison[<span class="sql-keyword">'category'</span>] ==
-                        category][<span class="sql-keyword">'views'</span>]<br>
-                        plt.hist(data, bins=15, alpha=0.6, label=category)<br>
-                        plt.title(<span class="sql-keyword">'Сравнение распределения просмотров по
-                            категориям'</span>)<br>
-                        plt.xlabel(<span class="sql-keyword">'Просмотры'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Количество статей'</span>)<br>
-                        plt.legend()<br>
-                        plt.show()
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 19: Тепловые карты и корреляции -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title2.jpg" class="card-img-top" alt="Тепловые карты">
-                <div class="card-body">
-                    <h3>Тепловые карты и анализ корреляций</h3>
-                    <p class="card-text">Визуализация взаимосвязей между переменными.</p>
-                    <div class="code-block">
-                        <span class="sql-comment"># Анализ корреляций между метриками</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        query_metrics = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> <br>
-                        views,<br>
-                        LENGTH(content) as content_length,<br>
-                        (julianday('now') - julianday(publication_date)) as
-                        days_since_publication<br>
-                        <span class="sql-keyword">FROM</span> articles <br>
-                        <span class="sql-keyword">WHERE</span> views > 0 AND publication_date IS NOT NULL<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_metrics = pd.read_sql_query(query_metrics, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Матрица корреляций</span><br>
-                        correlation_matrix = df_metrics.corr()<br>
-                        <br>
-                        <span class="sql-comment"># Тепловая карта корреляций</span><br>
-                        plt.figure(figsize=(8, 6))<br>
-                        sns.heatmap(correlation_matrix, <br>
-                        annot=True, <br>
-                        cmap=<span class="sql-keyword">'coolwarm'</span>, <br>
-                        center=0,<br>
-                        square=True)<br>
-                        plt.title(<span class="sql-keyword">'Тепловая карта корреляций метрик статей'</span>)<br>
-                        plt.tight_layout()<br>
-                        plt.show()<br><br>
-
-                        <span class="sql-comment"># Диаграмма рассеяния</span><br>
-                        plt.figure(figsize=(10, 6))<br>
-                        plt.scatter(df_metrics[<span class="sql-keyword">'content_length'</span>], <br>
-                        df_metrics[<span class="sql-keyword">'views'</span>], <br>
-                        alpha=0.6)<br>
-                        plt.title(<span class="sql-keyword">'Зависимость просмотров от длины статьи'</span>)<br>
-                        plt.xlabel(<span class="sql-keyword">'Длина контента (символы)'</span>)<br>
-                        plt.ylabel(<span class="sql-keyword">'Просмотры'</span>)<br>
-                        plt.grid(True, alpha=0.3)<br>
-                        plt.show()
-                    </div>
-                </div>
-            </div>
-
-            <!-- Карточка 20: Комплексная дашборд-визуализация -->
-            <div class="card mx-auto" style="max-width: 800px; margin: 10px">
-                <img src="../h1title3.jpg" class="card-img-top" alt="Дашборд">
-                <div class="card-body">
-                    <h3>Комплексная визуализация: Дашборд</h3>
-                    <p class="card-text">Создание комплексной панели визуализации данных из SQLite.</p>
-                    <div class="code-block">
-                        <span class="sql-keyword">import</span> sqlite3<br>
-                        <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span>
-                        plt<br>
-                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
-                        <span class="sql-keyword">import</span> seaborn <span class="sql-keyword">as</span> sns<br><br>
-
-                        <span class="sql-comment"># Создание комплексного дашборда</span><br>
-                        conn = sqlite3.connect(<span class="sql-keyword">'journalism.db'</span>)<br>
-                        <br>
-                        <span class="sql-comment"># 1. Статистика по авторам</span><br>
-                        query_authors = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> a.name, <span class="sql-keyword">COUNT</span>(ar.id) as
-                        articles, <span class="sql-keyword">AVG</span>(ar.views) as avg_views<br>
-                        <span class="sql-keyword">FROM</span> authors a<br>
-                        <span class="sql-keyword">LEFT JOIN</span> articles ar <span class="sql-keyword">ON</span> a.id
-                        =
-                        ar.author_id<br>
-                        <span class="sql-keyword">GROUP BY</span> a.id<br>
-                        <span class="sql-keyword">ORDER BY</span> articles <span class="sql-keyword">DESC</span><br>
-                        <span class="sql-keyword">LIMIT</span> 10<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_authors = pd.read_sql_query(query_authors, conn)<br>
-                        <br>
-                        <span class="sql-comment"># 2. Распределение по категориям</span><br>
-                        query_categories = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> category, <span class="sql-keyword">COUNT</span>(*) as
-                        count<br>
-                        <span class="sql-keyword">FROM</span> articles<br>
-                        <span class="sql-keyword">GROUP BY</span> category<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_categories = pd.read_sql_query(query_categories, conn)<br>
-                        <br>
-                        <span class="sql-comment"># 3. Динамика публикаций</span><br>
-                        query_timeline = <span class="sql-keyword">'''</span><br>
-                        <span class="sql-keyword">SELECT</span> <br>
-                        strftime('%Y-%m', publication_date) as month,<br>
-                        COUNT(*) as publications<br>
-                        <span class="sql-keyword">FROM</span> articles <br>
-                        <span class="sql-keyword">WHERE</span> publication_date IS NOT NULL<br>
-                        <span class="sql-keyword">GROUP BY</span> strftime('%Y-%m', publication_date)<br>
-                        <span class="sql-keyword">ORDER BY</span> month<br>
-                        <span class="sql-keyword">'''</span><br>
-                        df_timeline = pd.read_sql_query(query_timeline, conn)<br>
-                        conn.close()<br><br>
-
-                        <span class="sql-comment"># Создание subplot дашборда</span><br>
-                        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))<br>
-                        <br>
-                        <span class="sql-comment"># 1. Топ авторов</span><br>
-                        ax1.barh(df_authors[<span class="sql-keyword">'name'</span>], df_authors[<span
-                            class="sql-keyword">'articles'</span>])<br>
-                        ax1.set_title(<span class="sql-keyword">'Топ авторов по количеству статей'</span>)<br>
-                        ax1.set_xlabel(<span class="sql-keyword">'Количество статей'</span>)<br>
-                        <br>
-                        <span class="sql-comment"># 2. Круговая диаграмма категорий</span><br>
-                        ax2.pie(df_categories[<span class="sql-keyword">'count'</span>], labels=df_categories[<span
-                            class="sql-keyword">'category'</span>], autopct=<span
-                            class="sql-keyword">'%1.1f%%'</span>)<br>
-                        ax2.set_title(<span class="sql-keyword">'Распределение по категориям'</span>)<br>
-                        <br>
-                        <span class="sql-comment"># 3. Динамика публикаций</span><br>
-                        ax3.plot(df_timeline[<span class="sql-keyword">'month'</span>], df_timeline[<span
-                            class="sql-keyword">'publications'</span>], marker=<span class="sql-keyword">'o'</span>)<br>
-                        ax3.set_title(<span class="sql-keyword">'Динамика публикаций'</span>)<br>
-                        ax3.set_xticklabels(df_timeline[<span class="sql-keyword">'month'</span>], rotation=45)<br>
-                        ax3.grid(True, alpha=0.3)<br>
-                        <br>
-                        <span class="sql-comment"># 4. Средние просмотры по авторам</span><br>
-                        ax4.bar(df_authors[<span class="sql-keyword">'name'</span>], df_authors[<span
-                            class="sql-keyword">'avg_views'</span>])<br>
-                        ax4.set_title(<span class="sql-keyword">'Средние просмотры по авторам'</span>)<br>
-                        ax4.set_xticklabels(df_authors[<span class="sql-keyword">'name'</span>], rotation=45)<br>
-                        <br>
-                        plt.tight_layout()<br>
-                        plt.show()
-                    </div>
-                    <p><strong>Преимущества дашбордов:</strong> комплексный обзор данных, выявление трендов, удобство
-                        для
-                        принятия редакционных решений.</p>
                 </div>
             </div>
 
