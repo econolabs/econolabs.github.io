@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@19.2.0/client",
+          "react-bootstrap": "https://esm.sh/react-bootstrap@1.6.8"
+        }
+      }
+    </script>
+    <script type="module" src="https://esm.sh/tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      let { createRoot } = ReactDOM;
+      let { Form, Row, Col, Container } = ReactBootstrap;
+
+      function SelectDate({ setDate }) {
+        async function handleChange(e) {
+          let { name, value } = e.target;
+
+          console.log(name, value);
+          let d = new Date(e.target.value);
+
+          let currentDay = new Intl.DateTimeFormat("en", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+            .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+            .replace(/[^a-zA-Z0-9]/g, "_");
+          setDate(currentDay);
+        }
+
+        return (
+          <Container>
+            <Form>
+              <Row>
+                <Col>
+                  <Form.Group controlId="formStatePeriod">
+                    <Form.Label>Период</Form.Label>
+                    <Form.Control
+                      type="date"
+                      name="selecteddate"
+                      required
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </Form>
+          </Container>
+        );
+      }
+
+      function App() {
+      
+        function setDate(datestring) {
+          console.log(datestring);
+        }
+
+        return (
+          <Container>
+            <SelectDate setDate={setDate} />
+          </Container>
+        );
+      }
+
+      createRoot(root).render(<App />);
+    </script>
+  </body>
+</html>

@@ -61,7 +61,155 @@
     </div>
 
 
-    <script>
+
+<div id="box4" style="width:400px; height:500px;"></div>
+
+  
+
+
+  <script>
+    let randomfrom = [2, 4, 6, 8, 10];
+        var offset = 4;
+
+    var selectedRandom = randomfrom[Math.floor(Math.random() * randomfrom.length)];
+    console.log("Случайное число:", selectedRandom);
+
+    var board = JXG.JSXGraph.initBoard(
+        'box', {
+            boundingbox: [-8, 8, 8, -8],
+            axis: true
+        });
+
+  //  var idx = selectedRandom - 1; // индекс от 0 до 3
+    
+    // Базовые точки с целыми координатами
+    var A = board.create('point', [-6, -6], { 
+        name: 'A', 
+        color: 'blue',
+        size: 4
+    });
+    
+    var B = board.create('point', [-6+offset, -6], { 
+        name: 'B', 
+        color: 'blue',
+        size: 4
+    });
+    
+    // Смещение для боковой стороны (целые числа для "круглых" координат)
+
+    
+    var C = board.create('point', [2+offset, -6+selectedRandom], { 
+        name: 'C', 
+        color: 'red',
+        size: 4
+    });
+    
+    var D = board.create('point', [2, -6+selectedRandom], { 
+        name: 'D', 
+        color: 'red',
+        size: 4
+    });
+
+    // Создаем параллелограмм
+    var parallelogram = board.create('polygon', [A, B, C, D], {
+        fillColor: '#CCFFCC',
+        fillOpacity: 0.5,
+        borders: {
+            strokeColor: '#FF0000',
+            strokeWidth: 3
+        }
+    });
+
+   
+</script>
+
+
+
+    <!-- <script>
+         // Центр окружности (случайный из диапазона)
+    let randomfrom = [2, 4, 6, 8];
+    var selectedRandom = randomfrom[Math.floor(Math.random() * randomfrom.length)];
+    console.log(selectedRandom);
+
+    var board = JXG.JSXGraph.initBoard(
+        'box', {
+            boundingbox: [-10, 10, 10, -10],
+            axis: true
+        });
+
+   
+    var centerX = -2; // чтобы центр мог быть в разных квадрантах
+    var centerY = -2;
+    
+    // Создаем центр окружности
+    var center = board.create('point', [centerX, centerY], { 
+        name: 'O', 
+        color: '#0d6efd',
+        size: 3
+    });
+
+    // Радиус окружности (зависит от случайного числа)
+    var radius = selectedRandom ;
+    
+    // Создаем окружность
+    var circle = board.create('circle', [center, radius], {
+        strokeColor: '#0d6efd',
+        strokeWidth: 3,
+        fillColor: 'lightgray',
+        fillOpacity: 0.5
+    });
+
+    // Опционально: добавляем точку на окружности для наглядности
+    var pointOnCircle = board.create('point', [
+        function() { return center.X() + radius; },
+        function() { return center.Y(); }
+    ], { 
+        name: 'R', 
+        color: '#217346',
+        size: 3
+    });
+
+    // Опционально: добавляем радиус
+    var radiusLine = board.create('segment', [center, pointOnCircle], {
+        strokeColor: '#0000FF',
+        strokeWidth: 2,
+        dash: 2
+    });
+</script> -->
+
+ <!-- <script>
+ // Создаем трапецию с горизонтальными основаниями
+        let randomfrom = [0, 2, 4, 6];
+
+        var selectedRandom = randomfrom[Math.floor(Math.random() * randomfrom.length)];
+        console.log(selectedRandom);
+
+        var board = JXG.JSXGraph.initBoard(
+            'box', {
+            boundingbox: [-10, 10, 10, -10],
+            axis: true
+        });
+
+       
+        var A = board.create('point', [-6, -4], { name: 'A' });  // 3-й квадрант
+        var B = board.create('point', [selectedRandom+2, -4], { name: 'B' });   // 4-й квадрант
+        var C = board.create('point', [selectedRandom, selectedRandom], { name: 'C' });    // 1-й квадрант
+        var D = board.create('point', [-4, selectedRandom], { name: 'D' });   // 2-й квадрант
+
+        // Создаем трапецию
+        var trapezoid = board.create('polygon', [A, B, C, D], {
+            fillColor: 'lightgray',
+            fillOpacity: 0.5,
+            borders: {
+                strokeColor: '#0d6efd',
+                strokeWidth: 3
+            }
+        });
+        
+    </script>  -->
+
+    <!-- <script>
+         Квадратичная Функция
         var board = JXG.JSXGraph.initBoard(
                 'box', {
                     boundingbox: [-10, 10, 10, -10],
@@ -73,9 +221,9 @@
                 [(x) => 0.5 * x ** 2 - 2 * x,                    
                 ],
                 
-                {strokeWidth: 3}
+                {strokeWidth: 3, strokeColor: '#0d6efd'}
         );
-    </script>
+    </script> -->
 
     
 
