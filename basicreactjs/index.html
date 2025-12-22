@@ -7,6 +7,15 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="stylesheet" href="../dist/original.css" />
+    <style>
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        filter: grayscale(100%);
+        object-fit: cover;
+      }
+    </style>
 
     <title>Basic react js</title>
   </head>
@@ -68,150 +77,9 @@
     <script type="text/babel">
       let { createRoot } = ReactDOM;
       let { useReducer } = React;
-      let { Form, Row, Col, Container } = ReactBootstrap;
+      let { Form, Row, Col, Container, Button } = ReactBootstrap;
       let { caseReducer, getFirebaseNode } = basicfirebasecrudservices;
-      let { createSlice, createApi, configureStore, setupListeners, fakeBaseQuery} = RTK;
-
-
-      /**
-* Store
-*/
-
-const initialState = {
-
-    email: '',
-    userEmail: "",
-    user: '',
-    avatarUrl: '',
-
-    activePostId: null,
-    previousPostId: null,
-
-    activePage: null,
-    previousPage: null,
-
-    startIndex: 0,
-    endIndex: 10,
-
-    pageLength: 10
-
-}
-
-
-
-const applicationSlice = createSlice({
-    name: 'application',
-    initialState,
-    reducers: {
-
-        setPageLength: (state, action) => {
-            state.pageLength = action.payload;
-            state.endIndex = action.payload;
-        },
-
-
-        setActivePage: (state, action) => {
-            state.previousPage = state.activePage;
-            state.activePage = action.payload;
-            state.startIndex = (action.payload - 1) * state.pageLength;
-            state.endIndex = action.payload * state.pageLength;
-            state.previousPostId = null
-            state.activePostId = null;
-        },
-
-
-        setUser: (state, action) => {
-            state.email = action.payload.email,
-                state.userEmail = action.payload.userEmail,
-                state.user = action.payload.user,
-                state.avatarUrl = action.payload?.avatarUrl ? action.payload?.avatarUrl : 'https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop',
-                state.isLoading = false
-        },
-
-        setAvatar: (state, action) => {
-            state.avatarUrl = action.payload
-        },
-
-        setSelectedPostId: (state, action) => {
-            state.previousPostId = state.activePostId;
-            state.activePostId = action.payload;
-        },
-
-        closePost: (state) => {
-            state.previousPostId = null
-            state.activePostId = null;
-        },
-
-    }
-})
-
-// Action creators are generated for each case reducer function
-const { setSelectedPostId, closePost, setUser, setAvatar, setActivePage, setPageLength
-
-} = applicationSlice.actions
-
-
-
-
-
-// const api = createApi({
-//     reducerPath: 'api',
-//     tagTypes: ["Post", "Avatar"],
-//     baseQuery: fakeBaseQuery(),
-//     endpoints: (builder) => ({
-
-//         fetchUserPosts: builder.query({
-//             async queryFn(userEmail) {
-//                 try {
-//                     let list = await getFirebaseNode({ url: "usersCraft/" + userEmail + "/posts", type: "array" });
-//                     return { data: list }
-//                 }
-//                 catch (err) { console.log(err); return { error: err } }
-//             },
-//             providesTags: (result, error, id) => [{ type: "Post", id }]
-//         }),
-
-//         fetchUserAvatar: builder.query({
-//             async queryFn(userEmail) {
-//                 try {
-//                     let openAvatarsResponse = await getFirebaseNode({
-//                         url: "/openavatars/" + userEmail,
-//                         type: "object"
-//                     });
-
-//                     return { data: openAvatarsResponse }
-//                 }
-//                 catch (err) { console.log(err); return { data: null, error: err } }
-//             },
-//             providesTags: (result, error, id) => [{ type: "Avatar", id }]
-//         }),
-
-//         updatesForUserPosts: builder.mutation({
-//             async queryFn({ base = "", updates = { temp: "temp" }
-//             }) {
-//                 let fireUpdates = {};
-//                 Object.keys(updates).forEach(objKey => {
-//                     fireUpdates[base + "/" + objKey] = updates[objKey]
-//                 });
-//            //     console.log(fireUpdates);
-//                 try { await updateFirebaseNode(fireUpdates) }
-//                 catch (err) { console.log(err); return { error: err } }
-//                 return { data: fireUpdates }
-//             },
-//             invalidatesTags: ["Post"]
-//         }),
-//     }),
-// })
-
-const store = configureStore({
-    reducer: {
-        application: applicationSlice.reducer,
-        // [api.reducerPath]: api.reducer
-    },
-    // middleware: (getDefaultMiddleware) =>
-    //     getDefaultMiddleware().concat(api.middleware),
-})
-// setupListeners(store.dispatch);
+      let { createNextState } = RTK;
 
       function SelectDate({ setDate }) {
         async function handleChange(e) {
@@ -252,9 +120,44 @@ const store = configureStore({
         );
       }
 
+      function ShowUsers({ usersAvatars }) {
+        console.log(usersAvatars);
+        return <Container>{Object.keys(usersAvatars).map(userEmail => {
+          return <Row>
+            <Col>
+              <img src={!!usersAvatars[userEmail]?.avatarUrl ?  
+                usersAvatars[userEmail]?.avatarUrl: "../freelancer.jpg"}
+              alt=""
+              className="avatar"
+              
+              />
+              </Col>
+            <Col>{userEmail}</Col>
+            <Col><Button size="sm">Change</Button></Col>
+
+            </Row>
+        })}
+          </Container>;
+      }
+
+      const reducer = createNextState((draft, action) => {
+        switch (action.type) {
+          case "SEED_STATE":
+            Object.keys(action.payload.object).map((key) => {
+              draft[key] = action.payload.object[key];
+            });
+            break;
+
+          default:
+            break;
+        }
+      });
+
       function App() {
-        const [state, dispatch] = useReducer(caseReducer, {
+        const [state, dispatch] = useReducer(reducer, {
           isLoading: true,
+          updatedopenavatars: {},
+          uniqueUserEmails: [],
         });
 
         async function setDate(currentDay) {
@@ -286,6 +189,7 @@ const store = configureStore({
             );
             console.log(updatedopenavatars);
           });
+
           dispatch({
             type: "SEED_STATE",
             payload: {
@@ -296,12 +200,15 @@ const store = configureStore({
               },
             },
           });
+          //  console.log(basicfirebasecrudservices.loadState())
         }
 
         console.log(state);
+
         return (
           <Container>
             <SelectDate setDate={setDate} />
+            <ShowUsers usersAvatars={state?.updatedopenavatars} />
           </Container>
         );
       }
