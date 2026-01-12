@@ -1,47 +1,21 @@
-let { useEffect, useState, useRef } = React;
+let { useEffect, useState, useRef, useReducer } = React;
 let { createRoot } = ReactDOM;
-let { Provider, useDispatch, useSelector } = 'ReactRedux';
-let { Button, Container,  ButtonGroup, Form } = 'ReactBootstrap';
-let { configureStore, createSlice } = "RTK"
+const { Provider, useSelector, useDispatch } = ReactRedux;
+let { Button, Container, ButtonGroup, Form } = ReactBootstrap;
+let { configureStore, createSlice } = window.RTK;
 
-// import throttle from '../utilities/throttle';
-// import saveState from '../utilities/saveState';
-
-
-function MathQuiz() {
-    return null
-}
-
-function QuizSet() {
-    return null
-}
-
-
-function isDifferenceLessThanTwoHours(timestamp1, timestamp2) {
-  const differenceInMillis = Math.abs(timestamp2 - timestamp1);
-  const oneHourInMillis = 2* 60 * 60 * 1000; // 7,200,000 milliseconds
-  return differenceInMillis < oneHourInMillis;
-}
-
-function loadPostsFromLocalStorage() {
-  
-  if (!document.body.dataset?.exam) { return [] }
-
-  let currentTimeStamp = new Date();
-  let myPosts = [];
+const loadState = () => {
   try {
-    let savedPosts = loadState()?.posts?.posts;
-    Array.isArray(savedPosts) && savedPosts.map(post => {
-      if (isDifferenceLessThanTwoHours(currentTimeStamp, post?.timestamp)) {
-        myPosts.push(post)
-      }
-    })
-
-  } catch (error) { console.log(error) }
-
-  return myPosts
-}
-
+    const serializedState = localStorage.getItem('econolabs');
+    if (serializedState === null) {
+      return undefined;
+    }
+    //  console.log(JSON.parse(serializedState))
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined
+  }
+};
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -72,7 +46,7 @@ const postsSlice = createSlice({
 
     // Action to update or create an item
     upsertPost: (state, action) => {
-   //   console.log(action.payload)
+      //   console.log(action.payload)
       const existingItemIndex = state.posts.findIndex(item => item.quizId === action.payload.quizId);
       if (existingItemIndex !== -1) {
         state.posts[existingItemIndex] = action.payload;
@@ -89,154 +63,13 @@ const { seedPostsState, createPost, updatePost, upsertPost } = postsSlice.action
 
 const selectPosts = state => state.posts;
 
-const SimpleUserForm = () => {
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-
-        try {
-            const serializedState = JSON.stringify({
-                application: {
-                    email: email,
-                    user: name,
-                    userEmail: email.replace(/[^a-zA-Z0-9]/g, "_")
-                }
-            });
-            localStorage.setItem('econolabs', serializedState);
-        } catch (err) {
-            console.log(err)
-        }
-
-
-        // dispatch(set_user_profile(
-        //     {
-        //         email: email,
-        //         user: name,
-        //         userEmail: email.replace(/[^a-zA-Z0-9]/g, "_")
-        //     }));
-        setTimeout(function () { window.location.reload() }, 3000);
-
-        // Сохранение в localStorage
-        // localStorage.setItem('userName', name);
-        // localStorage.setItem('userEmail', email);
-
-        // Перезагрузка страницы
-        // window.location.reload();
-    };
-
-    return (
-        <Container className="mt-5" style={{ maxWidth: '400px' }}>
-            <Form onSubmit={handleSubmit}>
-
-                <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Введите email"
-                        required
-                    />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                    <Form.Label>Имя Группа</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Введите имя"
-                        required
-                    />
-                </Form.Group>
-
-
-
-                <Button variant="primary" type="submit" className="w-100">
-                    Сохранить
-                </Button>
-            </Form>
-        </Container>
-    );
-};
-
-//console.log(window.quizesSets);
-
-
-function App() {
-    let isExam = !!document.body.dataset?.exam ? true : false;
-  //   const [doContinue, setDoContinue] = useState(false);
-    let { email, user } = useSelector(selectApplication);
-  //  let { posts } = useSelector(selectPosts)
-
-
-    if (!email || email.length < 5 || user.length < 5) {
-        return <SimpleUserForm />
-    }
-
-
-    // if (isExam && !doContinue && posts.length > 0) {       
-    //     return <StartOrContinueExam setDoContinue={()=>setDoContinue()}/>
-    // }
-
-     if (isExam) {
-        let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
-        quizesIds = basicfirebasecrudservices.shuffle([...quizesIds])
-        return <QuizSet quizesIds={quizesIds} isExam={true} />
-    }
-
-
-
-    if (Array.isArray(window.quizesSets) && window.quizesSets.length > 1) {
-        let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
-        return <Container>
-            <QuizSet quizesIds={quizesIds} isExam={false} />
-        </Container>
-    }
-
-    return <Container>
-        <MathQuiz />
-    </Container>
-
-}
-
-const domNode = document.getElementById('root');
-const root = createRoot(domNode);
-root.render(
-    <Provider store={store}><App /></Provider>
-);
-
-
-const loadState = () => {
-  try {
-    const serializedState = localStorage.getItem('econolabs');
-    if (serializedState === null) {
-      return undefined;
-    }
-    return JSON.parse(serializedState);
-  } catch (err) {
-    return undefined
-  }
-};
-
- const applicationSlice = createSlice({
+const applicationSlice = createSlice({
   name: 'application',
-  initialState: !!loadState() && !!loadState()?.application ? {
-     ...loadState().application, userEmail: loadState().application?.email.replace(/[^a-zA-Z0-9]/g, "_") } 
-    : {
+  initialState: {
     email: '',
     user: '',
     avatarUrl: '',
-    currentProjectTitle: '',
-    currentProjectComment: '',
-    currentProjectMediaAndDataAndTemplatesURL: '',
-    currentProjectSourseDataURL: '',
-    currentProjectMoneyScale: '',
-    currentProjectReportIndicatorsDictionary: ''
+    userEmail: ''
   },
   reducers: {
     setUserProfile: (state, action) => {
@@ -262,7 +95,7 @@ const loadState = () => {
   },
 });
 
- const { setUserProfile,  set_user_profile, set_currentProject } = applicationSlice.actions;
+const { setUserProfile, set_user_profile, set_currentProject } = applicationSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -272,13 +105,214 @@ const selectApplication = state => state.application;
 
 
 
+
 const store = configureStore({
   reducer: {
-   // counter: counterReducer,
-    application: applicationReducer,
-    posts: postsReducer,
+    // counter: counterReducer,
+    application: applicationSlice.applicationReducer,
+    posts: postsSlice.postsReducer,
   },
 })
+
+// import throttle from '../utilities/throttle';
+// import saveState from '../utilities/saveState';
+
+
+function MathQuiz() {
+  return null
+}
+
+function QuizSet() {
+  return null
+}
+
+
+function isDifferenceLessThanTwoHours(timestamp1, timestamp2) {
+  const differenceInMillis = Math.abs(timestamp2 - timestamp1);
+  const oneHourInMillis = 2 * 60 * 60 * 1000; // 7,200,000 milliseconds
+  return differenceInMillis < oneHourInMillis;
+}
+
+function loadPostsFromLocalStorage() {
+
+  if (!document.body.dataset?.exam) { return [] }
+
+  let currentTimeStamp = new Date();
+  let myPosts = [];
+  try {
+    let savedPosts = loadState()?.posts?.posts;
+    Array.isArray(savedPosts) && savedPosts.map(post => {
+      if (isDifferenceLessThanTwoHours(currentTimeStamp, post?.timestamp)) {
+        myPosts.push(post)
+      }
+    })
+
+  } catch (error) { console.log(error) }
+
+  return myPosts
+}
+
+
+
+
+const SimpleUserForm = () => {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+
+    try {
+      const serializedState = JSON.stringify({
+        application: {
+          email: email,
+          user: name,
+          userEmail: email.replace(/[^a-zA-Z0-9]/g, "_")
+        }
+      });
+      localStorage.setItem('econolabs', serializedState);
+    } catch (err) {
+      console.log(err)
+    }
+
+
+    setTimeout(function () { window.location.reload() }, 3000);
+
+  };
+
+  return (
+    <Container className="mt-5" style={{ maxWidth: '400px' }}>
+      <Form onSubmit={handleSubmit}>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Введите email"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Имя Группа</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Введите имя"
+            required
+          />
+        </Form.Group>
+
+
+
+        <Button variant="primary" type="submit" className="w-100">
+          Сохранить
+        </Button>
+      </Form>
+    </Container>
+  );
+};
+
+//console.log(window.quizesSets);
+
+function reducer(state, action) {
+  if (action.type === 'SEED_DATA') {
+    let data = {}
+    Object.keys(action.payload).forEach(objKey => {
+      data[objKey] = data.payload[objKey]
+    })
+    console.log(data);
+    return { ...data };
+  }
+  throw Error('Unknown action.');
+}
+
+
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, {
+    email: null,
+    user: null,
+    userEmail: null,
+    isLoading: null,
+    isExam: null
+  })
+
+  useEffect(() => {
+    const serializedState = localStorage.getItem('econolabs');
+    if (serializedState === null) {
+      dispatch({
+        type: 'SEED_DATA',
+        payload: {
+          isLoading: false,
+        }
+      })
+    } else {
+      let application = JSON.parse(serializedState)?.application;
+      dispatch({
+        type: 'SEED_DATA',
+        payload: {
+          user: application?.user ? application.user : null,
+          email: application?.email ? application.email : null,
+          isLoading: false,
+          isExam: !!document.body.dataset?.exam ? true : false
+        }
+      })
+    }
+     }, [])
+
+  if (state?.isLoading) { return <div>...</div> }
+  //   const [doContinue, setDoContinue] = useState(false);
+  //  let { email = null, user = null } = useSelector(selectApplication);
+  //  let { posts } = useSelector(selectPosts)
+
+
+  if (!state?.email || state?.email.length < 5 || state?.user.length < 5) {
+    return <SimpleUserForm />
+  }
+
+
+  // if (isExam && !doContinue && posts.length > 0) {       
+  //     return <StartOrContinueExam setDoContinue={()=>setDoContinue()}/>
+  // }
+
+  // if (isExam) {
+  //   let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
+  //   quizesIds = basicfirebasecrudservices.shuffle([...quizesIds])
+  //   return <QuizSet quizesIds={quizesIds} isExam={true} />
+  // }
+
+
+
+  // if (Array.isArray(window.quizesSets) && window.quizesSets.length > 1) {
+  //   let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
+  //   return <Container>
+  //     <QuizSet quizesIds={quizesIds} isExam={false} />
+  //   </Container>
+  // }
+
+  // return <Container>
+  //   <MathQuiz />
+  // </Container>
+
+  return <div>Ready</div>
+
+}
+
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+root.render(
+  <Provider store={store}><App /></Provider>
+);
+
+
+
+
 
 // store.subscribe(throttle(() => {
 //   saveState({
