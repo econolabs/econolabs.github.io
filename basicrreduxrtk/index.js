@@ -17,6 +17,11 @@ const loadState = () => {
   }
 };
 
+function isObject(value) {
+  // Check if it's not null, and typeof returns 'object'
+  return value !== null && typeof value === 'object';
+}
+
 const postsSlice = createSlice({
   name: 'posts',
   initialState: {
@@ -114,17 +119,187 @@ const store = configureStore({
   },
 })
 
-// import throttle from '../utilities/throttle';
-// import saveState from '../utilities/saveState';
+
+
+function ShowQuizResults() {
+  return null
+}
+
+function QuizCardWithStorage() {
+  return null
+}
 
 
 function MathQuiz() {
   return null
 }
 
-function QuizSet() {
-  return null
+function QuizSet({
+  setTitle = "Тесты",
+  quizesIds = [],
+  isExam = false
+}) {
+  const [state, localDispatch] = useReducer(caseReducer, {
+    selectedQuiz: 0,
+    loading: false,
+    currentPage: 0,
+    itemsPerPage: 7,
+    showQuizResults: false
+  })
+
+
+  if (state.showQuizResults) {
+    return <ShowQuizResults quizesIds={quizesIds} />
+  }
+
+  const pagesCount = Math.ceil(window.quizesSets.length / state.itemsPerPage);
+  const isCurrentPageFirst = state.currentPage === 0;
+  const isCurrentPageLast = state.currentPage === pagesCount - 1;
+
+  const onPreviousPageClick = () => {
+    if (state.currentPage < 1) {
+      localDispatch({
+        type: "SEED_STATE",
+        payload: {
+          objects: {
+            currentPage: 0,
+          }
+        }
+      })
+    } else {
+      localDispatch({
+        type: "SEED_STATE",
+        payload: {
+          objects: {
+            currentPage: state.currentPage - 1
+          }
+        }
+      })
+    }
+  };
+
+  const onNextPageClick = () => {
+    if ((state.currentPage + 2) > pagesCount) return;
+    localDispatch({
+      type: "SEED_STATE",
+      payload: {
+        objects: {
+          currentPage: state.currentPage + 1
+        }
+      }
+    })
+  };
+
+
+  function doSelectQuiz(index) {
+    localDispatch({
+      type: "SEED_STATE",
+      payload: {
+        objects: {
+          loading: true,
+          selectedQuiz: index
+        }
+      }
+    })
+    // setLoading(true);
+    // setSelectedQuiz(index);
+    // setLoading(false);
+  }
+
+  let quizId = quizesIds[state.selectedQuiz]
+  let quizprops = window.quizesSets.find(quiz => quiz.id === quizId);
+
+
+  if (quizesIds.length > 10) {
+
+    let items = [];
+    for (let index = state.currentPage * state.itemsPerPage; index < state.currentPage * state.itemsPerPage + state.itemsPerPage; index++) {
+      items.push(
+        <li className={index === state.selectedQuiz ? "page-item active" : "page-item"}
+          onClick={() => doSelectQuiz(index)}
+        ><a className="page-link" href="#">
+            {index + 1}
+          </a></li>
+      );
+    }
+
+
+    return <div className="m-1">
+      <nav aria-label="Page navigation example">
+
+        <a className="navbar-brand" href="#">{setTitle}</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <ul className="pagination pagination-sm justify-content-end">
+          <li className={isCurrentPageFirst ? "page-item disabled" : "page-item"}
+            onClick={onPreviousPageClick}
+          >
+            <a className="page-link" href="#" tabindex="-1">{"<<"}</a>
+          </li>
+          {items}
+          <li className={isCurrentPageLast ? "page-item disabled" : "page-item"}
+            onClick={onNextPageClick}
+          >
+            <a className="page-link" href="#">{">>"}</a>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+
+      {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={state.selectedQuiz} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
+
+      {isExam ? <button className="btn btn-sm btn-outline-secondary m-5" onClick={() =>
+        localDispatch({
+          type: "SEED_STATE",
+          payload: {
+            objects: {
+              showQuizResults: true
+            }
+          }
+        })
+      }>Завершить тест и записать результат</button> : null}
+
+    </div>
+  }
+
+  return <div className="m-1">
+    <Navbar bg="light">
+      <Navbar.Brand >{setTitle}</Navbar.Brand>
+
+      <Navbar.Toggle />
+      <Navbar.Collapse className="justify-content-end">
+        <ButtonGroup size={quizesIds < 5 ? "lg" : "sm"}>
+          {window.quizesSets.map((quiz, index) => (
+            <Button
+              variant={state.selectedQuiz === index ? "secondary" : "outline-secondary"}
+              onClick={() => doSelectQuiz(index)}
+              key={index}
+            >
+              {quizesIds < 10 ? <span className="m-2" >{index + 1}</span> : <small>{index + 1}</small>}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </Navbar.Collapse>
+
+    </Navbar>
+    <hr />
+    {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={state.selectedQuiz} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
+    {isExam ? <button className="btn btn-sm btn-outline-secondary m-5" onClick={() => localDispatch({
+      type: "SEED_STATE",
+      payload: {
+        objects: {
+          showQuizResults: true
+        }
+      }
+    })}>Завершить тест и записать результат</button> : null}
+  </div>
 }
+
+
 
 
 function isDifferenceLessThanTwoHours(timestamp1, timestamp2) {
@@ -220,22 +395,25 @@ const SimpleUserForm = () => {
 
 //console.log(window.quizesSets);
 
-function reducer(state, action) {
-  if (action.type === 'SEED_DATA') {
-    let data = {}
-    Object.keys(action.payload).forEach(objKey => {
-      data[objKey] = data.payload[objKey]
-    })
-    console.log(data);
-    return { ...data };
+
+function caseReducer(state = {}, action) {
+  // console.log(action);
+  switch (action.type) {
+    case "SEED_STATE": {
+      return basicfirebasecrudservices.produce(state, (draft) => {
+        Object.keys(action.payload.objects).map((key) => {
+          draft[key] = action.payload.objects[key];
+        });
+      });
+    }
+    default:
+      return state;
   }
-  throw Error('Unknown action.');
 }
 
 
-
 function App() {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, localDispatch] = useReducer(caseReducer, {
     email: null,
     user: null,
     userEmail: null,
@@ -246,31 +424,34 @@ function App() {
   useEffect(() => {
     const serializedState = localStorage.getItem('econolabs');
     if (serializedState === null) {
-      dispatch({
-        type: 'SEED_DATA',
+      localDispatch({
+        type: "SEED_STATE",
         payload: {
-          isLoading: false,
+          objects: {
+            isLoading: false,
+          }
         }
       })
     } else {
       let application = JSON.parse(serializedState)?.application;
-      dispatch({
-        type: 'SEED_DATA',
+      console.log(application);
+      localDispatch({
+        type: "SEED_STATE",
         payload: {
-          user: application?.user ? application.user : null,
-          email: application?.email ? application.email : null,
-          isLoading: false,
-          isExam: !!document.body.dataset?.exam ? true : false
+          objects: {
+            user: application?.user ? application.user : null,
+            email: application?.email ? application.email : null,
+            isLoading: false,
+            isExam: !!document.body.dataset?.exam ? true : false
+          }
         }
       })
     }
-     }, [])
+  }, [])
+
+  console.log(state);
 
   if (state?.isLoading) { return <div>...</div> }
-  //   const [doContinue, setDoContinue] = useState(false);
-  //  let { email = null, user = null } = useSelector(selectApplication);
-  //  let { posts } = useSelector(selectPosts)
-
 
   if (!state?.email || state?.email.length < 5 || state?.user.length < 5) {
     return <SimpleUserForm />
@@ -281,20 +462,20 @@ function App() {
   //     return <StartOrContinueExam setDoContinue={()=>setDoContinue()}/>
   // }
 
-  // if (isExam) {
-  //   let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
-  //   quizesIds = basicfirebasecrudservices.shuffle([...quizesIds])
-  //   return <QuizSet quizesIds={quizesIds} isExam={true} />
-  // }
+  if (state.isExam) {
+    let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
+    quizesIds = basicfirebasecrudservices.shuffle([...quizesIds])
+    return <QuizSet quizesIds={quizesIds} isExam={true} />
+  }
 
 
 
-  // if (Array.isArray(window.quizesSets) && window.quizesSets.length > 1) {
-  //   let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
-  //   return <Container>
-  //     <QuizSet quizesIds={quizesIds} isExam={false} />
-  //   </Container>
-  // }
+  if (Array.isArray(window.quizesSets) && window.quizesSets.length > 1) {
+    let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
+    return <Container>
+      <QuizSet quizesIds={quizesIds} isExam={false} />
+    </Container>
+  }
 
   // return <Container>
   //   <MathQuiz />
