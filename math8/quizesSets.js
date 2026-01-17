@@ -324,7 +324,7 @@ let quizesSets = [
 </div>`
   },
 
-{
+  {
     "id": "trig-visual-005",
     "type": "multiplechoices",
     "header": "Тригонометрия. Визуализация",
@@ -639,7 +639,7 @@ let quizesSets = [
         <p class="mb-0">Нулевой синус → нулевой арксинус</p>
       </div>
     </div>`
-},
+  },
 
   {
     "id": "arccos-simple-001",
@@ -681,7 +681,7 @@ let quizesSets = [
         </ul>
       </div>
     </div>`
-},
+  },
 
   {
     "id": "arccos-simple-002",
@@ -724,24 +724,24 @@ let quizesSets = [
         </ul>
       </div>
     </div>`
-},
+  },
 
   {
-  "id": "arcsin-01",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin 0",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin 0$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$0$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-01",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin 0",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin 0$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$0$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Нулевой синус → нулевой арксинус<br>
       $\\sin 0 = 0$ и $0$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -750,24 +750,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin 0 = 0$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-02",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin ½",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{1}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-02",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin ½",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{1}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{6} = \\frac{1}{2}$<br>
       И $\\frac{\\pi}{6}$ лежит в $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -776,24 +776,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{1}{2} = \\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-03",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin √2/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{4}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-03",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin √2/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{4}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$<br>
       И $\\frac{\\pi}{4}$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -802,24 +802,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{\\sqrt{2}}{2} = \\frac{\\pi}{4}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-04",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin √3/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{\\sqrt{3}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-04",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin √3/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{\\sqrt{3}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$<br>
       И $\\frac{\\pi}{3}$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -828,24 +828,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{\\sqrt{3}}{2} = \\frac{\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-05",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin 1",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin 1$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{2}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-05",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin 1",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin 1$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{2}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{2} = 1$<br>
       И $\\frac{\\pi}{2}$ — максимально возможное значение арксинуса
@@ -854,24 +854,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin 1 = \\frac{\\pi}{2}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-01",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos 1",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos 1$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$0$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-01",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos 1",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos 1$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$0$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус 1 только у угла 0<br>
       $\\cos 0 = 1$ и $0$ ∈ $[0, \\pi]$
@@ -880,24 +880,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos 1 = 0$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-02",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos √3/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{\\sqrt{3}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-02",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos √3/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{\\sqrt{3}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{6} = \\frac{\\sqrt{3}}{2}$<br>
       И $\\frac{\\pi}{6}$ ∈ $[0, \\pi]$
@@ -906,24 +906,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{\\sqrt{3}}{2} = \\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-03",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos √2/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{4}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-03",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos √2/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{4}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$<br>
       И $\\frac{\\pi}{4}$ ∈ $[0, \\pi]$
@@ -932,24 +932,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{\\sqrt{2}}{2} = \\frac{\\pi}{4}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-04",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos ½",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{1}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-04",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos ½",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{1}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{3} = \\frac{1}{2}$<br>
       И $\\frac{\\pi}{3}$ ∈ $[0, \\pi]$
@@ -958,24 +958,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{1}{2} = \\frac{\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-05",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos 0",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos 0$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{2}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-05",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos 0",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos 0$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{2}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{2} = 0$<br>
       И $\\frac{\\pi}{2}$ ∈ $[0, \\pi]$
@@ -984,24 +984,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos 0 = \\frac{\\pi}{2}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-neg-01",
-  "type": "multiplechoices",
-  "header": "Арксинус. Отрицательные значения",
-  "title": "arcsin (-½)",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\left(-\\frac{1}{2}\\right)$",
-  "choices": [
-    "$-\\frac{\\pi}{6}$",
-    "$-\\frac{\\pi}{4}$",
-    "$-\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{6}$",
-    "$0$"
-  ],
-  "answers": ["$-\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-neg-01",
+    "type": "multiplechoices",
+    "header": "Арксинус. Отрицательные значения",
+    "title": "arcsin (-½)",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\left(-\\frac{1}{2}\\right)$",
+    "choices": [
+      "$-\\frac{\\pi}{6}$",
+      "$-\\frac{\\pi}{4}$",
+      "$-\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{6}$",
+      "$0$"
+    ],
+    "answers": ["$-\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Арксинус — нечетная функция<br>
       $\\arcsin(-x) = -\\arcsin x$<br>
@@ -1011,24 +1011,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin\\left(-\\frac{1}{2}\\right) = -\\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-neg-01",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Отрицательные значения",
-  "title": "arccos (-½)",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\left(-\\frac{1}{2}\\right)$",
-  "choices": [
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{2\\pi}{3}$",
-    "$\\frac{3\\pi}{4}$",
-    "$\\frac{5\\pi}{6}$",
-    "$\\pi$"
-  ],
-  "answers": ["$\\frac{2\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-neg-01",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Отрицательные значения",
+    "title": "arccos (-½)",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\left(-\\frac{1}{2}\\right)$",
+    "choices": [
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{2\\pi}{3}$",
+      "$\\frac{3\\pi}{4}$",
+      "$\\frac{5\\pi}{6}$",
+      "$\\pi$"
+    ],
+    "answers": ["$\\frac{2\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\arccos(-x) = \\pi - \\arccos x$<br>
       Так как $\\arccos \\frac{1}{2} = \\frac{\\pi}{3}$<br>
@@ -1038,24 +1038,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos\\left(-\\frac{1}{2}\\right) = \\frac{2\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-sin-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = 0",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = 0$",
-  "choices": [
-    "$x = \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = (-1)^k \\arcsin 0 + \\pi k$"
-  ],
-  "answers": ["$x = \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-sin-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = 0",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = 0$",
+    "choices": [
+      "$x = \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = (-1)^k \\arcsin 0 + \\pi k$"
+    ],
+    "answers": ["$x = \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус равен 0 на оси X единичной окружности<br>
       Точки: $0, \\pi, 2\\pi, ...$ и $-\\pi, -2\\pi, ...$
@@ -1065,24 +1065,24 @@ let quizesSets = [
       <small>Все точки вида: $..., -2\\pi, -\\pi, 0, \\pi, 2\\pi, ...$</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-cos-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = 1$",
-  "choices": [
-    "$x = 2\\pi k$",
-    "$x = \\pi + 2\\pi k$",
-    "$x = \\pm 2\\pi k$",
-    "$x = \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$"
-  ],
-  "answers": ["$x = 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = 1$",
+    "choices": [
+      "$x = 2\\pi k$",
+      "$x = \\pi + 2\\pi k$",
+      "$x = \\pm 2\\pi k$",
+      "$x = \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$"
+    ],
+    "answers": ["$x = 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус равен 1 в крайней правой точке окружности<br>
       Точки: $..., -4\\pi, -2\\pi, 0, 2\\pi, 4\\pi, ...$
@@ -1092,24 +1092,24 @@ let quizesSets = [
       <small>Четные кратные $\\pi$</small>
     </div>
   </div>`
-},
+  },
 
-{
-  "id": "eq-sin-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = 1$",
-  "choices": [
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\frac{\\pi}{2} k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{2} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-sin-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = 1$",
+    "choices": [
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\frac{\\pi}{2} k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{2} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус равен 1 в верхней точке окружности<br>
       Угол $\\frac{\\pi}{2}$, и + полные обороты
@@ -1119,25 +1119,25 @@ let quizesSets = [
       <small>Только верхняя точка, а не верхняя+нижняя</small>
     </div>
   </div>`
-},
+  },
 
 
   {
-  "id": "eq-cos-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = 0",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = 0$",
-  "choices": [
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{2} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = 0",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = 0$",
+    "choices": [
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{2} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус равен 0 на оси Y<br>
       Точки: верхняя ($\\frac{\\pi}{2}$) и нижняя ($\\frac{3\\pi}{2}$)<br>
@@ -1148,24 +1148,24 @@ let quizesSets = [
       <small>Чередование верхней и нижней точек</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-sin-03",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = ½",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = \\frac{1}{2}$",
-  "choices": [
-    "$x = (-1)^k \\frac{\\pi}{6} + \\pi k$",
-    "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{6} + \\pi k$",
-    "$x = \\frac{\\pi}{6} \\text{ или } \\frac{5\\pi}{6}$"
-  ],
-  "answers": ["$x = (-1)^k \\frac{\\pi}{6} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-sin-03",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = ½",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = \\frac{1}{2}$",
+    "choices": [
+      "$x = (-1)^k \\frac{\\pi}{6} + \\pi k$",
+      "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{6} + \\pi k$",
+      "$x = \\frac{\\pi}{6} \\text{ или } \\frac{5\\pi}{6}$"
+    ],
+    "answers": ["$x = (-1)^k \\frac{\\pi}{6} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для sin x = a:</strong><br>
       1. Первая серия: $x_1 = \\arcsin a + 2\\pi k$<br>
@@ -1177,24 +1177,24 @@ let quizesSets = [
       <small>Для k=0: $\\frac{\\pi}{6}$, для k=1: $\\frac{5\\pi}{6}$, и т.д.</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-cos-03",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = ½",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = \\frac{1}{2}$",
-  "choices": [
-    "$x = \\pm \\frac{\\pi}{3} + 2\\pi k$",
-    "$x = \\frac{\\pi}{3} + 2\\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{3} + \\pi k$",
-    "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{3} \\text{ или } \\frac{5\\pi}{3}$"
-  ],
-  "answers": ["$x = \\pm \\frac{\\pi}{3} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-03",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = ½",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = \\frac{1}{2}$",
+    "choices": [
+      "$x = \\pm \\frac{\\pi}{3} + 2\\pi k$",
+      "$x = \\frac{\\pi}{3} + 2\\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{3} + \\pi k$",
+      "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{3} \\text{ или } \\frac{5\\pi}{3}$"
+    ],
+    "answers": ["$x = \\pm \\frac{\\pi}{3} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для cos x = a:</strong><br>
       Косинус четный: $\\cos(\\alpha) = \\cos(-\\alpha)$<br>
@@ -1206,24 +1206,24 @@ let quizesSets = [
       <small>Две симметричные точки относительно оси X</small>
     </div>
   </div>`
-},
+  },
 
-{
-  "id": "ineq-sin-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство sin x > 0",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\sin x > 0$",
-  "choices": [
-    "$2\\pi k < x < \\pi + 2\\pi k$",
-    "$\\pi k < x < \\pi + \\pi k$",
-    "$-\\frac{\\pi}{2} + 2\\pi k < x < \\frac{\\pi}{2} + 2\\pi k$",
-    "$0 + 2\\pi k < x < \\pi + 2\\pi k$",
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"
-  ],
-  "answers": ["$2\\pi k < x < \\pi + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-sin-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство sin x > 0",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\sin x > 0$",
+    "choices": [
+      "$2\\pi k < x < \\pi + 2\\pi k$",
+      "$\\pi k < x < \\pi + \\pi k$",
+      "$-\\frac{\\pi}{2} + 2\\pi k < x < \\frac{\\pi}{2} + 2\\pi k$",
+      "$0 + 2\\pi k < x < \\pi + 2\\pi k$",
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"
+    ],
+    "answers": ["$2\\pi k < x < \\pi + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус положителен в верхней полуплоскости<br>
       От 0 до $\\pi$ (исключая края)
@@ -1233,7 +1233,7 @@ let quizesSets = [
       <small>Все интервалы от начала до середины окружности</small>
     </div>
   </div>`
-},
+  },
 
 
 
@@ -1241,22 +1241,22 @@ let quizesSets = [
 
 
 
-{
-  "id": "ineq-cos-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство cos x ≥ ½",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\cos x \\geq \\frac{1}{2}$",
-  "choices": [
-    "$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$",
-    "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{5\\pi}{3} + 2\\pi k$",
-    "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{2\\pi}{3} + 2\\pi k$",
-    "$-\\frac{\\pi}{6} + 2\\pi k \\leq x \\leq \\frac{\\pi}{6} + 2\\pi k$",
-    "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"
-  ],
-  "answers": ["$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-cos-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство cos x ≥ ½",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\cos x \\geq \\frac{1}{2}$",
+    "choices": [
+      "$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$",
+      "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{5\\pi}{3} + 2\\pi k$",
+      "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{2\\pi}{3} + 2\\pi k$",
+      "$-\\frac{\\pi}{6} + 2\\pi k \\leq x \\leq \\frac{\\pi}{6} + 2\\pi k$",
+      "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"
+    ],
+    "answers": ["$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус ≥ ½ в центральной части окружности<br>
       $\\cos x = \\frac{1}{2}$ при $x = \\pm \\frac{\\pi}{3}$<br>
@@ -1267,26 +1267,26 @@ let quizesSets = [
       <small>Симметричный интервал около 0</small>
     </div>
   </div>`
-},
+  },
 
 
 
-{
-  "id": "ineq-sin-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство sin x ≤ √2/2",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\sin x \\leq \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
-    "$\\frac{\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{3\\pi}{4} + 2\\pi k$",
-    "$\\frac{\\pi}{4} + \\pi k \\leq x \\leq \\frac{3\\pi}{4} + \\pi k$",
-    "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
-    "$x \\leq \\frac{\\pi}{4} + 2\\pi k$"
-  ],
-  "answers": ["$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-sin-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство sin x ≤ √2/2",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\sin x \\leq \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
+      "$\\frac{\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{3\\pi}{4} + 2\\pi k$",
+      "$\\frac{\\pi}{4} + \\pi k \\leq x \\leq \\frac{3\\pi}{4} + \\pi k$",
+      "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
+      "$x \\leq \\frac{\\pi}{4} + 2\\pi k$"
+    ],
+    "answers": ["$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Алгоритм:</strong><br>
       1. $\\sin x = \\frac{\\sqrt{2}}{2}$ при $x = \\frac{\\pi}{4}$ и $x = \\frac{3\\pi}{4}$<br>
@@ -1298,28 +1298,28 @@ let quizesSets = [
       <small>Интервал от $\\frac{5\\pi}{4}$ до $\\frac{9\\pi}{4}$ (но сдвинутый)</small>
     </div>
   </div>`
-},
+  },
 
 
 
 
 
-{
-  "id": "ineq-cos-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство cos x < 0",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\cos x < 0$",
-  "choices": [
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$",
-    "$\\frac{\\pi}{2} + \\pi k < x < \\frac{3\\pi}{2} + \\pi k$",
-    "$\\pi k < x < \\pi + \\pi k$",
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\pi + 2\\pi k$",
-    "$0 + 2\\pi k < x < \\pi + 2\\pi k$"
-  ],
-  "answers": ["$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-cos-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство cos x < 0",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\cos x < 0$",
+    "choices": [
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$",
+      "$\\frac{\\pi}{2} + \\pi k < x < \\frac{3\\pi}{2} + \\pi k$",
+      "$\\pi k < x < \\pi + \\pi k$",
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\pi + 2\\pi k$",
+      "$0 + 2\\pi k < x < \\pi + 2\\pi k$"
+    ],
+    "answers": ["$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус отрицателен во второй и третьей четвертях<br>
       От $\\frac{\\pi}{2}$ до $\\frac{3\\pi}{2}$ (исключая края)
@@ -1329,7 +1329,7 @@ let quizesSets = [
       <small>Левая половина окружности</small>
     </div>
   </div>`
-},
+  },
 
 
 
@@ -1337,22 +1337,22 @@ let quizesSets = [
 
 
 
-{
-  "id": "eq-tg-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение tg x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\tan x = 1$",
-  "choices": [
-    "$x = \\frac{\\pi}{4} + \\pi k$",
-    "$x = \\frac{\\pi}{4} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{4} + 2\\pi k$",
-    "$x = \\frac{\\pi}{4} + \\frac{\\pi}{2} k$",
-    "$x = (-1)^k \\frac{\\pi}{4} + \\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{4} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-tg-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение tg x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\tan x = 1$",
+    "choices": [
+      "$x = \\frac{\\pi}{4} + \\pi k$",
+      "$x = \\frac{\\pi}{4} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{4} + 2\\pi k$",
+      "$x = \\frac{\\pi}{4} + \\frac{\\pi}{2} k$",
+      "$x = (-1)^k \\frac{\\pi}{4} + \\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{4} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для тангенса:</strong><br>
       Тангенс имеет период $\\pi$ (а не $2\\pi$!)<br>
@@ -1363,26 +1363,26 @@ let quizesSets = [
       <small>Первый и третий квадранты (45° и 225°)</small>
     </div>
   </div>`
-},
+  },
 
 
 
-{
-  "id": "eq-sin-neg-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = -1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = -1$",
-  "choices": [
-    "$x = -\\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{3\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = (-1)^k (-\\frac{\\pi}{2}) + \\pi k$",
-    "оба первых варианта верны"
-  ],
-  "answers": ["оба первых варианта верны"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-sin-neg-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = -1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = -1$",
+    "choices": [
+      "$x = -\\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{3\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = (-1)^k (-\\frac{\\pi}{2}) + \\pi k$",
+      "оба первых варианта верны"
+    ],
+    "answers": ["оба первых варианта верны"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Важно:</strong> $-\\frac{\\pi}{2}$ и $\\frac{3\\pi}{2}$ — одна и та же точка!<br>
       Синус равен -1 в самой нижней точке окружности
@@ -1392,7 +1392,7 @@ let quizesSets = [
       <small>Это эквивалентные записи</small>
     </div>
   </div>`
-},
+  },
 
 
 
@@ -2550,7 +2550,7 @@ let quizesSets = [
         <p class="mb-0">Нулевой синус → нулевой арксинус</p>
       </div>
     </div>`
-},
+  },
 
   {
     "id": "arccos-simple-001",
@@ -2592,7 +2592,7 @@ let quizesSets = [
         </ul>
       </div>
     </div>`
-},
+  },
 
   {
     "id": "arccos-simple-002",
@@ -2635,24 +2635,24 @@ let quizesSets = [
         </ul>
       </div>
     </div>`
-},
+  },
 
   {
-  "id": "arcsin-01",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin 0",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin 0$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$0$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-01",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin 0",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin 0$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$0$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Нулевой синус → нулевой арксинус<br>
       $\\sin 0 = 0$ и $0$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -2661,24 +2661,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin 0 = 0$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-02",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin ½",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{1}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-02",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin ½",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{1}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{6} = \\frac{1}{2}$<br>
       И $\\frac{\\pi}{6}$ лежит в $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -2687,24 +2687,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{1}{2} = \\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-03",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin √2/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{4}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-03",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin √2/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{4}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$<br>
       И $\\frac{\\pi}{4}$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -2713,24 +2713,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{\\sqrt{2}}{2} = \\frac{\\pi}{4}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-04",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin √3/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\frac{\\sqrt{3}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-04",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin √3/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\frac{\\sqrt{3}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$<br>
       И $\\frac{\\pi}{3}$ ∈ $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$
@@ -2739,24 +2739,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin \\frac{\\sqrt{3}}{2} = \\frac{\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-05",
-  "type": "multiplechoices",
-  "header": "Арксинус. Устный счет",
-  "title": "arcsin 1",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin 1$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{2}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-05",
+    "type": "multiplechoices",
+    "header": "Арксинус. Устный счет",
+    "title": "arcsin 1",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin 1$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{2}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\sin \\frac{\\pi}{2} = 1$<br>
       И $\\frac{\\pi}{2}$ — максимально возможное значение арксинуса
@@ -2765,24 +2765,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin 1 = \\frac{\\pi}{2}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-01",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos 1",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos 1$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$0$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-01",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos 1",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos 1$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$0$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус 1 только у угла 0<br>
       $\\cos 0 = 1$ и $0$ ∈ $[0, \\pi]$
@@ -2791,24 +2791,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos 1 = 0$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-02",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos √3/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{\\sqrt{3}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-02",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos √3/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{\\sqrt{3}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{6} = \\frac{\\sqrt{3}}{2}$<br>
       И $\\frac{\\pi}{6}$ ∈ $[0, \\pi]$
@@ -2817,24 +2817,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{\\sqrt{3}}{2} = \\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-03",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos √2/2",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{4}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-03",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos √2/2",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{4}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$<br>
       И $\\frac{\\pi}{4}$ ∈ $[0, \\pi]$
@@ -2843,24 +2843,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{\\sqrt{2}}{2} = \\frac{\\pi}{4}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-04",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos ½",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\frac{1}{2}$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-04",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos ½",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\frac{1}{2}$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{3} = \\frac{1}{2}$<br>
       И $\\frac{\\pi}{3}$ ∈ $[0, \\pi]$
@@ -2869,24 +2869,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos \\frac{1}{2} = \\frac{\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-05",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Устный счет",
-  "title": "arccos 0",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos 0$",
-  "choices": [
-    "$0$",
-    "$\\frac{\\pi}{6}$",
-    "$\\frac{\\pi}{4}$",
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{2}$"
-  ],
-  "answers": ["$\\frac{\\pi}{2}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-05",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Устный счет",
+    "title": "arccos 0",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos 0$",
+    "choices": [
+      "$0$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "answers": ["$\\frac{\\pi}{2}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\cos \\frac{\\pi}{2} = 0$<br>
       И $\\frac{\\pi}{2}$ ∈ $[0, \\pi]$
@@ -2895,24 +2895,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos 0 = \\frac{\\pi}{2}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arcsin-neg-01",
-  "type": "multiplechoices",
-  "header": "Арксинус. Отрицательные значения",
-  "title": "arcsin (-½)",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arcsin \\left(-\\frac{1}{2}\\right)$",
-  "choices": [
-    "$-\\frac{\\pi}{6}$",
-    "$-\\frac{\\pi}{4}$",
-    "$-\\frac{\\pi}{3}$",
-    "$\\frac{\\pi}{6}$",
-    "$0$"
-  ],
-  "answers": ["$-\\frac{\\pi}{6}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arcsin-neg-01",
+    "type": "multiplechoices",
+    "header": "Арксинус. Отрицательные значения",
+    "title": "arcsin (-½)",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arcsin \\left(-\\frac{1}{2}\\right)$",
+    "choices": [
+      "$-\\frac{\\pi}{6}$",
+      "$-\\frac{\\pi}{4}$",
+      "$-\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{6}$",
+      "$0$"
+    ],
+    "answers": ["$-\\frac{\\pi}{6}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Арксинус — нечетная функция<br>
       $\\arcsin(-x) = -\\arcsin x$<br>
@@ -2922,24 +2922,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arcsin\\left(-\\frac{1}{2}\\right) = -\\frac{\\pi}{6}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "arccos-neg-01",
-  "type": "multiplechoices",
-  "header": "Арккосинус. Отрицательные значения",
-  "title": "arccos (-½)",
-  "theme": "Обратные тригонометрические функции",
-  "text": "Вычислите: $\\arccos \\left(-\\frac{1}{2}\\right)$",
-  "choices": [
-    "$\\frac{\\pi}{3}$",
-    "$\\frac{2\\pi}{3}$",
-    "$\\frac{3\\pi}{4}$",
-    "$\\frac{5\\pi}{6}$",
-    "$\\pi$"
-  ],
-  "answers": ["$\\frac{2\\pi}{3}$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "arccos-neg-01",
+    "type": "multiplechoices",
+    "header": "Арккосинус. Отрицательные значения",
+    "title": "arccos (-½)",
+    "theme": "Обратные тригонометрические функции",
+    "text": "Вычислите: $\\arccos \\left(-\\frac{1}{2}\\right)$",
+    "choices": [
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{2\\pi}{3}$",
+      "$\\frac{3\\pi}{4}$",
+      "$\\frac{5\\pi}{6}$",
+      "$\\pi$"
+    ],
+    "answers": ["$\\frac{2\\pi}{3}$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> $\\arccos(-x) = \\pi - \\arccos x$<br>
       Так как $\\arccos \\frac{1}{2} = \\frac{\\pi}{3}$<br>
@@ -2949,24 +2949,24 @@ let quizesSets = [
       <strong>✓ Ответ:</strong> $\\arccos\\left(-\\frac{1}{2}\\right) = \\frac{2\\pi}{3}$
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-sin-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = 0",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = 0$",
-  "choices": [
-    "$x = \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = (-1)^k \\arcsin 0 + \\pi k$"
-  ],
-  "answers": ["$x = \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-sin-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = 0",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = 0$",
+    "choices": [
+      "$x = \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = (-1)^k \\arcsin 0 + \\pi k$"
+    ],
+    "answers": ["$x = \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус равен 0 на оси X единичной окружности<br>
       Точки: $0, \\pi, 2\\pi, ...$ и $-\\pi, -2\\pi, ...$
@@ -2976,24 +2976,24 @@ let quizesSets = [
       <small>Все точки вида: $..., -2\\pi, -\\pi, 0, \\pi, 2\\pi, ...$</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-cos-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = 1$",
-  "choices": [
-    "$x = 2\\pi k$",
-    "$x = \\pi + 2\\pi k$",
-    "$x = \\pm 2\\pi k$",
-    "$x = \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$"
-  ],
-  "answers": ["$x = 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = 1$",
+    "choices": [
+      "$x = 2\\pi k$",
+      "$x = \\pi + 2\\pi k$",
+      "$x = \\pm 2\\pi k$",
+      "$x = \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$"
+    ],
+    "answers": ["$x = 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус равен 1 в крайней правой точке окружности<br>
       Точки: $..., -4\\pi, -2\\pi, 0, 2\\pi, 4\\pi, ...$
@@ -3003,24 +3003,24 @@ let quizesSets = [
       <small>Четные кратные $\\pi$</small>
     </div>
   </div>`
-},
+  },
 
-{
-  "id": "eq-sin-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = 1$",
-  "choices": [
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + \\frac{\\pi}{2} k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{2} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-sin-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = 1$",
+    "choices": [
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + \\frac{\\pi}{2} k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{2} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус равен 1 в верхней точке окружности<br>
       Угол $\\frac{\\pi}{2}$, и + полные обороты
@@ -3030,25 +3030,25 @@ let quizesSets = [
       <small>Только верхняя точка, а не верхняя+нижняя</small>
     </div>
   </div>`
-},
+  },
 
 
   {
-  "id": "eq-cos-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = 0",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = 0$",
-  "choices": [
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{2} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = 0",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = 0$",
+    "choices": [
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{2} + \\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{2} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус равен 0 на оси Y<br>
       Точки: верхняя ($\\frac{\\pi}{2}$) и нижняя ($\\frac{3\\pi}{2}$)<br>
@@ -3059,24 +3059,24 @@ let quizesSets = [
       <small>Чередование верхней и нижней точек</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-sin-03",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = ½",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = \\frac{1}{2}$",
-  "choices": [
-    "$x = (-1)^k \\frac{\\pi}{6} + \\pi k$",
-    "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{6} + \\pi k$",
-    "$x = \\frac{\\pi}{6} \\text{ или } \\frac{5\\pi}{6}$"
-  ],
-  "answers": ["$x = (-1)^k \\frac{\\pi}{6} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-sin-03",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = ½",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = \\frac{1}{2}$",
+    "choices": [
+      "$x = (-1)^k \\frac{\\pi}{6} + \\pi k$",
+      "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{6} + \\pi k$",
+      "$x = \\frac{\\pi}{6} \\text{ или } \\frac{5\\pi}{6}$"
+    ],
+    "answers": ["$x = (-1)^k \\frac{\\pi}{6} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для sin x = a:</strong><br>
       1. Первая серия: $x_1 = \\arcsin a + 2\\pi k$<br>
@@ -3088,24 +3088,24 @@ let quizesSets = [
       <small>Для k=0: $\\frac{\\pi}{6}$, для k=1: $\\frac{5\\pi}{6}$, и т.д.</small>
     </div>
   </div>`
-},
+  },
 
   {
-  "id": "eq-cos-03",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение cos x = ½",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\cos x = \\frac{1}{2}$",
-  "choices": [
-    "$x = \\pm \\frac{\\pi}{3} + 2\\pi k$",
-    "$x = \\frac{\\pi}{3} + 2\\pi k$",
-    "$x = (-1)^k \\frac{\\pi}{3} + \\pi k$",
-    "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
-    "$x = \\frac{\\pi}{3} \\text{ или } \\frac{5\\pi}{3}$"
-  ],
-  "answers": ["$x = \\pm \\frac{\\pi}{3} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+    "id": "eq-cos-03",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение cos x = ½",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\cos x = \\frac{1}{2}$",
+    "choices": [
+      "$x = \\pm \\frac{\\pi}{3} + 2\\pi k$",
+      "$x = \\frac{\\pi}{3} + 2\\pi k$",
+      "$x = (-1)^k \\frac{\\pi}{3} + \\pi k$",
+      "$x = \\pm \\frac{\\pi}{6} + 2\\pi k$",
+      "$x = \\frac{\\pi}{3} \\text{ или } \\frac{5\\pi}{3}$"
+    ],
+    "answers": ["$x = \\pm \\frac{\\pi}{3} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для cos x = a:</strong><br>
       Косинус четный: $\\cos(\\alpha) = \\cos(-\\alpha)$<br>
@@ -3117,24 +3117,24 @@ let quizesSets = [
       <small>Две симметричные точки относительно оси X</small>
     </div>
   </div>`
-},
+  },
 
-{
-  "id": "ineq-sin-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство sin x > 0",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\sin x > 0$",
-  "choices": [
-    "$2\\pi k < x < \\pi + 2\\pi k$",
-    "$\\pi k < x < \\pi + \\pi k$",
-    "$-\\frac{\\pi}{2} + 2\\pi k < x < \\frac{\\pi}{2} + 2\\pi k$",
-    "$0 + 2\\pi k < x < \\pi + 2\\pi k$",
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"
-  ],
-  "answers": ["$2\\pi k < x < \\pi + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-sin-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство sin x > 0",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\sin x > 0$",
+    "choices": [
+      "$2\\pi k < x < \\pi + 2\\pi k$",
+      "$\\pi k < x < \\pi + \\pi k$",
+      "$-\\frac{\\pi}{2} + 2\\pi k < x < \\frac{\\pi}{2} + 2\\pi k$",
+      "$0 + 2\\pi k < x < \\pi + 2\\pi k$",
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"
+    ],
+    "answers": ["$2\\pi k < x < \\pi + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Синус положителен в верхней полуплоскости<br>
       От 0 до $\\pi$ (исключая края)
@@ -3144,7 +3144,7 @@ let quizesSets = [
       <small>Все интервалы от начала до середины окружности</small>
     </div>
   </div>`
-},
+  },
 
 
 
@@ -3152,22 +3152,22 @@ let quizesSets = [
 
 
 
-{
-  "id": "ineq-cos-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство cos x ≥ ½",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\cos x \\geq \\frac{1}{2}$",
-  "choices": [
-    "$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$",
-    "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{5\\pi}{3} + 2\\pi k$",
-    "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{2\\pi}{3} + 2\\pi k$",
-    "$-\\frac{\\pi}{6} + 2\\pi k \\leq x \\leq \\frac{\\pi}{6} + 2\\pi k$",
-    "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"
-  ],
-  "answers": ["$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-cos-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство cos x ≥ ½",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\cos x \\geq \\frac{1}{2}$",
+    "choices": [
+      "$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$",
+      "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{5\\pi}{3} + 2\\pi k$",
+      "$\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{2\\pi}{3} + 2\\pi k$",
+      "$-\\frac{\\pi}{6} + 2\\pi k \\leq x \\leq \\frac{\\pi}{6} + 2\\pi k$",
+      "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"
+    ],
+    "answers": ["$-\\frac{\\pi}{3} + 2\\pi k \\leq x \\leq \\frac{\\pi}{3} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус ≥ ½ в центральной части окружности<br>
       $\\cos x = \\frac{1}{2}$ при $x = \\pm \\frac{\\pi}{3}$<br>
@@ -3178,26 +3178,26 @@ let quizesSets = [
       <small>Симметричный интервал около 0</small>
     </div>
   </div>`
-},
+  },
 
 
 
-{
-  "id": "ineq-sin-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство sin x ≤ √2/2",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\sin x \\leq \\frac{\\sqrt{2}}{2}$",
-  "choices": [
-    "$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
-    "$\\frac{\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{3\\pi}{4} + 2\\pi k$",
-    "$\\frac{\\pi}{4} + \\pi k \\leq x \\leq \\frac{3\\pi}{4} + \\pi k$",
-    "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
-    "$x \\leq \\frac{\\pi}{4} + 2\\pi k$"
-  ],
-  "answers": ["$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-sin-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство sin x ≤ √2/2",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\sin x \\leq \\frac{\\sqrt{2}}{2}$",
+    "choices": [
+      "$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
+      "$\\frac{\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{3\\pi}{4} + 2\\pi k$",
+      "$\\frac{\\pi}{4} + \\pi k \\leq x \\leq \\frac{3\\pi}{4} + \\pi k$",
+      "$0 + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$",
+      "$x \\leq \\frac{\\pi}{4} + 2\\pi k$"
+    ],
+    "answers": ["$-\\frac{3\\pi}{4} + 2\\pi k \\leq x \\leq \\frac{\\pi}{4} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Алгоритм:</strong><br>
       1. $\\sin x = \\frac{\\sqrt{2}}{2}$ при $x = \\frac{\\pi}{4}$ и $x = \\frac{3\\pi}{4}$<br>
@@ -3209,28 +3209,28 @@ let quizesSets = [
       <small>Интервал от $\\frac{5\\pi}{4}$ до $\\frac{9\\pi}{4}$ (но сдвинутый)</small>
     </div>
   </div>`
-},
+  },
 
 
 
 
 
-{
-  "id": "ineq-cos-02",
-  "type": "multiplechoices",
-  "header": "Тригонометрические неравенства. Устный счет",
-  "title": "Неравенство cos x < 0",
-  "theme": "Тригонометрические неравенства",
-  "text": "Решите неравенство: $\\cos x < 0$",
-  "choices": [
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$",
-    "$\\frac{\\pi}{2} + \\pi k < x < \\frac{3\\pi}{2} + \\pi k$",
-    "$\\pi k < x < \\pi + \\pi k$",
-    "$\\frac{\\pi}{2} + 2\\pi k < x < \\pi + 2\\pi k$",
-    "$0 + 2\\pi k < x < \\pi + 2\\pi k$"
-  ],
-  "answers": ["$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "ineq-cos-02",
+    "type": "multiplechoices",
+    "header": "Тригонометрические неравенства. Устный счет",
+    "title": "Неравенство cos x < 0",
+    "theme": "Тригонометрические неравенства",
+    "text": "Решите неравенство: $\\cos x < 0$",
+    "choices": [
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$",
+      "$\\frac{\\pi}{2} + \\pi k < x < \\frac{3\\pi}{2} + \\pi k$",
+      "$\\pi k < x < \\pi + \\pi k$",
+      "$\\frac{\\pi}{2} + 2\\pi k < x < \\pi + 2\\pi k$",
+      "$0 + 2\\pi k < x < \\pi + 2\\pi k$"
+    ],
+    "answers": ["$\\frac{\\pi}{2} + 2\\pi k < x < \\frac{3\\pi}{2} + 2\\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило:</strong> Косинус отрицателен во второй и третьей четвертях<br>
       От $\\frac{\\pi}{2}$ до $\\frac{3\\pi}{2}$ (исключая края)
@@ -3240,7 +3240,7 @@ let quizesSets = [
       <small>Левая половина окружности</small>
     </div>
   </div>`
-},
+  },
 
 
 
@@ -3248,22 +3248,22 @@ let quizesSets = [
 
 
 
-{
-  "id": "eq-tg-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение tg x = 1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\tan x = 1$",
-  "choices": [
-    "$x = \\frac{\\pi}{4} + \\pi k$",
-    "$x = \\frac{\\pi}{4} + 2\\pi k$",
-    "$x = \\pm \\frac{\\pi}{4} + 2\\pi k$",
-    "$x = \\frac{\\pi}{4} + \\frac{\\pi}{2} k$",
-    "$x = (-1)^k \\frac{\\pi}{4} + \\pi k$"
-  ],
-  "answers": ["$x = \\frac{\\pi}{4} + \\pi k$"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-tg-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение tg x = 1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\tan x = 1$",
+    "choices": [
+      "$x = \\frac{\\pi}{4} + \\pi k$",
+      "$x = \\frac{\\pi}{4} + 2\\pi k$",
+      "$x = \\pm \\frac{\\pi}{4} + 2\\pi k$",
+      "$x = \\frac{\\pi}{4} + \\frac{\\pi}{2} k$",
+      "$x = (-1)^k \\frac{\\pi}{4} + \\pi k$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{4} + \\pi k$"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Правило для тангенса:</strong><br>
       Тангенс имеет период $\\pi$ (а не $2\\pi$!)<br>
@@ -3274,26 +3274,26 @@ let quizesSets = [
       <small>Первый и третий квадранты (45° и 225°)</small>
     </div>
   </div>`
-},
+  },
 
 
 
-{
-  "id": "eq-sin-neg-01",
-  "type": "multiplechoices",
-  "header": "Тригонометрические уравнения. Устный счет",
-  "title": "Уравнение sin x = -1",
-  "theme": "Тригонометрические уравнения",
-  "text": "Решите уравнение: $\\sin x = -1$",
-  "choices": [
-    "$x = -\\frac{\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{3\\pi}{2} + 2\\pi k$",
-    "$x = \\frac{\\pi}{2} + \\pi k$",
-    "$x = (-1)^k (-\\frac{\\pi}{2}) + \\pi k$",
-    "оба первых варианта верны"
-  ],
-  "answers": ["оба первых варианта верны"],
-  "hint": `<div class="container-fluid p-0">
+  {
+    "id": "eq-sin-neg-01",
+    "type": "multiplechoices",
+    "header": "Тригонометрические уравнения. Устный счет",
+    "title": "Уравнение sin x = -1",
+    "theme": "Тригонометрические уравнения",
+    "text": "Решите уравнение: $\\sin x = -1$",
+    "choices": [
+      "$x = -\\frac{\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{3\\pi}{2} + 2\\pi k$",
+      "$x = \\frac{\\pi}{2} + \\pi k$",
+      "$x = (-1)^k (-\\frac{\\pi}{2}) + \\pi k$",
+      "оба первых варианта верны"
+    ],
+    "answers": ["оба первых варианта верны"],
+    "hint": `<div class="container-fluid p-0">
     <div class="alert alert-info mb-2" role="alert">
       <strong>📐 Важно:</strong> $-\\frac{\\pi}{2}$ и $\\frac{3\\pi}{2}$ — одна и та же точка!<br>
       Синус равен -1 в самой нижней точке окружности
@@ -3303,9 +3303,9 @@ let quizesSets = [
       <small>Это эквивалентные записи</small>
     </div>
   </div>`
-},
+  },
 
- 
+
   {
     "id": "phys001",
     "type": "multiplechoices",
@@ -3322,21 +3322,21 @@ let quizesSets = [
     ],
     "answers": ["$\\vec{R} = \\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="card">` +
-            `<div class="card-body">` +
-            `<h5>Правило сложения сил:</h5>` +
-            `<p>В механике равнодействующая нескольких сил находится как их <strong>векторная сумма</strong>.</p>` +
-            `<p>Для трёх некомпланарных сил: $\\vec{R} = \\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3$.</p>` +
-            `<p>Это прямое применение правила параллелепипеда: равнодействующая направлена по диагонали параллелепипеда, построенного на этих силах.</p>` +
-            `<p>Если силы заданы в координатах: $\\vec{F}_1 = (F_{1x}, F_{1y}, F_{1z})$, $\\vec{F}_2 = (F_{2x}, F_{2y}, F_{2z})$, $\\vec{F}_3 = (F_{3x}, F_{3y}, F_{3z})$, то:</p>` +
-            `<p>$\\vec{R} = (F_{1x}+F_{2x}+F_{3x}, F_{1y}+F_{2y}+F_{3y}, F_{1z}+F_{2z}+F_{3z})$</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Правило сложения сил:</h5>` +
+      `<p>В механике равнодействующая нескольких сил находится как их <strong>векторная сумма</strong>.</p>` +
+      `<p>Для трёх некомпланарных сил: $\\vec{R} = \\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3$.</p>` +
+      `<p>Это прямое применение правила параллелепипеда: равнодействующая направлена по диагонали параллелепипеда, построенного на этих силах.</p>` +
+      `<p>Если силы заданы в координатах: $\\vec{F}_1 = (F_{1x}, F_{1y}, F_{1z})$, $\\vec{F}_2 = (F_{2x}, F_{2y}, F_{2z})$, $\\vec{F}_3 = (F_{3x}, F_{3y}, F_{3z})$, то:</p>` +
+      `<p>$\\vec{R} = (F_{1x}+F_{2x}+F_{3x}, F_{1y}+F_{2y}+F_{3y}, F_{1z}+F_{2z}+F_{3z})$</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys002",
@@ -3354,22 +3354,22 @@ let quizesSets = [
     ],
     "answers": ["$\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="alert alert-info">` +
-            `<h5>Условие равновесия:</h5>` +
-            `<p>Для равновесия тела под действием системы сил необходимо и достаточно, чтобы <strong>векторная сумма всех сил равнялась нулю</strong>.</p>` +
-            `<p>Для трёх сил: $\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$.</p>` +
-            `<p>Это означает, что:</p>` +
-            `<ul>` +
-            `<li>Сила $\\vec{F}_3$ равна по модулю и противоположна по направлению сумме $\\vec{F}_1 + \\vec{F}_2$</li>` +
-            `<li>Векторы образуют замкнутый треугольник (для трёх сил) или замкнутую пространственную фигуру</li>` +
-            `</ul>` +
-            `<p>Геометрически: если отложить силы последовательно, конец последнего вектора совпадает с началом первого.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Условие равновесия:</h5>` +
+      `<p>Для равновесия тела под действием системы сил необходимо и достаточно, чтобы <strong>векторная сумма всех сил равнялась нулю</strong>.</p>` +
+      `<p>Для трёх сил: $\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$.</p>` +
+      `<p>Это означает, что:</p>` +
+      `<ul>` +
+      `<li>Сила $\\vec{F}_3$ равна по модулю и противоположна по направлению сумме $\\vec{F}_1 + \\vec{F}_2$</li>` +
+      `<li>Векторы образуют замкнутый треугольник (для трёх сил) или замкнутую пространственную фигуру</li>` +
+      `</ul>` +
+      `<p>Геометрически: если отложить силы последовательно, конец последнего вектора совпадает с началом первого.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys003",
@@ -3387,26 +3387,26 @@ let quizesSets = [
     ],
     "answers": ["Проекции скорости на оси базиса"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="card">` +
-            `<div class="card-body">` +
-            `<h5>Разложение вектора скорости:</h5>` +
-            `<p>Вектор скорости раскладывается по базисным векторам:</p>` +
-            `<p>$\\vec{v} = v_x\\vec{e}_x + v_y\\vec{e}_y + v_z\\vec{e}_z$</p>` +
-            `<p>где:</p>` +
-            `<ul>` +
-            `<li>$v_x = 300$ км/ч — составляющая скорости на восток</li>` +
-            `<li>$v_y = 150$ км/ч — составляющая скорости на север</li>` +
-            `<li>$v_z = 50$ км/ч — составляющая скорости вверх</li>` +
-            `</ul>` +
-            `<p>Модуль скорости: $v = \\sqrt{v_x^2 + v_y^2 + v_z^2} = \\sqrt{300^2 + 150^2 + 50^2} \\approx 340$ км/ч</p>` +
-            `<p>Это позволяет анализировать движение по осям независимо.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Разложение вектора скорости:</h5>` +
+      `<p>Вектор скорости раскладывается по базисным векторам:</p>` +
+      `<p>$\\vec{v} = v_x\\vec{e}_x + v_y\\vec{e}_y + v_z\\vec{e}_z$</p>` +
+      `<p>где:</p>` +
+      `<ul>` +
+      `<li>$v_x = 300$ км/ч — составляющая скорости на восток</li>` +
+      `<li>$v_y = 150$ км/ч — составляющая скорости на север</li>` +
+      `<li>$v_z = 50$ км/ч — составляющая скорости вверх</li>` +
+      `</ul>` +
+      `<p>Модуль скорости: $v = \\sqrt{v_x^2 + v_y^2 + v_z^2} = \\sqrt{300^2 + 150^2 + 50^2} \\approx 340$ км/ч</p>` +
+      `<p>Это позволяет анализировать движение по осям независимо.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys004",
@@ -3424,24 +3424,24 @@ let quizesSets = [
     ],
     "answers": ["Вычислить векторное произведение через определитель"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="alert alert-success">` +
-            `<h5>Вычисление векторного произведения:</h5>` +
-            `<p>Если $\\vec{r} = (x, y, z)$ и $\\vec{F} = (F_x, F_y, F_z)$ в ортонормированном базисе $\\{\\vec{i}, \\vec{j}, \\vec{k}\\}$, то:</p>` +
-            `<p>$\\vec{M} = \\vec{r} \\times \\vec{F} = \\det \\begin{pmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ x & y & z \\\\ F_x & F_y & F_z \\end{pmatrix}$</p>` +
-            `<p>$\\vec{M} = (yF_z - zF_y)\\vec{i} + (zF_x - xF_z)\\vec{j} + (xF_y - yF_x)\\vec{k}$</p>` +
-            `<p>Компоненты момента относительно осей:</p>` +
-            `<ul>` +
-            `<li>$M_x = yF_z - zF_y$ — момент относительно оси Ox</li>` +
-            `<li>$M_y = zF_x - xF_z$ — момент относительно оси Oy</li>` +
-            `<li>$M_z = xF_y - yF_x$ — момент относительно оси Oz</li>` +
-            `</ul>` +
-            `<p>Это прямое применение алгебры векторов к механике.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Вычисление векторного произведения:</h5>` +
+      `<p>Если $\\vec{r} = (x, y, z)$ и $\\vec{F} = (F_x, F_y, F_z)$ в ортонормированном базисе $\\{\\vec{i}, \\vec{j}, \\vec{k}\\}$, то:</p>` +
+      `<p>$\\vec{M} = \\vec{r} \\times \\vec{F} = \\det \\begin{pmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ x & y & z \\\\ F_x & F_y & F_z \\end{pmatrix}$</p>` +
+      `<p>$\\vec{M} = (yF_z - zF_y)\\vec{i} + (zF_x - xF_z)\\vec{j} + (xF_y - yF_x)\\vec{k}$</p>` +
+      `<p>Компоненты момента относительно осей:</p>` +
+      `<ul>` +
+      `<li>$M_x = yF_z - zF_y$ — момент относительно оси Ox</li>` +
+      `<li>$M_y = zF_x - xF_z$ — момент относительно оси Oy</li>` +
+      `<li>$M_z = xF_y - yF_x$ — момент относительно оси Oz</li>` +
+      `</ul>` +
+      `<p>Это прямое применение алгебры векторов к механике.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys005",
@@ -3459,24 +3459,24 @@ let quizesSets = [
     ],
     "answers": ["Они взаимно перпендикулярны"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="card">` +
-            `<div class="card-body">` +
-            `<h5>Разложение ускорения:</h5>` +
-            `<p>При криволинейном движении полное ускорение раскладывается на две взаимно перпендикулярные составляющие:</p>` +
-            `<ol>` +
-            `<li><strong>Тангенциальное ускорение</strong> $\\vec{a}_\\tau$ — направлено по касательной к траектории. Изменяет модуль скорости.</li>` +
-            `<li><strong>Нормальное ускорение</strong> $\\vec{a}_n$ — направлено к центру кривизны. Изменяет направление скорости.</li>` +
-            `</ol>` +
-            `<p>Векторы $\\vec{a}_\\tau$ и $\\vec{a}_n$ всегда перпендикулярны: $\\vec{a}_\\tau \\cdot \\vec{a}_n = 0$.</p>` +
-            `<p>Модуль полного ускорения: $a = \\sqrt{a_\\tau^2 + a_n^2}$</p>` +
-            `<p>Это частный случай разложения вектора по двум направлениям, дополненный третьим (бинормальным) для полного базиса.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Разложение ускорения:</h5>` +
+      `<p>При криволинейном движении полное ускорение раскладывается на две взаимно перпендикулярные составляющие:</p>` +
+      `<ol>` +
+      `<li><strong>Тангенциальное ускорение</strong> $\\vec{a}_\\tau$ — направлено по касательной к траектории. Изменяет модуль скорости.</li>` +
+      `<li><strong>Нормальное ускорение</strong> $\\vec{a}_n$ — направлено к центру кривизны. Изменяет направление скорости.</li>` +
+      `</ol>` +
+      `<p>Векторы $\\vec{a}_\\tau$ и $\\vec{a}_n$ всегда перпендикулярны: $\\vec{a}_\\tau \\cdot \\vec{a}_n = 0$.</p>` +
+      `<p>Модуль полного ускорения: $a = \\sqrt{a_\\tau^2 + a_n^2}$</p>` +
+      `<p>Это частный случай разложения вектора по двум направлениям, дополненный третьим (бинормальным) для полного базиса.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys006",
@@ -3494,25 +3494,25 @@ let quizesSets = [
     ],
     "answers": ["$mg\\cos\\alpha$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="alert alert-info">` +
-            `<h5>Разложение силы тяжести:</h5>` +
-            `<p>На наклонной плоскости силу тяжести $\\vec{P}$ удобно разложить:</p>` +
-            `<ul>` +
-            `<li>Перпендикулярно плоскости: $P_\\perp = mg\\cos\\alpha$ (сила нормального давления)</li>` +
-            `<li>Параллельно плоскости: $P_\\parallel = mg\\sin\\alpha$ (сила, стремящаяся сдвинуть тело)</li>` +
-            `</ul>` +
-            `<p>Эти составляющие взаимно перпендикулярны и образуют прямоугольный треугольник с гипотенузой $mg$.</p>` +
-            `<p>Такое разложение упрощает анализ движения:</p>` +
-            `<ul>` +
-            `<li>Сила трения пропорциональна $P_\\perp = mg\\cos\\alpha$</li>` +
-            `<li>Ускорение вдоль плоскости: $a = g\\sin\\alpha$ (при отсутствии трения)</li>` +
-            `</ul>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Разложение силы тяжести:</h5>` +
+      `<p>На наклонной плоскости силу тяжести $\\vec{P}$ удобно разложить:</p>` +
+      `<ul>` +
+      `<li>Перпендикулярно плоскости: $P_\\perp = mg\\cos\\alpha$ (сила нормального давления)</li>` +
+      `<li>Параллельно плоскости: $P_\\parallel = mg\\sin\\alpha$ (сила, стремящаяся сдвинуть тело)</li>` +
+      `</ul>` +
+      `<p>Эти составляющие взаимно перпендикулярны и образуют прямоугольный треугольник с гипотенузой $mg$.</p>` +
+      `<p>Такое разложение упрощает анализ движения:</p>` +
+      `<ul>` +
+      `<li>Сила трения пропорциональна $P_\\perp = mg\\cos\\alpha$</li>` +
+      `<li>Ускорение вдоль плоскости: $a = g\\sin\\alpha$ (при отсутствии трения)</li>` +
+      `</ul>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys007",
@@ -3530,25 +3530,25 @@ let quizesSets = [
     ],
     "answers": ["Вдоль оси вращения по правилу правого винта"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="card">` +
-            `<div class="card-body">` +
-            `<h5>Вектор угловой скорости:</h5>` +
-            `<p>Угловая скорость — аксиальный вектор (псевдовектор), характеризующий вращение.</p>` +
-            `<p><strong>Направление</strong> определяется правилом правого винта (буравчика):</p>` +
-            `<ul>` +
-            `<li>Направляем вектор $\\vec{\\omega}$ вдоль оси вращения</li>` +
-            `<li>Ориентируем так, чтобы вращение происходило в сторону закручивания правого винта</li>` +
-            `</ul>` +
-            `<p><strong>Модуль</strong>: $\\omega = \\frac{d\\phi}{dt}$ — производная угла поворота по времени.</p>` +
-            `<p>Линейная скорость точки связана с угловой: $\\vec{v} = \\vec{\\omega} \\times \\vec{r}$, где $\\vec{r}$ — радиус-вектор точки относительно оси.</p>` +
-            `<p>Вращение вокруг произвольной оси описывается разложением $\\vec{\\omega}$ по осям координат.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Вектор угловой скорости:</h5>` +
+      `<p>Угловая скорость — аксиальный вектор (псевдовектор), характеризующий вращение.</p>` +
+      `<p><strong>Направление</strong> определяется правилом правого винта (буравчика):</p>` +
+      `<ul>` +
+      `<li>Направляем вектор $\\vec{\\omega}$ вдоль оси вращения</li>` +
+      `<li>Ориентируем так, чтобы вращение происходило в сторону закручивания правого винта</li>` +
+      `</ul>` +
+      `<p><strong>Модуль</strong>: $\\omega = \\frac{d\\phi}{dt}$ — производная угла поворота по времени.</p>` +
+      `<p>Линейная скорость точки связана с угловой: $\\vec{v} = \\vec{\\omega} \\times \\vec{r}$, где $\\vec{r}$ — радиус-вектор точки относительно оси.</p>` +
+      `<p>Вращение вокруг произвольной оси описывается разложением $\\vec{\\omega}$ по осям координат.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys008",
@@ -3566,24 +3566,24 @@ let quizesSets = [
     ],
     "answers": ["$F_x = ma_x$, $F_y = ma_y$, $F_z = ma_z$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="alert alert-success">` +
-            `<h5>Разложение второго закона Ньютона:</h5>` +
-            `<p>Векторное уравнение $\\vec{F} = m\\vec{a}$ эквивалентно трём скалярным уравнениям в проекциях на оси координат:</p>` +
-            `<p>$\\begin{cases} F_x = ma_x \\\\ F_y = ma_y \\\\ F_z = ma_z \\end{cases}$</p>` +
-            `<p>где:</p>` +
-            `<ul>` +
-            `<li>$F_x, F_y, F_z$ — проекции равнодействующей силы</li>` +
-            `<li>$a_x, a_y, a_z$ — проекции ускорения</li>` +
-            `<li>$m$ — масса тела</li>` +
-            `</ul>` +
-            `<p>Это позволяет решать задачи независимо по каждому направлению, что значительно упрощает анализ сложных движений в пространстве.</p>` +
-            `<p>Уравнения справедливы в инерциальных системах отсчёта.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Разложение второго закона Ньютона:</h5>` +
+      `<p>Векторное уравнение $\\vec{F} = m\\vec{a}$ эквивалентно трём скалярным уравнениям в проекциях на оси координат:</p>` +
+      `<p>$\\begin{cases} F_x = ma_x \\\\ F_y = ma_y \\\\ F_z = ma_z \\end{cases}$</p>` +
+      `<p>где:</p>` +
+      `<ul>` +
+      `<li>$F_x, F_y, F_z$ — проекции равнодействующей силы</li>` +
+      `<li>$a_x, a_y, a_z$ — проекции ускорения</li>` +
+      `<li>$m$ — масса тела</li>` +
+      `</ul>` +
+      `<p>Это позволяет решать задачи независимо по каждому направлению, что значительно упрощает анализ сложных движений в пространстве.</p>` +
+      `<p>Уравнения справедливы в инерциальных системах отсчёта.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys009",
@@ -3601,27 +3601,27 @@ let quizesSets = [
     ],
     "answers": ["$p_x = p_{1x} + p_{2x} + p_{3x}$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="card">` +
-            `<div class="card-body">` +
-            `<h5>Сложение импульсов:</h5>` +
-            `<p>Импульс системы тел равен векторной сумме импульсов отдельных тел:</p>` +
-            `<p>$\\vec{p} = \\vec{p}_1 + \\vec{p}_2 + \\vec{p}_3$</p>` +
-            `<p>Проекции суммируются алгебраически (с учётом знака):</p>` +
-            `<ul>` +
-            `<li>$p_x = p_{1x} + p_{2x} + p_{3x}$</li>` +
-            `<li>$p_y = p_{1y} + p_{2y} + p_{3y}$</li>` +
-            `<li>$p_z = p_{1z} + p_{2z} + p_{3z}$</li>` +
-            `</ul>` +
-            `<p>Это прямое следствие свойства линейности векторного сложения и разложения по базису.</p>` +
-            `<p>Модуль суммарного импульса: $p = \\sqrt{p_x^2 + p_y^2 + p_z^2}$</p>` +
-            `<p>Закон сохранения импульса в проекциях: если $\\vec{p} = const$, то $p_x = const$, $p_y = const$, $p_z = const$.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Сложение импульсов:</h5>` +
+      `<p>Импульс системы тел равен векторной сумме импульсов отдельных тел:</p>` +
+      `<p>$\\vec{p} = \\vec{p}_1 + \\vec{p}_2 + \\vec{p}_3$</p>` +
+      `<p>Проекции суммируются алгебраически (с учётом знака):</p>` +
+      `<ul>` +
+      `<li>$p_x = p_{1x} + p_{2x} + p_{3x}$</li>` +
+      `<li>$p_y = p_{1y} + p_{2y} + p_{3y}$</li>` +
+      `<li>$p_z = p_{1z} + p_{2z} + p_{3z}$</li>` +
+      `</ul>` +
+      `<p>Это прямое следствие свойства линейности векторного сложения и разложения по базису.</p>` +
+      `<p>Модуль суммарного импульса: $p = \\sqrt{p_x^2 + p_y^2 + p_z^2}$</p>` +
+      `<p>Закон сохранения импульса в проекциях: если $\\vec{p} = const$, то $p_x = const$, $p_y = const$, $p_z = const$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   },
   {
     "id": "phys010",
@@ -3639,26 +3639,1037 @@ let quizesSets = [
     ],
     "answers": ["$\\vec{E} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3$"],
     "hint": `<div class="container">` +
-            `<div class="row">` +
-            `<div class="col-12">` +
-            `<div class="alert alert-info">` +
-            `<h5>Принцип суперпозиции:</h5>` +
-            `<p>В электродинамике напряжённость электрического поля подчиняется <strong>принципу суперпозиции</strong>: результирующая напряжённость равна векторной сумме напряжённостей полей, создаваемых каждым зарядом в отдельности.</p>` +
-            `<p>$\\vec{E} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3$</p>` +
-            `<p>В проекциях на оси:</p>` +
-            `<ul>` +
-            `<li>$E_x = E_{1x} + E_{2x} + E_{3x}$</li>` +
-            `<li>$E_y = E_{1y} + E_{2y} + E_{3y}$</li>` +
-            `<li>$E_z = E_{1z} + E_{2z} + E_{3z}$</li>` +
-            `</ul>` +
-            `<p>Это аналогично сложению сил в механике, так как сила, действующая на пробный заряд: $\\vec{F} = q\\vec{E}$.</p>` +
-            `<p>Принцип суперпозиции справедлив для линейных уравнений Максвелла и является фундаментальным свойством электромагнитного поля.</p>` +
-            `</div>` +
-            `</div>` +
-            `</div>` +
-            `</div>`
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Принцип суперпозиции:</h5>` +
+      `<p>В электродинамике напряжённость электрического поля подчиняется <strong>принципу суперпозиции</strong>: результирующая напряжённость равна векторной сумме напряжённостей полей, создаваемых каждым зарядом в отдельности.</p>` +
+      `<p>$\\vec{E} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3$</p>` +
+      `<p>В проекциях на оси:</p>` +
+      `<ul>` +
+      `<li>$E_x = E_{1x} + E_{2x} + E_{3x}$</li>` +
+      `<li>$E_y = E_{1y} + E_{2y} + E_{3y}$</li>` +
+      `<li>$E_z = E_{1z} + E_{2z} + E_{3z}$</li>` +
+      `</ul>` +
+      `<p>Это аналогично сложению сил в механике, так как сила, действующая на пробный заряд: $\\vec{F} = q\\vec{E}$.</p>` +
+      `<p>Принцип суперпозиции справедлив для линейных уравнений Максвелла и является фундаментальным свойством электромагнитного поля.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+
+
+
+  {
+    "id": "tangent001",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона для возрастающей функции",
+    "theme": "Знак тангенса угла наклона касательной",
+    "text": "Касательная к графику возрастающей функции в любой его точке образует с положительным направлением оси OX острый угол. Тангенс этого угла...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Положителен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Связь с возрастанием:</h5>` +
+      `<p>Если функция <strong>возрастает</strong>, то при движении слева направо её график <strong>«идёт вверх»</strong>.</p>` +
+      `<p>Касательная в любой точке такого графика тоже направлена вверх. Угол между такой касательной и положительным направлением оси OX <strong>острый</strong> (меньше 90°).</p>` +
+      `<p>Тангенс острого угла всегда <strong>положителен</strong>.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent002",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона касательной к параболе",
+    "theme": "Определение знака по графику y=x²",
+    "text": "Тангенс угла наклона касательной к графику функции $y = x^2$ в точке $x = 1$...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Положителен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Рассуждение двумя способами:</h5>` +
+      `<p><strong>1. Графический:</strong> График $y=x^2$ — это парабола, ветви которой направлены вверх. В точке $x=1$ (которая справа от вершины $x=0$) функция <strong>возрастает</strong>. Значит, касательная направлена вверх и образует острый угол с осью OX. Тангенс острого угла положителен.</p>` +
+      `<p><strong>2. Через производную:</strong> Производная $y' = 2x$. В точке $x=1$ значение производной $y'(1) = 2$, что является положительным числом. А производная как раз и равна тангенсу угла наклона касательной.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent003",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона для убывающей функции",
+    "theme": "Знак тангенса угла наклона касательной",
+    "text": "Касательная к графику убывающей функции в любой его точке образует с положительным направлением оси OX тупой угол. Тангенс этого угла...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Отрицателен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Связь с убыванием:</h5>` +
+      `<p>Если функция <strong>убывает</strong>, то при движении слева направо её график <strong>«идёт вниз»</strong>.</p>` +
+      `<p>Касательная в любой точке такого графика тоже направлена вниз. Угол между такой касательной и положительным направлением оси OX <strong>тупой</strong> (больше 90° и меньше 180°).</p>` +
+      `<p>Тангенс тупого угла всегда <strong>отрицателен</strong>.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent004",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона касательной в вершине параболы",
+    "theme": "Определение знака в точке экстремума",
+    "text": "Тангенс угла наклона касательной к графику функции $y = x^2$ в точке $x = 0$ (в вершине параболы)...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Равен нулю"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Рассуждение двумя способами:</h5>` +
+      `<p><strong>1. Графический:</strong> В точке $x=0$ (вершине параболы) график функции $y=x^2$ меняет направление с убывания на возрастание. В этой точке касательная <strong>горизонтальна</strong> и параллельна оси OX. Угол наклона такой касательной равен 0°. Тангенс угла 0° равен нулю.</p>` +
+      `<p><strong>2. Через производную:</strong> Производная $y' = 2x$. В точке $x=0$ значение производной $y'(0) = 0$. Так как производная равна тангенсу угла наклона, он также равен нулю.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent005",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона для прямой",
+    "theme": "Тангенс угла на прямой y = kx + b",
+    "text": "Для графика линейной функции $y = 3x - 5$ тангенс угла наклона (угловой коэффициент) в любой точке...",
+    "choices": [
+      "Разный в разных точках",
+      "Положителен и постоянен",
+      "Отрицателен и постоянен",
+      "Равен нулю"
+    ],
+    "answers": ["Положителен и постоянен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Особенность линейной функции:</h5>` +
+      `<p>Графиком функции $y = 3x - 5$ является <strong>прямая линия</strong>.</p>` +
+      `<p>У любой прямой угол наклона к оси OX один и тот же во всех точках. Поэтому тангенс этого угла (угловой коэффициент $k$) является <strong>постоянной величиной</strong>.</p>` +
+      `<p>В уравнении $y = 3x - 5$ угловой коэффициент $k = 3$, что является <strong>положительным</strong> числом. Это означает, что прямая образует острый угол с осью OX и направлена вверх.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent006",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона для убывающей прямой",
+    "theme": "Отрицательный угловой коэффициент",
+    "text": "Касательная к графику функции $y = -2x + 1$ в любой точке направлена вниз. Тангенс угла её наклона...",
+    "choices": [
+      "Меняется от точки к точке",
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Отрицателен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Анализ по уравнению:</h5>` +
+      `<p>Функция $y = -2x + 1$ — линейная. Её график — прямая.</p>` +
+      `<p>Угловой коэффициент этой прямой $k = -2$. Этот коэффициент и есть тангенс угла наклона прямой к оси OX.</p>` +
+      `<p>Поскольку $k = -2$ — число <strong>отрицательное</strong>, это означает, что прямая образует <strong>тупой угол</strong> с положительным направлением оси OX и направлена вниз при движении слева направо.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent007",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Горизонтальная касательная",
+    "theme": "Случай нулевого углового коэффициента",
+    "text": "Если касательная к графику функции в некоторой точке горизонтальна, то тангенс угла её наклона...",
+    "choices": [
+      "Не определен",
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Равен нулю"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Геометрическая интерпретация:</h5>` +
+      `<p>Горизонтальная прямая <strong>параллельна оси OX</strong>.</p>` +
+      `<p>Угол между двумя параллельными прямыми равен 0°. Тангенс угла 0° равен нулю: $\\tan 0° = 0$.</p>` +
+      `<p>Таким образом, горизонтальная касательная имеет <strong>нулевой угловой коэффициент</strong>.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent008",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс в точке левой ветви параболы",
+    "theme": "Определение знака по графику y=x² при x<0",
+    "text": "Тангенс угла наклона касательной к графику $y = x^2$ в точке $x = -2$...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Отрицателен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Рассуждение двумя способами:</h5>` +
+      `<p><strong>1. Графический:</strong> В точке $x = -2$ (которая слева от вершины $x=0$) график параболы $y=x^2$ <strong>убывает</strong> (при движении слева направо график идёт вниз к вершине). Касательная в этой точке направлена вниз и образует тупой угол с осью OX. Тангенс тупого угла отрицателен.</p>` +
+      `<p><strong>2. Через производную:</strong> $y' = 2x$. В точке $x = -2$ значение производной $y'(-2) = 2 \\cdot (-2) = -4$, что является отрицательным числом. Значит, тангенс угла наклона тоже отрицателен.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent009",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Функция с постоянным положительным наклоном",
+    "theme": "Пример функции, производная которой постоянна и положительна",
+    "text": "Для какой из функций тангенс угла наклона касательной в любой точке положителен и не меняется?",
+    "choices": [
+      "$y = x^2$",
+      "$y = -3$",
+      "$y = 0.5x + 1$",
+      "$y = \\sin x$",
+      "$y = |x|$"
+    ],
+    "answers": ["$y = 0.5x + 1$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Анализ каждой функции:</h5>` +
+      `<ul>` +
+      `<li><strong>$y = x^2$</strong>: Производная $y' = 2x$ меняется (положительна при $x>0$, отрицательна при $x<0$).</li>` +
+      `<li><strong>$y = -3$</strong>: Производная постоянна и равна 0 (горизонтальная линия).</li>` +
+      `<li><strong>$y = 0.5x + 1$</strong>: Это линейная функция. Её производная (угловой коэффициент) постоянна и равна <strong>$0.5 > 0$</strong>. Это верный ответ.</li>` +
+      `<li><strong>$y = \\sin x$</strong>: Производная $y' = \\cos x$ меняется от -1 до 1.</li>` +
+      `<li><strong>$y = |x|$</strong>: В точке $x=0$ производная не существует, в других точках она равна 1 или -1.</li>` +
+      `</ul>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent010",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Функция с постоянным нулевым наклоном",
+    "theme": "Пример функции, производная которой постоянна и равна нулю",
+    "text": "Для какой из функций тангенс угла наклона касательной в любой точке равен нулю?",
+    "choices": [
+      "$y = 7$",
+      "$y = x$",
+      "$y = x^3$",
+      "$y = -2x$",
+      "$y = \\frac{1}{x}$"
+    ],
+    "answers": ["$y = 7$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Анализ каждой функции:</h5>` +
+      `<ul>` +
+      `<li><strong>$y = 7$</strong>: Это постоянная функция. Её график — горизонтальная прямая. Угол наклона горизонтальной прямой равен 0°, а $\\tan 0° = 0$. Производная постоянной функции всегда равна нулю. Это верный ответ.</li>` +
+      `<li><strong>$y = x$</strong>: Производная равна 1 (положительна).</li>` +
+      `<li><strong>$y = x^3$</strong>: Производная $y' = 3x^2$ положительна везде, кроме $x=0$, где она равна 0.</li>` +
+      `<li><strong>$y = -2x$</strong>: Производная равна -2 (отрицательна).</li>` +
+      `<li><strong>$y = \\frac{1}{x}$</strong>: Производная $y' = -\\frac{1}{x^2}$ отрицательна везде, кроме точек, где функция не определена ($x=0$).</li>` +
+      `</ul>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent011",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Вертикальная касательная",
+    "theme": "Особый случай угла наклона",
+    "text": "Если касательная к графику в некоторой точке вертикальна, то угол её наклона к положительному направлению оси OX равен 90°. Чему равен тангенс этого угла?",
+    "choices": [
+      "0",
+      "1",
+      "-1",
+      "Не существует (не определен)"
+    ],
+    "answers": ["Не существует (не определен)"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-warning">` +
+      `<h5>Особенность тангенса 90°:</h5>` +
+      `<p>Тангенс угла $\\alpha$ определяется как отношение противолежащего катета к прилежащему в прямоугольном треугольнике ($\\tan \\alpha = \\frac{\\sin \\alpha}{\\cos \\alpha}$).</p>` +
+      `<p>Для угла $\\alpha = 90°$ косинус равен нулю: $\\cos 90° = 0$.</p>` +
+      `<p>Деление на ноль невозможно. Поэтому говорят, что <strong>тангенс угла 90° не существует (или бесконечно велик)</strong>.</p>` +
+      `<p>В точках с вертикальной касательной производная функции <strong>не существует</strong> (бесконечна). Пример — функция $y = \\sqrt[3]{x}$ в точке $x=0$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent012",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Связь с возрастанием/убыванием (общий случай)",
+    "theme": "Вывод о поведении функции по знаку тангенса",
+    "text": "Если известно, что в каждой точке некоторого интервала тангенс угла наклона касательной к графику функции положителен, то сама функция на этом интервале...",
+    "choices": [
+      "Возрастает",
+      "Убывает",
+      "Постоянна",
+      "Имеет максимум"
+    ],
+    "answers": ["Возрастает"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Ключевое правило:</h5>` +
+      `<p>Тангенс угла наклона касательной равен производной функции: $f'(x) = \\tan \\alpha$.</p>` +
+      `<p>Известно, что:</p>` +
+      `<ul>` +
+      `<li>Если $f'(x) > 0$ (тангенс положителен) на интервале, то функция $f(x)$ <strong>возрастает</strong> на этом интервале.</li>` +
+      `<li>Если $f'(x) < 0$ (тангенс отрицателен) на интервале, то функция $f(x)$ <strong>убывает</strong> на этом интервале.</li>` +
+      `<li>Если $f'(x) = 0$ (тангенс равен нулю) на интервале, то функция $f(x)$ <strong>постоянна</strong> на этом интервале.</li>` +
+      `</ul>` +
+      `<p>Таким образом, положительный тангенс — индикатор возрастания функции.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent013",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Тангенс угла наклона для кубической функции",
+    "theme": "Определение знака в заданной точке",
+    "text": "Тангенс угла наклона касательной к графику $y = x^3$ в точке $x = -1$...",
+    "choices": [
+      "Положителен",
+      "Отрицателен",
+      "Равен нулю"
+    ],
+    "answers": ["Положителен"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Рассуждение:</h5>` +
+      `<p><strong>1. Через производную (алгебраически):</strong> $y' = 3x^2$. В точке $x = -1$ значение производной $y'(-1) = 3 \\cdot (-1)^2 = 3 \\cdot 1 = 3$. Число 3 положительно.</p>` +
+      `<p><strong>2. Графически:</strong> График $y=x^3$ — кубическая парабола. Она возрастает на всей числовой прямой. В любой точке, включая $x=-1$, касательная направлена вверх (функция возрастает), образуя острый угол с осью OX. Тангенс острого угла положителен.</p>` +
+      `<p>Таким образом, тангенс угла наклона в этой точке положителен.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent014",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Функция, меняющая направление наклона",
+    "theme": "Пример функции, у которой знак тангенса меняется",
+    "text": "У какой из перечисленных функций тангенс угла наклона касательной в одних точках положителен, а в других — отрицателен?",
+    "choices": [
+      "$y = 5$",
+      "$y = 2x - 3$",
+      "$y = -x + 4$",
+      "$y = x^2 - 4$"
+    ],
+    "answers": ["$y = x^2 - 4$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Анализ через производные:</h5>` +
+      `<p>Найдём производные и проанализируем их знак:</p>` +
+      `<ul>` +
+      `<li><strong>$y = 5$</strong>: $y' = 0$ (везде нуль).</li>` +
+      `<li><strong>$y = 2x - 3$</strong>: $y' = 2$ (везде положительна).</li>` +
+      `<li><strong>$y = -x + 4$</strong>: $y' = -1$ (везде отрицательна).</li>` +
+      `<li><strong>$y = x^2 - 4$</strong>: $y' = 2x$. Эта производная меняет знак:<br>` +
+      `- При $x < 0$: $y' < 0$ (тангенс отрицателен).<br>` +
+      `- При $x > 0$: $y' > 0$ (тангенс положителен).<br>` +
+      `Это верный ответ. График — парабола, которая убывает до вершины и возрастает после.</li>` +
+      `</ul>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "tangent015",
+    "type": "multiplechoices",
+    "header": "Геометрический смысл производной",
+    "title": "Интерпретация численного значения тангенса",
+    "theme": "Что означает большое положительное значение",
+    "text": "Если в некоторой точке тангенс угла наклона касательной равен 10 (то есть $f'(x_0) = 10$), это означает, что...",
+    "choices": [
+      "Функция в этой точке убывает очень быстро",
+      "Функция в этой точке возрастает очень быстро",
+      "Касательная почти горизонтальна",
+      "График имеет излом в этой точке"
+    ],
+    "answers": ["Функция в этой точке возрастает очень быстро"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Связь величины производной с крутизной графика:</h5>` +
+      `<p>Численное значение производной (тангенса угла) показывает <strong>скорость изменения</strong> функции.</p>` +
+      `<ul>` +
+      `<li><strong>Большое положительное число</strong> (например, 10): Острый угол наклона близок к 90°, касательная почти вертикальна и направлена резко вверх. Функция <strong>очень быстро возрастает</strong> при малом изменении аргумента.</li>` +
+      `<li><strong>Малое положительное число</strong> (например, 0.1): Угол наклона мал, касательная пологая. Функция возрастает медленно.</li>` +
+      `<li><strong>Большое по модулю отрицательное число</strong> (например, -10): Функция очень быстро убывает.</li>` +
+      `<li><strong>Значение, близкое к нулю</strong>: Касательная почти горизонтальна, функция меняется очень медленно.</li>` +
+      `</ul>` +
+      `<p>Таким образом, $f'(x_0)=10$ говорит о быстром возрастании.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+
+
+  {
+    "id": "deriv001",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Знак производной квадратичной функции",
+    "theme": "Связь производной с возрастанием/убыванием функции",
+    "text": "Функция $y = x^2$ на участке $x > 0$ имеет ... производную.",
+    "choices": [
+      "Положительную",
+      "Отрицательную",
+      "Нулевую"
+    ],
+    "answers": ["Положительную"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Решение:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y' = (x^2)' = 2x$.</li>` +
+      `<li><strong>Анализируем знак производной:</strong> При условии $x > 0$ выражение $2x$ также строго больше нуля: $2x > 0$.</li>` +
+      `<li><strong>Делаем вывод:</strong> Так как производная $y' > 0$ на заданном промежутке, функция $y = x^2$ <strong>возрастает</strong> при $x > 0$. Следовательно, её производная на этом участке <strong>положительна</strong>.</li>` +
+      `</ol>` +
+      `<p><strong>Геометрическая интерпретация:</strong> Положительная производная означает, что касательная к графику функции в любой точке этого промежутка образует острый угол с положительным направлением оси OX.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv002",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Знак производной линейной убывающей функции",
+    "theme": "Связь производной с возрастанием/убыванием функции",
+    "text": "Функция $y = 5 - 3x$ на всей своей области определения имеет ... производную.",
+    "choices": [
+      "Положительную",
+      "Отрицательную",
+      "Нулевую"
+    ],
+    "answers": ["Отрицательную"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Решение:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y' = (5 - 3x)' = -3$.</li>` +
+      `<li><strong>Анализируем знак производной:</strong> Производная является константой: $y' = -3$. Это значение <strong>меньше нуля</strong> ($-3 < 0$) для любого $x$.</li>` +
+      `<li><strong>Делаем вывод:</strong> Так как производная $y' < 0$ на всей области определения, функция $y = 5 - 3x$ является <strong>убывающей</strong>. Следовательно, её производная <strong>отрицательна</strong>.</li>` +
+      `</ol>` +
+      `<p><strong>Геометрическая интерпретация:</strong> Отрицательная производная (в данном случае постоянная) означает, что график функции — прямая, направленная вниз слева направо. Угол наклона касательной (которой является сама прямая) тупой.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv003",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Знак производной в точке экстремума",
+    "theme": "Производная в критических точках",
+    "text": "В точке минимума функции $y = x^2 + 4x + 6$ её производная ...",
+    "choices": [
+      "Положительна",
+      "Отрицательна",
+      "Равна нулю"
+    ],
+    "answers": ["Равна нулю"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-warning">` +
+      `<h5>Решение:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y' = (x^2 + 4x + 6)' = 2x + 4$.</li>` +
+      `<li><strong>Находим точку экстремума:</strong> Внутренняя точка области определения, в которой функция может иметь экстремум (минимум или максимум), является <strong>критической</strong>. Критические точки находятся из условия $y' = 0$:<br>` +
+      `$2x + 4 = 0$<br>` +
+      `$2x = -4$<br>` +
+      `$x = -2$.</li>` +
+      `<li><strong>Определяем тип точки:</strong> Проверим знак производной слева и справа от $x = -2$:<br>` +
+      `- При $x < -2$ (например, $x = -3$): $y' = 2*(-3) + 4 = -2 < 0$ (функция убывает).<br>` +
+      `- При $x > -2$ (например, $x = -1$): $y' = 2*(-1) + 4 = 2 > 0$ (функция возрастает).<br>` +
+      `Производная меняет знак с минуса на плюс при переходе через точку $x = -2$, значит, в этой точке функция имеет <strong>минимум</strong>.</li>` +
+      `<li><strong>Делаем вывод:</strong> В самой точке минимума $x = -2$ производная, как мы и нашли, равна нулю ($y'(-2) = 0$). Это необходимое условие существования экстремума для дифференцируемой функции.</li>` +
+      `</ol>` +
+      `<p><strong>Геометрическая интерпретация:</strong> В точке минимума касательная к графику функции горизонтальна, то есть параллельна оси OX. Угловой коэффициент такой прямой (который равен значению производной) равен нулю.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+
+
+  {
+    "id": "deriv004",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная степенной функции",
+    "theme": "Вычисление производной",
+    "text": "Чему равна производная функции $y = x^3$?",
+    "choices": [
+      "$3x^2$",
+      "$2x^3$",
+      "$3x$",
+      "$x^2$",
+      "$\\frac{x^4}{4}$"
+    ],
+    "answers": ["$3x^2$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Правило дифференцирования степенной функции:</h5>` +
+      `<p>Для функции вида $y = x^n$ производная вычисляется по формуле: $y' = n \\cdot x^{n-1}$.</p>` +
+      `<p><strong>Применяем правило:</strong> $y' = (x^3)' = 3 \\cdot x^{3-1} = 3x^2$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv005",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная функции в заданной точке",
+    "theme": "Вычисление значения производной",
+    "text": "Чему равна производная функции $f(x) = 4x - 1$ в точке $x_0 = 2$?",
+    "choices": [
+      "4",
+      "7",
+      "8",
+      "0",
+      "2"
+    ],
+    "answers": ["4"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Решение в два шага:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную функции:</strong> $f'(x) = (4x - 1)' = 4$.</li>` +
+      `<li><strong>Вычисляем её значение в заданной точке:</strong> Поскольку производная является константой, она одинакова в любой точке, включая $x_0 = 2$. Следовательно, $f'(2) = 4$.</li>` +
+      `</ol>` +
+      `<p>Производная линейной функции $kx + b$ равна угловому коэффициенту $k$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv006",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Физический смысл производной (путь)",
+    "theme": "Производная как скорость",
+    "text": "Материальная точка движется по закону $s(t) = t^2 + 5t$ (s — путь в метрах, t — время в секундах). Чему равна её мгновенная скорость в момент времени $t = 3$ с?",
+    "choices": [
+      "8 м/с",
+      "11 м/с",
+      "6 м/с",
+      "24 м/с",
+      "14 м/с"
+    ],
+    "answers": ["11 м/с"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Физический смысл производной:</h5>` +
+      `<p>Мгновенная скорость $v(t)$ — это производная от закона движения (пути) по времени: $v(t) = s'(t)$.</p>` +
+      `<ol>` +
+      `<li><strong>Находим производную (функцию скорости):</strong> $v(t) = s'(t) = (t^2 + 5t)' = 2t + 5$.</li>` +
+      `<li><strong>Вычисляем скорость в заданный момент:</strong> $v(3) = 2 \\cdot 3 + 5 = 6 + 5 = 11$ м/с.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv007",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Геометрический смысл производной (угловой коэффициент)",
+    "theme": "Производная как тангенс угла наклона касательной",
+    "text": "Угловой коэффициент касательной, проведенной к графику функции $y = \\sqrt{x}$ в точке с абсциссой $x_0 = 4$, равен:",
+    "choices": [
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{2}$",
+      "$2$",
+      "$4$",
+      "$\\frac{1}{\\sqrt{4}}$"
+    ],
+    "answers": ["$\\frac{1}{4}$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Решение:</h5>` +
+      `<p>Геометрический смысл производной: $f'(x_0)$ — это угловой коэффициент $k$ касательной к графику функции в точке с абсциссой $x_0$ ($k = \\tan \\alpha$).</p>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y = \\sqrt{x} = x^{1/2}$. По формуле степенной функции: $y' = \\frac{1}{2} x^{-1/2} = \\frac{1}{2\\sqrt{x}}$.</li>` +
+      `<li><strong>Вычисляем значение производной в заданной точке:</strong> $y'(4) = \\frac{1}{2 \\cdot \\sqrt{4}} = \\frac{1}{2 \\cdot 2} = \\frac{1}{4}$.</li>` +
+      `<li><strong>Делаем вывод:</strong> Угловой коэффициент $k = y'(4) = \\frac{1}{4}$.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv008",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Критическая точка (нуль производной)",
+    "theme": "Точки, в которых производная равна нулю или не существует",
+    "text": "В какой точке производная функции $y = x^2 - 6x + 9$ равна нулю?",
+    "choices": [
+      "$x=0$",
+      "$x=3$",
+      "$x=6$",
+      "$x=9$",
+      "$x=-3$"
+    ],
+    "answers": ["$x=3$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Нахождение критических точек:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y' = (x^2 - 6x + 9)' = 2x - 6$.</li>` +
+      `<li><strong>Приравниваем производную к нулю</strong> и решаем уравнение: $2x - 6 = 0$.</li>` +
+      `<li><strong>Решаем:</strong> $2x = 6$, $x = 3$.</li>` +
+      `</ol>` +
+      `<p>Точка $x=3$ — критическая точка данной функции. Это точка, в которой касательная к графику горизонтальна.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv009",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная суммы функций",
+    "theme": "Дифференцирование суммы",
+    "text": "Чему равна производная функции $y = x^4 + \\cos x$?",
+    "choices": [
+      "$4x^3 + \\sin x$",
+      "$4x^3 - \\sin x$",
+      "$4x^4 + \\sin x$",
+      "$x^3 - \\sin x$",
+      "$4x^3 + \\cos x$"
+    ],
+    "answers": ["$4x^3 - \\sin x$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Правила дифференцирования:</h5>` +
+      `<p>Используем два основных правила:<br>` +
+      `1. <strong>Производная суммы</strong> равна сумме производных: $(u+v)' = u' + v'$.<br>` +
+      `2. <strong>Таблица производных:</strong> $(x^n)' = n \\cdot x^{n-1}$, $(\\cos x)' = -\\sin x$.</p>` +
+      `<p><strong>Применяем:</strong><br>` +
+      `$y' = (x^4 + \\cos x)' = (x^4)' + (\\cos x)' = 4x^{3} + (-\\sin x) = 4x^3 - \\sin x$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv010",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная произведения функции на константу",
+    "theme": "Дифференцирование произведения на число",
+    "text": "Чему равна производная функции $y = 5 \\sin x$?",
+    "choices": [
+      "$5 \\cos x$",
+      "$-5 \\cos x$",
+      "$\\sin x$",
+      "$5 \\sin x$",
+      "$-5 \\sin x$"
+    ],
+    "answers": ["$5 \\cos x$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Правило дифференцирования:</h5>` +
+      `<p>Постоянный множитель можно выносить за знак производной: $(c \\cdot f(x))' = c \\cdot f'(x)$, где $c$ — константа.</p>` +
+      `<p><strong>Применяем:</strong><br>` +
+      `$y' = (5 \\sin x)' = 5 \\cdot (\\sin x)' = 5 \\cdot \\cos x$.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+
+
+
+
+  {
+    "id": "deriv011",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Признак убывания функции",
+    "theme": "Связь знака производной и монотонности",
+    "text": "На каком из промежутков функция $y = -2x + 7$ убывает?",
+    "choices": [
+      "$(-\\infty; 0)$",
+      "$(0; +\\infty)$",
+      "$(-\\infty; 3.5)$",
+      "$(3.5; +\\infty)$",
+      "На всей числовой прямой"
+    ],
+    "answers": ["На всей числовой прямой"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Критерий убывания:</h5>` +
+      `<p>Функция $f(x)$ убывает на промежутке, если для любых точек из этого промежутка из $x_1 < x_2$ следует $f(x_1) > f(x_2)$. Достаточный признак: если $f'(x) < 0$ на промежутке, то функция на нём убывает.</p>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $y' = (-2x + 7)' = -2$.</li>` +
+      `<li><strong>Анализируем знак:</strong> $y' = -2 < 0$ для любого значения $x$.</li>` +
+      `<li><strong>Делаем вывод:</strong> Поскольку производная отрицательна на всей области определения ($\\mathbb{R}$), функция $y = -2x + 7$ является <strong>убывающей на всей числовой прямой</strong>.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv012",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Точка, где производная не существует (острая точка)",
+    "theme": "Необходимое условие экстремума",
+    "text": "В какой точке функция $y = |x|$ имеет минимум, но не имеет производной?",
+    "choices": [
+      "$x = 1$",
+      "$x = -1$",
+      "$x = 0$",
+      "$x = 2$",
+      "Такой точки нет"
+    ],
+    "answers": ["$x = 0$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-warning">` +
+      `<h5>Анализ функции модуля:</h5>` +
+      `<p>Функция $y = |x|$ имеет «остриё» (излом графика) в точке $x = 0$, где она принимает минимальное значение $y = 0$.</p>` +
+      `<ol>` +
+      `<li><strong>График:</strong> График состоит из двух лучей: $y = x$ при $x \\ge 0$ и $y = -x$ при $x < 0$, которые встречаются в начале координат.</li>` +
+      `<li><strong>Производная слева и справа:</strong><br>` +
+      `- При $x > 0$: $y' = (x)' = 1$.<br>` +
+      `- При $x < 0$: $y' = (-x)' = -1$.</li>` +
+      `<li><strong>Вывод о производной в нуле:</strong> Пределы производной слева ($-1$) и справа ($1$) не равны. Следовательно, в точке $x=0$ производная <strong>не существует</strong>, хотя сама функция непрерывна и имеет в этой точке минимум.</li>` +
+      `</ol>` +
+      `<p>Это пример, когда экстремум достигается в точке, не являющейся критической в классическом смысле (производная не равна нулю, а не существует).</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv013",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная сложной функции (цепочка)",
+    "theme": "Дифференцирование сложной функции",
+    "text": "Производная функции $y = \\sin(2x)$ равна:",
+    "choices": [
+      "$\\cos(2x)$",
+      "$2\\cos(2x)$",
+      "$2\\sin(2x)$",
+      "$\\cos(2)$",
+      "$2\\cos x$"
+    ],
+    "answers": ["$2\\cos(2x)$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Правило дифференцирования сложной функции:</h5>` +
+      `<p>Если $y = f(g(x))$, то $y'_x = f'(g(x)) \\cdot g'(x)$ (производная внешней функции, умноженная на производную внутренней).</p>` +
+      `<ol>` +
+      `<li><strong>Определяем функции:</strong><br>` +
+      `- Внешняя: $f(u) = \\sin u$ (где $u = 2x$). Её производная: $f'(u) = \\cos u$.<br>` +
+      `- Внутренняя: $g(x) = 2x$. Её производная: $g'(x) = 2$.</li>` +
+      `<li><strong>Применяем правило:</strong> $y' = f'(g(x)) \\cdot g'(x) = \\cos(2x) \\cdot 2 = 2\\cos(2x)$.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv014",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная показательной функции",
+    "theme": "Дифференцирование функции с основанием e",
+    "text": "Чему равна производная функции $y = e^x$?",
+    "choices": [
+      "$0$",
+      "$1$",
+      "$x \\cdot e^{x-1}$",
+      "$e^x$",
+      "$\\ln x$"
+    ],
+    "answers": ["$e^x$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Важнейшее свойство экспоненты:</h5>` +
+      `<p>Функция $y = e^x$ (экспонента) — единственная (с точностью до постоянного множителя) функция, производная которой равна самой функции.</p>` +
+      `<p><strong>Формула:</strong> $(e^x)' = e^x$.</p>` +
+      `<p>Это свойство делает экспоненту фундаментальной в математическом анализе, физике и других науках.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv015",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Касательная, параллельная прямой",
+    "theme": "Применение геометрического смысла производной",
+    "text": "В какой точке касательная к графику функции $y = x^2$ параллельна прямой $y = 4x - 1$?",
+    "choices": [
+      "$x=1$",
+      "$x=2$",
+      "$x=4$",
+      "$x=0$",
+      "$x=-2$"
+    ],
+    "answers": ["$x=2$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Условие параллельности прямых:</h5>` +
+      `<p>Прямые параллельны, если их угловые коэффициенты равны. Угловой коэффициент данной прямой $y = 4x - 1$ равен $k_1 = 4$.</p>` +
+      `<ol>` +
+      `<li><strong>Находим угловой коэффициент касательной</strong> как производную функции: $y' = (x^2)' = 2x$. Таким образом, $k_{кас} = 2x$.</li>` +
+      `<li><strong>Приравниваем угловые коэффициенты:</strong> Чтобы касательная была параллельна данной прямой, должно выполняться: $k_{кас} = k_1$, то есть $2x = 4$.</li>` +
+      `<li><strong>Решаем уравнение:</strong> $2x = 4$, откуда $x = 2$.</li>` +
+      `<li><strong>Находим ординату точки касания:</strong> $y(2) = 2^2 = 4$. Точка касания — $(2, 4)$.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv016",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Скорость изменения функции",
+    "theme": "Физический смысл в общем контексте",
+    "text": "Если $Q(t)$ описывает количество товара на складе в момент времени $t$, то производная $Q'(t)$ характеризует...",
+    "choices": [
+      "Общее количество товара",
+      "Среднюю скорость изменения запаса",
+      "Мгновенную скорость изменения запаса (приход/расход)",
+      "Время, за которое товар закончится",
+      "Стоимость товара"
+    ],
+    "answers": ["Мгновенную скорость изменения запаса (приход/расход)"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="card">` +
+      `<div class="card-body">` +
+      `<h5>Физический (и экономический) смысл производной:</h5>` +
+      `<p>Производная $f'(t_0)$ функции $f(t)$ по времени $t$ в точке $t_0$ показывает <strong>скорость изменения</strong> величины $f$ в этот конкретный момент времени.</p>` +
+      `<ul>` +
+      `<li>Если $Q'(t) > 0$, запас увеличивается (приход превышает расход).</li>` +
+      `<li>Если $Q'(t) < 0$, запас уменьшается (расход превышает приход).</li>` +
+      `<li>Если $Q'(t) = 0$, запас в данный момент не меняется (приход равен расходу).</li>` +
+      `</ul>` +
+      `<p>Таким образом, $Q'(t)$ — это <strong>мгновенная скорость</strong> пополнения или уменьшения товарных запасов.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv017",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Производная логарифмической функции",
+    "theme": "Дифференцирование функции ln x",
+    "text": "Производная функции $y = \\ln x$ равна:",
+    "choices": [
+      "$\\frac{1}{x}$",
+      "$x$",
+      "$e^x$",
+      "$\\frac{1}{\\ln x}$",
+      "$0$"
+    ],
+    "answers": ["$\\frac{1}{x}$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-success">` +
+      `<h5>Формула производной натурального логарифма:</h5>` +
+      `<p>Одно из основных табличных значений: $(\\ln x)' = \\frac{1}{x}$, где $x > 0$.</p>` +
+      `<p>Это правило часто используется при решении задач, связанных с ростом, оптимизацией и интегрированием.</p>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
+  },
+  {
+    "id": "deriv018",
+    "type": "multiplechoices",
+    "header": "Производная функции",
+    "title": "Нахождение интервала возрастания",
+    "theme": "Применение производной для исследования функции",
+    "text": "На каком из интервалов функция $f(x) = x^3 - 3x^2$ возрастает?",
+    "choices": [
+      "$(0, 2)$",
+      "$(-\\infty, 0)$",
+      "$(2, +\\infty)$",
+      "$(-\\infty, 0) \\cup (2, +\\infty)$",
+      "$(0, +\\infty)$"
+    ],
+    "answers": ["$(-\\infty, 0) \\cup (2, +\\infty)$"],
+    "hint": `<div class="container">` +
+      `<div class="row">` +
+      `<div class="col-12">` +
+      `<div class="alert alert-info">` +
+      `<h5>Алгоритм нахождения промежутков монотонности:</h5>` +
+      `<ol>` +
+      `<li><strong>Находим производную:</strong> $f'(x) = 3x^2 - 6x = 3x(x - 2)$.</li>` +
+      `<li><strong>Находим критические точки,</strong> приравнивая производную к нулю: $3x(x-2)=0 \\Rightarrow x_1=0, x_2=2$. Эти точки разбивают числовую прямую на интервалы: $(-\\infty, 0)$, $(0, 2)$, $(2, +\\infty)$.</li>` +
+      `<li><strong>Определяем знак производной</strong> на каждом интервале (например, подстановкой тестовой точки):<br>` +
+      `- На $(-\\infty, 0)$: возьмём $x = -1$. $f'(-1)=3*(-1)*(-3)=9 > 0$ → функция <strong>возрастает</strong>.<br>` +
+      `- На $(0, 2)$: возьмём $x = 1$. $f'(1)=3*1*(-1)=-3 < 0$ → функция <strong>убывает</strong>.<br>` +
+      `- На $(2, +\\infty)$: возьмём $x = 3$. $f'(3)=3*3*1=9 > 0$ → функция <strong>возрастает</strong>.</li>` +
+      `<li><strong>Ответ:</strong> Функция возрастает на интервалах $(-\\infty, 0)$ и $(2, +\\infty)$.</li>` +
+      `</ol>` +
+      `</div>` +
+      `</div>` +
+      `</div>` +
+      `</div>`
   }
-] 
+
+]
 
 
 
