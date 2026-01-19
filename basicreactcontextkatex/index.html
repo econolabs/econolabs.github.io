@@ -22,8 +22,10 @@
             object-fit: cover;
         }
     </style>
+        <link rel="stylesheet" href="../dist/katex.min.css">
+         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.js" integrity="sha384-2B8pfmZZ6JlVoScJm/5hQfNS2TI/6hPqDZInzzPc8oHpN5SgeNOf4LzREO6p5YtZ" crossorigin="anonymous"></script>
 
-    <title>Basic react js</title>
+    <title>Basic react js KATEX</title>
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
@@ -447,9 +449,9 @@
             return <Container className="mt-5">
                 {casewithcalculations.map(item => {
                     let value = !!state?.data && state.data.hasOwnProperty(item.id) && typeof state.data[item.id] === 'number'
-                    ? state.data[item.id]: null;
+                        ? state.data[item.id] : null;
                     return <Form.Group>
-                        <Form.Label>{!!value ? item.id + ": " + value: item.id }</Form.Label>
+                        <Form.Label>{!!value ? item.id + ": " + value : item.id}</Form.Label>
                         <DebouncedInput
                             id={item.id}
                             placeholder="=2+2"
@@ -457,10 +459,214 @@
                         />
                         <small>{item.label}</small>
                     </Form.Group>
-                })}                
+                })}
             </Container>
 
         }
+
+        const MathExpression = ({ expression, displayMode = false, className = "" }) => {
+            const [html, setHtml] = useState('');
+
+            useEffect(() => {
+                try {
+                    const katexHtml = basicfirebasecrudauthservices.makeHTMLFromKatex(expression, displayMode)
+                    setHtml(katexHtml);
+                } catch (error) {
+                    console.error('KaTeX rendering error:', error);
+                    setHtml(`<span class="text-danger">${expression}</span>`);
+                }
+            }, [expression, displayMode]);
+
+            return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+        };
+
+
+        // Блочный MathExpression (с displayMode=true по умолчанию)
+        const BlockMathExpression = ({ expression, className = "" }) => {
+            const [html, setHtml] = useState('');
+
+            useEffect(() => {
+                try {
+                    const katexHtml = basicfirebasecrudauthservices.makeHTMLFromKatex(expression, true); // displayMode=true
+                    setHtml(katexHtml);
+                } catch (error) {
+                    console.error('KaTeX rendering error:', error);
+                    setHtml(`<div class="text-danger">${expression}</div>`);
+                }
+            }, [expression]);
+
+            return <div className="katex-block-wrapper" style={{
+                overflow: 'visible',
+                minHeight: '50px'
+            }}>
+                <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
+            </div>
+
+            // <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+        };
+
+        function processTextWithFormulas(inputText) {
+            if (!inputText) return null;
+
+            // Временный div для парсинга HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = inputText;
+
+            // Рекурсивная функция для обработки узлов
+            const processNode = (node, keyPrefix = '') => {
+                // Если это текстовый узел
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.textContent;
+                    if (!text.trim()) return null;
+
+                    // Разбиваем текст на формулы и обычный текст
+                    const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
+                    const result = [];
+
+                    parts.forEach((part, index) => {
+                        if (!part.trim()) return;
+
+                        // Блочная формула $$...$$
+                        if (part.startsWith('$$') && part.endsWith('$$') && part.length > 4) {
+                            const formula = part.slice(2, -2);
+                            result.push(
+                                <BlockMathExpression
+                                    key={`${keyPrefix}-block-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Инлайн формула $...$
+                        else if (part.startsWith('$') && part.endsWith('$') && part.length > 2 && !part.startsWith('$$')) {
+                            const formula = part.slice(1, -1);
+                            result.push(
+                                <MathExpression
+                                    key={`${keyPrefix}-inline-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Обычный текст
+                        else {
+                            result.push(
+                                <span key={`${keyPrefix}-text-${index}`}>
+                                    {part}
+                                </span>
+                            );
+                        }
+                    });
+
+                    return result.length > 1 ? result : result[0];
+                }
+
+                // Если это элемент
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const tagName = node.tagName.toLowerCase();
+
+                    // Пропускаем script, style, svg
+                    if (tagName === 'script' || tagName === 'style' || tagName === 'svg') {
+                        return null;
+                    }
+
+                    // Создаём props для React элемента
+                    const props = {
+                        key: `${keyPrefix}-${tagName}-${Math.random().toString(36).substr(2, 9)}`,
+                        className: node.className || '',
+                        style: node.style.cssText ? { cssText: node.style.cssText } : {}
+                    };
+
+                    // Копируем атрибуты (кроме class и style)
+                    Array.from(node.attributes).forEach(attr => {
+                        if (attr.name !== 'class' && attr.name !== 'style') {
+                            props[attr.name] = attr.value;
+                        }
+                    });
+
+                    // Обрабатываем дочерние элементы
+                    const children = [];
+                    node.childNodes.forEach((child, index) => {
+                        const processedChild = processNode(child, `${keyPrefix}-child-${index}`);
+                        if (processedChild) {
+                            if (Array.isArray(processedChild)) {
+                                children.push(...processedChild);
+                            } else {
+                                children.push(processedChild);
+                            }
+                        }
+                    });
+
+                    // Специальная обработка для некоторых тегов
+                    switch (tagName) {
+                        case 'div':
+                        case 'span':
+                        case 'p':
+                        case 'h1':
+                        case 'h2':
+                        case 'h3':
+                        case 'h4':
+                        case 'h5':
+                        case 'h6':
+                        case 'ul':
+                        case 'ol':
+                        case 'li':
+                        case 'strong':
+                        case 'em':
+                        case 'a':
+                            return React.createElement(tagName, props, children);
+
+                        case 'br':
+                            return React.createElement('br', { key: props.key });
+
+                        case 'hr':
+                            return React.createElement('hr', { key: props.key });
+
+                        case 'img':
+                            return React.createElement('img', {
+                                key: props.key,
+                                src: node.src,
+                                alt: node.alt || '',
+                                className: props.className,
+                                style: props.style
+                            });
+
+                        default:
+                            // Для остальных тегов используем dangerouslySetInnerHTML
+                            return (
+                                <div
+                                    key={props.key}
+                                    dangerouslySetInnerHTML={{ __html: node.outerHTML }}
+                                />
+                            );
+                    }
+                }
+
+                return null;
+            };
+
+            // Обрабатываем все дочерние узлы tempDiv
+            const result = [];
+            tempDiv.childNodes.forEach((child, index) => {
+                const processed = processNode(child, `root-${index}`);
+                if (processed) {
+                    if (Array.isArray(processed)) {
+                        result.push(...processed);
+                    } else {
+                        result.push(processed);
+                    }
+                }
+            });
+
+            return result;
+        }
+
+
+        // Компонент для отображения математического текста с формулами
+        const ProcessKatex = ({ text, className = "" }) => {
+            return <div className={className}>
+
+                {processTextWithFormulas(text)}
+            </div>;
+        };
 
 
         function App() {
@@ -468,7 +674,12 @@
 
             return (
                 <FormProvider>
+
                     <Container className="mt-5">
+                        <ProcessKatex
+                            text={"$\\frac{\\sqrt{2}}{2}$"}
+                            className="card-text mb-3 math-text"
+                        />
                         <ActiveCells />
                         <FormDebugger />
                     </Container>

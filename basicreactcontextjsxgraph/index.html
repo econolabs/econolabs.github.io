@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="../dist/original.css" />
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <style>
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            object-fit: cover;
+        }
+
+        .avatarList {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="../dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.js"
+        integrity="sha384-2B8pfmZZ6JlVoScJm/5hQfNS2TI/6hPqDZInzzPc8oHpN5SgeNOf4LzREO6p5YtZ"
+        crossorigin="anonymous"></script>
+    <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css">
+
+    <title>Basic react js KATEX</title>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container" id="root"></div>
+
+    <script src="../dist/babel.standalone7.27.6.min.js"></script>
+
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+
+    <script type="text/babel">
+        let { createRoot } = ReactDOM;
+        let { useReducer, useState, createContext, useContext, useEffect, useRef } = React;
+        let { Form, Row, Col, Container, Button, Modal } = ReactBootstrap;
+        let { getFirebaseNode } = basicfirebasecrudauthservices;
+
+
+        const ApplicationContext = createContext(null);
+        const ApplicationDispatchContext = createContext(null);
+        const ProjectContext = createContext(null);
+        const ProjectDispatchContext = createContext(null);
+
+        const FormContext = createContext();
+        const useFormState = () => useContext(FormContext);
+
+        // function SelectDate({ setDate }) {
+        //   async function handleChange(e) {
+        //     let { name, value } = e.target;
+
+        //     console.log(name, value);
+        //     let d = new Date(e.target.value);
+
+        //     let currentDay = new Intl.DateTimeFormat("en", {
+        //       weekday: "short",
+        //       year: "numeric",
+        //       month: "short",
+        //       day: "numeric",
+        //     })
+        //       .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+        //       .replace(/[^a-zA-Z0-9]/g, "_");
+        //     setDate(currentDay);
+        //   }
+
+        //   return (
+        //     <Container>
+        //       <Form>
+        //         <Row>
+        //           <Col>
+        //             <Form.Group controlId="formStatePeriod">
+        //               <Form.Label>Период</Form.Label>
+        //               <Form.Control
+        //                 type="date"
+        //                 name="selecteddate"
+        //                 required
+        //                 onChange={handleChange}
+        //               />
+        //             </Form.Group>
+        //           </Col>
+        //         </Row>
+        //       </Form>
+        //     </Container>
+        //   );
+        // }
+
+        // function ExampleModal() {
+        //   // State to control whether the modal is shown or hidden
+        //   const [show, setShow] = useState(false);
+
+        //   // Handlers to update the state
+        //   const handleClose = () => setShow(false);
+        //   const handleShow = () => setShow(true);
+
+        //   return (
+        //     <>
+        //       {/* Button to launch the modal */}
+        //       <Button variant="primary" onClick={handleShow}>
+        //         Launch demo modal
+        //       </Button>
+
+        //       {/* The Modal component, controlled by the 'show' state */}
+        //       <Modal show={show} onHide={handleClose}>
+        //         <Modal.Header closeButton>
+        //           <Modal.Title>Modal heading</Modal.Title>
+        //         </Modal.Header>
+        //         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        //         <Modal.Footer>
+        //           <Button variant="secondary" onClick={handleClose}>
+        //             Close
+        //           </Button>
+        //           <Button variant="primary" onClick={handleClose}>
+        //             Save Changes
+        //           </Button>
+        //         </Modal.Footer>
+        //       </Modal>
+        //     </>
+        //   );
+        // }
+
+        // function ShowUsers({ usersAvatars }) {
+
+        //   console.log(usersAvatars);
+
+
+        //   function openUserInModal() {
+        //     dispatch({
+        //       type: "SEED_STATE",
+        //       payload: {
+        //         object: {
+        //           isLoading: false,
+        //           updatedopenavatars,
+        //           uniqueUserEmails,
+        //         },
+        //       },
+        //     });
+        //   }
+        //   return <Container>{Object.keys(usersAvatars).map(userEmail => {
+        //     return <Row>
+        //       <Col>
+        //         <img src={!!usersAvatars[userEmail]?.avatarUrl ?
+        //           usersAvatars[userEmail]?.avatarUrl : "../freelancer.jpg"}
+        //           alt=""
+        //           className="avatarList"
+
+        //         />
+        //       </Col>
+        //       <Col>{userEmail}</Col>
+        //       <Col><Button size="sm">Change</Button></Col>
+
+        //     </Row>
+        //   })}
+        //   </Container>;
+        // }
+
+        // let initialState = {
+        //   email: null,
+        //   user: null,
+        //   avatarUrl: "",
+        //   userEmail: "",
+        //   posts: [],
+        //   showModal: false,
+        //   modal: {},
+        //   isLoading: true,
+
+        // }
+
+        // let projectInitialState = {
+        //   updatedopenavatars: {},
+        //   uniqueUserEmails: [],
+        //   showModal: false,
+        //   modal: {}
+        // }
+
+
+
+        // function App() {
+        //   const [state, applicationDispatch] = useReducer(
+        //     caseReducer,
+        //     initialState
+        //   );
+
+        //   const [projectState, projectDispatch] = useReducer(
+        //     caseReducer,
+        //     projectInitialState
+        //   );
+
+
+        //   async function setDate(currentDay) {
+        //     console.log(currentDay);
+        //     let res = await getFirebaseNode({
+        //       url: "/currentDay/" + currentDay + "/posts",
+        //       type: "array",
+        //     });
+        //     let uniqueUserEmails = [
+        //       ...new Set(
+        //         res.map((item) => item?.email.replace(/[^a-zA-Z0-9]/g, "_"))
+        //       ),
+        //     ];
+        //     console.log(uniqueUserEmails);
+
+        //     let updatedopenavatars = {};
+
+        //     await Promise.all(
+        //       uniqueUserEmails.map((userEmail) => {
+        //         return getFirebaseNode({
+        //           url: "openavatars/" + userEmail,
+        //           type: "object",
+        //         });
+        //       })
+        //     ).then((values) => {
+        //       values.forEach(
+        //         (result, index) =>
+        //           (updatedopenavatars[uniqueUserEmails[index]] = result)
+        //       );
+        //       console.log(updatedopenavatars);
+        //     });
+
+        //     projectDispatch({
+        //       type: "SEED_STATE",
+        //       payload: {
+        //         object: {
+        //           isLoading: false,
+        //           updatedopenavatars,
+        //           uniqueUserEmails,
+        //         },
+        //       },
+        //     });
+        //     //  console.log(basicfirebasecrudauthservices.loadState())
+        //   }
+
+        //   console.log(state);
+
+        //   return (
+        //     <ApplicationContext.Provider value={state}>
+        //       <ApplicationDispatchContext.Provider value={applicationDispatch}>
+        //         <ProjectContext.Provider value={projectState}>
+        //           <ProjectDispatchContext.Provider value={projectDispatch}>
+        //             <Container>
+        //               <SelectDate setDate={setDate} />
+        //               <ShowUsers usersAvatars={projectState?.updatedopenavatars} />
+        //               <ExampleModal />
+        //             </Container>
+        //           </ProjectDispatchContext.Provider>
+        //         </ProjectContext.Provider>
+        //       </ApplicationDispatchContext.Provider>
+        //     </ApplicationContext.Provider>
+
+
+        //   );
+        // }
+
+
+        const alphabet = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"
+        ];
+
+        function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
+            Object.keys(protoDataObject).map((objKey) => {
+                const [col, ...row] = objKey;
+                let currentColIndex = alphabet.findIndex(item => item === col);
+                if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
+                if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
+            });
+            //  console.log(maxColumn, maxRow);
+
+            var array = new Array(maxRow);
+            for (var i = 0; i < array.length; i++) {
+                array[i] = Array(maxColumn + 1).fill('');
+            }
+
+            Object.keys(protoDataObject).map((objKey) => {
+                const [col, ...row] = objKey;
+                let colArrayIndex = alphabet.findIndex((item) => item === col);
+                let rowArrayIndex = parseInt(row) - 1;
+                array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+            });
+            return array;
+        }
+
+
+        const caseReducer = basicfirebasecrudauthservices.produce((draft, action) => {
+            switch (action.type) {
+                case "CALCULATE_SPREADSHEET":
+                    let newProtoData = { ...draft.protoData, [action.payload.key]: action.payload.value }
+                    draft.data = basicfirebasecrudauthservices.createProtoObject(
+                        basicfirebasecrudauthservices.createNewDraft(
+                            createProtoArray(newProtoData, 10, 1)
+                        ));
+                    draft.protoData = { ...draft.protoData, [action.payload.key]: action.payload.value };
+                    draft.rerender = Math.random();
+                    break;
+
+                case "SEED_STATE":
+                    Object.keys(action.payload.object).map((key) => {
+                        draft[key] = action.payload.object[key];
+                    });
+                    break;
+
+                default:
+                    break;
+            }
+        });
+
+        const useDebounce = (value, delay) => {
+            const [debouncedValue, setDebouncedValue] = useState(value);
+
+            useEffect(() => {
+                const handler = setTimeout(() => {
+                    setDebouncedValue(value);
+                }, delay);
+                return () => {
+                    clearTimeout(handler);
+                };
+            }, [value, delay]);
+            return debouncedValue;
+        };
+
+
+        const DebouncedInput = ({ id, delay = 500, ...props }) => {
+            const { state, dispatch } = useFormState();
+            const [inputValue, setInputValue] = useState("");
+            const debouncedValue = useDebounce(inputValue, delay);
+
+            useEffect(() => {
+                dispatch({
+                    type: "CALCULATE_SPREADSHEET",
+                    payload: {
+                        key: id,
+                        value: debouncedValue
+                    }
+                });
+            }, [debouncedValue, id, dispatch]);
+
+            const handleInputChange = (event) => {
+                setInputValue(event.target.value);
+            };
+
+            return (
+                <Form.Control
+                    type="text"
+                    name={id}
+                    value={inputValue} // The displayed value updates immediately
+                    onChange={handleInputChange} // The internal state updates immediately
+                    {...props}
+                />
+            );
+        };
+
+
+        let casewithcalculations = [
+            { id: "A1", orderby: 0, label: "Налог на прибыль" },
+            { id: "A2", orderby: 1, label: "Прибыль" },
+            { id: "A3", orderby: 2, label: "Расходы" },
+            { id: "A4", orderby: 3, label: "Доходы" },
+        ]
+
+        let initialState = {};
+
+        const FormProvider = ({ children }) => {
+            const [state, dispatch] = useReducer(caseReducer, initialState);
+            return (
+                <FormContext.Provider value={{ state, dispatch }}>
+                    {children}
+                </FormContext.Provider>
+            );
+        };
+
+        const FormDebugger = () => {
+            const { state } = useFormState();
+
+            return (
+                <Container className="mt-4 p-3 bg-light border rounded">
+                    <pre className="mb-0">
+                        <code>
+                            {JSON.stringify(state, null, 2)}
+                        </code>
+                    </pre>
+                </Container>
+            );
+        };
+
+        function ActiveCells() {
+            const { state } = useFormState();
+
+            return <Container className="mt-5">
+                {casewithcalculations.map(item => {
+                    let value = !!state?.data && state.data.hasOwnProperty(item.id) && typeof state.data[item.id] === 'number'
+                        ? state.data[item.id] : null;
+                    return <Form.Group>
+                        <Form.Label>{!!value ? item.id + ": " + value : item.id}</Form.Label>
+                        <DebouncedInput
+                            id={item.id}
+                            placeholder="=2+2"
+                            delay={500}
+                        />
+                        <small>{item.label}</small>
+                    </Form.Group>
+                })}
+            </Container>
+
+        }
+
+        const MathExpression = ({ expression, displayMode = false, className = "" }) => {
+            const [html, setHtml] = useState('');
+
+            useEffect(() => {
+                try {
+                    const katexHtml = basicfirebasecrudauthservices.makeHTMLFromKatex(expression, displayMode)
+                    setHtml(katexHtml);
+                } catch (error) {
+                    console.error('KaTeX rendering error:', error);
+                    setHtml(`<span class="text-danger">${expression}</span>`);
+                }
+            }, [expression, displayMode]);
+
+            return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+        };
+
+
+        // Блочный MathExpression (с displayMode=true по умолчанию)
+        const BlockMathExpression = ({ expression, className = "" }) => {
+            const [html, setHtml] = useState('');
+
+            useEffect(() => {
+                try {
+                    const katexHtml = basicfirebasecrudauthservices.makeHTMLFromKatex(expression, true); // displayMode=true
+                    setHtml(katexHtml);
+                } catch (error) {
+                    console.error('KaTeX rendering error:', error);
+                    setHtml(`<div class="text-danger">${expression}</div>`);
+                }
+            }, [expression]);
+
+            return <div className="katex-block-wrapper" style={{
+                overflow: 'visible',
+                minHeight: '50px'
+            }}>
+                <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
+            </div>
+
+            // <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+        };
+
+        function processTextWithFormulas(inputText) {
+            if (!inputText) return null;
+
+            // Временный div для парсинга HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = inputText;
+
+            // Рекурсивная функция для обработки узлов
+            const processNode = (node, keyPrefix = '') => {
+                // Если это текстовый узел
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.textContent;
+                    if (!text.trim()) return null;
+
+                    // Разбиваем текст на формулы и обычный текст
+                    const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
+                    const result = [];
+
+                    parts.forEach((part, index) => {
+                        if (!part.trim()) return;
+
+                        // Блочная формула $$...$$
+                        if (part.startsWith('$$') && part.endsWith('$$') && part.length > 4) {
+                            const formula = part.slice(2, -2);
+                            result.push(
+                                <BlockMathExpression
+                                    key={`${keyPrefix}-block-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Инлайн формула $...$
+                        else if (part.startsWith('$') && part.endsWith('$') && part.length > 2 && !part.startsWith('$$')) {
+                            const formula = part.slice(1, -1);
+                            result.push(
+                                <MathExpression
+                                    key={`${keyPrefix}-inline-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Обычный текст
+                        else {
+                            result.push(
+                                <span key={`${keyPrefix}-text-${index}`}>
+                                    {part}
+                                </span>
+                            );
+                        }
+                    });
+
+                    return result.length > 1 ? result : result[0];
+                }
+
+                // Если это элемент
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const tagName = node.tagName.toLowerCase();
+
+                    // Пропускаем script, style, svg
+                    if (tagName === 'script' || tagName === 'style' || tagName === 'svg') {
+                        return null;
+                    }
+
+                    // Создаём props для React элемента
+                    const props = {
+                        key: `${keyPrefix}-${tagName}-${Math.random().toString(36).substr(2, 9)}`,
+                        className: node.className || '',
+                        style: node.style.cssText ? { cssText: node.style.cssText } : {}
+                    };
+
+                    // Копируем атрибуты (кроме class и style)
+                    Array.from(node.attributes).forEach(attr => {
+                        if (attr.name !== 'class' && attr.name !== 'style') {
+                            props[attr.name] = attr.value;
+                        }
+                    });
+
+                    // Обрабатываем дочерние элементы
+                    const children = [];
+                    node.childNodes.forEach((child, index) => {
+                        const processedChild = processNode(child, `${keyPrefix}-child-${index}`);
+                        if (processedChild) {
+                            if (Array.isArray(processedChild)) {
+                                children.push(...processedChild);
+                            } else {
+                                children.push(processedChild);
+                            }
+                        }
+                    });
+
+                    // Специальная обработка для некоторых тегов
+                    switch (tagName) {
+                        case 'div':
+                        case 'span':
+                        case 'p':
+                        case 'h1':
+                        case 'h2':
+                        case 'h3':
+                        case 'h4':
+                        case 'h5':
+                        case 'h6':
+                        case 'ul':
+                        case 'ol':
+                        case 'li':
+                        case 'strong':
+                        case 'em':
+                        case 'a':
+                            return React.createElement(tagName, props, children);
+
+                        case 'br':
+                            return React.createElement('br', { key: props.key });
+
+                        case 'hr':
+                            return React.createElement('hr', { key: props.key });
+
+                        case 'img':
+                            return React.createElement('img', {
+                                key: props.key,
+                                src: node.src,
+                                alt: node.alt || '',
+                                className: props.className,
+                                style: props.style
+                            });
+
+                        default:
+                            // Для остальных тегов используем dangerouslySetInnerHTML
+                            return (
+                                <div
+                                    key={props.key}
+                                    dangerouslySetInnerHTML={{ __html: node.outerHTML }}
+                                />
+                            );
+                    }
+                }
+
+                return null;
+            };
+
+            // Обрабатываем все дочерние узлы tempDiv
+            const result = [];
+            tempDiv.childNodes.forEach((child, index) => {
+                const processed = processNode(child, `root-${index}`);
+                if (processed) {
+                    if (Array.isArray(processed)) {
+                        result.push(...processed);
+                    } else {
+                        result.push(processed);
+                    }
+                }
+            });
+
+            return result;
+        }
+
+
+        // Компонент для отображения математического текста с формулами
+        const ProcessKatex = ({ text, className = "" }) => {
+            return <div className={className}>
+
+                {processTextWithFormulas(text)}
+            </div>;
+        };
+
+
+        const RightTriangle345 = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                // Инициализация доски JSXGraph
+                const board = JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-1, 5, 5, -1], // [xmin, ymax, xmax, ymin]
+                    axis: true,
+                    grid: true,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                const pointA = board.create('point', [0, 0], {
+                    name: 'A',
+                    size: 4,
+                    color: 'blue'
+                });
+
+                const pointB = board.create('point', [4, 0], {
+                    name: 'B',
+                    size: 4,
+                    color: 'blue'
+                });
+
+                const pointC = board.create('point', [0, 3], {
+                    name: 'C',
+                    size: 4,
+                    color: 'blue'
+                });
+
+                const sideAB = board.create('segment', [pointA, pointB], {
+                    strokeColor: 'red',
+                    strokeWidth: 2
+                });
+
+                const sideBC = board.create('segment', [pointB, pointC], {
+                    strokeColor: 'red',
+                    strokeWidth: 2
+                });
+
+                const sideCA = board.create('segment', [pointC, pointA], {
+                    strokeColor: 'red',
+                    strokeWidth: 2
+                });
+
+                const rightAngle = board.create('angle', [pointB, pointA, pointC], {
+                    radius: 0.8,
+                    color: 'green',
+                    fillOpacity: 0.3
+                });
+
+                board.create('text', [2, -0.5, 'AB = 4'], {
+                    fontSize: 14,
+                    color: 'darkred'
+                });
+
+                board.create('text', [-0.5, 1.5, 'AC = 3'], {
+                    fontSize: 14,
+                    color: 'darkred'
+                });
+
+                board.create('text', [2, 1.8, 'BC = 5'], {
+                    fontSize: 14,
+                    color: 'darkred'
+                });
+
+
+                board.create('text', [0.3, -0.3, '(0,0)'], {
+                    fontSize: 12,
+                    color: 'blue'
+                });
+
+                board.create('text', [4.3, -0.3, '(4,0)'], {
+                    fontSize: 12,
+                    color: 'blue'
+                });
+
+                board.create('text', [0.3, 3.3, '(0,3)'], {
+                    fontSize: 12,
+                    color: 'blue'
+                });
+
+                return () => {
+                    board.unsuspendUpdate();
+                };
+            }, []);
+
+            return (
+                <div style={{ width: '100%', maxWidth: '400px', margin: '20px auto' }}>
+                    <div
+                        ref={boardRef}
+                        style={{
+                            width: '100%',
+                            height: '500px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px'
+                        }}
+                    />
+                </div>
+            );
+        };
+
+        const InteractiveUnitVectors = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                const board = JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-3, 3, 3, -3],
+                    axis: true,
+                    grid: true,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                // Начало координат
+                const O = board.create('point', [0, 0], {
+                    name: 'O',
+                    size: 4,
+                    color: '#212529',
+                    fixed: true
+                });
+
+                // Цвета Bootstrap
+                const colors = {
+                    i: '#dc3545',      // красный
+                    j: '#007bff',      // синий
+                    vector: '#28a745', // зеленый для основного вектора
+                    projection: '#6c757d', // серый для проекций
+                    text: '#212529'    // темный для текста
+                };
+
+                // Базисные векторы (фиксированные)
+                const iVector = board.create('arrow', [O, [1, 0]], {
+                    strokeColor: colors.i,
+                    strokeWidth: 2,
+                    lastArrow: true,
+                    size: 6,
+                    fixed: true
+                });
+
+                const jVector = board.create('arrow', [O, [0, 1]], {
+                    strokeColor: colors.j,
+                    strokeWidth: 2,
+                    lastArrow: true,
+                    size: 6,
+                    fixed: true
+                });
+
+                // Подписи базисных векторов
+                const createKaTeXText = (x, y, tex, color) => {
+                    const text = board.create('text', [x, y, ''], {
+                        color: color,
+                        fixed: true,
+                        parse: false
+                    });
+
+                    try {
+                        const html = katex.renderToString(tex, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                        text.setText(html);
+                    } catch (error) {
+                        text.setText(tex);
+                    }
+                    return text;
+                };
+
+                // Подписи базисных векторов
+                createKaTeXText(1.3, 0, '\\vec{i}', colors.i);
+                createKaTeXText(0, 1.3, '\\vec{j}', colors.j);
+
+                // Интерактивный вектор
+                const P = board.create('point', [2, 1.5], {
+                    name: 'P',
+                    size: 4,
+                    color: colors.vector,
+                    snapToGrid: false
+                });
+
+                const vectorOP = board.create('arrow', [O, P], {
+                    strokeColor: colors.vector,
+                    strokeWidth: 3,
+                    lastArrow: true,
+                    size: 8,
+                    name: '\\vec{v}'
+                });
+
+                // Подпись интерактивного вектора
+                createKaTeXText(2.3, 1.8, '\\vec{v}', colors.vector);
+
+                // Функции для вычисления проекций
+                const projX = board.create('point', [
+                    () => P.X(),
+                    () => 0
+                ], {
+                    name: '',
+                    size: 3,
+                    color: colors.i,
+                    visible: true
+                });
+
+                const projY = board.create('point', [
+                    () => 0,
+                    () => P.Y()
+                ], {
+                    name: '',
+                    size: 3,
+                    color: colors.j,
+                    visible: true
+                });
+
+                // Линии проекций (пунктирные)
+                board.create('segment', [P, projX], {
+                    strokeColor: colors.projection,
+                    strokeWidth: 1,
+                    dash: 2
+                });
+
+                board.create('segment', [P, projY], {
+                    strokeColor: colors.projection,
+                    strokeWidth: 1,
+                    dash: 2
+                });
+
+                // Векторы проекций (цветные)
+                const projXVector = board.create('arrow', [O, projX], {
+                    strokeColor: colors.i,
+                    strokeWidth: 2,
+                    lastArrow: true,
+                    size: 5,
+                    opacity: 0.7
+                });
+
+                const projYVector = board.create('arrow', [O, projY], {
+                    strokeColor: colors.j,
+                    strokeWidth: 2,
+                    lastArrow: true,
+                    size: 5,
+                    opacity: 0.7
+                });
+
+                // Подписи проекций с динамическими значениями
+                const projXLabel = board.create('text', [
+                    () => P.X() / 2,
+                    () => -0.3,
+                    ''
+                ], {
+                    color: colors.i,
+                    fixed: false,
+                    parse: false
+                });
+
+                projXLabel.setText(() => {
+                    const value = P.X().toFixed(2);
+                    try {
+                        return katex.renderToString(`x = ${value}`, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                    } catch (error) {
+                        return `x = ${value}`;
+                    }
+                });
+
+                const projYLabel = board.create('text', [
+                    () => -0.3,
+                    () => P.Y() / 2,
+                    ''
+                ], {
+                    color: colors.j,
+                    fixed: false,
+                    parse: false
+                });
+
+                projYLabel.setText(() => {
+                    const value = P.Y().toFixed(2);
+                    try {
+                        return katex.renderToString(`y = ${value}`, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                    } catch (error) {
+                        return `y = ${value}`;
+                    }
+                });
+
+                // Формула разложения вектора
+                // const decompositionFormula = board.create('text', [
+                //   2.5, 2.5,
+                //   ''
+                // ], {
+                //   color: colors.vector,
+                //   fixed: true,
+                //   parse: false
+                // });
+
+                // decompositionFormula.setText(() => {
+                //   const x = P.X().toFixed(2);
+                //   const y = P.Y().toFixed(2);
+                //   try {
+                //     return katex.renderToString(`\\vec{v} = ${x}\\vec{i} + ${y}\\vec{j}`, {
+                //       displayMode: false,
+                //       throwOnError: false
+                //     });
+                //   } catch (error) {
+                //     return `v = ${x}i + ${y}j`;
+                //   }
+                // });
+
+                // Длина вектора
+                const lengthFormula = board.create('text', [
+                    -2.5, 2.2,
+                    ''
+                ], {
+                    color: colors.text,
+                    fixed: true,
+                    parse: false
+                });
+
+                lengthFormula.setText(() => {
+                    const length = Math.sqrt(P.X() * P.X() + P.Y() * P.Y()).toFixed(2);
+                    try {
+                        return katex.renderToString(`\\LARGE{ |\\vec{v}| = ${length} }`, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                    } catch (error) {
+                        return `|v| = ${length}`;
+                    }
+                });
+
+                // Угол между вектором и осью X
+                const angleFormula = board.create('text', [
+                    -2.5, 1.5,
+                    ''
+                ], {
+                    color: colors.projection,
+                    fixed: true,
+                    parse: false
+                });
+
+                angleFormula.setText(() => {
+                    const angleRad = Math.atan2(P.Y(), P.X());
+                    const angleDeg = (angleRad * 180 / Math.PI).toFixed(1);
+                    try {
+                        return katex.renderToString(`\\LARGE{ \\alpha = ${angleDeg}^\\circ}`, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                    } catch (error) {
+                        return `α = ${angleDeg}°`;
+                    }
+                });
+
+                // Угол на графике
+                const angle = board.create('angle', [
+                    [1, 0], O, P
+                ], {
+                    radius: 0.8,
+                    color: '#ffc107',
+                    fillOpacity: 0.2,
+                    name: () => {
+                        const angleRad = Math.atan2(P.Y(), P.X());
+                        const angleDeg = (angleRad * 180 / Math.PI).toFixed(1);
+                        return `${angleDeg}°`;
+                    }
+                });
+
+                // Единичная окружность для масштаба
+                board.create('circle', [O, 1], {
+                    strokeColor: colors.projection,
+                    strokeWidth: 0.5,
+                    dash: 1,
+                    opacity: 0.3
+                });
+
+                // Инструкция
+                const instruction = board.create('text', [-2.8, 2.8, 'Перетаскивайте точку P'], {
+                    color: colors.text,
+                    fixed: true,
+                    fontSize: 12,
+                    anchorX: 'left'
+                });
+
+                return () => board.unsuspendUpdate();
+            }, []);
+
+            return (
+                <div style={{
+                    width: '100%',
+                    maxWidth: '700px',
+                    margin: '0 auto',
+                    fontFamily: 'Arial, sans-serif'
+                }}>
+                    <div style={{
+                        backgroundColor: '#f8f9fa',
+                        padding: '15px',
+                        borderRadius: '5px',
+                        marginBottom: '15px',
+                        borderLeft: '4px solid #28a745'
+                    }}>
+                        <h4 style={{
+                            margin: '0 0 10px 0',
+                            color: '#212529'
+                        }}>
+                            Разложение вектора по базису
+                        </h4>
+                        <div style={{ fontSize: '14px', color: '#6c757d' }}>
+                            <p style={{ margin: '0 0 5px 0' }}>
+                                <span style={{ color: '#dc3545' }}>●</span> <strong>Проекция на ось X</strong> (красная) — координата x вектора
+                            </p>
+                            <p style={{ margin: '0' }}>
+                                <span style={{ color: '#007bff' }}>●</span> <strong>Проекция на ось Y</strong> (синяя) — координата y вектора
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        ref={boardRef}
+                        style={{
+                            width: '400px',
+                            height: '400px',
+                            border: '1px solid #dee2e6',
+                            borderRadius: '5px',
+                            backgroundColor: 'white'
+                        }}
+                    />
+
+                    <div style={{
+                        marginTop: '15px',
+                        padding: '10px',
+                        backgroundColor: '#e9ecef',
+                        borderRadius: '4px',
+                        fontSize: '13px',
+                        color: '#495057'
+                    }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginBottom: '10px' }}>
+                            <div>
+                                <span style={{
+                                    display: 'inline-block',
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#28a745',
+                                    marginRight: '5px',
+                                    borderRadius: '2px'
+                                }}></span>
+                                Вектор <strong>v</strong>
+                            </div>
+                            <div>
+                                <span style={{
+                                    display: 'inline-block',
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#dc3545',
+                                    marginRight: '5px',
+                                    borderRadius: '2px'
+                                }}></span>
+                                Проекция на ось X
+                            </div>
+                            <div>
+                                <span style={{
+                                    display: 'inline-block',
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#007bff',
+                                    marginRight: '5px',
+                                    borderRadius: '2px'
+                                }}></span>
+                                Проекция на ось Y
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            );
+        };
+
+
+        const UnitVectors = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                const board = JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-1.5, 1.5, 1.5, -1.5],
+                    axis: true,
+                    grid: true,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                const O = board.create('point', [0, 0], {
+                    name: 'O',
+                    size: 4,
+                    color: '#212529',
+                    fixed: true
+                });
+
+                const colors = {
+                    i: '#dc3545',
+                    j: '#007bff',
+                    negi: '#ffc107',
+                    negj: '#28a745',
+                    gray: '#6c757d'
+                };
+
+                // Векторы с явными координатами для лейблов
+                const vectors = [
+                    {
+                        end: [1, 0],
+                        tex: '\\Huge { \\vec{ i }}',
+                        color: colors.i,
+                        labelX: 1.2,
+                        labelY: 0.2
+                    },
+                    {
+                        end: [0, 1],
+                        tex: '\\Huge { \\vec{ j }}',
+                        color: colors.j,
+                        labelX: 0.1,
+                        labelY: 1.2
+                    },
+                    {
+                        end: [-1, 0],
+                        tex: '-\\Huge { \\vec{ i }}',
+                        color: colors.negi,
+                        labelX: -1.2,
+                        labelY: 0.2
+                    },
+                    {
+                        end: [0, -1],
+                        tex: '-\\Huge { \\vec{ j }}',
+                        color: colors.negj,
+                        labelX: 0.1,
+                        labelY: -1.2
+                    }
+                ];
+
+                vectors.forEach(vec => {
+
+                    // console.log(vec);
+
+                    const P = board.create('point', vec.end, {
+                        size: 3,
+                        color: vec.color,
+                        fixed: true
+                    });
+
+                    board.create('arrow', [O, P], {
+                        strokeColor: vec.color,
+                        strokeWidth: 3,
+                        lastArrow: true,
+                        size: 8
+                    });
+
+                    //  var t1 = board.create('text',[0,1,"Hello World"]);
+                    // const text =  board.create('text', [5, 10], 'My Text');
+
+                    // Создаем текст с KaTeX
+                    //  Важно: передаем координаты как массив
+                    const text = board.create('text', [vec.labelX, vec.labelY, '...'], {
+                        color: vec.color,
+                        fixed: true,
+                        parse: false // Отключаем парсинг JSXGraph
+                    });
+
+                    // Рендерим KaTeX и устанавливаем как содержимое
+                    try {
+                        const html = katex.renderToString(vec.tex, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                        text.setText(html);
+                    } catch (error) {
+                        console.error('KaTeX error:', error);
+                        text.setText(vec.tex);
+                    }
+
+
+                    board.create('circle', [O, 1], {
+                        strokeColor: colors.gray,
+                        strokeWidth: 0.5,
+                        dash: 2
+                    });
+                })
+
+                return () => board.unsuspendUpdate();
+            }, []);
+
+            return (
+                <div>
+                    <div ref={boardRef} style={{ height: "400px", width: '400px' }} />
+                </div>
+            );
+        };
+
+        const UnitCircleValues = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                const board = window.JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-1.5, 1.5, 1.5, -1.5],
+                    axis: true,
+                    grid: false,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                const colors = {
+                    circle: '#6c757d',
+                    axes: '#adb5bd',
+                    specialPoints: {
+                        '0°': '#dc3545',
+                        '30°': '#007bff',
+                        '45°': '#28a745',
+                        '60°': '#ffc107',
+                        '90°': '#6f42c1'
+                    }
+                };
+
+                // Единичная окружность
+                board.create('circle', [[0, 0], [1, 0]], {
+                    strokeColor: colors.circle,
+                    strokeWidth: 1,
+                    fillColor: 'none'
+                });
+
+                // Оси
+                board.create('line', [[-1.2, 0], [1.2, 0]], {
+                    strokeColor: colors.axes,
+                    strokeWidth: 0.5
+                });
+
+                board.create('line', [[0, -1.2], [0, 1.2]], {
+                    strokeColor: colors.axes,
+                    strokeWidth: 0.5
+                });
+
+                // Основные углы в градусах и радианах
+                const angles = [
+                    { deg: 0, rad: 0, name: '0°', cos: 1, sin: 0 },
+                    { deg: 30, rad: Math.PI / 6, name: '30°', cos: Math.sqrt(3) / 2, sin: 0.5 },
+                    { deg: 45, rad: Math.PI / 4, name: '45°', cos: Math.sqrt(2) / 2, sin: Math.sqrt(2) / 2 },
+                    { deg: 60, rad: Math.PI / 3, name: '60°', cos: 0.5, sin: Math.sqrt(3) / 2 },
+                    { deg: 90, rad: Math.PI / 2, name: '90°', cos: 0, sin: 1 },
+                    { deg: 120, rad: 2 * Math.PI / 3, name: '120°', cos: -0.5, sin: Math.sqrt(3) / 2 },
+                    { deg: 135, rad: 3 * Math.PI / 4, name: '135°', cos: -Math.sqrt(2) / 2, sin: Math.sqrt(2) / 2 },
+                    { deg: 150, rad: 5 * Math.PI / 6, name: '150°', cos: -Math.sqrt(3) / 2, sin: 0.5 },
+                    { deg: 180, rad: Math.PI, name: '180°', cos: -1, sin: 0 },
+                    { deg: 210, rad: 7 * Math.PI / 6, name: '210°', cos: -Math.sqrt(3) / 2, sin: -0.5 },
+                    { deg: 225, rad: 5 * Math.PI / 4, name: '225°', cos: -Math.sqrt(2) / 2, sin: -Math.sqrt(2) / 2 },
+                    { deg: 240, rad: 4 * Math.PI / 3, name: '240°', cos: -0.5, sin: -Math.sqrt(3) / 2 },
+                    { deg: 270, rad: 3 * Math.PI / 2, name: '270°', cos: 0, sin: -1 },
+                    { deg: 300, rad: 5 * Math.PI / 3, name: '300°', cos: 0.5, sin: -Math.sqrt(3) / 2 },
+                    { deg: 315, rad: 7 * Math.PI / 4, name: '315°', cos: Math.sqrt(2) / 2, sin: -Math.sqrt(2) / 2 },
+                    { deg: 330, rad: 11 * Math.PI / 6, name: '330°', cos: Math.sqrt(3) / 2, sin: -0.5 }
+                ];
+
+                // Создаем точки для специальных углов
+                angles.forEach(angle => {
+                    // Точка на окружности
+                    const point = board.create('point', [angle.cos, angle.sin], {
+                        name: '',
+                        size: angle.deg % 45 === 0 ? 3 : 2,
+                        color: colors.specialPoints[angle.name] || '#6c757d',
+                        fixed: true
+                    });
+
+                    // Линия до центра для некоторых углов
+                    if (angle.deg % 45 === 0) {
+                        board.create('segment', [[0, 0], point], {
+                            strokeColor: '#dee2e6',
+                            strokeWidth: 0.5,
+                            dash: 1
+                        });
+                    }
+
+                    // Подпись угла
+                    const labelPos = 1.15;
+                    const labelX = angle.cos * labelPos;
+                    const labelY = angle.sin * labelPos;
+
+                    board.create('text', [labelX, labelY, angle.name], {
+                        color: colors.specialPoints[angle.name] || '#6c757d',
+                        fontSize: 10,
+                        fixed: true
+                    });
+
+                    // Подпись координат для основных углов
+                    if ([0, 30, 45, 60, 90].includes(angle.deg)) {
+                        const coordX = angle.cos * 1.3;
+                        const coordY = angle.sin * 1.3;
+
+                        const coordText = board.create('text', [coordX, coordY,
+                            `(${angle.cos.toFixed(2)}, ${angle.sin.toFixed(2)})`
+                        ], {
+                            color: '#6c757d',
+                            fontSize: 8,
+                            fixed: true
+                        });
+                    }
+                });
+
+                // Интерактивная точка (можно двигать)
+                const interactivePoint = board.create('point', [0.5, Math.sqrt(3) / 2], {
+                    name: 'P',
+                    size: 4,
+                    color: '#dc3545',
+                    fixed: false
+                });
+
+                // Соединяем с центром
+                board.create('segment', [[0, 0], interactivePoint], {
+                    strokeColor: '#dc3545',
+                    strokeWidth: 2
+                });
+
+                // Проекции на оси
+                const projX = board.create('segment', [interactivePoint, [() => interactivePoint.X(), 0]], {
+                    strokeColor: '#007bff',
+                    strokeWidth: 1,
+                    dash: 2
+                });
+
+                const projY = board.create('segment', [interactivePoint, [0, () => interactivePoint.Y()]], {
+                    strokeColor: '#28a745',
+                    strokeWidth: 1,
+                    dash: 2
+                });
+
+                // Дисплей с текущими значениями
+                const valueDisplay = board.create('text', [-1.4, 1.4, ''], {
+                    fontSize: 12,
+                    color: '#212529',
+                    fixed: true,
+                    parse: false
+                });
+
+                const updateDisplay = () => {
+                    const x = interactivePoint.X();
+                    const y = interactivePoint.Y();
+                    const r = Math.sqrt(x * x + y * y);
+                    const angleRad = Math.atan2(y, x);
+                    const angleDeg = angleRad * 180 / Math.PI;
+
+                    // Корректируем угол для отображения в градусах [0, 360)
+                    const displayAngle = angleDeg < 0 ? angleDeg + 360 : angleDeg;
+
+                    const displayText =
+                        `P(${x.toFixed(2)}, ${y.toFixed(2)})\\n` +
+                        `cos = ${x.toFixed(2)}\\n` +
+                        `sin = ${y.toFixed(2)}\\n` +
+                        `α = ${displayAngle.toFixed(1)}°`;
+
+                    try {
+                        const html = katex.renderToString(displayText, {
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                        valueDisplay.setText(html);
+                    } catch (error) {
+                        valueDisplay.setText(displayText);
+                    }
+                };
+
+                interactivePoint.on('drag', updateDisplay);
+                interactivePoint.on('up', updateDisplay);
+                updateDisplay();
+
+                // Подписи осей
+                board.create('text', [1.3, 0.1, 'cos α'], {
+                    color: '#007bff',
+                    fontSize: 10
+                });
+
+                board.create('text', [0.1, 1.3, 'sin α'], {
+                    color: '#28a745',
+                    fontSize: 10
+                });
+
+                return () => board.unsuspendUpdate();
+            }, []);
+
+            return (
+                <div>
+                    <div ref={boardRef} style={{ height: "400px", width: "400px" }} />
+                    <div className="text-center mt-2">
+                        <small className="text-muted">Перемещайте точку P по окружности или кликайте на специальные углы</small>
+                    </div>
+                </div>
+            );
+        };
+
+
+        const TrigGraphs = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                const board = window.JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-2 * Math.PI, 2, 2 * Math.PI, -2],
+                    axis: true,
+                    grid: true,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                const colors = {
+                    sine: '#dc3545',
+                    cosine: '#007bff',
+                    tangent: '#28a745'
+                };
+
+                // Слайдеры для параметров
+                const sliderA = board.create('slider', [[-5, 1.5], [-3, 1.5], [1, 0.5, 2]], {
+                    name: 'A',
+                    snapWidth: 0.1,
+                    baselineColor: colors.sine,
+                    fillColor: colors.sine + '20',
+                    strokeColor: colors.sine,
+                    width: 6
+                });
+
+                const sliderOmega = board.create('slider', [[-1, 1.5], [1, 1.5], [1, 0.5, 3]], {
+                    name: 'ω',
+                    snapWidth: 0.1,
+                    baselineColor: colors.cosine,
+                    fillColor: colors.cosine + '20',
+                    strokeColor: colors.cosine,
+                    width: 6
+                });
+
+                const sliderPhi = board.create('slider', [[3, 1.5], [5, 1.5], [0, -Math.PI, Math.PI]], {
+                    name: 'φ',
+                    snapWidth: Math.PI / 6,
+                    baselineColor: colors.tangent,
+                    fillColor: colors.tangent + '20',
+                    strokeColor: colors.tangent,
+                    width: 6
+                });
+
+                // График синуса
+                const sineGraph = board.create('functiongraph', [
+                    (x) => sliderA.Value() * Math.sin(sliderOmega.Value() * x + sliderPhi.Value()),
+                    -2 * Math.PI, 2 * Math.PI
+                ], {
+                    strokeColor: colors.sine,
+                    strokeWidth: 3,
+                    highlightStrokeWidth: 3
+                });
+
+                // Точка, бегущая по графику
+                const movingPoint = board.create('point', [
+                    () => {
+                        const t = (Date.now() / 1000) % (2 * Math.PI);
+                        return t - Math.PI;
+                    },
+                    (x) => sliderA.Value() * Math.sin(sliderOmega.Value() * x + sliderPhi.Value())
+                ], {
+                    name: '', size: 4, color: colors.sine, fixed: true
+                });
+
+                // Формула
+                const formulaBox = board.create('text', [-5.5, -1.5, ''], {
+                    fontSize: 14,
+                    color: '#212529',
+                    fixed: true,
+                    parse: false
+                });
+
+                const updateFormula = () => {
+                    const A = sliderA.Value().toFixed(1);
+                    const ω = sliderOmega.Value().toFixed(1);
+                    const φ = sliderPhi.Value().toFixed(2);
+
+                    const formula = `y = ${A} \\cdot \\sin(${ω}x + ${φ})`;
+
+                    try {
+                        const html = katex.renderToString(formula, {
+                            displayMode: true,
+                            throwOnError: false
+                        });
+                        formulaBox.setText(html);
+                    } catch (error) {
+                        formulaBox.setText(formula);
+                    }
+                };
+
+                [sliderA, sliderOmega, sliderPhi].forEach(slider => {
+                    slider.on('drag', updateFormula);
+                    slider.on('up', updateFormula);
+                });
+
+                updateFormula();
+
+                // Подписи осей
+                board.create('text', [5.5, 0.2, 'x'], { fontSize: 12 });
+                board.create('text', [0.2, 1.8, 'y'], { fontSize: 12 });
+
+                // Отметки π
+                for (let i = -2; i <= 2; i++) {
+                    const x = i * Math.PI;
+                    board.create('point', [x, 0], { size: 2, color: '#6c757d', fixed: true });
+                    board.create('text', [x, -0.2, i === 0 ? '0' : `${i}π`], { fontSize: 10 });
+                }
+
+                return () => board.unsuspendUpdate();
+            }, []);
+
+            return (
+                <div>
+                    <div ref={boardRef} style={{ height: "400px", width: "400px" }} />
+                </div>
+            );
+        };
+
+        const TrigEquationSolver = () => {
+            const boardRef = useRef(null);
+
+            useEffect(() => {
+                const board = window.JXG.JSXGraph.initBoard(boardRef.current, {
+                    boundingbox: [-2, 2, 2, -2],
+                    axis: true,
+                    grid: true,
+                    showNavigation: false,
+                    showCopyright: false
+                });
+
+                const colors = {
+                    circle: '#6c757d',
+                    solution: '#dc3545',
+                    arc: '#007bff',
+                    point: '#28a745'
+                };
+
+                // Единичная окружность
+                const circle = board.create('circle', [[0, 0], [1, 0]], {
+                    strokeColor: colors.circle,
+                    strokeWidth: 1,
+                    fillColor: 'none'
+                });
+
+                const O = board.create('point', [0, 0], { name: '', size: 2, fixed: true });
+
+                // Слайдер для значения a в уравнении sin x = a
+                const sliderA = board.create('slider', [[-1.5, -1.5], [0.5, -1.5], [0.5, -1, 1]], {
+                    name: 'a',
+                    snapWidth: 0.1,
+                    baselineColor: colors.solution,
+                    fillColor: colors.solution + '20',
+                    strokeColor: colors.solution,
+                    width: 6
+                });
+
+                // Горизонтальная линия y = a
+                const lineA = board.create('line', [[-2, () => sliderA.Value()], [2, () => sliderA.Value()]], {
+                    strokeColor: colors.solution,
+                    strokeWidth: 1,
+                    dash: 2
+                });
+
+                // Точки пересечения линии с окружностью
+                const P1 = board.create('intersection', [lineA, circle, 0], {
+                    name: 'P₁', size: 4, color: colors.point, fixed: true
+                });
+
+                const P2 = board.create('intersection', [lineA, circle, 1], {
+                    name: 'P₂', size: 4, color: colors.point, fixed: true
+                });
+
+                // Дуги-решения
+                const arc1 = board.create('arc', [O, P1, P2], {
+                    strokeColor: colors.arc,
+                    strokeWidth: 3,
+                    fillColor: colors.arc + '20'
+                });
+
+                const arc2 = board.create('arc', [O, P2, P1], {
+                    strokeColor: colors.arc,
+                    strokeWidth: 3,
+                    fillColor: colors.arc + '20'
+                });
+
+                // Углы
+                const angle1 = board.create('angle', [P1, O, [1, 0]], {
+                    radius: 0.3,
+                    color: colors.point,
+                    fillColor: colors.point + '40'
+                });
+
+                const angle2 = board.create('angle', [P2, O, [1, 0]], {
+                    radius: 0.4,
+                    color: colors.point,
+                    fillColor: colors.point + '40'
+                });
+
+                // Формула и решения
+                const formulaBox = board.create('text', [-1.8, 1.8, ''], {
+                    fontSize: 14,
+                    color: '#212529',
+                    fixed: true,
+                    parse: false
+                });
+
+                const updateFormula = () => {
+                    const a = sliderA.Value().toFixed(2);
+                    const arcsin = Math.asin(a);
+                    const solution1 = arcsin.toFixed(2);
+                    const solution2 = (Math.PI - arcsin).toFixed(2);
+
+                    let formula;
+                    if (Math.abs(a) > 1) {
+                        formula = `\\sin x = ${a} \\text{ — нет решений}`;
+                    } else if (Math.abs(a) === 1) {
+                        formula = `\\sin x = ${a} \\Rightarrow x = \\frac{\\pi}{2} + \\pi n`;
+                    } else {
+                        formula = `\\sin x = ${a} \\Rightarrow \\\\ x_1 = ${solution1} + 2\\pi n \\\\ x_2 = ${solution2} + 2\\pi n`;
+                    }
+
+                    try {
+                        const html = katex.renderToString(formula, {
+                            displayMode: true,
+                            throwOnError: false
+                        });
+                        formulaBox.setText(html);
+                    } catch (error) {
+                        formulaBox.setText(formula);
+                    }
+                };
+
+                sliderA.on('drag', updateFormula);
+                sliderA.on('up', updateFormula);
+                updateFormula();
+
+                // Объяснение
+                board.create('text', [-1.8, -1.2, 'Решения уравнения sin x = a — это точки пересечения горизонтальной линии y = a с единичной окружностью'], {
+                    fontSize: 10,
+                    color: '#6c757d',
+                    fixed: true
+                });
+
+                return () => board.unsuspendUpdate();
+            }, []);
+
+            return (
+                <div>
+                    <div ref={boardRef} style={{ height: "400px", width: "400px" }} />
+                </div>
+            );
+        };
+
+        function PrepareJSXGraph({ quizTemplate }) {
+            let currentType = quizTemplate || 'triangle345';
+
+            const renderFigure = () => {
+                switch (currentType) {
+                    // Планиметрия
+                    case 'triangle345':
+                        return <RightTriangle345 />;
+                    case 'rightTrapezoid':
+                        return <RightTrapezoid />;
+                    case 'circleWithChords':
+                        return <CircleWithChords />;
+                    case 'regularHexagon':
+                        return <RegularHexagon />;
+                    case 'parallelogram':
+                        return <Parallelogram />;
+                    case 'unitVectors':
+                        return <UnitVectors />;
+                    case 'interactiveVectors':
+                        return <InteractiveUnitVectors />;
+
+                    // Стереометрия
+                    case 'sphere3D':
+                        return <Sphere3D />;
+                    case 'cone3D':
+                        return <Cone3D />;
+                    case 'cylinder3D':
+                        return <Cylinder3D />;
+                    case 'triangularPyramid':
+                        return <TriangularPyramid />;
+                    case 'rectangularPrism':
+                        return <RectangularPrism />;
+                    case 'cube3D':
+                        return <Cube3D />;
+
+                    case 'pythagoreanIdentity':
+                        return <PythagoreanIdentity />;
+                    case 'reductionFormulas':
+                        return <ReductionFormulas />;
+                    case 'additionFormulas':
+                        return <AdditionFormulas />;
+                    case 'doubleAngleFormulas':
+                        return <DoubleAngleFormulas />;
+                    case 'unitCircleValues':
+                        return <UnitCircleValues />;
+
+                    case 'trigGraphs':
+                        return <TrigGraphs />;
+                    case 'trigEquationSolver':
+                        return <TrigEquationSolver />;
+                    case 'triangleSolver':
+                        return <TriangleSolver />;
+
+                    default:
+                        return <RightTriangle345 />;
+                }
+            };
+
+
+
+
+            return <div className="container">
+                {renderFigure()}
+            </div>
+
+        }
+
+        function App() {
+            const [state, dispatch] = useReducer(caseReducer, initialState);
+
+            return (
+                <FormProvider>
+
+                    <Container className="mt-5">
+                        <PrepareJSXGraph quizTemplate={'triangle345'} />
+                        <ProcessKatex
+                            text={"$\\frac{\\sqrt{2}}{2}$"}
+                            className="card-text mb-3 math-text"
+                        />
+                        <ActiveCells />
+                        <FormDebugger />
+                    </Container>
+                </FormProvider>
+
+            );
+        }
+
+        createRoot(root).render(<App />);
+    </script>
+</body>
+
+</html>
