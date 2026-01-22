@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="../dist/original.css" />
+    <link rel="stylesheet" href="../dist/katex.min.css">
+
+
+    <script src="../dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <style>
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            object-fit: cover;
+        }
+
+        .avatarList {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+
+    <title>Basic react Quizcardwithstorage</title>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container" id="root"></div>
+
+    <script src="../dist/babel.standalone7.27.6.min.js"></script>
+
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+
+    <script type="text/babel">
+        let { createRoot } = ReactDOM;
+        let { useReducer, useState, createContext, useContext, useEffect, useRef } = React;
+        let { Form, Row, Col, Container, Button, Modal, Card } = ReactBootstrap;
+        let { getFirebaseNode } = basicfirebasecrudauthservices;
+
+
+        const ApplicationContext = createContext(null);
+        const ApplicationDispatchContext = createContext(null);
+        const ProjectContext = createContext(null);
+        const ProjectDispatchContext = createContext(null);
+
+        const FormContext = createContext();
+        const useFormState = () => useContext(FormContext);
+
+        // function SelectDate({ setDate }) {
+        //   async function handleChange(e) {
+        //     let { name, value } = e.target;
+
+        //     console.log(name, value);
+        //     let d = new Date(e.target.value);
+
+        //     let currentDay = new Intl.DateTimeFormat("en", {
+        //       weekday: "short",
+        //       year: "numeric",
+        //       month: "short",
+        //       day: "numeric",
+        //     })
+        //       .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+        //       .replace(/[^a-zA-Z0-9]/g, "_");
+        //     setDate(currentDay);
+        //   }
+
+        //   return (
+        //     <Container>
+        //       <Form>
+        //         <Row>
+        //           <Col>
+        //             <Form.Group controlId="formStatePeriod">
+        //               <Form.Label>Период</Form.Label>
+        //               <Form.Control
+        //                 type="date"
+        //                 name="selecteddate"
+        //                 required
+        //                 onChange={handleChange}
+        //               />
+        //             </Form.Group>
+        //           </Col>
+        //         </Row>
+        //       </Form>
+        //     </Container>
+        //   );
+        // }
+
+        // function ExampleModal() {
+        //   // State to control whether the modal is shown or hidden
+        //   const [show, setShow] = useState(false);
+
+        //   // Handlers to update the state
+        //   const handleClose = () => setShow(false);
+        //   const handleShow = () => setShow(true);
+
+        //   return (
+        //     <>
+        //       {/* Button to launch the modal */}
+        //       <Button variant="primary" onClick={handleShow}>
+        //         Launch demo modal
+        //       </Button>
+
+        //       {/* The Modal component, controlled by the 'show' state */}
+        //       <Modal show={show} onHide={handleClose}>
+        //         <Modal.Header closeButton>
+        //           <Modal.Title>Modal heading</Modal.Title>
+        //         </Modal.Header>
+        //         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        //         <Modal.Footer>
+        //           <Button variant="secondary" onClick={handleClose}>
+        //             Close
+        //           </Button>
+        //           <Button variant="primary" onClick={handleClose}>
+        //             Save Changes
+        //           </Button>
+        //         </Modal.Footer>
+        //       </Modal>
+        //     </>
+        //   );
+        // }
+
+        // function ShowUsers({ usersAvatars }) {
+
+        //   console.log(usersAvatars);
+
+
+        //   function openUserInModal() {
+        //     dispatch({
+        //       type: "SEED_STATE",
+        //       payload: {
+        //         object: {
+        //           isLoading: false,
+        //           updatedopenavatars,
+        //           uniqueUserEmails,
+        //         },
+        //       },
+        //     });
+        //   }
+        //   return <Container>{Object.keys(usersAvatars).map(userEmail => {
+        //     return <Row>
+        //       <Col>
+        //         <img src={!!usersAvatars[userEmail]?.avatarUrl ?
+        //           usersAvatars[userEmail]?.avatarUrl : "../freelancer.jpg"}
+        //           alt=""
+        //           className="avatarList"
+
+        //         />
+        //       </Col>
+        //       <Col>{userEmail}</Col>
+        //       <Col><Button size="sm">Change</Button></Col>
+
+        //     </Row>
+        //   })}
+        //   </Container>;
+        // }
+
+        // let initialState = {
+        //   email: null,
+        //   user: null,
+        //   avatarUrl: "",
+        //   userEmail: "",
+        //   posts: [],
+        //   showModal: false,
+        //   modal: {},
+        //   isLoading: true,
+
+        // }
+
+        // let projectInitialState = {
+        //   updatedopenavatars: {},
+        //   uniqueUserEmails: [],
+        //   showModal: false,
+        //   modal: {}
+        // }
+
+
+
+        // function App() {
+        //   const [state, applicationDispatch] = useReducer(
+        //     caseReducer,
+        //     initialState
+        //   );
+
+        //   const [projectState, projectDispatch] = useReducer(
+        //     caseReducer,
+        //     projectInitialState
+        //   );
+
+
+        //   async function setDate(currentDay) {
+        //     console.log(currentDay);
+        //     let res = await getFirebaseNode({
+        //       url: "/currentDay/" + currentDay + "/posts",
+        //       type: "array",
+        //     });
+        //     let uniqueUserEmails = [
+        //       ...new Set(
+        //         res.map((item) => item?.email.replace(/[^a-zA-Z0-9]/g, "_"))
+        //       ),
+        //     ];
+        //     console.log(uniqueUserEmails);
+
+        //     let updatedopenavatars = {};
+
+        //     await Promise.all(
+        //       uniqueUserEmails.map((userEmail) => {
+        //         return getFirebaseNode({
+        //           url: "openavatars/" + userEmail,
+        //           type: "object",
+        //         });
+        //       })
+        //     ).then((values) => {
+        //       values.forEach(
+        //         (result, index) =>
+        //           (updatedopenavatars[uniqueUserEmails[index]] = result)
+        //       );
+        //       console.log(updatedopenavatars);
+        //     });
+
+        //     projectDispatch({
+        //       type: "SEED_STATE",
+        //       payload: {
+        //         object: {
+        //           isLoading: false,
+        //           updatedopenavatars,
+        //           uniqueUserEmails,
+        //         },
+        //       },
+        //     });
+        //     //  console.log(basicfirebasecrudauthservices.loadState())
+        //   }
+
+        //   console.log(state);
+
+        //   return (
+        //     <ApplicationContext.Provider value={state}>
+        //       <ApplicationDispatchContext.Provider value={applicationDispatch}>
+        //         <ProjectContext.Provider value={projectState}>
+        //           <ProjectDispatchContext.Provider value={projectDispatch}>
+        //             <Container>
+        //               <SelectDate setDate={setDate} />
+        //               <ShowUsers usersAvatars={projectState?.updatedopenavatars} />
+        //               <ExampleModal />
+        //             </Container>
+        //           </ProjectDispatchContext.Provider>
+        //         </ProjectContext.Provider>
+        //       </ApplicationDispatchContext.Provider>
+        //     </ApplicationContext.Provider>
+
+
+        //   );
+        // }
+
+
+        const alphabet = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"
+        ];
+
+        function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
+            Object.keys(protoDataObject).map((objKey) => {
+                const [col, ...row] = objKey;
+                let currentColIndex = alphabet.findIndex(item => item === col);
+                if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
+                if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
+            });
+            //  console.log(maxColumn, maxRow);
+
+            var array = new Array(maxRow);
+            for (var i = 0; i < array.length; i++) {
+                array[i] = Array(maxColumn + 1).fill('');
+            }
+
+            Object.keys(protoDataObject).map((objKey) => {
+                const [col, ...row] = objKey;
+                let colArrayIndex = alphabet.findIndex((item) => item === col);
+                let rowArrayIndex = parseInt(row) - 1;
+                array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
+            });
+            return array;
+        }
+
+
+        const caseReducer = basicfirebasecrudauthservices.produce((draft, action) => {
+            switch (action.type) {
+                case "CALCULATE_SPREADSHEET":
+                    let newProtoData = { ...draft.protoData, [action.payload.key]: action.payload.value }
+                    draft.data = basicfirebasecrudauthservices.createProtoObject(
+                        basicfirebasecrudauthservices.createNewDraft(
+                            createProtoArray(newProtoData, 10, 1)
+                        ));
+                    draft.protoData = { ...draft.protoData, [action.payload.key]: action.payload.value };
+                    draft.rerender = Math.random();
+                    break;
+
+                case "SEED_STATE":
+                    Object.keys(action.payload.object).map((key) => {
+                        draft[key] = action.payload.object[key];
+                    });
+                    break;
+
+                default:
+                    break;
+            }
+        });
+
+        const useDebounce = (value, delay) => {
+            const [debouncedValue, setDebouncedValue] = useState(value);
+
+            useEffect(() => {
+                const handler = setTimeout(() => {
+                    setDebouncedValue(value);
+                }, delay);
+                return () => {
+                    clearTimeout(handler);
+                };
+            }, [value, delay]);
+            return debouncedValue;
+        };
+
+
+        const DebouncedInput = ({ id, delay = 500, ...props }) => {
+            const { state, dispatch } = useFormState();
+            const [inputValue, setInputValue] = useState("");
+            const debouncedValue = useDebounce(inputValue, delay);
+
+            useEffect(() => {
+                dispatch({
+                    type: "CALCULATE_SPREADSHEET",
+                    payload: {
+                        key: id,
+                        value: debouncedValue
+                    }
+                });
+            }, [debouncedValue, id, dispatch]);
+
+            const handleInputChange = (event) => {
+                setInputValue(event.target.value);
+            };
+
+            return (
+                <Form.Control
+                    type="text"
+                    name={id}
+                    value={inputValue} // The displayed value updates immediately
+                    onChange={handleInputChange} // The internal state updates immediately
+                    {...props}
+                />
+            );
+        };
+
+
+        let casewithcalculations = [
+            { id: "A1", orderby: 0, label: "Налог на прибыль" },
+            { id: "A2", orderby: 1, label: "Прибыль" },
+            { id: "A3", orderby: 2, label: "Расходы" },
+            { id: "A4", orderby: 3, label: "Доходы" },
+        ]
+
+        let initialState = {};
+
+        const FormProvider = ({ children }) => {
+            const [state, dispatch] = useReducer(caseReducer, initialState);
+            return (
+                <FormContext.Provider value={{ state, dispatch }}>
+                    {children}
+                </FormContext.Provider>
+            );
+        };
+
+        const FormDebugger = () => {
+            const { state } = useFormState();
+
+            return (
+                <Container className="mt-4 p-3 bg-light border rounded">
+                    <pre className="mb-0">
+                        <code>
+                            {JSON.stringify(state, null, 2)}
+                        </code>
+                    </pre>
+                </Container>
+            );
+        };
+
+        function ActiveCells() {
+            const { state } = useFormState();
+
+            return <Container className="mt-5">
+                {casewithcalculations.map(item => {
+                    let value = !!state?.data && state.data.hasOwnProperty(item.id) && typeof state.data[item.id] === 'number'
+                        ? state.data[item.id] : null;
+                    return <Form.Group>
+                        <Form.Label>{!!value ? item.id + ": " + value : item.id}</Form.Label>
+                        <DebouncedInput
+                            id={item.id}
+                            placeholder="=2+2"
+                            delay={500}
+                        />
+                        <small>{item.label}</small>
+                    </Form.Group>
+                })}
+            </Container>
+        }
+
+
+        const KaTeXDisplay = ({ expression, displayMode = true, className = "" }) => {
+            const containerRef = useRef(null);
+
+            useEffect(() => {
+                // Ensure that the global 'katex' object is available
+                if (window.katex) {
+                    try {
+                        window.katex.render(expression, containerRef.current, {
+                            throwOnError: true,
+                            displayMode: displayMode, // Set to false for inline math
+                        });
+                    } catch (error) {
+                        console.error("KaTeX rendering error:", error);
+                    }
+                }
+            }, [expression]); // Re-run effect if the expression changes
+
+            if (!!displayMode) {
+                return <div className="katex-block-wrapper" style={{
+                    overflow: 'visible',
+                    minHeight: '50px'
+                }}>
+                    <div className={className} ref={containerRef} />
+                </div>
+            }
+
+            return <div ref={containerRef} />;
+        };
+
+
+        function processTextWithFormulas(inputText) {
+            if (!inputText) return null;
+
+            // Временный div для парсинга HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = inputText;
+
+            // Рекурсивная функция для обработки узлов
+            const processNode = (node, keyPrefix = '') => {
+                // Если это текстовый узел
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.textContent;
+                    if (!text.trim()) return null;
+
+                    // Разбиваем текст на формулы и обычный текст
+                    const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
+                    const result = [];
+
+                    parts.forEach((part, index) => {
+                        if (!part.trim()) return;
+
+                        // Блочная формула $$...$$
+                        if (part.startsWith('$$') && part.endsWith('$$') && part.length > 4) {
+                            const formula = part.slice(2, -2);
+                            result.push(
+                                <KaTeXDisplay
+                                    key={`${keyPrefix}-block-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Инлайн формула $...$
+                        else if (part.startsWith('$') && part.endsWith('$') && part.length > 2 && !part.startsWith('$$')) {
+                            const formula = part.slice(1, -1);
+                            result.push(
+                                <KaTeXDisplay
+                                    key={`${keyPrefix}-inline-${index}`}
+                                    expression={formula}
+                                />
+                            );
+                        }
+                        // Обычный текст
+                        else {
+                            result.push(
+                                <span key={`${keyPrefix}-text-${index}`}>
+                                    {part}
+                                </span>
+                            );
+                        }
+                    });
+
+                    return result.length > 1 ? result : result[0];
+                }
+
+                // Если это элемент
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const tagName = node.tagName.toLowerCase();
+
+                    // Пропускаем script, style, svg
+                    if (tagName === 'script' || tagName === 'style' || tagName === 'svg') {
+                        return null;
+                    }
+
+                    // Создаём props для React элемента
+                    const props = {
+                        key: `${keyPrefix}-${tagName}-${Math.random().toString(36).substr(2, 9)}`,
+                        className: node.className || '',
+                        style: node.style.cssText ? { cssText: node.style.cssText } : {}
+                    };
+
+                    // Копируем атрибуты (кроме class и style)
+                    Array.from(node.attributes).forEach(attr => {
+                        if (attr.name !== 'class' && attr.name !== 'style') {
+                            props[attr.name] = attr.value;
+                        }
+                    });
+
+                    // Обрабатываем дочерние элементы
+                    const children = [];
+                    node.childNodes.forEach((child, index) => {
+                        const processedChild = processNode(child, `${keyPrefix}-child-${index}`);
+                        if (processedChild) {
+                            if (Array.isArray(processedChild)) {
+                                children.push(...processedChild);
+                            } else {
+                                children.push(processedChild);
+                            }
+                        }
+                    });
+
+                    // Специальная обработка для некоторых тегов
+                    switch (tagName) {
+                        case 'div':
+                        case 'span':
+                        case 'p':
+                        case 'h1':
+                        case 'h2':
+                        case 'h3':
+                        case 'h4':
+                        case 'h5':
+                        case 'h6':
+                        case 'ul':
+                        case 'ol':
+                        case 'li':
+                        case 'strong':
+                        case 'em':
+                        case 'a':
+                            return React.createElement(tagName, props, children);
+
+                        case 'br':
+                            return React.createElement('br', { key: props.key });
+
+                        case 'hr':
+                            return React.createElement('hr', { key: props.key });
+
+                        case 'img':
+                            return React.createElement('img', {
+                                key: props.key,
+                                src: node.src,
+                                alt: node.alt || '',
+                                className: props.className,
+                                style: props.style
+                            });
+
+                        default:
+                            // Для остальных тегов используем dangerouslySetInnerHTML
+                            return (
+                                <div
+                                    key={props.key}
+                                    dangerouslySetInnerHTML={{ __html: node.outerHTML }}
+                                />
+                            );
+                    }
+                }
+
+                return null;
+            };
+
+            // Обрабатываем все дочерние узлы tempDiv
+            const result = [];
+            tempDiv.childNodes.forEach((child, index) => {
+                const processed = processNode(child, `root-${index}`);
+                if (processed) {
+                    if (Array.isArray(processed)) {
+                        result.push(...processed);
+                    } else {
+                        result.push(processed);
+                    }
+                }
+            });
+
+            return result;
+        }
+
+
+        const ProcessKatex = ({ text, className = "" }) => {
+            return <div className={className}>
+                {processTextWithFormulas(text)}
+            </div>;
+        };
+
+
+        function QuizWithRandomNumber() {
+            return <div>QuizWithRandomNumber</div>
+        }
+
+        function SingleQuizCardWithStorage({
+            key = Math.random(),
+            header = "header",
+            imageurl = "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/05/sasha-stories-259551-unsplash-e1558728808681.jpg?resize=1500%2C1125&ssl=1",
+            title = "title"
+        }) {
+            return <Card bg={"light"} style={{ width: "95%", margin: "1rem" }} key={key}>
+                <Card.Header>{header}</Card.Header>
+                <Card.Body>
+                    {!!imageurl ? (
+                        <Card.Img variant="top" src={imageurl} />
+                    ) : null}
+                    <Card.Title>{title}</Card.Title>
+
+                    <Card.Text>Ha Ha</Card.Text>
+
+                    <KaTeXDisplay expression={'\\sin 0^{\\circ}'} />
+
+                    <ProcessKatex text={`<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Синус угла 0°</h5>
+        <p>Синус угла - это ордината (y-координата) точки на единичной окружности.</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Геометрическое представление</strong>
+            </div>
+            <div class="card-body">
+              <p>На единичной окружности угол 0° соответствует точке (1, 0).</p>
+              <p>Координаты: $x = 1$, $y = 0$</p>
+              <p>$$\\sin 0^{\\circ} = y = 0$$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>По определению</strong>
+            </div>
+            <div class="card-body">
+              <p>В прямоугольном треугольнике:</p>
+              <p>$$\\sin \\alpha = \\frac{\\text{противолежащий катет}}{\\text{гипотенуза}}$$</p>
+              <p>При угле 0° противолежащий катет равен 0, поэтому:</p>
+              <p>$$\\sin 0^{\\circ} = \\frac{0}{\\text{гипотенуза}} = 0$$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <h6>💡 Запомните:</h6>
+        <p class="mb-1">$$\\sin 0^{\\circ} = 0$$</p>
+        <p class="mb-0">Нулевой угол - нулевой синус</p>
+      </div>
+    </div>`} />
+
+                </Card.Body>
+            </Card>
+        }
+
+
+
+
+
+        function App() {
+            const [state, dispatch] = useReducer(caseReducer, initialState);
+
+            return (
+                <FormProvider>
+                    <Container className="mt-5">
+
+                        <SingleQuizCardWithStorage />
+                        <ActiveCells />
+                        <FormDebugger />
+                    </Container>
+                </FormProvider>
+
+            );
+        }
+
+        createRoot(root).render(<App />);
+    </script>
+</body>
+
+</html>
