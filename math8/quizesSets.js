@@ -4667,7 +4667,194 @@ let quizesSets = [
       `</div>` +
       `</div>` +
       `</div>`
-  }
+  },
+
+   {
+    "id": "der001",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Производная линейной функции y = x",
+    "theme": "Производная функции y = x",
+    "text": "Чему равна производная функции $y = x$?",
+    "choices": [
+      "0",
+      "1",
+      "x",
+      "$\\frac{1}{x}$",
+      "$x^2$"
+    ],
+    "answers": ["1"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Доказательство через предел:</h5>
+<p>По определению производной: $f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$</p>
+<p>Для функции $y = x$:</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{(x + \\Delta x) - x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{\\Delta x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} 1 = 1$</p>
+<p>Таким образом, $(x)' = 1$.</p>
+<p><strong>Геометрический смысл:</strong> производная равна угловому коэффициенту касательной. Для прямой $y = x$ угол наклона равен 45°, $tg(45°) = 1$.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+  {
+    "id": "der002",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Производная функции y = 2x",
+    "theme": "Производная функции y = 2x",
+    "text": "Чему равна производная функции $y = 2x$?",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "$2x$",
+      "$\\frac{1}{2}$"
+    ],
+    "answers": ["2"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Доказательство через предел:</h5>
+<p>По определению производной: $f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$</p>
+<p>Для функции $y = 2x$:</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{2(x + \\Delta x) - 2x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{2x + 2\\Delta x - 2x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{2\\Delta x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} 2 = 2$</p>
+<p>Таким образом, $(2x)' = 2$.</p>
+<p><strong>Общее правило:</strong> $(kx)' = k$, где $k$ — постоянный коэффициент.</p>
+<p><strong>Геометрический смысл:</strong> угловой коэффициент прямой $y = 2x$ равен 2.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+  {
+    "id": "der003",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Производная функции y = 3x",
+    "theme": "Производная функции y = 3x",
+    "text": "Чему равна производная функции $y = 3x$?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "$3x$",
+      "$\\frac{1}{3}$"
+    ],
+    "answers": ["3"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Доказательство через предел:</h5>
+<p>Используем определение производной: $f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$</p>
+<p>Для $y = 3x$:</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{3(x + \\Delta x) - 3x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{3x + 3\\Delta x - 3x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{3\\Delta x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} 3 = 3$</p>
+<p>Таким образом, $(3x)' = 3$.</p>
+<p><strong>Можно также использовать правило:</strong> производная константы, умноженной на функцию, равна константе, умноженной на производную функции: $(k \\cdot x)' = k \\cdot (x)' = k \\cdot 1 = k$.</p>
+<p>В данном случае $k = 3$.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+  {
+    "id": "der004",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Производная функции y = 4x",
+    "theme": "Производная функции y = 4x",
+    "text": "Чему равна производная функции $y = 4x$?",
+    "choices": [
+      "0",
+      "1",
+      "4",
+      "$4x$",
+      "$\\frac{1}{4}$"
+    ],
+    "answers": ["4"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Доказательство через предел:</h5>
+<p>Применим определение производной: $f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$</p>
+<p>Для функции $y = 4x$:</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{4(x + \\Delta x) - 4x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{4x + 4\\Delta x - 4x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{4\\Delta x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} 4 = 4$</p>
+<p>Таким образом, $(4x)' = 4$.</p>
+<p><strong>Общая формула:</strong> для любой линейной функции $y = kx + b$ производная равна $k$ — коэффициенту при $x$.</p>
+<p>В данном случае $k = 4$, $b = 0$, поэтому $y' = 4$.</p>
+<p><strong>Физический смысл:</strong> если $x$ — время, а $y$ — координата, то производная $y' = 4$ означает постоянную скорость движения, равную 4 единицам длины в единицу времени.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+  {
+    "id": "der005",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Производная функции y = kx (общий случай)",
+    "theme": "Производная линейной функции",
+    "text": "Чему равна производная функции $y = kx$, где $k$ — постоянная?",
+    "choices": [
+      "0",
+      "1",
+      "k",
+      "$kx$",
+      "$\\frac{k}{x}$"
+    ],
+    "answers": ["k"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Доказательство через предел для общего случая:</h5>
+<p>По определению производной: $f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$</p>
+<p>Для функции $y = kx$:</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{k(x + \\Delta x) - kx}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{kx + k\\Delta x - kx}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} \\frac{k\\Delta x}{\\Delta x}$</p>
+<p>$f'(x) = \\lim\\limits_{\\Delta x \\to 0} k = k$</p>
+<p>Таким образом, $(kx)' = k$.</p>
+<p><strong>Это фундаментальное правило:</strong> производная линейной функции равна её угловому коэффициенту.</p>
+<p><strong>Следствия:</strong></p>
+<ul>
+<li>$(x)' = 1$ (при $k = 1$)</li>
+<li>$(2x)' = 2$ (при $k = 2$)</li>
+<li>$(3x)' = 3$ (при $k = 3$)</li>
+<li>$(4x)' = 4$ (при $k = 4$)</li>
+</ul>
+<p>Правило работает для любого действительного числа $k$.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
 
 ]
 
