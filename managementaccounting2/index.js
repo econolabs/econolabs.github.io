@@ -370,7 +370,7 @@ function EditRecordType() {
     // console.log(projectSelector.content);
     // console.log( applicationSelector?.modal?.item?.id)
 
-     function closeSelect() {
+    function closeSelect() {
         applicationDispatch({
             type: "SEED_STATE",
             payload: {
@@ -379,7 +379,8 @@ function EditRecordType() {
                     modal: {}
                 },
             },
-        });}
+        });
+    }
 
     let analyticsArray = [
         { id: "capitalIncrease", name: "Увеличение чистых активов" },
@@ -455,7 +456,7 @@ function EditRecordType() {
                 objValue: analyticsItem
             },
         });
-        
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
@@ -549,8 +550,8 @@ function EditRecordType() {
             </Row>
 
             <Col>
-                    <Button variant="outline-secondary" size="sm" onClick={()=>closeSelect()} >Закрыть</Button>
-                </Col>
+                <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()} >Закрыть</Button>
+            </Col>
 
 
 
@@ -818,6 +819,45 @@ function Ledger() {
 
 }
 
+
+function IndicatorAnalalytics({ indicator }) {
+    const projectSelector = useContext(ProjectContext);
+    let contoArray = balanceContoArray.find(item => item.id === indicator).children;
+    let records = !!projectSelector?.content ? projectSelector?.content : [];
+    console.log(records);
+
+    function processRecords(conto) {
+        let DValues = 0;
+        let KValues = 0;
+        Array.isArray(projectSelector.content) && projectSelector.content.map(item => {
+            if (item.d === indicator && item.bookD === conto) { DValues = DValues + parseFloat(item.sum) }
+            if (item.k === indicator && item.bookK === conto) { KValues = KValues + parseFloat(item.sum) }
+            return null
+        })
+        if (
+            balanceContoArray.find(item => item.id === indicator)?.disposition === "asset"
+            // indicator === "Основные средства" || indicator === "Материалы" ||
+            // indicator === "Незавершенное производство" || indicator === "Готовая продукция" ||
+            // indicator === "Дебиторская задолженность" || indicator === "Деньги"
+        ) { return DValues - KValues } else { return KValues - DValues }
+    }
+
+    let notnullconto = [];
+    contoArray.map(conto => {
+        if (processRecords(conto) !== 0) { notnullconto.push(conto) }
+    })
+
+
+    return <div>
+        {notnullconto.map(conto => {
+            return <div key={conto} className="lead text-secondary">
+                {conto + " " + processRecords(conto)}</div>
+        })}
+    </div>
+
+    // return <div>Ha Ha</div>
+}
+
 function SimpleAccounting() {
     const applicationSelector = useContext(ApplicationContext);
     const projectDispatch = useContext(ProjectDispatchContext);
@@ -904,35 +944,97 @@ function SimpleAccounting() {
 
 
 
+
     return <div key={projectSelector?.triggerRerender}>
         <Container>
             <Row>
-                <Col>Основные средства {processRecords("Основные средства")}</Col>
-                <Col>Уставный капитал {processRecords("Уставный капитал")}</Col>
+                <Col><div>
+                    Основные средства {processRecords("Основные средства")}
+                    <IndicatorAnalalytics indicator={"Основные средства"} />
+                </div>
+
+                </Col>
+                <Col>
+                    <div>
+                        Уставный капитал {processRecords("Уставный капитал")}
+                        <IndicatorAnalalytics indicator={"Уставный капитал"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
                 <Col>{" "}</Col>
-                <Col>Нераспределенная прибыль {processRecords("Нераспределенная прибыль")}</Col>
+                <Col>
+                    <div>
+                        Нераспределенная прибыль {processRecords("Нераспределенная прибыль")}
+                        <IndicatorAnalalytics indicator={"Нераспределенная прибыль"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
-                <Col>Материалы {processRecords("Материалы")}</Col>
+                <Col>
+                    <div>
+                        Материалы {processRecords("Материалы")}
+                        <IndicatorAnalalytics indicator={"Материалы"} />
+                    </div>
+                </Col>
                 <Col>{" "}</Col>
             </Row>
             <Row>
-                <Col>Незавершенное производство {processRecords("Незавершенное производство")}  </Col>
-                <Col>Долгосрочный банковский кредит {processRecords("Долгосрочный банковский кредит")} </Col>
+                <Col>
+                    <div>
+                        Незавершенное производство {processRecords("Незавершенное производство")}
+                        <IndicatorAnalalytics indicator={"Незавершенное производство"} />
+                    </div>
+
+                </Col>
+                <Col>
+                    <div>
+                        Долгосрочный банковский кредит {processRecords("Долгосрочный банковский кредит")}
+                        <IndicatorAnalalytics indicator={"Долгосрочный банковский кредит"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
-                <Col>Готовая продукция {processRecords("Готовая продукция")} </Col>
+                <Col>
+                    <div>
+                        Готовая продукция {processRecords("Готовая продукция")}
+                        <IndicatorAnalalytics indicator={"Готовая продукция"} />
+                    </div>
+                </Col>
                 <Col>{" "}</Col>
             </Row>
             <Row>
-                <Col>Дебиторская задолженность {processRecords("Дебиторская задолженность")} </Col>
-                <Col>Краткосрочный банковский кредит {processRecords("Краткосрочный банковский кредит")}  </Col>
+                <Col>
+                    <div>
+                        Дебиторская задолженность {processRecords("Дебиторская задолженность")}
+                        <IndicatorAnalalytics indicator={"Дебиторская задолженность"} />
+                    </div>
+
+
+                </Col>
+                <Col>
+                    <div>
+                        Краткосрочный банковский кредит {processRecords("Краткосрочный банковский кредит")}
+                        <IndicatorAnalalytics indicator={"Краткосрочный банковский кредит"} />
+                    </div>
+                </Col>
             </Row>
             <Row>
-                <Col>Деньги {processRecords("Деньги")} </Col>
-                <Col>Кредиторская задолженность {processRecords("Кредиторская задолженность")} </Col>
+                <Col>
+                    <div>
+                        Деньги {processRecords("Деньги")}
+                        <IndicatorAnalalytics indicator={"Деньги"} />
+                    </div>
+                </Col>
+                <Col>
+                    <div>
+                        Кредиторская задолженность {processRecords("Кредиторская задолженность")}
+                        <IndicatorAnalalytics indicator={"Кредиторская задолженность"} />
+                    </div>
+                </Col>
             </Row>
         </Container>
         <hr />
@@ -1244,9 +1346,9 @@ function GlobalModal() {
         </Modal.Header>
         <Modal.Body>
             {applicationSelector?.modal?.component === "LoginLogout" && <LoginLogout />}
-            {/* {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
+            {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
-            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />} */}
+            {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />}
         </Modal.Body>
     </Modal>
 }
