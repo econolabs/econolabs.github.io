@@ -547,13 +547,13 @@ function EditRecordType() {
                 <Col>
                     <Button variant="outline-secondary" size="sm" type="submit" >Сохранить</Button>
                 </Col>
+
+
+                <Col>
+                    <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()} >Закрыть</Button>
+                </Col>
+
             </Row>
-
-            <Col>
-                <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()} >Закрыть</Button>
-            </Col>
-
-
 
         </Container>
     </Form>

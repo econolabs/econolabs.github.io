@@ -5,10 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="../dist/original.css" />
+
+ <script src="../dist/katex.min.js"></script>
     <link rel="stylesheet" href="../dist/katex.min.css">
 
+    <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css">
 
-    <script src="../dist/katex.min.js"></script>
+
+   
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <style>
         .avatar {
@@ -728,6 +733,123 @@
 
 
 
+const UnitVectors = () => {
+  const boardRef = useRef(null);
+
+  useEffect(() => {
+    const board = JXG.JSXGraph.initBoard(boardRef.current, {
+      boundingbox: [-1.5, 1.5, 1.5, -1.5],
+      axis: true,
+      grid: true,
+      showNavigation: false,
+      showCopyright: false
+    });
+
+    const O = board.create('point', [0, 0], { 
+      name: 'O', 
+      size: 4, 
+      color: '#212529',
+      fixed: true 
+    });
+
+    const colors = {
+      i: '#dc3545',
+      j: '#007bff',
+      negi: '#ffc107',
+      negj: '#28a745',
+      gray: '#6c757d'
+    };
+
+     // Векторы с явными координатами для лейблов
+    const vectors = [
+      { 
+        end: [1, 0], 
+        tex: '\\Huge { \\vec{ i }}', 
+        color: colors.i,
+        labelX: 1.2,
+        labelY: 0.2
+      },
+      { 
+        end: [0, 1], 
+        tex: '\\Huge { \\vec{ j }}', 
+        color: colors.j,
+        labelX: 0.1,
+        labelY: 1.2
+      },
+      { 
+        end: [-1, 0], 
+        tex: '-\\Huge { \\vec{ i }}', 
+        color: colors.negi,
+        labelX: -1.2,
+        labelY: 0.2
+      },
+      { 
+        end: [0, -1], 
+        tex: '-\\Huge { \\vec{ j }}' , 
+        color: colors.negj,
+        labelX: 0.1,
+        labelY: -1.2
+      }
+    ];
+
+    vectors.forEach(vec => {
+    
+        // console.log(vec);
+
+      const P = board.create('point', vec.end, {
+        size: 3,
+        color: vec.color,
+        fixed: true
+      });
+      
+      board.create('arrow', [O, P], {
+        strokeColor: vec.color,
+        strokeWidth: 3,
+        lastArrow: true,
+        size: 8
+      });
+      
+      //  var t1 = board.create('text',[0,1,"Hello World"]);
+   // const text =  board.create('text', [5, 10], 'My Text');
+    
+            // Создаем текст с KaTeX
+    //  Важно: передаем координаты как массив
+      const text = board.create('text', [vec.labelX, vec.labelY, '...'],  {
+        color: vec.color,
+        fixed: true,
+        parse: false // Отключаем парсинг JSXGraph
+      });
+      
+      // Рендерим KaTeX и устанавливаем как содержимое
+      try {
+        const html = katex.renderToString(vec.tex, {
+          displayMode: false,
+          throwOnError: false
+        });
+        text.setText(html);
+      } catch (error) {
+        console.error('KaTeX error:', error);
+        text.setText(vec.tex);
+      }
+
+ 
+    board.create('circle', [O, 1], {
+      strokeColor: colors.gray,
+      strokeWidth: 0.5,
+      dash: 2
+    });
+})
+
+    return () => board.unsuspendUpdate();
+  }, []);
+
+  return (
+    <div>
+     <div ref={boardRef} style={{ height: "400px", width: '400px' }} />
+    </div>
+  );
+};
+
 
 
         function App() {
@@ -740,6 +862,8 @@
                         <SingleQuizCardWithStorage />
                         <ActiveCells />
                         <FormDebugger />
+
+                        <UnitVectors />
                     </Container>
                 </FormProvider>
 
