@@ -106,10 +106,6 @@ function LoginLogout() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // console.log(e.currentTarget.elements.formEmail.value);
-        // console.log(e.currentTarget.elements.formUser.value);
-
         basicfirebasecrudauthservices.saveState({
             application: {
                 email: e.currentTarget.elements.formEmail.value,
@@ -119,9 +115,7 @@ function LoginLogout() {
                     /[^a-zA-Z0-9]/g, "_")
             }
         });
-
         setTimeout(() => window.location.reload(), 3000)
-        //    handleClose();
     };
 
 
@@ -325,13 +319,6 @@ function EditRecordComment() {
                             {record?.comment}
                         </Form.Control>
                     </Form.Group>
-                    {/*      <Form.Control    onChange={handleChange}  
-                        name="comment"
-                        type="textarea"
-                        rows="3"
-                    >
-                        {record?.comment}
-                    </Form.Control>   */}
                 </Col>
             </Row>
 
@@ -345,11 +332,6 @@ function EditRecordComment() {
                 <Col>
                     <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()}  >Закрыть</Button>
                 </Col>
-
-
-
-
-
             </Row>
 
         </Container>
@@ -573,8 +555,8 @@ function ProjectOptionsNavigation() {
 
 
     useEffect(() => {
-        console.log(applicationSelector);
-    }, [applicationSelector?.modal, applicationSelector?.modal?.component])
+        // console.log(applicationSelector);
+    }, [projectSelector?.triggerRerender, applicationSelector?.modal, applicationSelector?.modal?.component,])
 
     if (applicationSelector?.showModal && applicationSelector?.modal?.component === "EditRecordType") {
         return <EditRecordType />
@@ -718,6 +700,7 @@ function Ledger() {
 
     function editComment(e) {
         if (e.target.id.length > 5) {
+            console.log(e.target.id)
             applicationDispatch({
                 type: "SEED_STATE",
                 payload: {
@@ -901,7 +884,7 @@ function SimpleAccounting() {
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    content: [...projectSelector.content, { d, k, sum, bookD, bookK }],
+                    content: [...projectSelector.content, { d, k, sum, bookD, bookK, orderBy: projectSelector.content.length }],
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
                     saveOptions: { type: "content" }
@@ -1381,11 +1364,16 @@ function caseReducer(state = {}, action) {
 
         case "DELETE_FROM_ARRAY_BY_ID": {
             return basicfirebasecrudauthservices.produce(state, (draft) => {
-                const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
+
+                const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id);
+
                 if (index !== -1) {
-                    draft.triggerRerender = action.payload.index;
                     draft[action.payload.arrayName].splice(index, 1);
+                 //   draft.triggerRerender = action.payload.id;
                 }
+
+
+
             });
         }
 

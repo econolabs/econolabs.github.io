@@ -1,739 +1,665 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="stylesheet" href="../dist/original.css" />
 
-    <script src="../dist/katex.min.js"></script>
-    <link rel="stylesheet" href="../dist/katex.min.css" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="../dist/original.css" />
 
-    <script src="../dist/jsxgraphcore.js"></script>
-    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css" />
+  <script src="../dist/katex.min.js"></script>
+  <link rel="stylesheet" href="../dist/katex.min.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
-    <style>
-      .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        filter: grayscale(100%);
-        object-fit: cover;
-      }
+  <script src="../dist/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css" />
 
-      .avatarList {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    </style>
+  <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+  <style>
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      filter: grayscale(100%);
+      object-fit: cover;
+    }
 
-    <title>Basic react Quizcardwithstorage</title>
-  </head>
+    .avatarList {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
 
-  <body
-    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
-    data-base="fincalculations"
-    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
-  >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <title>Basic react Quizcardwithstorage</title>
+</head>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="sr-only"></span></a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <a href="https://vk.com/dmglvn">
-            <img
-              loading="lazy"
-              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
-              alt=""
-              style="
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="sr-only"></span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href="https://vk.com/dmglvn">
+          <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+            style="
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
                 filter: grayscale(100%);
                 object-fit: cover;
-              "
-            />
-          </a>
-        </form>
-      </div>
-    </nav>
+              " />
+        </a>
+      </form>
+    </div>
+  </nav>
 
-    <div class="container" id="root"></div>
+  <div class="container" id="root"></div>
 
-    <script src="../dist/babel.standalone7.27.6.min.js"></script>
+  <script src="../dist/babel.standalone7.27.6.min.js"></script>
 
-    <script src="../dist/basicfirebasecrudauthservices.js"></script>
-    <script src="../dist/react18.3.1.production.min.js"></script>
-    <script src="../dist/react-dom18.3.1.production.min.js"></script>
-    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+  <script src="../dist/basicfirebasecrudauthservices.js"></script>
+  <script src="../dist/react18.3.1.production.min.js"></script>
+  <script src="../dist/react-dom18.3.1.production.min.js"></script>
+  <script src="../dist/react-bootstrap1.6.8.min.js"></script>
 
-    <script type="text/babel">
-        let { createRoot } = ReactDOM;
-        let {
-          useReducer,
-          useState,
-          createContext,
-          useContext,
-          useEffect,
-          useRef,
-        } = React;
-        let { Form, Row, Col, Container, Button, Modal, Card } = ReactBootstrap;
-        let { getFirebaseNode } = basicfirebasecrudauthservices;
+  <script type="text/babel">
+    let { createRoot } = ReactDOM;
+    let {
+      useReducer,
+      useState,
+      createContext,
+      useContext,
+      useEffect,
+      useRef,
+    } = React;
+    let { Form, Row, Col, Container, Button, Modal, Card } = ReactBootstrap;
+    let { getFirebaseNode } = basicfirebasecrudauthservices;
 
-        const ApplicationContext = createContext(null);
-        const ApplicationDispatchContext = createContext(null);
-        const ProjectContext = createContext(null);
-        const ProjectDispatchContext = createContext(null);
+    const ApplicationContext = createContext(null);
+    const ApplicationDispatchContext = createContext(null);
+    const ProjectContext = createContext(null);
+    const ProjectDispatchContext = createContext(null);
 
-        const FormContext = createContext();
-        const useFormState = () => useContext(FormContext);
+    const FormContext = createContext();
+    const useFormState = () => useContext(FormContext);
 
-        // function SelectDate({ setDate }) {
-        //   async function handleChange(e) {
-        //     let { name, value } = e.target;
+    // function SelectDate({ setDate }) {
+    //   async function handleChange(e) {
+    //     let { name, value } = e.target;
 
-        //     console.log(name, value);
-        //     let d = new Date(e.target.value);
+    //     console.log(name, value);
+    //     let d = new Date(e.target.value);
 
-        //     let currentDay = new Intl.DateTimeFormat("en", {
-        //       weekday: "short",
-        //       year: "numeric",
-        //       month: "short",
-        //       day: "numeric",
-        //     })
-        //       .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
-        //       .replace(/[^a-zA-Z0-9]/g, "_");
-        //     setDate(currentDay);
-        //   }
+    //     let currentDay = new Intl.DateTimeFormat("en", {
+    //       weekday: "short",
+    //       year: "numeric",
+    //       month: "short",
+    //       day: "numeric",
+    //     })
+    //       .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+    //       .replace(/[^a-zA-Z0-9]/g, "_");
+    //     setDate(currentDay);
+    //   }
 
-        //   return (
-        //     <Container>
-        //       <Form>
-        //         <Row>
-        //           <Col>
-        //             <Form.Group controlId="formStatePeriod">
-        //               <Form.Label>Период</Form.Label>
-        //               <Form.Control
-        //                 type="date"
-        //                 name="selecteddate"
-        //                 required
-        //                 onChange={handleChange}
-        //               />
-        //             </Form.Group>
-        //           </Col>
-        //         </Row>
-        //       </Form>
-        //     </Container>
-        //   );
-        // }
+    //   return (
+    //     <Container>
+    //       <Form>
+    //         <Row>
+    //           <Col>
+    //             <Form.Group controlId="formStatePeriod">
+    //               <Form.Label>Период</Form.Label>
+    //               <Form.Control
+    //                 type="date"
+    //                 name="selecteddate"
+    //                 required
+    //                 onChange={handleChange}
+    //               />
+    //             </Form.Group>
+    //           </Col>
+    //         </Row>
+    //       </Form>
+    //     </Container>
+    //   );
+    // }
 
-        // function ExampleModal() {
-        //   // State to control whether the modal is shown or hidden
-        //   const [show, setShow] = useState(false);
+    // function ExampleModal() {
+    //   // State to control whether the modal is shown or hidden
+    //   const [show, setShow] = useState(false);
 
-        //   // Handlers to update the state
-        //   const handleClose = () => setShow(false);
-        //   const handleShow = () => setShow(true);
+    //   // Handlers to update the state
+    //   const handleClose = () => setShow(false);
+    //   const handleShow = () => setShow(true);
 
-        //   return (
-        //     <>
-        //       {/* Button to launch the modal */}
-        //       <Button variant="primary" onClick={handleShow}>
-        //         Launch demo modal
-        //       </Button>
+    //   return (
+    //     <>
+    //       {/* Button to launch the modal */}
+    //       <Button variant="primary" onClick={handleShow}>
+    //         Launch demo modal
+    //       </Button>
 
-        //       {/* The Modal component, controlled by the 'show' state */}
-        //       <Modal show={show} onHide={handleClose}>
-        //         <Modal.Header closeButton>
-        //           <Modal.Title>Modal heading</Modal.Title>
-        //         </Modal.Header>
-        //         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        //         <Modal.Footer>
-        //           <Button variant="secondary" onClick={handleClose}>
-        //             Close
-        //           </Button>
-        //           <Button variant="primary" onClick={handleClose}>
-        //             Save Changes
-        //           </Button>
-        //         </Modal.Footer>
-        //       </Modal>
-        //     </>
-        //   );
-        // }
+    //       {/* The Modal component, controlled by the 'show' state */}
+    //       <Modal show={show} onHide={handleClose}>
+    //         <Modal.Header closeButton>
+    //           <Modal.Title>Modal heading</Modal.Title>
+    //         </Modal.Header>
+    //         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+    //         <Modal.Footer>
+    //           <Button variant="secondary" onClick={handleClose}>
+    //             Close
+    //           </Button>
+    //           <Button variant="primary" onClick={handleClose}>
+    //             Save Changes
+    //           </Button>
+    //         </Modal.Footer>
+    //       </Modal>
+    //     </>
+    //   );
+    // }
 
-        // function ShowUsers({ usersAvatars }) {
+    // function ShowUsers({ usersAvatars }) {
 
-        //   console.log(usersAvatars);
+    //   console.log(usersAvatars);
 
-        //   function openUserInModal() {
-        //     dispatch({
-        //       type: "SEED_STATE",
-        //       payload: {
-        //         object: {
-        //           isLoading: false,
-        //           updatedopenavatars,
-        //           uniqueUserEmails,
-        //         },
-        //       },
-        //     });
-        //   }
-        //   return <Container>{Object.keys(usersAvatars).map(userEmail => {
-        //     return <Row>
-        //       <Col>
-        //         <img src={!!usersAvatars[userEmail]?.avatarUrl ?
-        //           usersAvatars[userEmail]?.avatarUrl : "../freelancer.jpg"}
-        //           alt=""
-        //           className="avatarList"
+    //   function openUserInModal() {
+    //     dispatch({
+    //       type: "SEED_STATE",
+    //       payload: {
+    //         object: {
+    //           isLoading: false,
+    //           updatedopenavatars,
+    //           uniqueUserEmails,
+    //         },
+    //       },
+    //     });
+    //   }
+    //   return <Container>{Object.keys(usersAvatars).map(userEmail => {
+    //     return <Row>
+    //       <Col>
+    //         <img src={!!usersAvatars[userEmail]?.avatarUrl ?
+    //           usersAvatars[userEmail]?.avatarUrl : "../freelancer.jpg"}
+    //           alt=""
+    //           className="avatarList"
 
-        //         />
-        //       </Col>
-        //       <Col>{userEmail}</Col>
-        //       <Col><Button size="sm">Change</Button></Col>
+    //         />
+    //       </Col>
+    //       <Col>{userEmail}</Col>
+    //       <Col><Button size="sm">Change</Button></Col>
 
-        //     </Row>
-        //   })}
-        //   </Container>;
-        // }
+    //     </Row>
+    //   })}
+    //   </Container>;
+    // }
 
-        // let initialState = {
-        //   email: null,
-        //   user: null,
-        //   avatarUrl: "",
-        //   userEmail: "",
-        //   posts: [],
-        //   showModal: false,
-        //   modal: {},
-        //   isLoading: true,
+    // let initialState = {
+    //   email: null,
+    //   user: null,
+    //   avatarUrl: "",
+    //   userEmail: "",
+    //   posts: [],
+    //   showModal: false,
+    //   modal: {},
+    //   isLoading: true,
 
-        // }
+    // }
 
-        // let projectInitialState = {
-        //   updatedopenavatars: {},
-        //   uniqueUserEmails: [],
-        //   showModal: false,
-        //   modal: {}
-        // }
+    // let projectInitialState = {
+    //   updatedopenavatars: {},
+    //   uniqueUserEmails: [],
+    //   showModal: false,
+    //   modal: {}
+    // }
 
-        // function App() {
-        //   const [state, applicationDispatch] = useReducer(
-        //     caseReducer,
-        //     initialState
-        //   );
+    // function App() {
+    //   const [state, applicationDispatch] = useReducer(
+    //     caseReducer,
+    //     initialState
+    //   );
 
-        //   const [projectState, projectDispatch] = useReducer(
-        //     caseReducer,
-        //     projectInitialState
-        //   );
+    //   const [projectState, projectDispatch] = useReducer(
+    //     caseReducer,
+    //     projectInitialState
+    //   );
 
-        //   async function setDate(currentDay) {
-        //     console.log(currentDay);
-        //     let res = await getFirebaseNode({
-        //       url: "/currentDay/" + currentDay + "/posts",
-        //       type: "array",
-        //     });
-        //     let uniqueUserEmails = [
-        //       ...new Set(
-        //         res.map((item) => item?.email.replace(/[^a-zA-Z0-9]/g, "_"))
-        //       ),
-        //     ];
-        //     console.log(uniqueUserEmails);
+    //   async function setDate(currentDay) {
+    //     console.log(currentDay);
+    //     let res = await getFirebaseNode({
+    //       url: "/currentDay/" + currentDay + "/posts",
+    //       type: "array",
+    //     });
+    //     let uniqueUserEmails = [
+    //       ...new Set(
+    //         res.map((item) => item?.email.replace(/[^a-zA-Z0-9]/g, "_"))
+    //       ),
+    //     ];
+    //     console.log(uniqueUserEmails);
 
-        //     let updatedopenavatars = {};
+    //     let updatedopenavatars = {};
 
-        //     await Promise.all(
-        //       uniqueUserEmails.map((userEmail) => {
-        //         return getFirebaseNode({
-        //           url: "openavatars/" + userEmail,
-        //           type: "object",
-        //         });
-        //       })
-        //     ).then((values) => {
-        //       values.forEach(
-        //         (result, index) =>
-        //           (updatedopenavatars[uniqueUserEmails[index]] = result)
-        //       );
-        //       console.log(updatedopenavatars);
-        //     });
+    //     await Promise.all(
+    //       uniqueUserEmails.map((userEmail) => {
+    //         return getFirebaseNode({
+    //           url: "openavatars/" + userEmail,
+    //           type: "object",
+    //         });
+    //       })
+    //     ).then((values) => {
+    //       values.forEach(
+    //         (result, index) =>
+    //           (updatedopenavatars[uniqueUserEmails[index]] = result)
+    //       );
+    //       console.log(updatedopenavatars);
+    //     });
 
-        //     projectDispatch({
-        //       type: "SEED_STATE",
-        //       payload: {
-        //         object: {
-        //           isLoading: false,
-        //           updatedopenavatars,
-        //           uniqueUserEmails,
-        //         },
-        //       },
-        //     });
-        //     //  console.log(basicfirebasecrudauthservices.loadState())
-        //   }
+    //     projectDispatch({
+    //       type: "SEED_STATE",
+    //       payload: {
+    //         object: {
+    //           isLoading: false,
+    //           updatedopenavatars,
+    //           uniqueUserEmails,
+    //         },
+    //       },
+    //     });
+    //     //  console.log(basicfirebasecrudauthservices.loadState())
+    //   }
 
-        //   console.log(state);
+    //   console.log(state);
 
-        //   return (
-        //     <ApplicationContext.Provider value={state}>
-        //       <ApplicationDispatchContext.Provider value={applicationDispatch}>
-        //         <ProjectContext.Provider value={projectState}>
-        //           <ProjectDispatchContext.Provider value={projectDispatch}>
-        //             <Container>
-        //               <SelectDate setDate={setDate} />
-        //               <ShowUsers usersAvatars={projectState?.updatedopenavatars} />
-        //               <ExampleModal />
-        //             </Container>
-        //           </ProjectDispatchContext.Provider>
-        //         </ProjectContext.Provider>
-        //       </ApplicationDispatchContext.Provider>
-        //     </ApplicationContext.Provider>
+    //   return (
+    //     <ApplicationContext.Provider value={state}>
+    //       <ApplicationDispatchContext.Provider value={applicationDispatch}>
+    //         <ProjectContext.Provider value={projectState}>
+    //           <ProjectDispatchContext.Provider value={projectDispatch}>
+    //             <Container>
+    //               <SelectDate setDate={setDate} />
+    //               <ShowUsers usersAvatars={projectState?.updatedopenavatars} />
+    //               <ExampleModal />
+    //             </Container>
+    //           </ProjectDispatchContext.Provider>
+    //         </ProjectContext.Provider>
+    //       </ApplicationDispatchContext.Provider>
+    //     </ApplicationContext.Provider>
 
-        //   );
-        // }
+    //   );
+    // }
 
-        const alphabet = [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-          "G",
-          "H",
-          "I",
-          "J",
-          "K",
-          "L",
-          "M",
-          "N",
-          "O",
-          "P",
-          "Q",
-          "R",
-          "S",
-          "T",
-          "U",
-          "V",
-          "W",
-          "X",
-          "Y",
-          "Z",
-        ];
 
-        function createProtoArray(
-          protoDataObject = {},
-          maxRow = 15,
-          maxColumn = 6,
-        ) {
-          Object.keys(protoDataObject).map((objKey) => {
-            const [col, ...row] = objKey;
-            let currentColIndex = alphabet.findIndex((item) => item === col);
-            if (currentColIndex > maxColumn) {
-              maxColumn = currentColIndex;
-            }
-            if (parseInt(row) > maxRow) {
-              maxRow = parseInt(row);
-            }
-          });
-          //  console.log(maxColumn, maxRow);
 
-          var array = new Array(maxRow);
-          for (var i = 0; i < array.length; i++) {
-            array[i] = Array(maxColumn + 1).fill("");
-          }
-
-          Object.keys(protoDataObject).map((objKey) => {
-            const [col, ...row] = objKey;
-            let colArrayIndex = alphabet.findIndex((item) => item === col);
-            let rowArrayIndex = parseInt(row) - 1;
-            array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
-          });
-          return array;
-        }
-
-        const caseReducer = basicfirebasecrudauthservices.produce(
-          (draft, action) => {
-            switch (action.type) {
-              case "CALCULATE_SPREADSHEET":
-                let newProtoData = {
-                  ...draft.protoData,
-                  [action.payload.key]: action.payload.value,
-                };
-                draft.data = basicfirebasecrudauthservices.createProtoObject(
-                  basicfirebasecrudauthservices.createNewDraft(
-                    createProtoArray(newProtoData, 10, 1),
-                  ),
-                );
-                draft.protoData = {
-                  ...draft.protoData,
-                  [action.payload.key]: action.payload.value,
-                };
-                draft.rerender = Math.random();
-                break;
-
-              case "SEED_STATE":
-                Object.keys(action.payload.object).map((key) => {
-                  draft[key] = action.payload.object[key];
-                });
-                break;
-
-              default:
-                break;
-            }
-          },
-        );
-
-        const useDebounce = (value, delay) => {
-          const [debouncedValue, setDebouncedValue] = useState(value);
-
-          useEffect(() => {
-            const handler = setTimeout(() => {
-              setDebouncedValue(value);
-            }, delay);
-            return () => {
-              clearTimeout(handler);
+    const caseReducer = basicfirebasecrudauthservices.produce(
+      (draft, action) => {
+        switch (action.type) {
+          case "CALCULATE_SPREADSHEET":
+            let newProtoData = {
+              ...draft.protoData,
+              [action.payload.key]: action.payload.value,
             };
-          }, [value, delay]);
-          return debouncedValue;
-        };
+            draft.data = basicfirebasecrudauthservices.createProtoObject(
+              basicfirebasecrudauthservices.createNewDraft(
+                basicfirebasecrudauthservices.createProtoArray(newProtoData, 10, 1),
+              ),
+            );
+            draft.protoData = {
+              ...draft.protoData,
+              [action.payload.key]: action.payload.value,
+            };
+            draft.rerender = Math.random();
+            break;
 
-        const DebouncedInput = ({ id, delay = 500, ...props }) => {
-          const { state, dispatch } = useFormState();
-          const [inputValue, setInputValue] = useState("");
-          const debouncedValue = useDebounce(inputValue, delay);
-
-          useEffect(() => {
-            dispatch({
-              type: "CALCULATE_SPREADSHEET",
-              payload: {
-                key: id,
-                value: debouncedValue,
-              },
+          case "SEED_STATE":
+            Object.keys(action.payload.object).map((key) => {
+              draft[key] = action.payload.object[key];
             });
-          }, [debouncedValue, id, dispatch]);
+            break;
 
-          const handleInputChange = (event) => {
-            setInputValue(event.target.value);
-          };
+          default:
+            break;
+        }
+      },
+    );
 
-          return (
-            <Form.Control
-              type="text"
-              name={id}
-              value={inputValue} // The displayed value updates immediately
-              onChange={handleInputChange} // The internal state updates immediately
-              {...props}
-            />
-          );
+    const useDebounce = (value, delay) => {
+      const [debouncedValue, setDebouncedValue] = useState(value);
+
+      useEffect(() => {
+        const handler = setTimeout(() => {
+          setDebouncedValue(value);
+        }, delay);
+        return () => {
+          clearTimeout(handler);
         };
+      }, [value, delay]);
+      return debouncedValue;
+    };
 
-        let casewithcalculations = [
-          { id: "A1", orderby: 0, label: "Налог на прибыль" },
-          { id: "A2", orderby: 1, label: "Прибыль" },
-          { id: "A3", orderby: 2, label: "Расходы" },
-          { id: "A4", orderby: 3, label: "Доходы" },
-        ];
+    const DebouncedInput = ({ id, delay = 500, ...props }) => {
+      const { state, dispatch } = useFormState();
+      const [inputValue, setInputValue] = useState("");
+      const debouncedValue = useDebounce(inputValue, delay);
 
-        let initialState = {};
+      useEffect(() => {
+        dispatch({
+          type: "CALCULATE_SPREADSHEET",
+          payload: {
+            key: id,
+            value: debouncedValue,
+          },
+        });
+      }, [debouncedValue, id, dispatch]);
 
-        const FormProvider = ({ children }) => {
-          const [state, dispatch] = useReducer(caseReducer, initialState);
-          return (
-            <FormContext.Provider value={{ state, dispatch }}>
-              {children}
-            </FormContext.Provider>
-          );
-        };
+      const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+      };
 
-        const FormDebugger = () => {
-          const { state } = useFormState();
+      return (
+        <Form.Control
+          type="text"
+          name={id}
+          value={inputValue} // The displayed value updates immediately
+          onChange={handleInputChange} // The internal state updates immediately
+          {...props}
+        />
+      );
+    };
 
-          return (
-            <Container className="mt-4 p-3 bg-light border rounded">
-              <pre className="mb-0">
-                <code>{JSON.stringify(state, null, 2)}</code>
-              </pre>
-            </Container>
-          );
-        };
+    let casewithcalculations = [
+      { id: "A1", orderby: 0, label: "Налог на прибыль" },
+      { id: "A2", orderby: 1, label: "Прибыль" },
+      { id: "A3", orderby: 2, label: "Расходы" },
+      { id: "A4", orderby: 3, label: "Доходы" },
+    ];
 
-        function ActiveCells() {
-          const { state } = useFormState();
+    let initialState = {};
 
-          return (
-            <Container className="mt-5">
-              {casewithcalculations.map((item) => {
-                let value =
-                  !!state?.data &&
-                  state.data.hasOwnProperty(item.id) &&
-                  typeof state.data[item.id] === "number"
-                    ? state.data[item.id]
-                    : null;
-                return (
-                  <Form.Group>
-                    <Form.Label>
-                      {!!value ? item.id + ": " + value : item.id}
-                    </Form.Label>
-                    <DebouncedInput id={item.id} placeholder="=2+2" delay={500} />
-                    <small>{item.label}</small>
-                  </Form.Group>
-                );
-              })}
-            </Container>
-          );
+    const FormProvider = ({ children }) => {
+      const [state, dispatch] = useReducer(caseReducer, initialState);
+      return (
+        <FormContext.Provider value={{ state, dispatch }}>
+          {children}
+        </FormContext.Provider>
+      );
+    };
+
+    const FormDebugger = () => {
+      const { state } = useFormState();
+
+      return (
+        <Container className="mt-4 p-3 bg-light border rounded">
+          <pre className="mb-0">
+            <code>{JSON.stringify(state, null, 2)}</code>
+          </pre>
+        </Container>
+      );
+    };
+
+    function ActiveCells() {
+      const { state } = useFormState();
+
+      return (
+        <Container className="mt-5">
+          {casewithcalculations.map((item) => {
+            let value =
+              !!state?.data &&
+                state.data.hasOwnProperty(item.id) &&
+                typeof state.data[item.id] === "number"
+                ? state.data[item.id]
+                : null;
+            return (
+              <Form.Group>
+                <Form.Label>
+                  {!!value ? item.id + ": " + value : item.id}
+                </Form.Label>
+                <DebouncedInput id={item.id} placeholder="=2+2" delay={500} />
+                <small>{item.label}</small>
+              </Form.Group>
+            );
+          })}
+        </Container>
+      );
+    }
+
+    const KaTeXDisplay = ({
+      expression,
+      displayMode = true,
+      className = "",
+    }) => {
+      const containerRef = useRef(null);
+
+      useEffect(() => {
+        // Ensure that the global 'katex' object is available
+        if (window.katex) {
+          try {
+            window.katex.render(expression, containerRef.current, {
+              throwOnError: true,
+              displayMode: displayMode, // Set to false for inline math
+            });
+          } catch (error) {
+            console.error("KaTeX rendering error:", error);
+          }
+        }
+      }, [expression]); // Re-run effect if the expression changes
+
+      if (!!displayMode) {
+        return (
+          <div
+            className="katex-block-wrapper"
+            style={{
+              overflow: "visible",
+              minHeight: "50px",
+            }}
+          >
+            <div className={className} ref={containerRef} />
+          </div>
+        );
+      }
+
+      return <div ref={containerRef} />;
+    };
+
+    function processTextWithFormulas(inputText) {
+      if (!inputText) return null;
+
+      // Временный div для парсинга HTML
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = inputText;
+
+      // Рекурсивная функция для обработки узлов
+      const processNode = (node, keyPrefix = "") => {
+        // Если это текстовый узел
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          if (!text.trim()) return null;
+
+          // Разбиваем текст на формулы и обычный текст
+          const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
+          const result = [];
+
+          parts.forEach((part, index) => {
+            if (!part.trim()) return;
+
+            // Блочная формула $$...$$
+            if (
+              part.startsWith("$$") &&
+              part.endsWith("$$") &&
+              part.length > 4
+            ) {
+              const formula = part.slice(2, -2);
+              result.push(
+                <KaTeXDisplay
+                  key={`${keyPrefix}-block-${index}`}
+                  expression={formula}
+                />,
+              );
+            }
+            // Инлайн формула $...$
+            else if (
+              part.startsWith("$") &&
+              part.endsWith("$") &&
+              part.length > 2 &&
+              !part.startsWith("$$")
+            ) {
+              const formula = part.slice(1, -1);
+              result.push(
+                <KaTeXDisplay
+                  key={`${keyPrefix}-inline-${index}`}
+                  expression={formula}
+                />,
+              );
+            }
+            // Обычный текст
+            else {
+              result.push(
+                <span key={`${keyPrefix}-text-${index}`}>{part}</span>,
+              );
+            }
+          });
+
+          return result.length > 1 ? result : result[0];
         }
 
-        const KaTeXDisplay = ({
-          expression,
-          displayMode = true,
-          className = "",
-        }) => {
-          const containerRef = useRef(null);
+        // Если это элемент
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          const tagName = node.tagName.toLowerCase();
 
-          useEffect(() => {
-            // Ensure that the global 'katex' object is available
-            if (window.katex) {
-              try {
-                window.katex.render(expression, containerRef.current, {
-                  throwOnError: true,
-                  displayMode: displayMode, // Set to false for inline math
-                });
-              } catch (error) {
-                console.error("KaTeX rendering error:", error);
-              }
-            }
-          }, [expression]); // Re-run effect if the expression changes
-
-          if (!!displayMode) {
-            return (
-              <div
-                className="katex-block-wrapper"
-                style={{
-                  overflow: "visible",
-                  minHeight: "50px",
-                }}
-              >
-                <div className={className} ref={containerRef} />
-              </div>
-            );
+          // Пропускаем script, style, svg
+          if (
+            tagName === "script" ||
+            tagName === "style" ||
+            tagName === "svg"
+          ) {
+            return null;
           }
 
-          return <div ref={containerRef} />;
-        };
-
-        function processTextWithFormulas(inputText) {
-          if (!inputText) return null;
-
-          // Временный div для парсинга HTML
-          const tempDiv = document.createElement("div");
-          tempDiv.innerHTML = inputText;
-
-          // Рекурсивная функция для обработки узлов
-          const processNode = (node, keyPrefix = "") => {
-            // Если это текстовый узел
-            if (node.nodeType === Node.TEXT_NODE) {
-              const text = node.textContent;
-              if (!text.trim()) return null;
-
-              // Разбиваем текст на формулы и обычный текст
-              const parts = text.split(/(\$\$[^$]+\$\$|\$[^$]+\$)/g);
-              const result = [];
-
-              parts.forEach((part, index) => {
-                if (!part.trim()) return;
-
-                // Блочная формула $$...$$
-                if (
-                  part.startsWith("$$") &&
-                  part.endsWith("$$") &&
-                  part.length > 4
-                ) {
-                  const formula = part.slice(2, -2);
-                  result.push(
-                    <KaTeXDisplay
-                      key={`${keyPrefix}-block-${index}`}
-                      expression={formula}
-                    />,
-                  );
-                }
-                // Инлайн формула $...$
-                else if (
-                  part.startsWith("$") &&
-                  part.endsWith("$") &&
-                  part.length > 2 &&
-                  !part.startsWith("$$")
-                ) {
-                  const formula = part.slice(1, -1);
-                  result.push(
-                    <KaTeXDisplay
-                      key={`${keyPrefix}-inline-${index}`}
-                      expression={formula}
-                    />,
-                  );
-                }
-                // Обычный текст
-                else {
-                  result.push(
-                    <span key={`${keyPrefix}-text-${index}`}>{part}</span>,
-                  );
-                }
-              });
-
-              return result.length > 1 ? result : result[0];
-            }
-
-            // Если это элемент
-            if (node.nodeType === Node.ELEMENT_NODE) {
-              const tagName = node.tagName.toLowerCase();
-
-              // Пропускаем script, style, svg
-              if (
-                tagName === "script" ||
-                tagName === "style" ||
-                tagName === "svg"
-              ) {
-                return null;
-              }
-
-              // Создаём props для React элемента
-              const props = {
-                key: `${keyPrefix}-${tagName}-${Math.random().toString(36).substr(2, 9)}`,
-                className: node.className || "",
-                style: node.style.cssText ? { cssText: node.style.cssText } : {},
-              };
-
-              // Копируем атрибуты (кроме class и style)
-              Array.from(node.attributes).forEach((attr) => {
-                if (attr.name !== "class" && attr.name !== "style") {
-                  props[attr.name] = attr.value;
-                }
-              });
-
-              // Обрабатываем дочерние элементы
-              const children = [];
-              node.childNodes.forEach((child, index) => {
-                const processedChild = processNode(
-                  child,
-                  `${keyPrefix}-child-${index}`,
-                );
-                if (processedChild) {
-                  if (Array.isArray(processedChild)) {
-                    children.push(...processedChild);
-                  } else {
-                    children.push(processedChild);
-                  }
-                }
-              });
-
-              // Специальная обработка для некоторых тегов
-              switch (tagName) {
-                case "div":
-                case "span":
-                case "p":
-                case "h1":
-                case "h2":
-                case "h3":
-                case "h4":
-                case "h5":
-                case "h6":
-                case "ul":
-                case "ol":
-                case "li":
-                case "strong":
-                case "em":
-                case "a":
-                  return React.createElement(tagName, props, children);
-
-                case "br":
-                  return React.createElement("br", { key: props.key });
-
-                case "hr":
-                  return React.createElement("hr", { key: props.key });
-
-                case "img":
-                  return React.createElement("img", {
-                    key: props.key,
-                    src: node.src,
-                    alt: node.alt || "",
-                    className: props.className,
-                    style: props.style,
-                  });
-
-                default:
-                  // Для остальных тегов используем dangerouslySetInnerHTML
-                  return (
-                    <div
-                      key={props.key}
-                      dangerouslySetInnerHTML={{ __html: node.outerHTML }}
-                    />
-                  );
-              }
-            }
-
-            return null;
+          // Создаём props для React элемента
+          const props = {
+            key: `${keyPrefix}-${tagName}-${Math.random().toString(36).substr(2, 9)}`,
+            className: node.className || "",
+            style: node.style.cssText ? { cssText: node.style.cssText } : {},
           };
 
-          // Обрабатываем все дочерние узлы tempDiv
-          const result = [];
-          tempDiv.childNodes.forEach((child, index) => {
-            const processed = processNode(child, `root-${index}`);
-            if (processed) {
-              if (Array.isArray(processed)) {
-                result.push(...processed);
+          // Копируем атрибуты (кроме class и style)
+          Array.from(node.attributes).forEach((attr) => {
+            if (attr.name !== "class" && attr.name !== "style") {
+              props[attr.name] = attr.value;
+            }
+          });
+
+          // Обрабатываем дочерние элементы
+          const children = [];
+          node.childNodes.forEach((child, index) => {
+            const processedChild = processNode(
+              child,
+              `${keyPrefix}-child-${index}`,
+            );
+            if (processedChild) {
+              if (Array.isArray(processedChild)) {
+                children.push(...processedChild);
               } else {
-                result.push(processed);
+                children.push(processedChild);
               }
             }
           });
 
-          return result;
+          // Специальная обработка для некоторых тегов
+          switch (tagName) {
+            case "div":
+            case "span":
+            case "p":
+            case "h1":
+            case "h2":
+            case "h3":
+            case "h4":
+            case "h5":
+            case "h6":
+            case "ul":
+            case "ol":
+            case "li":
+            case "strong":
+            case "em":
+            case "a":
+              return React.createElement(tagName, props, children);
+
+            case "br":
+              return React.createElement("br", { key: props.key });
+
+            case "hr":
+              return React.createElement("hr", { key: props.key });
+
+            case "img":
+              return React.createElement("img", {
+                key: props.key,
+                src: node.src,
+                alt: node.alt || "",
+                className: props.className,
+                style: props.style,
+              });
+
+            default:
+              // Для остальных тегов используем dangerouslySetInnerHTML
+              return (
+                <div
+                  key={props.key}
+                  dangerouslySetInnerHTML={{ __html: node.outerHTML }}
+                />
+              );
+          }
         }
 
-        const ProcessKatex = ({ text, className = "" }) => {
-          return <div className={className}>{processTextWithFormulas(text)}</div>;
-        };
+        return null;
+      };
 
-        function QuizWithRandomNumber() {
-          return <div>QuizWithRandomNumber</div>;
+      // Обрабатываем все дочерние узлы tempDiv
+      const result = [];
+      tempDiv.childNodes.forEach((child, index) => {
+        const processed = processNode(child, `root-${index}`);
+        if (processed) {
+          if (Array.isArray(processed)) {
+            result.push(...processed);
+          } else {
+            result.push(processed);
+          }
         }
+      });
 
-        function SingleQuizCardWithStorage({
-          key = Math.random(),
-          header = "header",
-          imageurl = "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/05/sasha-stories-259551-unsplash-e1558728808681.jpg?resize=1500%2C1125&ssl=1",
-          title = "title",
-        }) {
-          return (
-            <Card bg={"light"} style={{ width: "95%", margin: "1rem" }} key={key}>
-              <Card.Header>{header}</Card.Header>
-              <Card.Body>
-                {!!imageurl ? <Card.Img variant="top" src={imageurl} /> : null}
-                <Card.Title>{title}</Card.Title>
+      return result;
+    }
 
-                <Card.Text>Ha Ha</Card.Text>
+    const ProcessKatex = ({ text, className = "" }) => {
+      return <div className={className}>{processTextWithFormulas(text)}</div>;
+    };
 
-                <KaTeXDisplay expression={"\\sin 0^{\\circ}"} />
+    function QuizWithRandomNumber() {
+      return <div>QuizWithRandomNumber</div>;
+    }
 
-                <ProcessKatex
-                  text={`<div class="container-fluid p-0">
+    function SingleQuizCardWithStorage({
+      key = Math.random(),
+      header = "header",
+      imageurl = "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/05/sasha-stories-259551-unsplash-e1558728808681.jpg?resize=1500%2C1125&ssl=1",
+      title = "title",
+    }) {
+      return (
+        <Card bg={"light"} style={{ width: "95%", margin: "1rem" }} key={key}>
+          <Card.Header>{header}</Card.Header>
+          <Card.Body>
+            {!!imageurl ? <Card.Img variant="top" src={imageurl} /> : null}
+            <Card.Title>{title}</Card.Title>
+
+            <Card.Text>Ha Ha</Card.Text>
+
+            <KaTeXDisplay expression={"\\sin 0^{\\circ}"} />
+
+            <ProcessKatex
+              text={`<div class="container-fluid p-0">
         <div class="alert alert-info mb-3" role="alert">
           <h5 class="alert-heading">📐 Синус угла 0°</h5>
           <p>Синус угла - это ордината (y-координата) точки на единичной окружности.</p>
@@ -774,665 +700,749 @@
           <p class="mb-0">Нулевой угол - нулевой синус</p>
         </div>
       </div>`}
-                />
-              </Card.Body>
-            </Card>
-          );
-        }
+            />
+          </Card.Body>
+        </Card>
+      );
+    }
 
-        const UnitVectors = () => {
-          const boardRef = useRef(null);
+    const UnitVectors = () => {
+      const boardRef = useRef(null);
 
-          useEffect(() => {
-            const board = JXG.JSXGraph.initBoard(boardRef.current, {
-              boundingbox: [-1.5, 1.5, 1.5, -1.5],
-              axis: true,
-              grid: true,
-              showNavigation: false,
-              showCopyright: false,
+      useEffect(() => {
+        const board = JXG.JSXGraph.initBoard(boardRef.current, {
+          boundingbox: [-1.5, 1.5, 1.5, -1.5],
+          axis: true,
+          grid: true,
+          showNavigation: false,
+          showCopyright: false,
+        });
+
+        const O = board.create("point", [0, 0], {
+          name: "O",
+          size: 4,
+          color: "#212529",
+          fixed: true,
+        });
+
+        const colors = {
+          i: "#dc3545",
+          j: "#007bff",
+          negi: "#ffc107",
+          negj: "#28a745",
+          gray: "#6c757d",
+        };
+
+        // Векторы с явными координатами для лейблов
+        const vectors = [
+          {
+            end: [1, 0],
+            tex: "\\Huge { \\vec{ i }}",
+            color: colors.i,
+            labelX: 1.2,
+            labelY: 0.2,
+          },
+          {
+            end: [0, 1],
+            tex: "\\Huge { \\vec{ j }}",
+            color: colors.j,
+            labelX: 0.1,
+            labelY: 1.2,
+          },
+          {
+            end: [-1, 0],
+            tex: "-\\Huge { \\vec{ i }}",
+            color: colors.negi,
+            labelX: -1.2,
+            labelY: 0.2,
+          },
+          {
+            end: [0, -1],
+            tex: "-\\Huge { \\vec{ j }}",
+            color: colors.negj,
+            labelX: 0.1,
+            labelY: -1.2,
+          },
+        ];
+
+        vectors.forEach((vec) => {
+          // console.log(vec);
+
+          const P = board.create("point", vec.end, {
+            size: 3,
+            color: vec.color,
+            fixed: true,
+          });
+
+          board.create("arrow", [O, P], {
+            strokeColor: vec.color,
+            strokeWidth: 3,
+            lastArrow: true,
+            size: 8,
+          });
+
+          //  var t1 = board.create('text',[0,1,"Hello World"]);
+          // const text =  board.create('text', [5, 10], 'My Text');
+
+          // Создаем текст с KaTeX
+          //  Важно: передаем координаты как массив
+          const text = board.create("text", [vec.labelX, vec.labelY, "..."], {
+            color: vec.color,
+            fixed: true,
+            parse: false, // Отключаем парсинг JSXGraph
+          });
+
+          // Рендерим KaTeX и устанавливаем как содержимое
+          try {
+            const html = katex.renderToString(vec.tex, {
+              displayMode: false,
+              throwOnError: false,
             });
+            text.setText(html);
+          } catch (error) {
+            console.error("KaTeX error:", error);
+            text.setText(vec.tex);
+          }
 
-            const O = board.create("point", [0, 0], {
-              name: "O",
-              size: 4,
-              color: "#212529",
+          board.create("circle", [O, 1], {
+            strokeColor: colors.gray,
+            strokeWidth: 0.5,
+            dash: 2,
+          });
+        });
+
+        return () => board.unsuspendUpdate();
+      }, []);
+
+      return (
+        <div>
+          <div ref={boardRef} style={{ height: "400px", width: "400px" }} />
+        </div>
+      );
+    };
+
+    const createGraphByType = (board, graphType) => {
+      const graphFactories = {
+        // 1. Тригонометрические графики
+
+        // 1. Тригонометрические графики
+        trigGraphs: () => {
+          // Синус и косинус
+          board.create('functiongraph', [x => Math.sin(x), -Math.PI, Math.PI], {
+            strokeColor: 'blue',
+            strokeWidth: 2,
+            name: 'sin(x)'
+          });
+
+          board.create('functiongraph', [x => Math.cos(x), -Math.PI, Math.PI], {
+            strokeColor: 'red',
+            strokeWidth: 2,
+            name: 'cos(x)'
+          });
+
+          // Подписи
+          board.create('text', [1.2, 0.8, 'y = sin(x)'], { color: 'blue' });
+          board.create('text', [1.2, 0.6, 'y = cos(x)'], { color: 'red' });
+        },
+        // 2. Единичные векторы
+
+
+        unitVectors: () => {
+          const O = board.create("point", [0, 0], {
+            name: "O",
+            size: 4,
+            color: "#212529",
+            fixed: true,
+          });
+
+          const colors = {
+            i: "#dc3545",
+            j: "#007bff",
+            negi: "#ffc107",
+            negj: "#28a745",
+            gray: "#6c757d",
+          };
+
+          // Векторы с явными координатами для лейблов
+          const vectors = [
+            {
+              end: [1, 0],
+              tex: "\\Huge { \\vec{ i }}",
+              color: colors.i,
+              labelX: 1.2,
+              labelY: 0.2,
+            },
+            {
+              end: [0, 1],
+              tex: "\\Huge { \\vec{ j }}",
+              color: colors.j,
+              labelX: 0.1,
+              labelY: 1.2,
+            },
+            {
+              end: [-1, 0],
+              tex: "-\\Huge { \\vec{ i }}",
+              color: colors.negi,
+              labelX: -1.2,
+              labelY: 0.2,
+            },
+            {
+              end: [0, -1],
+              tex: "-\\Huge { \\vec{ j }}",
+              color: colors.negj,
+              labelX: 0.1,
+              labelY: -1.2,
+            },
+          ];
+
+          vectors.forEach((vec) => {
+            // console.log(vec);
+
+            const P = board.create("point", vec.end, {
+              size: 3,
+              color: vec.color,
               fixed: true,
             });
 
-            const colors = {
-              i: "#dc3545",
-              j: "#007bff",
-              negi: "#ffc107",
-              negj: "#28a745",
-              gray: "#6c757d",
-            };
+            board.create("arrow", [O, P], {
+              strokeColor: vec.color,
+              strokeWidth: 3,
+              lastArrow: true,
+              size: 8,
+            });
 
-            // Векторы с явными координатами для лейблов
-            const vectors = [
+            //  var t1 = board.create('text',[0,1,"Hello World"]);
+            // const text =  board.create('text', [5, 10], 'My Text');
+
+            // Создаем текст с KaTeX
+            //  Важно: передаем координаты как массив
+            const text = board.create(
+              "text",
+              [vec.labelX, vec.labelY, "..."],
               {
-                end: [1, 0],
-                tex: "\\Huge { \\vec{ i }}",
-                color: colors.i,
-                labelX: 1.2,
-                labelY: 0.2,
-              },
-              {
-                end: [0, 1],
-                tex: "\\Huge { \\vec{ j }}",
-                color: colors.j,
-                labelX: 0.1,
-                labelY: 1.2,
-              },
-              {
-                end: [-1, 0],
-                tex: "-\\Huge { \\vec{ i }}",
-                color: colors.negi,
-                labelX: -1.2,
-                labelY: 0.2,
-              },
-              {
-                end: [0, -1],
-                tex: "-\\Huge { \\vec{ j }}",
-                color: colors.negj,
-                labelX: 0.1,
-                labelY: -1.2,
-              },
-            ];
-
-            vectors.forEach((vec) => {
-              // console.log(vec);
-
-              const P = board.create("point", vec.end, {
-                size: 3,
-                color: vec.color,
-                fixed: true,
-              });
-
-              board.create("arrow", [O, P], {
-                strokeColor: vec.color,
-                strokeWidth: 3,
-                lastArrow: true,
-                size: 8,
-              });
-
-              //  var t1 = board.create('text',[0,1,"Hello World"]);
-              // const text =  board.create('text', [5, 10], 'My Text');
-
-              // Создаем текст с KaTeX
-              //  Важно: передаем координаты как массив
-              const text = board.create("text", [vec.labelX, vec.labelY, "..."], {
                 color: vec.color,
                 fixed: true,
                 parse: false, // Отключаем парсинг JSXGraph
-              });
+              },
+            );
 
-              // Рендерим KaTeX и устанавливаем как содержимое
-              try {
-                const html = katex.renderToString(vec.tex, {
-                  displayMode: false,
-                  throwOnError: false,
-                });
-                text.setText(html);
-              } catch (error) {
-                console.error("KaTeX error:", error);
-                text.setText(vec.tex);
-              }
-
-              board.create("circle", [O, 1], {
-                strokeColor: colors.gray,
-                strokeWidth: 0.5,
-                dash: 2,
+            // Рендерим KaTeX и устанавливаем как содержимое
+            try {
+              const html = katex.renderToString(vec.tex, {
+                displayMode: false,
+                throwOnError: false,
               });
+              text.setText(html);
+            } catch (error) {
+              console.error("KaTeX error:", error);
+              text.setText(vec.tex);
+            }
+
+            board.create("circle", [O, 1], {
+              strokeColor: colors.gray,
+              strokeWidth: 0.5,
+              dash: 2,
             });
-
-            return () => board.unsuspendUpdate();
-          }, []);
-
-          return (
-            <div>
-              <div ref={boardRef} style={{ height: "400px", width: "400px" }} />
-            </div>
-          );
-        };
-
-        const createGraphByType = (board, graphType) => {
-          const graphFactories = {
-            // 1. Тригонометрические графики
-
-             // 1. Тригонометрические графики
-      trigGraphs: () => {
-        // Синус и косинус
-        board.create('functiongraph', [x => Math.sin(x), -Math.PI, Math.PI], {
-          strokeColor: 'blue',
-          strokeWidth: 2,
-          name: 'sin(x)'
-        });
-
-        board.create('functiongraph', [x => Math.cos(x), -Math.PI, Math.PI], {
-          strokeColor: 'red',
-          strokeWidth: 2,
-          name: 'cos(x)'
-        });
-
-        // Подписи
-        board.create('text', [1.2, 0.8, 'y = sin(x)'], { color: 'blue' });
-        board.create('text', [1.2, 0.6, 'y = cos(x)'], { color: 'red' });
-      },
-            // 2. Единичные векторы
-
-
-            unitVectors: () => {
-              const O = board.create("point", [0, 0], {
-                name: "O",
-                size: 4,
-                color: "#212529",
-                fixed: true,
-              });
-
-              const colors = {
-                i: "#dc3545",
-                j: "#007bff",
-                negi: "#ffc107",
-                negj: "#28a745",
-                gray: "#6c757d",
-              };
-
-              // Векторы с явными координатами для лейблов
-              const vectors = [
-                {
-                  end: [1, 0],
-                  tex: "\\Huge { \\vec{ i }}",
-                  color: colors.i,
-                  labelX: 1.2,
-                  labelY: 0.2,
-                },
-                {
-                  end: [0, 1],
-                  tex: "\\Huge { \\vec{ j }}",
-                  color: colors.j,
-                  labelX: 0.1,
-                  labelY: 1.2,
-                },
-                {
-                  end: [-1, 0],
-                  tex: "-\\Huge { \\vec{ i }}",
-                  color: colors.negi,
-                  labelX: -1.2,
-                  labelY: 0.2,
-                },
-                {
-                  end: [0, -1],
-                  tex: "-\\Huge { \\vec{ j }}",
-                  color: colors.negj,
-                  labelX: 0.1,
-                  labelY: -1.2,
-                },
-              ];
-
-              vectors.forEach((vec) => {
-                // console.log(vec);
-
-                const P = board.create("point", vec.end, {
-                  size: 3,
-                  color: vec.color,
-                  fixed: true,
-                });
-
-                board.create("arrow", [O, P], {
-                  strokeColor: vec.color,
-                  strokeWidth: 3,
-                  lastArrow: true,
-                  size: 8,
-                });
-
-                //  var t1 = board.create('text',[0,1,"Hello World"]);
-                // const text =  board.create('text', [5, 10], 'My Text');
-
-                // Создаем текст с KaTeX
-                //  Важно: передаем координаты как массив
-                const text = board.create(
-                  "text",
-                  [vec.labelX, vec.labelY, "..."],
-                  {
-                    color: vec.color,
-                    fixed: true,
-                    parse: false, // Отключаем парсинг JSXGraph
-                  },
-                );
-
-                // Рендерим KaTeX и устанавливаем как содержимое
-                try {
-                  const html = katex.renderToString(vec.tex, {
-                    displayMode: false,
-                    throwOnError: false,
-                  });
-                  text.setText(html);
-                } catch (error) {
-                  console.error("KaTeX error:", error);
-                  text.setText(vec.tex);
-                }
-
-                board.create("circle", [O, 1], {
-                  strokeColor: colors.gray,
-                  strokeWidth: 0.5,
-                  dash: 2,
-                });
-              });
-            },
-
-            // 3. Медиана набора чисел
-      medianVisualization: () => {
-        // Данные: 2, 3, 5, 7, 9
-        const data = [2, 3, 5, 7, 9];
-
-        // Отображаем точки
-        data.forEach((value, index) => {
-          board.create('point', [index, value], {
-            name: value.toString(),
-            size: 3,
-            fillColor: value === 5 ? 'red' : 'black' // Медиана красным
           });
-        });
+        },
 
-        // Линия медианы
-        board.create('line', [[2, 0], [2, 10]], {
-          strokeColor: 'red',
-          strokeWidth: 2,
-          dash: 2
-        });
+        // 3. Медиана набора чисел
+        medianVisualization: () => {
+          // Данные: 2, 3, 5, 7, 9
+          const data = [2, 3, 5, 7, 9];
 
-        board.create('text', [2.1, 0.5, 'Медиана = 5'], { color: 'red' });
-      },
+          // Отображаем точки
+          data.forEach((value, index) => {
+            board.create('point', [index, value], {
+              name: value.toString(),
+              size: 3,
+              fillColor: value === 5 ? 'red' : 'black' // Медиана красным
+            });
+          });
 
-       // 4. Диаграмма Эйлера
-      eulerDiagram: () => {
-        // Два множества (круги)
-        const circleA = board.create('circle', [[-1, 0], 2], {
-          fillColor: 'rgba(135, 206, 250, 0.3)',
-          strokeColor: 'blue',
-          strokeWidth: 2
-        });
+          // Линия медианы
+          board.create('line', [[2, 0], [2, 10]], {
+            strokeColor: 'red',
+            strokeWidth: 2,
+            dash: 2
+          });
 
-        const circleB = board.create('circle', [[1, 0], 2], {
-          fillColor: 'rgba(255, 182, 193, 0.3)',
-          strokeColor: 'red',
-          strokeWidth: 2
-        });
+          board.create('text', [2.1, 0.5, 'Медиана = 5'], { color: 'red' });
+        },
 
-        // Подписи
-        board.create('text', [-3, 0, 'Множество A']);
-        board.create('text', [3, 0, 'Множество B']);
-        board.create('text', [0, 0, 'A ∩ B']);
-      },
+        // 4. Диаграмма Эйлера
+        eulerDiagram: () => {
+          // Два множества (круги)
+          const circleA = board.create('circle', [[-1, 0], 2], {
+            fillColor: 'rgba(135, 206, 250, 0.3)',
+            strokeColor: 'blue',
+            strokeWidth: 2
+          });
 
-       // 5. Треугольник Паскаля
-      pascalTriangle: () => {
-        // Показываем первые 5 строк
-        const pascalRows = [
-          [1],
-          [1, 1],
-          [1, 2, 1],
-          [1, 3, 3, 1],
-          [1, 4, 6, 4, 1]
-        ];
+          const circleB = board.create('circle', [[1, 0], 2], {
+            fillColor: 'rgba(255, 182, 193, 0.3)',
+            strokeColor: 'red',
+            strokeWidth: 2
+          });
 
-        for (let row = 0; row < pascalRows.length; row++) {
-          for (let col = 0; col < pascalRows[row].length; col++) {
-            const x = col - row/2;
-            const y = 4 - row;
+          // Подписи
+          board.create('text', [-3, 0, 'Множество A']);
+          board.create('text', [3, 0, 'Множество B']);
+          board.create('text', [0, 0, 'A ∩ B']);
+        },
 
-            board.create('point', [x, y], {
-              size: 0,
-              name: pascalRows[row][col].toString(),
-              fontSize: 12
+        // 5. Треугольник Паскаля
+        pascalTriangle: () => {
+          // Показываем первые 5 строк
+          const pascalRows = [
+            [1],
+            [1, 1],
+            [1, 2, 1],
+            [1, 3, 3, 1],
+            [1, 4, 6, 4, 1]
+          ];
+
+          for (let row = 0; row < pascalRows.length; row++) {
+            for (let col = 0; col < pascalRows[row].length; col++) {
+              const x = col - row / 2;
+              const y = 4 - row;
+
+              board.create('point', [x, y], {
+                size: 0,
+                name: pascalRows[row][col].toString(),
+                fontSize: 12
+              });
+            }
+          }
+
+          board.create('text', [0, -0.5, 'Треугольник Паскаля']);
+        },
+
+        // 6. Нормальное распределение
+        normalDistribution: () => {
+          // Функция плотности нормального распределения
+          const normalPDF = x => Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI);
+
+          board.create('functiongraph', [normalPDF, -4, 4], {
+            strokeColor: 'blue',
+            strokeWidth: 3
+          });
+
+          // Вертикальные линии для μ±σ
+          board.create('line', [[-1, 0], [-1, 0.4]], {
+            strokeColor: 'red',
+            strokeWidth: 1,
+            dash: 2
+          });
+          board.create('line', [[1, 0], [1, 0.4]], {
+            strokeColor: 'red',
+            strokeWidth: 1,
+            dash: 2
+          });
+
+          board.create('text', [0, -0.1, 'Нормальное распределение N(0,1)']);
+        },
+
+        // 7. Равномерное распределение
+        uniformDistribution: () => {
+          // Прямоугольник равномерного распределения на [0, 1]
+          board.create('polygon', [
+            [0, 0],
+            [0, 1],
+            [1, 1],
+            [1, 0]
+          ], {
+            fillColor: 'lightblue',
+            borders: { strokeColor: 'blue', strokeWidth: 2 }
+          });
+
+          board.create('text', [0.5, -0.1, 'Равномерное распределение U[0,1]']);
+        },
+
+        // 8. Биномиальное распределение
+        binomialDistribution: () => {
+          // Биномиальное распределение для n=10, p=0.5
+          const binomialPMF = k => {
+            // C(10, k) * 0.5^10
+            const combinations = (n, k) => {
+              let result = 1;
+              for (let i = 1; i <= k; i++) {
+                result = result * (n - k + i) / i;
+              }
+              return result;
+            };
+            return combinations(10, k) * Math.pow(0.5, 10);
+          };
+
+          // Рисуем точки
+          const points = [];
+          for (let k = 0; k <= 10; k++) {
+            const point = board.create('point', [k, binomialPMF(k)], {
+              size: 3,
+              fillColor: 'blue'
+            });
+            points.push(point);
+
+            // Вертикальные линии
+            board.create('line', [[k, 0], [k, binomialPMF(k)]], {
+              strokeColor: 'lightblue',
+              strokeWidth: 1
             });
           }
-        }
 
-        board.create('text', [0, -0.5, 'Треугольник Паскаля']);
-      },
+          board.create('text', [5, -0.05, 'Биномиальное распределение B(10, 0.5)']);
+        },
 
-       // 6. Нормальное распределение
-      normalDistribution: () => {
-        // Функция плотности нормального распределения
-        const normalPDF = x => Math.exp(-x*x/2) / Math.sqrt(2*Math.PI);
-
-        board.create('functiongraph', [normalPDF, -4, 4], {
-          strokeColor: 'blue',
-          strokeWidth: 3
-        });
-
-        // Вертикальные линии для μ±σ
-        board.create('line', [[-1, 0], [-1, 0.4]], {
-          strokeColor: 'red',
-          strokeWidth: 1,
-          dash: 2
-        });
-        board.create('line', [[1, 0], [1, 0.4]], {
-          strokeColor: 'red',
-          strokeWidth: 1,
-          dash: 2
-        });
-
-        board.create('text', [0, -0.1, 'Нормальное распределение N(0,1)']);
-      },
-
-       // 7. Равномерное распределение
-      uniformDistribution: () => {
-        // Прямоугольник равномерного распределения на [0, 1]
-        board.create('polygon', [
-          [0, 0],
-          [0, 1],
-          [1, 1],
-          [1, 0]
-        ], {
-          fillColor: 'lightblue',
-          borders: { strokeColor: 'blue', strokeWidth: 2 }
-        });
-
-        board.create('text', [0.5, -0.1, 'Равномерное распределение U[0,1]']);
-      },
-
-      // 8. Биномиальное распределение
-      binomialDistribution: () => {
-        // Биномиальное распределение для n=10, p=0.5
-        const binomialPMF = k => {
-          // C(10, k) * 0.5^10
-          const combinations = (n, k) => {
-            let result = 1;
-            for (let i = 1; i <= k; i++) {
-              result = result * (n - k + i) / i;
-            }
-            return result;
-          };
-          return combinations(10, k) * Math.pow(0.5, 10);
-        };
-
-        // Рисуем точки
-        const points = [];
-        for (let k = 0; k <= 10; k++) {
-          const point = board.create('point', [k, binomialPMF(k)], {
-            size: 3,
-            fillColor: 'blue'
-          });
-          points.push(point);
-
-          // Вертикальные линии
-          board.create('line', [[k, 0], [k, binomialPMF(k)]], {
-            strokeColor: 'lightblue',
-            strokeWidth: 1
-          });
-        }
-
-        board.create('text', [5, -0.05, 'Биномиальное распределение B(10, 0.5)']);
-      },
-
-      // 9. Пересечение множеств
-      intersectionDiagram: () => {
-        // Два пересекающихся круга
-        board.create('circle', [[-0.5, 0], 1.5], {
-          fillColor: 'rgba(135, 206, 250, 0.5)',
-          strokeColor: 'blue',
-          strokeWidth: 2
-        });
-
-        board.create('circle', [[0.5, 0], 1.5], {
-          fillColor: 'rgba(255, 182, 193, 0.5)',
-          strokeColor: 'red',
-          strokeWidth: 2
-        });
-
-        board.create('text', [-1.5, 0, 'A']);
-        board.create('text', [1.5, 0, 'B']);
-        board.create('text', [0, 0, 'A ∩ B']);
-      },
-
-      // 10. Строка треугольника Паскаля
-      pascalRow: () => {
-        // 4-я строка: 1, 4, 6, 4, 1
-        const row4 = [1, 4, 6, 4, 1];
-
-        row4.forEach((value, index) => {
-          board.create('point', [index, 0], {
-            size: 0,
-            name: value.toString(),
-            fontSize: 16,
-            fillColor: 'red'
-          });
-        });
-
-        board.create('text', [2, -0.5, 'Строка 4 треугольника Паскаля: (a+b)⁴']);
-      },
-
-      // 11. Среднее значение
-      meanVisualization: () => {
-        // Данные: 4, 8, 6, 2, 10
-        const data = [4, 8, 6, 2, 10];
-        const mean = data.reduce((a, b) => a + b) / data.length; // 6
-
-        // Отображаем точки и среднюю линию
-        data.forEach((value, index) => {
-          board.create('point', [index, value], {
-            name: value.toString(),
-            size: 3
-          });
-        });
-
-        // Линия среднего значения
-        board.create('line', [[-0.5, mean], [4.5, mean]], {
-          strokeColor: 'green',
-          strokeWidth: 2,
-          dash: 2
-        });
-
-        board.create('text', [2.5, mean + 0.5, `Среднее = ${mean}`], { color: 'green' });
-      },
-
-      // 12. Синусоида с разными периодами
-      sineWaves: () => {
-        // sin(x)
-        board.create('functiongraph', [x => Math.sin(x), -Math.PI, Math.PI], {
-          strokeColor: 'blue',
-          strokeWidth: 2,
-          name: 'sin(x)'
-        });
-
-        // sin(2x) - в 2 раза чаще
-        board.create('functiongraph', [x => Math.sin(2*x), -Math.PI, Math.PI], {
-          strokeColor: 'red',
-          strokeWidth: 2,
-          name: 'sin(2x)'
-        });
-
-        // sin(x/2) - в 2 раза реже
-        board.create('functiongraph', [x => Math.sin(x/2), -Math.PI, Math.PI], {
-          strokeColor: 'green',
-          strokeWidth: 2,
-          name: 'sin(x/2)'
-        });
-      },
-
-      // 13. Векторное сложение
-      vectorAddition: () => {
-        const origin = [0, 0];
-
-        // Вектор a
-        const a = board.create('arrow', [origin, [2, 1]], {
-          strokeColor: 'red',
-          strokeWidth: 3,
-          name: 'a⃗'
-        });
-
-        // Вектор b
-        const b = board.create('arrow', [[2, 1], [3, 3]], {
-          strokeColor: 'blue',
-          strokeWidth: 3,
-          name: 'b⃗'
-        });
-
-        // Сумма a + b
-        const sum = board.create('arrow', [origin, [3, 3]], {
-          strokeColor: 'green',
-          strokeWidth: 3,
-          name: 'a⃗ + b⃗'
-        });
-
-        // Правило параллелограмма
-        board.create('arrow', [origin, [1, 2]], {
-          strokeColor: 'blue',
-          strokeWidth: 3,
-          opacity: 0.5,
-          dash: 2
-        });
-
-        board.create('arrow', [[2, 1], [3, 3]], {
-          strokeColor: 'red',
-          strokeWidth: 3,
-          opacity: 0.5,
-          dash: 2
-        });
-      },
-
-      // 14. Круговая диаграмма (pie chart)
-      pieChart: () => {
-        const data = [30, 25, 20, 15, 10]; // Проценты
-        const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
-        const labels = ['A', 'B', 'C', 'D', 'E'];
-
-        let startAngle = 0;
-        const total = data.reduce((a, b) => a + b, 0);
-
-        data.forEach((value, index) => {
-          const angle = (value / total) * 2 * Math.PI;
-          const endAngle = startAngle + angle;
-
-          // Сектор круга
-          const sector = board.create('sector', [
-            [0, 0], // Центр
-            [Math.cos(startAngle), Math.sin(startAngle)], // Начальная точка
-            [Math.cos(endAngle), Math.sin(endAngle)] // Конечная точка
-          ], {
-            fillColor: colors[index],
-            strokeColor: 'black',
-            strokeWidth: 1
+        // 9. Пересечение множеств
+        intersectionDiagram: () => {
+          // Два пересекающихся круга
+          board.create('circle', [[-0.5, 0], 1.5], {
+            fillColor: 'rgba(135, 206, 250, 0.5)',
+            strokeColor: 'blue',
+            strokeWidth: 2
           });
 
-          // Метка
-          const midAngle = startAngle + angle/2;
-          board.create('text', [
-            0.7 * Math.cos(midAngle),
-            0.7 * Math.sin(midAngle),
-            `${labels[index]}: ${value}%`
-          ], { fontSize: 10 });
-
-          startAngle = endAngle;
-        });
-      },
-
-      // 15. Гистограмма
-      histogram: () => {
-        const data = [3, 7, 4, 9, 2, 5, 8];
-        const barWidth = 0.8;
-
-        data.forEach((value, index) => {
-          // Столбец гистограммы
-          board.create('polygon', [
-            [index - barWidth/2, 0],
-            [index - barWidth/2, value],
-            [index + barWidth/2, value],
-            [index + barWidth/2, 0]
-          ], {
-            fillColor: index % 2 === 0 ? 'lightblue' : 'lightcoral',
-            strokeColor: 'black',
-            strokeWidth: 1
+          board.create('circle', [[0.5, 0], 1.5], {
+            fillColor: 'rgba(255, 182, 193, 0.5)',
+            strokeColor: 'red',
+            strokeWidth: 2
           });
 
-          // Значение сверху
-          board.create('text', [index, value + 0.3, value.toString()], {
-            fontSize: 10
+          board.create('text', [-1.5, 0, 'A']);
+          board.create('text', [1.5, 0, 'B']);
+          board.create('text', [0, 0, 'A ∩ B']);
+        },
+
+        // 10. Строка треугольника Паскаля
+        pascalRow: () => {
+          // 4-я строка: 1, 4, 6, 4, 1
+          const row4 = [1, 4, 6, 4, 1];
+
+          row4.forEach((value, index) => {
+            board.create('point', [index, 0], {
+              size: 0,
+              name: value.toString(),
+              fontSize: 16,
+              fillColor: 'red'
+            });
           });
-        });
-      }}
 
+          board.create('text', [2, -0.5, 'Строка 4 треугольника Паскаля: (a+b)⁴']);
+        },
 
-          ;
-          // Выбираем фабрику или возвращаем пустую функцию по умолчанию
-          return (
-            graphFactories[graphType] ||
-            (() => {
-              console.warn(`График типа "${graphType}" не найден`);
-            })
-          );
-        };
+        // 11. Среднее значение
+        meanVisualization: () => {
+          // Данные: 4, 8, 6, 2, 10
+          const data = [4, 8, 6, 2, 10];
+          const mean = data.reduce((a, b) => a + b) / data.length; // 6
 
-        // Основной компонент
-        const JSXGraphComponent = ({
-          graphType = "unitVectors",
-          boundingbox = [-5, 5, 5, -5],
-          width = 400,
-          height = 400,
-        }) => {
-          const boardRef = useRef(null);
+          // Отображаем точки и среднюю линию
+          data.forEach((value, index) => {
+            board.create('point', [index, value], {
+              name: value.toString(),
+              size: 3
+            });
+          });
 
-          useEffect(() => {
-            if (!boardRef.current) return;
+          // Линия среднего значения
+          board.create('line', [[-0.5, mean], [4.5, mean]], {
+            strokeColor: 'green',
+            strokeWidth: 2,
+            dash: 2
+          });
 
-            // Настройки доски
-            const board = JXG.JSXGraph.initBoard(boardRef.current, {
-              boundingbox: boundingbox , // Базовые настройки
-              axis: true,
-              grid: true,
-              showNavigation: false,
-              showCopyright: false,
+          board.create('text', [2.5, mean + 0.5, `Среднее = ${mean}`], { color: 'green' });
+        },
+
+        // 12. Синусоида с разными периодами
+        sineWaves: () => {
+          // sin(x)
+          board.create('functiongraph', [x => Math.sin(x), -Math.PI, Math.PI], {
+            strokeColor: 'blue',
+            strokeWidth: 2,
+            name: 'sin(x)'
+          });
+
+          // sin(2x) - в 2 раза чаще
+          board.create('functiongraph', [x => Math.sin(2 * x), -Math.PI, Math.PI], {
+            strokeColor: 'red',
+            strokeWidth: 2,
+            name: 'sin(2x)'
+          });
+
+          // sin(x/2) - в 2 раза реже
+          board.create('functiongraph', [x => Math.sin(x / 2), -Math.PI, Math.PI], {
+            strokeColor: 'green',
+            strokeWidth: 2,
+            name: 'sin(x/2)'
+          });
+        },
+
+        // 13. Векторное сложение
+        vectorAddition: () => {
+          const origin = [0, 0];
+
+          // Вектор a
+          const a = board.create('arrow', [origin, [2, 1]], {
+            strokeColor: 'red',
+            strokeWidth: 3,
+            name: 'a⃗'
+          });
+
+          // Вектор b
+          const b = board.create('arrow', [[2, 1], [3, 3]], {
+            strokeColor: 'blue',
+            strokeWidth: 3,
+            name: 'b⃗'
+          });
+
+          // Сумма a + b
+          const sum = board.create('arrow', [origin, [3, 3]], {
+            strokeColor: 'green',
+            strokeWidth: 3,
+            name: 'a⃗ + b⃗'
+          });
+
+          // Правило параллелограмма
+          board.create('arrow', [origin, [1, 2]], {
+            strokeColor: 'blue',
+            strokeWidth: 3,
+            opacity: 0.5,
+            dash: 2
+          });
+
+          board.create('arrow', [[2, 1], [3, 3]], {
+            strokeColor: 'red',
+            strokeWidth: 3,
+            opacity: 0.5,
+            dash: 2
+          });
+        },
+
+        // 14. Круговая диаграмма (pie chart)
+        pieChart: () => {
+          const data = [30, 25, 20, 15, 10]; // Проценты
+          const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+          const labels = ['A', 'B', 'C', 'D', 'E'];
+
+          let startAngle = 0;
+          const total = data.reduce((a, b) => a + b, 0);
+
+          data.forEach((value, index) => {
+            const angle = (value / total) * 2 * Math.PI;
+            const endAngle = startAngle + angle;
+
+            // Сектор круга
+            const sector = board.create('sector', [
+              [0, 0], // Центр
+              [Math.cos(startAngle), Math.sin(startAngle)], // Начальная точка
+              [Math.cos(endAngle), Math.sin(endAngle)] // Конечная точка
+            ], {
+              fillColor: colors[index],
+              strokeColor: 'black',
+              strokeWidth: 1
             });
 
-            // Получаем функцию для создания графика
-            const createGraph = createGraphByType(board, graphType);
+            // Метка
+            const midAngle = startAngle + angle / 2;
+            board.create('text', [
+              0.7 * Math.cos(midAngle),
+              0.7 * Math.sin(midAngle),
+              `${labels[index]}: ${value}%`
+            ], { fontSize: 10 });
 
-            // Создаем график
-            createGraph();
+            startAngle = endAngle;
+          });
+        },
 
-            // Очистка
-            return () => {
-              if (board) {
-                board.destroy();
-              }
-            };
-          }, [graphType]); // Пересоздаем график при изменении типа
+        // 15. Гистограмма
+        histogram: () => {
+          const data = [3, 7, 4, 9, 2, 5, 8];
+          const barWidth = 0.8;
 
-          return (
-            <div style={{ margin: "10px 0" }}>
-              <div
-                ref={boardRef}
-                style={{
-                  width: `${width}px`,
-                  height: `${height}px`,
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                }}
-              />
-            </div>
-          );
-        };
+          data.forEach((value, index) => {
+            // Столбец гистограммы
+            board.create('polygon', [
+              [index - barWidth / 2, 0],
+              [index - barWidth / 2, value],
+              [index + barWidth / 2, value],
+              [index + barWidth / 2, 0]
+            ], {
+              fillColor: index % 2 === 0 ? 'lightblue' : 'lightcoral',
+              strokeColor: 'black',
+              strokeWidth: 1
+            });
 
-        function App() {
-          const [state, dispatch] = useReducer(caseReducer, initialState);
-
-          return (
-            <FormProvider>
-              <Container className="mt-5">
-                <SingleQuizCardWithStorage />
-                <ActiveCells />
-                <FormDebugger />
-                <JSXGraphComponent graphType="normalDistribution"
-                boundingbox={[-5, 5, 5, -5]}
-                />
-              </Container>
-            </FormProvider>
-          );
+            // Значение сверху
+            board.create('text', [index, value + 0.3, value.toString()], {
+              fontSize: 10
+            });
+          });
         }
+      }
 
-        createRoot(root).render(<App />);
-    </script>
-  </body>
+
+        ;
+      // Выбираем фабрику или возвращаем пустую функцию по умолчанию
+      return (
+        graphFactories[graphType] ||
+        (() => {
+          console.warn(`График типа "${graphType}" не найден`);
+        })
+      );
+    };
+
+    // Основной компонент
+    const JSXGraphComponent = ({
+      graphType = "unitVectors",
+      boundingbox = [-5, 5, 5, -5],
+      width = 400,
+      height = 400,
+    }) => {
+      const boardRef = useRef(null);
+
+      useEffect(() => {
+        if (!boardRef.current) return;
+
+        // Настройки доски
+        const board = JXG.JSXGraph.initBoard(boardRef.current, {
+          boundingbox: boundingbox, // Базовые настройки
+          axis: true,
+          grid: true,
+          showNavigation: false,
+          showCopyright: false,
+        });
+
+        // Получаем функцию для создания графика
+        const createGraph = createGraphByType(board, graphType);
+
+        // Создаем график
+        createGraph();
+
+        // Очистка
+        return () => {
+          if (board) {
+            board.destroy();
+          }
+        };
+      }, [graphType]); // Пересоздаем график при изменении типа
+
+      return (
+        <div style={{ margin: "10px 0" }}>
+          <div
+            ref={boardRef}
+            style={{
+              width: `${width}px`,
+              height: `${height}px`,
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+          />
+        </div>
+      );
+    };
+
+
+    function DevelopQuizWithRandomValue() {
+      const [quiz, dispatch] = useReducer(caseReducer, {
+        text: "text",
+        hint: "hint",
+        answer: "answer"
+      });
+
+      // Generic change handler for all inputs
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        dispatch({
+          type: "SEED_STATE",
+          payload: {
+            object: {
+              [name]: value,            
+            },
+          },
+        });
+
+
+      };
+
+      let quizresult = basicfirebasecrudauthservices.generateRandomValue(quiz);
+      console.log(quizresult)
+      return <Container>
+           <Form>
+             
+            <Row>
+               <Col>
+                 <Form.Group controlId="formStateText">
+                   <Form.Label className="text-secondary">text</Form.Label>
+                   <Form.Control
+                    as="textarea" rows={5}
+                    name="text"
+                     required
+                     onChange={handleInputChange}
+                   />
+                   <div className="text-small">{quizresult?.text}</div>
+                 </Form.Group>
+               </Col>
+             </Row>
+
+             <hr/>
+
+             <Row>
+               <Col>
+                 <Form.Group controlId="formStateAnswer">
+                   <Form.Label className="text-secondary">answer</Form.Label>
+                   <Form.Control
+                     type="text"
+                     name="answer"
+                     required
+                     onChange={handleInputChange}
+                   />
+                   <div className="text-small">{quizresult?.answer}</div>
+                 </Form.Group>
+               </Col>
+             </Row>
+
+             <hr/>
+
+             <Row>
+               <Col>
+                 <Form.Group controlId="formStateHint">
+                   <Form.Label className="text-secondary">hint</Form.Label>
+                   <Form.Control
+                     as="textarea" rows={5}
+                     name="hint"
+                     required
+                     onChange={handleInputChange}
+                   />
+                   <div className="text-small">{quizresult?.hint}</div>
+                 </Form.Group>
+               </Col>
+             </Row>
+
+           </Form>
+         </Container>
+    }
+
+    function App() {
+      const [state, dispatch] = useReducer(caseReducer, initialState);
+
+      return (
+        <FormProvider>
+          <Container className="mt-5">
+            <DevelopQuizWithRandomValue />
+            <SingleQuizCardWithStorage />
+            <ActiveCells />
+            <FormDebugger />
+            <JSXGraphComponent graphType="normalDistribution"
+              boundingbox={[-5, 5, 5, -5]}
+            />
+          </Container>
+        </FormProvider>
+      );
+    }
+
+    createRoot(root).render(<App />);
+  </script>
+</body>
+
 </html>

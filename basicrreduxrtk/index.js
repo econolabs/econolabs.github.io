@@ -4,6 +4,8 @@ const { Provider, useSelector, useDispatch } = ReactRedux;
 let { Button, Container, ButtonGroup, Form } = ReactBootstrap;
 let { configureStore, createSlice } = window.RTK;
 
+let { FormWithRef} = ReactEconolabsLib;
+
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem('econolabs');
@@ -125,8 +127,22 @@ function ShowQuizResults() {
   return null
 }
 
-function QuizCardWithStorage() {
-  return null
+function QuizCardWithStorage(props) {
+  let app = useSelector(selectApplication)
+  console.log(app);
+  console.log(props);
+
+
+  function setInputResult(res) {
+    console.log(res)
+  }
+
+  return <div key={props.id}>
+   
+    {props.id}
+
+      <FormWithRef setInputResult={setInputResult}/>
+    </div>
 }
 
 
@@ -192,6 +208,7 @@ function QuizSet({
 
 
   function doSelectQuiz(index) {
+   
     localDispatch({
       type: "SEED_STATE",
       payload: {
@@ -200,7 +217,18 @@ function QuizSet({
           selectedQuiz: index
         }
       }
+    });
+    setTimeout(()=>{
+       localDispatch({
+      type: "SEED_STATE",
+      payload: {
+        objects: {
+          loading: false,
+         // selectedQuiz: index
+        }
+      }
     })
+    }, 475)
     // setLoading(true);
     // setSelectedQuiz(index);
     // setLoading(false);
@@ -250,7 +278,7 @@ function QuizSet({
       </nav>
       <hr />
 
-      {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={state.selectedQuiz} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
+      {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={quizId} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
 
       {isExam ? <button className="btn btn-sm btn-outline-secondary m-5" onClick={() =>
         localDispatch({
@@ -287,7 +315,7 @@ function QuizSet({
 
     </Navbar>
     <hr />
-    {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={state.selectedQuiz} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
+    {state.loading || !isObject(quizprops) ? <div>...</div> : <QuizCardWithStorage key={quizId} setId={state.selectedQuiz + 1} {...quizprops} isExam={isExam} />}
     {isExam ? <button className="btn btn-sm btn-outline-secondary m-5" onClick={() => localDispatch({
       type: "SEED_STATE",
       payload: {
@@ -473,6 +501,7 @@ function App() {
   if (Array.isArray(window.quizesSets) && window.quizesSets.length > 1) {
     let quizesIds = [...window.quizesSets].map(quiz => quiz.id);
     return <Container>
+   
       <QuizSet quizesIds={quizesIds} isExam={false} />
     </Container>
   }
