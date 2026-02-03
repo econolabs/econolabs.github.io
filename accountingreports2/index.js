@@ -11,6 +11,68 @@ let useContext = React.useContext;
 
 let { Container, Row, Col, Form, Button, Collapse, Navbar, Modal, InputGroup, FormControl } = ReactBootstrap;
 
+function isNumeric(str) {
+    return !isNaN(str) && !isNaN(parseFloat(str));
+}
+
+
+function transactionsListFull(bookrecords) {
+    let markup =
+        Array.isArray(bookrecords) && bookrecords.length > 0
+            ? `<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Дебет</th>
+      <th scope="col">Кредит</th>
+      <th scope="col">Сумма</th>
+      <th scope="col">Период</th>
+    </tr>
+  </thead>
+  <tbody>
+    ` +
+            bookrecords
+                .map((item, index) => {
+                    return `
+        <tr>
+      <th scope="row">${index + 1}</th>
+      <td>${item?.bookD}</td>
+      <td>${item?.bookK}</td>
+      <td>${item?.sum}</td>
+       <td>${item?.period}</td>
+    </tr>
+    <tr>
+    <th scope='row'>Ком</th>
+    <td colspan='4'>${!!item?.comment ? item.comment : ""}</td>
+    </tr>
+    `;
+                })
+                .join("") +
+            `
+    </tbody>
+  </table> 
+    `
+            : "";
+
+    return markup;
+}
+
+
+let defaultProjectData = {
+    id: "accountingreports2026",
+    title: "Бухг. фин. отчетность",
+    // Задание от " + new Intl.DateTimeFormat("ru", {
+    //     year: "numeric",
+    //     month: "short",
+    //     day: "numeric"
+    // }).format(new Date()),
+    theme: "Бухгалтерская финансовая отчетность",
+    answer: "Операции и отчетность",
+    comment: "Операции и отчетность",
+    type: "accountingwithprofitscash",
+    tasks: [{ id: 0, text: "Отразите в учете бухгалтерские записи" }]
+}
+
 const ApplicationContext = createContext(null);
 const ApplicationDispatchContext = createContext(null);
 const ProjectContext = createContext(null);
@@ -18,21 +80,7 @@ const ProjectDispatchContext = createContext(null);
 const SpreadsheetContext = createContext(null);
 const SpreadsheetDispatchContext = createContext(null);
 
-let projectInitialState = {
-    // id: "financialaccounting1",
-    // title: "Общее знакомство c БФУ",
-    // theme: "БФУ",
-    // answer: "Операции и прогнозная отчетность",
-    // comment: "Операции и прогнозная отчетность",
-    // type: "accountingwithprofitscash",
-    content: [],
-    deleted: false,
-    triggerRerender: null,
-    triggerSave: false,
-    saveOptions: {},
-    openLedger: false,
-    openSpreadsheet: false,
-};
+
 
 
 let balanceContoArray = [
@@ -58,11 +106,7 @@ function LoginLogout() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // console.log(e.currentTarget.elements.formEmail.value);
-        // console.log(e.currentTarget.elements.formUser.value);
-
-        basicfirebasecrudservices.saveState({
+        basicfirebasecrudauthservices.saveState({
             application: {
                 email: e.currentTarget.elements.formEmail.value,
                 user: e.currentTarget.elements.formUser.value,
@@ -71,9 +115,7 @@ function LoginLogout() {
                     /[^a-zA-Z0-9]/g, "_")
             }
         });
-
         setTimeout(() => window.location.reload(), 3000)
-        //    handleClose();
     };
 
 
@@ -110,6 +152,20 @@ function EditRecordPeriod() {
     let record = projectSelector.content.find(item => item.id === applicationSelector?.modal?.item?.id);
     let orderInArray = projectSelector.content.findIndex(item => item.id === applicationSelector?.modal?.item?.id) + 1;
 
+
+    function closeSelect() {
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+    }
+
+
     async function handleSubmit(e) {
         e.preventDefault();
         const currentTarget = e.currentTarget;
@@ -126,15 +182,7 @@ function EditRecordPeriod() {
                 objValue: period
             },
         });
-        applicationDispatch({
-            type: "SEED_STATE",
-            payload: {
-                objects: {
-                    showModal: false,
-                    modal: {}
-                },
-            },
-        });
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
@@ -145,9 +193,10 @@ function EditRecordPeriod() {
                 },
             },
         });
+        closeSelect();
     }
 
-    let periods = ["2022", "2023", "2024", "2025", "2026", "2027", "2028"]
+    let periods = ["2025", "2026", "2027", "2028"]
 
     return <Form onSubmit={handleSubmit}>
         <Container>
@@ -182,6 +231,13 @@ function EditRecordPeriod() {
                 <Col>
                     <Button variant="outline-secondary" size="sm" type="submit" >Сохранить</Button>
                 </Col>
+
+                <Col>
+                    <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()} >Закрыть</Button>
+                </Col>
+
+
+
             </Row>
 
         </Container>
@@ -199,6 +255,20 @@ function EditRecordComment() {
     let record = projectSelector.content.find(item => item.id === applicationSelector?.modal?.item?.id);
     let orderInArray = projectSelector.content.findIndex(item => item.id === applicationSelector?.modal?.item?.id) + 1;
 
+
+    function closeSelect() {
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+    }
+
+
     async function handleSubmit(e) {
         e.preventDefault();
         const currentTarget = e.currentTarget;
@@ -215,15 +285,6 @@ function EditRecordComment() {
                 objValue: comment
             },
         });
-        applicationDispatch({
-            type: "SEED_STATE",
-            payload: {
-                objects: {
-                    showModal: false,
-                    modal: {}
-                },
-            },
-        });
         projectDispatch({
             type: "SEED_STATE",
             payload: {
@@ -234,6 +295,7 @@ function EditRecordComment() {
                 },
             },
         });
+        closeSelect()
     }
 
     return <Form onSubmit={handleSubmit}>
@@ -257,13 +319,6 @@ function EditRecordComment() {
                             {record?.comment}
                         </Form.Control>
                     </Form.Group>
-                    {/*      <Form.Control    onChange={handleChange}  
-                        name="comment"
-                        type="textarea"
-                        rows="3"
-                    >
-                        {record?.comment}
-                    </Form.Control>   */}
                 </Col>
             </Row>
 
@@ -272,6 +327,10 @@ function EditRecordComment() {
             <Row>
                 <Col>
                     <Button variant="outline-secondary" size="sm" type="submit" >Сохранить</Button>
+                </Col>
+
+                <Col>
+                    <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()}  >Закрыть</Button>
                 </Col>
             </Row>
 
@@ -292,6 +351,18 @@ function EditRecordType() {
     let orderInArray = projectSelector.content.findIndex(item => item.id === applicationSelector?.modal?.item?.id) + 1;
     // console.log(projectSelector.content);
     // console.log( applicationSelector?.modal?.item?.id)
+
+    function closeSelect() {
+        applicationDispatch({
+            type: "SEED_STATE",
+            payload: {
+                objects: {
+                    showModal: false,
+                    modal: {}
+                },
+            },
+        });
+    }
 
     let analyticsArray = [
         { id: "capitalIncrease", name: "Увеличение чистых активов" },
@@ -353,7 +424,7 @@ function EditRecordType() {
         console.log(analyticsItem);
         // let { d, k, sum, bookD, bookK } = Object.fromEntries(formdata);
         // handleAdd({ d, k, sum, bookD, bookK });
-        // basicfirebasecrudservices.timeout(275).then(() => {
+        // basicfirebasecrudauthservices.timeout(275).then(() => {
         //     setD(null);
         //     setK(null);
         //     currentTarget.reset();
@@ -367,15 +438,7 @@ function EditRecordType() {
                 objValue: analyticsItem
             },
         });
-        applicationDispatch({
-            type: "SEED_STATE",
-            payload: {
-                objects: {
-                    showModal: false,
-                    modal: {}
-                },
-            },
-        });
+
         projectDispatch({
             type: "SEED_STATE",
             payload: {
@@ -386,6 +449,7 @@ function EditRecordType() {
                 },
             },
         });
+        closeSelect();
 
     }
 
@@ -465,6 +529,12 @@ function EditRecordType() {
                 <Col>
                     <Button variant="outline-secondary" size="sm" type="submit" >Сохранить</Button>
                 </Col>
+
+
+                <Col>
+                    <Button variant="outline-secondary" size="sm" onClick={() => closeSelect()} >Закрыть</Button>
+                </Col>
+
             </Row>
 
         </Container>
@@ -485,8 +555,8 @@ function ProjectOptionsNavigation() {
 
 
     useEffect(() => {
-        console.log(applicationSelector);
-    }, [applicationSelector?.modal, applicationSelector?.modal?.component])
+        // console.log(applicationSelector);
+    }, [projectSelector?.triggerRerender, applicationSelector?.modal, applicationSelector?.modal?.component,])
 
     if (applicationSelector?.showModal && applicationSelector?.modal?.component === "EditRecordType") {
         return <EditRecordType />
@@ -630,6 +700,7 @@ function Ledger() {
 
     function editComment(e) {
         if (e.target.id.length > 5) {
+            console.log(e.target.id)
             applicationDispatch({
                 type: "SEED_STATE",
                 payload: {
@@ -731,6 +802,45 @@ function Ledger() {
 
 }
 
+
+function IndicatorAnalalytics({ indicator }) {
+    const projectSelector = useContext(ProjectContext);
+    let contoArray = balanceContoArray.find(item => item.id === indicator).children;
+    let records = !!projectSelector?.content ? projectSelector?.content : [];
+    console.log(records);
+
+    function processRecords(conto) {
+        let DValues = 0;
+        let KValues = 0;
+        Array.isArray(projectSelector.content) && projectSelector.content.map(item => {
+            if (item.d === indicator && item.bookD === conto) { DValues = DValues + parseFloat(item.sum) }
+            if (item.k === indicator && item.bookK === conto) { KValues = KValues + parseFloat(item.sum) }
+            return null
+        })
+        if (
+            balanceContoArray.find(item => item.id === indicator)?.disposition === "asset"
+            // indicator === "Основные средства" || indicator === "Материалы" ||
+            // indicator === "Незавершенное производство" || indicator === "Готовая продукция" ||
+            // indicator === "Дебиторская задолженность" || indicator === "Деньги"
+        ) { return DValues - KValues } else { return KValues - DValues }
+    }
+
+    let notnullconto = [];
+    contoArray.map(conto => {
+        if (processRecords(conto) !== 0) { notnullconto.push(conto) }
+    })
+
+
+    return <div>
+        {notnullconto.map(conto => {
+            return <div key={conto} className="lead text-secondary">
+                {conto + " " + processRecords(conto)}</div>
+        })}
+    </div>
+
+    // return <div>Ha Ha</div>
+}
+
 function SimpleAccounting() {
     const applicationSelector = useContext(ApplicationContext);
     const projectDispatch = useContext(ProjectDispatchContext);
@@ -760,7 +870,7 @@ function SimpleAccounting() {
         let { d, k, sum, bookD, bookK } = Object.fromEntries(formdata);
         //  console.log(d, k, sum, bookD, bookK);
         handleAdd({ d, k, sum, bookD, bookK });
-        basicfirebasecrudservices.timeout(275).then(() => {
+        basicfirebasecrudauthservices.timeout(275).then(() => {
             setD(null);
             setK(null);
             currentTarget.reset();
@@ -774,7 +884,7 @@ function SimpleAccounting() {
             type: "SEED_STATE",
             payload: {
                 objects: {
-                    content: [...projectSelector.content, { d, k, sum, bookD, bookK }],
+                    content: [...projectSelector.content, { d, k, sum, bookD, bookK, orderBy: projectSelector.content.length }],
                     triggerRerender: Math.random(),
                     triggerSave: Math.random(),
                     saveOptions: { type: "content" }
@@ -817,35 +927,97 @@ function SimpleAccounting() {
 
 
 
+
     return <div key={projectSelector?.triggerRerender}>
         <Container>
             <Row>
-                <Col>Основные средства {processRecords("Основные средства")}</Col>
-                <Col>Уставный капитал {processRecords("Уставный капитал")}</Col>
+                <Col><div>
+                    Основные средства {processRecords("Основные средства")}
+                    <IndicatorAnalalytics indicator={"Основные средства"} />
+                </div>
+
+                </Col>
+                <Col>
+                    <div>
+                        Уставный капитал {processRecords("Уставный капитал")}
+                        <IndicatorAnalalytics indicator={"Уставный капитал"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
                 <Col>{" "}</Col>
-                <Col>Нераспределенная прибыль {processRecords("Нераспределенная прибыль")}</Col>
+                <Col>
+                    <div>
+                        Нераспределенная прибыль {processRecords("Нераспределенная прибыль")}
+                        <IndicatorAnalalytics indicator={"Нераспределенная прибыль"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
-                <Col>Материалы {processRecords("Материалы")}</Col>
+                <Col>
+                    <div>
+                        Материалы {processRecords("Материалы")}
+                        <IndicatorAnalalytics indicator={"Материалы"} />
+                    </div>
+                </Col>
                 <Col>{" "}</Col>
             </Row>
             <Row>
-                <Col>Незавершенное производство {processRecords("Незавершенное производство")}  </Col>
-                <Col>Долгосрочный банковский кредит {processRecords("Долгосрочный банковский кредит")} </Col>
+                <Col>
+                    <div>
+                        Незавершенное производство {processRecords("Незавершенное производство")}
+                        <IndicatorAnalalytics indicator={"Незавершенное производство"} />
+                    </div>
+
+                </Col>
+                <Col>
+                    <div>
+                        Долгосрочный банковский кредит {processRecords("Долгосрочный банковский кредит")}
+                        <IndicatorAnalalytics indicator={"Долгосрочный банковский кредит"} />
+                    </div>
+
+                </Col>
             </Row>
             <Row>
-                <Col>Готовая продукция {processRecords("Готовая продукция")} </Col>
+                <Col>
+                    <div>
+                        Готовая продукция {processRecords("Готовая продукция")}
+                        <IndicatorAnalalytics indicator={"Готовая продукция"} />
+                    </div>
+                </Col>
                 <Col>{" "}</Col>
             </Row>
             <Row>
-                <Col>Дебиторская задолженность {processRecords("Дебиторская задолженность")} </Col>
-                <Col>Краткосрочный банковский кредит {processRecords("Краткосрочный банковский кредит")}  </Col>
+                <Col>
+                    <div>
+                        Дебиторская задолженность {processRecords("Дебиторская задолженность")}
+                        <IndicatorAnalalytics indicator={"Дебиторская задолженность"} />
+                    </div>
+
+
+                </Col>
+                <Col>
+                    <div>
+                        Краткосрочный банковский кредит {processRecords("Краткосрочный банковский кредит")}
+                        <IndicatorAnalalytics indicator={"Краткосрочный банковский кредит"} />
+                    </div>
+                </Col>
             </Row>
             <Row>
-                <Col>Деньги {processRecords("Деньги")} </Col>
-                <Col>Кредиторская задолженность {processRecords("Кредиторская задолженность")} </Col>
+                <Col>
+                    <div>
+                        Деньги {processRecords("Деньги")}
+                        <IndicatorAnalalytics indicator={"Деньги"} />
+                    </div>
+                </Col>
+                <Col>
+                    <div>
+                        Кредиторская задолженность {processRecords("Кредиторская задолженность")}
+                        <IndicatorAnalalytics indicator={"Кредиторская задолженность"} />
+                    </div>
+                </Col>
             </Row>
         </Container>
         <hr />
@@ -965,10 +1137,10 @@ function SaveProject() {
                 updates["/usersCraft/" + userEmail + "/posts/" + id + "/content"] = content;
                 updates[
                     "/usersTemplates/projects/" + userEmail + "/" + id + "/content"] = content;
-                updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
-                updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = transactionsListFull(content);
+                updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = transactionsListFull(content);
                 console.log(updates);
-                return await basicfirebasecrudservices.updateFirebaseNode(updates);
+                return await basicfirebasecrudauthservices.updateFirebaseNode(updates);
             }
 
 
@@ -996,10 +1168,10 @@ function SaveProject() {
                 updates["/usersCraft/" + userEmail + "/posts/" + id + "/mediaItems"] = mediaItemsForSaving;
                 updates[
                     "/usersTemplates/projects/" + userEmail + "/" + id + "/mediaItems"] = mediaItemsForSaving;
-                // updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
-                // updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = basicfirebasecrudservices.transactionsListFull(content);
+                // updates["currentDay/" + currentDay + "/posts/" + id + userEmail + "media/content"] = transactionsListFull(content);
+                // updates["/usersCraft/" + userEmail + "/posts/" + id + userEmail + "media/content"] = transactionsListFull(content);
                 console.log(updates);
-                return await basicfirebasecrudservices.updateFirebaseNode(updates);
+                return await basicfirebasecrudauthservices.updateFirebaseNode(updates);
             }
 
 
@@ -1014,7 +1186,7 @@ function SaveProject() {
                     quizString: quizString,
                     answer: "",
                     mediaItems: mediaItemsForSaving,
-                    comment: basicfirebasecrudservices.transactionsListFull(content),
+                    comment: transactionsListFull(content),
                     email: email,
                     user: user,
                     avatarUrl: avatarUrl,
@@ -1030,7 +1202,7 @@ function SaveProject() {
 
                 let htmlPost = {
                     id: id + userEmail + "media",
-                    content: basicfirebasecrudservices.transactionsListFull(content),
+                    content: transactionsListFull(content),
                     type: "html",
                     theme: theme,
                     title: title + " " + user,
@@ -1065,7 +1237,7 @@ function SaveProject() {
 
                 console.log(updates);
 
-                return await basicfirebasecrudservices.updateFirebaseNode(updates);
+                return await basicfirebasecrudauthservices.updateFirebaseNode(updates);
             }
             return null
         }
@@ -1156,22 +1328,11 @@ function GlobalModal() {
             <Modal.Title>{applicationSelector?.modal?.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
             {applicationSelector?.modal?.component === "LoginLogout" && <LoginLogout />}
-
             {applicationSelector?.modal?.component === "EditRecordType" && <EditRecordType />}
-
             {applicationSelector?.modal?.component === "EditRecordComment" && <EditRecordComment />}
-
             {applicationSelector?.modal?.component === "EditRecordPeriod" && <EditRecordPeriod />}
-
-
         </Modal.Body>
-        {/* <Modal.Footer>
-            <Button variant="secondary" size="sm" onClick={handleClose}>
-                Close
-            </Button>
-        </Modal.Footer> */}
     </Modal>
 }
 
@@ -1181,13 +1342,13 @@ function caseReducer(state = {}, action) {
     switch (action.type) {
 
         case "SET_STORE_OBJECT":
-            return basicfirebasecrudservices.produce(state, (draft) => {
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
                 console.log(action.payload);
                 draft[action.payload.key] = action.payload.value;
             });
 
         case "SEED_STATE": {
-            return basicfirebasecrudservices.produce(state, (draft) => {
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
                 Object.keys(action.payload.objects).map((key) => {
                     draft[key] = action.payload.objects[key];
                 });
@@ -1195,24 +1356,29 @@ function caseReducer(state = {}, action) {
         }
 
         case "DELETE_FROM_ARRAY_BY_INDEX": {
-            return basicfirebasecrudservices.produce(state, (draft) => {
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
                 draft[action.payload.arrayName].splice(action.payload.itemIndex, 1);
                 draft.triggerRerender = action.payload.itemIndex;
             });
         }
 
         case "DELETE_FROM_ARRAY_BY_ID": {
-            return basicfirebasecrudservices.produce(state, (draft) => {
-                const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id)
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
+
+                const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id);
+
                 if (index !== -1) {
-                    draft.triggerRerender = action.payload.index;
                     draft[action.payload.arrayName].splice(index, 1);
+                 //   draft.triggerRerender = action.payload.id;
                 }
+
+
+
             });
         }
 
         case "UPDATE_ITEM_IN_ARRAY":
-            return basicfirebasecrudservices.produce(state, (draft) => {
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
                 console.log(action.payload);
                 const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.item.id);
                 if (index !== -1) draft[action.payload.arrayName][index] = action.payload.item
@@ -1221,7 +1387,7 @@ function caseReducer(state = {}, action) {
 
 
         case "UPDATE_ITEM_PROPERTY_IN_ARRAY":
-            return basicfirebasecrudservices.produce(state, (draft) => {
+            return basicfirebasecrudauthservices.produce(state, (draft) => {
                 console.log(action.payload);
                 const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id);
                 if (index !== -1) {
@@ -1249,19 +1415,34 @@ let initialState = {
     modal: {}
 }
 
+let initialprotoData = basicfirebasecrudauthservices.createProtoArray({}, 6, 6)
 let spreadsheetInitialState = {
     expandView: true,
-
     spreadsheetContent: {},
-
-    protoData: createProtoArray({}, 6, 6),
-    data: createNewDraft(createProtoArray({}, 6, 6)),
+    protoData: initialprotoData,
+    data: initialprotoData,
     formulaValue: "", //createProtoArray(emptyProtoDataObject)[0][0],
     formulaRowIndex: 0,
     formulaColumnIndex: 0,
     spreadsheetTitle: '',
     countLetter: 0,
     title: "Задача",
+};
+
+let projectInitialState = {
+    // id: "financialaccounting1",
+    // title: "Общее знакомство c БФУ",
+    // theme: "БФУ",
+    // answer: "Операции и прогнозная отчетность",
+    // comment: "Операции и прогнозная отчетность",
+    // type: "accountingwithprofitscash",
+    content: [],
+    deleted: false,
+    triggerRerender: null,
+    triggerSave: false,
+    saveOptions: {},
+    openLedger: false,
+    openSpreadsheet: false,
 };
 
 
@@ -1285,7 +1466,7 @@ function App() {
 
     useEffect(() => {
         async function getUser() {
-            let localStorageData = basicfirebasecrudservices.loadState('econolabs');
+            let localStorageData = basicfirebasecrudauthservices.loadState('econolabs');
 
             const paramsString = window.location.search;
             const searchParams = new URLSearchParams(paramsString);
@@ -1301,7 +1482,7 @@ function App() {
 
             console.log(openquizid);
 
-            let onlineopenquiz = await basicfirebasecrudservices.getFirebaseNode({
+            let onlineopenquiz = await basicfirebasecrudauthservices.getFirebaseNode({
                 url: "openquiz/" + openquizid,
                 type: "object",
             });
@@ -1323,26 +1504,13 @@ function App() {
             //         Заработная плата рабочих, занятых в ликвидации ОС составляет10 000 руб., отчисления по социальному страхованию и обеспечению со-ставили 2 600 руб.<br>
             //         Указать бухгалтерские записи.`
             //     }],
-                
+
             // };
-            // let res = basicfirebasecrudservices.updateFirebaseNode(updates);
+            // let res = basicfirebasecrudauthservices.updateFirebaseNode(updates);
             // console.log(res);
 
             let openquiz = !!onlineopenquiz && Object.keys(onlineopenquiz).length > 0 ?
-                onlineopenquiz :
-                {
-                    id: openquizid,
-                    title: "Задание от " + new Intl.DateTimeFormat("ru", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric"
-                    }).format(new Date()),
-                    theme: "Бухгалтерский учет и прогнозирование",
-                    answer: "Операции и отчетность",
-                    comment: "Операции и отчетность",
-                    type: "accountingwithprofitscash",
-                    tasks: [{ id: 0, text: "Отразите в учете бухгалтерские записи" }]
-                };
+                onlineopenquiz : { ...defaultProjectData };
 
 
             if (!!localStorageData?.application?.email) {
@@ -1351,12 +1519,12 @@ function App() {
                     "_"
                 );
 
-                let openavatar = await basicfirebasecrudservices.getFirebaseNode({
+                let openavatar = await basicfirebasecrudauthservices.getFirebaseNode({
                     url: "openavatars/" + userEmail,
                     type: "object",
                 });
 
-                let userprojectpostcontent = await basicfirebasecrudservices.getFirebaseNode({
+                let userprojectpostcontent = await basicfirebasecrudauthservices.getFirebaseNode({
                     url: "/usersCraft/" + userEmail + "/posts/" + openquizid + "/content",
                     type: "array",
                 });
@@ -1365,13 +1533,13 @@ function App() {
                     if (!item?.id) {
                         return {
                             ...item,
-                            id: basicfirebasecrudservices.getFirebaseNodeKey("/usersCraft/" + userEmail + "/posts/" + openquizid + "/content")
+                            id: basicfirebasecrudauthservices.getFirebaseNodeKey("/usersCraft/" + userEmail + "/posts/" + openquizid + "/content")
                         }
                     }
                     return item
                 })
 
-                let userprojectspreadsheet = await basicfirebasecrudservices.getFirebaseNode({
+                let userprojectspreadsheet = await basicfirebasecrudauthservices.getFirebaseNode({
                     url: "/usersCraft/" + userEmail + "/posts/" + openquizid + "/mediaItems/1/content",
                     type: "object",
                 });
@@ -1379,7 +1547,7 @@ function App() {
                 userprojectspreadsheet = !!userprojectspreadsheet ? userprojectspreadsheet : {}
 
 
-                let posts = await basicfirebasecrudservices.getFirebaseNode({
+                let posts = await basicfirebasecrudauthservices.getFirebaseNode({
                     url: "/usersCraft/" + userEmail + "/posts/",
                     type: "array",
                 });
@@ -1400,8 +1568,8 @@ function App() {
                     userprojectspreadsheet: userprojectspreadsheet
                 }
             } else {
-                let identity = basicfirebasecrudservices.generateUser();
-                basicfirebasecrudservices.saveState({
+                let identity = basicfirebasecrudauthservices.generateUser();
+                basicfirebasecrudauthservices.saveState({
                     application: {
                         email: identity.email,
                         user: identity.user,
@@ -1456,14 +1624,15 @@ function App() {
                 },
             });
 
+            let userprojectspreadsheetArray = basicfirebasecrudauthservices.createProtoArray(res.userprojectspreadsheet, 6, 6);
 
             spreadsheetDispatch({
                 type: "SEED_STATE",
                 payload: {
                     objects: {
                         spreadsheetContent: res.userprojectspreadsheet,
-                        protoData: createProtoArray(res.userprojectspreadsheet, 6, 6),
-                        data: createNewDraft(createProtoArray(res.userprojectspreadsheet, 6, 6)),
+                        protoData: userprojectspreadsheetArray,
+                        data: basicfirebasecrudauthservices.createNewDraft(userprojectspreadsheetArray),
                         triggerRerender: "loaded"
                     },
                 },
@@ -1486,7 +1655,7 @@ function App() {
                 <SpreadsheetDispatchContext.Provider value={spreadsheetDispatch}>
                     <ProjectContext.Provider value={projectState}>
                         <ProjectDispatchContext.Provider value={projectDispatch}>
-                            {/* <GlobalModal /> */}
+                            <GlobalModal />
                             <SaveProject />
                             <SimpleAccounting
                                 avatarUrl={state.avatarUrl}
@@ -1509,107 +1678,9 @@ function App() {
 ReactDOM.createRoot(document.querySelector("#simpleaccounting")).render(<App />);
 
 
-function createProtoArray(protoDataObject = {}, maxRow = 15, maxColumn = 6) {
-    Object.keys(protoDataObject).map((objKey) => {
-        const [col, ...row] = objKey;
-        let currentColIndex = alphabet.findIndex(item => item === col);
-        if (currentColIndex > maxColumn) { maxColumn = currentColIndex };
-        if (parseInt(row) > maxRow) { maxRow = parseInt(row) }
-    });
-    //  console.log(maxColumn, maxRow);
-
-    var array = new Array(maxRow);
-    for (var i = 0; i < array.length; i++) {
-        array[i] = Array(maxColumn + 1).fill('');
-    }
-
-    Object.keys(protoDataObject).map((objKey) => {
-        const [col, ...row] = objKey;
-        let colArrayIndex = alphabet.findIndex((item) => item === col);
-        let rowArrayIndex = parseInt(row) - 1;
-        array[rowArrayIndex][colArrayIndex] = protoDataObject[objKey];
-    });
-    return array;
-}
-
-function createProtoObject(protoArray) {
-    let protoObject = {};
-    for (var i = 0; i < protoArray.length; i++) {
-        var row = protoArray[i];
-        for (var j = 0; j < row.length; j++) {
-            if (protoArray[i][j] !== "") {
-                protoObject[alphabet[j] + (i + 1)] = protoArray[i][j];
-            }
-        }
-    }
-    return protoObject;
-}
-
-function isNumeric(str) {
-    return !isNaN(str) && !isNaN(parseFloat(str));
-}
-
-function createNewDraft(data) {
-    //   console.log(data);
-    //    return calcData(data);
-    return calcDataWithImmer(data)
-}
-
-
-
-function calcDataWithImmer(data) {
-    //let newdata = JSON.parse(JSON.stringify(data));
-    //let formulas = [];
-
-    const newdata = basicfirebasecrudservices.produce(data, draft => {
-        let oneMoreLoop = true;
-        while (oneMoreLoop) {
-            oneMoreLoop = false;
-            for (let row = 0; row < draft.length; row++) {
-                for (let ix = 0; ix < draft[row].length; ix++) {
-                    let cellValue = draft[row][ix];
-                    //    console.log(cellValue);
-                    if (
-                        (typeof cellValue === "string" || cellValue instanceof String) &&
-                        cellValue.toString().includes("=")
-                    ) {
-
-                        let mapObj = {
-                            СТЕПЕНЬ: "POWER",
-                            ЧПС: "NPV",
-                            ВСД: "IRR",
-                            МВСД: "MIRR",
-                            СУММ: "SUM",
-                            СРЗНАЧ: "AVERAGE",
-                            ОКРУГЛ: "ROUND",
-                            СТАНДОТКЛОН: "STDEV"
-                        };
-                        let re = new RegExp(Object.keys(mapObj).join("|"), "gi");
-                        cellValue = cellValue.replace(re, function (matched) {
-                            return mapObj[matched];
-                        });
-
-                        let result = calculateFormula(draft, cellValue.slice(1));
-                        //       formulas.push({ formula: cellValue, result: result })
-                        if (result.later) {
-                            draft[row][ix] = cellValue;
-                            oneMoreLoop = true;
-                        } else {
-                            draft[row][ix] = result.res.result;
-                        }
-                    } else draft[row][ix] = cellValue;
-                }
-            }
-        }
-        //    draft["id1"].done = true
-    })
-    // console.log(newdata);
-    return newdata;
-}
-
 function CompactActiveCells() {
     let spreadsheetSelector = useContext(SpreadsheetContext);
-    let letter = alphabet[spreadsheetSelector.countLetter];
+    let letter = basicfirebasecrudauthservices.alphabet[spreadsheetSelector.countLetter];
     let arrayOfRows = Array.from({ length: spreadsheetSelector.protoData.length }, (_, i) => i + 1);
     //  console.log(arrayOfRows);
     return <div>
@@ -1640,14 +1711,14 @@ function CompactActiveCell({ rowIndex = 0 }) {
                 : ""
             : +debouncedValue;
 
-        let newSpreadsheetContent = basicfirebasecrudservices.produce(
+        let newSpreadsheetContent = basicfirebasecrudauthservices.produce(
             spreadsheetSelector.spreadsheetContent, (draft) => {
                 //    console.log(action.payload);
                 draft[cellAddress] = valueChecked;
             });
 
-        let newProtoData = createProtoArray(newSpreadsheetContent, 6, 6)
-        let newData = createNewDraft(newProtoData);
+        let newProtoData = basicfirebasecrudauthservices.createProtoArray(newSpreadsheetContent, 6, 6)
+        let newData = basicfirebasecrudauthservices.createNewDraft(newProtoData);
 
         spreadsheetDispatch({
             type: "SEED_STATE",
@@ -1681,7 +1752,7 @@ function CompactActiveCell({ rowIndex = 0 }) {
 
 
     console.log(calculatedDataValue);
-    let cellAddress = (alphabet[spreadsheetSelector.countLetter] + (rowIndex + 1))
+    let cellAddress = (basicfirebasecrudauthservices.alphabet[spreadsheetSelector.countLetter] + (rowIndex + 1))
 
 
     // function setValue(value) {
@@ -1716,8 +1787,8 @@ function CompactSpreadsheetLayout() {
 
     function addRowUnder() {
 
-        let newProtoData = createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6)
-        let newData = createNewDraft(newProtoData);
+        let newProtoData = basicfirebasecrudauthservices.createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6)
+        let newData = basicfirebasecrudauthservices.createNewDraft(newProtoData);
 
         spreadsheetDispatch({
             type: "SEED_STATE",
@@ -1735,7 +1806,7 @@ function CompactSpreadsheetLayout() {
         //     type: "SEED_STATE",
         //     payload: {
         //         objects: {
-        //             protoData: createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6 ),
+        //             protoData: basicfirebasecrudauthservices.createProtoArray(spreadsheetSelector.spreadsheetContent, numberOfRows + 1, 6 ),
         //             triggerRerender: Math.random()
         //         },
         //     },
@@ -1764,124 +1835,6 @@ function SpreadsheetLayout() {
     </div>
 }
 
-const alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z"
-];
-
-function calculateFormula(data, formula) {
-    let parser = new formulaParser.Parser();
-    // let parser = new FormulaParser.Parser();
-
-    let dependencies = [];
-
-    //     console.log(data, formula);
-
-    parser.on("callCellValue", (cellCoord, done) => {
-        const x = cellCoord.column.index + 1;
-        const y = cellCoord.row.index + 1;
-
-        dependencies.push({ x: x, y: y });
-
-        // if (data[y - 1][x - 1].toString().slice(0, 1) === "=") {
-        //   return done(parseFloat(calculateFormula(data[y - 1][x - 1].toString().slice(1))));
-        // }
-
-        if (!data[y - 1] || !data[y - 1][x - 1]) {
-            return done("");
-        }
-        //  console.log(y - 1, x - 1);
-        done(data[y - 1][x - 1]);
-    });
-
-    parser.on("callRangeValue", (startCellCoord, endCellCoord, done) => {
-        var fragment = [];
-
-        for (
-            var row = startCellCoord.row.index;
-            row <= endCellCoord.row.index;
-            row++
-        ) {
-            var rowData = data[row];
-            var colFragment = [];
-
-            for (
-                var col = startCellCoord.column.index;
-                col <= endCellCoord.column.index;
-                col++
-            ) {
-                var value = rowData[col];
-
-                dependencies.push({ x: col, y: row });
-
-                colFragment.push(value);
-            }
-            fragment.push(colFragment);
-        }
-
-        // console.log(fragment);
-
-        if (fragment) {
-            done(fragment);
-        }
-    });
-
-    let resultObj = parser.parse(formula);
-
-    // console.log('formula: ' + formula);
-    let later = false;
-    let dependendentOn = [];
-    dependencies.forEach(item => {
-        let cellValue = null;
-        try {
-            cellValue = data[item.y - 1][item.x - 1];
-            //   console.log(cellValue);
-            dependendentOn.push(cellValue);
-        } catch {
-            //      console.log(formula);
-        }
-
-        if (
-            (typeof cellValue === "string" || cellValue instanceof String) &&
-            cellValue.toString().includes("=")
-        ) {
-            later = true;
-        }
-    });
-    // console.log('dependendentOn: ' + dependendentOn);
-    // console.log('---------');
-
-    return {
-        res: resultObj,
-        dependencies: dependencies,
-        later: later,
-        dependendentOn: dependendentOn
-    };
-}
 
 const useDebounce = (value, delay = 500) => {
     const [debouncedValue, setDebouncedValue] = useState(value)
