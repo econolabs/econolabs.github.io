@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Производная sin(x) - JSXGraph анимация</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        #jxgbox {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Геометрическая интерпретация производной sin(x)</h1>
+        
+        <div class="description">
+            <p>Эта анимация демонстрирует принцип производной функции sin(x).</p>
+            <p><strong>Синусоида</strong> (синий график) - функция f(x) = sin(x)</p>
+            <p><strong>Косинусоида</strong> (красный график) - производная f'(x) = cos(x)</p>
+            <p>Точка P движется по синусоиде. Касательная в точке P показывает мгновенную скорость изменения функции. Угловой коэффициент касательной (тангенс угла наклона) равен значению производной в этой точке.</p>
+        </div>
+        
+        <div id="jxgbox"></div>
+        
+        <div class="controls">
+            <button onclick="startAnimation()">▶️ Старт анимации</button>
+            <button onclick="stopAnimation()">⏹️ Стоп анимации</button>
+            <button onclick="resetAnimation()">🔄 Сброс</button>
+            <button onclick="showDerivative()">📈 Показать/скрыть производную</button>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: blue;"></div>
+                <span>sin(x) - исходная функция</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: red;"></div>
+                <span>cos(x) - производная</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: green;"></div>
+                <span>Точка на графике</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: orange;"></div>
+                <span>Касательная</span>
+            </div>
+        </div>
+    </div>
+ 
+    <script>
+        // Инициализация доски
+        var board = JXG.JSXGraph.initBoard('jxgbox', {
+            boundingbox: [-2*Math.PI, 2, 2*Math.PI, -2],
+            axis: true,
+            grid: true,
+            showNavigation: true,
+            showCopyright: false
+        });
+ 
+        // Определяем функции
+        var f = function(x) { return Math.sin(x); }; // sin(x)
+        var df = function(x) { return Math.cos(x); }; // cos(x) - производная sin(x)
+ 
+        // Создаем график синуса
+        var sinGraph = board.create('functiongraph', [f], {
+            strokeColor: 'blue',
+            strokeWidth: 2,
+            name: 'sin(x)',
+            highlight: false
+        });
+ 
+        // Создаем график производной (косинуса) - изначально невидимый
+        var cosGraph = board.create('functiongraph', [df], {
+            strokeColor: 'red',
+            strokeWidth: 2,
+            name: 'cos(x) = производная sin(x)',
+            highlight: false,
+            visible: false
+        });
+ 
+        // Точка-ползунок на кривой
+        var p = board.create('glider', [Math.PI/2, 0, sinGraph], {
+            face: '○',
+            size: 5,
+            name: 'P',
+            color: 'green',
+            withLabel: true,
+            label: {offset: [20, -20]}
+        });
+ 
+        // Касательная в точке P
+        var tangent = board.create('tangent', [p], {
+            strokeColor: 'orange',
+            strokeWidth: 2,
+            dash: 1,
+            name: 'Касательная',
+            highlight: false
+        });
+ 
+        // Треугольник наклона для визуализации производной
+        var slopeTriangle = board.create('slopetriangle', [tangent], {
+            fillColor: 'yellow',
+            fillOpacity: 0.3,
+            highlight: false
+        });
+ 
+        // Точка для отображения значения производной
+        var derivativePoint = board.create('point', [
+            function() { return p.X(); },
+            function() { return df(p.X()); }
+        ], {
+            face: '△',
+            size: 4,
+            color: 'red',
+            name: 'Значение производной',
+            visible: false,
+            withLabel: true,
+            label: {offset: [20, 20]}
+        });
+ 
+        // Текст для отображения текущих значений
+        var infoText = board.create('text', [-5.5, 1.5, function() {
+            return 'f(x) = sin(x) = ' + f(p.X()).toFixed(3) + 
+                   '\nf\'(x) = cos(x) = ' + df(p.X()).toFixed(3) +
+                   '\nx = ' + p.X().toFixed(3) + 
+                   ' ≈ ' + (p.X()/Math.PI).toFixed(2) + 'π';
+        }], {
+            fontSize: 16,
+            strokeColor: 'black'
+        });
+ 
+        // Переменные для анимации
+        var animationTimer;
+        var animationSpeed = 0.02;
+ 
+        // Функция для обновления анимации
+        function updateAnimation() {
+            var currentX = p.X();
+            var newX = currentX + animationSpeed;
+            
+            // Если вышли за пределы, начинаем заново
+            if (newX > 2*Math.PI) {
+                newX = -2*Math.PI;
+            }
+            
+            p.moveTo([newX, f(newX)], 0);
+            board.update();
+        }
+ 
+        // Функция запуска анимации
+        function startAnimation() {
+            if (!animationTimer) {
+                animationTimer = setInterval(updateAnimation, 20);
+            }
+        }
+ 
+        // Функция остановки анимации
+        function stopAnimation() {
+            if (animationTimer) {
+                clearInterval(animationTimer);
+                animationTimer = null;
+            }
+        }
+ 
+        // Функция сброса анимации
+        function resetAnimation() {
+            stopAnimation();
+            p.moveTo([Math.PI/2, f(Math.PI/2)], 0);
+            board.update();
+        }
+ 
+        // Функция показа/скрытия производной
+        function showDerivative() {
+            cosGraph.setAttribute({visible: !cosGraph.visProp.visible});
+            derivativePoint.setAttribute({visible: !derivativePoint.visProp.visible});
+            board.update();
+        }
+ 
+        // Обработчики событий клавиатуры
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case ' ':
+                    if (animationTimer) {
+                        stopAnimation();
+                    } else {
+                        startAnimation();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    p.moveTo([p.X() - 0.1, f(p.X() - 0.1)], 0);
+                    board.update();
+                    break;
+                case 'ArrowRight':
+                    p.moveTo([p.X() + 0.1, f(p.X() + 0.1)], 0);
+                    board.update();
+                    break;
+                case 'r':
+                case 'R':
+                    resetAnimation();
+                    break;
+                case 'd':
+                case 'D':
+                    showDerivative();
+                    break;
+            }
+        });
+ 
+        // Информация об управлении
+        board.create('text', [-5.5, -1.5, 
+            'Управление:\n' +
+            'Пробел - старт/стоп анимации\n' +
+            'Стрелки ←→ - перемещение точки\n' +
+            'R - сброс\n' +
+            'D - показать/скрыть производную'
+        ], {
+            fontSize: 12,
+            strokeColor: 'gray'
+        });
+ 
+        // Инициализация доски
+        board.update();
+    </script>
+</body>
+</html>

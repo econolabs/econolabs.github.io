@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первообразная sin(x) - JSXGraph анимация</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .graphs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .graph-box {
+            width: 100%;
+            height: 350px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .formula {
+            text-align: center;
+            font-size: 20px;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            font-family: 'Cambria Math', serif;
+        }
+        .info-panel {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        .info-item {
+            text-align: center;
+            min-width: 200px;
+        }
+        .info-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .info-label {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Геометрическая интерпретация первообразной sin(x)</h1>
+        <div class="subtitle">Площадь под кривой и накопление интеграла</div>
+        
+        <div class="formula">
+            ∫ sin(x) dx = -cos(x) + C
+        </div>
+        
+        <div class="description">
+            <p>Эта анимация демонстрирует принцип первообразной (интеграла) функции sin(x).</p>
+            <p><strong>Верхний график:</strong> функция f(x) = sin(x) и площадь под кривой от начальной точки до текущей.</p>
+            <p><strong>Нижний график:</strong> первообразная F(x) = -cos(x) + C, значение которой равно накопленной площади.</p>
+            <p>При движении точки P площадь под кривой накапливается, и значение первообразной изменяется соответственно.</p>
+        </div>
+        
+        <div class="graphs-container">
+            <div id="jxgbox1" class="graph-box"></div>
+            <div id="jxgbox2" class="graph-box"></div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-item">
+                <div class="info-value" id="current-x">0.00</div>
+                <div class="info-label">Текущий x</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value" id="current-area">0.00</div>
+                <div class="info-label">Накопленная площадь</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value" id="antiderivative-value">0.00</div>
+                <div class="info-label">Значение первообразной F(x)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value" id="function-value">0.00</div>
+                <div class="info-label">Значение функции f(x)</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="startAnimation()">▶️ Старт анимации</button>
+            <button onclick="stopAnimation()">⏹️ Стоп анимации</button>
+            <button onclick="resetAnimation()">🔄 Сброс</button>
+            <button onclick="toggleArea()">📏 Показать/скрыть площадь</button>
+            <button onclick="toggleRiemann()">∑ Показать/скрыть суммы Римана</button>
+            <button onclick="changeSpeed(0.5)">🐢 Медленнее</button>
+            <button onclick="changeSpeed(2)">🐇 Быстрее</button>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: blue;"></div>
+                <span>f(x) = sin(x) - исходная функция</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: red;"></div>
+                <span>F(x) = -cos(x) - первообразная</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: rgba(255, 165, 0, 0.5);"></div>
+                <span>Площадь под кривой</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: green;"></div>
+                <span>Движущаяся точка</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: purple;"></div>
+                <span>Прямоугольники Римана</span>
+            </div>
+        </div>
+    </div>
+ 
+    <script>
+        // Инициализация переменных
+        var boards = [];
+        var animationTimer;
+        var animationSpeed = 0.02;
+        var currentSpeed = 1;
+        var startX = -Math.PI;
+        var currentX = startX;
+        var areaVisible = true;
+        var riemannVisible = false;
+        var riemannRectangles = [];
+        var nRectangles = 20;
+        
+        // Функции
+        var f = function(x) { return Math.sin(x); }; // sin(x)
+        var F = function(x) { return -Math.cos(x) + 1; }; // -cos(x) + C (C=1 чтобы F(-π)=0)
+        
+        // Инициализация первой доски (функция и площадь)
+        var board1 = JXG.JSXGraph.initBoard('jxgbox1', {
+            boundingbox: [-Math.PI, 1.5, Math.PI, -1.5],
+            axis: true,
+            grid: true,
+            showNavigation: false,
+            showCopyright: false,
+            zoom: false,
+            pan: false
+        });
+        boards.push(board1);
+        
+        // Инициализация второй доски (первообразная)
+        var board2 = JXG.JSXGraph.initBoard('jxgbox2', {
+            boundingbox: [-Math.PI, 3, Math.PI, -1],
+            axis: true,
+            grid: true,
+            showNavigation: false,
+            showCopyright: false,
+            zoom: false,
+            pan: false
+        });
+        boards.push(board2);
+        
+        // СОЗДАНИЕ ЭЛЕМЕНТОВ НА ПЕРВОЙ ДОСКЕ (функция)
+        
+        // График sin(x)
+        var sinGraph = board1.create('functiongraph', [f], {
+            strokeColor: 'blue',
+            strokeWidth: 3,
+            name: 'f(x) = sin(x)',
+            highlight: false
+        });
+        
+        // Точка на графике
+        var p1 = board1.create('point', [startX, f(startX)], {
+            face: '○',
+            size: 6,
+            name: 'P',
+            color: 'green',
+            withLabel: true,
+            label: {offset: [15, -15]}
+        });
+        
+        // Вертикальная линия от оси X до точки
+        var vertLine = board1.create('segment', [
+            [function() { return p1.X(); }, 0],
+            [function() { return p1.X(); }, function() { return f(p1.X()); }]
+        ], {
+            strokeColor: 'green',
+            strokeWidth: 1,
+            dash: 2
+        });
+        
+        // Площадь под кривой (закрашенная область)
+        var area = board1.create('curve', [[], []], {
+            fillColor: 'orange',
+            fillOpacity: 0.3,
+            strokeWidth: 0
+        });
+        
+        // Функция для обновления площади
+        function updateArea() {
+            var x = p1.X();
+            var step = (x - startX) / 50;
+            var xCoords = [];
+            var yCoords = [];
+            
+            // Добавляем начальную точку
+            xCoords.push(startX);
+            yCoords.push(0);
+            
+            // Добавляем точки вдоль кривой
+            for (var i = 0; i <= 50; i++) {
+                var xi = startX + i * step;
+                xCoords.push(xi);
+                yCoords.push(f(xi));
+            }
+            
+            // Замыкаем область
+            xCoords.push(x);
+            yCoords.push(0);
+            
+            area.updateDataArray(xCoords, yCoords);
+        }
+        
+        // Прямоугольники Римана
+        function updateRiemannRectangles() {
+            // Удаляем старые прямоугольники
+            riemannRectangles.forEach(function(rect) {
+                board1.removeObject(rect);
+            });
+            riemannRectangles = [];
+            
+            if (!riemannVisible) return;
+            
+            var a = startX;
+            var b = p1.X();
+            var dx = (b - a) / nRectangles;
+            
+            for (var i = 0; i < nRectangles; i++) {
+                var x1 = a + i * dx;
+                var x2 = x1 + dx;
+                var midX = (x1 + x2) / 2;
+                var height = f(midX);
+                
+                // Создаем прямоугольник
+                var rect = board1.create('polygon', [
+                    [x1, 0],
+                    [x2, 0],
+                    [x2, height],
+                    [x1, height]
+                ], {
+                    fillColor: 'purple',
+                    fillOpacity: 0.2,
+                    strokeColor: 'purple',
+                    strokeWidth: 1,
+                    highlight: false
+                });
+                
+                riemannRectangles.push(rect);
+            }
+        }
+        
+        // СОЗДАНИЕ ЭЛЕМЕНТОВ НА ВТОРОЙ ДОСКЕ (первообразная)
+        
+        // График первообразной -cos(x) + 1
+        var antiderivativeGraph = board2.create('functiongraph', [F], {
+            strokeColor: 'red',
+            strokeWidth: 3,
+            name: 'F(x) = -cos(x) + C',
+            highlight: false
+        });
+        
+        // Точка на графике первообразной
+        var p2 = board2.create('point', [
+            function() { return p1.X(); },
+            function() { return F(p1.X()); }
+        ], {
+            face: '○',
+            size: 6,
+            color: 'darkred',
+            withLabel: true,
+            label: {offset: [15, -15], text: "F(x)"}
+        });
+        
+        // Горизонтальная линия для связи графиков
+        var connectingLine = board2.create('segment', [
+            [function() { return p1.X(); }, 0],
+            [function() { return p1.X(); }, function() { return F(p1.X()); }]
+        ], {
+            strokeColor: 'darkred',
+            strokeWidth: 1,
+            dash: 2
+        });
+        
+        // Траектория движения точки первообразной
+        var trace = board2.create('curve', [[], []], {
+            strokeColor: 'darkred',
+            strokeWidth: 1,
+            dash: 1
+        });
+        
+        // Функция для обновления траектории
+        function updateTrace() {
+            var tracePoints = trace.points;
+            tracePoints.push([p1.X(), F(p1.X())]);
+            
+            // Ограничиваем длину траектории
+            if (tracePoints.length > 200) {
+                tracePoints.shift();
+            }
+            
+            trace.updateCurve();
+        }
+        
+        // Текстовые элементы для информации
+        board1.create('text', [-Math.PI + 0.2, 1.2, 
+            'f(x) = sin(x)\n' +
+            '∫ sin(x) dx = -cos(x) + C'
+        ], {
+            fontSize: 14,
+            strokeColor: 'black',
+            fixed: true
+        });
+        
+        board2.create('text', [-Math.PI + 0.2, 2.5, 
+            'F(x) = -cos(x) + C\n' +
+            'F\'(x) = sin(x) = f(x)'
+        ], {
+            fontSize: 14,
+            strokeColor: 'black',
+            fixed: true
+        });
+        
+        // Функция для обновления информации на панели
+        function updateInfoPanel() {
+            var x = p1.X();
+            var areaValue = F(x) - F(startX); // По теореме Ньютона-Лейбница
+            
+            document.getElementById('current-x').textContent = x.toFixed(3);
+            document.getElementById('function-value').textContent = f(x).toFixed(3);
+            document.getElementById('antiderivative-value').textContent = F(x).toFixed(3);
+            document.getElementById('current-area').textContent = areaValue.toFixed(3);
+        }
+        
+        // Функция для обновления анимации
+        function updateAnimation() {
+            var newX = currentX + animationSpeed * currentSpeed;
+            
+            // Если вышли за пределы, начинаем заново
+            if (newX > Math.PI) {
+                newX = -Math.PI;
+                // Очищаем траекторию
+                trace.points = [];
+                trace.updateCurve();
+            }
+            
+            currentX = newX;
+            p1.moveTo([currentX, f(currentX)], 0);
+            
+            // Обновляем все визуальные элементы
+            if (areaVisible) updateArea();
+            updateRiemannRectangles();
+            updateTrace();
+            updateInfoPanel();
+            
+            // Обновляем обе доски
+            boards.forEach(function(board) {
+                board.update();
+            });
+        }
+        
+        // Управление анимацией
+        
+        function startAnimation() {
+            if (!animationTimer) {
+                animationTimer = setInterval(updateAnimation, 20);
+            }
+        }
+        
+        function stopAnimation() {
+            if (animationTimer) {
+                clearInterval(animationTimer);
+                animationTimer = null;
+            }
+        }
+        
+        function resetAnimation() {
+            stopAnimation();
+            currentX = startX;
+            p1.moveTo([startX, f(startX)], 0);
+            trace.points = [];
+            trace.updateCurve();
+            updateArea();
+            updateRiemannRectangles();
+            updateInfoPanel();
+            boards.forEach(function(board) {
+                board.update();
+            });
+        }
+        
+        function toggleArea() {
+            areaVisible = !areaVisible;
+            area.setAttribute({visible: areaVisible});
+            board1.update();
+        }
+        
+        function toggleRiemann() {
+            riemannVisible = !riemannVisible;
+            updateRiemannRectangles();
+            board1.update();
+        }
+        
+        function changeSpeed(factor) {
+            currentSpeed *= factor;
+            // Ограничиваем скорость
+            if (currentSpeed < 0.1) currentSpeed = 0.1;
+            if (currentSpeed > 5) currentSpeed = 5;
+        }
+        
+        // Инициализация
+        updateArea();
+        updateInfoPanel();
+        
+        // Обработчики событий клавиатуры
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case ' ':
+                    event.preventDefault();
+                    if (animationTimer) {
+                        stopAnimation();
+                    } else {
+                        startAnimation();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    currentX -= 0.1;
+                    p1.moveTo([currentX, f(currentX)], 0);
+                    updateArea();
+                    updateRiemannRectangles();
+                    updateTrace();
+                    updateInfoPanel();
+                    boards.forEach(function(board) {
+                        board.update();
+                    });
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    currentX += 0.1;
+                    p1.moveTo([currentX, f(currentX)], 0);
+                    updateArea();
+                    updateRiemannRectangles();
+                    updateTrace();
+                    updateInfoPanel();
+                    boards.forEach(function(board) {
+                        board.update();
+                    });
+                    break;
+                case 'r':
+                case 'R':
+                    resetAnimation();
+                    break;
+                case 'a':
+                case 'A':
+                    toggleArea();
+                    break;
+                case 's':
+                case 'S':
+                    toggleRiemann();
+                    break;
+                case '+':
+                case '=':
+                    changeSpeed(1.5);
+                    break;
+                case '-':
+                case '_':
+                    changeSpeed(0.67);
+                    break;
+            }
+        });
+        
+        // Информация об управлении
+        board1.create('text', [-Math.PI + 0.2, -1.2, 
+            'Управление:\n' +
+            'Пробел - старт/стоп\n' +
+            'Стрелки ←→ - вручную\n' +
+            'R - сброс, A - площадь\n' +
+            'S - суммы Римана\n' +
+            '+/- - скорость'
+        ], {
+            fontSize: 11,
+            strokeColor: 'gray',
+            fixed: true
+        });
+    </script>
+</body>
+</html>
