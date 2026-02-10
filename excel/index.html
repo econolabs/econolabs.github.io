@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информатика и базы данных</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="./original.css">
+
+ 
+
+
+
+
+    <style>
+        .fade-in-div {
+            animation: fadeIn 475;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+
+        .exercise {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .sql-keyword {
+            color: #d73a49;
+            font-weight: bold;
+        }
+
+        .sql-comment {
+            color: #6a737d;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5"></div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+        <div class="card mx-auto" style="max-width: 1000px; margin: 20px auto;">
+            <img src="./h1title.jpg"
+                class="card-img-top" alt="MS Excel - Генерация случайных значений">
+            <div class="card-body">
+                <h3>Генерация случайных значений в MS Excel (русская версия)</h3>
+                <div class="row">
+                    <div class="col-12">
+                     
+                        <!-- Важное примечание -->
+                        <div class="alert alert-warning">
+                            <strong>Внимание!</strong> Эта страница содержит формулы для <strong>русскоязычной версии
+                                Excel</strong>, где разделителем аргументов является <strong>точка с запятой
+                                (;)</strong>. В английской версии используется запятая (,).
+                        </div>
+
+                        <!-- Блок с целями обучения -->
+                        <div class="alert alert-primary">
+                     
+                            <ul>
+                                <li>Основные функции Excel для генерации случайных чисел: <span
+                                        class="highlight">СЛЧИС()</span> и <span class="highlight">СЛУЧМЕЖДУ()</span>
+                                </li>
+                                <li>Создание случайных чисел в произвольном диапазоне (дробных и целых)</li>
+                                <li>Генерацию случайных дат, текста и выбор из списка</li>
+                                <li>Как "заморозить" случайные значения (прекратить пересчет)</li>
+                                <li>Использование новых функций Excel 365: <span class="highlight">МАССИВСЛЧИС()</span>
+                                </li>
+                                <li>Расширенные возможности через надстройку "Пакет анализа"</li>
+                                <li>Примеры практического применения в реальных задачах</li>
+                            </ul>
+                        </div>
+
+                        <!-- Основное содержание -->
+                        <h4>1. Базовые функции генерации случайных чисел</h4>
+                        <p><strong><code>СЛЧИС()</code></strong> — возвращает случайное дробное число от 0 до 1
+                            (включительно). Функция не имеет аргументов и пересчитывается при каждом изменении листа.
+                        </p>
+
+                        <p><strong><code>СЛУЧМЕЖДУ(нижняя_граница; верхняя_граница)</code></strong> — возвращает
+                            случайное <strong>целое</strong> число в указанном диапазоне. Например,
+                            <code>=СЛУЧМЕЖДУ(1; 100)</code> вернет целое число от 1 до 100.</p>
+
+                        <h4>2. Таблица примеров использования (русская версия Excel)</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered function-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Что генерируем</th>
+                                        <th>Формула для русской версии Excel</th>
+                                        <th>Пример результата</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Случайное дробное 0–1</td>
+                                        <td><code>=СЛЧИС()</code></td>
+                                        <td>0,743562</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Случайное целое 1–50</td>
+                                        <td><code>=СЛУЧМЕЖДУ(1; 50)</code></td>
+                                        <td>27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Случайное дробное 5–10</td>
+                                        <td><code>=СЛЧИС()*(10-5)+5</code><br>
+                                            <span class="formula-note">или: =СЛЧИС()*5+5</span>
+                                        </td>
+                                        <td>7,83421</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Случайная дата в 2024 году</td>
+                                        <td><code>=СЛУЧМЕЖДУ(ДАТА(2024;1;1); ДАТА(2024;12;31))</code><br>
+                                            <span class="formula-note">форматируем ячейку как дату</span>
+                                        </td>
+                                        <td>14.07.2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Случайный выбор из списка цветов</td>
+                                        <td><code>=ИНДЕКС({"Красный";"Синий";"Зеленый"}; СЛУЧМЕЖДУ(1;3))</code></td>
+                                        <td>Синий</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Случайное время в течение дня</td>
+                                        <td><code>=СЛЧИС()</code><br>
+                                            <span class="formula-note">форматируем ячейку как время</span>
+                                        </td>
+                                        <td>14:30:22</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>3. Как остановить пересчет случайных чисел</h4>
+                        <p>По умолчанию функции <code>СЛЧИС()</code> и <code>СЛУЧМЕЖДУ()</code> пересчитываются при
+                            каждом изменении листа. Чтобы "заморозить" значения:</p>
+                        <ol>
+                            <li>Выделите ячейки с формулами</li>
+                            <li>Скопируйте их (Ctrl+C)</li>
+                            <li>Выполните: <strong>Специальная вставка → Значения</strong> (Ctrl+Shift+V или через
+                                правую кнопку мыши)</li>
+                        </ol>
+                        <p class="formula-note">Альтернативно: можно отключить автоматический пересчет в параметрах
+                            формул (Файл → Параметры → Формулы → Вычисления вручную).</p>
+
+                        <h4>4. Новая функция Excel 365: МАССИВСЛЧИС()</h4>
+                        <p>В новых версиях Excel 365 появилась мощная функция:</p>
+                        <p><code>=МАССИВСЛЧИС(строки; [столбцы]; [минимальное]; [максимальное]; [целое_число])</code>
+                        </p>
+                        <p>Примеры:</p>
+                        <ul>
+                            <li><code>=МАССИВСЛЧИС(5; 3; 1; 100; ИСТИНА)</code> — матрица 5×3 со случайными целыми
+                                числами 1-100</li>
+                            <li><code>=МАССИВСЛЧИС(10; 1; 0; 1)</code> — 10 случайных дробных чисел 0-1</li>
+                        </ul>
+
+                        <h4>5. Пакет анализа для сложных распределений</h4>
+                        <p>Для генерации случайных чисел по заданным статистическим распределениям (нормальное,
+                            биномиальное и др.):</p>
+                        <ol>
+                            <li>Включите надстройку <strong>Пакет анализа</strong> (Файл → Параметры → Надстройки →
+                                Перейти → Пакет анализа)</li>
+                            <li>Перейдите: <strong>Данные → Анализ данных → Генерация случайных чисел</strong></li>
+                            <li>Выберите тип распределения и параметры</li>
+                        </ol>
+
+                        <h4>6. Практические примеры применения</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5>Создание тестовых данных</h5>
+                                        <p>Генерация случайных цен, количеств, ID для тестирования отчетов и формул.</p>
+                                        <code>=СЛУЧМЕЖДУ(100; 10000)</code> — случайная цена<br>
+                                        <code>=СЛУЧМЕЖДУ(1; 100)</code> — случайное количество
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5>Розыгрыш призов/жеребьевка</h5>
+                                        <p>Выбор случайного победителя из списка участников.</p>
+                                        <code>=ИНДЕКС(A2:A100; СЛУЧМЕЖДУ(1; СЧЁТЗ(A2:A100)))</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <strong>Важно знать:</strong>
+                            <ul class="mb-0">
+                                <li>Excel использует <em>псевдослучайные</em> числа, которые подходят для большинства
+                                    практических задач (моделирование, тестирование, выборки), но не для криптографии
+                                </li>
+                                <li>В русской версии Excel десятичный разделитель — <strong>запятая</strong> (0,743562),
+                                    а разделитель аргументов — <strong>точка с запятой</strong> (;)</li>
+                                <li>Для воспроизводимости случайных последовательностей можно задать начальное значение
+                                    через VBA</li>
+                            </ul>
+                        </div>
+
+                        <h4>7. Соответствие функций (рус/англ)</h4>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr class="table-secondary">
+                                        <th>Русская версия</th>
+                                        <th>Английская версия</th>
+                                        <th>Описание</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>СЛЧИС()</code></td>
+                                        <td><code>RAND()</code></td>
+                                        <td>Случайное число 0-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>СЛУЧМЕЖДУ()</code></td>
+                                        <td><code>RANDBETWEEN()</code></td>
+                                        <td>Случайное целое в диапазоне</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>МАССИВСЛЧИС()</code></td>
+                                        <td><code>RANDARRAY()</code></td>
+                                        <td>Массив случайных чисел</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+
+        <div class="card mx-auto" style="max-width: 1000px; margin: 20px auto;">
+            <img src="./h1title2.jpg"
+                class="card-img-top" alt="Статистический анализ в Excel">
+            <div class="card-body">
+                <h3>Статистический анализ данных в Excel без "Пакета анализа"</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center mb-4">Основные статистические функции Excel для анализа данных</h1>
+                        <p class="lead text-center">Анализируйте случайные числа и любые данные с помощью встроенных
+                            формул Excel</p>
+
+                        <!-- Блок с целями обучения -->
+                        <div class="alert alert-primary">
+                            <strong>В этом материале вы узнаете:</strong>
+                            <ul>
+                                <li>Основные описательные статистики: среднее, медиана, мода, дисперсия</li>
+                                <li>Меры изменчивости данных: стандартное отклонение, размах, квартили</li>
+                                <li>Анализ распределения: асимметрия, эксцесс, нормальное распределение</li>
+                                <li>Функции для проверки гипотез и корреляции</li>
+                                <li>Практические примеры анализа сгенерированных случайных чисел</li>
+                                <li>Как построить полный статистический отчет без надстроек</li>
+                            </ul>
+                        </div>
+
+                        <!-- Важное примечание -->
+                        <div class="alert alert-warning">
+                            <strong>Важно!</strong> Все формулы приведены для <strong>русскоязычной версии
+                                Excel</strong>. Разделитель аргументов — точка с запятой (;).
+                        </div>
+
+                        <!-- Навигация по разделам -->
+                        <ul class="nav nav-tabs mb-4" id="statTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab"
+                                    data-bs-target="#basic" type="button">Основные статистики</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="variability-tab" data-bs-toggle="tab"
+                                    data-bs-target="#variability" type="button">Изменчивость</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="distribution-tab" data-bs-toggle="tab"
+                                    data-bs-target="#distribution" type="button">Распределение</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="advanced-tab" data-bs-toggle="tab"
+                                    data-bs-target="#advanced" type="button">Дополнительно</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="statTabsContent">
+
+                            <!-- Вкладка 1: Основные статистики -->
+                            <div >
+                                <h4>1. Основные описательные статистики</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Среднее арифметическое</h5>
+                                                <p class="highlight">=СРЗНАЧ(диапазон)</p>
+                                                <p>Центральная тенденция данных. Чувствительно к выбросам.</p>
+                                                <span class="formula-note">Пример: =СРЗНАЧ(A2:A100)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Медиана</h5>
+                                                <p class="highlight">=МЕДИАНА(диапазон)</p>
+                                                <p>Значение, которое делит данные пополам. Устойчиво к выбросам.</p>
+                                                <span class="formula-note">50-й процентиль</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Мода</h5>
+                                                <p class="highlight">=МОДА(диапазон)</p>
+                                                <p>Наиболее часто встречающееся значение.</p>
+                                                <span class="formula-note">=МОДА.ОД(A2:A100) — одна мода</span>
+                                                <span class="formula-note">=МОДА.НСК(A2:A100) — несколько мод</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Сумма</h5>
+                                                <p class="highlight">=СУММ(диапазон)</p>
+                                                <p>Общая сумма всех значений.</p>
+                                                <span class="formula-note">=СУММ(A2:A100) или =СУММПРОИЗВ()</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="example-box">
+                                    <div class="example-title">Пример анализа случайных чисел:</div>
+                                    <p>Сгенерируем 100 случайных чисел от 1 до 100 и проанализируем:</p>
+                                    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+Случайные числа: =СЛУЧМЕЖДУ(1;100) в A2:A101
+Среднее: =СРЗНАЧ(A2:A101) → ~50.5
+Медиана: =МЕДИАНА(A2:A101) → ~50
+Мода: =МОДА.ОД(A2:A101) → зависит от выборки</pre>
+                                </div>
+                            </div>
+
+                            <!-- Вкладка 2: Меры изменчивости -->
+                            <div >
+                                <h4>2. Меры изменчивости данных</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Стандартное отклонение</h5>
+                                                <p class="highlight">=СТАНДОТКЛОН.В(диапазон)</p>
+                                                <p>Для всей генеральной совокупности.</p>
+                                                <span class="formula-note">=СТАНДОТКЛОН.Г() — для выборки</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Дисперсия</h5>
+                                                <p class="highlight">=ДИСП.В(диапазон)</p>
+                                                <p>Квадрат стандартного отклонения.</p>
+                                                <span class="formula-note">=ДИСП.Г() — для выборки</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Размах</h5>
+                                                <p class="highlight">=МАКС(диапазон)-МИН(диапазон)</p>
+                                                <p>Разность между максимальным и минимальным значениями.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Квартили</h5>
+                                                <p class="highlight">=КВАРТИЛЬ.ВКЛ(диапазон; квартиль)</p>
+                                                <p>Квартиль = 1 (25%), 2 (50% = медиана), 3 (75%).</p>
+                                                <span class="formula-note">=КВАРТИЛЬ.ИСКЛ() — другой метод</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Процентили</h5>
+                                                <p class="highlight">=ПРОЦЕНТИЛЬ.ВКЛ(диапазон; k)</p>
+                                                <p>k от 0 до 1. Например, 0.9 = 90-й процентиль.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Межквартильный размах</h5>
+                                                <p class="highlight">=Q3 - Q1</p>
+                                                <p>Разность между 75-м и 25-м процентилями.</p>
+                                                <span
+                                                    class="formula-note">=КВАРТИЛЬ.ВКЛ(A:A;3)-КВАРТИЛЬ.ВКЛ(A:A;1)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="example-box">
+                                    <div class="example-title">Пример анализа изменчивости:</div>
+                                    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+Стандартное отклонение: =СТАНДОТКЛОН.В(A2:A101) → ~28.9
+Дисперсия: =ДИСП.В(A2:A101) → ~835
+Размах: =МАКС(A2:A101)-МИН(A2:A101) → ~99
+Q1 (25%): =КВАРТИЛЬ.ВКЛ(A2:A101;1) → ~25
+Q3 (75%): =КВАРТИЛЬ.ВКЛ(A2:A101;3) → ~75</pre>
+                                </div>
+                            </div>
+
+                            <!-- Вкладка 3: Анализ распределения -->
+                            <div >
+                                <h4>3. Анализ формы распределения</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Асимметрия (Skewness)</h5>
+                                                <p class="highlight">=СКОС(диапазон)</p>
+                                                <p>Мера симметрии распределения:</p>
+                                                <ul class="mb-0">
+                                                    <li>> 0 — правосторонняя асимметрия</li>
+                                                    <li>= 0 — симметричное распределение</li>
+                                                    <li>
+                                                        < 0 — левосторонняя асимметрия</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Эксцесс (Kurtosis)</h5>
+                                                <p class="highlight">=ЭКСЦЕСС(диапазон)</p>
+                                                <p>Мера "остроты" распределения:</p>
+                                                <ul class="mb-0">
+                                                    <li>> 0 — островершинное (пик)</li>
+                                                    <li>= 0 — нормальное распределение</li>
+                                                    <li>
+                                                        < 0 — пологое распределение</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Проверка на нормальность</h5>
+                                                <p class="highlight">=НОРМ.РАСП(x; среднее; ст_откл; ИСТИНА)</p>
+                                                <p>Вероятность в нормальном распределении.</p>
+                                                <span class="formula-note">Для критериев: =НОРМ.ОБР(вероятность;
+                                                    среднее; ст_откл)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Стандартизация Z-оценка</h5>
+                                                <p class="highlight">=СТАНДОТКЛОН.ОТКЛ(x; среднее; ст_откл)</p>
+                                                <p>Преобразует значение в стандартную Z-оценку.</p>
+                                                <span class="formula-note">=СТАНДОТКЛОН.ОКРУГЛ() — устаревшая
+                                                    версия</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="example-box">
+                                    <div class="example-title">Пример анализа распределения случайных чисел:</div>
+                                    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+Асимметрия: =СКОС(A2:A101) → близко к 0 (равномерное распределение)
+Эксцесс: =ЭКСЦЕСС(A2:A101) → около -1.2 (равномерное)
+Z-оценка для значения 75: 
+=СТАНДОТКЛОН.ОТКЛ(75; СРЗНАЧ(A2:A101); СТАНДОТКЛОН.В(A2:A101))
+→ ~0.85 (на 0.85 стандартных отклонений выше среднего)</pre>
+                                </div>
+                            </div>
+
+                            <!-- Вкладка 4: Дополнительные функции -->
+                            <div >
+                                <h4>4. Дополнительные статистические функции</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Корреляция</h5>
+                                                <p class="highlight">=КОРРЕЛ(массив1; массив2)</p>
+                                                <p>Коэффициент корреляции Пирсона (-1 до +1).</p>
+                                                <span class="formula-note">=PEARSON() — английский вариант</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Ковариация</h5>
+                                                <p class="highlight">=КОВАР(массив1; массив2)</p>
+                                                <p>Мера совместной изменчивости.</p>
+                                                <span class="formula-note">=КОВАРИАЦИЯ.В() — для выборки</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Критерии Стьюдента</h5>
+                                                <p class="highlight">=СТЬЮДЕНТ.РАСП(x; степени_свободы; хвосты)</p>
+                                                <p>t-распределение Стьюдента.</p>
+                                                <span class="formula-note">хвосты: 1 — односторонний, 2 —
+                                                    двусторонний</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Хи-квадрат распределение</h5>
+                                                <p class="highlight">=ХИ2.РАСП(x; степени_свободы; интегральная)</p>
+                                                <p>Для проверки гипотез о распределении.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Подсчет элементов</h5>
+                                                <p class="highlight">=СЧЁТ(диапазон)</p>
+                                                <p>Количество чисел в диапазоне.</p>
+                                                <span class="formula-note">=СЧЁТЗ() — все непустые ячейки</span>
+                                                <span class="formula-note">=СЧИТАТЬПУСТОТЫ() — пустые ячейки</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card stat-card">
+                                            <div class="card-body">
+                                                <h5>Условный подсчет</h5>
+                                                <p class="highlight">=СЧЁТЕСЛИ(диапазон; условие)</p>
+                                                <p>Количество ячеек, удовлетворяющих условию.</p>
+                                                <span class="formula-note">=СЧЁТЕСЛИМН() — несколько условий</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="example-box">
+                                    <div class="example-title">Пример полного статистического отчета:</div>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Статистика</th>
+                                                    <th>Формула</th>
+                                                    <th>Результат для случайных чисел 1-100</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Объем выборки</td>
+                                                    <td>=СЧЁТ(A2:A101)</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Среднее</td>
+                                                    <td>=СРЗНАЧ(A2:A101)</td>
+                                                    <td>~50.5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Стандартное отклонение</td>
+                                                    <td>=СТАНДОТКЛОН.В(A2:A101)</td>
+                                                    <td>~28.9</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Минимум</td>
+                                                    <td>=МИН(A2:A101)</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>25-й процентиль</td>
+                                                    <td>=КВАРТИЛЬ.ВКЛ(A2:A101;1)</td>
+                                                    <td>~25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Медиана</td>
+                                                    <td>=МЕДИАНА(A2:A101)</td>
+                                                    <td>~50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>75-й процентиль</td>
+                                                    <td>=КВАРТИЛЬ.ВКЛ(A2:A101;3)</td>
+                                                    <td>~75</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Максимум</td>
+                                                    <td>=МАКС(A2:A101)</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Размах</td>
+                                                    <td>=МАКС-МИН</td>
+                                                    <td>99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Асимметрия</td>
+                                                    <td>=СКОС(A2:A101)</td>
+                                                    <td>~0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Эксцесс</td>
+                                                    <td>=ЭКСЦЕСС(A2:A101)</td>
+                                                    <td>~ -1.2</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Практическое применение -->
+                        <h4>5. Практическое применение: анализ сгенерированных данных</h4>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>1. Генерация тестовых данных</h6>
+                                        <p>Создаем 1000 значений с нормальным распределением:</p>
+                                        <code>=НОРМ.ОБР(СЛЧИС(); 100; 15)</code>
+                                        <p class="formula-note">Среднее = 100, SD = 15</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>2. Анализ распределения</h6>
+                                        <p>Проверяем соответствие нормальному распределению:</p>
+                                        <ul class="mb-0">
+                                            <li>СКОС ≈ 0</li>
+                                            <li>ЭКСЦЕСС ≈ 0</li>
+                                            <li>68% данных в ±1SD</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>3. Выявление выбросов</h6>
+                                        <p>Находим значения за пределами 3σ:</p>
+                                        <code>=СЧЁТЕСЛИ(A:A;"<"&D2-3*D3)</code><br>
+                                        <code>+СЧЁТЕСЛИ(A:A;">"&D2+3*D3)</code>
+                                        <p class="formula-note">D2=среднее, D3=стандартное отклонение</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-4">
+                            <h5>Советы по использованию:</h5>
+                            <ul class="mb-0">
+                                <li>Используйте <strong>именованные диапазоны</strong> для удобства: =СРЗНАЧ(Данные)
+                                </li>
+                                <li>Комбинируйте функции: =СТАНДОТКЛОН.В(ЕСЛИ(Условие; Данные))</li>
+                                <li>Для динамических диапазонов: =СРЗНАЧ(A2:ИНДЕКС(A:A; СЧЁТ(A:A)))</li>
+                                <li>Используйте <strong>Таблицы Excel</strong> для автоматического расширения формул
+                                </li>
+                                <li>Для визуализации применяйте гистограммы и ящики с усами</li>
+                            </ul>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <strong>Важно помнить:</strong>
+                            <ul class="mb-0">
+                                <li>Функции с <strong>.В</strong> — для всей совокупности, <strong>.Г</strong> — для
+                                    выборки</li>
+                                <li>Для проверки гипотез используйте уровень значимости α = 0.05</li>
+                                <li>Нормальное распределение: 68% в ±1σ, 95% в ±2σ, 99.7% в ±3σ</li>
+                                <li>Все формулы работают в Excel 2010 и выше</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+
+        <div class="card mx-auto" style="max-width: 1000px; margin: 20px auto;">
+    <img src="./h1title3.jpg" class="card-img-top" alt="Визуализация данных в Excel">
+    <div class="card-body">
+        <h3>Визуализация распределения случайных данных в Excel</h3>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">Графики и диаграммы для анализа распределения</h1>
+                <p class="lead text-center">Как визуализировать и анализировать сгенерированные случайные числа</p>
+
+                <div class="alert alert-primary">
+                    <strong>Визуальные методы анализа:</strong>
+                    <ul>
+                        <li>Гистограммы для распределения частот</li>
+                        <li>Ящики с усами (box plot) для статистик</li>
+                        <li>Графики плотности и нормального распределения</li>
+                        <li>QQ-plot для проверки нормальности</li>
+                        <li>Точечные диаграммы и скрипичные графики</li>
+                    </ul>
+                </div>
+
+                <!-- Основные типы графиков -->
+                <h4 class="mt-4">1. Гистограмма распределения</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Создание гистограммы</h5>
+                                <ol class="mb-0">
+                                    <li>Выделите данные</li>
+                                    <li><strong>Вставка → Диаграммы → Гистограмма</strong></li>
+                                    <li>Настройте интервалы корзин</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>Автоматические интервалы</h5>
+                                <code>=ЧАСТОТА(данные; карманы)</code>
+                                <p class="mb-0 mt-2">Для создания таблицы частот вручную</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Пример гистограммы -->
+                <div class="alert alert-info">
+                    <strong>Пример для случайных чисел 1-100:</strong>
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            <pre class="mb-0">
+1. Создаем интервалы (карманы):
+10, 20, 30, ..., 100 в B2:B11
+
+2. Формула частот в C2:C11:
+=ЧАСТОТА(A2:A101; B2:B11)
+
+3. Строим гистограмму по C2:C11</pre>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="bg-light p-2 rounded">
+                                    <small>Равномерное распределение → плоская гистограмма<br>
+                                    Нормальное распределение → колокол</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box Plot -->
+                <h4 class="mt-4">2. Ящик с усами (Box Plot)</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Построение вручную</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered mb-0">
+                                        <thead>
+                                            <tr class="table-light">
+                                                <th>Статистика</th>
+                                                <th>Формула</th>
+                                                <th>Описание</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Минимум</td><td><code>=МИН(A:A)</code></td><td>Нижняя граница</td></tr>
+                                            <tr><td>Q1 (25%)</td><td><code>=КВАРТИЛЬ.ВКЛ(A:A;1)</code></td><td>Нижний ящик</td></tr>
+                                            <tr><td>Медиана</td><td><code>=МЕДИАНА(A:A)</code></td><td>Линия в ящике</td></tr>
+                                            <tr><td>Q3 (75%)</td><td><code>=КВАРТИЛЬ.ВКЛ(A:A;3)</code></td><td>Верхний ящик</td></tr>
+                                            <tr><td>Максимум</td><td><code>=МАКС(A:A)</code></td><td>Верхняя граница</td></tr>
+                                            <tr><td>Выбросы</td><td><code>> Q3+1.5*(Q3-Q1)</code><br><code>< Q1-1.5*(Q3-Q1)</code></td><td>За пределами усов</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5>Автоматическое создание</h5>
+                                <ol class="mb-0">
+                                    <li>Выделите данные</li>
+                                    <li><strong>Вставка → Диаграммы → Ящик с усами</strong></li>
+                                    <li>Excel 2016+</li>
+                                </ol>
+                                <div class="mt-3 p-2 bg-light rounded">
+                                    <small><strong>Анализ по box plot:</strong><br>
+                                    • Короткий ящик → малая дисперсия<br>
+                                    • Сдвиг медианы → асимметрия<br>
+                                    • Длинные усы → выбросы</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проверка нормальности -->
+                <h4 class="mt-4">3. Графики проверки нормальности</h4>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>График нормального распределения</h5>
+                                <p>Сравнение с теоретической нормальной кривой:</p>
+                                <ol class="mb-0">
+                                    <li>Среднее: <code>=СРЗНАЧ(A:A)</code></li>
+                                    <li>Ст. отклонение: <code>=СТАНДОТКЛОН.В(A:A)</code></li>
+                                    <li>Нормальная кривая:<br>
+                                    <code>=НОРМ.РАСП(x; среднее; ст_откл; ЛОЖЬ)</code></li>
+                                    <li>Строим два ряда: данные и кривую</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5>QQ-plot (квантиль-квантиль)</h5>
+                                <p>Сравнение квантилей данных с нормальными:</p>
+                                <ol class="mb-0">
+                                    <li>Сортируем данные по возрастанию</li>
+                                    <li>Вычисляем теоретические квантили:<br>
+                                    <code>=НОРМ.ОБР((i-0.5)/n; среднее; ст_откл)</code></li>
+                                    <li>Строим точечную диаграмму</li>
+                                    <li>Прямая линия → нормальное распределение</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Практический пример -->
+                <div class="alert alert-warning mt-3">
+                    <strong>Пример QQ-plot для 100 случайных чисел:</strong>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <pre>
+Данные в A2:A101
+Ранг в B2:B101:
+=СТРОКА(A2)-1
+
+Вероятность в C2:C101:
+=(B2-0.5)/100
+
+Теоретич. квантиль в D2:D101:
+=НОРМ.ОБР(C2; СРЗНАЧ($A$2:$A$101); 
+СТАНДОТКЛОН.В($A$2:$A$101))</pre>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-light p-2 rounded">
+                                <strong>Интерпретация:</strong><br>
+                                • Точки на прямой → нормальное<br>
+                                • S-образная кривая → тяжелые хвосты<br>
+                                • Выгнутость → асимметрия<br>
+                                • Выбросы → отклонения от линии
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительные визуализации -->
+                <h4 class="mt-4">4. Другие типы визуализации</h4>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5>Скрипичный график (Violin Plot)</h5>
+                                <p>Комбинация box plot и плотности:</p>
+                                <ol class="mb-0">
+                                    <li>Гистограмма с зеркальным отражением</li>
+                                    <li>Показывает форму распределения</li>
+                                    <li>Ширина = плотность вероятности</li>
+                                    <li>Добавляем box plot поверх</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5>График плотности (KDE)</h5>
+                                <p>Сглаженная оценка плотности:</p>
+                                <code>≈ ГИСТОГРАММА + сглаживание</code>
+                                <p class="mt-2 mb-0">Создание в Excel:</p>
+                                <ol class="mb-0">
+                                    <li>Рассчитать плотность ядра</li>
+                                    <li>Использовать сглаженную линию</li>
+                                    <li>Или добавить в Power BI</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5>Накопительная гистограмма</h5>
+                                <p>Кумулятивное распределение:</p>
+                                <ol class="mb-0">
+                                    <li>Частоты: <code>=ЧАСТОТА()</code></li>
+                                    <li>Накопленные: <code>=СУММ($C$2:C2)</code></li>
+                                    <li>Доля: <code>=D2/СУММ($C$2:$C$11)</code></li>
+                                    <li>Строим график с накоплением</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Шаблон для анализа -->
+                <h4 class="mt-4">5. Шаблон анализа распределения</h4>
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Шаг</th>
+                                <th>Действие</th>
+                                <th>Формулы/Инструменты</th>
+                                <th>Цель</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Генерация данных</td>
+                                <td><code>=СЛУЧМЕЖДУ()</code>, <code>=НОРМ.ОБР()</code></td>
+                                <td>Создать тестовый набор</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Основные статистики</td>
+                                <td><code>=СРЗНАЧ()</code>, <code>=СКОС()</code>, <code>=ЭКСЦЕСС()</code></td>
+                                <td>Числовая характеристика</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Гистограмма</td>
+                                <td>Диаграмма + <code>=ЧАСТОТА()</code></td>
+                                <td>Визуальная форма распределения</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Box plot</td>
+                                <td>Ящик с усами или ручной расчет</td>
+                                <td>Квартили и выбросы</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>QQ-plot</td>
+                                <td><code>=НОРМ.ОБР()</code> + точечная диаграмма</td>
+                                <td>Проверка нормальности</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Нормальная кривая</td>
+                                <td><code>=НОРМ.РАСП()</code></td>
+                                <td>Сравнение с теоретической</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Советы по визуализации -->
+                <div class="alert alert-success mt-4">
+                    <h5>Лучшие практики визуализации:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Используйте <strong>однородные интервалы</strong> в гистограммах</li>
+                                <li><strong>Подписывайте оси</strong> и добавляйте заголовки</li>
+                                <li>Для сравнения используйте <strong>одинаковые масштабы</strong></li>
+                                <li>Цветом выделяйте <strong>ключевые элементы</strong></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Добавляйте <strong>линии сетки</strong> для точности</li>
+                                <li><strong>Легенда</strong> для нескольких рядов данных</li>
+                                <li><strong>Аннотации</strong> для выбросов и аномалий</li>
+                                <li><strong>Сохраняйте шаблоны</strong> для повторного использования</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>Интерпретация визуализаций:</strong>
+                    <div class="row mt-2">
+                        <div class="col-md-4 text-center">
+                            <div class="p-2 bg-white border rounded">
+                                <strong>Равномерное распределение</strong><br>
+                                <small>Плоская гистограмма<br>Box plot симметричный</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="p-2 bg-white border rounded">
+                                <strong>Нормальное распределение</strong><br>
+                                <small>Колоколообразная гистограмма<br>QQ-plot по прямой</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="p-2 bg-white border rounded">
+                                <strong>Скошенное распределение</strong><br>
+                                <small>Асимметричная гистограмма<br>Сдвинутый box plot</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+</div>
+    </div>
+    </div>
+<script src="./jquery.min.js"></script>
+<script src="./bootstrap.bundle.min.js"></script>
+  
+
+</body>
+
+</html>
