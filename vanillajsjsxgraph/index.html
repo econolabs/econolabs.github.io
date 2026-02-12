@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты по теории вероятности</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- JSXGraph -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <!-- KaTeX для формул -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .jsxgraph-container {
+            width: 100%;
+            height: 250px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+        .pagination {
+            flex-wrap: wrap;
+        }
+        .page-link {
+            margin: 2px;
+        }
+        .active-test {
+            border-left: 4px solid #007bff !important;
+        }
+        .list-group-item-action {
+            cursor: pointer;
+        }
+        .katex { font-size: 1.1em; }
+        #loadingSpinner {
+            display: none;
+        }
+        #testList {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .graph-params {
+            background-color: #f8f9fa;
+            border-left: 3px solid #6c757d;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        .graph-params h6 {
+            margin-bottom: 5px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Тесты по теории вероятности и статистике</h1>
+        
+        <!-- Загрузчик -->
+        <div class="text-center mb-4">
+            <div class="spinner-border text-primary" id="loadingSpinner" role="status">
+                <span class="sr-only">Загрузка...</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Боковая панель с навигацией -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-list"></i> Список тестов</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="testList">
+                            <!-- Тесты будут загружены сюда -->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Выбрано: <span id="selectedCount">0</span> из <span id="totalCount">0</span></small>
+                    </div>
+                </div>
+                
+                <!-- Пагинация -->
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h6 class="mb-0"><i class="fas fa-exchange-alt"></i> Быстрая навигация</h6>
+                    </div>
+                    <div class="card-body">
+                        <nav aria-label="Навигация по тестам">
+                            <ul class="pagination justify-content-center mb-0" id="pagination">
+                                <!-- Пагинация будет сгенерирована здесь -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Информация о графиках -->
+                <div class="card mt-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h6 class="mb-0"><i class="fas fa-chart-line"></i> Доступные графики</h6>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="d-flex flex-wrap">
+                            <span class="badge badge-primary m-1">pascal-triangle</span>
+                            <span class="badge badge-success m-1">normal-distribution</span>
+                            <span class="badge badge-info m-1">geometric-distribution</span>
+                            <span class="badge badge-danger m-1">euler-diagram</span>
+                            <span class="badge badge-secondary m-1">variance-comparison</span>
+                            <span class="badge badge-dark m-1">histogram</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Основная область с тестом -->
+            <div class="col-md-9">
+                <div class="card" id="testCard">
+                    <div class="card-header bg-primary text-white" id="testHeader">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Загрузка теста...</h5>
+                            <span class="badge badge-light">#0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body" id="testBody">
+                        <!-- Здесь будет отображаться текущий тест -->
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Загрузка...</span>
+                            </div>
+                            <p class="mt-3">Загрузка теста...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer text-muted" id="testFooter">
+                        <div class="d-flex justify-content-between">
+                            <small>Выберите тест из списка слева</small>
+                            <small>ID: -</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кнопки навигации -->
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn btn-outline-primary" id="prevTestBtn" disabled>
+                            <i class="fas fa-arrow-left"></i> Предыдущий
+                        </button>
+                    </div>
+                    <div class="col text-center">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-info" id="toggleHintBtn">
+                                <i class="fas fa-lightbulb"></i> Подсказка
+                            </button>
+                            <button type="button" class="btn btn-outline-success" id="checkAnswerBtn" disabled>
+                                <i class="fas fa-check"></i> Проверить
+                            </button>
+                            <button type="button" class="btn btn-outline-warning" id="refreshGraphBtn" style="display: none;">
+                                <i class="fas fa-redo"></i> Обновить график
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col text-right">
+                        <button class="btn btn-outline-primary" id="nextTestBtn" disabled>
+                            Следующий <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Статистика -->
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="alert alert-light border">
+                            <div class="row text-center">
+                                <div class="col">
+                                    <h4><span id="currentTestNumber">0</span>/<span id="totalTests">0</span></h4>
+                                    <small class="text-muted">Текущий тест</small>
+                                </div>
+                                <div class="col">
+                                    <h4><span id="correctAnswers">0</span></h4>
+                                    <small class="text-muted">Правильных ответов</small>
+                                </div>
+                                <div class="col">
+                                    <h4><span id="answeredTests">0</span></h4>
+                                    <small class="text-muted">Выполнено тестов</small>
+                                </div>
+                                <div class="col">
+                                    <h4><span id="graphsCount">0</span></h4>
+                                    <small class="text-muted">Графиков создано</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center mt-4">
+            <p class="text-muted">Система тестирования по теории вероятности</p>
+        </footer>
+    </div>
+
+    <!-- Подключаем файлы -->
+    <script src="quizesSets.js"></script>
+    <script src="jsxgraphtemplates.js"></script>
+    
+    <script>
+        // Глобальные переменные
+        let currentTestIndex = 0;
+        let tests = [];
+        let userAnswers = {};
+        let testResults = {};
+        let jsxGraphBoards = {}; // Хранит ссылки на созданные доски JSXGraph
+        let graphsCreated = 0;
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Показываем спиннер загрузки
+            document.getElementById('loadingSpinner').style.display = 'block';
+            
+            // Загружаем тесты
+            loadTests();
+        });
+        
+        function loadTests() {
+            // Используем данные из quizesSets.js
+            if (window.quizesSets && Array.isArray(window.quizesSets)) {
+                tests = window.quizesSets;
+                initializeApp();
+            } else {
+                // Если данные не загружены, показываем ошибку
+                showError('Не удалось загрузить тесты. Проверьте файл quizesSets.js');
+            }
+        }
+        
+        function initializeApp() {
+            // Скрываем спиннер
+            document.getElementById('loadingSpinner').style.display = 'none';
+            
+            // Обновляем счетчики
+            document.getElementById('totalCount').textContent = tests.length;
+            document.getElementById('totalTests').textContent = tests.length;
+            
+            // Создаем список тестов
+            createTestList();
+            
+            // Создаем пагинацию
+            createPagination();
+            
+            // Загружаем первый тест
+            if (tests.length > 0) {
+                loadTest(0);
+                updateNavigationButtons();
+            }
+            
+            // Инициализируем KaTeX
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
+        function createTestList() {
+            const testList = document.getElementById('testList');
+            testList.innerHTML = '';
+            
+            tests.forEach((test, index) => {
+                const listItem = document.createElement('a');
+                listItem.href = '#';
+                listItem.className = 'list-group-item list-group-item-action';
+                
+                // Иконка для тестов с графиками
+                const graphIcon = test.graphType ? '<i class="fas fa-chart-bar text-info mr-2"></i>' : '';
+                
+                listItem.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            ${graphIcon}
+                            <strong>${test.title}</strong>
+                            <br>
+                            <small class="text-muted">${test.theme}</small>
+                        </div>
+                        <span class="badge badge-secondary">${index + 1}</span>
+                    </div>
+                `;
+                
+                listItem.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loadTest(index);
+                    updateTestListHighlight();
+                });
+                
+                testList.appendChild(listItem);
+            });
+            
+            updateTestListHighlight();
+        }
+        
+        function createPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            // Предыдущая страница
+            const prevItem = document.createElement('li');
+            prevItem.className = 'page-item';
+            prevItem.innerHTML = `
+                <a class="page-link" href="#" id="paginationPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            `;
+            pagination.appendChild(prevItem);
+            
+            // Страницы
+            for (let i = 0; i < tests.length; i++) {
+                const pageItem = document.createElement('li');
+                pageItem.className = 'page-item';
+                const hasGraph = tests[i].graphType ? 'text-info' : '';
+                pageItem.innerHTML = `
+                    <a class="page-link ${hasGraph}" href="#" data-index="${i}">${i + 1}</a>
+                `;
+                
+                pageItem.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const index = parseInt(this.querySelector('.page-link').dataset.index);
+                    loadTest(index);
+                });
+                
+                pagination.appendChild(pageItem);
+            }
+            
+            // Следующая страница
+            const nextItem = document.createElement('li');
+            nextItem.className = 'page-item';
+            nextItem.innerHTML = `
+                <a class="page-link" href="#" id="paginationNext">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            `;
+            pagination.appendChild(nextItem);
+            
+            // Обработчики для стрелок
+            document.getElementById('paginationPrev').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentTestIndex > 0) {
+                    loadTest(currentTestIndex - 1);
+                }
+            });
+            
+            document.getElementById('paginationNext').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentTestIndex < tests.length - 1) {
+                    loadTest(currentTestIndex + 1);
+                }
+            });
+        }
+        
+        function loadTest(index) {
+            if (index < 0 || index >= tests.length) return;
+            
+            currentTestIndex = index;
+            const test = tests[index];
+            
+            // Очищаем предыдущие графики
+            cleanupPreviousGraphs();
+            
+            // Обновляем заголовок
+            document.getElementById('testHeader').innerHTML = `
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        ${test.title}
+                        ${test.graphType ? '<i class="fas fa-chart-line ml-2 text-warning"></i>' : ''}
+                    </h5>
+                    <div>
+                        <span class="badge badge-light">${test.header}</span>
+                        <span class="badge badge-secondary">${index + 1}/${tests.length}</span>
+                    </div>
+                </div>
+            `;
+            
+            // Создаем содержимое теста
+            const testBody = document.getElementById('testBody');
+            
+            // Генерируем уникальный ID для контейнера графика
+            const graphContainerId = `graph-${test.id}-${Date.now()}`;
+            
+            // Создаем форму теста
+            testBody.innerHTML = `
+                <div class="question-section">
+                    <h6 class="text-muted mb-3">
+                        ${test.theme}
+                        ${test.graphType ? '<span class="badge badge-info ml-2">Интерактивный график</span>' : ''}
+                    </h6>
+                    <div class="question-text mb-3">
+                        ${test.text}
+                    </div>
+                    
+                    <!-- Контейнер для графика (если есть graphType) -->
+                    ${test.graphType ? `
+                        <div class="graph-section mb-4">
+                            <div class="alert alert-light border">
+                                <h6 class="alert-heading"><i class="fas fa-chart-bar"></i> Визуализация:</h6>
+                                <div id="${graphContainerId}" class="jsxgraph-container"></div>
+                                ${test.graphParams ? `
+                                    <div class="graph-params mt-2">
+                                        <h6><i class="fas fa-cog"></i> Параметры графика:</h6>
+                                        <small>${JSON.stringify(test.graphParams, null, 2)}</small>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    <!-- Варианты ответов -->
+                    <div class="answers-section mb-4">
+                        <h6><i class="fas fa-list-ol"></i> Выберите правильный ответ:</h6>
+                        <div class="list-group" id="answersList">
+                            ${test.choices.map((choice, i) => `
+                                <label class="list-group-item list-group-item-action">
+                                    <div class="d-flex align-items-center">
+                                        <input type="radio" name="answer" value="${choice}" 
+                                               class="mr-3" id="answer${i}">
+                                        <div>
+                                            <strong>${choice}</strong>
+                                        </div>
+                                    </div>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <!-- Подсказка (скрыта) -->
+                    <div class="hint-section" id="hintSection" style="display: none;">
+                        <div class="alert alert-info">
+                            <h5 class="alert-heading"><i class="fas fa-lightbulb"></i> Подсказка и объяснение</h5>
+                            ${test.hint}
+                        </div>
+                    </div>
+                    
+                    <!-- Результат проверки -->
+                    <div class="result-section mt-3" id="resultSection" style="display: none;">
+                        <div class="alert" id="resultAlert"></div>
+                    </div>
+                </div>
+            `;
+            
+            // Обновляем футер
+            document.getElementById('testFooter').innerHTML = `
+                <div class="d-flex justify-content-between">
+                    <small>Тема: ${test.theme}</small>
+                    <small>ID: ${test.id} ${test.graphType ? '• График: ' + test.graphType : ''}</small>
+                </div>
+            `;
+            
+            // Восстанавливаем выбранный ответ если он был
+            if (userAnswers[test.id]) {
+                const selectedRadio = document.querySelector(`input[value="${userAnswers[test.id]}"]`);
+                if (selectedRadio) {
+                    selectedRadio.checked = true;
+                }
+            }
+            
+            // Инициализируем график если есть graphType
+            if (test.graphType && window.initJSXGraph) {
+                setTimeout(() => {
+                    try {
+                        const board = initJSXGraph(
+                            graphContainerId,
+                            test.graphType,
+                            test.graphParams || {}
+                        );
+                        
+                        if (board) {
+                            // Сохраняем ссылку на доску
+                            jsxGraphBoards[graphContainerId] = board;
+                            graphsCreated++;
+                            updateStats();
+                            
+                            // Показываем кнопку обновления графика
+                            document.getElementById('refreshGraphBtn').style.display = 'inline-block';
+                        }
+                    } catch (error) {
+                        console.error('Ошибка при инициализации графика:', error);
+                        document.getElementById(graphContainerId).innerHTML = `
+                            <div class="alert alert-danger p-3">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Ошибка при создании графика: ${error.message}
+                            </div>
+                        `;
+                    }
+                }, 300);
+            } else {
+                // Скрываем кнопку обновления графика
+                document.getElementById('refreshGraphBtn').style.display = 'none';
+            }
+            
+            // Рендерим KaTeX формулы
+            if (typeof renderMathInElement !== 'undefined') {
+                setTimeout(() => {
+                    renderMathInElement(testBody, {
+                        delimiters: [
+                            {left: '$$', right: '$$', display: true},
+                            {left: '$', right: '$', display: false},
+                            {left: '\\(', right: '\\)', display: false},
+                            {left: '\\[', right: '\\]', display: true}
+                        ],
+                        throwOnError: false
+                    });
+                }, 500);
+            }
+            
+            // Добавляем обработчики событий для ответов
+            document.querySelectorAll('#answersList .list-group-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                    
+                    // Сохраняем ответ
+                    userAnswers[test.id] = radio.value;
+                    
+                    // Визуальная обратная связь
+                    document.querySelectorAll('#answersList .list-group-item').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+            
+            // Обновляем навигацию
+            updateNavigationButtons();
+            updateTestListHighlight();
+            updatePaginationHighlight();
+            updateStats();
+            
+            // Прокручиваем к началу теста
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function cleanupPreviousGraphs() {
+            // Очищаем все созданные доски JSXGraph
+            Object.values(jsxGraphBoards).forEach(board => {
+                if (board && typeof board.destroy === 'function') {
+                    board.destroy();
+                }
+            });
+            jsxGraphBoards = {};
+        }
+        
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevTestBtn');
+            const nextBtn = document.getElementById('nextTestBtn');
+            const checkBtn = document.getElementById('checkAnswerBtn');
+            
+            prevBtn.disabled = currentTestIndex === 0;
+            nextBtn.disabled = currentTestIndex === tests.length - 1;
+            checkBtn.disabled = false;
+            
+            document.getElementById('currentTestNumber').textContent = currentTestIndex + 1;
+        }
+        
+        function updateTestListHighlight() {
+            document.querySelectorAll('#testList .list-group-item').forEach((item, index) => {
+                if (index === currentTestIndex) {
+                    item.classList.add('active', 'active-test');
+                } else {
+                    item.classList.remove('active', 'active-test');
+                }
+            });
+            
+            document.getElementById('selectedCount').textContent = Object.keys(userAnswers).length;
+        }
+        
+        function updatePaginationHighlight() {
+            document.querySelectorAll('#pagination .page-link').forEach((link, index) => {
+                if (index === currentTestIndex + 1) { // +1 из-за кнопки "предыдущий"
+                    link.parentElement.classList.add('active');
+                } else {
+                    link.parentElement.classList.remove('active');
+                }
+            });
+        }
+        
+        function updateStats() {
+            const answered = Object.keys(userAnswers).length;
+            const correct = Object.keys(testResults).filter(id => testResults[id] === true).length;
+            
+            document.getElementById('answeredTests').textContent = answered;
+            document.getElementById('correctAnswers').textContent = correct;
+            document.getElementById('graphsCount').textContent = graphsCreated;
+        }
+        
+        // Обработчики кнопок
+        document.getElementById('prevTestBtn').addEventListener('click', function() {
+            if (currentTestIndex > 0) {
+                loadTest(currentTestIndex - 1);
+            }
+        });
+        
+        document.getElementById('nextTestBtn').addEventListener('click', function() {
+            if (currentTestIndex < tests.length - 1) {
+                loadTest(currentTestIndex + 1);
+            }
+        });
+        
+        document.getElementById('toggleHintBtn').addEventListener('click', function() {
+            const hintSection = document.getElementById('hintSection');
+            if (hintSection.style.display === 'none') {
+                hintSection.style.display = 'block';
+                this.innerHTML = '<i class="fas fa-eye-slash"></i> Скрыть подсказку';
+                this.classList.remove('btn-outline-info');
+                this.classList.add('btn-info');
+            } else {
+                hintSection.style.display = 'none';
+                this.innerHTML = '<i class="fas fa-lightbulb"></i> Подсказка';
+                this.classList.remove('btn-info');
+                this.classList.add('btn-outline-info');
+            }
+        });
+        
+        document.getElementById('checkAnswerBtn').addEventListener('click', function() {
+            const test = tests[currentTestIndex];
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            const resultSection = document.getElementById('resultSection');
+            const resultAlert = document.getElementById('resultAlert');
+            
+            if (!selectedAnswer) {
+                resultAlert.className = 'alert alert-warning';
+                resultAlert.innerHTML = `
+                    <h5><i class="fas fa-exclamation-triangle"></i> Ответ не выбран</h5>
+                    <p>Пожалуйста, выберите один из вариантов ответа.</p>
+                `;
+                resultSection.style.display = 'block';
+                return;
+            }
+            
+            // Проверяем ответ
+            const isCorrect = test.answers.includes(selectedAnswer.value);
+            
+            // Сохраняем результат
+            testResults[test.id] = isCorrect;
+            
+            // Отображаем результат
+            if (isCorrect) {
+                resultAlert.className = 'alert alert-success';
+                resultAlert.innerHTML = `
+                    <h5><i class="fas fa-check-circle"></i> Правильно!</h5>
+                    <p>Ваш ответ: <strong>${selectedAnswer.value}</strong></p>
+                    <p>Это верный ответ!</p>
+                `;
+            } else {
+                resultAlert.className = 'alert alert-danger';
+                resultAlert.innerHTML = `
+                    <h5><i class="fas fa-times-circle"></i> Неправильно</h5>
+                    <p>Ваш ответ: <strong>${selectedAnswer.value}</strong></p>
+                    <p>Правильный ответ: <strong>${test.answers.join(', ')}</strong></p>
+                `;
+            }
+            
+            resultSection.style.display = 'block';
+            updateStats();
+            
+            // Прокручиваем к результату
+            resultSection.scrollIntoView({behavior: 'smooth'});
+        });
+        
+        document.getElementById('refreshGraphBtn').addEventListener('click', function() {
+            const test = tests[currentTestIndex];
+            if (test.graphType) {
+                // Находим текущий контейнер графика
+                const graphContainer = document.querySelector('.jsxgraph-container');
+                if (graphContainer && graphContainer.id) {
+                    // Удаляем старую доску
+                    const oldBoard = jsxGraphBoards[graphContainer.id];
+                    if (oldBoard && typeof oldBoard.destroy === 'function') {
+                        oldBoard.destroy();
+                    }
+                    
+                    // Создаем новую доску
+                    try {
+                        const newBoard = initJSXGraph(
+                            graphContainer.id,
+                            test.graphType,
+                            test.graphParams || {}
+                        );
+                        
+                        if (newBoard) {
+                            jsxGraphBoards[graphContainer.id] = newBoard;
+                            
+                            // Анимация обновления
+                            this.innerHTML = '<i class="fas fa-check"></i> Обновлено!';
+                            this.classList.remove('btn-outline-warning');
+                            this.classList.add('btn-warning');
+                            
+                            setTimeout(() => {
+                                this.innerHTML = '<i class="fas fa-redo"></i> Обновить график';
+                                this.classList.remove('btn-warning');
+                                this.classList.add('btn-outline-warning');
+                            }, 1000);
+                        }
+                    } catch (error) {
+                        console.error('Ошибка при обновлении графика:', error);
+                    }
+                }
+            }
+        });
+        
+        function showError(message) {
+            document.getElementById('loadingSpinner').style.display = 'none';
+            document.getElementById('testBody').innerHTML = `
+                <div class="alert alert-danger">
+                    <h4><i class="fas fa-exclamation-circle"></i> Ошибка</h4>
+                    <p>${message}</p>
+                    <p>Убедитесь что файл <code>quizesSets.js</code> существует и содержит массив тестов.</p>
+                </div>
+            `;
+        }
+        
+        // Горячие клавиши
+        document.addEventListener('keydown', function(e) {
+            // Стрелка влево - предыдущий тест
+            if (e.key === 'ArrowLeft' && currentTestIndex > 0) {
+                loadTest(currentTestIndex - 1);
+            }
+            // Стрелка вправо - следующий тест
+            else if (e.key === 'ArrowRight' && currentTestIndex < tests.length - 1) {
+                loadTest(currentTestIndex + 1);
+            }
+            // Пробел или Enter - проверить ответ
+            else if ((e.key === ' ' || e.key === 'Enter') && e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+                document.getElementById('checkAnswerBtn').click();
+            }
+            // H - показать/скрыть подсказку
+            else if (e.key.toLowerCase() === 'h') {
+                document.getElementById('toggleHintBtn').click();
+            }
+            // G - обновить график (если есть)
+            else if (e.key.toLowerCase() === 'g') {
+                const refreshBtn = document.getElementById('refreshGraphBtn');
+                if (refreshBtn.style.display !== 'none') {
+                    refreshBtn.click();
+                }
+            }
+        });
+        
+        // Автоматическая подстройка размеров графиков при изменении размера окна
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                Object.keys(jsxGraphBoards).forEach(boardId => {
+                    const board = jsxGraphBoards[boardId];
+                    if (board && typeof board.resize === 'function') {
+                        board.resize();
+                    }
+                });
+            }, 250);
+        });
+    </script>
+</body>
+</html>
