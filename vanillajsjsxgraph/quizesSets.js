@@ -185,6 +185,7 @@ let quizesSets = [
     "answers": ["0.6"],
     "hint": `<div class="container p-0"><div class="row"><div class="col-12"><div class="alert alert-primary p-2"><strong>Формула сложения:</strong> $P(A∪B) = P(A) + P(B) - P(A∩B)$</div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Решение:</strong> $P(A∪B) = 0.4 + 0.3 - 0.1 = 0.6$</div></div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Пример:</strong> Вероятность что студент знает математику или физику, если некоторые знают оба предмета.</div></div></div></div></div>`
   },
+  
   {
     "id": "prob044",
     "type": "multiplechoices",

@@ -338,7 +338,7 @@
                 .then(info => {
                     user = !!info?.user ? info.user : "Иван Оленев";
                     avatarUrl = !!info?.avatarUrl ? info?.avatarUrl :
-                        "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop";
+                        "../freelancer.jpg";
 
                     store.dispatch(api.endpoints.fetchWorkbookPost.initiate({ userEmail, id }))
                         .then(foundquiz => {
@@ -517,7 +517,7 @@
             currentDayQuizes = [],
             openavatarsObject = {},
             defaultUser = "John Doe",
-            defaultAvatar = "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+            defaultAvatar = "../freelancer.jpg"
         ) {
 
             let quizes = currentDayQuizes.filter(item => item.source === "posts")
@@ -735,7 +735,7 @@
                                         quizesbyDate,
                                         updatedopenavatars,
                                         "John Doe",
-                                        "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+                                        "../freelancer.jpg"
                                     );
 
                                     uniqueEmails.forEach((email, index) => {
@@ -754,7 +754,7 @@
                                 quizesbyDate,
                                 updatedopenavatars,
                                 "John Doe",
-                                "https://images.unsplash.com/photo-1536300099515-6c61b290b654?q=80&w=200&auto=format&fit=crop"
+                                "../freelancer.jpg"
                             );
 
                         });

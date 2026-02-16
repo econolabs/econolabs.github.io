@@ -1468,7 +1468,62 @@ let quizesSets = [
 </div>`
   },
 
+ {
+    "id": "prob041",
+    "type": "multiplechoices",
+    "header": "Геометрия вероятности",
+    "title": "Геометрическое распределение",
+    "theme": "Геометрическое распределение",
+    "graphType": "geometric-distribution",
+    "graphParams": {
+      "p": 0.3,
+      "maxK": 10,
+      "highlightK": 3
+    },
+    "text": "На графике показано геометрическое распределение. Вероятность успеха в каждом испытании p = 0.3. Какова вероятность, что первый успех случится на 3-м испытании?",
+    "choices": ["0.063", "0.147", "0.210", "0.300", "0.090"],
+    "answers": ["0.147"],
+    "hint": `<div class="container p-0"><div class="row"><div class="col-12"><div class="alert alert-primary p-2"><strong>Теория:</strong> Геометрическое распределение: $P(X=k) = p(1-p)^{k-1}$</div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Решение:</strong> $P(X=3) = 0.3 × (0.7)^2 = 0.3 × 0.49 = 0.147$</div></div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Пример:</strong> Вероятность что 3-й звонок будет первым успешным при вероятности ответа 30%.</div></div></div></div></div>`
+  },
 
+
+    {
+    "id": "prob043",
+    "type": "multiplechoices",
+    "header": "Вероятность",
+    "title": "Диаграмма Эйлера",
+    "theme": "Диаграммы Эйлера",
+    "graphType": "euler-diagram",
+    "graphParams": {
+      "pA": 0.4,
+      "pB": 0.3,
+      "pIntersection": 0.1
+    },
+    "text": "На диаграмме Эйлера показаны события A и B. Вероятности: P(A)=0.4, P(B)=0.3, P(A∩B)=0.1. Чему равна P(A∪B)?",
+    "choices": ["0.6", "0.7", "0.5", "0.8", "0.9"],
+    "answers": ["0.6"],
+    "hint": `<div class="container p-0"><div class="row"><div class="col-12"><div class="alert alert-primary p-2"><strong>Формула сложения:</strong> $P(A∪B) = P(A) + P(B) - P(A∩B)$</div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Решение:</strong> $P(A∪B) = 0.4 + 0.3 - 0.1 = 0.6$</div></div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Пример:</strong> Вероятность что студент знает математику или физику, если некоторые знают оба предмета.</div></div></div></div></div>`
+  },
+
+
+    {
+    "id": "prob045",
+    "type": "multiplechoices",
+    "header": "Комбинаторика",
+    "title": "Треугольник Паскаля",
+    "theme": "Треугольник Паскаля",
+    "graphType": "pascal-triangle",
+    "graphParams": {
+      "n": 5,
+      "highlightRow": 5,
+      "highlightCol": 2,
+      "showFormula": true
+    },
+    "text": "В треугольнике Паскаля показаны биномиальные коэффициенты. Чему равно C(5,2)?",
+    "choices": ["5", "10", "15", "20", "25"],
+    "answers": ["10"],
+    "hint": `<div class="container p-0"><div class="row"><div class="col-12"><div class="alert alert-primary p-2"><strong>Треугольник Паскаля:</strong> C(n,k) находится в n-й строке на k-й позиции (нумерация с 0)</div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Решение:</strong> C(5,2) = 10 (6-я строка, 3-й элемент если считать с 1)</div></div></div><div class="col-md-6"><div class="card h-100"><div class="card-body p-2"><strong>Пример:</strong> Сколькими способами выбрать 2 человек из 5: $\\binom{5}{2}=10$.</div></div></div></div></div>`
+  },
 
 ]
 
