@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="../dist/original.css" />
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <style>
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        filter: grayscale(100%);
+        object-fit: cover;
+      }
+
+      .avatarList {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    </style>
+
+    <title>Basic React Context Pagination</title>
+  </head>
+
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span class="sr-only"></span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="https://vk.com/dmglvn">
+            <img
+              loading="lazy"
+              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+              alt=""
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              "
+            />
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container" id="root"></div>
+
+    <script src="../dist/babel.standalone7.27.6.min.js"></script>
+
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+    <script type="text/babel">
+      let { createRoot } = ReactDOM;
+      let { useReducer, useState, createContext, useContext, useEffect } =
+        React;
+      let { Form, Row, Col, Container, Modal, Navbar, Button, ButtonGroup } =
+        ReactBootstrap;
+      let { getFirebaseNode } = basicfirebasecrudauthservices;
+
+      const ApplicationContext = createContext(null);
+      const ApplicationDispatchContext = createContext(null);
+
+      const useApplicationState = () => useContext(ApplicationContext);
+      const useApplicationDispatch = () =>
+        useContext(ApplicationDispatchContext);
+
+      const caseReducer = basicfirebasecrudauthservices.produce(
+        (draft, action) => {
+          switch (action.type) {
+            case "CALCULATE_SPREADSHEET":
+              let newProtoData = {
+                ...draft.protoData,
+                [action.payload.key]: action.payload.value,
+              };
+              draft.data = basicfirebasecrudauthservices.createProtoObject(
+                basicfirebasecrudauthservices.createNewDraft(
+                  createProtoArray(newProtoData, 10, 1),
+                ),
+              );
+              draft.protoData = {
+                ...draft.protoData,
+                [action.payload.key]: action.payload.value,
+              };
+              draft.rerender = Math.random();
+              break;
+
+            case "SEED_STATE":
+              Object.keys(action.payload.object).map((key) => {
+                draft[key] = action.payload.object[key];
+              });
+              break;
+
+            default:
+              break;
+          }
+        },
+      );
+
+      let initialState = {
+        isLoading: true,
+        selectedListIndex: 0,
+        currentPage: 0,
+        itemsPerPage: 7,
+
+        openavatars: [],
+      };
+
+      const ApplicationProvider = ({ children }) => {
+        const [state, dispatch] = useReducer(caseReducer, initialState);
+        return (
+          <ApplicationContext.Provider value={state}>
+            <ApplicationDispatchContext.Provider value={dispatch}>
+              {children}
+            </ApplicationDispatchContext.Provider>
+          </ApplicationContext.Provider>
+        );
+      };
+
+      // function ShowUsers({ usersAvatars }) {
+
+      //   console.log(usersAvatars);
+
+      //   function openUserInModal() {
+
+      //   }
+      //   return <Container>{Object.keys(usersAvatars).map(userEmail => {
+      //     return <Row>
+      //       <Col>
+      //         <img src={!!usersAvatars[userEmail]?.avatarUrl ?
+      //           usersAvatars[userEmail]?.avatarUrl : "../freelancer.jpg"}
+      //           alt=""
+      //           className="avatarList"
+
+      //         />
+      //       </Col>
+      //       <Col>{userEmail}</Col>
+      //       <Col><Button size="sm">Change</Button></Col>
+
+      //     </Row>
+      //   })}
+      //   </Container>;
+      // }
+
+      // let initialState = {
+      //   email: null,
+      //   user: null,
+      //   avatarUrl: "",
+      //   userEmail: "",
+      //   posts: [],
+      //   showModal: false,
+      //   modal: {},
+      //   isLoading: true,
+
+      // }
+
+      // let projectInitialState = {
+      //   updatedopenavatars: {},
+      //   uniqueUserEmails: [],
+      //   showModal: false,
+      //   modal: {}
+      // }
+
+      // function App() {
+      //   const [state, applicationDispatch] = useReducer(
+      //     caseReducer,
+      //     initialState
+      //   );
+
+      //   const [projectState, projectDispatch] = useReducer(
+      //     caseReducer,
+      //     projectInitialState
+      //   );
+
+      //   async function setDate(currentDay) {
+      //     console.log(currentDay);
+      //     let res = await getFirebaseNode({
+      //       url: "/currentDay/" + currentDay + "/posts",
+      //       type: "array",
+      //     });
+      //     let uniqueUserEmails = [
+      //       ...new Set(
+      //         res.map((item) => item?.email.replace(/[^a-zA-Z0-9]/g, "_"))
+      //       ),
+      //     ];
+      //     console.log(uniqueUserEmails);
+
+      //     let updatedopenavatars = {};
+
+      //     await Promise.all(
+      //       uniqueUserEmails.map((userEmail) => {
+      //         return getFirebaseNode({
+      //           url: "openavatars/" + userEmail,
+      //           type: "object",
+      //         });
+      //       })
+      //     ).then((values) => {
+      //       values.forEach(
+      //         (result, index) =>
+      //           (updatedopenavatars[uniqueUserEmails[index]] = result)
+      //       );
+      //       console.log(updatedopenavatars);
+      //     });
+
+      //     projectDispatch({
+      //       type: "SEED_STATE",
+      //       payload: {
+      //         object: {
+      //           isLoading: false,
+      //           updatedopenavatars,
+      //           uniqueUserEmails,
+      //         },
+      //       },
+      //     });
+      //     //  console.log(basicfirebasecrudauthservices.loadState())
+      //   }
+
+      //   console.log(state);
+
+      //   return (
+      //     <ApplicationContext.Provider value={state}>
+      //       <ApplicationDispatchContext.Provider value={applicationDispatch}>
+      //         <ProjectContext.Provider value={projectState}>
+      //           <ProjectDispatchContext.Provider value={projectDispatch}>
+      //             <Container>
+      //               <SelectDate setDate={setDate} />
+      //               <ShowUsers usersAvatars={projectState?.updatedopenavatars} />
+      //               <ExampleModal />
+      //             </Container>
+      //           </ProjectDispatchContext.Provider>
+      //         </ProjectContext.Provider>
+      //       </ApplicationDispatchContext.Provider>
+      //     </ApplicationContext.Provider>
+
+      //   );
+      // }
+
+      // const useDebounce = (value, delay) => {
+      //   const [debouncedValue, setDebouncedValue] = useState(value);
+
+      //   useEffect(() => {
+      //     const handler = setTimeout(() => {
+      //       setDebouncedValue(value);
+      //     }, delay);
+      //     return () => {
+      //       clearTimeout(handler);
+      //     };
+      //   }, [value, delay]);
+      //   return debouncedValue;
+      // };
+
+      //   const DebouncedInput = ({ id, delay = 500, ...props }) => {
+      //     const { state, dispatch } = useFormState();
+      //     const [inputValue, setInputValue] = useState("");
+      //     const debouncedValue = useDebounce(inputValue, delay);
+
+      //     useEffect(() => {
+      //       dispatch({
+      //         type: "CALCULATE_SPREADSHEET",
+      //         payload: {
+      //           key: id,
+      //           value: debouncedValue,
+      //         },
+      //       });
+      //     }, [debouncedValue, id, dispatch]);
+
+      //     const handleInputChange = (event) => {
+      //       setInputValue(event.target.value);
+      //     };
+
+      //     return (
+      //       <Form.Control
+      //         type="text"
+      //         name={id}
+      //         value={inputValue} // The displayed value updates immediately
+      //         onChange={handleInputChange} // The internal state updates immediately
+      //         {...props}
+      //       />
+      //     );
+      //   };
+
+      //   const FormDebugger = () => {
+      //     const { state } = useFormState();
+
+      //     return (
+      //       <Container className="mt-4 p-3 bg-light border rounded">
+      //         <pre className="mb-0">
+      //           <code>{JSON.stringify(state, null, 2)}</code>
+      //         </pre>
+      //       </Container>
+      //     );
+      //   };
+
+      function ListPagination() {
+        const {
+          isLoading = true,
+          openavatars = [],
+          selectedListIndex = 0,
+          currentPage = 0,
+          itemsPerPage = 7,
+        } = useApplicationState();
+
+        const dispatch = useApplicationDispatch();
+
+        if (isLoading) return null;
+
+        const pagesCount = Math.ceil(openavatars.length / itemsPerPage);
+        const isCurrentPageFirst = currentPage === 0;
+        const isCurrentPageLast = currentPage === pagesCount - 1;
+
+        const onPreviousPageClick = () => {
+          if (currentPage < 1) {
+            dispatch({
+              type: "SEED_STATE",
+              payload: {
+                objects: {
+                  currentPage: 0,
+                },
+              },
+            });
+          } else {
+            dispatch({
+              type: "SEED_STATE",
+              payload: {
+                objects: { currentPage: currentPage - 1 },
+              },
+            });
+          }
+        };
+
+        const onNextPageClick = () => {
+          if (currentPage + 2 > pagesCount) return;
+          dispatch({
+            type: "SEED_STATE",
+            payload: {
+              objects: {
+                currentPage: currentPage + 1,
+              },
+            },
+          });
+        };
+
+        function doSelectAva(index) {
+          dispatch({
+            type: "SEED_STATE",
+            payload: {
+              objects: {
+                isLoading: true,
+                selectedListIndex: index,
+              },
+            },
+          });
+
+          setTimeout(() => {
+            dispatch({
+              type: "SEED_STATE",
+              payload: {
+                objects: {
+                  isLoading: false,
+                },
+              },
+            });
+          }, 475);
+        }
+
+        if (openavatars.length > 10) {
+          let items = [];
+          for (
+            let index = currentPage * itemsPerPage;
+            index < currentPage * itemsPerPage + itemsPerPage;
+            index++
+          ) {
+            items.push(
+              <li
+                className={
+                  index === selectedListIndex ? "page-item active" : "page-item"
+                }
+                onClick={() => doSelectAva(index)}
+              >
+                <a className="page-link" href="#">
+                  {index + 1}
+                </a>
+              </li>,
+            );
+          }
+
+          return (
+            <div className="m-1">
+              <nav aria-label="Page navigation example">
+                <a className="navbar-brand" href="#">
+                  Open Avatars
+                </a>
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <ul className="pagination pagination-sm justify-content-end">
+                  <li
+                    className={
+                      isCurrentPageFirst ? "page-item disabled" : "page-item"
+                    }
+                    onClick={onPreviousPageClick}
+                  >
+                    <a className="page-link" href="#" tabindex="-1">
+                      {"<<"}
+                    </a>
+                  </li>
+                  {items}
+                  <li
+                    className={
+                      isCurrentPageLast ? "page-item disabled" : "page-item"
+                    }
+                    onClick={onNextPageClick}
+                  >
+                    <a className="page-link" href="#">
+                      {">>"}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <hr />
+
+              {isLoading ? (
+                <div>...</div>
+              ) : (
+                <div>{"Item " + selectedListIndex}</div>
+              )}
+            </div>
+          );
+        }
+
+        return (
+          <Navbar bg="light" className="mt-1">
+            <Navbar.Brand>Avatars</Navbar.Brand>
+
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+              <ButtonGroup size={openavatars.length < 5 ? "lg" : "sm"}>
+                {openavatars.map((ava, index) => (
+                  <Button
+                    variant={
+                      selectedQuiz === index ? "secondary" : "outline-secondary"
+                    }
+                    onClick={() => doSelectAva(index)}
+                    key={index}
+                  >
+                    {openavatars.length < 10 ? (
+                      <span className="m-2">{index + 1}</span>
+                    ) : (
+                      <small>{index + 1}</small>
+                    )}
+                  </Button>
+                ))}
+              </ButtonGroup>
+            </Navbar.Collapse>
+          </Navbar>
+        );
+      }
+      function App() {
+        const dispatch = useApplicationDispatch();
+
+        useEffect(() => {
+          async function initialLoad() {
+            let res = await getFirebaseNode({
+              url: "/openavatars/",
+              type: "array",
+            });
+
+            return res;
+          }
+
+          initialLoad().then((res) => {
+            console.log(res);
+            dispatch({
+              type: "SEED_STATE",
+              payload: {
+                object: {
+                  isLoading: false,
+                  openavatars: res,
+                },
+              },
+            });
+          });
+
+          console.log("Done");
+        }, []);
+
+        return <Container className="mt-5">Pagination</Container>;
+      }
+
+      createRoot(root).render(
+        <ApplicationProvider>
+          <ListPagination />
+          <App />
+        </ApplicationProvider>,
+      );
+    </script>
+  </body>
+</html>

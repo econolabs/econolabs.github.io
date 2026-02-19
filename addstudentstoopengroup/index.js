@@ -1,108 +1,13 @@
 let { createRoot } = ReactDOM;
 let { useReducer, useState, createContext, useContext } = React;
 let { Form, Row, Col, Container, Button, Modal, Card, Badge, Pagination } = ReactBootstrap;
-let { getFirebaseNode } = basicfirebasecrudauthservices;
+let { getFirebaseNode, updateFirebaseNode } = basicfirebasecrudauthservices;
 
-function caseReducer(state = {}, action) {
-  switch (action.type) {
+const ApplicationContext = createContext(null);
+const ApplicationDispatchContext = createContext(null);
 
-    // case "SET_STORE_OBJECT":
-    //     return basicfirebasecrudauthservices.produce(state, (draft) => {
-    //         console.log(action.payload);
-    //         draft[action.payload.key] = action.payload.value;
-    //     });
-
-    case "SEED_STATE": {
-      return basicfirebasecrudauthservices.produce(state, (draft) => {
-        Object.keys(action.payload.objects).map((key) => {
-          draft[key] = action.payload.objects[key];
-        });
-      });
-    }
-
-    // case "DELETE_FROM_ARRAY_BY_INDEX": {
-    //     return basicfirebasecrudauthservices.produce(state, (draft) => {
-    //         draft[action.payload.arrayName].splice(action.payload.itemIndex, 1);
-    //         draft.triggerRerender = action.payload.itemIndex;
-    //     });
-    // }
-
-    // case "DELETE_FROM_ARRAY_BY_ID": {
-    //     return basicfirebasecrudauthservices.produce(state, (draft) => {
-
-    //         const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id);
-
-    //         if (index !== -1) {
-    //             draft[action.payload.arrayName].splice(index, 1);
-    //          //   draft.triggerRerender = action.payload.id;
-    //         }
-
-    //     });
-    // }
-
-    // case "UPDATE_ITEM_IN_ARRAY":
-    //     return basicfirebasecrudauthservices.produce(state, (draft) => {
-    //         console.log(action.payload);
-    //         const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.item.id);
-    //         if (index !== -1) draft[action.payload.arrayName][index] = action.payload.item
-    //     });
-
-    // case "UPDATE_ITEM_PROPERTY_IN_ARRAY":
-    //     return basicfirebasecrudauthservices.produce(state, (draft) => {
-    //         console.log(action.payload);
-    //         const index = draft[action.payload.arrayName].findIndex(item => item.id === action.payload.id);
-    //         if (index !== -1) {
-    //             draft.triggerRerender = action.payload.id;
-    //             draft
-    //             [action.payload.arrayName]
-    //             [index]
-    //             [action.payload.objKey] = action.payload.objValue
-    //         }
-    //     });
-
-    default:
-      return state;
-  }
-}
-
-function SelectDate({ setDate }) {
-  async function handleChange(e) {
-    let { name, value } = e.target;
-
-    console.log(name, value);
-    let d = new Date(e.target.value);
-
-    let currentDay = new Intl.DateTimeFormat("en", {
-      weekday: "short",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-      .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
-      .replace(/[^a-zA-Z0-9]/g, "_");
-    setDate(currentDay);
-  }
-
-  return (
-    <Container>
-      <Form>
-        <Row>
-          <Col>
-            <Form.Group controlId="formStatePeriod">
-              <Form.Label>Период</Form.Label>
-              <Form.Control
-                type="date"
-                name="selecteddate"
-                required
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
-  );
-}
+const useApplicationState = () => useContext(ApplicationContext);
+const useApplicationDispatchState = () => useContext(ApplicationDispatchContext);
 
 async function fetchUsersByDate(currentDay) {
   let postsResponse = [];
@@ -130,14 +35,181 @@ async function fetchUsersByDate(currentDay) {
       url: "openavatars/",
       type: "object",
     });
+
+    console.log(userEmals);
+    let updates = {}
+    userEmals.map(useremail => {
+      // if (openavatars?.[useremail]) {
+      //   console.log("Found " + useremail)
+      // } else {
+        let user = postsResponse.filter(item => item.email.replace(/[^a-zA-Z0-9]/g, "_") === useremail)[0].user;
+        console.log(user)
+        updates['openavatars/' + useremail] = {
+          id: useremail,
+          avatarUrl: "../freelancer.jpg",
+          color: "#adb5bd",
+          user: user
+        };
+        openavatars[useremail] = {
+          id: useremail,
+          avatarUrl: "../freelancer.jpg",
+          color: "#adb5bd",
+          user: user
+        }
+
+      //}
+    })
+
+    console.log(updates);
+
+    if (Object.keys(updates).length > 0) {
+      try {
+        updateFirebaseNode(updates)
+          .then(() => console.log("Updated " + Object.keys(updates).length + " nodes"))
+      }
+      catch (err) { console.log(err); return { error: err } }
+    }
+
     return { postsResponse, casesResponse, openavatars, userEmals };
+
+
   } catch (err) {
     console.log(err);
     return { postsResponse, casesResponse, openavatars };
   }
 }
 
-// Вспомогательная функция для рендеринга элементов пагинации
+
+function caseReducer(state = {}, action) {
+  switch (action.type) {
+
+       case "SEED_STATE": {
+      return basicfirebasecrudauthservices.produce(state, (draft) => {
+        Object.keys(action.payload.objects).map((key) => {
+          draft[key] = action.payload.objects[key];
+        });
+      });
+    }
+
+    default:
+      return state;
+  }
+}
+
+function SelectDate() {
+  const dispatch = useApplicationDispatchState();
+
+  async function handleChange(e) {
+    let { name, value } = e.target;
+    console.log(name, value);
+    let d = new Date(e.target.value);
+    let currentDay = new Intl.DateTimeFormat("en", {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+      .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+      .replace(/[^a-zA-Z0-9]/g, "_");
+       fetchUsersByDate(currentDay).then(res =>
+      dispatch({
+        type: "SEED_STATE",
+        payload: {
+          objects: { ...res, isLoading: false },
+        },
+      }))
+  }
+
+
+
+  return (
+    <Container>
+      <Form>
+        <Row>
+          <Col>
+            <Form.Group controlId="formStatePeriod">
+              <Form.Label>Период</Form.Label>
+              <Form.Control
+                type="date"
+                name="selecteddate"
+                required
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
+  );
+}
+
+
+
+
+
+
+function UserDetails({ user }) {
+
+  async function handleChange(e) {
+    let { name, value } = e.target;
+    console.log(name, value);
+  }
+
+  return <Card className="shadow-sm">
+    <Card.Header className="bg-secondary text-white d-flex justify-content-between align-items-center py-3">
+      <h6 className="mb-0">
+        <i className="fas fa-exchange-alt mr-2"></i>
+        User
+      </h6>
+      <Badge pill variant="light">
+        {user?.user}
+      </Badge>
+    </Card.Header>
+    <Card.Body>
+      <Container>
+        <Form>
+          <Row>
+            <Col>
+              <Form.Group controlId="formStatePeriod">
+                <Form.Label>Аватар</Form.Label>
+                <img loading="lazy" src={user?.avatarUrl} alt=""
+                  style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                <Form.Control
+                  type="url"
+                  name="selectedavatar"
+                  required
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    </Card.Body>
+  </Card>
+}
+
+function UsersPagination() {
+  const dispatch = useApplicationDispatchState();
+  const { userEmals, selectedIndex } = useApplicationState();
+
+
+  function onTestSelect(index) {
+    dispatch({
+      type: "SEED_STATE",
+      payload: {
+        objects: { selectedIndex: index },
+      },
+    })
+  }
+
+  // Вспомогательная функция для рендеринга элементов пагинации
 const renderPaginationItems = (userEmals = [], selectedIndex, onTestSelect) => {
   const totalTests = userEmals.length;
   const maxVisiblePages = 5;
@@ -243,137 +315,69 @@ const renderPaginationItems = (userEmals = [], selectedIndex, onTestSelect) => {
   return items;
 };
 
-
-function UserDetails({user}) {
-
-   async function handleChange(e) {
-    let { name, value } = e.target;
-    console.log(name, value);
-  }
-
-  return <Card className="shadow-sm">
-    <Card.Header className="bg-secondary text-white d-flex justify-content-between align-items-center py-3">
-      <h6 className="mb-0">
-        <i className="fas fa-exchange-alt mr-2"></i>
-        User
-      </h6>
-      <Badge pill variant="light">
-        {user}
-      </Badge>
-    </Card.Header>
-    <Card.Body>
-      <Container>
-        <Form>
-          <Row>
-            <Col>
-              <Form.Group controlId="formStatePeriod">
-                <Form.Label>Аватар</Form.Label>
-                <Form.Control
-                  type="url"
-                  name="selectedavatar"
-                  required
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Form>
-      </Container>
-    </Card.Body>
-  </Card>
+return null
 }
 
-function Users({ userEmals }) {
-  const [state, usersDispatch] = useReducer(
-    caseReducer,
-    { selectedIndex: 0 }
-  );
 
-  function onTestSelect(index) {
-    usersDispatch({
-      type: "SEED_STATE",
-      payload: {
-        objects: { selectedIndex: index },
-      },
-    })
-  }
 
- 
+function Users() {
+  const { userEmals, selectedIndex } = useApplicationState();
 
-  let selectedIndex = 10
-  return <Container>
-    <Row>
-      <Col>
-        <Card className="shadow-sm">
-          <Card.Header className="bg-secondary text-white d-flex justify-content-between align-items-center py-3">
-            <h6 className="mb-0">
-              <i className="fas fa-exchange-alt mr-2"></i>
-              Навигация
-            </h6>
-            <Badge pill variant="light">
-              {state.selectedIndex + 1}/{userEmals.length}
-            </Badge>
-          </Card.Header>
-          <Card.Body>
-            {/* Пагинация */}
-            <div className="d-flex justify-content-center mb-3">
-              <Pagination size="sm" className="mb-0 flex-wrap">
-                <Pagination.Prev
-                  disabled={selectedIndex === 0}
-                  onClick={() => state.selectedIndex > 0 && onTestSelect(state.selectedIndex - 1)}
-                />
+return <Container>
+  <Row>
+    <Col>
+      <Card className="shadow-sm">
+        <Card.Header className="bg-secondary text-white d-flex justify-content-between align-items-center py-3">
+          <h6 className="mb-0">
+            <i className="fas fa-exchange-alt mr-2"></i>
+            Навигация
+          </h6>
+          <Badge pill variant="light">
+            {selectedIndex + 1}/{userEmals.length}
+          </Badge>
+        </Card.Header>
+        <Card.Body>
+          <UsersPagination />
 
-                {renderPaginationItems(userEmals, state.selectedIndex, onTestSelect)}
-
-                <Pagination.Next
-                  disabled={state.selectedIndex === userEmals.length - 1}
-                  onClick={() => state.selectedIndex < userEmals.length - 1 && onTestSelect(state.selectedIndex + 1)}
-                />
-              </Pagination>
-            </div>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col>
-        <UserDetails user={state[state.selectedIndex]}/>
-      </Col>
-    </Row>
-  </Container>
+        </Card.Body>
+      </Card>
+    </Col>
+    <Col>
+      <UserDetails  />
+    </Col>
+  </Row>
+</Container>
 }
 
 
 let initialState = {
-  isLoading: true
+  isLoading: true,
+  userEmals: []
 }
 
+const ApplicationProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(caseReducer, initialState);
+  return (
+    <ApplicationContext.Provider value={state}>
+      <ApplicationDispatchContext.Provider value={dispatch}>
+        {children}
+      </ApplicationDispatchContext.Provider>
+    </ApplicationContext.Provider>
+  );
+};
 
 
 function App() {
-  const [state, applicationDispatch] = useReducer(
-    caseReducer,
-    initialState
-  );
-
-
-  function setDate(date) {
-    console.log("Set Date: " + date);
-    fetchUsersByDate(date).then(res =>
-      applicationDispatch({
-        type: "SEED_STATE",
-        payload: {
-          objects: { ...res, isLoading: false },
-        },
-      }))
-  }
-
-  console.log(state)
-  return (
-    <div>
-      <SelectDate setDate={setDate} />
-      {state?.userEmals && <Users userEmals={state.userEmals} />}
-    </div>
+    return (
+    <ApplicationProvider>
+     
+      <SelectDate  />
+      {/* <Users /> */}
+    </ApplicationProvider>
   );
 }
+
+
 
 createRoot(root).render(<App />);
 
