@@ -1,5 +1,17 @@
 let quizesSets = 
 [
+{
+  "id": "system016",
+  "type": "mathwithrandomnumber",
+  "header": "Системы уравнений",
+  "title": "Сбалансированная система",
+  "theme": "Системы уравнений",
+  "text": "Решите систему уравнений: $$\\begin{cases} 5x + 2y = {= {var1-10}*7} \\\\ 3x - 2y = {var1-10} \\end{cases}$$ Найдите y",
+  "answer": "{var1-10}",
+  "hint": "<p><strong>Метод сложения</strong></p><p>Складываем уравнения: <br>8x = ({var1-10} * 7) + ({var1-10}) = {= ({var1-10}*7) + ({var1-10})} = {= {var1-10}*8}</p><p>x = {var1-10}</p><p>Из первого уравнения: <br>2y = ({var1-10} * 7) - 5 * {var1-10} = {= ({var1-10}*7) - (5*({var1-10}))} = {= {var1-10}*2}</p><p>y = {var1-10}</p><p><strong>Ответ: y = {var1-10}</strong></p>",
+  "randomfrom": [2, 3, 4, 5]
+},
+
   {
     id: "math001",
     type: "multiplechoices",
