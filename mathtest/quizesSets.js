@@ -1,5 +1,385 @@
 let quizesSets = [
 
+ {
+        "id": "matrix_system_001",
+        "type": "multiplechoices",
+        "header": "Матрицы и системы",
+        "title": "Система в матричном виде",
+        "theme": "Матрицы",
+        "text": `Дана система линейных уравнений: <br> 
+                 $$\\begin{cases} 2x + 3y = 8 \\\\ x - 2y = -3 \\end{cases}$$ <br> 
+                 Как эта система выглядит в матричном виде? $$A \\cdot X = B$$`,
+        "choices": [
+            "$$\\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix} \\cdot \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix}$$",
+            "$$\\begin{pmatrix} 2 & 1 \\\\ 3 & -2 \\end{pmatrix} \\cdot \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix}$$",
+            "$$\\begin{pmatrix} 2 & 3 \\\\ 1 & 2 \\end{pmatrix} \\cdot \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ 3 \\end{pmatrix}$$",
+            "$$\\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix} \\cdot \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$",
+            "$$\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\cdot \\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix}$$"
+        ],
+        "answers": ["$$\\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix} \\cdot \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix}$$"],
+        "hint": `<p>Вспомните правило умножения матриц:</p>
+                 <p>$$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\cdot \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} a \\cdot x + b \\cdot y \\\\ c \\cdot x + d \\cdot y \\end{pmatrix}$$</p>
+                 <p>В матрице <strong>A</strong> коэффициенты расставляются так же, как в системе: первая строка — первое уравнение, первый столбец — коэффициенты при первом неизвестном (x).</p>`
+    },
+    
+   {
+    "id": "matrix_solution_002",
+    "type": "multiplechoices",
+    "header": "Матрицы и системы",
+    "title": "Алгоритм решения через обратную матрицу",
+    "theme": "Матрицы",
+    "text": `Дана система линейных уравнений: <br> 
+             $$\\begin{cases} 2x + 3y = 8 \\\\ x - 2y = -3 \\end{cases}$$ <br> 
+             Студент решает её матричным методом. В каком шаге его рассуждений содержится **ошибка**?`,
+    "choices": [
+        `<strong>Шаг 1 (Нахождение определителя):</strong><br>
+         $$\\det(A) = \\begin{vmatrix} 2 & 3 \\\\ 1 & -2 \\end{vmatrix} = 2 \\cdot (-2) - 3 \\cdot 1 = -4 - 3 = -7$$`,
+        
+        `<strong>Шаг 2 (Обратная матрица):</strong><br>
+         $$A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix}$$`,
+        
+        `<strong>Шаг 3 (Умножение на B):</strong><br>
+         $$X = A^{-1} \\cdot B = \\frac{1}{-7} \\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix} \\cdot \\begin{pmatrix} 8 \\\\ -3 \\end{pmatrix}$$`,
+        
+        `<strong>Шаг 4 (Вычисление):</strong><br>
+         $$X = \\frac{1}{-7} \\begin{pmatrix} (-2)\\cdot8 + (-3)\\cdot(-3) \\\\ (-1)\\cdot8 + 2\\cdot(-3) \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -16 - 9 \\\\ -8 - 6 \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -25 \\\\ -14 \\end{pmatrix}$$`,
+        
+        `<strong>Шаг 5 (Финальный ответ):</strong><br>
+         $$X = \\begin{pmatrix} 25/7 \\\\ 2 \\end{pmatrix} \\approx (3.57, 2)$$`
+    ],
+    "answers": [
+        `<strong>Шаг 4 (Вычисление):</strong><br>
+         $$X = \\frac{1}{-7} \\begin{pmatrix} (-2)\\cdot8 + (-3)\\cdot(-3) \\\\ (-1)\\cdot8 + 2\\cdot(-3) \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -16 - 9 \\\\ -8 - 6 \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -25 \\\\ -14 \\end{pmatrix}$$`
+    ],
+    "hint": `<p><strong>Разбор ошибки:</strong></p>
+             <p>В шаге 4 ошибка в знаке при вычислении первого элемента:</p>
+             <p>Было: $$(-2)\\cdot8 + (-3)\\cdot(-3) = -16 - 9 = -25$$</p>
+             <p>Правильно: $$(-2)\\cdot8 + (-3)\\cdot(-3) = -16 + 9 = -7$$</p>
+             <p>Почему? $$(-3) \\cdot (-3) = +9$$, а не -9.</p>
+             <p><strong>Правильное решение:</strong></p>
+             <p>$$X = \\frac{1}{-7} \\begin{pmatrix} -16 + 9 \\\\ -8 - 6 \\end{pmatrix} = \\frac{1}{-7} \\begin{pmatrix} -7 \\\\ -14 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$$</p>`
+},
+
+
+{
+    "id": "matrix_steps_003",
+    "type": "multiplechoices",
+    "header": "Матрицы и системы",
+    "title": "Порядок действий матричного метода",
+    "theme": "Матрицы",
+    "text": `Для решения системы $$\\begin{cases} 2x + 3y = 8 \\\\ x - 2y = -3 \\end{cases}$$ матричным методом, расположите шаги в правильном порядке:`,
+    "choices": [
+        "1. Записать систему в виде A·X = B<br>2. Найти A⁻¹<br>3. Умножить: X = A⁻¹·B<br>4. Найти det(A)",
+        
+        "1. Записать систему в виде A·X = B<br>2. Найти det(A)<br>3. Найти A⁻¹<br>4. Умножить: X = A⁻¹·B",
+        
+        "1. Найти det(A)<br>2. Записать систему в виде A·X = B<br>3. Найти A⁻¹<br>4. Умножить: X = A⁻¹·B",
+        
+        "1. Записать систему в виде A·X = B<br>2. Умножить: X = A⁻¹·B<br>3. Найти det(A)<br>4. Найти A⁻¹",
+        
+        "1. Найти A⁻¹<br>2. Записать систему в виде A·X = B<br>3. Найти det(A)<br>4. Умножить: X = A⁻¹·B"
+    ],
+    "answers": [
+        "1. Записать систему в виде A·X = B<br>2. Найти det(A)<br>3. Найти A⁻¹<br>4. Умножить: X = A⁻¹·B"
+    ],
+    "hint": `<p><strong>Правильный алгоритм:</strong></p>
+             <ol>
+                 <li>Записать систему в матричном виде A·X = B</li>
+                 <li>Проверить, что det(A) ≠ 0 (система имеет решение)</li>
+                 <li>Найти обратную матрицу A⁻¹</li>
+                 <li>Умножить: X = A⁻¹·B</li>
+             </ol>
+             <p>Нельзя найти A⁻¹, не зная det(A), так как A⁻¹ = (1/det(A))·A*</p>`
+},
+
+{
+    "id": "matrix_inverse_004",
+    "type": "multiplechoices",
+    "header": "Матрицы и системы",
+    "title": "Формула обратной матрицы 2x2",
+    "theme": "Матрицы",
+    "text": `Для матрицы $$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$ формула обратной матрицы: 
+             $$A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$.
+             <br><br>Студент находит обратную матрицу для $$A = \\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix}$$.
+             В каком варианте представлен <strong>правильный промежуточный результат</strong> ДО умножения на 1/det(A)?`,
+    "choices": [
+        "$$\\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix}$$",
+        "$$\\begin{pmatrix} -2 & 3 \\\\ 1 & 2 \\end{pmatrix}$$",
+        "$$\\begin{pmatrix} 2 & -3 \\\\ -1 & -2 \\end{pmatrix}$$",
+        "$$\\begin{pmatrix} -2 & -3 \\\\ 1 & 2 \\end{pmatrix}$$",
+        "$$\\begin{pmatrix} 2 & 3 \\\\ 1 & -2 \\end{pmatrix}$$"
+    ],
+    "answers": ["$$\\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix}$$"],
+    "hint": `<p><strong>Правило для матрицы 2x2:</strong></p>
+             <p>Для матрицы $$\\begin{pmatrix} \\color{red}{a} & \\color{blue}{b} \\\\ \\color{blue}{c} & \\color{red}{d} \\end{pmatrix}$$:</p>
+             <ul>
+                 <li>Меняем местами элементы на <strong class="text-danger">главной диагонали</strong> (a и d)</li>
+                 <li>Меняем знаки у элементов на <strong class="text-primary">побочной диагонали</strong> (b и c)</li>
+             </ul>
+             <p>Получаем: $$\\begin{pmatrix} \\color{red}{d} & -\\color{blue}{b} \\\\ -\\color{blue}{c} & \\color{red}{a} \\end{pmatrix}$$</p>
+             <p>Для нашей матрицы: $$\\begin{pmatrix} \\color{red}{2} & \\color{blue}{3} \\\\ \\color{blue}{1} & \\color{red}{-2} \\end{pmatrix} \\rightarrow \\begin{pmatrix} \\color{red}{-2} & -\\color{blue}{3} \\\\ -\\color{blue}{1} & \\color{red}{2} \\end{pmatrix} = \\begin{pmatrix} -2 & -3 \\\\ -1 & 2 \\end{pmatrix}$$</p>`
+},
+
+{
+    "id": "matrix_det_005",
+    "type": "multiplechoices",
+    "header": "Матрицы и определители",
+    "title": "Вычисление определителя матрицы 2x2",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$A = \\begin{pmatrix} 4 & 7 \\\\ 2 & 6 \\end{pmatrix}$$
+             <br>
+             Чему равен определитель (детерминант) этой матрицы?`,
+    "choices": [
+        "$\\det(A) = 4 \\cdot 6 + 7 \\cdot 2 = 24 + 14 = 38$",
+        "$\\det(A) = 4 \\cdot 6 - 7 \\cdot 2 = 24 - 14 = 10$",
+        "$\\det(A) = 4 \\cdot 2 - 7 \\cdot 6 = 8 - 42 = -34$",
+        "$\\det(A) = 4 \\cdot 7 - 2 \\cdot 6 = 28 - 12 = 16$",
+        "$\\det(A) = 4 \\cdot 6 - 2 \\cdot 7 = 24 - 14 = 10$"
+    ],
+    "answers": ["$\\det(A) = 4 \\cdot 6 - 7 \\cdot 2 = 24 - 14 = 10$"],
+    "hint": `<p><strong>Формула для матрицы 2x2:</strong></p>
+             <p>Для матрицы $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$:</p>
+             <p>$$\\det(A) = a \\cdot d - b \\cdot c$$</p>
+             <p><strong>Важно:</strong> Из произведения элементов на <span style="color: green;">главной диагонали</span> (↘) вычитаем произведение элементов на <span style="color: red;">побочной диагонали</span> (↙).</p>
+             <p>В нашем случае:</p>
+             <p>$$\\det(A) = \\begin{vmatrix} \\color{green}{4} & \\color{red}{7} \\\\ \\color{red}{2} & \\color{green}{6} \\end{vmatrix} = \\color{green}{4} \\cdot \\color{green}{6} - \\color{red}{7} \\cdot \\color{red}{2} = 24 - 14 = 10$$</p>`
+},
+
+
+{
+    "id": "matrix_det_006",
+    "type": "multiplechoices",
+    "header": "Матрицы и определители",
+    "title": "Определитель матрицы с отрицательными числами",
+    "theme": "Матрицы",
+    "text": `Данa матрица:
+             <br>
+             $$B = \\begin{pmatrix} -3 & 5 \\\\ 2 & -4 \\end{pmatrix}$$
+             <br>
+             Найдите определитель этой матрицы.`,
+    "choices": [
+        "$\\det(B) = (-3) \\cdot (-4) - 5 \\cdot 2 = 12 - 10 = 2$",
+        "$\\det(B) = (-3) \\cdot (-4) + 5 \\cdot 2 = 12 + 10 = 22$",
+        "$\\det(B) = (-3) \\cdot 2 - 5 \\cdot (-4) = -6 + 20 = 14$",
+        "$\\det(B) = (-3) \\cdot 5 - 2 \\cdot (-4) = -15 + 8 = -7$",
+        "$\\det(B) = (-3) \\cdot (-4) - 2 \\cdot 5 = 12 - 10 = 2$"
+    ],
+    "answers": ["$\\det(B) = (-3) \\cdot (-4) - 5 \\cdot 2 = 12 - 10 = 2$"],
+    "hint": `<p><strong>Формула для матрицы 2x2:</strong></p>
+             <p>$$\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = a \\cdot d - b \\cdot c$$</p>
+             <p><strong>Пошаговое решение:</strong></p>
+             <ol>
+                 <li>Подставляем значения: a = -3, b = 5, c = 2, d = -4</li>
+                 <li>Вычисляем: (-3) · (-4) - 5 · 2</li>
+                 <li>Вспоминаем правило знаков: (-3) · (-4) = +12</li>
+                 <li>12 - 10 = 2</li>
+             </ol>
+             <p><strong>Визуально:</strong></p>
+             <p>$$\\begin{vmatrix} \\color{green}{-3} & \\color{red}{5} \\\\ \\color{red}{2} & \\color{green}{-4} \\end{vmatrix} = (\\color{green}{-3} \\cdot \\color{green}{-4}) - (\\color{red}{5} \\cdot \\color{red}{2}) = 12 - 10 = 2$$</p>`
+},
+
+{
+    "id": "matrix_det_007",
+    "type": "multiplechoices",
+    "header": "Матрицы и определители",
+    "title": "Определитель матрицы с переменными",
+    "theme": "Матрицы",
+    "text": `Данa матрица:
+             <br>
+             $$C = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$
+             <br>
+             Известно, что a = 2, b = 3, c = -1, d = 5.
+             <br>
+             Чему равен определитель?`,
+    "choices": [
+        "$\\det(C) = 2 \\cdot 5 - 3 \\cdot (-1) = 10 + 3 = 13$",
+        "$\\det(C) = 2 \\cdot 5 + 3 \\cdot (-1) = 10 - 3 = 7$",
+        "$\\det(C) = 2 \\cdot (-1) - 3 \\cdot 5 = -2 - 15 = -17$",
+        "$\\det(C) = 2 \\cdot 3 - (-1) \\cdot 5 = 6 + 5 = 11$",
+        "$\\det(C) = 2 \\cdot 5 - (-1) \\cdot 3 = 10 + 3 = 13$"
+    ],
+    "answers": ["$\\det(C) = 2 \\cdot 5 - 3 \\cdot (-1) = 10 + 3 = 13$"],
+    "hint": `<p><strong>Формула:</strong> $$\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = a \\cdot d - b \\cdot c$$</p>
+             <p><strong>Подстановка:</strong></p>
+             <p>a = 2, b = 3, c = -1, d = 5</p>
+             <p>$$\\det = 2 \\cdot 5 - 3 \\cdot (-1)$$</p>
+             <p><strong>Внимание с знаками:</strong> $$3 \\cdot (-1) = -3$$, но перед этим произведением стоит знак минус:</p>
+             <p>$$10 - (-3) = 10 + 3 = 13$$</p>`
+},
+
+{
+    "id": "matrix_det_008",
+    "type": "multiplechoices",
+    "header": "Матрицы и определители",
+    "title": "Свойства определителя",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$A = \\begin{pmatrix} 4 & 7 \\\\ 2 & 6 \\end{pmatrix}, \\quad \\det(A) = 10$$
+             <br>
+             Как изменится определитель, если поменять местами строки матрицы?
+             <br>
+             $$B = \\begin{pmatrix} 2 & 6 \\\\ 4 & 7 \\end{pmatrix}$$`,
+    "choices": [
+        "$\\det(B) = \\det(A) = 10$",
+        "$\\det(B) = -\\det(A) = -10$",
+        "$\\det(B) = 2 \\cdot \\det(A) = 20$",
+        "$\\det(B) = \\frac{1}{2} \\cdot \\det(A) = 5$",
+        "$\\det(B) = \\det(A)^2 = 100$"
+    ],
+    "answers": ["$\\det(B) = -\\det(A) = -10$"],
+    "hint": `<p><strong>Важное свойство определителя:</strong></p>
+             <p>При перестановке двух строк (или двух столбцов) матрицы, определитель <strong>меняет знак</strong> на противоположный.</p>
+             <p><strong>Проверим вычислением:</strong></p>
+             <p>$$\\det(B) = \\begin{vmatrix} 2 & 6 \\\\ 4 & 7 \\end{vmatrix} = 2 \\cdot 7 - 6 \\cdot 4 = 14 - 24 = -10$$</p>
+             <p>Действительно, получили -10, что равно -det(A).</p>`
+},
+
+{
+    "id": "matrix_inverse_009",
+    "type": "multiplechoices",
+    "header": "Матрицы и обратные матрицы",
+    "title": "Нахождение обратной матрицы 2x2",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$A = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix}$$
+             <br>
+             Найдите обратную матрицу <strong>A⁻¹</strong>.`,
+    "choices": [
+        "$$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$",
+        
+        "$$A^{-1} = \\frac{1}{29} \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} \\frac{3}{29} & -\\frac{7}{29} \\\\ -\\frac{2}{29} & \\frac{5}{29} \\end{pmatrix}$$",
+        
+        "$$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix} = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix}$$",
+        
+        "$$A^{-1} = \\frac{1}{-1} \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} -3 & 7 \\\\ 2 & -5 \\end{pmatrix}$$",
+        
+        "$$A^{-1} = \\frac{1}{15} \\begin{pmatrix} 3 & 7 \\\\ 2 & 5 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{5} & \\frac{7}{15} \\\\ \\frac{2}{15} & \\frac{1}{3} \\end{pmatrix}$$"
+    ],
+    "answers": ["$$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$"],
+    "hint": `<p><strong>Алгоритм нахождения обратной матрицы 2x2:</strong></p>
+             <p>Для матрицы $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$:</p>
+             <ol>
+                 <li><strong>Шаг 1:</strong> Находим определитель: $$\\det(A) = a \\cdot d - b \\cdot c$$</li>
+                 <li><strong>Шаг 2:</strong> Меняем местами элементы на главной диагонали (a и d)</li>
+                 <li><strong>Шаг 3:</strong> Меняем знаки у элементов на побочной диагонали (b и c)</li>
+                 <li><strong>Шаг 4:</strong> Делим всё на определитель: $$A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$</li>
+             </ol>
+             <p><strong>Решение для данной матрицы:</strong></p>
+             <p>$$\\det(A) = 5 \\cdot 3 - 7 \\cdot 2 = 15 - 14 = 1$$</p>
+             <p>$$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$</p>
+             <p><strong>Проверка:</strong> $$A \\cdot A^{-1} = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$</p>`
+},
+
+{
+    "id": "matrix_inverse_010",
+    "type": "multiplechoices",
+    "header": "Матрицы и обратные матрицы",
+    "title": "Обратная матрица с дробями",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$B = \\begin{pmatrix} 4 & 3 \\\\ 2 & 2 \\end{pmatrix}$$
+             <br>
+             Найдите обратную матрицу <strong>B⁻¹</strong>.`,
+    "choices": [
+        "$$B^{-1} = \\frac{1}{2} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} 1 & -1.5 \\\\ -1 & 2 \\end{pmatrix}$$",
+        
+        "$$B^{-1} = \\frac{1}{14} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{7} & -\\frac{3}{14} \\\\ -\\frac{1}{7} & \\frac{2}{7} \\end{pmatrix}$$",
+        
+        "$$B^{-1} = \\frac{1}{2} \\begin{pmatrix} 4 & 3 \\\\ 2 & 2 \\end{pmatrix} = \\begin{pmatrix} 2 & 1.5 \\\\ 1 & 1 \\end{pmatrix}$$",
+        
+        "$$B^{-1} = \\frac{1}{8} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} 0.25 & -0.375 \\\\ -0.25 & 0.5 \\end{pmatrix}$$",
+        
+        "$$B^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix}$$"
+    ],
+    "answers": ["$$B^{-1} = \\frac{1}{2} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} 1 & -1.5 \\\\ -1 & 2 \\end{pmatrix}$$"],
+    "hint": `<p><strong>Пошаговое решение:</strong></p>
+             <p>$$B = \\begin{pmatrix} 4 & 3 \\\\ 2 & 2 \\end{pmatrix}$$</p>
+             <p><strong>Шаг 1:</strong> Находим определитель:</p>
+             <p>$$\\det(B) = 4 \\cdot 2 - 3 \\cdot 2 = 8 - 6 = 2$$</p>
+             <p><strong>Шаг 2:</strong> Составляем матрицу из алгебраических дополнений:</p>
+             <p>$$\\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix}$$</p>
+             <p><strong>Шаг 3:</strong> Делим на определитель:</p>
+             <p>$$B^{-1} = \\frac{1}{2} \\begin{pmatrix} 2 & -3 \\\\ -2 & 4 \\end{pmatrix} = \\begin{pmatrix} 1 & -\\frac{3}{2} \\\\ -1 & 2 \\end{pmatrix}$$</p>
+             <p><strong>Проверка:</strong> $$B \\cdot B^{-1} = \\begin{pmatrix} 4 & 3 \\\\ 2 & 2 \\end{pmatrix} \\cdot \\begin{pmatrix} 1 & -1.5 \\\\ -1 & 2 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$</p>`
+},
+
+{
+    "id": "matrix_inverse_011",
+    "type": "multiplechoices",
+    "header": "Матрицы и обратные матрицы",
+    "title": "Поиск ошибки в обратной матрице",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$C = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$$
+             <br>
+             Студент нашел обратную матрицу:
+             <br>
+             $$C^{-1} = \\frac{1}{3} \\begin{pmatrix} 2 & -1 \\\\ -1 & 2 \\end{pmatrix} = \\begin{pmatrix} \\frac{2}{3} & -\\frac{1}{3} \\\\ -\\frac{1}{3} & \\frac{2}{3} \\end{pmatrix}$$
+             <br>
+             В чем ошибка студента?`,
+    "choices": [
+        "<strong>Ошибки нет</strong> - это правильная обратная матрица",
+        
+        "<strong>Ошибка в определителе:</strong> det(C) = 2·2 - 1·1 = 4 - 1 = 3, а не 3",
+        
+        "<strong>Ошибка в знаках:</strong> нужно менять знаки у всех элементов",
+        
+        "<strong>Ошибка в формуле:</strong> обратная матрица находится делением исходной матрицы на определитель",
+        
+        "<strong>Ошибка в перестановке:</strong> нужно менять местами элементы на главной диагонали и менять знаки на побочной"
+    ],
+    "answers": ["<strong>Ошибки нет</strong> - это правильная обратная матрица"],
+    "hint": `<p><strong>Проверим правильность:</strong></p>
+             <p><strong>Шаг 1:</strong> Находим определитель:</p>
+             <p>$$\\det(C) = 2 \\cdot 2 - 1 \\cdot 1 = 4 - 1 = 3$$ - верно</p>
+             <p><strong>Шаг 2:</strong> По формуле для матрицы 2x2:</p>
+             <p>$$C^{-1} = \\frac{1}{\\det(C)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 2 & -1 \\\\ -1 & 2 \\end{pmatrix}$$ - верно</p>
+             <p><strong>Шаг 3:</strong> Проверка умножением:</p>
+             <p>$$C \\cdot C^{-1} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\cdot \\frac{1}{3} \\begin{pmatrix} 2 & -1 \\\\ -1 & 2 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 4-1 & -2+2 \\\\ 2-2 & -1+4 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 3 & 0 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$</p>
+             <p>Всё верно! Студент правильно нашел обратную матрицу.</p>`
+},
+
+{
+    "id": "matrix_inverse_012",
+    "type": "multiplechoices",
+    "header": "Матрицы и обратные матрицы",
+    "title": "Свойства обратной матрицы",
+    "theme": "Матрицы",
+    "text": `Дана матрица:
+             <br>
+             $$A = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix}, \\quad A^{-1} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$
+             <br>
+             Чему равна обратная матрица для <strong>A⁻¹</strong>, то есть <strong>(A⁻¹)⁻¹</strong>?`,
+    "choices": [
+        "$$(A^{-1})^{-1} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$",
+        
+        "$$(A^{-1})^{-1} = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix}$$",
+        
+        "$$(A^{-1})^{-1} = \\begin{pmatrix} 5 & -7 \\\\ -2 & 3 \\end{pmatrix}$$",
+        
+        "$$(A^{-1})^{-1} = \\begin{pmatrix} 3 & 7 \\\\ 2 & 5 \\end{pmatrix}$$",
+        
+        "$$(A^{-1})^{-1} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$"
+    ],
+    "answers": ["$$(A^{-1})^{-1} = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix}$$"],
+    "hint": `<p><strong>Важное свойство:</strong></p>
+             <p>Для любой обратимой матрицы A выполняется:</p>
+             <p>$$(A^{-1})^{-1} = A$$</p>
+             <p>Обратная матрица к обратной даёт исходную матрицу.</p>
+             <p><strong>Проверим вычислением:</strong></p>
+             <p>Для матрицы $$A^{-1} = \\begin{pmatrix} 3 & -7 \\\\ -2 & 5 \\end{pmatrix}$$:</p>
+             <p>$$\\det(A^{-1}) = 3 \\cdot 5 - (-7) \\cdot (-2) = 15 - 14 = 1$$</p>
+             <p>$$(A^{-1})^{-1} = \\frac{1}{1} \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix} = \\begin{pmatrix} 5 & 7 \\\\ 2 & 3 \\end{pmatrix} = A$$</p>`
+},
+
+
+
   {
   "id": "system016",
   "type": "mathwithrandomnumber",
