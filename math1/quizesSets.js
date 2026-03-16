@@ -20,6 +20,7 @@ let quizesSets = [
     "answers": ["$y = kx + b$ (Линейная функция)"],
     "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
   },
+  
   {
     "id": "functiongraph002",
     "type": "multiplechoices",
