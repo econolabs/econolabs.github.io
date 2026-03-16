@@ -1,5 +1,7 @@
 let quizesSets = [
 
+  
+
  
   {
     "id": "seq001",
@@ -3509,7 +3511,380 @@ let quizesSets = [
         <strong>💡 Итоговое правило:</strong> Для линейной функции $f(x) = kx + b$ производная $f'(x) = k$ одинакова во всех точках области определения.
       </div>
     </div>`
-  }
+  },
+
+{
+  "id": "integral005random14",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл линейной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} (2x + 1) \\, dx$$?",
+  "answer": "((({var1-10}+2)^2 + ({var1-10}+2)) - (({var1-10})^2 + {var1-10}))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫(2x + 1) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = 2x + 1$ первообразная равна:</p>
+        <p class="card-text">$F(x) = x^2 + x + C$</p>
+        <p class="text-muted">(так как $\\int 2x dx = x^2$, $\\int 1 dx = x$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b (2x + 1) dx = F(b) - F(a) = (b^2 + b) - (a^2 + a)$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} (2x + 1) dx = (({={var1-10}+2})^2 + ({={var1-10}+2})) - (({var1-10})^2 + {var1-10})$</p>
+        <p class="card-text">$= ({= ({var1-10}+2)^2} + {={var1-10}+2}) - ({= ({var1-10})^2} + {var1-10})$</p>
+        <p class="card-text">$= {= (({var1-10}+2)^2 + ({var1-10}+2))} - {= (({var1-10})^2 + {var1-10})}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^2 + ({var1-10}+2)) - (({var1-10})^2 + {var1-10}))}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^2 + ({var1-10}+2)) - (({var1-10})^2 + {var1-10}))}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+  {
+  "id": "integral006random15",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл квадратичной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} (x^2 + x) \\, dx$$?",
+  "answer": "((({var1-10}+2)^3/3 + ({var1-10}+2)^2/2) - (({var1-10})^3/3 + ({var1-10})^2/2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫(x² + x) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = x^2 + x$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{x^3}{3} + \\frac{x^2}{2} + C$</p>
+        <p class="text-muted">(так как $\\int x^2 dx = \\frac{x^3}{3}$, $\\int x dx = \\frac{x^2}{2}$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b (x^2 + x) dx = F(b) - F(a) = (\\frac{b^3}{3} + \\frac{b^2}{2}) - (\\frac{a^3}{3} + \\frac{a^2}{2})$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} (x^2 + x) dx = (\\frac{({={var1-10}+2})^3}{3} + \\frac{({={var1-10}+2})^2}{2}) - (\\frac{({var1-10})^3}{3} + \\frac{({var1-10})^2}{2})$</p>
+        <p class="card-text">$= (\\frac{{= ({var1-10}+2)^3}}{3} + \\frac{{= ({var1-10}+2)^2}}{2}) - (\\frac{{= ({var1-10})^3}}{3} + \\frac{{= ({var1-10})^2}}{2})$</p>
+        <p class="card-text">$= {= (({var1-10}+2)^3/3 + ({var1-10}+2)^2/2)} - {= (({var1-10})^3/3 + ({var1-10})^2/2)}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^3/3 + ({var1-10}+2)^2/2) - (({var1-10})^3/3 + ({var1-10})^2/2))}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^3/3 + ({var1-10}+2)^2/2) - (({var1-10})^3/3 + ({var1-10})^2/2))}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+
+  {
+  "id": "integral007random16",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл синуса", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+\\pi}} \\sin x \\, dx$$?",
+  "answer": "-cos({={var1-10}+pi}) + cos({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫ sin x dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = \\sin x$ первообразная равна:</p>
+        <p class="card-text">$F(x) = -\\cos x + C$</p>
+        <p class="text-muted">(так как производная от $-\\cos x$ равна $\\sin x$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b \\sin x dx = F(b) - F(a) = (-\\cos b) - (-\\cos a) = -\\cos b + \\cos a$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+\\pi}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+\\pi}} \\sin x dx = -\\cos({={var1-10}+\\pi}) + \\cos({var1-10})$</p>
+        <p class="card-text">По формуле приведения: $\\cos(\\alpha + \\pi) = -\\cos \\alpha$</p>
+        <p class="card-text">$= -(-\\cos({var1-10})) + \\cos({var1-10})$</p>
+        <p class="card-text">$= \\cos({var1-10}) + \\cos({var1-10})$</p>
+        <p class="card-text">$= 2\\cos({var1-10})$</p>
+        <p class="card-text">$= 2 \\cdot \\cos({var1-10}) = 2 \\cdot {= cos({var1-10})}$</p>
+        <p class="card-text">$= {= 2*cos({var1-10})}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 2*cos({var1-10})}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+
+  {
+  "id": "integral008random17",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл с корнем", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\sqrt{x} \\, dx$$?",
+  "answer": "(2/3)*(({={var1-10}+2})^(3/2) - ({var1-10})^(3/2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫ √x dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Представляем корень как степень</div>
+      <div class="card-body">
+        <p class="card-text">$\\sqrt{x} = x^{1/2}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = x^{1/2}$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{x^{3/2}}{3/2} + C = \\frac{2}{3}x^{3/2} + C$</p>
+        <p class="text-muted">(по формуле $\\int x^n dx = \\frac{x^{n+1}}{n+1}$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 3: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b \\sqrt{x} dx = F(b) - F(a) = \\frac{2}{3}(b^{3/2} - a^{3/2})$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 4: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\sqrt{x} dx = \\frac{2}{3}(({={var1-10}+2})^{3/2} - ({var1-10})^{3/2})$</p>
+        <p class="card-text">$\\sqrt{{={var1-10}+2}} = {= sqrt({var1-10}+2)}$, $({={var1-10}+2})^{3/2} = ({= sqrt({var1-10}+2)})^3 = {= (sqrt({var1-10}+2))^3}$</p>
+        <p class="card-text">$\\sqrt{{var1-10}} = {= sqrt({var1-10})}$, $({var1-10})^{3/2} = ({= sqrt({var1-10})})^3 = {= (sqrt({var1-10}))^3}$</p>
+        <p class="card-text">$= \\frac{2}{3}({= (sqrt({var1-10}+2))^3} - {= (sqrt({var1-10}))^3})$</p>
+        <p class="card-text">$= {= (2/3)*((sqrt({var1-10}+2))^3 - (sqrt({var1-10}))^3)}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= (2/3)*((sqrt({var1-10}+2))^3 - (sqrt({var1-10}))^3)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 4, 9, 16]
+},
+
+
+  {
+  "id": "integral009random18",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл от 1/x", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{1}{x} \\, dx$$?",
+  "answer": "ln(({={var1-10}+2})/({var1-10}))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫ (1/x) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = \\frac{1}{x}$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\ln|x| + C$</p>
+        <p class="text-muted">(при x > 0 можно писать $\\ln x$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b \\frac{1}{x} dx = F(b) - F(a) = \\ln b - \\ln a = \\ln\\frac{b}{a}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{1}{x} dx = \\ln\\frac{{={var1-10}+2}}{{var1-10}}$</p>
+        <p class="card-text">$= \\ln({= ({var1-10}+2)/({var1-10})})$</p>
+        <p class="card-text">$\\ln({= ({var1-10}+2)/({var1-10})}) = {= log(({var1-10}+2)/({var1-10}))}$ (приблизительно)</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> ln({= ({var1-10}+2)/({var1-10})}) ≈ {= log(({var1-10}+2)/({var1-10}))}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4, 5]
+},
+
+{
+  "id": "integral010random19",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл экспоненты", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} e^x \\, dx$$?",
+  "answer": "e^({={var1-10}+2}) - e^({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫ e^x dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = e^x$ первообразная равна:</p>
+        <p class="card-text">$F(x) = e^x + C$</p>
+        <p class="text-muted">(экспонента не меняется при интегрировании)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b e^x dx = F(b) - F(a) = e^b - e^a$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} e^x dx = e^{{={var1-10}+2}} - e^{{var1-10}}$</p>
+        <p class="card-text">$e^{{var1-10}} = {= exp({var1-10})}$</p>
+        <p class="card-text">$e^{{={var1-10}+2}} = e^{{var1-10}} \\cdot e^2 = {= exp({var1-10})} \\cdot {= exp(2)}$</p>
+        <p class="card-text">$= {= exp({var1-10})*exp(2)} - {= exp({var1-10})}$</p>
+        <p class="card-text">$= {= exp({var1-10}+2) - exp({var1-10})}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= exp({var1-10}+2) - exp({var1-10})}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+
+  {
+  "id": "integral011random20",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл суммы", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} (3x^2 + 2x + 5) \\, dx$$?",
+  "answer": "(({={var1-10}+2})^3 + ({={var1-10}+2})^2 + 5*({={var1-10}+2}) - (({var1-10})^3 + ({var1-10})^2 + 5*{var1-10}))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫(3x² + 2x + 5) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную (почленно)</div>
+      <div class="card-body">
+        <p class="card-text">$\\int 3x^2 dx = 3 \\cdot \\frac{x^3}{3} = x^3$</p>
+        <p class="card-text">$\\int 2x dx = 2 \\cdot \\frac{x^2}{2} = x^2$</p>
+        <p class="card-text">$\\int 5 dx = 5x$</p>
+        <p class="card-text">Складываем: $F(x) = x^3 + x^2 + 5x + C$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b (3x^2 + 2x + 5) dx = F(b) - F(a) = (b^3 + b^2 + 5b) - (a^3 + a^2 + 5a)$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} (3x^2 + 2x + 5) dx = (({={var1-10}+2})^3 + ({={var1-10}+2})^2 + 5({={var1-10}+2})) - (({var1-10})^3 + ({var1-10})^2 + 5{var1-10})$</p>
+        <p class="card-text">$= ({= ({var1-10}+2)^3} + {= ({var1-10}+2)^2} + {= 5*({var1-10}+2)}) - ({= ({var1-10})^3} + {= ({var1-10})^2} + {= 5*{var1-10}})$</p>
+        <p class="card-text">$= {= (({var1-10}+2)^3 + ({var1-10}+2)^2 + 5*({var1-10}+2))} - {= (({var1-10})^3 + ({var1-10})^2 + 5*{var1-10})}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^3 + ({var1-10}+2)^2 + 5*({var1-10}+2)) - (({var1-10})^3 + ({var1-10})^2 + 5*{var1-10}))}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^3 + ({var1-10}+2)^2 + 5*({var1-10}+2)) - (({var1-10})^3 + ({var1-10})^2 + 5*{var1-10}))}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+}
 
     
 ]

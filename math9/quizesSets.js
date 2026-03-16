@@ -6021,7 +6021,66 @@ let quizesSets = [
     answers: ["4"]
   },
 
-
+ {
+  "id": "integral012random17",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл нечётной функции в симметричных пределах", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{-{{var1-10}}}^{{{var1-10}}} x \\, dx$$?",
+  "answer": "{var1-10}*0",
+  "functionType": "linear",
+  "func": (x) => x,
+  "randomfrom": [1, 2, 3, 4, 5],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫ x dx от -a до a</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Вспоминаем свойство чётности/нечётности</div>
+      <div class="card-body">
+        <p class="card-text">Функция $f(x) = x$ является <b>нечётной</b>:</p>
+        <p class="card-text">$f(-x) = -x = -f(x)$</p>
+        <p class="card-text">Для нечётной функции интеграл в симметричных пределах равен нулю:</p>
+        <p class="card-text">$$\\int_{-a}^{a} f(x) dx = 0$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Проверяем вычислением</div>
+      <div class="card-body">
+        <p class="card-text">Первообразная: $F(x) = \\frac{x^2}{2} + C$</p>
+        <p class="card-text">$$\\int_{-a}^{a} x dx = \\frac{a^2}{2} - \\frac{(-a)^2}{2} = \\frac{a^2}{2} - \\frac{a^2}{2} = 0$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем конкретное значение</div>
+      <div class="card-body">
+        <p class="card-text">В нашем случае $a = {var1-10}$</p>
+        <p class="card-text">$$\\int_{-{var1-10}}^{{var1-10}} x dx = \\frac{({var1-10})^2}{2} - \\frac{(-{var1-10})^2}{2}$$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10})^2}}{2} - \\frac{{= ({var1-10})^2}}{2}$</p>
+        <p class="card-text">$= {= (({var1-10})^2)/2} - {= (({var1-10})^2)/2}$</p>
+        <p class="card-text">$= 0$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-warning text-white">Геометрический смысл</div>
+      <div class="card-body">
+        <p class="card-text">Площадь под графиком на отрезке $[-a, 0]$ равна площади над графиком на отрезке $[0, a]$, но с противоположным знаком.</p>
+        <p class="card-text">Они взаимно уничтожаются, давая ноль.</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-success text-white">
+      <b>Ответ:</b> 0 (для любого a = {var1-10})
+    </div>
+  </div>
+</div>`
+},
 
 
 

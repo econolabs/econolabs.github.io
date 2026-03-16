@@ -21,8 +21,156 @@ let boardConfig = {
     showCopyright: false,
 }
 
+function integral_symmetric_x(board, a) {
+    // Задаём значение a с проверкой типа
+    const aValue = typeof a === "number" ? a : 3; // значение по умолчанию 3, если a не число
+    
+    // Создаём график функции y = x
+    var graph = board.create('functiongraph', ['x'], {
+        strokeColor: colors.primary,
+        strokeWidth: 3,
+        name: 'y = x'
+    });
+    
+    // Создаём оси и сетку (если их нет в boardConfig)
+    // if (!board.hasAxis) {
+    //     board.create('axis', [[0, 0], [1, 0]], {
+    //         ticks: {
+    //             drawLabels: true,
+    //             drawZero: true,
+    //             insertTicks: true,
+    //             ticksDistance: 1
+    //         }
+    //     });
+    //     board.create('axis', [[0, 0], [0, 1]]);
+    //     board.hasAxis = true;
+    // }
+    
+    // Создаём интеграл для положительной части [0, a]
+    board.create('integral', [
+        [0, aValue],
+        graph
+    ], {
+        fillColor: colors.success,
+        fillOpacity: 0.3,
+        strokeWidth: 0
+    });
+    
+    // Создаём интеграл для отрицательной части [-a, 0]
+    board.create('integral', [
+        [-aValue, 0],
+        graph
+    ], {
+        fillColor: colors.danger,
+        fillOpacity: 0.3,
+        strokeWidth: 0
+    });
+    
+    // Отмечаем точки на графике
+    board.create('point', [aValue, aValue], {
+        strokeColor: colors.success,
+        fillColor: colors.success,
+        size: 4,
+        name: `a = ${aValue}`,
+        fixed: true,
+        showInfobox: false
+    });
+    
+    board.create('point', [-aValue, -aValue], {
+        strokeColor: colors.danger,
+        fillColor: colors.danger,
+        size: 4,
+        name: `-a = -${aValue}`,
+        fixed: true,
+        showInfobox: false
+    });
+    
+    board.create('point', [0, 0], {
+        strokeColor: colors.yellow,
+        fillColor: colors.yellow,
+        size: 4,
+        name: '0',
+        fixed: true,
+        showInfobox: false
+    });
+    
+    // Добавляем вертикальные линии для границ
+    board.create('segment', [aValue, 0, aValue, aValue], {
+        strokeColor: colors.success,
+        dash: 2,
+        strokeWidth: 1
+    });
+    
+    board.create('segment', [-aValue, 0, -aValue, -aValue], {
+        strokeColor: colors.danger,
+        dash: 2,
+        strokeWidth: 1
+    });
+    
+    // Добавляем горизонтальные линии для наглядности
+    board.create('segment', [0, aValue, aValue, aValue], {
+        strokeColor: colors.success,
+        dash: 2,
+        strokeWidth: 1
+    });
+    
+    board.create('segment', [-aValue, -aValue, 0, -aValue], {
+        strokeColor: colors.danger,
+        dash: 2,
+        strokeWidth: 1
+    });
+    
+    // Добавляем подписи для пояснения
+    board.create('text', [1, aValue-0.5, 'Положительная площадь'], {
+        strokeColor: colors.success,
+        fontSize: 12,
+        anchorX: 'left',
+        anchorY: 'bottom',
+        fixed: true
+    });
+    
+    board.create('text', [-aValue-1.5, -aValue+0.5, 'Отрицательная площадь'], {
+        strokeColor: colors.danger,
+        fontSize: 12,
+        anchorX: 'left',
+        anchorY: 'bottom',
+        fixed: true
+    });
+    
+    // Добавляем подпись с результатом
+    board.create('text', [-aValue, aValue+0.5, `∫₋ₐᵃ x dx = 0`], {
+        strokeColor: colors.primary,
+        fontSize: 14,
+        anchorX: 'left',
+        anchorY: 'bottom',
+        fixed: true
+    });
+    
+    return { 
+        style, 
+        boardConfig: { 
+            ...boardConfig, 
+            boundingbox: [-aValue-1, aValue+1, aValue+1, -aValue-1] 
+        } 
+    };
+}
 
-
+// Функция для конкретного теста с var1-10
+function integral_test_visual(board) {
+    // Здесь var1-10 - значение из randomfrom теста
+    // Пробуем получить значение из разных возможных источников
+    let a;
+    
+    if (board.args && typeof board.args.var1_10 === "number") {
+        a = board.args.var1_10;
+    } else if (board.args && typeof board.args['var1-10'] === "number") {
+        a = board.args['var1-10'];
+    } else {
+        a = 3; // значение по умолчанию
+    }
+    
+    return integral_symmetric_x(board, a);
+}
 
 function linear_4x(board) {
     board.create('functiongraph', ['4*x'], {
