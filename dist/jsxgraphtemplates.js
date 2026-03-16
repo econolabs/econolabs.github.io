@@ -24,7 +24,41 @@ let boardConfig = {
 
 
 
-        function system_intersect10(board) {
+function linear_4x(board) {
+    board.create('functiongraph', ['4*x'], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
+}
+
+function linear_3x(board) {
+    board.create('functiongraph', ['3*x'], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
+}
+
+function linear_2x(board) {
+    board.create('functiongraph', ['2*x'], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
+}
+
+
+function linear_x(board) {
+    board.create('functiongraph', ['x'], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
+}
+
+
+function system_intersect10(board) {
     board.create('functiongraph', ['0.5 * x + 2'], {
         strokeColor: colors.primary,
         strokeWidth: 3
@@ -38,7 +72,7 @@ let boardConfig = {
 
 
 
-    function system_intersect9(board) {
+function system_intersect9(board) {
     board.create('functiongraph', ['x + 1 -2'], {
         strokeColor: colors.primary,
         strokeWidth: 3
@@ -67,7 +101,7 @@ function system_intersect8(board) {
 
 
 
-    function system_intersect7(board) {
+function system_intersect7(board) {
     board.create('functiongraph', ['-3 * x + 7'], {
         strokeColor: colors.primary,
         strokeWidth: 3

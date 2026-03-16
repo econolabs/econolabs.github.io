@@ -1,5 +1,56 @@
 let quizesSets = [
 
+{
+  "id": "integral002random3",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл линейной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
+  "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫x dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = x$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{x^2}{2} + C$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b x dx = F(b) - F(a) = \\frac{b^2}{2} - \\frac{a^2}{2} = \\frac{b^2 - a^2}{2}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} x dx = \\frac{({={var1-10}+2})^2}{2} - \\frac{({var1-10})^2}{2}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2}}{2} - \\frac{{= ({var1-10})^2}}{2}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2} - {= ({var1-10})^2}}{2}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^2 - ({var1-10})^2) / 2)}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^2 - ({var1-10})^2) / 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+
   {
     "id": "functiongraph001",
     "type": "multiplechoices",
@@ -710,6 +761,8 @@ let quizesSets = [
     "id": "der001",
     "type": "multiplechoices",
     "header": "Дифференциальное исчисление",
+     "functionType": "linear_x",
+    "func": (x) => x,
     "title": "Производная линейной функции y = x",
     "theme": "Производная функции y = x",
     "text": "Чему равна производная функции $y = x$?",
@@ -744,6 +797,8 @@ let quizesSets = [
     "id": "der002",
     "type": "multiplechoices",
     "header": "Дифференциальное исчисление",
+    "functionType": "linear_2x",
+    "func": (x) => x,
     "title": "Производная функции y = 2x",
     "theme": "Производная функции y = 2x",
     "text": "Чему равна производная функции $y = 2x$?",
@@ -782,6 +837,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная функции y = 3x",
     "theme": "Производная функции y = 3x",
+    "functionType": "linear_3x",
+    "func": (x) => 3*x,
     "text": "Чему равна производная функции $y = 3x$?",
     "choices": [
       "0",
@@ -819,6 +876,8 @@ let quizesSets = [
     "title": "Производная функции y = 4x",
     "theme": "Производная функции y = 4x",
     "text": "Чему равна производная функции $y = 4x$?",
+    "functionType": "linear_4x",
+    "func": (x) => 4*x,
     "choices": [
       "0",
       "1",
@@ -856,6 +915,8 @@ let quizesSets = [
     "title": "Производная функции y = kx (общий случай)",
     "theme": "Производная линейной функции",
     "text": "Чему равна производная функции $y = kx$, где $k$ — постоянная?",
+    "functionType": "linear_4x",
+    "func": (x) => 4*x,
     "choices": [
       "0",
       "1",
@@ -899,6 +960,8 @@ let quizesSets = [
     "title": "Производная суммы функций",
     "theme": "Производная функции y = x + 2x",
     "text": "Чему равна производная функции $y = x + 2x$?",
+    "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "choices": [
       "1",
       "2",
@@ -937,6 +1000,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Уравнение касательной к линейной функции",
     "theme": "Геометрический смысл производной",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Уравнение касательной к графику функции $y = 3x$ в точке $x_0 = 2$ имеет вид:",
     "choices": [
       "$y = 3x$",
@@ -977,6 +1042,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Физический смысл производной для y = 4x",
     "theme": "Производная как скорость изменения",
+     "functionType": "linear_4x",
+    "func": (x) => 4*x,
     "text": "Если $y = 4x$ описывает путь тела (в метрах) в зависимости от времени $x$ (в секундах), то скорость тела равна:",
     "choices": [
       "0 м/с",
@@ -1017,6 +1084,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная с использованием константы",
     "theme": "Производная функции y = C·x",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Если $y = Cx$, где $C$ — постоянное число, то $y' = $",
     "choices": [
       "0",
@@ -1059,6 +1128,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Сравнение производных линейных функций",
     "theme": "Производные функций y = x, 2x, 3x, 4x",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Какая из функций имеет наибольшую производную?",
     "choices": [
       "$y = x$",
@@ -1113,6 +1184,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная второго порядка функции y = x",
     "theme": "Вторая производная функции y = x",
+     "functionType": "linear_x",
+    "func": (x) => x,
     "text": "Чему равна вторая производная функции $y = x$?",
     "choices": [
       "0",
@@ -1148,6 +1221,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная второго порядка функции y = 2x",
     "theme": "Вторая производная функции y = 2x",
+     "functionType": "linear_2x",
+    "func": (x) => 2*x,
     "text": "Чему равна вторая производная функции $y = 2x$?",
     "choices": [
       "0",
@@ -1185,6 +1260,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная второго порядка функции y = 3x",
     "theme": "Вторая производная функции y = 3x",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Чему равна вторая производная функции $y = 3x$?",
     "choices": [
       "0",
@@ -1223,6 +1300,8 @@ let quizesSets = [
     "title": "Производная второго порядка функции y = 4x",
     "theme": "Вторая производная функции y = 4x",
     "text": "Чему равна вторая производная функции $y = 4x$?",
+     "functionType": "linear_4x",
+    "func": (x) => 4*x,
     "choices": [
       "0",
       "1",
@@ -1262,6 +1341,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Вторая производная функции y = kx (общий случай)",
     "theme": "Вторая производная линейной функции",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Чему равна вторая производная функции $y = kx$, где $k$ — постоянная?",
     "choices": [
       "0",
@@ -1307,6 +1388,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Физический смысл второй производной для y = 3x",
     "theme": "Ускорение при равномерном движении",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "text": "Если $y = 3x$ описывает путь тела в метрах в зависимости от времени $x$ в секундах, то ускорение тела равно:",
     "choices": [
       "0 м/с²",
@@ -1346,6 +1429,8 @@ let quizesSets = [
     "title": "Сравнение вторых производных",
     "theme": "Вторые производные функций y = x, 2x, 3x, 4x",
     "text": "Сравните вторые производные функций: $y = x$, $y = 2x$, $y = 3x$, $y = 4x$",
+     "functionType": "linear_3x",
+    "func": (x) => 2*x+x,
     "choices": [
       "Все вторые производные равны 0",
       "Вторая производная больше у функции с большим коэффициентом",
@@ -1385,8 +1470,208 @@ let quizesSets = [
 </div>`
   },
 
+{
+  "id": "integral001random1",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл линейной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
+  "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫x dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = x$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{x^2}{2} + C$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b x dx = F(b) - F(a) = \\frac{b^2}{2} - \\frac{a^2}{2} = \\frac{b^2 - a^2}{2}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} x dx = \\frac{({={var1-10}+2})^2}{2} - \\frac{({var1-10})^2}{2}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2}}{2} - \\frac{{= ({var1-10})^2}}{2}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2} - {= ({var1-10})^2}}{2}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^2 - ({var1-10})^2) / 2)}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^2 - ({var1-10})^2) / 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
 
+{
+  "id": "integral002random3",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл линейной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} \\, dx$$?",
+  "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 4)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫(x/2) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = \\frac{x}{2}$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{1}{2} \\cdot \\frac{x^2}{2} + C = \\frac{x^2}{4} + C$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b \\frac{x}{2} dx = F(b) - F(a) = \\frac{b^2}{4} - \\frac{a^2}{4} = \\frac{b^2 - a^2}{4}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} dx = \\frac{({={var1-10}+2})^2}{4} - \\frac{({var1-10})^2}{4}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2}}{4} - \\frac{{= ({var1-10})^2}}{4}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^2} - {= ({var1-10})^2}}{4}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^2 - ({var1-10})^2) / 4)}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^2 - ({var1-10})^2) / 4)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
 
+{
+  "id": "integral004random4",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл константы", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx$$?",
+  "answer": "10 * 2",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫10 dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = 10$ (константа) первообразная равна:</p>
+        <p class="card-text">$F(x) = 10x + C$</p>
+        <p class="text-muted">(так как производная от $10x$ равна $10$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b 10 \\, dx = F(b) - F(a) = 10b - 10a = 10(b - a)$</p>
+        <p class="card-text">Для константы $c$: $\\int_a^b c \\, dx = c \\cdot (b - a)$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <p class="card-text">Длина отрезка: $b - a = {={var1-10}+2} - {var1-10} = 2$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx = 10 \\cdot ({={var1-10}+2} - {var1-10})$</p>
+        <p class="card-text">$= 10 \\cdot 2$</p>
+        <p class="card-text">$= 20$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> 20 (не зависит от выбранного значения {var1-10} = {var1-10})
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
+
+{
+  "id": "integral003random1",
+  "type": "mathwithrandomnumber",
+  "header": "Математический анализ",
+  "title": "Интеграл квадратичной функции", 
+  "theme": "Интегралы",
+  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} \\, dx$$?",
+  "answer": "((({var1-10}+2)^3 - ({var1-10})^3) / 9)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Решаем интеграл ∫(x²/3) dx</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Находим первообразную</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $f(x) = \\frac{x^2}{3}$ первообразная равна:</p>
+        <p class="card-text">$F(x) = \\frac{1}{3} \\cdot \\frac{x^3}{3} + C = \\frac{x^3}{9} + C$</p>
+        <p class="text-muted">(так как $\\int x^2 dx = \\frac{x^3}{3}$)</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Применяем формулу Ньютона-Лейбница</div>
+      <div class="card-body">
+        <p class="card-text">$\\int_a^b \\frac{x^2}{3} dx = F(b) - F(a) = \\frac{b^3}{9} - \\frac{a^3}{9} = \\frac{b^3 - a^3}{9}$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Подставляем пределы интегрирования</div>
+      <div class="card-body">
+        <p class="card-text">Нижний предел: $a = {var1-10}$</p>
+        <p class="card-text">Верхний предел: $b = {={var1-10}+2}$</p>
+        <hr>
+        <p class="card-text">$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} dx = \\frac{({={var1-10}+2})^3}{9} - \\frac{({var1-10})^3}{9}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^3}}{9} - \\frac{{= ({var1-10})^3}}{9}$</p>
+        <p class="card-text">$= \\frac{{= ({var1-10}+2)^3} - {= ({var1-10})^3}}{9}$</p>
+        <p class="card-text">$= {= ((({var1-10}+2)^3 - ({var1-10})^3) / 9)}$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= ((({var1-10}+2)^3 - ({var1-10})^3) / 9)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [0, 1, 2, 3, 4]
+},
 
     {
     "id": "algebra-fsu-001",
@@ -4524,23 +4809,7 @@ let quizesSets = [
   "hint": "<p>Представим 2 как корень из 4.</p>$$2 = 4^{\\frac{1}{2}}$$$$\\log_4 2 = \\log_4 4^{\\frac{1}{2}}$$$$\\log_a a^c = c$$$$\\log_4 4^{\\frac{1}{2}} = \\frac{1}{2}$$"
 },
 
-  {
-    "id": "math004",
-    "type": "multiplechoices",
-    "header": "Устный счёт",
-    "title": "Степени",
-    "theme": "Степени",
-    "text": "Чему равно значение выражения 2⁴+4²?",
-    "choices": [
-      "20",
-      "32",
-      "64",
-      "24",
-      "48"
-    ],
-    "answers": ["32"],
-    "hint": "<p>Вычислите каждую степень отдельно, а затем сложите результаты.</p><ul><li><strong>Шаг 1:</strong> 2⁴ = 2 × 2 × 2 × 2 = 16</li><li><strong>Шаг 2:</strong> 4² = 4 × 4 = 16</li><li><strong>Шаг 3:</strong> 16 +16 = 32</li></ul>"
-  },
+ 
   {
     "id": "math004random1",
     "type": "quizwithrandomnumber",
