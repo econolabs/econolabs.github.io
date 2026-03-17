@@ -1,387 +1,5 @@
 let quizesSets = [
 
-// {
-//   "id": "powers_negative001",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Отрицательная степень", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{-2}$$?",
-//   "answer": "1 / POWER({var1-10}, 2)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Отрицательная степень</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Число в отрицательной степени равно единице, делённой на это число в положительной степени:</p>
-//         <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{-2} = \\frac{1}{{var1-10}^2}$$</p>
-//         <p class="card-text">$${var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
-//         <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [2, 3, 4, 5, 6]
-// },
-// {
-//   "id": "powers_negative002",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Отрицательная степень дроби", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$?",
-//   "answer": "POWER({var1-10}, 3)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Отрицательная степень дроби</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Дробь в отрицательной степени переворачивается:</p>
-//         <p class="card-text text-center">$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$$\\left(\\frac{1}{{var1-10}}\\right)^{-3} = \\left(\\frac{{var1-10}}{1}\\right)^3 = {var1-10}^3$$</p>
-//         <p class="card-text">$${var1-10}^3 = {= POWER({var1-10}, 3)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER({var1-10}, 3)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [2, 3, 4, 5, 6]
-// },
-// {
-//   "id": "powers_negative003",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Произведение положительной и отрицательной степени", 
-//   "theme": "Степени",
-//   "text": "Упростите выражение: $${var1-10}^3 \\cdot {var1-10}^{-5}$$",
-//   "answer": "1 / POWER({var1-10}, 2)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Умножение степеней</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">При умножении степеней с одинаковыми основаниями показатели складываются:</p>
-//         <p class="card-text text-center">$$a^m \\cdot a^n = a^{m+n}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^3 \\cdot {var1-10}^{-5} = {var1-10}^{3 + (-5)} = {var1-10}^{-2}$$</p>
-//         <p class="card-text">$${var1-10}^{-2} = \\frac{1}{{var1-10}^2}$$</p>
-//         <p class="card-text">$${var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
-//         <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [2, 3, 4, 5, 6]
-// },
-// {
-//   "id": "powers_fraction001",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Дробная степень (квадратный корень)", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
-//   "answer": "SQRT({var1-10})",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Дробная степень 1/2</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Степень 1/2 означает квадратный корень:</p>
-//         <p class="card-text text-center">$$a^{1/2} = \\sqrt{a}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{1/2} = \\sqrt{{var1-10}}$$</p>
-//         <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= SQRT({var1-10})}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 4, 9, 16, 25]
-// },
-// {
-//   "id": "powers_fraction002",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Дробная степень (кубический корень)", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
-//   "answer": "POWER({var1-10}, 1/3)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Дробная степень 1/3</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Степень 1/3 означает кубический корень:</p>
-//         <p class="card-text text-center">$$a^{1/3} = \\sqrt[3]{a}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{1/3} = \\sqrt[3]{{var1-10}}$$</p>
-//         <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER({var1-10}, 1/3)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 8, 27, 64, 125]
-// },
-// {
-//   "id": "powers_fraction003",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Дробная степень 2/3", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
-//   "answer": "POWER(POWER({var1-10}, 1/3), 2)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Дробная степень m/n</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Степень m/n можно представить двумя способами:</p>
-//         <p class="card-text text-center">$$a^{m/n} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{2/3} = (\\sqrt[3]{{var1-10}})^2$$</p>
-//         <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
-//         <p class="card-text">$$({= POWER({var1-10}, 1/3)})^2 = {= POWER(POWER({var1-10}, 1/3), 2)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/3), 2)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 8, 27, 64, 125]
-// },
-// {
-//   "id": "powers_fraction004",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Дробная степень 3/2", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{3/2}$$?",
-//   "answer": "POWER(POWER({var1-10}, 1/2), 3)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Дробная степень 3/2</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Степень 3/2 можно представить как:</p>
-//         <p class="card-text text-center">$$a^{3/2} = (\\sqrt{a})^3 = \\sqrt{a^3}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{3/2} = (\\sqrt{{var1-10}})^3$$</p>
-//         <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
-//         <p class="card-text">$$({= SQRT({var1-10})})^3 = {= POWER(POWER({var1-10}, 1/2), 3)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/2), 3)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 4, 9, 16, 25]
-// },
-// {
-//   "id": "powers_negative_fraction001",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Отрицательная дробная степень", 
-//   "theme": "Степени",
-//   "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
-//   "answer": "1 / SQRT({var1-10})",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Отрицательная дробная степень</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">Сначала применяем правило отрицательной степени, затем дробной:</p>
-//         <p class="card-text text-center">$$a^{-m/n} = \\frac{1}{a^{m/n}} = \\frac{1}{\\sqrt[n]{a^m}}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{-1/2} = \\frac{1}{{var1-10}^{1/2}} = \\frac{1}{\\sqrt{{var1-10}}}$$</p>
-//         <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
-//         <p class="card-text">$$\\frac{1}{{= SQRT({var1-10})}} = {= 1 / SQRT({var1-10})}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= 1 / SQRT({var1-10})}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 4, 9, 16, 25]
-// },
-// {
-//   "id": "powers_mixed001",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Смешанное выражение со степенями", 
-//   "theme": "Степени",
-//   "text": "Упростите выражение: $$\\frac{{var1-10}^{3} \\cdot {var1-10}^{-1/2}}{{var1-10}^{1/2}}$$",
-//   "answer": "POWER({var1-10}, 2)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Смешанное выражение со степенями</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Шаг 1: Складываем показатели в числителе</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^{3} \\cdot {var1-10}^{-1/2} = {var1-10}^{3 + (-1/2)} = {var1-10}^{2.5} = {var1-10}^{5/2}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Шаг 2: Вычитаем показатель знаменателя</div>
-//       <div class="card-body">
-//         <p class="card-text">$$\\frac{{var1-10}^{5/2}}{{var1-10}^{1/2}} = {var1-10}^{5/2 - 1/2} = {var1-10}^{4/2} = {var1-10}^2$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Результат</div>
-//       <div class="card-body">
-//         <p class="card-text">$${var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER({var1-10}, 2)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 2, 3, 4, 5]
-// },
-// {
-//   "id": "powers_mixed002",
-//   "type": "mathwithrandomnumber",
-//   "header": "Степени",
-//   "title": "Степень степени с дробным показателем", 
-//   "theme": "Степени",
-//   "text": "Упростите выражение: $$({var1-10}^{2/3})^{3}$$",
-//   "answer": "POWER({var1-10}, 2)",
-//   "hint": `
-// <div class="card">
-//   <div class="card-header bg-primary text-white">
-//     <h5>Степень степени</h5>
-//   </div>
-//   <div class="card-body">
-//     <div class="card mb-3">
-//       <div class="card-header bg-info text-white">Правило</div>
-//       <div class="card-body">
-//         <p class="card-text">При возведении степени в степень показатели перемножаются:</p>
-//         <p class="card-text text-center">$$(a^m)^n = a^{m \\cdot n}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card mb-3">
-//       <div class="card-header bg-success text-white">Применяем правило</div>
-//       <div class="card-body">
-//         <p class="card-text">$$({var1-10}^{2/3})^{3} = {var1-10}^{(2/3) \\cdot 3} = {var1-10}^{2}$$</p>
-//         <p class="card-text">$${var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
-//       </div>
-//     </div>
-    
-//     <div class="card-footer bg-warning">
-//       <b>Ответ:</b> {= POWER({var1-10}, 2)}
-//     </div>
-//   </div>
-// </div>`,
-//   "randomfrom": [1, 2, 3, 4, 5]
-// },
-
 
 
    
@@ -4349,7 +3967,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сложение дробей",
     "theme": "Дроби",
-    "text": "Вычислите:<br> $\\frac{1}{2} + \\frac{1}{3}$$",
+    "text": "Вычислите: $$\\frac{1}{2} + \\frac{1}{3}$$",
     "choices": [
       "$\\frac{2}{5}$",
       "$\\frac{5}{6}$",
@@ -4366,7 +3984,7 @@ let quizesSets = [
     "header": "Дроби 3",
     "title": "Вычитание дробей",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{3}{4} - \\frac{1}{2}$$",
+    "text": "Вычислите: $$\\frac{3}{4} - \\frac{1}{2}$$",
     "choices": [
       "$\\frac{1}{4}$",
       "$\\frac{1}{2}$",
@@ -4383,7 +4001,7 @@ let quizesSets = [
     "header": "Дроби 4",
     "title": "Умножение дробей",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{2}{3} \\times \\frac{3}{4}$$",
+    "text": "Вычислите: $$\\frac{2}{3} \\times \\frac{3}{4}$$",
     "choices": [
       "$\\frac{6}{12}$",
       "$\\frac{1}{2}$",
@@ -4400,7 +4018,7 @@ let quizesSets = [
     "header": "Дроби 5",
     "title": "Деление дробей",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{2}{3} \\div \\frac{4}{5}$$",
+    "text": "Вычислите: $$\\frac{2}{3} \\div \\frac{4}{5}$$",
     "choices": [
       "$\\frac{8}{15}$",
       "$\\frac{5}{6}$",
@@ -4418,7 +4036,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Раскрытие скобок",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{1}{2}(x + 4)$$",
+    "text": "Упростите: $$\\frac{1}{2}(x + 4)$$",
     "choices": [
       "$\\frac{x}{2} + 2$",
       "$\\frac{x}{2} + 4$",
@@ -4435,7 +4053,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вынесение за скобки",
     "theme": "Дроби",
-    "text": "Вынесите общий множитель: $\\frac{x}{3} + \\frac{2}{3}$$",
+    "text": "Вынесите общий множитель: $$\\frac{x}{3} + \\frac{2}{3}$$",
     "choices": [
       "$\\frac{1}{3}(x + 2)$",
       "$\\frac{x + 2}{3}$",
@@ -4452,7 +4070,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сложение дробей 2",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{2}{5} + \\frac{1}{10}$$",
+    "text": "Вычислите: $$\\frac{2}{5} + \\frac{1}{10}$$",
     "choices": [
       "$\\frac{3}{15}$",
       "$\\frac{1}{2}$",
@@ -4469,7 +4087,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вычитание дробей 2",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{5}{6} - \\frac{1}{3}$$",
+    "text": "Вычислите: $$\\frac{5}{6} - \\frac{1}{3}$$",
     "choices": [
       "$\\frac{4}{3}$",
       "$\\frac{1}{2}$",
@@ -4486,7 +4104,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Упрощение выражения",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{3}{4}a + \\frac{1}{2}a$$",
+    "text": "Упростите: $$\\frac{3}{4}a + \\frac{1}{2}a$$",
     "choices": [
       "$\\frac{5}{4}a$",
       "$\\frac{4}{6}a$",
@@ -4503,7 +4121,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Раскрытие двойных скобок",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{1}{2}(2x + 4) + \\frac{1}{3}(3x + 6)$",
+    "text": "Упростите: $$\\frac{1}{2}(2x + 4) + \\frac{1}{3}(3x + 6)$$",
     "choices": [
       "$2x + 4$",
       "$3x + 4$",
@@ -4520,7 +4138,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сложение смешанных чисел",
     "theme": "Дроби",
-    "text": "Вычислите: $1\\frac{1}{2} + 2\\frac{1}{4}$$",
+    "text": "Вычислите: $$1\\frac{1}{2} + 2\\frac{1}{4}$$",
     "choices": [
       "$3\\frac{3}{4}$",
       "$3\\frac{1}{2}$",
@@ -4537,7 +4155,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Умножение на целое число",
     "theme": "Дроби",
-    "text": "Вычислите: $3 \\times \\frac{2}{5}$$",
+    "text": "Вычислите: $$3 \\times \\frac{2}{5}$$",
     "choices": [
       "$\\frac{6}{5}$",
       "$\\frac{2}{15}$",
@@ -4554,7 +4172,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Деление на дробь",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{3}{4} \\div \\frac{1}{2}$$",
+    "text": "Вычислите: $$\\frac{3}{4} \\div \\frac{1}{2}$$",
     "choices": [
       "$\\frac{3}{2}$",
       "$\\frac{1}{2}$",
@@ -4571,7 +4189,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вынесение общего множителя",
     "theme": "Дроби",
-    "text": "Вынесите общий множитель: $\\frac{2x}{5} + \\frac{4}{5}$$",
+    "text": "Вынесите общий множитель: $$\\frac{2x}{5} + \\frac{4}{5}$$",
     "choices": [
       "$\\frac{2}{5}(x + 2)$",
       "$\\frac{1}{5}(2x + 4)$",
@@ -4588,7 +4206,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сокращение дроби",
     "theme": "Дроби",
-    "text": "Сократите дробь: $\\frac{8}{12}$$",
+    "text": "Сократите дробь: $$\\frac{8}{12}$$",
     "choices": [
       "$\\frac{2}{3}$",
       "$\\frac{4}{6}$",
@@ -4605,7 +4223,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сложение трех дробей",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{1}{4} + \\frac{1}{2} + \\frac{1}{8}$$",
+    "text": "Вычислите: $$\\frac{1}{4} + \\frac{1}{2} + \\frac{1}{8}$$",
     "choices": [
       "$\\frac{7}{8}$",
       "$\\frac{5}{8}$",
@@ -4622,7 +4240,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Упрощение сложного выражения",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{1}{2}x + \\frac{1}{4}x - \\frac{1}{8}x$$",
+    "text": "Упростите: $$\\frac{1}{2}x + \\frac{1}{4}x - \\frac{1}{8}x$$",
     "choices": [
       "$\\frac{5}{8}x$",
       "$\\frac{3}{4}x$",
@@ -4639,7 +4257,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Раскрытие скобок с дробями",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{2}{3}(x + 6)$",
+    "text": "Упростите: $$\\frac{2}{3}(x + 6)$$",
     "choices": [
       "$\\frac{2}{3}x + 4$",
       "$\\frac{2}{3}x + 6$",
@@ -4656,7 +4274,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вычитание смешанных чисел",
     "theme": "Дроби",
-    "text": "Вычислите: $3\\frac{1}{2} - 1\\frac{1}{4}$$",
+    "text": "Вычислите: $$3\\frac{1}{2} - 1\\frac{1}{4}$$",
     "choices": [
       "$2\\frac{1}{4}$",
       "$2\\frac{1}{2}$",
@@ -4673,7 +4291,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Умножение смешанных чисел",
     "theme": "Дроби",
-    "text": "Вычислите: $1\\frac{1}{2} \\times 2\\frac{2}{3}$$",
+    "text": "Вычислите: $$1\\frac{1}{2} \\times 2\\frac{2}{3}$$",
     "choices": [
       "$4$",
       "$3\\frac{2}{3}$",
@@ -4690,7 +4308,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Деление смешанных чисел",
     "theme": "Дроби",
-    "text": "Вычислите: $2\\frac{1}{2} \\div 1\\frac{1}{4}$$",
+    "text": "Вычислите: $$2\\frac{1}{2} \\div 1\\frac{1}{4}$$",
     "choices": [
       "$2$",
       "$1\\frac{1}{2}$",
@@ -4707,7 +4325,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сложение с разными знаменателями",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{2}{3} + \\frac{3}{5}$",
+    "text": "Вычислите: $$\\frac{2}{3} + \\frac{3}{5}$$",
     "choices": [
       "$\\frac{19}{15}$",
       "$\\frac{5}{8}$",
@@ -4724,7 +4342,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вычитание с разными знаменателями",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{7}{8} - \\frac{2}{3}$$",
+    "text": "Вычислите: $$\\frac{7}{8} - \\frac{2}{3}$$",
     "choices": [
       "$\\frac{5}{24}$",
       "$\\frac{1}{4}$",
@@ -4741,7 +4359,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Упрощение выражения со скобками",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{1}{4}(8x + 12) - \\frac{1}{2}(2x + 4)$$",
+    "text": "Упростите: $$\\frac{1}{4}(8x + 12) - \\frac{1}{2}(2x + 4)$$",
     "choices": [
       "$x + 1$",
       "$2x + 3$",
@@ -4758,7 +4376,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Вынесение общего знаменателя",
     "theme": "Дроби",
-    "text": "Вынесите общий множитель: $\\frac{3a}{4} + \\frac{5a}{4} - \\frac{a}{4}$$",
+    "text": "Вынесите общий множитель: $$\\frac{3a}{4} + \\frac{5a}{4} - \\frac{a}{4}$$",
     "choices": [
       "$\\frac{7}{4}a$",
       "$\\frac{3}{4}a$",
@@ -4775,7 +4393,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Сокращение сложной дроби",
     "theme": "Дроби",
-    "text": "Сократите: $\\frac{15}{25}$$",
+    "text": "Сократите: $$\\frac{15}{25}$$",
     "choices": [
       "$\\frac{3}{5}$",
       "$\\frac{5}{8}$",
@@ -4792,7 +4410,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Умножение трех дробей",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5}$$",
+    "text": "Вычислите: $$\\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5}$$",
     "choices": [
       "$\\frac{2}{5}$",
       "$\\frac{3}{5}$",
@@ -4809,7 +4427,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Деление на целое число",
     "theme": "Дроби",
-    "text": "Вычислите: $\\frac{3}{4} \\div 2$",
+    "text": "Вычислите: $$\\frac{3}{4} \\div 2$$",
     "choices": [
       "$\\frac{3}{8}$",
       "$\\frac{1}{2}$",
@@ -4826,7 +4444,7 @@ let quizesSets = [
     "header": "Дроби",
     "title": "Комбинированное выражение",
     "theme": "Дроби",
-    "text": "Упростите: $\\frac{1}{2}(4x + 6) + \\frac{1}{3}(3x + 9)$$",
+    "text": "Упростите: $$\\frac{1}{2}(4x + 6) + \\frac{1}{3}(3x + 9)$$",
     "choices": [
       "$3x + 6$",
       "$2x + 5$",
@@ -4844,7 +4462,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 2",
   "theme": "Степени",
-  "text": "Упростите выражение: $a^3 \\cdot a^2$",
+  "text": "Упростите выражение: $$a^3 \\cdot a^2$$",
   "choices": [
     "$a^5$",
     "$a^6$", 
@@ -4886,7 +4504,7 @@ let quizesSets = [
   "header": "Степени", 
   "title": "Упрощение выражений 3",
   "theme": "Степени",
-  "text": "Упростите выражение: $\\frac{b^7}{b^4}$",
+  "text": "Упростите выражение: $$\\frac{b^7}{b^4}$$",
   "choices": [
     "$b^3$",
     "$b^{11}$",
@@ -4928,7 +4546,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 4",
   "theme": "Степени", 
-  "text": "Упростите выражение: $(c^2)^4$",
+  "text": "Упростите выражение: $$(c^2)^4$$",
   "choices": [
     "$c^6$",
     "$c^8$",
@@ -4970,7 +4588,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 5",
   "theme": "Степени",
-  "text": "Упростите выражение: $(2x)^3$",
+  "text": "Упростите выражение: $$(2x)^3$$",
   "choices": [
     "$2x^3$",
     "$8x^3$", 
@@ -5012,7 +4630,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 6",
   "theme": "Степени",
-  "text": "Чему равно значение выражения $5^0$?",
+  "text": "Чему равно значение выражения $$5^0$$",
   "choices": [
     "0",
     "1", 
@@ -5054,7 +4672,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 7",
   "theme": "Степени",
-  "text": "Упростите выражение: $a^5 \\cdot a^{-2}$",
+  "text": "Упростите выражение: $$a^5 \\cdot a^{-2}$$",
   "choices": [
     "$a^3$",
     "$a^7$",
@@ -5096,7 +4714,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 8", 
   "theme": "Степени",
-  "text": "Упростите выражение: $\\left(\\frac{x}{y}\\right)^3$",
+  "text": "Упростите выражение: $$\\left(\\frac{x}{y}\\right)^3$$",
   "choices": [
     "$\\frac{x^3}{y}$",
     "$\\frac{x}{y^3}$", 
@@ -5138,7 +4756,7 @@ let quizesSets = [
   "header": "Степени",
   "title": "Упрощение выражений 9",
   "theme": "Степени",
-  "text": "Упростите выражение: $2^3 \\cdot 2^4$", 
+  "text": "Упростите выражение: $$2^3 \\cdot 2^4$$", 
   "choices": [
     "$2^7$",
     "$2^{12}$",
@@ -5174,6 +4792,391 @@ let quizesSets = [
   </div>
 </div>`
 },
+
+{
+  "id": "powers_negative001",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Отрицательная степень", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{-2}$$ в виде десятичной дроби",
+  "answer": "1 / POWER({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Число в отрицательной степени равно единице, делённой на это число в положительной степени:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {={var1-10}}^{-2} = \\frac{1}{{var1-10}^2} $$</p>
+        <p class="card-text">$$ {={var1-10}^2} = {=POWER({var1-10},2)} $$</p>
+        <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+     <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
+    </div>
+   
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5, 6]
+},
+{
+  "id": "powers_negative002",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Отрицательная степень дроби", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$",
+  "answer": "POWER({var1-10}, 3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень дроби</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Дробь в отрицательной степени переворачивается:</p>
+        <p class="card-text text-center">$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$\\left(\\frac{1}{{var1-10}}\\right)^{-3} = \\left(\\frac{{var1-10}}{1}\\right)^3 = {var1-10}^3$$</p>
+        <p class="card-text">$$ {var1-10}^3 = {= POWER({var1-10}, 3)} $$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 3)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5, 6]
+},
+{
+  "id": "powers_negative003",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Произведение положительной и отрицательной степени", 
+  "theme": "Степени",
+  "text": "Упростите выражение: $${var1-10}^3 \\cdot {var1-10}^{-5}$$ и запишите ответ в виде десятичной дроби",
+  "answer": "1 / POWER({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Умножение степеней</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">При умножении степеней с одинаковыми основаниями показатели складываются:</p>
+        <p class="card-text text-center">$$a^m \\cdot a^n = a^{m+n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^3 \\cdot {var1-10}^{-5} = {var1-10}^{3 + (-5)} = {var1-10}^{-2}$$</p>
+        <p class="card-text">$$ {var1-10}^{-2} = \\frac{1}{{var1-10}^2}$$</p>
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+        <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5, 6]
+},
+{
+  "id": "powers_fraction001",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Дробная степень (квадратный корень)", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
+  "answer": "SQRT({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/2</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/2 означает квадратный корень:</p>
+        <p class="card-text text-center">$$a^{1/2} = \\sqrt{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/2} = \\sqrt{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 4, 9, 16, 25]
+},
+{
+  "id": "powers_fraction002",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Дробная степень (кубический корень)", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
+  "answer": "POWER({var1-10}, 1/3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/3</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/3 означает кубический корень:</p>
+        <p class="card-text text-center">$$a^{1/3} = \\sqrt[3]{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/3} = \\sqrt[3]{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 1/3)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 8, 27, 64, 125]
+},
+{
+  "id": "powers_fraction003",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Дробная степень 2/3", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
+  "answer": "POWER(POWER({var1-10}, 1/3), 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень m/n</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень m/n можно представить двумя способами:</p>
+        <p class="card-text text-center">$$a^{m/n} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{2/3} = (\\sqrt[3]{{var1-10}})^2$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+        <p class="card-text">$$({= POWER({var1-10}, 1/3)})^2 = {= POWER(POWER({var1-10}, 1/3), 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/3), 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 8, 27, 64, 125]
+},
+{
+  "id": "powers_fraction004",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Дробная степень 3/2", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{3/2}$$?",
+  "answer": "POWER(POWER({var1-10}, 1/2), 3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 3/2</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 3/2 можно представить как:</p>
+        <p class="card-text text-center">$$a^{3/2} = (\\sqrt{a})^3 = \\sqrt{a^3}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{3/2} = (\\sqrt{{var1-10}})^3$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+        <p class="card-text">$$({= SQRT({var1-10})})^3 = {= POWER(POWER({var1-10}, 1/2), 3)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/2), 3)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 4, 9, 16, 25]
+},
+{
+  "id": "powers_negative_fraction001",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Отрицательная дробная степень", 
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
+  "answer": "1 / SQRT({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная дробная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Сначала применяем правило отрицательной степени, затем дробной:</p>
+        <p class="card-text text-center">$$a^{-m/n} = \\frac{1}{a^{m/n}} = \\frac{1}{\\sqrt[n]{a^m}}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{-1/2} = \\frac{1}{{var1-10}^{1/2}} = \\frac{1}{\\sqrt{{var1-10}}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+        <p class="card-text">$$\\frac{1}{{= SQRT({var1-10})}} = {= 1 / SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 4, 9, 16, 25]
+},
+{
+  "id": "powers_mixed001",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Смешанное выражение со степенями", 
+  "theme": "Степени",
+  "text": "Упростите выражение: $$\\frac{{var1-10}^{3} \\cdot {var1-10}^{-1/2}}{{var1-10}^{1/2}}$$",
+  "answer": "POWER({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Смешанное выражение со степенями</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Складываем показатели в числителе</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{3} \\cdot {var1-10}^{-1/2} = {var1-10}^{3 + (-1/2)} = {var1-10}^{2.5} = {var1-10}^{5/2}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Вычитаем показатель знаменателя</div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{{var1-10}^{5/2}}{{var1-10}^{1/2}} = {var1-10}^{5/2 - 1/2} = {var1-10}^{4/2} = {var1-10}^2$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Результат</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 2, 3, 4, 5]
+},
+
+{
+  "id": "powers_mixed002",
+  "type": "mathwithrandomnumber",
+  "header": "Степени",
+  "title": "Степень степени с дробным показателем", 
+  "theme": "Степени",
+  "text": "Упростите выражение: $$({var1-10}^{2/3})^{3}$$",
+  "answer": "POWER({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Степень степени</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">При возведении степени в степень показатели перемножаются:</p>
+        <p class="card-text text-center">$$(a^m)^n = a^{m \\cdot n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$({var1-10}^{2/3})^{3} = {var1-10}^{(2/3) \\cdot 3} = {var1-10}^{2}$$</p>
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [ 2, 3, 4, 5]
+},
+
+
  
 // Тесты по логарифмам
 {

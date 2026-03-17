@@ -1,7 +1,7 @@
 let { getFirebaseNode } =
     basicfirebasecrudauthservices;
 
-console.log("Ha Ha")
+
 
 async function getIt() {
     try {
