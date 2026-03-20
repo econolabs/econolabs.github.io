@@ -15,7 +15,7 @@
 
     class EconolabsCheckQuiz {
       constructor(selector, callBack) {
-        this.ul = $$(`#${selector}`);
+        this.ul = $(`#${selector}`);
         this.selector = selector;
         this.callBack = callBack;  
       }
@@ -34,7 +34,11 @@
         </div>`
         }).join("");
 
-        this.ul.innerHTML = markup;
+        console.log(markup);
+         console.log(this.ul);
+
+   
+         document.getElementById(this.selector).innerHTML = markup
 
         let quizoptions = document.getElementsByClassName(this.selector);
         for (var i = 0; i < quizoptions.length; i++) {
@@ -46,7 +50,7 @@
 
     class EconolabsChoiceQuiz {
       constructor(selector, callBack) {
-        this.ul = $$(`#${selector}`);
+        this.ul = $(`#${selector}`);
         this.selector = selector;
         this.callBack = callBack;  
       }
@@ -62,7 +66,8 @@
     </div>`
         }).join("");
 
-        this.ul.innerHTML = markup;
+         document.getElementById(this.selector).innerHTML = markup
+     //   this.ul.innerHTML = markup;
 
         let quizoptions = document.getElementsByClassName(this.selector);
         for (var i = 0; i < quizoptions.length; i++) {
