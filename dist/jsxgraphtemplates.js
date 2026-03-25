@@ -21,17 +21,25 @@ let boardConfig = {
     showCopyright: false,
 }
 
+function circle_center_origin(board, radius=3) {
+    var p1 = board.create('point', [0, 0]);
+    var c = board.create('circle', [p1, 3]);
+
+    return { style: { ...style, width: "400px", height: "400px" },
+     boardConfig: { ...boardConfig, boundingbox: [-4, 4, 4, -4] } }
+}
+
 function integral_symmetric_x(board, a) {
     // Задаём значение a с проверкой типа
     const aValue = typeof a === "number" ? a : 3; // значение по умолчанию 3, если a не число
-    
+
     // Создаём график функции y = x
     var graph = board.create('functiongraph', ['x'], {
         strokeColor: colors.primary,
         strokeWidth: 3,
         name: 'y = x'
     });
-    
+
     // Создаём оси и сетку (если их нет в boardConfig)
     // if (!board.hasAxis) {
     //     board.create('axis', [[0, 0], [1, 0]], {
@@ -45,7 +53,7 @@ function integral_symmetric_x(board, a) {
     //     board.create('axis', [[0, 0], [0, 1]]);
     //     board.hasAxis = true;
     // }
-    
+
     // Создаём интеграл для положительной части [0, a]
     board.create('integral', [
         [0, aValue],
@@ -55,7 +63,7 @@ function integral_symmetric_x(board, a) {
         fillOpacity: 0.3,
         strokeWidth: 0
     });
-    
+
     // Создаём интеграл для отрицательной части [-a, 0]
     board.create('integral', [
         [-aValue, 0],
@@ -65,7 +73,7 @@ function integral_symmetric_x(board, a) {
         fillOpacity: 0.3,
         strokeWidth: 0
     });
-    
+
     // Отмечаем точки на графике
     board.create('point', [aValue, aValue], {
         strokeColor: colors.success,
@@ -75,7 +83,7 @@ function integral_symmetric_x(board, a) {
         fixed: true,
         showInfobox: false
     });
-    
+
     board.create('point', [-aValue, -aValue], {
         strokeColor: colors.danger,
         fillColor: colors.danger,
@@ -84,7 +92,7 @@ function integral_symmetric_x(board, a) {
         fixed: true,
         showInfobox: false
     });
-    
+
     board.create('point', [0, 0], {
         strokeColor: colors.yellow,
         fillColor: colors.yellow,
@@ -93,65 +101,65 @@ function integral_symmetric_x(board, a) {
         fixed: true,
         showInfobox: false
     });
-    
+
     // Добавляем вертикальные линии для границ
     board.create('segment', [aValue, 0, aValue, aValue], {
         strokeColor: colors.success,
         dash: 2,
         strokeWidth: 1
     });
-    
+
     board.create('segment', [-aValue, 0, -aValue, -aValue], {
         strokeColor: colors.danger,
         dash: 2,
         strokeWidth: 1
     });
-    
+
     // Добавляем горизонтальные линии для наглядности
     board.create('segment', [0, aValue, aValue, aValue], {
         strokeColor: colors.success,
         dash: 2,
         strokeWidth: 1
     });
-    
+
     board.create('segment', [-aValue, -aValue, 0, -aValue], {
         strokeColor: colors.danger,
         dash: 2,
         strokeWidth: 1
     });
-    
+
     // Добавляем подписи для пояснения
-    board.create('text', [1, aValue-0.5, 'Положительная площадь'], {
+    board.create('text', [1, aValue - 0.5, 'Положительная площадь'], {
         strokeColor: colors.success,
         fontSize: 12,
         anchorX: 'left',
         anchorY: 'bottom',
         fixed: true
     });
-    
-    board.create('text', [-aValue-1.5, -aValue+0.5, 'Отрицательная площадь'], {
+
+    board.create('text', [-aValue - 1.5, -aValue + 0.5, 'Отрицательная площадь'], {
         strokeColor: colors.danger,
         fontSize: 12,
         anchorX: 'left',
         anchorY: 'bottom',
         fixed: true
     });
-    
+
     // Добавляем подпись с результатом
-    board.create('text', [-aValue, aValue+0.5, `∫₋ₐᵃ x dx = 0`], {
+    board.create('text', [-aValue, aValue + 0.5, `∫₋ₐᵃ x dx = 0`], {
         strokeColor: colors.primary,
         fontSize: 14,
         anchorX: 'left',
         anchorY: 'bottom',
         fixed: true
     });
-    
-    return { 
-        style, 
-        boardConfig: { 
-            ...boardConfig, 
-            boundingbox: [-aValue-1, aValue+1, aValue+1, -aValue-1] 
-        } 
+
+    return {
+        style,
+        boardConfig: {
+            ...boardConfig,
+            boundingbox: [-aValue - 1, aValue + 1, aValue + 1, -aValue - 1]
+        }
     };
 }
 
@@ -160,7 +168,7 @@ function integral_test_visual(board) {
     // Здесь var1-10 - значение из randomfrom теста
     // Пробуем получить значение из разных возможных источников
     let a;
-    
+
     if (board.args && typeof board.args.var1_10 === "number") {
         a = board.args.var1_10;
     } else if (board.args && typeof board.args['var1-10'] === "number") {
@@ -168,11 +176,11 @@ function integral_test_visual(board) {
     } else {
         a = 3; // значение по умолчанию
     }
-    
+
     return integral_symmetric_x(board, a);
 }
 
-function linear_4x(board) {
+function linearsimple4(board) {
     board.create('functiongraph', ['4*x'], {
         strokeColor: colors.secondary,
         strokeWidth: 3
@@ -180,7 +188,7 @@ function linear_4x(board) {
     return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
 }
 
-function linear_3x(board) {
+function linearsimple3(board) {
     board.create('functiongraph', ['3*x'], {
         strokeColor: colors.secondary,
         strokeWidth: 3
@@ -188,7 +196,7 @@ function linear_3x(board) {
     return { style, boardConfig: { ...boardConfig, boundingbox: [-2, 3, 3, -2] } }
 }
 
-function linear_2x(board) {
+function linearsimple2(board) {
     board.create('functiongraph', ['2*x'], {
         strokeColor: colors.secondary,
         strokeWidth: 3
@@ -197,8 +205,8 @@ function linear_2x(board) {
 }
 
 
-function linear_x(board) {
-    board.create('functiongraph', ['x'], {
+function linearsimple(board) {
+    board.create('functiongraph', ['1*x'], {
         strokeColor: colors.secondary,
         strokeWidth: 3
     });
@@ -272,7 +280,7 @@ function system_intersect6(board) {
         strokeColor: colors.success,
         strokeWidth: 3
     });
-    return { style, boardConfig: { ...boardConfig, boundingbox: [-4, 10, 6, -4] } }
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-1, 8, 6, -1] } }
 }
 
 
@@ -451,7 +459,7 @@ function quadratic_2roots_negative(board) {
         strokeColor: colors.primary,
         strokeWidth: 3
     });
-    return { style, boardConfig: { ...boardConfig, boundingbox: [-4, 4, 4, -4] } }
+    return { style, boardConfig: { ...boardConfig, boundingbox: [-4, 5, 6, -4] } }
 }
 
 
