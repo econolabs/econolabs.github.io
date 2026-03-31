@@ -288,7 +288,7 @@ let quizesSets = [
          href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
           class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
         text: `Введите формулу для расчета среднего количества зврнков за месяц`,
-        answer: "AVERAGE(С2:С13)",
+        answer: "AVERAGE(C2:C13)",
         hint: `Среднее это...`
     },
 
