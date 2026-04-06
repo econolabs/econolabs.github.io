@@ -1,6 +1,147 @@
 let quizesSets = [
 
     {
+  "id": "statistics520",
+  "header": "Кейс",
+  "type": "casewithrandomnumber",
+  "title": "Среднее значение продаж за месяц",
+  "theme": "Средние величины в статистике",
+  "dataArray": [
+    ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+    ["январь", 8, 20, 52],
+    ["февраль", 9, 22, 55],
+    ["март", 10, 18, 53],
+    ["апрель", 11, 25, 60],
+    ["май", 12, 27, 62],
+    ["июнь", 10, 21, 58],
+    ["июль", 13, 29, 65],
+    ["август", 14, 30, 68],
+    ["сентябрь", 13, 26, 66],
+    ["октябрь", 15, 32, 72],
+    ["ноябрь", 16, 34, 75],
+    ["декабрь", 17, 36, 80]
+  ],
+  "text": "Введите формулу для расчета средних продаж за месяц",
+  "answer": "AVERAGE(D2:D13)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📊 Расчёт среднего арифметического продаж за месяц</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Что требуется найти:</strong><br>
+      Среднее арифметическое значение продаж (столбец Y) за все 12 месяцев.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Понимание формулы среднего арифметического</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Среднее арифметическое вычисляется по формуле:</p>
+        <p class="card-text text-center">$$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$</p>
+        <p class="card-text">где $n$ — количество значений, $x_i$ — каждое отдельное значение.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Анализируем данные</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">В нашей таблице:</p>
+        <ul>
+          <li>Столбец <strong>D</strong> (с 2 по 13 строки) содержит значения продаж по месяцам</li>
+          <li>Диапазон ячеек: <strong>D2:D13</strong></li>
+          <li>Количество месяцев: $n = 12$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 3: Ручной расчёт (для проверки)</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Суммируем все продажи:</p>
+        <p class="card-text">$$\\sum = 52 + 55 + 53 + 60 + 62 + 58 + 65 + 68 + 66 + 72 + 75 + 80$$</p>
+        <p class="card-text">$$\\sum = 766$$</p>
+        <p class="card-text">$$\\bar{x} = \\frac{766}{12} \\approx 63.83$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 4: Формула в Excel / Google Sheets</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">В программах для работы с таблицами есть встроенная функция:</p>
+        <div class="alert alert-success">
+          <strong>📌 Синтаксис:</strong> <code>=AVERAGE(диапазон)</code>
+        </div>
+        <p class="card-text">Для нашего случая:</p>
+        <div class="alert alert-warning">
+          <code class="fs-5">=AVERAGE(D2:D13)</code>
+        </div>
+        <p class="card-text mt-2">Альтернативные варианты:</p>
+        <ul>
+          <li><code>=СРЗНАЧ(D2:D13)</code> — русскоязычная версия</li>
+          <li><code>=SUM(D2:D13)/12</code> — через сумму и деление</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Итоговая таблица с расчётом</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr>
+                <th>Месяц</th>
+                <th>Продажи (Y)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>январь</td><td>52</td></tr>
+              <tr><td>февраль</td><td>55</td></tr>
+              <tr><td>март</td><td>53</td></tr>
+              <tr><td>апрель</td><td>60</td></tr>
+              <tr><td>май</td><td>62</td></tr>
+              <tr><td>июнь</td><td>58</td></tr>
+              <tr><td>июль</td><td>65</td></tr>
+              <tr><td>август</td><td>68</td></tr>
+              <tr><td>сентябрь</td><td>66</td></tr>
+              <tr><td>октябрь</td><td>72</td></tr>
+              <tr><td>ноябрь</td><td>75</td></tr>
+              <tr><td>декабрь</td><td>80</td></tr>
+              <tr class="table-warning">
+                <td><strong>Сумма</strong></td>
+                <td><strong>=СУММ(D2:D13) = 766</strong></td>
+              </tr>
+              <tr class="table-success">
+                <td><strong>Среднее</strong></td>
+                <td><strong>=СРЗНАЧ(D2:D13) = 766/12 ≈ 63.83</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильная формула:</b> <code class="fs-6">=AVERAGE(D2:D13)</code> или <code class="fs-6">=СРЗНАЧ(D2:D13)</code>
+    </div>
+
+  </div>
+</div>`
+},
+
+    {
         id: "statistics499",
         type: "multiplechoices",
         header: "Тест",

@@ -7418,6 +7418,658 @@ let quizesSets = [
 },
 
 
+{
+  "id": "number_e_limit_001",
+  "type": "multiplechoices",
+  "header": "Математический анализ: Число e",
+  "title": "Определение числа e через предел",
+  "theme": "Числа и пределы",
+  "functionGraph": "false",
+  "text": "Число $e$ (основание натурального логарифма) определяется как предел последовательности. Какой из следующих пределов равен числу $e$?",
+  "choices": [
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$",
+    "$\\lim_{n \\to \\infty} \\left(1 + n\\right)^{\\frac{1}{n}}$",
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n^2}$",
+    "$\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n^2}\\right)^n$"
+  ],
+  "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Число e: классическое определение через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение числа e:</strong>
+      $$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$$
+      где $n$ — натуральное число (можно также $n \\in \\mathbb{R}$, $n \\to \\infty$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Историческая справка</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Число $e$ впервые исследовал Якоб Бернулли в XVII веке при изучении задачи о непрерывном начислении процентов.</p>
+        <p class="card-text">Формула: если вклад $1$ под $100\\%$ годовых начислять $n$ раз в год, то итоговая сумма:</p>
+        <p class="card-text">$$\\left(1 + \\frac{1}{n}\\right)^n$$</p>
+        <p class="card-text">При $n \\to \\infty$ получается $e \\approx 2.71828$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Проверка на малых n</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{1}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$1$</td><td>$(2)^1 = 2$</td><td>$2.00000$</td></tr>
+              <tr><td>$2$</td><td>$(1.5)^2 = 2.25$</td><td>$2.25000$</td></tr>
+              <tr><td>$5$</td><td>$(1.2)^5$</td><td>$2.48832$</td></tr>
+              <tr><td>$10$</td><td>$(1.1)^{10}$</td><td>$2.59374$</td></tr>
+              <tr><td>$100$</td><td>$(1.01)^{100}$</td><td>$2.70481$</td></tr>
+              <tr><td>$1000$</td><td>$(1.001)^{1000}$</td><td>$2.71692$</td></tr>
+              <tr><td>$10000$</td><td>$(1.0001)^{10000}$</td><td>$2.71815$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e$</td><td>$2.71828...$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n)^{1/n} \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n)^{n^2} \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - 1/n)^n \\to 1/e \\approx 0.3679$ (обратное число)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n^2)^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + 1/n)^n \\to e \\approx 2.71828$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "number_e_derivative_002",
+  "type": "multiplechoices",
+  "header": "Математический анализ: Число e",
+  "title": "Число e как основание натурального логарифма",
+  "theme": "Числа и производные",
+  "functionGraph": "false",
+  "text": "Известно, что производная логарифмической функции $y = \\log_a(x)$ равна $\\frac{1}{x \\ln(a)}$. При каком основании $a$ производная функции $y = \\log_a(x)$ равна $\\frac{1}{x}$?",
+  "choices": [
+    "$a = 10$",
+    "$a = 2$",
+    "$a = e$",
+    "$a = \\pi$",
+    "$a = \\frac{1}{2}$"
+  ],
+  "answers": ["$a = e$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Число e и натуральный логарифм</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула производной логарифма:</strong>
+      $$\\frac{d}{dx} \\log_a(x) = \\frac{1}{x \\ln(a)}$$
+      где $\\ln(a)$ — натуральный логарифм основания $a$.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Условие задачи</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно, чтобы:</p>
+        <p class="card-text">$$\\frac{d}{dx} \\log_a(x) = \\frac{1}{x}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Приравниваем формулы</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{1}{x \\ln(a)} = \\frac{1}{x}$$</p>
+        <p class="card-text">Сокращаем $\\frac{1}{x}$ (при $x \\neq 0$):</p>
+        <p class="card-text">$$\\frac{1}{\\ln(a)} = 1$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 3: Решаем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\ln(a) = 1$$</p>
+        <p class="card-text">По определению натурального логарифма:</p>
+        <p class="card-text">$$a = e^1 = e$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 4: Результат</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $a = e$ получаем:</p>
+        <p class="card-text">$$\\frac{d}{dx} \\ln(x) = \\frac{1}{x}$$</p>
+        <p class="card-text">Это свойство делает число $e$ <strong>естественным</strong> основанием логарифма.</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $a = e$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "number_e_exponential_003",
+  "type": "multiplechoices",
+  "header": "Математический анализ: Число e",
+  "title": "Число e в определении экспоненты",
+  "theme": "Числа и пределы",
+  "functionGraph": "false",
+  "text": "Функция $f(x) = e^x$ (экспонента) может быть определена через предел. Какой из следующих пределов равен $e^x$?",
+  "choices": [
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$",
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{n}{x}\\right)^n$",
+    "$\\lim_{n \\to \\infty} \\left(1 + x\\right)^{\\frac{n}{x}}$",
+    "$\\lim_{n \\to \\infty} \\left(1 - \\frac{x}{n}\\right)^n$",
+    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{nx}\\right)^n$"
+  ],
+  "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определение экспоненты через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение экспоненты:</strong>
+      $$e^x = \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$$
+      Это обобщение классического предела для числа $e$ (при $x=1$ получаем $e$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Связь с классическим определением</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $x = 1$:</p>
+        <p class="card-text">$$e^1 = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$$</p>
+        <p class="card-text">✓ Согласуется с определением числа $e$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Пример для x = 2</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$e^2 \\approx 7.389$$</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{2}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$10$</td><td>$(1.2)^{10}$</td><td>$6.1917$</td></tr>
+              <tr><td>$100$</td><td>$(1.02)^{100}$</td><td>$7.2446$</td></tr>
+              <tr><td>$1000$</td><td>$(1.002)^{1000}$</td><td>$7.3743$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e^2$</td><td>$7.3891$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n/x)^n \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + x)^{n/x}$ — не предел по $n$ (зависит от $n$ в показателе иначе)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - x/n)^n \\to e^{-x}$ (обратная экспонента)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/(nx))^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + x/n)^n \\to e^x$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n = e^x$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "number_e_properties_004",
+  "type": "multiplechoices",
+  "header": "Математический анализ: Число e",
+  "title": "Уникальные свойства числа e",
+  "theme": "Числа и свойства",
+  "functionGraph": "false",
+  "text": "Какое из следующих утверждений о числе $e$ является ВЕРНЫМ?",
+  "choices": [
+    "Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$",
+    "Число $e$ является корнем уравнения $\\ln(x) = 0$",
+    "Число $e$ — это $\\frac{22}{7}$",
+    "$e$ — это $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+    "$e$ — это $\\frac{\\pi}{2}$"
+  ],
+  "answers": ["Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Геометрическое свойство числа e</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Интегральное определение числа e:</strong>
+      $$\\int_{1}^{e} \\frac{1}{x} \\, dx = 1$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Вычисляем интеграл</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_{1}^{e} \\frac{1}{x} \\, dx = \\ln|x| \\Big|_{1}^{e} = \\ln(e) - \\ln(1) = 1 - 0 = 1$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Геометрический смысл</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Площадь фигуры под гиперболой $y = 1/x$ на интервале $[1, e]$ равна в точности $1$.</p>
+        <div class="alert alert-secondary">
+          <strong>📐 Графическая интерпретация:</strong><br>
+          $$\\text{Площадь} = \\int_{1}^{e} \\frac{1}{x} dx = 1$$
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Проверка остальных утверждений</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $\\ln(x) = 0$ ⇒ $x = 1$ (а не $e$)</li>
+          <li class="list-group-item list-group-item-danger">❌ $22/7 \\approx 3.142$ — это приближение $\\pi$, не $e$</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - 1/n)^n \\to 1/e \\approx 0.3679$</li>
+          <li class="list-group-item list-group-item-danger">❌ $\\pi/2 \\approx 1.571$ — это не $e$</li>
+          <li class="list-group-item list-group-item-success">✅ $\\int_{1}^{e} 1/x \\, dx = 1$ — верно!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "imaginary_i_definition_001",
+  "type": "multiplechoices",
+  "header": "Комплексные числа: Мнимая единица",
+  "title": "Определение мнимой единицы i",
+  "theme": "Комплексные числа",
+  "functionGraph": "false",
+  "text": "Мнимая единица $i$ определяется как число, квадрат которого равен...",
+  "choices": [
+    "$i^2 = 1$",
+    "$i^2 = -1$",
+    "$i^2 = 0$",
+    "$i^2 = i$",
+    "$i^2 = \\sqrt{-1}$"
+  ],
+  "answers": ["$i^2 = -1$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определение мнимой единицы i</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение:</strong>
+      $$i^2 = -1$$
+      где $i$ — мнимая единица.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Историческая справка</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Мнимую единицу ввёл Леонард Эйлер в XVIII веке для решения уравнений вида $x^2 + 1 = 0$.</p>
+        <p class="card-text">Уравнение $x^2 = -1$ не имеет решений среди действительных чисел, но имеет два решения в комплексных: $x = i$ и $x = -i$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = 1$ ⇒ $i = 1$ или $i = -1$ (действительные числа)</li>
+          <li class="list-group-item list-group-item-success">✅ $i^2 = -1$ — корректное определение</li>
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = 0$ ⇒ $i = 0$ (действительное число)</li>
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = i$ ⇒ $i(i - 1) = 0$ ⇒ $i = 0$ или $i = 1$</li>
+          <li class="list-group-item list-group-item-warning">⚠️ $i = \\sqrt{-1}$ — это обозначение, но формальное определение через $i^2 = -1$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Степени числа i</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$i^1$</th><th>$i^2$</th><th>$i^3$</th><th>$i^4$</th><th>$i^5$</th><th>$i^{4k}$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$i$</th><th>$-1$</th><th>$-i$</th><th>$1$</th><th>$i$</th><th>$1$</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="card-text mt-2">Степени $i$ циклически повторяются с периодом 4:</p>
+        <p class="card-text">$$i^{4k} = 1,\\quad i^{4k+1} = i,\\quad i^{4k+2} = -1,\\quad i^{4k+3} = -i$$</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $i^2 = -1$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "imaginary_i_powers_002",
+  "type": "multiplechoices",
+  "header": "Комплексные числа: Степени i",
+  "title": "Вычисление степени мнимой единицы",
+  "theme": "Комплексные числа",
+  "functionGraph": "false",
+  "text": "Чему равно $i^{2025}$?",
+  "choices": [
+    "$1$",
+    "$-1$",
+    "$i$",
+    "$-i$",
+    "$0$"
+  ],
+  "answers": ["$i$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Вычисление степеней мнимой единицы</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Цикличность степеней i:</strong>
+      $$i^{4k} = 1,\\quad i^{4k+1} = i,\\quad i^{4k+2} = -1,\\quad i^{4k+3} = -i$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Находим остаток от деления показателя на 4</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2025 \\div 4 = 506 \\text{ и остаток } 1$$</p>
+        <p class="card-text">Проверка: $4 \\times 506 = 2024$, $2025 - 2024 = 1$</p>
+        <p class="card-text">$$2025 = 4 \\times 506 + 1$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем правило цикличности</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$i^{2025} = i^{4 \\times 506 + 1} = (i^4)^{506} \\cdot i^1$$</p>
+        <p class="card-text">$$i^4 = 1 \\Rightarrow (i^4)^{506} = 1^{506} = 1$$</p>
+        <p class="card-text">$$i^{2025} = 1 \\cdot i = i$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Таблица остатков</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>Остаток r</th><th>$i^{4k+r}$</th><th>Пример</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$0$</th><th>$1$</th><th>$i^{4} = 1$</th>
+              </tr>
+              <tr class="table-success">
+                <td>$1$</th><th>$i$</th><th>$i^{2025} = i$</th>
+              </tr>
+              <tr class="table-warning">
+                <td>$2$</th><th>$-1$</th><th>$i^{2026} = -1$</th>
+              </tr>
+              <tr class="table-danger">
+                <td>$3$</th><th>$-i$</th><th>$i^{2027} = -i$</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $i^{2025} = i$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "imaginary_i_conjugate_003",
+  "type": "multiplechoices",
+  "header": "Комплексные числа: Сопряжённые числа",
+  "title": "Свойства комплексного сопряжения",
+  "theme": "Комплексные числа",
+  "functionGraph": "false",
+  "text": "Для комплексного числа $z = a + bi$ (где $a, b \\in \\mathbb{R}$) комплексно-сопряжённым называется число $\\bar{z} = a - bi$. Чему равно произведение $z \\cdot \\bar{z}$?",
+  "choices": [
+    "$a^2 + b^2$",
+    "$a^2 - b^2$",
+    "$2a$",
+    "$2bi$",
+    "$a^2 + 2abi + b^2$"
+  ],
+  "answers": ["$a^2 + b^2$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Произведение комплексно-сопряжённых чисел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение:</strong>
+      $$z = a + bi,\\quad \\bar{z} = a - bi$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Перемножаем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$z \\cdot \\bar{z} = (a + bi)(a - bi)$$</p>
+        <p class="card-text">Это формула разности квадратов:</p>
+        <p class="card-text">$$(a + bi)(a - bi) = a^2 - (bi)^2$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Учитываем $i^2 = -1$</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$(bi)^2 = b^2 \\cdot i^2 = b^2 \\cdot (-1) = -b^2$$</p>
+        <p class="card-text">$$a^2 - (-b^2) = a^2 + b^2$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Результат</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$z \\cdot \\bar{z} = a^2 + b^2$$</p>
+        <p class="card-text">Это <strong>действительное</strong> неотрицательное число!</p>
+        <div class="alert alert-warning">
+          💡 <strong>Геометрический смысл:</strong> $|z| = \\sqrt{a^2 + b^2}$ — модуль числа $z$,<br>
+          а $z \\cdot \\bar{z} = |z|^2$ — квадрат модуля.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $z \\cdot \\bar{z} = a^2 + b^2$
+    </div>
+
+  </div>
+</div>`
+},
+
+{
+  "id": "imaginary_i_euler_004",
+  "type": "multiplechoices",
+  "header": "Комплексные числа: Формула Эйлера",
+  "title": "Связь экспоненты с тригонометрией",
+  "theme": "Комплексные числа",
+  "functionGraph": "false",
+  "text": "Формула Эйлера устанавливает связь между экспонентой и тригонометрическими функциями. Какое из равенств является формулой Эйлера?",
+  "choices": [
+    "$e^{ix} = \\cos(x) + i\\sin(x)$",
+    "$e^{ix} = \\cos(x) - i\\sin(x)$",
+    "$e^{x} = \\cos(ix) + \\sin(ix)$",
+    "$i^i = e^{-\\pi/2}$",
+    "$e^{i\\pi} + 1 = 0$"
+  ],
+  "answers": ["$e^{ix} = \\cos(x) + i\\sin(x)$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Формула Эйлера — жемчужина математики</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула Эйлера:</strong>
+      $$e^{ix} = \\cos(x) + i\\sin(x)$$
+      где $x \\in \\mathbb{R}$, $i$ — мнимая единица.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Частный случай — тождество Эйлера</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $x = \\pi$ получается <strong>самая красивая формула в математике</strong>:</p>
+        <p class="card-text">$$e^{i\\pi} = \\cos(\\pi) + i\\sin(\\pi) = -1 + i \\cdot 0 = -1$$</p>
+        <p class="card-text">$$e^{i\\pi} + 1 = 0$$</p>
+        <div class="alert alert-success">
+          ✨ Связывает 5 фундаментальных констант: $e$, $i$, $\\pi$, $1$, $0$!
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Геометрический смысл</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$e^{ix}$ задаёт точку на <strong>единичной окружности</strong> комплексной плоскости:</p>
+        <ul>
+          <li>Действительная часть: $\\cos(x)$</li>
+          <li>Мнимая часть: $\\sin(x)$</li>
+          <li>Модуль: $|e^{ix}| = 1$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Проверка остальных вариантов</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-success">✅ $e^{ix} = \\cos x + i\\sin x$ — формула Эйлера</li>
+          <li class="list-group-item list-group-item-danger">❌ $e^{ix} = \\cos x - i\\sin x = e^{-ix}$ (сопряжённое)</li>
+          <li class="list-group-item list-group-item-danger">❌ $e^x = \\cos(ix) + \\sin(ix)$ — неверно</li>
+          <li class="list-group-item list-group-item-info">ℹ️ $i^i = e^{-\\pi/2}$ — следствие формулы Эйлера, но не сама формула</li>
+          <li class="list-group-item list-group-item-info">ℹ️ $e^{i\\pi} + 1 = 0$ — тождество Эйлера (частный случай)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $e^{ix} = \\cos(x) + i\\sin(x)$
+    </div>
+
+  </div>
+</div>`
+},
+
+
+
+
  
 // Тесты по логарифмам
 {
