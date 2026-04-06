@@ -8067,7 +8067,711 @@ let quizesSets = [
 </div>`
 },
 
+{
+  "id": "derivative_trig_002",
+  "type": "multiplechoices",
+  "header": "Дифференцирование: Тригонометрия",
+  "title": "Производная синуса и косинуса",
+  "theme": "Производные",
+  "functionGraph": "false",
+  "text": "Чему равна производная функции $f(x) = \\sin(x)$?",
+  "choices": [
+    "$\\sin(x)$",
+    "$\\cos(x)$",
+    "$-\\sin(x)$",
+    "$-\\cos(x)$",
+    "$\\tan(x)$"
+  ],
+  "answers": ["$\\cos(x)$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производные тригонометрических функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Основные формулы:</strong>
+      $$\\frac{d}{dx} \\sin(x) = \\cos(x)$$
+      $$\\frac{d}{dx} \\cos(x) = -\\sin(x)$$
+    </div>
 
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>🎭 Образная ассоциация</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">🕊️ Чайка-синус взлетает 🚀 и превращается в чайку-косинус!</p>
+        <p class="card-text">$$\uD83D\uDC0B \\sin(x) \\xrightarrow{\\text{производная}} \uD83D\uDC0B \\cos(x)$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных тригонометрических функций</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$\\sin(x)$</td><td>$\\cos(x)$</td></tr>
+              <tr class="table-info"><td>$\\cos(x)$</td><td>$-\\sin(x)$</td></tr>
+              <tr><td>$\\tan(x)$</td><td>$\\sec^2(x)$</td></tr>
+              <tr><td>$\\cot(x)$</td><td>$-\\csc^2(x)$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = \\cos(x)$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "derivative_power_001",
+  "type": "multiplechoices",
+  "header": "Дифференцирование: Степенная функция",
+  "title": "Производная степенной функции",
+  "theme": "Производные",
+  "functionGraph": "false",
+  "text": "Чему равна производная функции $f(x) = x^5$?",
+  "choices": [
+    "$5x^4$",
+    "$4x^5$",
+    "$5x^6$",
+    "$x^4$",
+    "$5x^5$"
+  ],
+  "answers": ["$5x^4$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная степенной функции</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\frac{d}{dx} x^n = n \\cdot x^{n-1}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем степень</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$f(x) = x^5$, здесь $n = 5$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$f'(x) = 5 \\cdot x^{5-1} = 5x^4$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица для запоминания</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$x^2$</td><td>$2x$</td></tr>
+              <tr><td>$x^3$</td><td>$3x^2$</td></tr>
+              <tr><td>$x^4$</td><td>$4x^3$</td></tr>
+              <tr class="table-success"><td>$x^5$</td><td>$5x^4$</td></tr>
+              <tr><td>$x^{10}$</td><td>$10x^9$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = 5x^4$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "derivative_exp_log_003",
+  "type": "multiplechoices",
+  "header": "Дифференцирование: Экспонента и логарифм",
+  "title": "Производная экспоненты и натурального логарифма",
+  "theme": "Производные",
+  "functionGraph": "false",
+  "text": "Чему равна производная функции $f(x) = e^x$?",
+  "choices": [
+    "$e^x$",
+    "$x e^{x-1}$",
+    "$\\frac{1}{x}$",
+    "$\\ln(x)$",
+    "$x e^x$"
+  ],
+  "answers": ["$e^x$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная экспоненты и логарифма</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уникальное свойство экспоненты:</strong>
+      $$\\frac{d}{dx} e^x = e^x$$
+      <hr>
+      <strong>📌 Производная натурального логарифма:</strong>
+      $$\\frac{d}{dx} \\ln(x) = \\frac{1}{x}, \\quad x > 0$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>✨ Экспонента — функция, равная своей производной</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Это уникальное свойство! Никакая другая функция не обладает им в такой простоте.</p>
+        <div class="alert alert-success">
+          🚀 Чайка-экспонента взлетает, и её скорость взлёта равна высоте!
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$e^x$</td><td>$e^x$</td></tr>
+              <tr><td>$a^x$</td><td>$a^x \\ln(a)$</td></tr>
+              <tr class="table-info"><td>$\\ln(x)$</td><td>$\\frac{1}{x}$</td></tr>
+              <tr><td>$\\log_a(x)$</td><td>$\\frac{1}{x \\ln(a)}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = e^x$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "derivative_sum_004",
+  "type": "multiplechoices",
+  "header": "Дифференцирование: Линейность",
+  "title": "Производная суммы функций",
+  "theme": "Производные",
+  "functionGraph": "false",
+  "text": "Чему равна производная функции $f(x) = x^3 + \\sin(x)$?",
+  "choices": [
+    "$3x^2 + \\cos(x)$",
+    "$3x^2 - \\cos(x)$",
+    "$x^3 + \\cos(x)$",
+    "$3x^2 + \\sin(x)$",
+    "$\\frac{x^4}{4} - \\cos(x)$"
+  ],
+  "answers": ["$3x^2 + \\cos(x)$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная суммы функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Правило линейности:</strong>
+      $$(f(x) + g(x))' = f'(x) + g'(x)$$
+      $$(f(x) - g(x))' = f'(x) - g'(x)$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Разбиваем на слагаемые</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$f(x) = x^3 + \\sin(x)$</p>
+        <p class="card-text">$$f'(x) = (x^3)' + (\\sin(x))'$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим производные каждого слагаемого</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>$$(x^3)' = 3x^2$$</li>
+          <li>$$(\\sin(x))' = \\cos(x)$$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Складываем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$f'(x) = 3x^2 + \\cos(x)$$</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = 3x^2 + \\cos(x)$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_power_005",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Степенная функция",
+  "title": "Неопределённый интеграл степенной функции",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен неопределённый интеграл $\\int x^3 \\, dx$?",
+  "choices": [
+    "$\\frac{x^4}{4} + C$",
+    "$3x^2 + C$",
+    "$\\frac{x^2}{2} + C$",
+    "$x^4 + C$",
+    "$\\frac{x^3}{3} + C$"
+  ],
+  "answers": ["$\\frac{x^4}{4} + C$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интеграл степенной функции</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C, \\quad n \\neq -1$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем степень</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$\\int x^3 \\, dx$, здесь $n = 3$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int x^3 \\, dx = \\frac{x^{3+1}}{3+1} + C = \\frac{x^4}{4} + C$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица интегралов</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$\\int x^2 \\, dx$</td><td>$\\frac{x^3}{3} + C$</td></tr>
+              <tr class="table-success"><td>$\\int x^3 \\, dx$</td><td>$\\frac{x^4}{4} + C$</td></tr>
+              <tr><td>$\\int x^4 \\, dx$</td><td>$\\frac{x^5}{5} + C$</td></tr>
+              <tr><td>$\\int x^n \\, dx$</td><td>$\\frac{x^{n+1}}{n+1} + C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{x^4}{4} + C$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_trig_006",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Тригонометрия",
+  "title": "Интеграл от косинуса",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен неопределённый интеграл $\\int \\cos(x) \\, dx$?",
+  "choices": [
+    "$\\sin(x) + C$",
+    "$-\\sin(x) + C$",
+    "$\\cos(x) + C$",
+    "$-\\cos(x) + C$",
+    "$\\tan(x) + C$"
+  ],
+  "answers": ["$\\sin(x) + C$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интегралы тригонометрических функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Основные формулы:</strong>
+      $$\\int \\cos(x) \\, dx = \\sin(x) + C$$
+      $$\\int \\sin(x) \\, dx = -\\cos(x) + C$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>🎭 Образная ассоциация</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Интеграл — это "обратное" действие к производной.</p>
+        <p class="card-text">Если производная синуса — косинус, то интеграл косинуса — синус!</p>
+        <div class="alert alert-success">
+          $$\uD83D\uDC0B \\cos(x) \\xrightarrow{\\text{интеграл}} \uD83D\uDC0B \\sin(x) + C$$
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица интегралов</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$\\int \\cos(x) \\, dx$</td><td>$\\sin(x) + C$</td></tr>
+              <tr><td>$\\int \\sin(x) \\, dx$</td><td>$-\\cos(x) + C$</td></tr>
+              <tr><td>$\\int \\sec^2(x) \\, dx$</td><td>$\\tan(x) + C$</td></tr>
+              <tr><td>$\\int \\csc^2(x) \\, dx$</td><td>$-\\cot(x) + C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\sin(x) + C$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_1_over_x_007",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Обратная пропорциональность",
+  "title": "Интеграл от 1/x",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен неопределённый интеграл $\\int \\frac{1}{x} \\, dx$ (при $x > 0$)?",
+  "choices": [
+    "$\\ln|x| + C$",
+    "$\\frac{1}{x^2} + C$",
+    "$\\ln(x) + C$",
+    "$e^x + C$",
+    "$\\frac{x^2}{2} + C$"
+  ],
+  "answers": ["$\\ln|x| + C$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интеграл от 1/x — особый случай!</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Важная формула:</strong>
+      $$\\int \\frac{1}{x} \\, dx = \\ln|x| + C, \\quad x \\neq 0$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Почему это особый случай?</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Если бы мы применили формулу $\\int x^n dx = \\frac{x^{n+1}}{n+1}$ при $n = -1$:</p>
+        <p class="card-text">$$\\int x^{-1} dx = \\frac{x^{0}}{0} = \\frac{1}{0} \\text{ — не определено!}$$</p>
+        <p class="card-text">Поэтому нужна отдельная формула с логарифмом.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Проверка дифференцированием</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Проверим, что производная логарифма даёт $1/x$:</p>
+        <p class="card-text">$$\\frac{d}{dx} \\ln|x| = \\frac{1}{x}$$</p>
+        <p class="card-text">Значит, интеграл верный!</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Важные интегралы</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-warning"><td>$\\int \\frac{1}{x} \\, dx$</td><td>$\\ln|x| + C$</td></tr>
+              <tr><td>$\\int e^x \\, dx$</td><td>$e^x + C$</td></tr>
+              <tr><td>$\\int \\frac{1}{x \\ln(a)} \\, dx$</td><td>$\\log_a|x| + C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\ln|x| + C$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_definite_008",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Определённый интеграл",
+  "title": "Вычисление площади под кривой",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен определённый интеграл $\\int_0^1 x^2 \\, dx$?",
+  "choices": [
+    "$\\frac{1}{3}$",
+    "$\\frac{1}{2}$",
+    "$1$",
+    "$\\frac{1}{4}$",
+    "$0$"
+  ],
+  "answers": ["$\\frac{1}{3}$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определённый интеграл и площадь</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула Ньютона-Лейбница:</strong>
+      $$\\int_a^b f(x) \\, dx = F(b) - F(a)$$
+      где $F(x)$ — первообразная $f(x)$.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Находим первообразную</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Для $f(x) = x^2$:</p>
+        <p class="card-text">$$F(x) = \\frac{x^3}{3}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу Ньютона-Лейбница</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_0^1 x^2 \\, dx = F(1) - F(0) = \\frac{1^3}{3} - \\frac{0^3}{3}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_0^1 x^2 \\, dx = \\frac{1}{3} - 0 = \\frac{1}{3}$$</p>
+        <div class="alert alert-info mt-2">
+          📐 <strong>Геометрический смысл:</strong> Площадь под параболой $y = x^2$ на отрезке $[0, 1]$ равна $\\frac{1}{3}$.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{1}{3}$
+    </div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_exp_009",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Экспонента",
+  "title": "Интеграл от экспоненты",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен неопределённый интеграл $\\int e^x \\, dx$?",
+  "choices": [
+    "$e^x + C$",
+    "$\\frac{e^{x+1}}{x+1} + C$",
+    "$\\ln|e^x| + C$",
+    "$x e^{x-1} + C$",
+    "$e^{x^2} + C$"
+  ],
+  "answers": ["$e^x + C$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интеграл от экспоненты</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\int e^x \\, dx = e^x + C$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>✨ Уникальное свойство</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Экспонента — единственная функция, которая</p>
+        <ul>
+          <li><strong>Не меняется при дифференцировании:</strong> $(e^x)' = e^x$</li>
+          <li><strong>Не меняется при интегрировании:</strong> $\\int e^x dx = e^x + C$</li>
+        </ul>
+        <div class="alert alert-success">
+          🚀 Чайка-экспонента остаётся самой собой!
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица интегралов экспоненты</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$\\int e^x \\, dx$</td><td>$e^x + C$</td></tr>
+              <tr><td>$\\int e^{kx} \\, dx$</td><td>$\\frac{1}{k} e^{kx} + C$</td></tr>
+              <tr><td>$\\int a^x \\, dx$</td><td>$\\frac{a^x}{\\ln(a)} + C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $e^x + C$
+    </div>
+  </div>
+</div>`
+},
+
+
+{
+  "id": "integral_sum_010",
+  "type": "multiplechoices",
+  "header": "Интегрирование: Линейность",
+  "title": "Интеграл суммы функций",
+  "theme": "Интегралы",
+  "functionGraph": "false",
+  "text": "Чему равен интеграл $\\int (x^2 + \\sin(x)) \\, dx$?",
+  "choices": [
+    "$\\frac{x^3}{3} - \\cos(x) + C$",
+    "$\\frac{x^3}{3} + \\cos(x) + C$",
+    "$2x + \\cos(x) + C$",
+    "$\\frac{x^3}{3} - \\sin(x) + C$",
+    "$x^2 - \\cos(x) + C$"
+  ],
+  "answers": ["$\\frac{x^3}{3} - \\cos(x) + C$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интеграл суммы</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Правило линейности:</strong>
+      $$\\int (f(x) + g(x)) \\, dx = \\int f(x) \\, dx + \\int g(x) \\, dx$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Разбиваем на интегралы</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int (x^2 + \\sin(x)) \\, dx = \\int x^2 \\, dx + \\int \\sin(x) \\, dx$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим каждый интеграл</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>$$\\int x^2 \\, dx = \\frac{x^3}{3} + C_1$$</li>
+          <li>$$\\int \\sin(x) \\, dx = -\\cos(x) + C_2$$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Складываем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int (x^2 + \\sin(x)) \\, dx = \\frac{x^3}{3} - \\cos(x) + C$$</p>
+        <p class="card-text">(где $C = C_1 + C_2$)</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{x^3}{3} - \\cos(x) + C$
+    </div>
+  </div>
+</div>`
+},
 
 
  
@@ -8691,69 +9395,503 @@ let quizesSets = [
     "randomfrom": [2, 5, 8, 11]
   },
 
-  {
-    "id": "derivative001",
-    "type": "multiplechoices",
-    "header": "Производная и касательная",
-    "title": "Определение производной в точке 1",
-    "theme": "Производная",
-    "functionGraph": "true",
-    "text": "Чему равен тангенс угла наклона касательной к графику функции y = x² в точке x = 0?",
-    "functionType": "derivative_parabola_vertex",
-    "func": (x) => x * x,
-    "pointX": 0,
-    "choices": [
-      "Больше нуля",
-      "Меньше нуля", 
-      "Равен нулю",
-      "Не определена",
-      "Бесконечность"
-    ],
-    "answers": ["Равен нулю"],
-    "hint": "В вершине параболы y = x² касательная горизонтальна. Производная y' = 2x, при x=0: y'(0) = 0."
-  },
+{
+  "id": "regression_slope_mental_001",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди угловой коэффициент",
+  "theme": "Регрессия",
+  "text": "Точки: $A(0, 0)$ и $B({= {var1-10}*2}, {= {var1-10}*2*{var1-10}})$. Найдите $k = \\frac{y_2 - y_1}{x_2 - x_1}$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+}
 
 {
-    "id": "functiongraph00101",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение производной функции по графику 1",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Чему равна производная функции?",
-    "functionType": "linear",
-    "func": (x) => 2 * x + 1,
-    "choices": [
-      "2",
-      "0",
-      "1",
-      "-1",
-      "-2"
-    ],
-    "answers": ["2"],
-    "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
-  },
+  "id": "regression_slope_mental_002",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди угловой коэффициент",
+  "theme": "Регрессия",
+  "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_intercept_mental_003",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди свободный член b",
+  "theme": "Регрессия",
+  "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим b</h5></div><div class='card-body'><div class='alert alert-secondary'>$$b = y - 2x = ({= {var1-10}*2 + {var1-10}}) - 2 \\cdot ({= {var1-10}}) = {= {var1-10}*2 + {var1-10}} - {= {var1-10}*2} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $b = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_predict_mental_004",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди значение y",
+  "theme": "Регрессия",
+  "text": "Прямая $y = {var1-10} \\cdot x$ проходит через начало координат. Чему равен $y$ при $x = 1$?",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
+}
+
+{
+  "id": "regression_find_x_mental_005",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди значение x",
+  "theme": "Регрессия",
+  "text": "Прямая $y = 3x$ проходит через точку с $y = {= {var1-10}*3}$. Найдите $x$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$x = \\frac{y}{3} = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $x = {var1-10}$</div></div></div>"
+},
+{
+  "id": "regression_sum_mental_006",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди сумму k + b",
+  "theme": "Регрессия",
+  "text": "Прямая проходит через точки $A(0, 0)$ и $B(1, {var1-10})$. Найдите $k + b$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{var1-10} - 0}{1 - 0} = {var1-10}$$<br>$$b = y_1 - k \\cdot x_1 = 0 - {var1-10} \\cdot 0 = 0$$<br>$$k + b = {var1-10} + 0 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k + b = {var1-10}$</div></div></div>"
+}
+
 
   {
-    "id": "functiongraph00101",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение производной функции по графику 2",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Чему равна вторая производная функции?",
-    "functionType": "linear",
-    "func": (x) => 2 * x + 1,
-    "choices": [
-      "2",
-      "0",
-      "1",
-      "-1",
-      "-2"
-    ],
-    "answers": ["0"],
-    "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
-  },
+  "id": "regression_slope_001",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Вычисление коэффициента наклона k",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
+  "choices": [
+    "$k = 2$",
+    "$k = 0.5$",
+    "$k = -2$",
+    "$k = 1$",
+    "$k = 8$"
+  ],
+  "answers": ["$k = 2$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Коэффициент наклона прямой (k)</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула углового коэффициента:</strong>
+      $$k = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем координаты точек</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $A(x_1, y_1) = (6, 2)$</p>
+        <p class="card-text">Точка $B(x_2, y_2) = (10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим разности координат</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\Delta y = y_2 - y_1 = 10 - 2 = 8$$</p>
+        <p class="card-text">$$\\Delta x = x_2 - x_1 = 10 - 6 = 4$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Вычисляем угловой коэффициент</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$k = \\frac{\\Delta y}{\\Delta x} = \\frac{8}{4} = 2$$</p>
+        <div class="alert alert-success mt-2">
+          📈 <strong>Интерпретация:</strong> При увеличении $x$ на 1 единицу, $y$ увеличивается на 2 единицы.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $k = 2$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_intercept_002",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Вычисление свободного члена b",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Зная, что $k = 2$, найдите свободный член $b$.",
+  "choices": [
+    "$b = -10$",
+    "$b = -6$",
+    "$b = 0$",
+    "$b = 6$",
+    "$b = 10$"
+  ],
+  "answers": ["$b = -10$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Нахождение свободного члена b</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула для нахождения b:</strong>
+      $$b = y_1 - k \\cdot x_1$$
+      или
+      $$b = y_2 - k \\cdot x_2$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Известные данные</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$k = 2$ (из предыдущего расчёта)</p>
+        <p class="card-text">Точка $A(6, 2)$ или $B(10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Подставляем в уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Используем точку $A(6, 2)$:</p>
+        <p class="card-text">$$y = kx + b \\Rightarrow 2 = 2 \\cdot 6 + b$$</p>
+        <p class="card-text">$$2 = 12 + b$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 3: Решаем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$b = 2 - 12 = -10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 4: Проверка со второй точкой</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $B(10, 10)$:</p>
+        <p class="card-text">$$10 = 2 \\cdot 10 + b \\Rightarrow 10 = 20 + b \\Rightarrow b = -10$$ ✓</p>
+        <div class="alert alert-info mt-2">
+          📈 <strong>Уравнение прямой:</strong> $y = 2x - 10$
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $b = -10$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_equation_003",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Составление уравнения прямой",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
+  "choices": [
+    "$y = 2x - 10$",
+    "$y = 2x + 10$",
+    "$y = 0.5x - 1$",
+    "$y = 0.5x + 1$",
+    "$y = 8x - 46$"
+  ],
+  "answers": ["$y = 2x - 10$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Уравнение прямой по двум точкам</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Общий вид уравнения прямой:</strong>
+      $$y = kx + b$$
+      где $k$ — угловой коэффициент, $b$ — свободный член.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Находим угловой коэффициент k</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$k = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{10 - 2}{10 - 6} = \\frac{8}{4} = 2$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим свободный член b</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Используем точку $A(6, 2)$:</p>
+        <p class="card-text">$$2 = 2 \\cdot 6 + b \\Rightarrow b = 2 - 12 = -10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Записываем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2x - 10$$</p>
+        <div class="alert alert-info mt-2">
+          📊 <strong>Проверка:</strong><br>
+          При $x = 6$: $y = 2 \\cdot 6 - 10 = 12 - 10 = 2$ ✓<br>
+          При $x = 10$: $y = 2 \\cdot 10 - 10 = 20 - 10 = 10$ ✓
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 2x - 10$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_predict_004",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Прогнозирование по уравнению регрессии",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 15$?",
+  "choices": [
+    "$y = 20$",
+    "$y = 25$",
+    "$y = 30$",
+    "$y = 35$",
+    "$y = 40$"
+  ],
+  "answers": ["$y = 20$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Прогнозирование по линейной регрессии</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уравнение регрессии:</strong>
+      $$y = 2x - 10$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Подставляем значение x = 15</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2 \\cdot 15 - 10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 30 - 10 = 20$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Интерпретация</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          📈 <strong>Прогноз:</strong> При $x = 15$ модель предсказывает $y = 20$.<br>
+          ⚠️ <strong>Внимание:</strong> Экстраполяция за пределы исходного диапазона $[6, 10]$ может быть неточной!
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 20$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_interpolate_005",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Интерполяция по уравнению регрессии",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 8$?",
+  "choices": [
+    "$y = 2$",
+    "$y = 4$",
+    "$y = 6$",
+    "$y = 8$",
+    "$y = 10$"
+  ],
+  "answers": ["$y = 6$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интерполяция по линейной регрессии</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уравнение регрессии:</strong>
+      $$y = 2x - 10$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Подставляем значение x = 8</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2 \\cdot 8 - 10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 16 - 10 = 6$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Визуализация</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = 2x - 10$</th><th>Тип</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>6</td><td>2</td><td class="table-info">Исходная точка A</td></tr>
+              <tr class="table-success"><td>8</td><td>6</td><td>Интерполяция (внутри диапазона)</td></tr>
+              <tr><td>10</td><td>10</td><td class="table-info">Исходная точка B</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-info mt-2">
+          📈 <strong>Интерполяция:</strong> $x = 8$ находится между 6 и 10, поэтому прогноз надёжен.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 6$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_formula_006",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Уравнение прямой через две точки (каноническая форма)",
+  "theme": "Регрессия",
+  "functionGraph": "false",
+  "text": "Какое уравнение прямой в канонической форме проходит через точки $A(6, 2)$ и $B(10, 10)$?",
+  "choices": [
+    "$\\frac{x - 6}{4} = \\frac{y - 2}{8}$",
+    "$\\frac{x - 6}{8} = \\frac{y - 2}{4}$",
+    "$\\frac{x - 2}{6} = \\frac{y - 6}{10}$",
+    "$\\frac{x - 10}{6} = \\frac{y - 10}{2}$",
+    "$\\frac{x - 2}{8} = \\frac{y - 6}{4}$"
+  ],
+  "answers": ["$\\frac{x - 6}{4} = \\frac{y - 2}{8}$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Каноническое уравнение прямой</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Каноническая форма уравнения прямой через две точки:</strong>
+      $$\\frac{x - x_1}{x_2 - x_1} = \\frac{y - y_1}{y_2 - y_1}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем координаты</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $A(x_1, y_1) = (6, 2)$</p>
+        <p class="card-text">Точка $B(x_2, y_2) = (10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим разности</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$x_2 - x_1 = 10 - 6 = 4$$</p>
+        <p class="card-text">$$y_2 - y_1 = 10 - 2 = 8$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Подставляем в формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{x - 6}{4} = \\frac{y - 2}{8}$$</p>
+        <div class="alert alert-info mt-2">
+          📐 Это уравнение можно упростить до $y = 2x - 10$:<br>
+          $$\\frac{x - 6}{4} = \\frac{y - 2}{8} \\Rightarrow 8(x - 6) = 4(y - 2)$$<br>
+          $$8x - 48 = 4y - 8 \\Rightarrow 4y = 8x - 40 \\Rightarrow y = 2x - 10$$
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{x - 6}{4} = \\frac{y - 2}{8}$
+    </div>
+  </div>
+</div>`
+}
 
   
 ]
