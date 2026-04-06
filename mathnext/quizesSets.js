@@ -1,188 +1,72 @@
 let quizesSets = [
 
+
   {
-    "id": "functiongraph001",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 1",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "linear",
-    "func": (x) => 2 * x + 1,
-    "choices": [
-      "$y = x^2 + c$ (Квадратичная функция)",
-      "$y = kx + b$ (Линейная функция)",
-      "$y = \\sin(x)$ (Тригонометрическая функция)",
-      "$y = a^x$ (Показательная функция)",
-      "$y = \\log_a(x)$ (Логарифмическая функция)"
-    ],
-    "answers": ["$y = kx + b$ (Линейная функция)"],
-    "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
-  },
+  "id": "statistics_mean_001",
+  "type": "multiplechoices",
+  "header": "Статистика: Арифметическое среднее",
+  "title": "Вычисление среднего арифметического",
+  "theme": "Статистика",
+  "functionGraph": "false",
+  "text": "Дана выборка чисел: $\\{5, 8, 12, 15, 20\\}$. Чему равно среднее арифметическое этой выборки?",
+  "choices": [
+    "$10$",
+    "$12$",
+    "$14$",
+    "$16$",
+    "$18$"
+  ],
+  "answers": ["$12$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📊 Арифметическое среднее: пошаговый расчёт</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула арифметического среднего:</strong>
+      $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Суммируем все значения</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\sum = 5 + 8 + 12 + 15 + 20$$</p>
+        <p class="card-text">$$\\sum = 60$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Подсчитываем количество элементов</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$n = 5$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Делим сумму на количество</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\bar{x} = \\frac{60}{5} = 12$$</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> Среднее арифметическое = $12$
+    </div>
+
+  </div>
+</div>`
+},
 
 
-{
-    "id": "functiongraph00101",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение производной функции по графику 1",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Чему равна производная функции?",
-    "functionType": "linear",
-    "func": (x) => 2 * x + 1,
-    "choices": [
-      "2",
-      "0",
-      "1",
-      "-1",
-      "-2"
-    ],
-    "answers": ["2"],
-    "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
-  },
 
-   {
-    "id": "functiongraph002",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 2",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "quadratic",
-    "func": (x) => x * x - 2,
-    "choices": [
-      "$y = kx + b$ (Линейная функция)",
-      "$y = x^2 + bx + c$ (Квадратичная функция)",
-      "$y = \\cos(x)$ (Тригонометрическая функция)",
-      "$y = e^x$ (Показательная функция)",
-      "$y = \\ln(x)$ (Логарифмическая функция)"
-    ],
-    "answers": ["$y = x^2 + bx + c$ (Квадратичная функция)"],
-    "hint": "Квадратичная функция имеет вид y = ax² + bx + c и представляет собой параболу на графике."
-  },
-  {
-    "id": "functiongraph003",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 3",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "sinus",
-    "func": (x) => 2 * Math.sin(x),
-    "choices": [
-      "$y = x^3$ (Кубическая функция)",
-      "$y = |x|$ (Функция модуля)",
-      "$y = \\sin(x)$ (Тригонометрическая функция)",
-      "$y = \\sqrt{x}$ (Квадратный корень)",
-      "$y = \\frac{1}{x}$ (Обратная пропорциональность)"
-    ],
-    "answers": ["$y = \\sin(x)$ (Тригонометрическая функция)"],
-    "hint": "Синусоидальная функция периодически колеблется между значениями -1 и 1."
-  },
-  {
-    "id": "functiongraph004",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 4",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "exponential",
-    "func": (x) => Math.exp(x / 2),
-    "choices": [
-      "$y = \\tan(x)$ (Тангенс)",
-      "$y = a^x$ (Показательная функция)",
-      "$y = x^2$ (Квадратичная функция)",
-      "$y = mx + b$ (Линейная функция)",
-      "$y = \\log(x)$ (Логарифмическая функция)"
-    ],
-    "answers": ["$y = a^x$ (Показательная функция)"],
-    "hint": "Показательная функция быстро растет (или убывает) и никогда не принимает отрицательных значений."
-  },
-  {
-    "id": "functiongraph005",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 5",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "logarithmic",
-    "func": (x) => x > 0 ? Math.log(x) : -10,
-    "choices": [
-      "$y = \\cos(x)$ (Косинусоидальная функция)",
-      "$y = x^3$ (Кубическая функция)",
-      "$y = \\log_a(x)$ (Логарифмическая функция)",
-      "$y = \\frac{1}{x}$ (Гипербола)",
-      "$y = \\sqrt{x}$ (Квадратный корень)"
-    ],
-    "answers": ["$y = \\log_a(x)$ (Логарифмическая функция)"],
-    "hint": "Логарифмическая функция определена только для x > 0 и медленно возрастает."
-  },
-  {
-    "id": "functiongraph006",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 6",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "cubic",
-    "func": (x) => (x * x * x) / 5,
-    "choices": [
-      "$y = x^2$ (Квадратичная функция)",
-      "$y = x^3$ (Кубическая функция)",
-      "$y = \\sin(x)$ (Тригонометрическая функция)",
-      "$y = e^x$ (Показательная функция)",
-      "$y = \\ln(x)$ (Логарифмическая функция)"
-    ],
-    "answers": ["$y = x^3$ (Кубическая функция)"],
-    "hint": "Кубическая функция имеет вид y = ax³ + bx² + cx + d и может иметь точки перегиба."
-  },
-  {
-    "id": "functiongraph007",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 7",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "absolute",
-    "func": (x) => Math.abs(x),
-    "choices": [
-      "$y = |x|$ (Функция модуля)",
-      "$y = x^2$ (Квадратичная функция)",
-      "$y = \\cos(x)$ (Тригонометрическая функция)",
-      "$y = \\log(x)$ (Логарифмическая функция)",
-      "$y = \\frac{1}{x}$ (Гипербола)"
-    ],
-    "answers": ["$y = |x|$ (Функция модуля)"],
-    "hint": "Функция модуля всегда возвращает неотрицательные значения и имеет характерный 'угол' в начале координат."
-  },
-  {
-    "id": "functiongraph008",
-    "type": "multiplechoices",
-    "header": "Анализ графиков функций",
-    "title": "Определение типа функции по графику 8",
-    "theme": "Числа",
-    "functionGraph": "true",
-    "text": "Какой тип функции представлен на графике?",
-    "functionType": "cosine",
-    "func": (x) => 2 * Math.cos(x),
-    "choices": [
-      "$y = \\sin(x)$ (Синусоидальная функция)",
-      "$y = \\cos(x)$ (Косинусоидальная функция)",
-      "$y = x^2$ (Квадратичная функция)",
-      "$y = e^x$ (Показательная функция)",
-      "$y = \\tan(x)$ (Тангенсоидальная функция)"
-    ],
-    "answers": ["$y = \\cos(x)$ (Косинусоидальная функция)"],
-    "hint": "Косинусоидальная функция является периодической и начинается с максимального значения при x = 0."
-  },
 
 
   {
@@ -248,169 +132,6 @@ let quizesSets = [
 </div>`
   },
 
-  {
-  "id": "derivative_quadratic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных квадратичной функции",
-  "title": "Знаки производных y = x² на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^2$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "quadratic",
-  "func": (x) => x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = x^2$ на интервале $x > 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = x^2$, $y' = 2x$, $y'' = 2$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x > 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = 2x$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $2x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = 2$</div>
-              <div class="card-body">
-                <p class="card-text">$2 > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
-                  <em>График вогнут вниз — разгоняется как ракета</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — следим за чайкой</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = x^2$ (высота)</th><th>$y' = 2x$ (скорость)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0$</td><td>$0$</td><td>$0$</td><td>🕊️ Касание воды, мгновение покоя</td>
-              </tr>
-              <tr class="table-success">
-                <td>$0.5$</td><td>$0.25$</td><td>$1$</td><td>🚀 Чайка взлетает, скорость 1</td>
-              </tr>
-              <tr class="table-success">
-                <td>$1$</td><td>$1$</td><td>$2$</td><td>⚡ Скорость выросла до 2</td>
-              </tr>
-              <tr class="table-success">
-                <td>$2$</td><td>$4$</td><td>$4$</td><td>🚀🚀 Скорость уже 4!</td>
-              </tr>
-              <tr class="table-success">
-                <td>$3$</td><td>$9$</td><td>$6$</td><td>⚡⚡⚡ Разгон продолжается</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Чем дальше от воды, тем быстрее летит чайка!<br>
-          Скорость (производная) растёт → $y'' > 0$
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x > 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
-          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          ⚡ Взлетает <strong>всё быстрее и быстрее</strong> → $y'' > 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для $x > 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🕊️ ЧАЙКА<br>$y > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              ⚡ ВСЁ БЫСТРЕЕ<br>$y'' > 0$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
 
 {
   "id": "derivative_analysis_quadratic_001",
@@ -605,1554 +326,70 @@ let quizesSets = [
 
 
 {
-  "id": "derivative_absolute_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных функции модуля",
-  "title": "Знаки производных y = |x| на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = |x|$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "absolute",
-  "func": (x) => Math.abs(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' = 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' = 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' = 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = |x|$ на интервале $x > 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> При $x > 0$: $y = x$, $y' = 1$, $y'' = 0$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🛤️ Постоянная скорость = $y'' = 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x > 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = 1$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $1 > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = 0$</div>
-              <div class="card-body">
-                <p class="card-text">$0 = 0$</p>
-                <div class="alert alert-secondary mt-2 mb-0">
-                  🛤️ <strong>ЛЕТИТ С ПОСТОЯННОЙ СКОРОСТЬЮ</strong> → $y'' = 0$<br>
-                  <em>График — прямая линия, нет ускорения</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка летит ровно</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = |x|$ (высота)</th><th>$y' = 1$ (скорость)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0$</th><th>$0$</th><th>$1$</th><th>🕊️ Отрыв от воды, скорость 1</th>
-              </tr>
-              <tr class="table-success">
-                <td>$1$</th><th>$1$</th><th>$1$</th><th>🛤️ Всё так же скорость 1</th>
-              寸
-              <tr class="table-success">
-                <td>$2$</th><th>$2$</th><th>$1$</th><th>🛤️ Скорость не меняется — 1</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3$</th><th>$3$</th><th>$1$</th><th>🛤️ Постоянная скорость</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Важно!</strong> Вторая производная $y'' = 0$, потому что скорость <strong>не меняется</strong>.<br>
-          Чайка летит равномерно — ни разгона, ни торможения.
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x > 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
-          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          🛤️ Взлетает <strong>с постоянной скоростью</strong> → $y'' = 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 🚀 + 🛤️ = $y' > 0$, $y'' = 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' = 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для $x > 0$ (модуль)</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🕊️ ЧАЙКА<br>$y > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-secondary mb-0">
-              🛤️ С const СКОРОСТЬЮ<br>$y'' = 0$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_absolute_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных функции модуля",
-  "title": "Знаки производных y = |x| на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = |x|$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "absolute",
-  "func": (x) => Math.abs(x),
-  "choices": [
-    "$y' > 0$, $y'' = 0$",
-    "$y' < 0$, $y'' = 0$",
-    "$y' > 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' = 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = |x|$ на интервале $x < 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> При $x < 0$: $y = -x$, $y' = -1$, $y'' = 0$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🛤️ Постоянная скорость = $y'' = 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>🕊️ Что происходит при $x < 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = -1$</div>
-              <div class="card-body">
-                <p class="card-text">При $x < 0$: $-1 < 0$</p>
-                <div class="alert alert-primary mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  📉 <strong>ПАДАЕТ</strong> → $y' < 0$<br>
-                  <em>Функция убывает — чайка снижается к воде</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = 0$</div>
-              <div class="card-body">
-                <p class="card-text">$0 = 0$</p>
-                <div class="alert alert-secondary mt-2 mb-0">
-                  🛤️ <strong>ПАДАЕТ С ПОСТОЯННОЙ СКОРОСТЬЮ</strong> → $y'' = 0$<br>
-                  <em>График — прямая линия, скорость снижения не меняется</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка снижается ровно</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = |x|$ (высота)</th><th>$y' = -1$ (скорость)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$-3$</th><th>$3$</th><th>$-1$</th><th>🕊️ Высоко, снижается со скоростью 1</th>
-              寸
-              <tr class="table-info">
-                <td>$-2$</th><th>$2$</th><th>$-1$</th><th>🛤️ Всё так же скорость 1 вниз</th>
-              寸
-              <tr class="table-info">
-                <td>$-1$</th><th>$1$</th><th>$-1$</th><th>🛤️ Скорость не меняется — 1</th>
-              寸
-              <tr class="table-success">
-                <td>$0$</th><th>$0$</th><th>$-1$</th><th>🕊️ Касание воды, скорость всё ещё 1</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Важно!</strong> Вторая производная $y'' = 0$, потому что скорость <strong>не меняется</strong>.<br>
-          Чайка снижается равномерно — ни ускорения, ни замедления.
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x < 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-primary">
-          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
-          📉 Чайка <strong>падает</strong> → $y' < 0$<br>
-          🛤️ Падает <strong>с постоянной скоростью</strong> → $y'' = 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 📉 + 🛤️ = $y' < 0$, $y'' = 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' < 0$, $y'' = 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для $x < 0$ (модуль)</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🕊️ ЧАЙКА<br>$y > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-primary mb-0">
-              📉 ПАДАЕТ<br>$y' < 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-secondary mb-0">
-              🛤️ С const СКОРОСТЬЮ<br>$y'' = 0$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Важное замечание про точку x = 0 -->
-    <div class="card mt-3 border-danger">
-      <div class="card-header bg-danger text-white">
-        <h5>⚠️ Особенность функции $y = |x|$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-danger mb-0">
-          В точке $x = 0$ производная <strong>НЕ СУЩЕСТВУЕТ</strong> (график имеет излом).<br>
-          Чайка резко меняет направление: падала → оттолкнулась → полетела вверх.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cubic_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных кубической функции",
-  "title": "Знаки производных y = x³ на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^3$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "cubic",
-  "func": (x) => x * x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🧜‍♀️ Анализ производных $y = x^3$ на интервале $x < 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = x^3$, $y' = 3x^2$, $y'' = 6x$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>🧜‍♀️ Что происходит при $x < 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = 3x^2$</div>
-              <div class="card-body">
-                <p class="card-text">При $x < 0$: $3x^2 > 0$ (квадрат всегда ≥ 0)</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🧜‍♀️ <strong>РУСАЛКА</strong> (функция < 0)<br>
-                  🚀 <strong>ВСПЛЫВАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — русалка поднимается из глубины</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = 6x$</div>
-              <div class="card-body">
-                <p class="card-text">При $x < 0$: $6x < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ВСПЛЫВАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$<br>
-                  <em>График выпуклый вверх — скорость всплытия уменьшается</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — русалка поднимается из глубины</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = x^3$ (глубина)</th><th>$y' = 3x^2$ (скорость)</th><th>$y'' = 6x$ (ускорение)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-danger">
-                <td>$-3$</th><th>$-27$</th><th>$27$</th><th>$-18$</th><th>🧜‍♀️ Глубоко, быстро всплывает, но тормозит</th>
-              </tr>
-              <tr class="table-danger">
-                <td>$-2$</th><th>$-8$</th><th>$12$</th><th>$-12$</th><th>🐢 Скорость уменьшается (12 → ...)</th>
-              </tr>
-              <tr class="table-warning">
-                <td>$-1$</th><th>$-1$</th><th>$3$</th><th>$-6$</th><th>🐢 Совсем медленно, почти у поверхности</th>
-              </tr>
-              <tr class="table-info">
-                <td>$0$</th><th>$0$</th><th>$0$</th><th>$0$</th><th>🔄 Мгновение покоя — точка перегиба</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Русалка всплывает 🚀, но <strong>замедляется</strong> 🐢!<br>
-          Скорость (производная) уменьшается → $y'' < 0$
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🧜‍♀️ Образный итог для $x < 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-danger">
-          🧜‍♀️ Русалка <strong>под водой</strong> → $y < 0$<br>
-          🚀 Русалка <strong>всплывает</strong> → $y' > 0$<br>
-          🐢 Всплывает <strong>всё медленнее</strong> → $y'' < 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🧜‍♀️ + 🚀 + 🐢 = $y' > 0$, $y'' < 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' < 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для $x < 0$ (кубическая)</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-danger mb-0">
-              🧜‍♀️ РУСАЛКА<br>$y < 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🚀 ВСПЛЫВАЕТ<br>$y' > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-danger mb-0">
-              🐢 ВСЁ МЕДЛЕННЕЕ<br>$y'' < 0$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cubic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных кубической функции",
-  "title": "Знаки производных y = x³ на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^3$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "cubic",
-  "func": (x) => x * x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = x^3$ на интервале $x > 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = x^3$, $y' = 3x^2$, $y'' = 6x$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x > 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = 3x^2$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $3x^2 > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = 6x$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $6x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
-                  <em>График вогнут вниз — разгоняется как ракета</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка разгоняется</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = x^3$ (высота)</th><th>$y' = 3x^2$ (скорость)</th><th>$y'' = 6x$ (ускорение)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0$</th><th>$0$</th><th>$0$</th><th>$0$</th><th>🔄 Мгновение покоя — точка перегиба</th>
-              </tr>
-              <tr class="table-success">
-                <td>$1$</th><th>$1$</th><th>$3$</th><th>$6$</th><th>🚀 Чайка взлетает, скорость 3</th>
-              </tr>
-              <tr class="table-success">
-                <td>$2$</th><th>$8$</th><th>$12$</th><th>$12$</th><th>⚡ Скорость выросла до 12!</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3$</th><th>$27$</th><th>$27$</th><th>$18$</th><th>⚡⚡⚡ Разгон продолжается</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Чайка взлетает 🚀 и <strong>разгоняется</strong> ⚡!<br>
-          Скорость (производная) растёт → $y'' > 0$
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x > 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
-          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          ⚡ Взлетает <strong>всё быстрее</strong> → $y'' > 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для $x > 0$ (кубическая)</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🕊️ ЧАЙКА<br>$y > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              ⚡ ВСЁ БЫСТРЕЕ<br>$y'' > 0$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_logarithmic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных логарифмической функции",
-  "title": "Знаки производных y = ln(x) на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\ln(x)$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "logarithmic",
-  "func": (x) => Math.log(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = \\ln(x)$ на интервале $x > 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\ln(x)$, $y' = \\frac{1}{x}$, $y'' = -\\frac{1}{x^2}$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Важное замечание про область определения -->
-    <div class="alert alert-warning mb-3">
-      <strong>⚠️ Важно!</strong> Логарифм определён только при $x > 0$ (чайка летает только над водой, никогда не ныряет).
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x > 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = \\frac{1}{x}$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $\\frac{1}{x} > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция может быть > 0 или < 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = -\\frac{1}{x^2}$</div>
-              <div class="card-body">
-                <p class="card-text">При $x > 0$: $-\\frac{1}{x^2} < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ВЗЛЕТАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$<br>
-                  <em>График выпуклый вверх — скорость роста уменьшается</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка набирает высоту, но устаёт</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\ln(x)$ (высота)</th><th>$y' = 1/x$ (скорость)</th><th>$y'' = -1/x^2$ (ускорение)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0.5$</th><th>$-0.69$</th><th>$2$</th><th>$-4$</th><th>🧜‍♀️ Под водой, быстро всплывает, но тормозит</th>
-              </tr>
-              <tr class="table-warning">
-                <td>$1$</th><th>$0$</th><th>$1$</th><th>$-1$</th><th>🕊️ На поверхности, скорость 1, замедляется</th>
-              </tr>
-              <tr class="table-success">
-                <td>$2$</th><th>$0.69$</th><th>$0.5$</th><th>$-0.25$</th><th>🐢 Набрала высоту, летит медленнее</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3$</th><th>$1.10$</th><th>$0.33$</th><th>$-0.11$</th><th>🐢 Совсем медленно, почти зависла</th>
-              </tr>
-              <tr class="table-success">
-                <td>$4$</th><th>$1.39$</th><th>$0.25$</th><th>$-0.06$</th><th>🦥 Очень медленно, рост почти остановился</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Чайка взлетает 🚀, но <strong>замедляется</strong> 🐢!<br>
-          Скорость (производная) уменьшается → $y'' < 0$<br>
-          Чем выше чайка, тем медленнее она летит — как будто устаёт.
-        </div>
-      </div>
-    </div>
-
-    <!-- График поведения -->
-    <div class="card mb-3 border-info">
-      <div class="card-header bg-info text-white">
-        <h5>📈 Как меняется скорость?</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-secondary">
-          $y' = \\frac{1}{x}$ — это гипербола:<br>
-          • При $x \\to 0^+$: $y' \\to +\\infty$ (чайка вылетает с огромной скоростью из воды)<br>
-          • При $x = 1$: $y' = 1$ (нормальная скорость)<br>
-          • При $x \\to +\\infty$: $y' \\to 0$ (чайка почти остановилась, зависла в воздухе)
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x > 0$ (логарифм)</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          🐢 Взлетает <strong>всё медленнее</strong> → $y'' < 0$
-        </div>
-        <div class="alert alert-info mt-2">
-          📌 <strong>Важно:</strong> При $0 < x < 1$ чайка ещё <strong>под водой</strong> (🧜‍♀️ Русалка),<br>
-          но всё равно <strong>всплывает</strong> с замедлением!
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️/🧜‍♀️ + 🚀 + 🐢 = $y' > 0$, $y'' < 0$</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' < 0$
-      </div>
-    </div>
-
-    <!-- Ассоциативная мини-таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Запоминалка для логарифма $y = \\ln(x)$</h5>
-      </div>
-      <div class="card-body">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="alert alert-success mb-0">
-              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-danger mb-0">
-              🐢 ВСЁ МЕДЛЕННЕЕ<br>$y'' < 0$
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="alert alert-info mb-0">
-              📈 ЛОГАРИФМ<br>растёт, но затухает
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_logarithmic_comparison",
-  "type": "multiplechoices",
-  "header": "Сравнение скорости роста логарифма",
-  "title": "Скорость роста y = ln(x) на разных интервалах",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\ln(x)$ сравните значения первой производной $y'$ на интервалах $(0, 1)$ и $(1, +\\infty)$. Какое утверждение верно?",
-  "functionType": "logarithmic",
-  "func": (x) => Math.log(x),
-  "choices": [
-    "$y'$ больше на интервале $(0, 1)$",
-    "$y'$ больше на интервале $(1, +\\infty)$",
-    "$y'$ одинакова на обоих интервалах",
-    "$y'$ отрицательна на $(0, 1)$ и положительна на $(1, +\\infty)$",
-    "$y' = 0$ на обоих интервалах"
-  ],
-  "answers": ["$y'$ больше на интервале $(0, 1)$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Сравнение скорости роста $y = \\ln(x)$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Напоминание:</strong> $y' = \\frac{1}{x}$
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="card h-100 border-warning">
-          <div class="card-header bg-warning text-dark">
-            <h5>🧜‍♀️ На интервале $(0, 1)$ — под водой</h5>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-secondary">
-              $x$ маленький → $y' = 1/x$ ОГРОМНЫЙ
-            </div>
-            <p class="card-text text-center mt-2">
-              <strong>Числовые примеры:</strong><br>
-              $x = 0.1$: $y' = 10$ ⚡⚡⚡<br>
-              $x = 0.2$: $y' = 5$ ⚡⚡<br>
-              $x = 0.5$: $y' = 2$ ⚡<br>
-              $x = 0.8$: $y' = 1.25$ 
-            </p>
-            <div class="alert alert-info mt-2">
-              💡 Русалка 🧜‍♀️ <strong>стремительно всплывает</strong> из глубины!<br>
-              Скорость огромная, но быстро падает.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <div class="card h-100 border-success">
-          <div class="card-header bg-success text-white">
-            <h5>🕊️ На интервале $(1, +\\infty)$ — над водой</h5>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-secondary">
-              $x$ большой → $y' = 1/x$ МАЛЕНЬКИЙ
-            </div>
-            <p class="card-text text-center mt-2">
-              <strong>Числовые примеры:</strong><br>
-              $x = 1$: $y' = 1$<br>
-              $x = 2$: $y' = 0.5$ 🐢<br>
-              $x = 3$: $y' \\approx 0.33$ 🐢<br>
-              $x = 10$: $y' = 0.1$ 🦥
-            </p>
-            <div class="alert alert-warning mt-2">
-              💡 Чайка 🕊️ <strong>едва ползёт</strong> в небе.<br>
-              Скорость маленькая и продолжает падать.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- График производной -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📉 График $y' = 1/x$ — гипербола</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-secondary">
-          • При $x \\to 0^+$: $y' \\to +\\infty$ (скорость стремится к бесконечности)<br>
-          • При $x = 1$: $y' = 1$<br>
-          • При $x \\to +\\infty$: $y' \\to 0$ (скорость стремится к нулю)
-        </div>
-        <div class="alert alert-success mt-2">
-          ✅ <strong>Вывод:</strong> Скорость максимальна <strong>сразу после старта</strong> (при маленьких $x$)<br>
-          и постоянно <strong>убывает</strong> с ростом $x$.
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образное сравнение</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-info">
-          🧜‍♀️ <strong>На интервале $(0, 1)$:</strong> Русалка вылетает из воды как ракета! 🚀🚀🚀<br>
-          Скорость огромная (до бесконечности у самой поверхности).<br><br>
-          🕊️ <strong>На интервале $(1, +\\infty)$:</strong> Чайка уже устала, еле машет крыльями 🐢<br>
-          Скорость маленькая и стремится к нулю.
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>⚡ Максимальная скорость — в начале пути (при $x \\to 0^+$)</h4>
-          <h4>🐢 Минимальная скорость — в бесконечности (при $x \\to +\\infty$)</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y'$ больше на интервале $(0, 1)$
-      </div>
-    </div>
-
-    <!-- Ассоциативная таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Сравнительная таблица</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>Интервал</th><th>Образ</th><th>$x$</th><th>$y' = 1/x$</th><th>Скорость</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-warning">
-                <td>$(0, 1)$</th><th>🧜‍♀️ Русалка</th><th>$0.1$</th><th>$10$</th><th>⚡⚡⚡ ОГРОМНАЯ</th>
-              </tr>
-              <tr class="table-success">
-                <td>$(1, +\\infty)$</th><th>🕊️ Чайка</th><th>$10$</th><th>$0.1$</th><th>🐢 МАЛЕНЬКАЯ</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_exponential_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных экспоненциальной функции",
-  "title": "Знаки производных y = e^x на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = e^x$ на интервале $x < 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = e^x$, $y' = e^x$, $y'' = e^x$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Важное замечание -->
-    <div class="alert alert-success mb-3">
-      <strong>✨ Особенность экспоненты:</strong> $y = y' = y''$ — функция, скорость и ускорение равны друг другу!
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>🕊️ Что происходит при $x < 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = e^x$</div>
-              <div class="card-body">
-                <p class="card-text">При любом $x$: $e^x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = e^x$</div>
-              <div class="card-body">
-                <p class="card-text">$e^x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
-                  <em>График вогнут вниз — разгоняется</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка разгоняется ещё под водой?</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = e^x$ (высота)</th><th>$y' = e^x$ (скорость)</th><th>$y'' = e^x$ (ускорение)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$-3$</th><th>$0.05$</th><th>$0.05$</th><th>$0.05$</th><th>🧜‍♀️ Почти под водой, чуть-чуть над</th>
-              </tr>
-              <tr class="table-info">
-                <td>$-2$</th><th>$0.14$</th><th>$0.14$</th><th>$0.14$</th><th>🐣 Только вылупилась, еле ползёт</th>
-              </tr>
-              <tr class="table-success">
-                <td>$-1$</th><th>$0.37$</th><th>$0.37$</th><th>$0.37$</th><th>🐥 Набирает скорость потихоньку</th>
-              </tr>
-              <tr class="table-success">
-                <td>$0$</th><th>$1$</th><th>$1$</th><th>$1$</th><th>🕊️ Нормальная скорость 1</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Даже при отрицательных $x$ чайка уже <strong>над водой</strong> (хоть и низко)<br>
-          и <strong>разгоняется</strong> ⚡, готовясь к стремительному взлёту!
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x < 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>над водой</strong> (хоть и низко) → $y > 0$<br>
-          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          ⚡ Взлетает <strong>всё быстрее</strong> → $y'' > 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
-          <p class="text-muted">(как и при $x > 0$!)</p>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_exponential_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных экспоненциальной функции",
-  "title": "Знаки производных y = e^x на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ производных $y = e^x$ на интервале $x > 0$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = e^x$, $y' = e^x$, $y'' = e^x$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x > 0$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Первая производная $y' = e^x$</div>
-              <div class="card-body">
-                <p class="card-text">$e^x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
-                  <em>Функция возрастает — чайка набирает высоту</em>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">Вторая производная $y'' = e^x$</div>
-              <div class="card-body">
-                <p class="card-text">$e^x > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
-                  <em>График вогнут вниз — бешеный разгон</em>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — ракета улетает в космос</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = e^x$ (высота)</th><th>$y' = e^x$ (скорость)</th><th>$y'' = e^x$ (ускорение)</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-success">
-                <td>$0$</th><th>$1$</th><th>$1$</th><th>$1$</th><th>🕊️ Старт! Скорость 1</th>
-              </tr>
-              <tr class="table-success">
-                <td>$1$</th><th>$2.72$</th><th>$2.72$</th><th>$2.72$</th><th>🚀 Уже скорость 2.7!</th>
-              </tr>
-              <tr class="table-success">
-                <td>$2$</th><th>$7.39$</th><th>$7.39$</th><th>$7.39$</th><th>⚡ Скорость 7.4 — растёт!</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3$</th><th>$20.09$</th><th>$20.09$</th><th>$20.09$</th><th>🚀🚀🚀 Скорость 20!</th>
-              </tr>
-              <tr class="table-success">
-                <td>$4$</th><th>$54.60$</th><th>$54.60$</th><th>$54.60$</th><th>💫 Невероятный разгон!</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 <strong>Видите?</strong> Скорость и ускорение <strong>равны высоте</strong> и растут экспоненциально!<br>
-          Чайка превратилась в 🚀 <strong>ракету</strong>, улетающую в космос!
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образный итог для $x > 0$</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
-          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
-          ⚡ Взлетает <strong>всё быстрее и быстрее</strong> → $y'' > 0$
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
-          <p class="text-muted">(и это невероятное ускорение!)</p>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_exponential_comparison",
-  "type": "multiplechoices",
-  "header": "Сравнение скорости роста экспоненты",
-  "title": "Скорость роста y = e^x на разных интервалах",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ сравните значения первой производной $y'$ на интервалах $(-\\infty, 0)$ и $(0, +\\infty)$. Какое утверждение верно?",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y'$ больше на интервале $(-\\infty, 0)$",
-    "$y'$ больше на интервале $(0, +\\infty)$",
-    "$y'$ одинакова на обоих интервалах",
-    "$y'$ отрицательна на $(-\\infty, 0)$ и положительна на $(0, +\\infty)$",
-    "$y' = 0$ на обоих интервалах"
-  ],
-  "answers": ["$y'$ больше на интервале $(0, +\\infty)$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Сравнение скорости роста $y = e^x$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Напоминание:</strong> $y' = e^x$ — это та же экспонента!
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="card h-100 border-info">
-          <div class="card-header bg-info text-white">
-            <h5>🐣 На интервале $(-\\infty, 0)$</h5>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-secondary">
-              $x$ отрицательный → $e^x$ МАЛЕНЬКИЙ
-            </div>
-            <p class="card-text text-center mt-2">
-              <strong>Числовые примеры:</strong><br>
-              $x = -3$: $y' \\approx 0.05$ 🐌<br>
-              $x = -2$: $y' \\approx 0.14$ 🐢<br>
-              $x = -1$: $y' \\approx 0.37$ 🐥<br>
-              $x = 0$: $y' = 1$ 
-            </p>
-            <div class="alert alert-info mt-2">
-              💡 Чайка только <strong>вылупилась из яйца</strong> 🐣,<br>
-              еле ползёт, набирается сил перед полётом.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <div class="card h-100 border-danger">
-          <div class="card-header bg-danger text-white">
-            <h5>🚀 На интервале $(0, +\\infty)$</h5>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-secondary">
-              $x$ положительный → $e^x$ ОГРОМНЫЙ
-            </div>
-            <p class="card-text text-center mt-2">
-              <strong>Числовые примеры:</strong><br>
-              $x = 0$: $y' = 1$<br>
-              $x = 1$: $y' \\approx 2.72$ 🚀<br>
-              $x = 2$: $y' \\approx 7.39$ ⚡<br>
-              $x = 3$: $y' \\approx 20.09$ 💫
-            </p>
-            <div class="alert alert-danger mt-2">
-              💡 Чайка превратилась в 🚀 <strong>ракету</strong>,<br>
-              улетающую с бешеной скоростью!
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- График производной -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📈 График $y' = e^x$ — та же экспонента</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-secondary">
-          • При $x \\to -\\infty$: $y' \\to 0$ (скорость стремится к нулю)<br>
-          • При $x = 0$: $y' = 1$<br>
-          • При $x \\to +\\infty$: $y' \\to +\\infty$ (скорость стремится к бесконечности)
-        </div>
-        <div class="alert alert-warning mt-2">
-          ✅ <strong>Вывод:</strong> Скорость <strong>минимальна</strong> при $x \\to -\\infty$ (чайка только родилась)<br>
-          и <strong>максимальна</strong> при $x \\to +\\infty$ (ракета улетает в космос)!
-        </div>
-      </div>
-    </div>
-
-    <!-- Образный итог -->
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>🕊️ Образное сравнение</h5>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-success">
-          🐣 <strong>На интервале $(-\\infty, 0)$:</strong><br>
-          Чайка только вылупилась, еле дышит, скорость почти нулевая 🐌<br><br>
-          🚀 <strong>На интервале $(0, +\\infty)$:</strong><br>
-          Чайка превратилась в ракету, скорость растёт экспоненциально и улетает в бесконечность! 💫
-        </div>
-        <hr>
-        <div class="text-center">
-          <h4>📈 Экспонента: от 0 до ∞ за мгновение!</h4>
-        </div>
-      </div>
-      <div class="card-footer bg-warning text-dark">
-        <strong>✅ Правильный ответ:</strong> $y'$ больше на интервале $(0, +\\infty)$
-      </div>
-    </div>
-
-    <!-- Ассоциативная таблица -->
-    <div class="card mt-3 border-secondary">
-      <div class="card-header bg-secondary text-white">
-        <h5>📋 Сравнительная таблица</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>Интервал</th><th>Образ</th><th>$x$</th><th>$y' = e^x$</th><th>Скорость</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$(-\\infty, 0)$</th><th>🐣 Птенец</th><th>$-3$</th><th>$0.05$</th><th>🐌 ОЧЕНЬ МАЛЕНЬКАЯ</th>
-              </tr>
-              <tr class="table-danger">
-                <td>$(0, +\\infty)$</th><th>🚀 Ракета</th><th>$3$</th><th>$20.09$</th><th>💫 ОГРОМНАЯ</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>`
-},
-
-{
   "id": "derivative_sinus_interval_1",
   "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (0, π/2)",
+  "header": "Анализ производных тригонометрической функции",
+  "title": "Знаки производных y = 2·sin(x) на интервале (0, π/2)",
   "theme": "Числа и производные",
   "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
+  "text": "Для функции $y = 2\\sin(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
   "functionType": "sinus",
-  "func": (x) => Math.sin(x),
+  "func": (x) => 2 * Math.sin(x),
   "choices": [
-    "$y' > 0$, $y'' > 0$",
     "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
+    "$y' > 0$, $y'' > 0$",
     "$y' < 0$, $y'' < 0$",
+    "$y' < 0$, $y'' > 0$",
     "$y' = 0$, $y'' = 0$"
   ],
   "answers": ["$y' > 0$, $y'' < 0$"],
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ $y = \\sin(x)$ на $(0, \\frac{\\pi}{2})$</h5>
+    <h5>Анализ $y = 2\\sin(x)$ на $(0, \\frac{\\pi}{2})$</h5>
   </div>
   <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\sin(x)$, $y' = \\cos(x)$, $y'' = -\\sin(x)$
+    <div class="alert alert-secondary">
+      $y' = 2\\cos(x)$, $y'' = -2\\sin(x)$
     </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x \\in (0, \\frac{\\pi}{2})$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = \\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (0, \\frac{\\pi}{2})$: $\\cos(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> ($y > 0$)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$
-                </div>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y' = 2\\cos(x)$</div>
+          <div class="card-body">
+            При $x \\in (0, \\frac{\\pi}{2})$: $\\cos(x) > 0$<br>
+            <span class="badge bg-success">$y' > 0$ → функция возрастает</span>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (0, \\frac{\\pi}{2})$: $\\sin(x) > 0$ ⇒ $-\\sin(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ВЗЛЕТАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y'' = -2\\sin(x)$</div>
+          <div class="card-body">
+            При $x \\in (0, \\frac{\\pi}{2})$: $\\sin(x) > 0$ ⇒ $-2\\sin(x) < 0$<br>
+            <span class="badge bg-danger">$y'' < 0$ → график выпуклый вверх</span>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка набирает высоту, но устаёт</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\sin(x)$</th><th>$y' = \\cos(x)$</th><th>$y'' = -\\sin(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0$</th><th>$0$</th><th>$1$</th><th>$0$</th><th>🕊️ Старт! Максимальная скорость 1</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/6$</th><th>$0.5$</th><th>$0.87$</th><th>$-0.5$</th><th>🚀 Взлетает, скорость 0.87</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/4$</th><th>$0.71$</th><th>$0.71$</th><th>$-0.71$</th><th>🐢 Скорость упала до 0.71</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/3$</th><th>$0.87$</th><th>$0.5$</th><th>$-0.87$</th><th>🐢 Совсем медленно, почти у пика</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 Чайка 🕊️ взлетает с максимальной скоростью в момент старта ($x=0$),<br>
-          но постепенно <strong>замедляется</strong> 🐢, приближаясь к пику ($x = \\pi/2$).
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' > 0$, $y'' < 0$</h5>
-      </div>
+    <div class="alert alert-success mt-2">
+      <strong>✅ Ответ:</strong> $y' > 0$, $y'' < 0$
     </div>
   </div>
 </div>`
 },
+
 
 {
   "id": "derivative_sinus_interval_2",
   "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (π/2, π)",
+  "header": "Анализ производных тригонометрической функции",
+  "title": "Знаки производных y = 2·sin(x) на интервале (π/2, π)",
   "theme": "Числа и производные",
   "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
+  "text": "Для функции $y = 2\\sin(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
   "functionType": "sinus",
-  "func": (x) => Math.sin(x),
+  "func": (x) => 2 * Math.sin(x),
   "choices": [
     "$y' > 0$, $y'' > 0$",
     "$y' > 0$, $y'' < 0$",
@@ -2164,87 +401,34 @@ let quizesSets = [
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ $y = \\sin(x)$ на $(\\frac{\\pi}{2}, \\pi)$</h5>
+    <h5>Анализ $y = 2\\sin(x)$ на $(\\frac{\\pi}{2}, \\pi)$</h5>
   </div>
   <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\sin(x)$, $y' = \\cos(x)$, $y'' = -\\sin(x)$
+    <div class="alert alert-secondary">
+      $y' = 2\\cos(x)$, $y'' = -2\\sin(x)$
     </div>
-
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>🕊️ Что происходит при $x \\in (\\frac{\\pi}{2}, \\pi)$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = \\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\cos(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> ($y > 0$)<br>
-                  📉 <strong>ПАДАЕТ</strong> → $y' < 0$
-                </div>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y' = 2\\cos(x)$</div>
+          <div class="card-body">
+            При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\cos(x) < 0$<br>
+            <span class="badge bg-danger">$y' < 0$ → функция убывает</span>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\sin(x) > 0$ ⇒ $-\\sin(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ПАДАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y'' = -2\\sin(x)$</div>
+          <div class="card-body">
+            При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\sin(x) > 0$ ⇒ $-2\\sin(x) < 0$<br>
+            <span class="badge bg-danger">$y'' < 0$ → график выпуклый вверх</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка падает, замедляясь</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\sin(x)$</th><th>$y' = \\cos(x)$</th><th>$y'' = -\\sin(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$\\pi/2$</th><th>$1$</th><th>$0$</th><th>$-1$</th><th>🕊️ Пик, мгновение покоя</th>
-              </tr>
-              <tr class="table-success">
-                <td>$2\\pi/3$</th><th>$0.87$</th><th>$-0.5$</th><th>$-0.87$</th><th>📉 Начала падать, скорость -0.5</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3\\pi/4$</th><th>$0.71$</th><th>$-0.71$</th><th>$-0.71$</th><th>🐢 Падает быстрее, но замедляется</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/6$</th><th>$0.5$</th><th>$-0.87$</th><th>$-0.5$</th><th>🐢 Почти у воды</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' < 0$, $y'' < 0$</h5>
-      </div>
+    <div class="alert alert-success mt-2">
+      <strong>✅ Ответ:</strong> $y' < 0$, $y'' < 0$
     </div>
   </div>
 </div>`
@@ -2253,13 +437,13 @@ let quizesSets = [
 {
   "id": "derivative_sinus_interval_3",
   "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (π, 3π/2)",
+  "header": "Анализ производных тригонометрической функции",
+  "title": "Знаки производных y = 2·sin(x) на интервале (π, 3π/2)",
   "theme": "Числа и производные",
   "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
+  "text": "Для функции $y = 2\\sin(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
   "functionType": "sinus",
-  "func": (x) => Math.sin(x),
+  "func": (x) => 2 * Math.sin(x),
   "choices": [
     "$y' > 0$, $y'' > 0$",
     "$y' > 0$, $y'' < 0$",
@@ -2271,102 +455,50 @@ let quizesSets = [
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    <h5>🧜‍♀️ Анализ $y = \\sin(x)$ на $(\\pi, \\frac{3\\pi}{2})$</h5>
+    <h5>Анализ $y = 2\\sin(x)$ на $(\\pi, \\frac{3\\pi}{2})$</h5>
   </div>
   <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\sin(x)$, $y' = \\cos(x)$, $y'' = -\\sin(x)$
+    <div class="alert alert-secondary">
+      $y' = 2\\cos(x)$, $y'' = -2\\sin(x)$
     </div>
-
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-danger">
-      <div class="card-header bg-danger text-white">
-        <h5>🧜‍♀️ Что происходит при $x \\in (\\pi, \\frac{3\\pi}{2})$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = \\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\cos(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🧜‍♀️ <strong>РУСАЛКА</strong> ($y < 0$)<br>
-                  📉 <strong>ПАДАЕТ ГЛУБЖЕ</strong> → $y' < 0$
-                </div>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y' = 2\\cos(x)$</div>
+          <div class="card-body">
+            При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\cos(x) < 0$<br>
+            <span class="badge bg-danger">$y' < 0$ → функция убывает</span>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\sin(x) < 0$ ⇒ $-\\sin(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ПАДАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card bg-light mb-2">
+          <div class="card-header bg-info text-white">$y'' = -2\\sin(x)$</div>
+          <div class="card-body">
+            При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\sin(x) < 0$ ⇒ $-2\\sin(x) > 0$<br>
+            <span class="badge bg-success">$y'' > 0$ → график вогнут вниз</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — русалка ныряет с ускорением</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\sin(x)$</th><th>$y' = \\cos(x)$</th><th>$y'' = -\\sin(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$\\pi$</th><th>$0$</th><th>$-1$</th><th>$0$</th><th>🌊 На поверхности, ныряет</th>
-              </tr>
-              <tr class="table-success">
-                <td>$7\\pi/6$</th><th>$-0.5$</th><th>$-0.87$</th><th>$0.5$</th><th>🧜‍♀️ Ныряет, скорость -0.87</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/4$</th><th>$-0.71$</th><th>$-0.71$</th><th>$0.71$</th><th>⚡ Разгоняется в глубину</th>
-              </tr>
-              <tr class="table-success">
-                <td>$4\\pi/3$</th><th>$-0.87$</th><th>$-0.5$</th><th>$0.87$</th><th>⚡⚡ Всё быстрее!</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' < 0$, $y'' > 0$</h5>
-      </div>
+    <div class="alert alert-success mt-2">
+      <strong>✅ Ответ:</strong> $y' < 0$, $y'' > 0$
     </div>
   </div>
 </div>`
 },
+
 
 {
   "id": "derivative_sinus_interval_4",
   "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (3π/2, 2π)",
+  "header": "Анализ производных тригонометрической функции",
+  "title": "Знаки производных y = 2·sin(x) на интервале (3π/2, 2π)",
   "theme": "Числа и производные",
   "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
+  "text": "Для функции $y = 2\\sin(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
   "functionType": "sinus",
-  "func": (x) => Math.sin(x),
+  "func": (x) => 2 * Math.sin(x),
   "choices": [
     "$y' > 0$, $y'' > 0$",
     "$y' > 0$, $y'' < 0$",
@@ -2378,531 +510,234 @@ let quizesSets = [
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    <h5>🧜‍♀️ Анализ $y = \\sin(x)$ на $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
+    <h5>Анализ $y = 2\\sin(x)$ на $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
   </div>
   <div class="card-body">
-    
     <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\sin(x)$, $y' = \\cos(x)$, $y'' = -\\sin(x)$
+      <strong>📌 Исходные данные:</strong> $y = 2\\sin(x)$, $y' = 2\\cos(x)$, $y'' = -2\\sin(x)$
     </div>
 
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🧜‍♀️ Что происходит при $x \\in (\\frac{3\\pi}{2}, 2\\pi)$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = \\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$: $\\cos(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🧜‍♀️ <strong>РУСАЛКА</strong> ($y < 0$)<br>
-                  🚀 <strong>ВСПЛЫВАЕТ</strong> → $y' > 0$
-                </div>
-              </div>
+    <div class="row">
+      <!-- Случай x в (3π/2, 2π) -->
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-success">
+          <div class="card-header bg-info text-white">
+            <h5>Первая производная $y' = 2\\cos(x)$</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$:</p>
+            <p class="card-text">$\\cos(x) > 0$ (косинус положителен в IV четверти)</p>
+            <p class="card-text">$2\\cos(x) > 0$</p>
+            <div class="alert alert-success mt-2 mb-0">
+              ✅ $y' > 0$ → функция <strong>возрастает</strong>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$: $\\sin(x) < 0$ ⇒ $-\\sin(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВСПЛЫВАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$
-                </div>
-              </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-warning">
+          <div class="card-header bg-info text-white">
+            <h5>Вторая производная $y'' = -2\\sin(x)$</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$:</p>
+            <p class="card-text">$\\sin(x) < 0$ (синус отрицателен в IV четверти)</p>
+            <p class="card-text">$-2\\sin(x) > 0$ (минус на минус даёт плюс)</p>
+            <div class="alert alert-success mt-2 mb-0">
+              🟢 $y'' > 0$ → график <strong>вогнут вниз</strong> (выпуклый вниз)
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Таблица-шпаргалка -->
     <div class="card mb-3 border-primary">
       <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — русалка выплывает с ускорением</h5>
+        <h5>📐 Тригонометрическая шпаргалка</h5>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-bordered text-center">
             <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\sin(x)$</th><th>$y' = \\cos(x)$</th><th>$y'' = -\\sin(x)$</th><th>Образ</th></tr>
+              <tr><th>Четверть</th><th>Интервал</th><th>$\\sin(x)$</th><th>$\\cos(x)$</th><th>$y' = 2\\cos(x)$</th><th>$y'' = -2\\sin(x)$</th></tr>
             </thead>
             <tbody>
-              <tr class="table-info">
-                <td>$3\\pi/2$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>🧜‍♀️ На дне, мгновение покоя</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/3$</th><th>$-0.87$</th><th>$0.5$</th><th>$0.87$</th><th>🚀 Начала всплывать, скорость 0.5</th>
-              </tr>
-              <tr class="table-success">
-                <td>$7\\pi/4$</th><th>$-0.71$</th><th>$0.71$</th><th>$0.71$</th><th>⚡ Разгоняется</th>
-              </tr>
-              <tr class="table-success">
-                <td>$11\\pi/6$</th><th>$-0.5$</th><th>$0.87$</th><th>$0.5$</th><th>⚡⚡ Всё быстрее к поверхности</th>
-              </tr>
+              <tr class="table-success"><td>I</td><td>$(0, \\frac{\\pi}{2})$</td><td>$+$</td><td>$+$</td><td>$+$ (возраст.)</td><td>$- (выпукл. вверх)$</td></tr>
+              <tr class="table-danger"><td>II</td><td>$(\\frac{\\pi}{2}, \\pi)$</td><td>$+$</td><td>$-$</td><td>$- (убывает)$</td><td>$- (выпукл. вверх)$</td></tr>
+              <tr class="table-danger"><td>III</td><td>$(\\pi, \\frac{3\\pi}{2})$</td><td>$-$</td><td>$-$</td><td>$- (убывает)$</td><td>$+ (вогнут. вниз)$</td></tr>
+              <tr class="table-success"><td>IV</td><td>$(\\frac{3\\pi}{2}, 2\\pi)$</td><td>$-$</td><td>$+$</td><td>$+ (возраст.)$</td><td>$+ (вогнут. вниз)$</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' > 0$, $y'' > 0$</h5>
-      </div>
-    </div>
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cosine_interval_1",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (0, π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' < 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ $y = \\cos(x)$ на $(0, \\frac{\\pi}{2})$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\cos(x)$, $y' = -\\sin(x)$, $y'' = -\\cos(x)$
-    </div>
-
-    <!-- Образная шпаргалка -->
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
-      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
-      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
-      📉 Падает = $y' < 0$ (убывает)<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
-      🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <!-- Графическая метафора -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>🕊️ Что происходит при $x \\in (0, \\frac{\\pi}{2})$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (0, \\frac{\\pi}{2})$: $\\sin(x) > 0$ ⇒ $-\\sin(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> ($y > 0$)<br>
-                  📉 <strong>ПАДАЕТ</strong> → $y' < 0$
-                </div>
-              </div>
-            </div>
+    <!-- Точки экстремумов и перегиба -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="card border-danger">
+          <div class="card-header bg-danger text-white">
+            <h5>🎯 Точки экстремумов</h5>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (0, \\frac{\\pi}{2})$: $\\cos(x) > 0$ ⇒ $-\\cos(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ПАДАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$
-                </div>
-              </div>
-            </div>
+          <div class="card-body">
+            <ul class="mb-0">
+              <li><strong>Максимум:</strong> $x = \\frac{\\pi}{2}$, $y = 2$</li>
+              <li><strong>Минимум:</strong> $x = \\frac{3\\pi}{2}$, $y = -2$</li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Числовой пример -->
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка падает с замедлением</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\cos(x)$</th><th>$y' = -\\sin(x)$</th><th>$y'' = -\\cos(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$0$</th><th>$1$</th><th>$0$</th><th>$-1$</th><th>🕊️ На пике, мгновение покоя</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/6$</th><th>$0.87$</th><th>$-0.5$</th><th>$-0.87$</th><th>📉 Начала падать, скорость -0.5</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/4$</th><th>$0.71$</th><th>$-0.71$</th><th>$-0.71$</th><th>🐢 Падает, замедляясь</th>
-              </tr>
-              <tr class="table-success">
-                <td>$\\pi/3$</th><th>$0.5$</th><th>$-0.87$</th><th>$-0.5$</th><th>🐢 Почти у воды</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="alert alert-warning mt-3">
-          💡 Чайка 🕊️ начинает падать с максимальной скоростью в середине интервала,<br>
-          но постепенно <strong>замедляется</strong> 🐢, приближаясь к нулю.
+      <div class="col-md-6">
+        <div class="card border-warning">
+          <div class="card-header bg-warning text-dark">
+            <h5>🔄 Точки перегиба</h5>
+          </div>
+          <div class="card-body">
+            <ul class="mb-0">
+              <li>$x = 0$ (и $2\\pi$), $y = 0$</li>
+              <li>$x = \\pi$, $y = 0$</li>
+            </ul>
+            <small class="text-muted">Здесь $y''$ меняет знак</small>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="card mt-2 border-warning">
       <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' < 0$, $y'' < 0$</h5>
-      </div>
-    </div>
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cosine_interval_2",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (π/2, π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🧜‍♀️ Анализ $y = \\cos(x)$ на $(\\frac{\\pi}{2}, \\pi)$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\cos(x)$, $y' = -\\sin(x)$, $y'' = -\\cos(x)$
-    </div>
-
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-danger">
-      <div class="card-header bg-danger text-white">
-        <h5>🧜‍♀️ Что происходит при $x \\in (\\frac{\\pi}{2}, \\pi)$?</h5>
+        <h5>📊 Итоговый вывод для интервала $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\sin(x) > 0$ ⇒ $-\\sin(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🧜‍♀️ <strong>РУСАЛКА</strong> ($y < 0$)<br>
-                  📉 <strong>ПАДАЕТ ГЛУБЖЕ</strong> → $y' < 0$
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{\\pi}{2}, \\pi)$: $\\cos(x) < 0$ ⇒ $-\\cos(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ПАДАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">🔹 $y' = 2\\cos(x) > 0$ → функция <strong>возрастает</strong> от $-2$ до $0$</li>
+          <li class="list-group-item">🔹 $y'' = -2\\sin(x) > 0$ → график <strong>вогнут вниз</strong> (выпуклый вниз, "улыбка")</li>
+        </ul>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
       </div>
     </div>
 
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — русалка ныряет с ускорением</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\cos(x)$</th><th>$y' = -\\sin(x)$</th><th>$y'' = -\\cos(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$\\pi/2$</th><th>$0$</th><th>$-1$</th><th>$0$</th><th>🌊 На поверхности, начинает нырять</th>
-              </tr>
-              <tr class="table-success">
-                <td>$2\\pi/3$</th><th>$-0.5$</th><th>$-0.87$</th><th>$0.5$</th><th>🧜‍♀️ Ныряет, скорость -0.87</th>
-              </tr>
-              <tr class="table-success">
-                <td>$3\\pi/4$</th><th>$-0.71$</th><th>$-0.71$</th><th>$0.71$</th><th>⚡ Разгоняется в глубину</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/6$</th><th>$-0.87$</th><th>$-0.5$</th><th>$0.87$</th><th>⚡⚡ Всё быстрее!</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' < 0$, $y'' > 0$</h5>
-      </div>
-    </div>
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cosine_interval_3",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (π, 3π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🧜‍♀️ Анализ $y = \\cos(x)$ на $(\\pi, \\frac{3\\pi}{2})$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\cos(x)$, $y' = -\\sin(x)$, $y'' = -\\cos(x)$
-    </div>
-
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🧜‍♀️ Что происходит при $x \\in (\\pi, \\frac{3\\pi}{2})$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\sin(x) < 0$ ⇒ $-\\sin(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🧜‍♀️ <strong>РУСАЛКА</strong> ($y < 0$)<br>
-                  🚀 <strong>ВСПЛЫВАЕТ</strong> → $y' > 0$
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\pi, \\frac{3\\pi}{2})$: $\\cos(x) < 0$ ⇒ $-\\cos(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  ⚡ <strong>ВСПЛЫВАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — русалка выплывает с ускорением</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\cos(x)$</th><th>$y' = -\\sin(x)$</th><th>$y'' = -\\cos(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$\\pi$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>🧜‍♀️ На дне, начинает всплывать</th>
-              </tr>
-              <tr class="table-success">
-                <td>$7\\pi/6$</th><th>$-0.87$</th><th>$0.5$</th><th>$0.87$</th><th>🚀 Начала всплывать, скорость 0.5</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/4$</th><th>$-0.71$</th><th>$0.71$</th><th>$0.71$</th><th>⚡ Разгоняется</th>
-              </tr>
-              <tr class="table-success">
-                <td>$4\\pi/3$</th><th>$-0.5$</th><th>$0.87$</th><th>$0.5$</th><th>⚡⚡ Всё быстрее к поверхности</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' > 0$, $y'' > 0$</h5>
-      </div>
-    </div>
-  </div>
-</div>`
-},
-
-{
-  "id": "derivative_cosine_interval_4",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (3π/2, 2π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>🕊️ Анализ $y = \\cos(x)$ на $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Исходные данные:</strong> $y = \\cos(x)$, $y' = -\\sin(x)$, $y'' = -\\cos(x)$
-    </div>
-
-    <div class="alert alert-info mb-3">
-      <strong>🎭 Образные ассоциации:</strong><br>
-      🕊️ Чайка = $y > 0$ &nbsp;|&nbsp; 🧜‍♀️ Русалка = $y < 0$<br>
-      🚀 Взлетает = $y' > 0$ &nbsp;|&nbsp; 📉 Падает = $y' < 0$<br>
-      ⚡ Всё быстрее = $y'' > 0$ &nbsp;|&nbsp; 🐢 Всё медленнее = $y'' < 0$
-    </div>
-
-    <div class="card mb-3 border-success">
-      <div class="card-header bg-success text-white">
-        <h5>🕊️ Что происходит при $x \\in (\\frac{3\\pi}{2}, 2\\pi)$?</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y' = -\\sin(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$: $\\sin(x) < 0$ ⇒ $-\\sin(x) > 0$</p>
-                <div class="alert alert-success mt-2 mb-0">
-                  🕊️ <strong>ЧАЙКА</strong> ($y > 0$)<br>
-                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-2">
-              <div class="card-header bg-info text-white">$y'' = -\\cos(x)$</div>
-              <div class="card-body">
-                <p class="card-text">При $x \\in (\\frac{3\\pi}{2}, 2\\pi)$: $\\cos(x) > 0$ ⇒ $-\\cos(x) < 0$</p>
-                <div class="alert alert-danger mt-2 mb-0">
-                  🐢 <strong>ВЗЛЕТАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3 border-primary">
-      <div class="card-header bg-primary text-white">
-        <h5>📊 Числовой пример — чайка взлетает, замедляясь</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$x$</th><th>$y = \\cos(x)$</th><th>$y' = -\\sin(x)$</th><th>$y'' = -\\cos(x)$</th><th>Образ</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-info">
-                <td>$3\\pi/2$</th><th>$0$</th><th>$1$</th><th>$0$</th><th>🌊 У поверхности, начинает взлёт</th>
-              </tr>
-              <tr class="table-success">
-                <td>$5\\pi/3$</th><th>$0.5$</th><th>$0.87$</th><th>$-0.5$</th><th>🚀 Взлетает, скорость 0.87</th>
-              </tr>
-              <tr class="table-success">
-                <td>$7\\pi/4$</th><th>$0.71$</th><th>$0.71$</th><th>$-0.71$</th><th>🐢 Замедляется</th>
-              </tr>
-              <tr class="table-success">
-                <td>$11\\pi/6$</th><th>$0.87$</th><th>$0.5$</th><th>$-0.87$</th><th>🐢 Почти у пика</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mt-2 border-warning">
-      <div class="card-header bg-warning text-dark">
-        <h5>✅ Правильный ответ: $y' > 0$, $y'' < 0$</h5>
-      </div>
-    </div>
   </div>
 </div>`
 },
 
 
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "functiongraph004",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 4",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x / 2),
+    "choices": [
+      "$y = \\tan(x)$ (Тангенс)",
+      "$y = a^x$ (Показательная функция)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = mx + b$ (Линейная функция)",
+      "$y = \\log(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = a^x$ (Показательная функция)"],
+    "hint": "Показательная функция быстро растет (или убывает) и никогда не принимает отрицательных значений."
+  },
+
+
+
+  {
+    "id": "functiongraph005",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 5",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "logarithmic",
+    "func": (x) => x > 0 ? Math.log(x) : -10,
+    "choices": [
+      "$y = \\cos(x)$ (Косинусоидальная функция)",
+      "$y = x^3$ (Кубическая функция)",
+      "$y = \\log_a(x)$ (Логарифмическая функция)",
+      "$y = \\frac{1}{x}$ (Гипербола)",
+      "$y = \\sqrt{x}$ (Квадратный корень)"
+    ],
+    "answers": ["$y = \\log_a(x)$ (Логарифмическая функция)"],
+    "hint": "Логарифмическая функция определена только для x > 0 и медленно возрастает."
+  },
+  {
+    "id": "functiongraph006",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 6",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "cubic",
+    "func": (x) => (x * x * x) / 5,
+    "choices": [
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = x^3$ (Кубическая функция)",
+      "$y = \\sin(x)$ (Тригонометрическая функция)",
+      "$y = e^x$ (Показательная функция)",
+      "$y = \\ln(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = x^3$ (Кубическая функция)"],
+    "hint": "Кубическая функция имеет вид y = ax³ + bx² + cx + d и может иметь точки перегиба."
+  },
+  {
+    "id": "functiongraph007",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 7",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y = |x|$ (Функция модуля)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = \\cos(x)$ (Тригонометрическая функция)",
+      "$y = \\log(x)$ (Логарифмическая функция)",
+      "$y = \\frac{1}{x}$ (Гипербола)"
+    ],
+    "answers": ["$y = |x|$ (Функция модуля)"],
+    "hint": "Функция модуля всегда возвращает неотрицательные значения и имеет характерный 'угол' в начале координат."
+  },
+  {
+    "id": "functiongraph008",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 8",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "cosine",
+    "func": (x) => 2 * Math.cos(x),
+    "choices": [
+      "$y = \\sin(x)$ (Синусоидальная функция)",
+      "$y = \\cos(x)$ (Косинусоидальная функция)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = e^x$ (Показательная функция)",
+      "$y = \\tan(x)$ (Тангенсоидальная функция)"
+    ],
+    "answers": ["$y = \\cos(x)$ (Косинусоидальная функция)"],
+    "hint": "Косинусоидальная функция является периодической и начинается с максимального значения при x = 0."
+  },
 
 
 
@@ -6695,7 +4530,500 @@ let quizesSets = [
 ,
 
  
+{
+    "id": "fractions001",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сложение дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{1}{2} + \\frac{1}{3}$$",
+    "choices": [
+      "$\\frac{2}{5}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{3}{5}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answers": ["$\\frac{5}{6}$"],
+    "hint": "<p>Находим общий знаменатель 6.</p>$$\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$$"
+  },
+  {
+    "id": "fractions002",
+    "type": "multiplechoices",
+    "header": "Дроби 3",
+    "title": "Вычитание дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{3}{4} - \\frac{1}{2}$$",
+    "choices": [
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{4}$",
+      "$\\frac{1}{8}$",
+      "$\\frac{3}{8}$"
+    ],
+    "answers": ["$\\frac{1}{4}$"],
+    "hint": "<p>Приводим к общему знаменателю 4.</p>$$\\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4}$$"
+  },
+  {
+    "id": "fractions003",
+    "type": "multiplechoices",
+    "header": "Дроби 4",
+    "title": "Умножение дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} \\times \\frac{3}{4}$$",
+    "choices": [
+      "$\\frac{6}{12}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{7}$",
+      "$\\frac{2}{4}$",
+      "$\\frac{3}{6}$"
+    ],
+    "answers": ["$\\frac{1}{2}$"],
+    "hint": "<p>Умножаем числители и знаменатели.</p>$$\\frac{2}{3} \\times \\frac{3}{4} = \\frac{6}{12} = \\frac{1}{2}$$"
+  },
+  {
+    "id": "fractions004",
+    "type": "multiplechoices",
+    "header": "Дроби 5",
+    "title": "Деление дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} \\div \\frac{4}{5}$$",
+    "choices": [
+      "$\\frac{8}{15}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{6}{8}$",
+      "$\\frac{10}{12}$",
+      "$\\frac{4}{7}$"
+    ],
+    "answers": ["$\\frac{5}{6}$"],
+    "hint": "<p>Деление заменяем умножением на обратную дробь.</p>$$\\frac{2}{3} \\div \\frac{4}{5} = \\frac{2}{3} \\times \\frac{5}{4} = \\frac{10}{12} = \\frac{5}{6}$$"
+  },
 
+ {
+    "id": "fractions006",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Раскрытие скобок",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{1}{2}(x + 4)$$",
+    "choices": [
+      "$\\frac{x}{2} + 2$",
+      "$\\frac{x}{2} + 4$",
+      "$\\frac{x + 4}{2}$",
+      "$2x + 2$",
+      "$\\frac{1}{2}x + \\frac{1}{2}$"
+    ],
+    "answers": ["$\\frac{x}{2} + 2$"],
+    "hint": "<p>Умножаем каждое слагаемое в скобках на дробь.</p>$$\\frac{1}{2}(x + 4) = \\frac{1}{2}x + \\frac{1}{2} \\times 4 = \\frac{x}{2} + 2$$"
+  },
+  {
+    "id": "fractions007",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вынесение за скобки",
+    "theme": "Дроби",
+    "text": "Вынесите общий множитель: $$\\frac{x}{3} + \\frac{2}{3}$$",
+    "choices": [
+      "$\\frac{1}{3}(x + 2)$",
+      "$\\frac{x + 2}{3}$",
+      "$3(x + 2)$",
+      "$\\frac{1}{3}x + 2$",
+      "$x + \\frac{2}{3}$"
+    ],
+    "answers": ["$\\frac{1}{3}(x + 2)$"],
+    "hint": "<p>Выносим общий множитель $\\frac{1}{3}$.</p>$$\\frac{x}{3} + \\frac{2}{3} = \\frac{1}{3}(x + 2)$$"
+  },
+  {
+    "id": "fractions008",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сложение дробей 2",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{5} + \\frac{1}{10}$$",
+    "choices": [
+      "$\\frac{3}{15}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{10}$",
+      "$\\frac{5}{10}$",
+      "$\\frac{4}{10}$"
+    ],
+    "answers": ["$\\frac{1}{2}$"],
+    "hint": "<p>Приводим к общему знаменателю 10.</p>$$\\frac{2}{5} + \\frac{1}{10} = \\frac{4}{10} + \\frac{1}{10} = \\frac{5}{10} = \\frac{1}{2}$$"
+  },
+  {
+    "id": "fractions009",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вычитание дробей 2",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{5}{6} - \\frac{1}{3}$$",
+    "choices": [
+      "$\\frac{4}{3}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{6}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{4}{6}$"
+    ],
+    "answers": ["$\\frac{1}{2}$"],
+    "hint": "<p>Приводим к общему знаменателю 6.</p>$$\\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$$"
+  },
+  {
+    "id": "fractions010",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Упрощение выражения",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{3}{4}a + \\frac{1}{2}a$$",
+    "choices": [
+      "$\\frac{5}{4}a$",
+      "$\\frac{4}{6}a$",
+      "$\\frac{2}{3}a$",
+      "$\\frac{7}{4}a$",
+      "$a$"
+    ],
+    "answers": ["$\\frac{5}{4}a$"],
+    "hint": "<p>Приводим дроби к общему знаменателю 4.</p>$$\\frac{3}{4}a + \\frac{2}{4}a = \\frac{5}{4}a$$"
+  },
+  {
+    "id": "fractions011",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Раскрытие двойных скобок",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{1}{2}(2x + 4) + \\frac{1}{3}(3x + 6)$$",
+    "choices": [
+      "$2x + 4$",
+      "$3x + 4$",
+      "$x + 2$",
+      "$2x + 2$",
+      "$3x + 6$"
+    ],
+    "answers": ["$2x + 4$"],
+    "hint": "<p>Раскрываем обе скобки.</p>$$\\frac{1}{2}(2x + 4) = x + 2$$$$\\frac{1}{3}(3x + 6) = x + 2$$$$(x + 2) + (x + 2) = 2x + 4$$"
+  },
+  {
+    "id": "fractions012",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сложение смешанных чисел",
+    "theme": "Дроби",
+    "text": "Вычислите: $$1\\frac{1}{2} + 2\\frac{1}{4}$$",
+    "choices": [
+      "$3\\frac{3}{4}$",
+      "$3\\frac{1}{2}$",
+      "$3\\frac{2}{6}$",
+      "$4$",
+      "$3\\frac{1}{4}$"
+    ],
+    "answers": ["$3\\frac{3}{4}$"],
+    "hint": "<p>Складываем отдельно целые и дробные части.</p>$$1\\frac{1}{2} + 2\\frac{1}{4} = 3 + \\frac{2}{4} + \\frac{1}{4} = 3\\frac{3}{4}$$"
+  },
+  {
+    "id": "fractions013",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Умножение на целое число",
+    "theme": "Дроби",
+    "text": "Вычислите: $$3 \\times \\frac{2}{5}$$",
+    "choices": [
+      "$\\frac{6}{5}$",
+      "$\\frac{2}{15}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{3}{10}$",
+      "$\\frac{1}{5}$"
+    ],
+    "answers": ["$\\frac{6}{5}$"],
+    "hint": "<p>Умножаем числитель на целое число.</p>$$3 \\times \\frac{2}{5} = \\frac{3 \\times 2}{5} = \\frac{6}{5}$$"
+  },
+  {
+    "id": "fractions014",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Деление на дробь",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{3}{4} \\div \\frac{1}{2}$$",
+    "choices": [
+      "$\\frac{3}{2}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{8}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{6}$"
+    ],
+    "answers": ["$\\frac{3}{2}$"],
+    "hint": "<p>Умножаем на обратную дробь.</p>$$\\frac{3}{4} \\div \\frac{1}{2} = \\frac{3}{4} \\times \\frac{2}{1} = \\frac{6}{4} = \\frac{3}{2}$$"
+  },
+  {
+    "id": "fractions015",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вынесение общего множителя",
+    "theme": "Дроби",
+    "text": "Вынесите общий множитель: $$\\frac{2x}{5} + \\frac{4}{5}$$",
+    "choices": [
+      "$\\frac{2}{5}(x + 2)$",
+      "$\\frac{1}{5}(2x + 4)$",
+      "$\\frac{2x + 4}{5}$",
+      "$\\frac{2}{5}x + 4$",
+      "$x + \\frac{4}{5}$"
+    ],
+    "answers": ["$\\frac{2}{5}(x + 2)$"],
+    "hint": "<p>Выносим общий множитель $\\frac{2}{5}$.</p>$$\\frac{2x}{5} + \\frac{4}{5} = \\frac{2}{5}(x + 2)$$"
+  },
+  {
+    "id": "fractions016",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сокращение дроби",
+    "theme": "Дроби",
+    "text": "Сократите дробь: $$\\frac{8}{12}$$",
+    "choices": [
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{6}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{6}{8}$"
+    ],
+    "answers": ["$\\frac{2}{3}$"],
+    "hint": "<p>Делим числитель и знаменатель на 4.</p>$$\\frac{8}{12} = \\frac{8 \\div 4}{12 \\div 4} = \\frac{2}{3}$$"
+  },
+  {
+    "id": "fractions017",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сложение трех дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{1}{4} + \\frac{1}{2} + \\frac{1}{8}$$",
+    "choices": [
+      "$\\frac{7}{8}$",
+      "$\\frac{5}{8}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{4}{6}$",
+      "$\\frac{6}{8}$"
+    ],
+    "answers": ["$\\frac{7}{8}$"],
+    "hint": "<p>Приводим к общему знаменателю 8.</p>$$\\frac{1}{4} + \\frac{1}{2} + \\frac{1}{8} = \\frac{2}{8} + \\frac{4}{8} + \\frac{1}{8} = \\frac{7}{8}$$"
+  },
+  {
+    "id": "fractions018",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Упрощение сложного выражения",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{1}{2}x + \\frac{1}{4}x - \\frac{1}{8}x$$",
+    "choices": [
+      "$\\frac{5}{8}x$",
+      "$\\frac{3}{4}x$",
+      "$\\frac{7}{8}x$",
+      "$\\frac{1}{2}x$",
+      "$\\frac{2}{3}x$"
+    ],
+    "answers": ["$\\frac{5}{8}x$"],
+    "hint": "<p>Приводим к общему знаменателю 8.</p>$$\\frac{4}{8}x + \\frac{2}{8}x - \\frac{1}{8}x = \\frac{5}{8}x$$"
+  },
+  {
+    "id": "fractions019",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Раскрытие скобок с дробями",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{2}{3}(x + 6)$$",
+    "choices": [
+      "$\\frac{2}{3}x + 4$",
+      "$\\frac{2}{3}x + 6$",
+      "$\\frac{2x + 6}{3}$",
+      "$\\frac{2}{3}x + 2$",
+      "$x + 4$"
+    ],
+    "answers": ["$\\frac{2}{3}x + 4$"],
+    "hint": "<p>Умножаем каждое слагаемое на дробь.</p>$$\\frac{2}{3}(x + 6) = \\frac{2}{3}x + \\frac{2}{3} \\times 6 = \\frac{2}{3}x + 4$$"
+  },
+  {
+    "id": "fractions020",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вычитание смешанных чисел",
+    "theme": "Дроби",
+    "text": "Вычислите: $$3\\frac{1}{2} - 1\\frac{1}{4}$$",
+    "choices": [
+      "$2\\frac{1}{4}$",
+      "$2\\frac{1}{2}$",
+      "$2\\frac{3}{4}$",
+      "$1\\frac{3}{4}$",
+      "$1\\frac{1}{4}$"
+    ],
+    "answers": ["$2\\frac{1}{4}$"],
+    "hint": "<p>Вычитаем отдельно целые и дробные части.</p>$$3\\frac{1}{2} - 1\\frac{1}{4} = 2 + \\frac{2}{4} - \\frac{1}{4} = 2\\frac{1}{4}$$"
+  },
+  {
+    "id": "fractions021",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Умножение смешанных чисел",
+    "theme": "Дроби",
+    "text": "Вычислите: $$1\\frac{1}{2} \\times 2\\frac{2}{3}$$",
+    "choices": [
+      "$4$",
+      "$3\\frac{2}{3}$",
+      "$4\\frac{1}{3}$",
+      "$3\\frac{1}{2}$",
+      "$4\\frac{1}{2}$"
+    ],
+    "answers": ["$4$"],
+    "hint": "<p>Переводим в неправильные дроби и умножаем.</p>$$1\\frac{1}{2} = \\frac{3}{2}, 2\\frac{2}{3} = \\frac{8}{3}$$$$\\frac{3}{2} \\times \\frac{8}{3} = \\frac{24}{6} = 4$$"
+  },
+  {
+    "id": "fractions022",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Деление смешанных чисел",
+    "theme": "Дроби",
+    "text": "Вычислите: $$2\\frac{1}{2} \\div 1\\frac{1}{4}$$",
+    "choices": [
+      "$2$",
+      "$1\\frac{1}{2}$",
+      "$2\\frac{1}{4}$",
+      "$1\\frac{3}{4}$",
+      "$2\\frac{1}{2}$"
+    ],
+    "answers": ["$2$"],
+    "hint": "<p>Переводим в неправильные дроби и делим.</p>$$2\\frac{1}{2} = \\frac{5}{2}, 1\\frac{1}{4} = \\frac{5}{4}$$$$\\frac{5}{2} \\div \\frac{5}{4} = \\frac{5}{2} \\times \\frac{4}{5} = 2$$"
+  },
+  {
+    "id": "fractions023",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сложение с разными знаменателями",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} + \\frac{3}{5}$$",
+    "choices": [
+      "$\\frac{19}{15}$",
+      "$\\frac{5}{8}$",
+      "$\\frac{6}{15}$",
+      "$\\frac{10}{15}$",
+      "$\\frac{13}{15}$"
+    ],
+    "answers": ["$\\frac{19}{15}$"],
+    "hint": "<p>Общий знаменатель 15.</p>$$\\frac{2}{3} + \\frac{3}{5} = \\frac{10}{15} + \\frac{9}{15} = \\frac{19}{15}$$"
+  },
+  {
+    "id": "fractions024",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вычитание с разными знаменателями",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{7}{8} - \\frac{2}{3}$$",
+    "choices": [
+      "$\\frac{5}{24}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{3}{5}$",
+      "$\\frac{5}{12}$",
+      "$\\frac{7}{24}$"
+    ],
+    "answers": ["$\\frac{5}{24}$"],
+    "hint": "<p>Общий знаменатель 24.</p>$$\\frac{7}{8} - \\frac{2}{3} = \\frac{21}{24} - \\frac{16}{24} = \\frac{5}{24}$$"
+  },
+  {
+    "id": "fractions025",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Упрощение выражения со скобками",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{1}{4}(8x + 12) - \\frac{1}{2}(2x + 4)$$",
+    "choices": [
+      "$x + 1$",
+      "$2x + 3$",
+      "$x + 2$",
+      "$2x + 1$",
+      "$x + 3$"
+    ],
+    "answers": ["$x + 1$"],
+    "hint": "<p>Раскрываем обе скобки и вычитаем.</p>$$\\frac{1}{4}(8x + 12) = 2x + 3$$$$\\frac{1}{2}(2x + 4) = x + 2$$$$(2x + 3) - (x + 2) = x + 1$$"
+  },
+  {
+    "id": "fractions026",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вынесение общего знаменателя",
+    "theme": "Дроби",
+    "text": "Вынесите общий множитель: $$\\frac{3a}{4} + \\frac{5a}{4} - \\frac{a}{4}$$",
+    "choices": [
+      "$\\frac{7}{4}a$",
+      "$\\frac{3}{4}a$",
+      "$\\frac{5}{4}a$",
+      "$\\frac{9}{4}a$",
+      "$\\frac{1}{4}a$"
+    ],
+    "answers": ["$\\frac{7}{4}a$"],
+    "hint": "<p>Все дроби имеют общий знаменатель 4.</p>$$\\frac{3a}{4} + \\frac{5a}{4} - \\frac{a}{4} = \\frac{7a}{4} = \\frac{7}{4}a$$"
+  },
+  {
+    "id": "fractions027",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Сокращение сложной дроби",
+    "theme": "Дроби",
+    "text": "Сократите: $$\\frac{15}{25}$$",
+    "choices": [
+      "$\\frac{3}{5}$",
+      "$\\frac{5}{8}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{5}$",
+      "$\\frac{6}{10}$"
+    ],
+    "answers": ["$\\frac{3}{5}$"],
+    "hint": "<p>Делим числитель и знаменатель на 5.</p>$$\\frac{15}{25} = \\frac{15 \\div 5}{25 \\div 5} = \\frac{3}{5}$$"
+  },
+  {
+    "id": "fractions028",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Умножение трех дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5}$$",
+    "choices": [
+      "$\\frac{2}{5}$",
+      "$\\frac{3}{5}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{4}{5}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answers": ["$\\frac{2}{5}$"],
+    "hint": "<p>Последовательно умножаем дроби.</p>$$\\frac{2}{3} \\times \\frac{3}{4} \\times \\frac{4}{5} = \\frac{24}{60} = \\frac{2}{5}$$"
+  },
+  {
+    "id": "fractions029",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Деление на целое число",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{3}{4} \\div 2$$",
+    "choices": [
+      "$\\frac{3}{8}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{6}$",
+      "$\\frac{1}{4}$"
+    ],
+    "answers": ["$\\frac{3}{8}$"],
+    "hint": "<p>Деление на число - это умножение на обратную дробь.</p>$$\\frac{3}{4} \\div 2 = \\frac{3}{4} \\times \\frac{1}{2} = \\frac{3}{8}$$"
+  },
+  {
+    "id": "fractions030",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Комбинированное выражение",
+    "theme": "Дроби",
+    "text": "Упростите: $$\\frac{1}{2}(4x + 6) + \\frac{1}{3}(3x + 9)$$",
+    "choices": [
+      "$3x + 6$",
+      "$2x + 5$",
+      "$4x + 7$",
+      "$3x + 5$",
+      "$2x + 6$"
+    ],
+    "answers": ["$3x + 6$"],
+    "hint": "<p>Раскрываем обе скобки и складываем.</p>$$\\frac{1}{2}(4x + 6) = 2x + 3$$$$\\frac{1}{3}(3x + 9) = x + 3$$$$(2x + 3) + (x + 3) = 3x + 6$$"
+  },
 
   {
   "id": "powers001",
