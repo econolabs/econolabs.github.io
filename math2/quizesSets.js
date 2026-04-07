@@ -9405,7 +9405,7 @@ let quizesSets = [
   "answer": "{var1-10}",
   "randomfrom": [2, 3, 4, 5, 8, 10, 20],
   "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
-}
+},
 
 {
   "id": "regression_slope_mental_002",
@@ -9441,7 +9441,7 @@ let quizesSets = [
   "answer": "{var1-10}",
   "randomfrom": [2, 3, 4, 5, 8, 10, 20],
   "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
-}
+},
 
 {
   "id": "regression_find_x_mental_005",
@@ -9464,7 +9464,7 @@ let quizesSets = [
   "answer": "{var1-10}",
   "randomfrom": [2, 3, 4, 5, 8, 10, 20],
   "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{var1-10} - 0}{1 - 0} = {var1-10}$$<br>$$b = y_1 - k \\cdot x_1 = 0 - {var1-10} \\cdot 0 = 0$$<br>$$k + b = {var1-10} + 0 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k + b = {var1-10}$</div></div></div>"
-}
+},
 
 
   {

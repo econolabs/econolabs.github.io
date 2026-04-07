@@ -7,6 +7,8 @@
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="../dist/original.css" />
 
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <script src="./quizesSets.js"></script>
 pt>
@@ -1498,8 +1500,32 @@ Z-оценка для значения 75:
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js" 
-    onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });">
+      <script>
+  function renderMath() {
+    if (typeof renderMathInElement !== 'undefined') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ]
+      });
+    }
+  }
+
+  // Initial render
+  renderMath();
+
+  // Set up MutationObserver to re-render when DOM changes
+  const observer = new MutationObserver(function(mutations) {
+    renderMath();
+  });
+
+  // Start observing DOM changes
+  observer.observe(document.body, {
+    childList: true,    // watch for added/removed nodes
+    subtree: true,      // watch all descendants
+    characterData: true // watch text content changes
+  });
 </script>
 
     <script type="module" src="./quizcardwithstorage.js"></script>
