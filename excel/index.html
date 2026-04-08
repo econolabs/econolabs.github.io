@@ -11,7 +11,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <script src="./quizesSets.js"></script>
-pt>
+
+
+    <link rel="stylesheet" href="../dist/katex.min.css" />
+
+    <script src="../dist/katex.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <!-- 1. Include JSXGraph CSS and JS via CDN 
+
+    <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css" />
+
+-->
+  
+
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/rtk-query.umd.min.js"></script>
+
+    <script src="./quizesSets.js"></script>
+
+ 
+
 
     <style>
       .fade-in-div {
@@ -1500,34 +1522,9 @@ Z-оценка для значения 75:
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-      <script>
-  function renderMath() {
-    if (typeof renderMathInElement !== 'undefined') {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false}
-        ]
-      });
-    }
-  }
 
-  // Initial render
-  renderMath();
 
-  // Set up MutationObserver to re-render when DOM changes
-  const observer = new MutationObserver(function(mutations) {
-    renderMath();
-  });
-
-  // Start observing DOM changes
-  observer.observe(document.body, {
-    childList: true,    // watch for added/removed nodes
-    subtree: true,      // watch all descendants
-    characterData: true // watch text content changes
-  });
-</script>
-
-    <script type="module" src="./quizcardwithstorage.js"></script>
+      <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
