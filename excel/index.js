@@ -900,7 +900,7 @@ function doSaveQuiz(answer, type, content, quizString) {
             store.dispatch(applicationSlice.actions.addCorrectQuiz(identifyQuiz(title, text)));
             $("#answerButton").classList.toggle("btn-outline-primary");
             $("#answerButton").classList.toggle("btn-success");
-            if (!!quiz?.hint) {
+            if ((typeof hint === 'string') && hint.length > 0) {
                 setMathInnerHTML($("#quizHint"), hint).catch(console.error)
             }
             //  $("#quizHint").innerHTML = hint;
@@ -1033,17 +1033,17 @@ function handleCheckQuiz(e) {
     }
 }
 
-function doCheck(value) { store.dispatch(setSelectedOption(value)) }
+function doCheck(value) { store.dispatch(applicationSlice.actions.setSelectedOption(value)) }
 
 function doToggleCheck(value) {
     let selectedoptions = store.getState().application.selectedoptions.map(item => item);
     const index = selectedoptions.indexOf(value);
     if (index > -1) {
         selectedoptions.splice(index, 1);
-        store.dispatch(setSelectedOptions(selectedoptions))
+        store.dispatch(applicationSlice.actions.setSelectedOptions(selectedoptions))
     }
     else {
-        store.dispatch(setSelectedOptions([...selectedoptions, value]))
+        store.dispatch(applicationSlice.actions.setSelectedOptions([...selectedoptions, value]))
     }
 }
 

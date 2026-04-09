@@ -1,6 +1,11 @@
 let quizesSets = [
 
-    {
+
+
+
+
+
+  {
     "id": "functiongraph001",
     "type": "multiplechoices",
     "header": "Анализ графиков функций",
@@ -22,7 +27,7 @@ let quizesSets = [
   },
 
 
-{
+  {
     "id": "functiongraph00101",
     "type": "multiplechoices",
     "header": "Анализ графиков функций",
@@ -43,7 +48,7 @@ let quizesSets = [
     "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
   },
 
-   {
+  {
     "id": "functiongraph002",
     "type": "multiplechoices",
     "header": "Анализ графиков функций",
@@ -186,23 +191,23 @@ let quizesSets = [
 
 
   {
-  "id": "derivative_analysis_001",
-  "type": "multiplechoices",
-  "header": "Связь производных и поведения функции",
-  "title": "Анализ производных линейной функции",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Дана функция $y = 2x + 1$ (график — прямая линия).",
-  "functionType": "linear",
-  "func": (x) => 2 * x + 1,
-  "choices": [
-    "$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)",
-    "$y' > 0$ (функция возрастает), $y'' > 0$ (график вогнут вверх)",
-    "$y' < 0$ (функция убывает), $y'' = 0$ (нет перегиба, прямая)",
-    "$y' = 0$ (функция постоянна), $y'' = 0$ (горизонтальная прямая)"
-  ],
-  "answers": ["$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)"],
-  "hint": `
+    "id": "derivative_analysis_001",
+    "type": "multiplechoices",
+    "header": "Связь производных и поведения функции",
+    "title": "Анализ производных линейной функции",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Дана функция $y = 2x + 1$ (график — прямая линия).",
+    "functionType": "linear",
+    "func": (x) => 2 * x + 1,
+    "choices": [
+      "$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)",
+      "$y' > 0$ (функция возрастает), $y'' > 0$ (график вогнут вверх)",
+      "$y' < 0$ (функция убывает), $y'' = 0$ (нет перегиба, прямая)",
+      "$y' = 0$ (функция постоянна), $y'' = 0$ (горизонтальная прямая)"
+    ],
+    "answers": ["$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Анализ производных линейной функции $y = 2x + 1$</h5>
@@ -249,24 +254,24 @@ let quizesSets = [
   },
 
   {
-  "id": "derivative_quadratic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных квадратичной функции",
-  "title": "Знаки производных y = x² на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^2$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "quadratic",
-  "func": (x) => x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+    "id": "derivative_quadratic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных квадратичной функции",
+    "title": "Знаки производных y = x² на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^2$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "quadratic",
+    "func": (x) => x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = x^2$ на интервале $x > 0$</h5>
@@ -410,27 +415,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_analysis_quadratic_001",
-  "type": "multiplechoices",
-  "header": "Анализ производных квадратичной функции",
-  "title": "Определение поведения функции по знакам производных",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Дана функция $y = x^2$ (парабола, ветви вверх). Выберите верное описание знаков первой и второй производной на интервалах $x < 0$ и $x > 0$:",
-  "functionType": "quadratic",
-  "func": (x) => x * x,
-  "choices": [
-    "При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$",
-    "При $x < 0$: $y' > 0$, $y'' > 0$; при $x > 0$: $y' < 0$, $y'' > 0$",
-    "При $x < 0$: $y' < 0$, $y'' < 0$; при $x > 0$: $y' > 0$, $y'' < 0$",
-    "При $x < 0$: $y' > 0$, $y'' < 0$; при $x > 0$: $y' < 0$, $y'' < 0$",
-    "При $x < 0$: $y' = 0$, $y'' = 0$; при $x > 0$: $y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_analysis_quadratic_001",
+    "type": "multiplechoices",
+    "header": "Анализ производных квадратичной функции",
+    "title": "Определение поведения функции по знакам производных",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Дана функция $y = x^2$ (парабола, ветви вверх). Выберите верное описание знаков первой и второй производной на интервалах $x < 0$ и $x > 0$:",
+    "functionType": "quadratic",
+    "func": (x) => x * x,
+    "choices": [
+      "При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$",
+      "При $x < 0$: $y' > 0$, $y'' > 0$; при $x > 0$: $y' < 0$, $y'' > 0$",
+      "При $x < 0$: $y' < 0$, $y'' < 0$; при $x > 0$: $y' > 0$, $y'' < 0$",
+      "При $x < 0$: $y' > 0$, $y'' < 0$; при $x > 0$: $y' < 0$, $y'' < 0$",
+      "При $x < 0$: $y' = 0$, $y'' = 0$; при $x > 0$: $y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных квадратичной функции $y = x^2$</h5>
@@ -601,28 +606,28 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
 
-{
-  "id": "derivative_absolute_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных функции модуля",
-  "title": "Знаки производных y = |x| на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = |x|$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "absolute",
-  "func": (x) => Math.abs(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' = 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' = 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' = 0$"],
-  "hint": `
+  {
+    "id": "derivative_absolute_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных функции модуля",
+    "title": "Знаки производных y = |x| на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = |x|$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' = 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' = 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' = 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = |x|$ на интервале $x > 0$</h5>
@@ -764,27 +769,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_absolute_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных функции модуля",
-  "title": "Знаки производных y = |x| на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = |x|$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "absolute",
-  "func": (x) => Math.abs(x),
-  "choices": [
-    "$y' > 0$, $y'' = 0$",
-    "$y' < 0$, $y'' = 0$",
-    "$y' > 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' = 0$"],
-  "hint": `
+  {
+    "id": "derivative_absolute_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных функции модуля",
+    "title": "Знаки производных y = |x| на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = |x|$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y' > 0$, $y'' = 0$",
+      "$y' < 0$, $y'' = 0$",
+      "$y' > 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' = 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = |x|$ на интервале $x < 0$</h5>
@@ -939,27 +944,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cubic_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных кубической функции",
-  "title": "Знаки производных y = x³ на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^3$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "cubic",
-  "func": (x) => x * x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_cubic_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных кубической функции",
+    "title": "Знаки производных y = x³ на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^3$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "cubic",
+    "func": (x) => x * x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🧜‍♀️ Анализ производных $y = x^3$ на интервале $x < 0$</h5>
@@ -1100,27 +1105,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cubic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных кубической функции",
-  "title": "Знаки производных y = x³ на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = x^3$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "cubic",
-  "func": (x) => x * x * x,
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_cubic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных кубической функции",
+    "title": "Знаки производных y = x³ на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^3$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "cubic",
+    "func": (x) => x * x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = x^3$ на интервале $x > 0$</h5>
@@ -1261,27 +1266,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_logarithmic_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных логарифмической функции",
-  "title": "Знаки производных y = ln(x) на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\ln(x)$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "logarithmic",
-  "func": (x) => Math.log(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_logarithmic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных логарифмической функции",
+    "title": "Знаки производных y = ln(x) на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\ln(x)$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "logarithmic",
+    "func": (x) => Math.log(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = \\ln(x)$ на интервале $x > 0$</h5>
@@ -1449,27 +1454,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_logarithmic_comparison",
-  "type": "multiplechoices",
-  "header": "Сравнение скорости роста логарифма",
-  "title": "Скорость роста y = ln(x) на разных интервалах",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\ln(x)$ сравните значения первой производной $y'$ на интервалах $(0, 1)$ и $(1, +\\infty)$. Какое утверждение верно?",
-  "functionType": "logarithmic",
-  "func": (x) => Math.log(x),
-  "choices": [
-    "$y'$ больше на интервале $(0, 1)$",
-    "$y'$ больше на интервале $(1, +\\infty)$",
-    "$y'$ одинакова на обоих интервалах",
-    "$y'$ отрицательна на $(0, 1)$ и положительна на $(1, +\\infty)$",
-    "$y' = 0$ на обоих интервалах"
-  ],
-  "answers": ["$y'$ больше на интервале $(0, 1)$"],
-  "hint": `
+  {
+    "id": "derivative_logarithmic_comparison",
+    "type": "multiplechoices",
+    "header": "Сравнение скорости роста логарифма",
+    "title": "Скорость роста y = ln(x) на разных интервалах",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\ln(x)$ сравните значения первой производной $y'$ на интервалах $(0, 1)$ и $(1, +\\infty)$. Какое утверждение верно?",
+    "functionType": "logarithmic",
+    "func": (x) => Math.log(x),
+    "choices": [
+      "$y'$ больше на интервале $(0, 1)$",
+      "$y'$ больше на интервале $(1, +\\infty)$",
+      "$y'$ одинакова на обоих интервалах",
+      "$y'$ отрицательна на $(0, 1)$ и положительна на $(1, +\\infty)$",
+      "$y' = 0$ на обоих интервалах"
+    ],
+    "answers": ["$y'$ больше на интервале $(0, 1)$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Сравнение скорости роста $y = \\ln(x)$</h5>
@@ -1597,27 +1602,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_exponential_x_negative",
-  "type": "multiplechoices",
-  "header": "Анализ производных экспоненциальной функции",
-  "title": "Знаки производных y = e^x на интервале x < 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ на интервале $x < 0$ определите знаки первой и второй производных:",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_exponential_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных экспоненциальной функции",
+    "title": "Знаки производных y = e^x на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = e^x$ на интервале $x < 0$</h5>
@@ -1738,27 +1743,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_exponential_x_positive",
-  "type": "multiplechoices",
-  "header": "Анализ производных экспоненциальной функции",
-  "title": "Знаки производных y = e^x на интервале x > 0",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ на интервале $x > 0$ определите знаки первой и второй производных:",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_exponential_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных экспоненциальной функции",
+    "title": "Знаки производных y = e^x на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ производных $y = e^x$ на интервале $x > 0$</h5>
@@ -1877,27 +1882,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_exponential_comparison",
-  "type": "multiplechoices",
-  "header": "Сравнение скорости роста экспоненты",
-  "title": "Скорость роста y = e^x на разных интервалах",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = e^x$ сравните значения первой производной $y'$ на интервалах $(-\\infty, 0)$ и $(0, +\\infty)$. Какое утверждение верно?",
-  "functionType": "exponential",
-  "func": (x) => Math.exp(x),
-  "choices": [
-    "$y'$ больше на интервале $(-\\infty, 0)$",
-    "$y'$ больше на интервале $(0, +\\infty)$",
-    "$y'$ одинакова на обоих интервалах",
-    "$y'$ отрицательна на $(-\\infty, 0)$ и положительна на $(0, +\\infty)$",
-    "$y' = 0$ на обоих интервалах"
-  ],
-  "answers": ["$y'$ больше на интервале $(0, +\\infty)$"],
-  "hint": `
+  {
+    "id": "derivative_exponential_comparison",
+    "type": "multiplechoices",
+    "header": "Сравнение скорости роста экспоненты",
+    "title": "Скорость роста y = e^x на разных интервалах",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ сравните значения первой производной $y'$ на интервалах $(-\\infty, 0)$ и $(0, +\\infty)$. Какое утверждение верно?",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y'$ больше на интервале $(-\\infty, 0)$",
+      "$y'$ больше на интервале $(0, +\\infty)$",
+      "$y'$ одинакова на обоих интервалах",
+      "$y'$ отрицательна на $(-\\infty, 0)$ и положительна на $(0, +\\infty)$",
+      "$y' = 0$ на обоих интервалах"
+    ],
+    "answers": ["$y'$ больше на интервале $(0, +\\infty)$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Сравнение скорости роста $y = e^x$</h5>
@@ -2024,27 +2029,27 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_sinus_interval_1",
-  "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (0, π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "sinus",
-  "func": (x) => Math.sin(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_sinus_interval_1",
+    "type": "multiplechoices",
+    "header": "Анализ производных синуса",
+    "title": "Знаки производных y = sin(x) на интервале (0, π/2)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
+    "functionType": "sinus",
+    "func": (x) => Math.sin(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ $y = \\sin(x)$ на $(0, \\frac{\\pi}{2})$</h5>
@@ -2141,27 +2146,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_sinus_interval_2",
-  "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (π/2, π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
-  "functionType": "sinus",
-  "func": (x) => Math.sin(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_sinus_interval_2",
+    "type": "multiplechoices",
+    "header": "Анализ производных синуса",
+    "title": "Знаки производных y = sin(x) на интервале (π/2, π)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
+    "functionType": "sinus",
+    "func": (x) => Math.sin(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ $y = \\sin(x)$ на $(\\frac{\\pi}{2}, \\pi)$</h5>
@@ -2248,27 +2253,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_sinus_interval_3",
-  "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (π, 3π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "sinus",
-  "func": (x) => Math.sin(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_sinus_interval_3",
+    "type": "multiplechoices",
+    "header": "Анализ производных синуса",
+    "title": "Знаки производных y = sin(x) на интервале (π, 3π/2)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
+    "functionType": "sinus",
+    "func": (x) => Math.sin(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🧜‍♀️ Анализ $y = \\sin(x)$ на $(\\pi, \\frac{3\\pi}{2})$</h5>
@@ -2355,27 +2360,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_sinus_interval_4",
-  "type": "multiplechoices",
-  "header": "Анализ производных синуса",
-  "title": "Знаки производных y = sin(x) на интервале (3π/2, 2π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
-  "functionType": "sinus",
-  "func": (x) => Math.sin(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_sinus_interval_4",
+    "type": "multiplechoices",
+    "header": "Анализ производных синуса",
+    "title": "Знаки производных y = sin(x) на интервале (3π/2, 2π)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\sin(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
+    "functionType": "sinus",
+    "func": (x) => Math.sin(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🧜‍♀️ Анализ $y = \\sin(x)$ на $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
@@ -2462,27 +2467,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cosine_interval_1",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (0, π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_cosine_interval_1",
+    "type": "multiplechoices",
+    "header": "Анализ производных косинуса",
+    "title": "Знаки производных y = cos(x) на интервале (0, π/2)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (0, \\frac{\\pi}{2})$ определите знаки первой и второй производных:",
+    "functionType": "cosine",
+    "func": (x) => Math.cos(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ $y = \\cos(x)$ на $(0, \\frac{\\pi}{2})$</h5>
@@ -2579,27 +2584,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cosine_interval_2",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (π/2, π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' < 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_cosine_interval_2",
+    "type": "multiplechoices",
+    "header": "Анализ производных косинуса",
+    "title": "Знаки производных y = cos(x) на интервале (π/2, π)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{\\pi}{2}, \\pi)$ определите знаки первой и второй производных:",
+    "functionType": "cosine",
+    "func": (x) => Math.cos(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🧜‍♀️ Анализ $y = \\cos(x)$ на $(\\frac{\\pi}{2}, \\pi)$</h5>
@@ -2686,27 +2691,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cosine_interval_3",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (π, 3π/2)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' > 0$"],
-  "hint": `
+  {
+    "id": "derivative_cosine_interval_3",
+    "type": "multiplechoices",
+    "header": "Анализ производных косинуса",
+    "title": "Знаки производных y = cos(x) на интервале (π, 3π/2)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\pi, \\frac{3\\pi}{2})$ определите знаки первой и второй производных:",
+    "functionType": "cosine",
+    "func": (x) => Math.cos(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🧜‍♀️ Анализ $y = \\cos(x)$ на $(\\pi, \\frac{3\\pi}{2})$</h5>
@@ -2793,27 +2798,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_cosine_interval_4",
-  "type": "multiplechoices",
-  "header": "Анализ производных косинуса",
-  "title": "Знаки производных y = cos(x) на интервале (3π/2, 2π)",
-  "theme": "Числа и производные",
-  "functionGraph": "true",
-  "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
-  "functionType": "cosine",
-  "func": (x) => Math.cos(x),
-  "choices": [
-    "$y' > 0$, $y'' > 0$",
-    "$y' > 0$, $y'' < 0$",
-    "$y' < 0$, $y'' > 0$",
-    "$y' < 0$, $y'' < 0$",
-    "$y' = 0$, $y'' = 0$"
-  ],
-  "answers": ["$y' > 0$, $y'' < 0$"],
-  "hint": `
+  {
+    "id": "derivative_cosine_interval_4",
+    "type": "multiplechoices",
+    "header": "Анализ производных косинуса",
+    "title": "Знаки производных y = cos(x) на интервале (3π/2, 2π)",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\cos(x)$ на интервале $x \\in (\\frac{3\\pi}{2}, 2\\pi)$ определите знаки первой и второй производных:",
+    "functionType": "cosine",
+    "func": (x) => Math.cos(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>🕊️ Анализ $y = \\cos(x)$ на $(\\frac{3\\pi}{2}, 2\\pi)$</h5>
@@ -2900,7 +2905,7 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
 
 
@@ -3220,7 +3225,7 @@ let quizesSets = [
 
 
 
-   {
+  {
     "id": "system001",
     "type": "multiplechoices",
     "header": "Системы линейных уравнений",
@@ -3421,7 +3426,7 @@ let quizesSets = [
     "hint": "Решаем систему: 0.5x + 2 = -3x + 8 ⇒ 3.5x = 6 ⇒ x = 2, подставляем: y = 0.5×2 + 2 = 3"
   },
 
-  
+
 
 
   {
@@ -3437,7 +3442,7 @@ let quizesSets = [
     "pointX": 0,
     "choices": [
       "Больше нуля",
-      "Меньше нуля", 
+      "Меньше нуля",
       "Равен нулю",
       "Не определена",
       "Бесконечность"
@@ -3528,7 +3533,7 @@ let quizesSets = [
     "title": "Производная функции y = 3x",
     "theme": "Производная функции y = 3x",
     "functionType": "linear_3x",
-    "func": (x) => 3*x,
+    "func": (x) => 3 * x,
     "text": "Чему равна производная функции $y = 3x$?",
     "choices": [
       "0",
@@ -3567,7 +3572,7 @@ let quizesSets = [
     "theme": "Производная функции y = 4x",
     "text": "Чему равна производная функции $y = 4x$?",
     "functionType": "linear_4x",
-    "func": (x) => 4*x,
+    "func": (x) => 4 * x,
     "choices": [
       "0",
       "1",
@@ -3606,7 +3611,7 @@ let quizesSets = [
     "theme": "Производная линейной функции",
     "text": "Чему равна производная функции $y = kx$, где $k$ — постоянная?",
     "functionType": "linear_4x",
-    "func": (x) => 4*x,
+    "func": (x) => 4 * x,
     "choices": [
       "0",
       "1",
@@ -3651,7 +3656,7 @@ let quizesSets = [
     "theme": "Производная функции y = x + 2x",
     "text": "Чему равна производная функции $y = x + 2x$?",
     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "func": (x) => 2 * x + x,
     "choices": [
       "1",
       "2",
@@ -3690,8 +3695,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Уравнение касательной к линейной функции",
     "theme": "Геометрический смысл производной",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Уравнение касательной к графику функции $y = 3x$ в точке $x_0 = 2$ имеет вид:",
     "choices": [
       "$y = 3x$",
@@ -3732,8 +3737,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Физический смысл производной для y = 4x",
     "theme": "Производная как скорость изменения",
-     "functionType": "linear_4x",
-    "func": (x) => 4*x,
+    "functionType": "linear_4x",
+    "func": (x) => 4 * x,
     "text": "Если $y = 4x$ описывает путь тела (в метрах) в зависимости от времени $x$ (в секундах), то скорость тела равна:",
     "choices": [
       "0 м/с",
@@ -3774,8 +3779,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная с использованием константы",
     "theme": "Производная функции y = C·x",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Если $y = Cx$, где $C$ — постоянное число, то $y' = $",
     "choices": [
       "0",
@@ -3818,8 +3823,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Сравнение производных линейных функций",
     "theme": "Производные функций y = x, 2x, 3x, 4x",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Какая из функций имеет наибольшую производную?",
     "choices": [
       "$y = x$",
@@ -3867,7 +3872,7 @@ let quizesSets = [
 </div>`
   },
 
-  
+
   {
     "id": "der2_001",
     "type": "multiplechoices",
@@ -3875,7 +3880,7 @@ let quizesSets = [
     "functionType": "linear_x",
     "func": (x) => x,
     "title": "Производная второго порядка функции y = x",
-    "theme": "Вторая производная функции y = x",    
+    "theme": "Вторая производная функции y = x",
     "text": "Чему равна вторая производная функции $y = x$?",
     "choices": [
       "0",
@@ -3911,8 +3916,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная второго порядка функции y = 2x",
     "theme": "Вторая производная функции y = 2x",
-     "functionType": "linear_2x",
-    "func": (x) => 2*x,
+    "functionType": "linear_2x",
+    "func": (x) => 2 * x,
     "text": "Чему равна вторая производная функции $y = 2x$?",
     "choices": [
       "0",
@@ -3950,8 +3955,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Производная второго порядка функции y = 3x",
     "theme": "Вторая производная функции y = 3x",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Чему равна вторая производная функции $y = 3x$?",
     "choices": [
       "0",
@@ -3990,8 +3995,8 @@ let quizesSets = [
     "title": "Производная второго порядка функции y = 4x",
     "theme": "Вторая производная функции y = 4x",
     "text": "Чему равна вторая производная функции $y = 4x$?",
-     "functionType": "linear_4x",
-    "func": (x) => 4*x,
+    "functionType": "linear_4x",
+    "func": (x) => 4 * x,
     "choices": [
       "0",
       "1",
@@ -4031,8 +4036,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Вторая производная функции y = kx (общий случай)",
     "theme": "Вторая производная линейной функции",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Чему равна вторая производная функции $y = kx$, где $k$ — постоянная?",
     "choices": [
       "0",
@@ -4078,8 +4083,8 @@ let quizesSets = [
     "header": "Дифференциальное исчисление",
     "title": "Физический смысл второй производной для y = 3x",
     "theme": "Ускорение при равномерном движении",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "text": "Если $y = 3x$ описывает путь тела в метрах в зависимости от времени $x$ в секундах, то ускорение тела равно:",
     "choices": [
       "0 м/с²",
@@ -4119,8 +4124,8 @@ let quizesSets = [
     "title": "Сравнение вторых производных",
     "theme": "Вторые производные функций y = x, 2x, 3x, 4x",
     "text": "Сравните вторые производные функций: $y = x$, $y = 2x$, $y = 3x$, $y = 4x$",
-     "functionType": "linear_3x",
-    "func": (x) => 2*x+x,
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
     "choices": [
       "Все вторые производные равны 0",
       "Вторая производная больше у функции с большим коэффициентом",
@@ -4160,15 +4165,15 @@ let quizesSets = [
 </div>`
   },
 
-{
-  "id": "integral001random1",
-  "type": "mathwithrandomnumber",
-  "header": "Математический анализ",
-  "title": "Интеграл линейной функции", 
-  "theme": "Интегралы",
-  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
-  "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
-  "hint": `
+  {
+    "id": "integral001random1",
+    "type": "mathwithrandomnumber",
+    "header": "Математический анализ",
+    "title": "Интеграл линейной функции",
+    "theme": "Интегралы",
+    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
+    "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫x dx</h5>
@@ -4207,18 +4212,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [0, 1, 2, 3, 4]
-},
+    "randomfrom": [0, 1, 2, 3, 4]
+  },
 
-{
-  "id": "integral002random3",
-  "type": "mathwithrandomnumber",
-  "header": "Математический анализ",
-  "title": "Интеграл линейной функции", 
-  "theme": "Интегралы",
-  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} \\, dx$$?",
-  "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 4)",
-  "hint": `
+  {
+    "id": "integral002random3",
+    "type": "mathwithrandomnumber",
+    "header": "Математический анализ",
+    "title": "Интеграл линейной функции",
+    "theme": "Интегралы",
+    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} \\, dx$$?",
+    "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 4)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫(x/2) dx</h5>
@@ -4257,18 +4262,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [0, 1, 2, 3, 4]
-},
+    "randomfrom": [0, 1, 2, 3, 4]
+  },
 
-{
-  "id": "integral004random4",
-  "type": "mathwithrandomnumber",
-  "header": "Математический анализ",
-  "title": "Интеграл константы", 
-  "theme": "Интегралы",
-  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx$$?",
-  "answer": "10 * 2",
-  "hint": `
+  {
+    "id": "integral004random4",
+    "type": "mathwithrandomnumber",
+    "header": "Математический анализ",
+    "title": "Интеграл константы",
+    "theme": "Интегралы",
+    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx$$?",
+    "answer": "10 * 2",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫10 dx</h5>
@@ -4309,18 +4314,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [0, 1, 2, 3, 4]
-},
+    "randomfrom": [0, 1, 2, 3, 4]
+  },
 
-{
-  "id": "integral003random1",
-  "type": "mathwithrandomnumber",
-  "header": "Математический анализ",
-  "title": "Интеграл квадратичной функции", 
-  "theme": "Интегралы",
-  "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} \\, dx$$?",
-  "answer": "((({var1-10}+2)^3 - ({var1-10})^3) / 9)",
-  "hint": `
+  {
+    "id": "integral003random1",
+    "type": "mathwithrandomnumber",
+    "header": "Математический анализ",
+    "title": "Интеграл квадратичной функции",
+    "theme": "Интегралы",
+    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} \\, dx$$?",
+    "answer": "((({var1-10}+2)^3 - ({var1-10})^3) / 9)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫(x²/3) dx</h5>
@@ -4360,10 +4365,10 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [0, 1, 2, 3, 4]
-},
+    "randomfrom": [0, 1, 2, 3, 4]
+  },
 
-    {
+  {
     "id": "algebra-fsu-001",
     "type": "multiplechoices",
     "header": "Алгебра. Формулы сокращенного умножения",
@@ -6692,27 +6697,27 @@ let quizesSets = [
       </div>
     </div>`
   }
-,
+  ,
 
- 
+
 
 
   {
-  "id": "powers001",
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 2",
-  "theme": "Степени",
-  "text": "Упростите выражение: $$a^3 \\cdot a^2$$",
-  "choices": [
-    "$a^5$",
-    "$a^6$", 
-    "$a$",
-    "$a^9$",
-    "$a^1$"
-  ],
-  "answers": ["$a^5$"],
-  "hint": `
+    "id": "powers001",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 2",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$a^3 \\cdot a^2$$",
+    "choices": [
+      "$a^5$",
+      "$a^6$",
+      "$a$",
+      "$a^9$",
+      "$a^1$"
+    ],
+    "answers": ["$a^5$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Умножение степеней с одинаковыми основаниями</h5>
@@ -6738,23 +6743,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers002",
-  "type": "multiplechoices",
-  "header": "Степени", 
-  "title": "Упрощение выражений 3",
-  "theme": "Степени",
-  "text": "Упростите выражение: $$\\frac{b^7}{b^4}$$",
-  "choices": [
-    "$b^3$",
-    "$b^{11}$",
-    "$b^4$",
-    "$b^7$", 
-    "$b^{28}$"
-  ],
-  "answers": ["$b^3$"],
-  "hint": `
+  },
+  {
+    "id": "powers002",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 3",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$\\frac{b^7}{b^4}$$",
+    "choices": [
+      "$b^3$",
+      "$b^{11}$",
+      "$b^4$",
+      "$b^7$",
+      "$b^{28}$"
+    ],
+    "answers": ["$b^3$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Деление степеней с одинаковыми основаниями</h5>
@@ -6780,23 +6785,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers003",
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 4",
-  "theme": "Степени", 
-  "text": "Упростите выражение: $$(c^2)^4$$",
-  "choices": [
-    "$c^6$",
-    "$c^8$",
-    "$c^2$",
-    "$c^{16}$",
-    "$c^4$"
-  ],
-  "answers": ["$c^8$"],
-  "hint": `
+  },
+  {
+    "id": "powers003",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 4",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$(c^2)^4$$",
+    "choices": [
+      "$c^6$",
+      "$c^8$",
+      "$c^2$",
+      "$c^{16}$",
+      "$c^4$"
+    ],
+    "answers": ["$c^8$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Возведение степени в степень</h5>
@@ -6822,23 +6827,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers004",
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 5",
-  "theme": "Степени",
-  "text": "Упростите выражение: $$(2x)^3$$",
-  "choices": [
-    "$2x^3$",
-    "$8x^3$", 
-    "$6x^3$",
-    "$2x^4$",
-    "$8x$"
-  ],
-  "answers": ["$8x^3$"],
-  "hint": `
+  },
+  {
+    "id": "powers004",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 5",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$(2x)^3$$",
+    "choices": [
+      "$2x^3$",
+      "$8x^3$",
+      "$6x^3$",
+      "$2x^4$",
+      "$8x$"
+    ],
+    "answers": ["$8x^3$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Возведение произведения в степень</h5>
@@ -6864,23 +6869,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers005", 
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 6",
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $$5^0$$",
-  "choices": [
-    "0",
-    "1", 
-    "5",
-    "25", 
-    "не определено"
-  ],
-  "answers": ["1"],
-  "hint": `
+  },
+  {
+    "id": "powers005",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 6",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $$5^0$$",
+    "choices": [
+      "0",
+      "1",
+      "5",
+      "25",
+      "не определено"
+    ],
+    "answers": ["1"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Нулевая степень</h5>
@@ -6906,23 +6911,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers006",
-  "type": "multiplechoices", 
-  "header": "Степени",
-  "title": "Упрощение выражений 7",
-  "theme": "Степени",
-  "text": "Упростите выражение: $$a^5 \\cdot a^{-2}$$",
-  "choices": [
-    "$a^3$",
-    "$a^7$",
-    "$a^{-10}$", 
-    "$a^{-3}$",
-    "$a^{10}$"
-  ],
-  "answers": ["$a^3$"],
-  "hint": `
+  },
+  {
+    "id": "powers006",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 7",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$a^5 \\cdot a^{-2}$$",
+    "choices": [
+      "$a^3$",
+      "$a^7$",
+      "$a^{-10}$",
+      "$a^{-3}$",
+      "$a^{10}$"
+    ],
+    "answers": ["$a^3$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Умножение степеней с отрицательным показателем</h5>
@@ -6948,23 +6953,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers007",
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 8", 
-  "theme": "Степени",
-  "text": "Упростите выражение: $$\\left(\\frac{x}{y}\\right)^3$$",
-  "choices": [
-    "$\\frac{x^3}{y}$",
-    "$\\frac{x}{y^3}$", 
-    "$\\frac{x^3}{y^3}$",
-    "$\\frac{x^2}{y^2}$",
-    "$\\frac{x}{y}$"
-  ],
-  "answers": ["$\\frac{x^3}{y^3}$"],
-  "hint": `
+  },
+  {
+    "id": "powers007",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 8",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$\\left(\\frac{x}{y}\\right)^3$$",
+    "choices": [
+      "$\\frac{x^3}{y}$",
+      "$\\frac{x}{y^3}$",
+      "$\\frac{x^3}{y^3}$",
+      "$\\frac{x^2}{y^2}$",
+      "$\\frac{x}{y}$"
+    ],
+    "answers": ["$\\frac{x^3}{y^3}$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Возведение дроби в степень</h5>
@@ -6990,23 +6995,23 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
-{
-  "id": "powers008",
-  "type": "multiplechoices",
-  "header": "Степени",
-  "title": "Упрощение выражений 9",
-  "theme": "Степени",
-  "text": "Упростите выражение: $$2^3 \\cdot 2^4$$", 
-  "choices": [
-    "$2^7$",
-    "$2^{12}$",
-    "$4^7$",
-    "$8^2$",
-    "$16^3$"
-  ],
-  "answers": ["$2^7$"],
-  "hint": `
+  },
+  {
+    "id": "powers008",
+    "type": "multiplechoices",
+    "header": "Степени",
+    "title": "Упрощение выражений 9",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$2^3 \\cdot 2^4$$",
+    "choices": [
+      "$2^7$",
+      "$2^{12}$",
+      "$4^7$",
+      "$8^2$",
+      "$16^3$"
+    ],
+    "answers": ["$2^7$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Умножение степеней с одинаковыми основаниями</h5>
@@ -7032,17 +7037,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "powers_negative001",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Отрицательная степень", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{-2}$$ в виде десятичной дроби",
-  "answer": "1 / POWER({var1-10}, 2)",
-  "hint": `
+  {
+    "id": "powers_negative001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-2}$$ в виде десятичной дроби",
+    "answer": "1 / POWER({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Отрицательная степень</h5>
@@ -7070,17 +7075,17 @@ let quizesSets = [
    
   </div>
 </div>`,
-  "randomfrom": [2, 3, 4, 5, 6]
-},
-{
-  "id": "powers_negative002",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Отрицательная степень дроби", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$",
-  "answer": "POWER({var1-10}, 3)",
-  "hint": `
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_negative002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень дроби",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$",
+    "answer": "POWER({var1-10}, 3)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Отрицательная степень дроби</h5>
@@ -7107,17 +7112,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [2, 3, 4, 5, 6]
-},
-{
-  "id": "powers_negative003",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Произведение положительной и отрицательной степени", 
-  "theme": "Степени",
-  "text": "Упростите выражение: $${var1-10}^3 \\cdot {var1-10}^{-5}$$ и запишите ответ в виде десятичной дроби",
-  "answer": "1 / POWER({var1-10}, 2)",
-  "hint": `
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_negative003",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Произведение положительной и отрицательной степени",
+    "theme": "Степени",
+    "text": "Упростите выражение: $${var1-10}^3 \\cdot {var1-10}^{-5}$$ и запишите ответ в виде десятичной дроби",
+    "answer": "1 / POWER({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Умножение степеней</h5>
@@ -7146,17 +7151,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [2, 3, 4, 5, 6]
-},
-{
-  "id": "powers_fraction001",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Дробная степень (квадратный корень)", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
-  "answer": "SQRT({var1-10})",
-  "hint": `
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень (квадратный корень)",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
+    "answer": "SQRT({var1-10})",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Дробная степень 1/2</h5>
@@ -7183,17 +7188,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 4, 9, 16, 25]
-},
-{
-  "id": "powers_fraction002",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Дробная степень (кубический корень)", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
-  "answer": "POWER({var1-10}, 1/3)",
-  "hint": `
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_fraction002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень (кубический корень)",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
+    "answer": "POWER({var1-10}, 1/3)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Дробная степень 1/3</h5>
@@ -7220,17 +7225,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 8, 27, 64, 125]
-},
-{
-  "id": "powers_fraction003",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Дробная степень 2/3", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
-  "answer": "POWER(POWER({var1-10}, 1/3), 2)",
-  "hint": `
+    "randomfrom": [8, 27, 64, 125]
+  },
+  {
+    "id": "powers_fraction003",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень 2/3",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
+    "answer": "POWER(POWER({var1-10}, 1/3), 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Дробная степень m/n</h5>
@@ -7258,17 +7263,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 8, 27, 64, 125]
-},
-{
-  "id": "powers_fraction004",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Дробная степень 3/2", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{3/2}$$?",
-  "answer": "POWER(POWER({var1-10}, 1/2), 3)",
-  "hint": `
+    "randomfrom": [8, 27, 64, 125]
+  },
+  {
+    "id": "powers_fraction004",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень 3/2",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{3/2}$$?",
+    "answer": "POWER(POWER({var1-10}, 1/2), 3)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Дробная степень 3/2</h5>
@@ -7296,17 +7301,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 4, 9, 16, 25]
-},
-{
-  "id": "powers_negative_fraction001",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Отрицательная дробная степень", 
-  "theme": "Степени",
-  "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
-  "answer": "1 / SQRT({var1-10})",
-  "hint": `
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_negative_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная дробная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
+    "answer": "1 / SQRT({var1-10})",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Отрицательная дробная степень</h5>
@@ -7334,17 +7339,17 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 4, 9, 16, 25]
-},
-{
-  "id": "powers_mixed001",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Смешанное выражение со степенями", 
-  "theme": "Степени",
-  "text": "Упростите выражение: $$\\frac{{var1-10}^{3} \\cdot {var1-10}^{-1/2}}{{var1-10}^{1/2}}$$",
-  "answer": "POWER({var1-10}, 2)",
-  "hint": `
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_mixed001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Смешанное выражение со степенями",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$\\frac{{var1-10}^{3} \\cdot {var1-10}^{-1/2}}{{var1-10}^{1/2}}$$",
+    "answer": "POWER({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Смешанное выражение со степенями</h5>
@@ -7376,18 +7381,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 2, 3, 4, 5]
-},
+    "randomfrom": [2, 3, 4, 5]
+  },
 
-{
-  "id": "powers_mixed002",
-  "type": "mathwithrandomnumber",
-  "header": "Степени",
-  "title": "Степень степени с дробным показателем", 
-  "theme": "Степени",
-  "text": "Упростите выражение: $$({var1-10}^{2/3})^{3}$$",
-  "answer": "POWER({var1-10}, 2)",
-  "hint": `
+  {
+    "id": "powers_mixed002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Степень степени с дробным показателем",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$({var1-10}^{2/3})^{3}$$",
+    "answer": "POWER({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Степень степени</h5>
@@ -7414,27 +7419,27 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [ 2, 3, 4, 5]
-},
+    "randomfrom": [2, 3, 4, 5]
+  },
 
 
-{
-  "id": "number_e_limit_001",
-  "type": "multiplechoices",
-  "header": "Математический анализ: Число e",
-  "title": "Определение числа e через предел",
-  "theme": "Числа и пределы",
- 
-  "text": "Число $e$ (основание натурального логарифма) определяется как предел последовательности. Какой из следующих пределов равен числу $e$?",
-  "choices": [
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$",
-    "$\\lim_{n \\to \\infty} \\left(1 + n\\right)^{\\frac{1}{n}}$",
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n^2}$",
-    "$\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n^2}\\right)^n$"
-  ],
-  "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$"],
-  "hint": `
+  {
+    "id": "number_e_limit_001",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Определение числа e через предел",
+    "theme": "Числа и пределы",
+
+    "text": "Число $e$ (основание натурального логарифма) определяется как предел последовательности. Какой из следующих пределов равен числу $e$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + n\\right)^{\\frac{1}{n}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n^2}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n^2}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Число e: классическое определение через предел</h5>
@@ -7505,25 +7510,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "number_e_derivative_002",
-  "type": "multiplechoices",
-  "header": "Математический анализ: Число e",
-  "title": "Число e как основание натурального логарифма",
-  "theme": "Числа и производные",
- 
-  "text": "Известно, что производная логарифмической функции $y = \\log_a(x)$ равна $\\frac{1}{x \\ln(a)}$. При каком основании $a$ производная функции $y = \\log_a(x)$ равна $\\frac{1}{x}$?",
-  "choices": [
-    "$a = 10$",
-    "$a = 2$",
-    "$a = e$",
-    "$a = \\pi$",
-    "$a = \\frac{1}{2}$"
-  ],
-  "answers": ["$a = e$"],
-  "hint": `
+  {
+    "id": "number_e_derivative_002",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Число e как основание натурального логарифма",
+    "theme": "Числа и производные",
+
+    "text": "Известно, что производная логарифмической функции $y = \\log_a(x)$ равна $\\frac{1}{x \\ln(a)}$. При каком основании $a$ производная функции $y = \\log_a(x)$ равна $\\frac{1}{x}$?",
+    "choices": [
+      "$a = 10$",
+      "$a = 2$",
+      "$a = e$",
+      "$a = \\pi$",
+      "$a = \\frac{1}{2}$"
+    ],
+    "answers": ["$a = e$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Число e и натуральный логарифм</h5>
@@ -7585,25 +7590,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "number_e_exponential_003",
-  "type": "multiplechoices",
-  "header": "Математический анализ: Число e",
-  "title": "Число e в определении экспоненты",
-  "theme": "Числа и пределы",
- 
-  "text": "Функция $f(x) = e^x$ (экспонента) может быть определена через предел. Какой из следующих пределов равен $e^x$?",
-  "choices": [
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$",
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{n}{x}\\right)^n$",
-    "$\\lim_{n \\to \\infty} \\left(1 + x\\right)^{\\frac{n}{x}}$",
-    "$\\lim_{n \\to \\infty} \\left(1 - \\frac{x}{n}\\right)^n$",
-    "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{nx}\\right)^n$"
-  ],
-  "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$"],
-  "hint": `
+  {
+    "id": "number_e_exponential_003",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Число e в определении экспоненты",
+    "theme": "Числа и пределы",
+
+    "text": "Функция $f(x) = e^x$ (экспонента) может быть определена через предел. Какой из следующих пределов равен $e^x$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{n}{x}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + x\\right)^{\\frac{n}{x}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{nx}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Определение экспоненты через предел</h5>
@@ -7670,25 +7675,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "number_e_properties_004",
-  "type": "multiplechoices",
-  "header": "Математический анализ: Число e",
-  "title": "Уникальные свойства числа e",
-  "theme": "Числа и свойства",
- 
-  "text": "Какое из следующих утверждений о числе $e$ является ВЕРНЫМ?",
-  "choices": [
-    "Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$",
-    "Число $e$ является корнем уравнения $\\ln(x) = 0$",
-    "Число $e$ — это $\\frac{22}{7}$",
-    "$e$ — это $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
-    "$e$ — это $\\frac{\\pi}{2}$"
-  ],
-  "answers": ["Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$"],
-  "hint": `
+  {
+    "id": "number_e_properties_004",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Уникальные свойства числа e",
+    "theme": "Числа и свойства",
+
+    "text": "Какое из следующих утверждений о числе $e$ является ВЕРНЫМ?",
+    "choices": [
+      "Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$",
+      "Число $e$ является корнем уравнения $\\ln(x) = 0$",
+      "Число $e$ — это $\\frac{22}{7}$",
+      "$e$ — это $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+      "$e$ — это $\\frac{\\pi}{2}$"
+    ],
+    "answers": ["Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Геометрическое свойство числа e</h5>
@@ -7743,25 +7748,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "imaginary_i_definition_001",
-  "type": "multiplechoices",
-  "header": "Комплексные числа: Мнимая единица",
-  "title": "Определение мнимой единицы i",
-  "theme": "Комплексные числа",
- 
-  "text": "Мнимая единица $i$ определяется как число, квадрат которого равен...",
-  "choices": [
-    "$i^2 = 1$",
-    "$i^2 = -1$",
-    "$i^2 = 0$",
-    "$i^2 = i$",
-    "$i^2 = \\sqrt{-1}$"
-  ],
-  "answers": ["$i^2 = -1$"],
-  "hint": `
+  {
+    "id": "imaginary_i_definition_001",
+    "type": "multiplechoices",
+    "header": "Комплексные числа: Мнимая единица",
+    "title": "Определение мнимой единицы i",
+    "theme": "Комплексные числа",
+
+    "text": "Мнимая единица $i$ определяется как число, квадрат которого равен...",
+    "choices": [
+      "$i^2 = 1$",
+      "$i^2 = -1$",
+      "$i^2 = 0$",
+      "$i^2 = i$",
+      "$i^2 = \\sqrt{-1}$"
+    ],
+    "answers": ["$i^2 = -1$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Определение мнимой единицы i</h5>
@@ -7827,25 +7832,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "imaginary_i_powers_002",
-  "type": "multiplechoices",
-  "header": "Комплексные числа: Степени i",
-  "title": "Вычисление степени мнимой единицы",
-  "theme": "Комплексные числа",
- 
-  "text": "Чему равно $i^{2025}$?",
-  "choices": [
-    "$1$",
-    "$-1$",
-    "$i$",
-    "$-i$",
-    "$0$"
-  ],
-  "answers": ["$i$"],
-  "hint": `
+  {
+    "id": "imaginary_i_powers_002",
+    "type": "multiplechoices",
+    "header": "Комплексные числа: Степени i",
+    "title": "Вычисление степени мнимой единицы",
+    "theme": "Комплексные числа",
+
+    "text": "Чему равно $i^{2025}$?",
+    "choices": [
+      "$1$",
+      "$-1$",
+      "$i$",
+      "$-i$",
+      "$0$"
+    ],
+    "answers": ["$i$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Вычисление степеней мнимой единицы</h5>
@@ -7914,25 +7919,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "imaginary_i_conjugate_003",
-  "type": "multiplechoices",
-  "header": "Комплексные числа: Сопряжённые числа",
-  "title": "Свойства комплексного сопряжения",
-  "theme": "Комплексные числа",
- 
-  "text": "Для комплексного числа $z = a + bi$ (где $a, b \\in \\mathbb{R}$) комплексно-сопряжённым называется число $\\bar{z} = a - bi$. Чему равно произведение $z \\cdot \\bar{z}$?",
-  "choices": [
-    "$a^2 + b^2$",
-    "$a^2 - b^2$",
-    "$2a$",
-    "$2bi$",
-    "$a^2 + 2abi + b^2$"
-  ],
-  "answers": ["$a^2 + b^2$"],
-  "hint": `
+  {
+    "id": "imaginary_i_conjugate_003",
+    "type": "multiplechoices",
+    "header": "Комплексные числа: Сопряжённые числа",
+    "title": "Свойства комплексного сопряжения",
+    "theme": "Комплексные числа",
+
+    "text": "Для комплексного числа $z = a + bi$ (где $a, b \\in \\mathbb{R}$) комплексно-сопряжённым называется число $\\bar{z} = a - bi$. Чему равно произведение $z \\cdot \\bar{z}$?",
+    "choices": [
+      "$a^2 + b^2$",
+      "$a^2 - b^2$",
+      "$2a$",
+      "$2bi$",
+      "$a^2 + 2abi + b^2$"
+    ],
+    "answers": ["$a^2 + b^2$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Произведение комплексно-сопряжённых чисел</h5>
@@ -7985,25 +7990,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "imaginary_i_euler_004",
-  "type": "multiplechoices",
-  "header": "Комплексные числа: Формула Эйлера",
-  "title": "Связь экспоненты с тригонометрией",
-  "theme": "Комплексные числа",
- 
-  "text": "Формула Эйлера устанавливает связь между экспонентой и тригонометрическими функциями. Какое из равенств является формулой Эйлера?",
-  "choices": [
-    "$e^{ix} = \\cos(x) + i\\sin(x)$",
-    "$e^{ix} = \\cos(x) - i\\sin(x)$",
-    "$e^{x} = \\cos(ix) + \\sin(ix)$",
-    "$i^i = e^{-\\pi/2}$",
-    "$e^{i\\pi} + 1 = 0$"
-  ],
-  "answers": ["$e^{ix} = \\cos(x) + i\\sin(x)$"],
-  "hint": `
+  {
+    "id": "imaginary_i_euler_004",
+    "type": "multiplechoices",
+    "header": "Комплексные числа: Формула Эйлера",
+    "title": "Связь экспоненты с тригонометрией",
+    "theme": "Комплексные числа",
+
+    "text": "Формула Эйлера устанавливает связь между экспонентой и тригонометрическими функциями. Какое из равенств является формулой Эйлера?",
+    "choices": [
+      "$e^{ix} = \\cos(x) + i\\sin(x)$",
+      "$e^{ix} = \\cos(x) - i\\sin(x)$",
+      "$e^{x} = \\cos(ix) + \\sin(ix)$",
+      "$i^i = e^{-\\pi/2}$",
+      "$e^{i\\pi} + 1 = 0$"
+    ],
+    "answers": ["$e^{ix} = \\cos(x) + i\\sin(x)$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Формула Эйлера — жемчужина математики</h5>
@@ -8065,25 +8070,25 @@ let quizesSets = [
 
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_trig_002",
-  "type": "multiplechoices",
-  "header": "Дифференцирование: Тригонометрия",
-  "title": "Производная синуса и косинуса",
-  "theme": "Производные",
- 
-  "text": "Чему равна производная функции $f(x) = \\sin(x)$?",
-  "choices": [
-    "$\\sin(x)$",
-    "$\\cos(x)$",
-    "$-\\sin(x)$",
-    "$-\\cos(x)$",
-    "$\\tan(x)$"
-  ],
-  "answers": ["$\\cos(x)$"],
-  "hint": `
+  {
+    "id": "derivative_trig_002",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Тригонометрия",
+    "title": "Производная синуса и косинуса",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = \\sin(x)$?",
+    "choices": [
+      "$\\sin(x)$",
+      "$\\cos(x)$",
+      "$-\\sin(x)$",
+      "$-\\cos(x)$",
+      "$\\tan(x)$"
+    ],
+    "answers": ["$\\cos(x)$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Производные тригонометрических функций</h5>
@@ -8132,25 +8137,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_power_001",
-  "type": "multiplechoices",
-  "header": "Дифференцирование: Степенная функция",
-  "title": "Производная степенной функции",
-  "theme": "Производные",
- 
-  "text": "Чему равна производная функции $f(x) = x^5$?",
-  "choices": [
-    "$5x^4$",
-    "$4x^5$",
-    "$5x^6$",
-    "$x^4$",
-    "$5x^5$"
-  ],
-  "answers": ["$5x^4$"],
-  "hint": `
+  {
+    "id": "derivative_power_001",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Степенная функция",
+    "title": "Производная степенной функции",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = x^5$?",
+    "choices": [
+      "$5x^4$",
+      "$4x^5$",
+      "$5x^6$",
+      "$x^4$",
+      "$5x^5$"
+    ],
+    "answers": ["$5x^4$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Производная степенной функции</h5>
@@ -8207,25 +8212,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_exp_log_003",
-  "type": "multiplechoices",
-  "header": "Дифференцирование: Экспонента и логарифм",
-  "title": "Производная экспоненты и натурального логарифма",
-  "theme": "Производные",
- 
-  "text": "Чему равна производная функции $f(x) = e^x$?",
-  "choices": [
-    "$e^x$",
-    "$x e^{x-1}$",
-    "$\\frac{1}{x}$",
-    "$\\ln(x)$",
-    "$x e^x$"
-  ],
-  "answers": ["$e^x$"],
-  "hint": `
+  {
+    "id": "derivative_exp_log_003",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Экспонента и логарифм",
+    "title": "Производная экспоненты и натурального логарифма",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = e^x$?",
+    "choices": [
+      "$e^x$",
+      "$x e^{x-1}$",
+      "$\\frac{1}{x}$",
+      "$\\ln(x)$",
+      "$x e^x$"
+    ],
+    "answers": ["$e^x$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Производная экспоненты и логарифма</h5>
@@ -8278,25 +8283,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "derivative_sum_004",
-  "type": "multiplechoices",
-  "header": "Дифференцирование: Линейность",
-  "title": "Производная суммы функций",
-  "theme": "Производные",
- 
-  "text": "Чему равна производная функции $f(x) = x^3 + \\sin(x)$?",
-  "choices": [
-    "$3x^2 + \\cos(x)$",
-    "$3x^2 - \\cos(x)$",
-    "$x^3 + \\cos(x)$",
-    "$3x^2 + \\sin(x)$",
-    "$\\frac{x^4}{4} - \\cos(x)$"
-  ],
-  "answers": ["$3x^2 + \\cos(x)$"],
-  "hint": `
+  {
+    "id": "derivative_sum_004",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Линейность",
+    "title": "Производная суммы функций",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = x^3 + \\sin(x)$?",
+    "choices": [
+      "$3x^2 + \\cos(x)$",
+      "$3x^2 - \\cos(x)$",
+      "$x^3 + \\cos(x)$",
+      "$3x^2 + \\sin(x)$",
+      "$\\frac{x^4}{4} - \\cos(x)$"
+    ],
+    "answers": ["$3x^2 + \\cos(x)$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Производная суммы функций</h5>
@@ -8345,25 +8350,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "integral_power_005",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Степенная функция",
-  "title": "Неопределённый интеграл степенной функции",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен неопределённый интеграл $\\int x^3 \\, dx$?",
-  "choices": [
-    "$\\frac{x^4}{4} + C$",
-    "$3x^2 + C$",
-    "$\\frac{x^2}{2} + C$",
-    "$x^4 + C$",
-    "$\\frac{x^3}{3} + C$"
-  ],
-  "answers": ["$\\frac{x^4}{4} + C$"],
-  "hint": `
+  {
+    "id": "integral_power_005",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Степенная функция",
+    "title": "Неопределённый интеграл степенной функции",
+    "theme": "Интегралы",
+
+    "text": "Чему равен неопределённый интеграл $\\int x^3 \\, dx$?",
+    "choices": [
+      "$\\frac{x^4}{4} + C$",
+      "$3x^2 + C$",
+      "$\\frac{x^2}{2} + C$",
+      "$x^4 + C$",
+      "$\\frac{x^3}{3} + C$"
+    ],
+    "answers": ["$\\frac{x^4}{4} + C$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интеграл степенной функции</h5>
@@ -8419,25 +8424,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "integral_trig_006",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Тригонометрия",
-  "title": "Интеграл от косинуса",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен неопределённый интеграл $\\int \\cos(x) \\, dx$?",
-  "choices": [
-    "$\\sin(x) + C$",
-    "$-\\sin(x) + C$",
-    "$\\cos(x) + C$",
-    "$-\\cos(x) + C$",
-    "$\\tan(x) + C$"
-  ],
-  "answers": ["$\\sin(x) + C$"],
-  "hint": `
+  {
+    "id": "integral_trig_006",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Тригонометрия",
+    "title": "Интеграл от косинуса",
+    "theme": "Интегралы",
+
+    "text": "Чему равен неопределённый интеграл $\\int \\cos(x) \\, dx$?",
+    "choices": [
+      "$\\sin(x) + C$",
+      "$-\\sin(x) + C$",
+      "$\\cos(x) + C$",
+      "$-\\cos(x) + C$",
+      "$\\tan(x) + C$"
+    ],
+    "answers": ["$\\sin(x) + C$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интегралы тригонометрических функций</h5>
@@ -8489,25 +8494,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "integral_1_over_x_007",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Обратная пропорциональность",
-  "title": "Интеграл от 1/x",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен неопределённый интеграл $\\int \\frac{1}{x} \\, dx$ (при $x > 0$)?",
-  "choices": [
-    "$\\ln|x| + C$",
-    "$\\frac{1}{x^2} + C$",
-    "$\\ln(x) + C$",
-    "$e^x + C$",
-    "$\\frac{x^2}{2} + C$"
-  ],
-  "answers": ["$\\ln|x| + C$"],
-  "hint": `
+  {
+    "id": "integral_1_over_x_007",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Обратная пропорциональность",
+    "title": "Интеграл от 1/x",
+    "theme": "Интегралы",
+
+    "text": "Чему равен неопределённый интеграл $\\int \\frac{1}{x} \\, dx$ (при $x > 0$)?",
+    "choices": [
+      "$\\ln|x| + C$",
+      "$\\frac{1}{x^2} + C$",
+      "$\\ln(x) + C$",
+      "$e^x + C$",
+      "$\\frac{x^2}{2} + C$"
+    ],
+    "answers": ["$\\ln|x| + C$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интеграл от 1/x — особый случай!</h5>
@@ -8566,25 +8571,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "integral_definite_008",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Определённый интеграл",
-  "title": "Вычисление площади под кривой",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен определённый интеграл $\\int_0^1 x^2 \\, dx$?",
-  "choices": [
-    "$\\frac{1}{3}$",
-    "$\\frac{1}{2}$",
-    "$1$",
-    "$\\frac{1}{4}$",
-    "$0$"
-  ],
-  "answers": ["$\\frac{1}{3}$"],
-  "hint": `
+  {
+    "id": "integral_definite_008",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Определённый интеграл",
+    "title": "Вычисление площади под кривой",
+    "theme": "Интегралы",
+
+    "text": "Чему равен определённый интеграл $\\int_0^1 x^2 \\, dx$?",
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
+    ],
+    "answers": ["$\\frac{1}{3}$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Определённый интеграл и площадь</h5>
@@ -8633,25 +8638,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
-{
-  "id": "integral_exp_009",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Экспонента",
-  "title": "Интеграл от экспоненты",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен неопределённый интеграл $\\int e^x \\, dx$?",
-  "choices": [
-    "$e^x + C$",
-    "$\\frac{e^{x+1}}{x+1} + C$",
-    "$\\ln|e^x| + C$",
-    "$x e^{x-1} + C$",
-    "$e^{x^2} + C$"
-  ],
-  "answers": ["$e^x + C$"],
-  "hint": `
+  {
+    "id": "integral_exp_009",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Экспонента",
+    "title": "Интеграл от экспоненты",
+    "theme": "Интегралы",
+
+    "text": "Чему равен неопределённый интеграл $\\int e^x \\, dx$?",
+    "choices": [
+      "$e^x + C$",
+      "$\\frac{e^{x+1}}{x+1} + C$",
+      "$\\ln|e^x| + C$",
+      "$x e^{x-1} + C$",
+      "$e^{x^2} + C$"
+    ],
+    "answers": ["$e^x + C$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интеграл от экспоненты</h5>
@@ -8704,26 +8709,26 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
 
-{
-  "id": "integral_sum_010",
-  "type": "multiplechoices",
-  "header": "Интегрирование: Линейность",
-  "title": "Интеграл суммы функций",
-  "theme": "Интегралы",
- 
-  "text": "Чему равен интеграл $\\int (x^2 + \\sin(x)) \\, dx$?",
-  "choices": [
-    "$\\frac{x^3}{3} - \\cos(x) + C$",
-    "$\\frac{x^3}{3} + \\cos(x) + C$",
-    "$2x + \\cos(x) + C$",
-    "$\\frac{x^3}{3} - \\sin(x) + C$",
-    "$x^2 - \\cos(x) + C$"
-  ],
-  "answers": ["$\\frac{x^3}{3} - \\cos(x) + C$"],
-  "hint": `
+  {
+    "id": "integral_sum_010",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Линейность",
+    "title": "Интеграл суммы функций",
+    "theme": "Интегралы",
+
+    "text": "Чему равен интеграл $\\int (x^2 + \\sin(x)) \\, dx$?",
+    "choices": [
+      "$\\frac{x^3}{3} - \\cos(x) + C$",
+      "$\\frac{x^3}{3} + \\cos(x) + C$",
+      "$2x + \\cos(x) + C$",
+      "$\\frac{x^3}{3} - \\sin(x) + C$",
+      "$x^2 - \\cos(x) + C$"
+    ],
+    "answers": ["$\\frac{x^3}{3} - \\cos(x) + C$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интеграл суммы</h5>
@@ -8771,183 +8776,183 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
 
- 
-// Тесты по логарифмам
-{
-  "id": "log001",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Вычисление логарифмов 1",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\log_2 8$?",
-  "choices": [
-    "2",
-    "3", 
-    "4",
-    "1",
-    "0"
-  ],
-  "answers": ["3"],
-  "hint": "<p>Логарифм - это показатель степени, в которую нужно возвести основание, чтобы получить число.</p>$$\\log_a b = c \\text{ означает } a^c = b$$$$2^3 = 8$$$$\\log_2 8 = 3$$"
-},
-{
-  "id": "log002",
-  "type": "multiplechoices",
-  "header": "Логарифмы", 
-  "title": "Вычисление логарифмов 2",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\log_{10} 100$?",
-  "choices": [
-    "1",
-    "2",
-    "10",
-    "100", 
-    "0"
-  ],
-  "answers": ["2"],
-  "hint": "<p>Логарифм по основанию 10 показывает, в какую степень нужно возвести 10.</p>$$\\log_{10} 100 = c \\text{ означает } 10^c = 100$$$$10^2 = 100$$$$\\log_{10} 100 = 2$$"
-},
-{
-  "id": "log003",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Вычисление логарифмов 3",
-  "theme": "Логарифмы", 
-  "text": "Чему равен $\\log_5 25$?",
-  "choices": [
-    "1",
-    "2",
-    "5",
-    "25",
-    "0"
-  ],
-  "answers": ["2"],
-  "hint": "<p>Найдем степень, в которую нужно возвести 5, чтобы получить 25.</p>$$\\log_5 25 = c \\text{ означает } 5^c = 25$$$$5^2 = 25$$$$\\log_5 25 = 2$$"
-},
-{
-  "id": "log004",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Вычисление логарифмов 4",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\log_3 1$?",
-  "choices": [
-    "0", 
-    "1",
-    "3",
-    "-1",
-    "не определено"
-  ],
-  "answers": ["0"],
-  "hint": "<p>Логарифм единицы по любому основанию равен 0.</p>$$\\log_a 1 = 0 \\text{ для любого } a > 0, a \\neq 1$$$$3^0 = 1$$$$\\log_3 1 = 0$$"
-},
-{
-  "id": "log005", 
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Вычисление логарифмов 5",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\log_7 7$?",
-  "choices": [
-    "0",
-    "1", 
-    "7",
-    "14", 
-    "49"
-  ],
-  "answers": ["1"],
-  "hint": "<p>Логарифм числа по равному ему основанию равен 1.</p>$$\\log_a a = 1 \\text{ для любого } a > 0, a \\neq 1$$$$7^1 = 7$$$$\\log_7 7 = 1$$"
-},
-{
-  "id": "log006",
-  "type": "multiplechoices", 
-  "header": "Логарифмы",
-  "title": "Основные свойства",
-  "theme": "Логарифмы",
-  "text": "Упростите выражение: $\\log_2 4 + \\log_2 8$",
-  "choices": [
-    "3",
-    "4",
-    "5", 
-    "6",
-    "7"
-  ],
-  "answers": ["5"],
-  "hint": "<p>Используем свойство сложения логарифмов с одинаковыми основаниями.</p>$$\\log_a b + \\log_a c = \\log_a (b \\cdot c)$$$$\\log_2 4 + \\log_2 8 = \\log_2 (4 \\cdot 8) = \\log_2 32$$$$2^5 = 32$$$$\\log_2 32 = 5$$"
-},
-{
-  "id": "log007",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Основные свойства 2", 
-  "theme": "Логарифмы",
-  "text": "Упростите выражение: $\\log_3 81 - \\log_3 3$",
-  "choices": [
-    "2",
-    "3", 
-    "4",
-    "1",
-    "0"
-  ],
-  "answers": ["3"],
-  "hint": "<p>Используем свойство вычитания логарифмов с одинаковыми основаниями.</p>$$\\log_a b - \\log_a c = \\log_a \\left(\\frac{b}{c}\\right)$$$$\\log_3 81 - \\log_3 3 = \\log_3 \\left(\\frac{81}{3}\\right) = \\log_3 27$$$$3^3 = 27$$$$\\log_3 27 = 3$$"
-},
-{
-  "id": "log008",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Основные свойства 3",
-  "theme": "Логарифмы",
-  "text": "Упростите выражение: $2 \\cdot \\log_5 25$", 
-  "choices": [
-    "2",
-    "3",
-    "4",
-    "5",
-    "6"
-  ],
-  "answers": ["4"],
-  "hint": "<p>Используем свойство вынесения множителя перед логарифмом.</p>$$n \\cdot \\log_a b = \\log_a (b^n)$$$$2 \\cdot \\log_5 25 = \\log_5 (25^2) = \\log_5 625$$$$5^4 = 625$$$$\\log_5 625 = 4$$"
-},
-{
-  "id": "log009",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Основные свойства 4",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\ln e$? ($\\ln$ - натуральный логарифм)",
-  "choices": [
-    "0",
-    "1", 
-    "e",
-    "2",
-    "10"
-  ],
-  "answers": ["1"],
-  "hint": "<p>Натуральный логарифм - это логарифм по основанию e.</p>$$\\ln x = \\log_e x$$<p>Число e - это математическая константа, основание натурального логарифма.</p><p>Способы вычисления e:</p>$$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n \\approx 2.71828$$$$e = \\sum_{n=0}^{\\infty} \\frac{1}{n!} = 1 + 1 + \\frac{1}{2!} + \\frac{1}{3!} + \\frac{1}{4!} + \\cdots$$<p>Уникальные свойства числа e:</p>$$\\frac{d}{dx}e^x = e^x$$$$\\int e^x dx = e^x + C$$$$e^{i\\pi} + 1 = 0 \\text{ (формула Эйлера)}$$<p>Свойство логарифма:</p>$$\\ln e = 1$$<p>так как</p>$$e^1 = e$$"
-},
-{
-  "id": "log010",
-  "type": "multiplechoices",
-  "header": "Логарифмы",
-  "title": "Основные свойства 5",
-  "theme": "Логарифмы",
-  "text": "Чему равен $\\log_4 2$?",
-  "choices": [
-    "$\\frac{1}{2}$",
-    "$\\frac{1}{4}$",
-    "2", 
-    "4",
-    "8"
-  ],
-  "answers": ["$\\frac{1}{2}$"],
-  "hint": "<p>Представим 2 как корень из 4.</p>$$2 = 4^{\\frac{1}{2}}$$$$\\log_4 2 = \\log_4 4^{\\frac{1}{2}}$$$$\\log_a a^c = c$$$$\\log_4 4^{\\frac{1}{2}} = \\frac{1}{2}$$"
-},
 
- 
+  // Тесты по логарифмам
+  {
+    "id": "log001",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Вычисление логарифмов 1",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_2 8$?",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "1",
+      "0"
+    ],
+    "answers": ["3"],
+    "hint": "<p>Логарифм - это показатель степени, в которую нужно возвести основание, чтобы получить число.</p>$$\\log_a b = c \\text{ означает } a^c = b$$$$2^3 = 8$$$$\\log_2 8 = 3$$"
+  },
+  {
+    "id": "log002",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Вычисление логарифмов 2",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_{10} 100$?",
+    "choices": [
+      "1",
+      "2",
+      "10",
+      "100",
+      "0"
+    ],
+    "answers": ["2"],
+    "hint": "<p>Логарифм по основанию 10 показывает, в какую степень нужно возвести 10.</p>$$\\log_{10} 100 = c \\text{ означает } 10^c = 100$$$$10^2 = 100$$$$\\log_{10} 100 = 2$$"
+  },
+  {
+    "id": "log003",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Вычисление логарифмов 3",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_5 25$?",
+    "choices": [
+      "1",
+      "2",
+      "5",
+      "25",
+      "0"
+    ],
+    "answers": ["2"],
+    "hint": "<p>Найдем степень, в которую нужно возвести 5, чтобы получить 25.</p>$$\\log_5 25 = c \\text{ означает } 5^c = 25$$$$5^2 = 25$$$$\\log_5 25 = 2$$"
+  },
+  {
+    "id": "log004",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Вычисление логарифмов 4",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_3 1$?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "-1",
+      "не определено"
+    ],
+    "answers": ["0"],
+    "hint": "<p>Логарифм единицы по любому основанию равен 0.</p>$$\\log_a 1 = 0 \\text{ для любого } a > 0, a \\neq 1$$$$3^0 = 1$$$$\\log_3 1 = 0$$"
+  },
+  {
+    "id": "log005",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Вычисление логарифмов 5",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_7 7$?",
+    "choices": [
+      "0",
+      "1",
+      "7",
+      "14",
+      "49"
+    ],
+    "answers": ["1"],
+    "hint": "<p>Логарифм числа по равному ему основанию равен 1.</p>$$\\log_a a = 1 \\text{ для любого } a > 0, a \\neq 1$$$$7^1 = 7$$$$\\log_7 7 = 1$$"
+  },
+  {
+    "id": "log006",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Основные свойства",
+    "theme": "Логарифмы",
+    "text": "Упростите выражение: $\\log_2 4 + \\log_2 8$",
+    "choices": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answers": ["5"],
+    "hint": "<p>Используем свойство сложения логарифмов с одинаковыми основаниями.</p>$$\\log_a b + \\log_a c = \\log_a (b \\cdot c)$$$$\\log_2 4 + \\log_2 8 = \\log_2 (4 \\cdot 8) = \\log_2 32$$$$2^5 = 32$$$$\\log_2 32 = 5$$"
+  },
+  {
+    "id": "log007",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Основные свойства 2",
+    "theme": "Логарифмы",
+    "text": "Упростите выражение: $\\log_3 81 - \\log_3 3$",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "1",
+      "0"
+    ],
+    "answers": ["3"],
+    "hint": "<p>Используем свойство вычитания логарифмов с одинаковыми основаниями.</p>$$\\log_a b - \\log_a c = \\log_a \\left(\\frac{b}{c}\\right)$$$$\\log_3 81 - \\log_3 3 = \\log_3 \\left(\\frac{81}{3}\\right) = \\log_3 27$$$$3^3 = 27$$$$\\log_3 27 = 3$$"
+  },
+  {
+    "id": "log008",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Основные свойства 3",
+    "theme": "Логарифмы",
+    "text": "Упростите выражение: $2 \\cdot \\log_5 25$",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answers": ["4"],
+    "hint": "<p>Используем свойство вынесения множителя перед логарифмом.</p>$$n \\cdot \\log_a b = \\log_a (b^n)$$$$2 \\cdot \\log_5 25 = \\log_5 (25^2) = \\log_5 625$$$$5^4 = 625$$$$\\log_5 625 = 4$$"
+  },
+  {
+    "id": "log009",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Основные свойства 4",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\ln e$? ($\\ln$ - натуральный логарифм)",
+    "choices": [
+      "0",
+      "1",
+      "e",
+      "2",
+      "10"
+    ],
+    "answers": ["1"],
+    "hint": "<p>Натуральный логарифм - это логарифм по основанию e.</p>$$\\ln x = \\log_e x$$<p>Число e - это математическая константа, основание натурального логарифма.</p><p>Способы вычисления e:</p>$$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n \\approx 2.71828$$$$e = \\sum_{n=0}^{\\infty} \\frac{1}{n!} = 1 + 1 + \\frac{1}{2!} + \\frac{1}{3!} + \\frac{1}{4!} + \\cdots$$<p>Уникальные свойства числа e:</p>$$\\frac{d}{dx}e^x = e^x$$$$\\int e^x dx = e^x + C$$$$e^{i\\pi} + 1 = 0 \\text{ (формула Эйлера)}$$<p>Свойство логарифма:</p>$$\\ln e = 1$$<p>так как</p>$$e^1 = e$$"
+  },
+  {
+    "id": "log010",
+    "type": "multiplechoices",
+    "header": "Логарифмы",
+    "title": "Основные свойства 5",
+    "theme": "Логарифмы",
+    "text": "Чему равен $\\log_4 2$?",
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{4}$",
+      "2",
+      "4",
+      "8"
+    ],
+    "answers": ["$\\frac{1}{2}$"],
+    "hint": "<p>Представим 2 как корень из 4.</p>$$2 = 4^{\\frac{1}{2}}$$$$\\log_4 2 = \\log_4 4^{\\frac{1}{2}}$$$$\\log_a a^c = c$$$$\\log_4 4^{\\frac{1}{2}} = \\frac{1}{2}$$"
+  },
+
+
   {
     "id": "math004random1",
     "type": "quizwithrandomnumber",
@@ -8974,16 +8979,16 @@ let quizesSets = [
   },
 
   {
-  "id": "math004random3",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт",
-  "title": "Степени 4", 
-  "theme": "Степени",
-  "text": "Чему равно $$2^{{var1-10}} + 2^{{var1-10} + 1}$$?",
-  "answer": "POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)",
-  "hint": "$2^{{var1-10}} = {= POWER(2, {var1-10})}$, $2^{{var1-10} + 1} = {= POWER(2, {var1-10} + 1)}$, сумма = {= POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)}",
-  "randomfrom": [2, 3, 4, 5, 6]
-},
+    "id": "math004random3",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Степени 4",
+    "theme": "Степени",
+    "text": "Чему равно $$2^{{var1-10}} + 2^{{var1-10} + 1}$$?",
+    "answer": "POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)",
+    "hint": "$2^{{var1-10}} = {= POWER(2, {var1-10})}$, $2^{{var1-10} + 1} = {= POWER(2, {var1-10} + 1)}$, сумма = {= POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)}",
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
 
   {
     "id": "math005",
@@ -9053,55 +9058,55 @@ let quizesSets = [
     "answers": ["x = 3, 4"],
     "hint": "<p>Решите двойное неравенство по частям.</p><ul><li><strong>Часть 1:</strong> 1 < 2x - 3 → 1 +3 < 2x → 4 < 2x → 2 < x → x > 2</li><li><strong>Часть 2:</strong> 2x - 3 ≤ 5 → 2x ≤ 5 +3 → 2x ≤ 8 → x ≤ 4</li><li><strong>Объединение:</strong> 2 < x ≤ 4. Целые числа, удовлетворяющие этому условию: 3 и 4.</li></ul>"
   },
-{
-  "id": "math008random1",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт",
-  "title": "Решение неравенства 2",
-  "theme": "Неравенства",
-  "text": "Найдите наибольшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
-  "answer": "FLOOR(({var1-10} + 7) / 2, 1)",
-  "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наибольшее целое x = $\\left\\lfloor \\frac{{var1-10} + 7}{2} \\right\\rfloor$",
-  "randomfrom": [2, 4, 6, 8, 10]
-},
-
- {
-  "id": "math008random2",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт",
-  "title": "Решение неравенства 3",
-  "theme": "Неравенства",
-  "text": "Найдите наименьшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
-  "answer": "CEILING(({var1-10} + 2) / 2, 1)",
-  "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наименьшее целое x = $\\left\\lceil \\frac{{var1-10} + 2}{2} \\right\\rceil$",
-  "randomfrom": [2, 4, 6, 8, 10]
-},
+  {
+    "id": "math008random1",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Решение неравенства 2",
+    "theme": "Неравенства",
+    "text": "Найдите наибольшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
+    "answer": "FLOOR(({var1-10} + 7) / 2, 1)",
+    "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наибольшее целое x = $\\left\\lfloor \\frac{{var1-10} + 7}{2} \\right\\rfloor$",
+    "randomfrom": [2, 4, 6, 8, 10]
+  },
 
   {
-  "id": "math008random3_max",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт",
-  "title": "Решение неравенства 4",
-  "theme": "Неравенства",
-  "text": "<p>Найдите наибольшее целое x, удовлетворяющее системе:</p>$${var1-10}x - 2 \\geq 8$$  и $${var1-10}x + 2 \\leq 22$$",
-  "answer": "FLOOR(20 / {var1-10}, 1)",
-  "hint": "Решим систему: ${var1-10}x - 2 \\geq 8$ → ${var1-10}x \\geq 10$ → $x \\geq \\frac{10}{{var1-10}}$; ${var1-10}x + 2 \\leq 22$ → ${var1-10}x \\leq 20$ → $x \\leq \\frac{20}{{var1-10}}$. Наибольшее целое x = $\\left\\lfloor \\frac{20}{{var1-10}} \\right\\rfloor$",
-  "randomfrom": [2, 4, 5, 10]
-},
+    "id": "math008random2",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Решение неравенства 3",
+    "theme": "Неравенства",
+    "text": "Найдите наименьшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
+    "answer": "CEILING(({var1-10} + 2) / 2, 1)",
+    "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наименьшее целое x = $\\left\\lceil \\frac{{var1-10} + 2}{2} \\right\\rceil$",
+    "randomfrom": [2, 4, 6, 8, 10]
+  },
 
-{
-  "id": "math008random3_min",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт",
-  "title": "Решение неравенства 5",
-  "theme": "Неравенства",
-  "text": "Найдите наименьшее целое x, удовлетворяющее системе: $${var1-10}x - 2 \\geq 8$$ и $${var1-10}x + 2 \\leq 22$$",
-  "answer": "CEILING(10 / {var1-10}, 1)",
-  "hint": "Решим систему: ${var1-10}x - 2 \\geq 8$ → ${var1-10}x \\geq 10$ → $x \\geq \\frac{10}{{var1-10}}$; ${var1-10}x + 2 \\leq 22$ → ${var1-10}x \\leq 20$ → $x \\leq \\frac{20}{{var1-10}}$. Наименьшее целое x = $\\left\\lceil \\frac{10}{{var1-10}} \\right\\rceil$",
-  "randomfrom": [2, 4, 5, 10]
-},
+  {
+    "id": "math008random3_max",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Решение неравенства 4",
+    "theme": "Неравенства",
+    "text": "<p>Найдите наибольшее целое x, удовлетворяющее системе:</p>$${var1-10}x - 2 \\geq 8$$  и $${var1-10}x + 2 \\leq 22$$",
+    "answer": "FLOOR(20 / {var1-10}, 1)",
+    "hint": "Решим систему: ${var1-10}x - 2 \\geq 8$ → ${var1-10}x \\geq 10$ → $x \\geq \\frac{10}{{var1-10}}$; ${var1-10}x + 2 \\leq 22$ → ${var1-10}x \\leq 20$ → $x \\leq \\frac{20}{{var1-10}}$. Наибольшее целое x = $\\left\\lfloor \\frac{20}{{var1-10}} \\right\\rfloor$",
+    "randomfrom": [2, 4, 5, 10]
+  },
 
-    {
+  {
+    "id": "math008random3_min",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Решение неравенства 5",
+    "theme": "Неравенства",
+    "text": "Найдите наименьшее целое x, удовлетворяющее системе: $${var1-10}x - 2 \\geq 8$$ и $${var1-10}x + 2 \\leq 22$$",
+    "answer": "CEILING(10 / {var1-10}, 1)",
+    "hint": "Решим систему: ${var1-10}x - 2 \\geq 8$ → ${var1-10}x \\geq 10$ → $x \\geq \\frac{10}{{var1-10}}$; ${var1-10}x + 2 \\leq 22$ → ${var1-10}x \\leq 20$ → $x \\leq \\frac{20}{{var1-10}}$. Наименьшее целое x = $\\left\\lceil \\frac{10}{{var1-10}} \\right\\rceil$",
+    "randomfrom": [2, 4, 5, 10]
+  },
+
+  {
     "id": "quadratic001",
     "type": "mathwithrandomnumber",
     "header": "Квадратные уравнения",
@@ -9190,10 +9195,10 @@ let quizesSets = [
     "randomfrom": [2, 3, 4]
   },
 
-  
 
-    
-   {
+
+
+  {
     "id": "system009",
     "type": "mathwithrandomnumber",
     "header": "Системы уравнений",
@@ -9215,7 +9220,7 @@ let quizesSets = [
     "hint": "<p><strong>Метод сложения</strong></p><p>Вычитаем уравнения: 6y = {= {var1-10}*5 - {var1-10}} = {= {var1-10}*4}</p><p>y = {= {var1-10}*4/6} = {= {var1-10}*2/3}</p><p>Ответ: y = {= {var1-10}*2/3}</p>",
     "randomfrom": [3, 6, 9, 12]
   },
-{
+  {
     "id": "system011",
     "type": "mathwithrandomnumber",
     "header": "Системы уравнений",
@@ -9225,7 +9230,7 @@ let quizesSets = [
     "answer": "{var1-10}",
     "hint": "<p><strong>Метод сложения</strong></p><p>Умножаем первое уравнение на 2: 2x + 4y = {= ({var1-10}+2)*2}</p><p>Вычитаем второе: 3y = {= ({var1-10}+2)*2 - ({var1-10}*2+1)} = 3</p><p>y = 1</p><p>Из первого уравнения: x = {= {var1-10}+2} - 2 = {var1-10}</p><p>Ответ: x = {var1-10}</p>",
     "randomfrom": [2, 5, 8, 11]
-},
+  },
 
   {
     "id": "system012",
@@ -9262,16 +9267,16 @@ let quizesSets = [
     "randomfrom": [3, 6, 9, 12]
   },
   {
-  "id": "system016",
-  "type": "mathwithrandomnumber",
-  "header": "Системы уравнений",
-  "title": "Сбалансированная система",
-  "theme": "Системы уравнений",
-  "text": "Решите систему уравнений: $$\\begin{cases} 5x + 2y = {= {var1-10}*7} \\\\ 3x - 2y = {var1-10} \\end{cases}$$ Найдите y",
-  "answer": "{var1-10}",
-  "hint": "<p><strong>Метод сложения</strong></p><p>Складываем уравнения: 8x = {= {var1-10}*7 + {var1-10}} = {= {var1-10}*8}</p><p>x = {var1-10}</p><p>Из первого уравнения: 2y = {= {var1-10}*7} - 5x = {= {var1-10}*7} - {= {var1-10}*5} = {= {var1-10}*2}</p><p>y = {var1-10}</p><p>Ответ: y = {var1-10}</p>",
-  "randomfrom": [2, 3, 4, 5]
-},
+    "id": "system016",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Сбалансированная система",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 5x + 2y = {= {var1-10}*7} \\\\ 3x - 2y = {var1-10} \\end{cases}$$ Найдите y",
+    "answer": "{var1-10}",
+    "hint": "<p><strong>Метод сложения</strong></p><p>Складываем уравнения: 8x = {= {var1-10}*7 + {var1-10}} = {= {var1-10}*8}</p><p>x = {var1-10}</p><p>Из первого уравнения: 2y = {= {var1-10}*7} - 5x = {= {var1-10}*7} - {= {var1-10}*5} = {= {var1-10}*2}</p><p>y = {var1-10}</p><p>Ответ: y = {var1-10}</p>",
+    "randomfrom": [2, 3, 4, 5]
+  },
   {
     "id": "system017",
     "type": "mathwithrandomnumber",
@@ -9295,16 +9300,16 @@ let quizesSets = [
     "randomfrom": [5, 10, 15, 20]
   },
   {
-  "id": "system019",
-  "type": "mathwithrandomnumber",
-  "header": "Системы уравнений",
-  "title": "Симметричные правые части",
-  "theme": "Системы уравнений",
-  "text": "Решите систему уравнений: $$\\begin{cases} 2x + 3y = {= {var1-10}+10} \\\\ 3x + 2y = {= {var1-10}+10} \\end{cases}$$ Найдите x",
-  "answer": "({var1-10}+10)/5",
-  "hint": "<p><strong>Сложение уравнений</strong></p><p>Складываем уравнения: (2x+3y) + (3x+2y) = {= ({var1-10}+10)*2}</p><p>5x + 5y = {= ({var1-10}+10)*2}</p><p>x + y = {= ({var1-10}+10)*2/5}</p><p>Вычитаем уравнения: (2x+3y) - (3x+2y) = 0</p><p>-x + y = 0 ⇒ y = x</p><p>Подставляем y = x в x + y = {= ({var1-10}+10)*2/5}:</p><p>2x = {= ({var1-10}+10)*2/5}</p><p>x = {= ({var1-10}+10)/5}</p><p>Ответ: x = {= ({var1-10}+10)/5}</p>",
-  "randomfrom": [5, 10, 15, 20]
-},
+    "id": "system019",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Симметричные правые части",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 2x + 3y = {= {var1-10}+10} \\\\ 3x + 2y = {= {var1-10}+10} \\end{cases}$$ Найдите x",
+    "answer": "({var1-10}+10)/5",
+    "hint": "<p><strong>Сложение уравнений</strong></p><p>Складываем уравнения: (2x+3y) + (3x+2y) = {= ({var1-10}+10)*2}</p><p>5x + 5y = {= ({var1-10}+10)*2}</p><p>x + y = {= ({var1-10}+10)*2/5}</p><p>Вычитаем уравнения: (2x+3y) - (3x+2y) = 0</p><p>-x + y = 0 ⇒ y = x</p><p>Подставляем y = x в x + y = {= ({var1-10}+10)*2/5}:</p><p>2x = {= ({var1-10}+10)*2/5}</p><p>x = {= ({var1-10}+10)/5}</p><p>Ответ: x = {= ({var1-10}+10)/5}</p>",
+    "randomfrom": [5, 10, 15, 20]
+  },
 
   {
     "id": "system021",
@@ -9395,95 +9400,95 @@ let quizesSets = [
     "randomfrom": [2, 5, 8, 11]
   },
 
-{
-  "id": "regression_slope_mental_001",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди угловой коэффициент",
-  "theme": "Регрессия",
-  "text": "Точки: $A(0, 0)$ и $B({= {var1-10}*2}, {= {var1-10}*2*{var1-10}})$. Найдите $k = \\frac{y_2 - y_1}{x_2 - x_1}$.",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
-},
+  {
+    "id": "regression_slope_mental_001",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди угловой коэффициент",
+    "theme": "Регрессия",
+    "text": "Точки: $A(0, 0)$ и $B({= {var1-10}*2}, {= {var1-10}*2*{var1-10}})$. Найдите $k = \\frac{y_2 - y_1}{x_2 - x_1}$.",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+  },
 
-{
-  "id": "regression_slope_mental_002",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди угловой коэффициент",
-  "theme": "Регрессия",
-  "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
-},
+  {
+    "id": "regression_slope_mental_002",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди угловой коэффициент",
+    "theme": "Регрессия",
+    "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+  },
 
-{
-  "id": "regression_intercept_mental_003",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди свободный член b",
-  "theme": "Регрессия",
-  "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим b</h5></div><div class='card-body'><div class='alert alert-secondary'>$$b = y - 2x = ({= {var1-10}*2 + {var1-10}}) - 2 \\cdot ({= {var1-10}}) = {= {var1-10}*2 + {var1-10}} - {= {var1-10}*2} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $b = {var1-10}$</div></div></div>"
-},
+  {
+    "id": "regression_intercept_mental_003",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди свободный член b",
+    "theme": "Регрессия",
+    "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим b</h5></div><div class='card-body'><div class='alert alert-secondary'>$$b = y - 2x = ({= {var1-10}*2 + {var1-10}}) - 2 \\cdot ({= {var1-10}}) = {= {var1-10}*2 + {var1-10}} - {= {var1-10}*2} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $b = {var1-10}$</div></div></div>"
+  },
 
-{
-  "id": "regression_predict_mental_004",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди значение y",
-  "theme": "Регрессия",
-  "text": "Прямая $y = {var1-10} \\cdot x$ проходит через начало координат. Чему равен $y$ при $x = 1$?",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
-},
+  {
+    "id": "regression_predict_mental_004",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди значение y",
+    "theme": "Регрессия",
+    "text": "Прямая $y = {var1-10} \\cdot x$ проходит через начало координат. Чему равен $y$ при $x = 1$?",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
+  },
 
-{
-  "id": "regression_find_x_mental_005",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди значение x",
-  "theme": "Регрессия",
-  "text": "Прямая $y = 3x$ проходит через точку с $y = {= {var1-10}*3}$. Найдите $x$.",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$x = \\frac{y}{3} = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $x = {var1-10}$</div></div></div>"
-},
-{
-  "id": "regression_sum_mental_006",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная регрессия (устный счёт)",
-  "title": "Найди сумму k + b",
-  "theme": "Регрессия",
-  "text": "Прямая проходит через точки $A(0, 0)$ и $B(1, {var1-10})$. Найдите $k + b$.",
-  "answer": "{var1-10}",
-  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{var1-10} - 0}{1 - 0} = {var1-10}$$<br>$$b = y_1 - k \\cdot x_1 = 0 - {var1-10} \\cdot 0 = 0$$<br>$$k + b = {var1-10} + 0 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k + b = {var1-10}$</div></div></div>"
-},
+  {
+    "id": "regression_find_x_mental_005",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди значение x",
+    "theme": "Регрессия",
+    "text": "Прямая $y = 3x$ проходит через точку с $y = {= {var1-10}*3}$. Найдите $x$.",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$x = \\frac{y}{3} = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $x = {var1-10}$</div></div></div>"
+  },
+  {
+    "id": "regression_sum_mental_006",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная регрессия (устный счёт)",
+    "title": "Найди сумму k + b",
+    "theme": "Регрессия",
+    "text": "Прямая проходит через точки $A(0, 0)$ и $B(1, {var1-10})$. Найдите $k + b$.",
+    "answer": "{var1-10}",
+    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{var1-10} - 0}{1 - 0} = {var1-10}$$<br>$$b = y_1 - k \\cdot x_1 = 0 - {var1-10} \\cdot 0 = 0$$<br>$$k + b = {var1-10} + 0 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k + b = {var1-10}$</div></div></div>"
+  },
 
 
   {
-  "id": "regression_slope_001",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Вычисление коэффициента наклона k",
-  "theme": "Регрессия",
- 
-  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
-  "choices": [
-    "$k = 2$",
-    "$k = 0.5$",
-    "$k = -2$",
-    "$k = 1$",
-    "$k = 8$"
-  ],
-  "answers": ["$k = 2$"],
-  "hint": `
+    "id": "regression_slope_001",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Вычисление коэффициента наклона k",
+    "theme": "Регрессия",
+
+    "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
+    "choices": [
+      "$k = 2$",
+      "$k = 0.5$",
+      "$k = -2$",
+      "$k = 1$",
+      "$k = 8$"
+    ],
+    "answers": ["$k = 2$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Коэффициент наклона прямой (k)</h5>
@@ -9532,25 +9537,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
   {
-  "id": "regression_intercept_002",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Вычисление свободного члена b",
-  "theme": "Регрессия",
- 
-  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Зная, что $k = 2$, найдите свободный член $b$.",
-  "choices": [
-    "$b = -10$",
-    "$b = -6$",
-    "$b = 0$",
-    "$b = 6$",
-    "$b = 10$"
-  ],
-  "answers": ["$b = -10$"],
-  "hint": `
+    "id": "regression_intercept_002",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Вычисление свободного члена b",
+    "theme": "Регрессия",
+
+    "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Зная, что $k = 2$, найдите свободный член $b$.",
+    "choices": [
+      "$b = -10$",
+      "$b = -6$",
+      "$b = 0$",
+      "$b = 6$",
+      "$b = 10$"
+    ],
+    "answers": ["$b = -10$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Нахождение свободного члена b</h5>
@@ -9612,25 +9617,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
   {
-  "id": "regression_equation_003",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Составление уравнения прямой",
-  "theme": "Регрессия",
- 
-  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
-  "choices": [
-    "$y = 2x - 10$",
-    "$y = 2x + 10$",
-    "$y = 0.5x - 1$",
-    "$y = 0.5x + 1$",
-    "$y = 8x - 46$"
-  ],
-  "answers": ["$y = 2x - 10$"],
-  "hint": `
+    "id": "regression_equation_003",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Составление уравнения прямой",
+    "theme": "Регрессия",
+
+    "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
+    "choices": [
+      "$y = 2x - 10$",
+      "$y = 2x + 10$",
+      "$y = 0.5x - 1$",
+      "$y = 0.5x + 1$",
+      "$y = 8x - 46$"
+    ],
+    "answers": ["$y = 2x - 10$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Уравнение прямой по двум точкам</h5>
@@ -9681,25 +9686,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
   {
-  "id": "regression_predict_004",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Прогнозирование по уравнению регрессии",
-  "theme": "Регрессия",
- 
-  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 15$?",
-  "choices": [
-    "$y = 20$",
-    "$y = 25$",
-    "$y = 30$",
-    "$y = 35$",
-    "$y = 40$"
-  ],
-  "answers": ["$y = 20$"],
-  "hint": `
+    "id": "regression_predict_004",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Прогнозирование по уравнению регрессии",
+    "theme": "Регрессия",
+
+    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 15$?",
+    "choices": [
+      "$y = 20$",
+      "$y = 25$",
+      "$y = 30$",
+      "$y = 35$",
+      "$y = 40$"
+    ],
+    "answers": ["$y = 20$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Прогнозирование по линейной регрессии</h5>
@@ -9746,25 +9751,25 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
   {
-  "id": "regression_interpolate_005",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Интерполяция по уравнению регрессии",
-  "theme": "Регрессия",
- 
-  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 8$?",
-  "choices": [
-    "$y = 2$",
-    "$y = 4$",
-    "$y = 6$",
-    "$y = 8$",
-    "$y = 10$"
-  ],
-  "answers": ["$y = 6$"],
-  "hint": `
+    "id": "regression_interpolate_005",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Интерполяция по уравнению регрессии",
+    "theme": "Регрессия",
+
+    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 8$?",
+    "choices": [
+      "$y = 2$",
+      "$y = 4$",
+      "$y = 6$",
+      "$y = 8$",
+      "$y = 10$"
+    ],
+    "answers": ["$y = 6$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Интерполяция по линейной регрессии</h5>
@@ -9822,24 +9827,24 @@ let quizesSets = [
     </div>
   </div>
 </div>`
-},
+  },
 
   {
-  "id": "regression_formula_006",
-  "type": "multiplechoices",
-  "header": "Линейная регрессия по двум точкам",
-  "title": "Уравнение прямой через две точки (каноническая форма)",
-  "theme": "Регрессия",
-  "text": "Какое уравнение прямой в канонической форме проходит через точки $A(6, 2)$ и $B(10, 10)$?",
-  "choices": [
-    "$\\frac{x - 6}{4} = \\frac{y - 2}{8}$",
-    "$\\frac{x - 6}{8} = \\frac{y - 2}{4}$",
-    "$\\frac{x - 2}{6} = \\frac{y - 6}{10}$",
-    "$\\frac{x - 10}{6} = \\frac{y - 10}{2}$",
-    "$\\frac{x - 2}{8} = \\frac{y - 6}{4}$"
-  ],
-  "answers": ["$\\frac{x - 6}{4} = \\frac{y - 2}{8}$"],
-  "hint": `
+    "id": "regression_formula_006",
+    "type": "multiplechoices",
+    "header": "Линейная регрессия по двум точкам",
+    "title": "Уравнение прямой через две точки (каноническая форма)",
+    "theme": "Регрессия",
+    "text": "Какое уравнение прямой в канонической форме проходит через точки $A(6, 2)$ и $B(10, 10)$?",
+    "choices": [
+      "$\\frac{x - 6}{4} = \\frac{y - 2}{8}$",
+      "$\\frac{x - 6}{8} = \\frac{y - 2}{4}$",
+      "$\\frac{x - 2}{6} = \\frac{y - 6}{10}$",
+      "$\\frac{x - 10}{6} = \\frac{y - 10}{2}$",
+      "$\\frac{x - 2}{8} = \\frac{y - 6}{4}$"
+    ],
+    "answers": ["$\\frac{x - 6}{4} = \\frac{y - 2}{8}$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>📐 Каноническое уравнение прямой</h5>
@@ -9890,6 +9895,359 @@ let quizesSets = [
     </div>
   </div>
 </div>`
+  },
+
+
+  {
+    "id": "statistics542",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистическая оценка",
+    "theme": "Меры центральной тенденции",
+    "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
+    "answers": ["Среднего арифметического"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
+  },
+  {
+    "id": "statistics543",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Меры центральной тенденции",
+    "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+    "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
+    "answers": ["Медианы"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
+  },
+
+  {
+    "id": "statistics544",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Анализ данных",
+    "theme": "Меры разброса",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
+    "answers": ["Дисперсии по генеральной совокупности"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма квадратов отклонений</strong> от среднего, в знаменателе — <strong>n</strong> (деление на количество наблюдений). Это <strong>дисперсия по генеральной совокупности</strong> (VAR.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Дисперсия по генеральной совокупности</div></div></div>"
+  },
+
+
+  {
+    "id": "statistics545",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистический показатель",
+    "theme": "Меры разброса",
+    "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
+    "answers": ["Стандартного отклонения по генеральной совокупности"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
+  },
+  {
+    "id": "statistics546",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Количественная оценка",
+    "theme": "Корреляционно-регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
+    "answers": ["Коэффициента корреляции Пирсона"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
+  },
+  {
+    "id": "statistics547",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Корреляционно-регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
+    "answers": ["Ковариации по генеральной совокупности"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>"
+  },
+  {
+    "id": "statistics548",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистическая оценка",
+    "theme": "Регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
+    "answers": ["Углового коэффициента (наклона) регрессии"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
+  },
+  {
+    "id": "statistics549",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Анализ данных",
+    "theme": "Регрессионный анализ",
+    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
+    "answers": ["Свободного члена (пересечения) регрессии"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
+  },
+
+  {
+    "id": "statistics551",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Количественная оценка",
+    "theme": "Позиционные характеристики",
+    "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
+    "answers": ["Первого квартиля (25-го процентиля)"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Q1 = x_{0.25}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Q1 обозначает <strong>первый квартиль</strong>, x_{0.25} — <strong>25-й процентиль</strong>. Это значение, ниже которого находятся 25% данных.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Первый квартиль (25-й процентиль)</div></div></div>"
+  },
+
+    {
+    "id": "statistics_mean_mixed001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Среднее арифметическое",
+    "theme": "Средние величины",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Среднее арифметическое
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите среднее арифметическое чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+    </div>
+     </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Сумма чисел:</div>
+    <div class="text-center">
+      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)}$$
+    </div>
+    <div class="mt-3 mb-2">Количество чисел: 6</div>
+    <div class="mb-2">Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = \\frac{{= ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)}}{6} = {= (({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)) / 6}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+    "randomfrom": [10, 15, 20, 25, 30, 35]
+  },
+
+  {
+    "id": "statistics_var_equal001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Дисперсия",
+    "theme": "Меры разброса",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-2">
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}*0",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = {var1-10}$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
+    <div class="text-center">
+      $$ {var1-10} - {var1-10} = 0$$ (для каждого из 6 чисел)
+    </div>
+    
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">
+      $$0^2 = 0$$ (для каждого из 6 чисел)
+    </div>
+    
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">
+      $$0 + 0 + 0 + 0 + 0 + 0 = 0$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Дисперсия (делим на количество чисел n = 6):</div>
+    <div class="text-center">
+      $$\\sigma^2 = \\frac{0}{6} = 0$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 0</div>
+  </div>
+</div>`,
+    "randomfrom": [5, 8, 12, 15, 20]
+  },
+
+{
+  "id": "statistics_var_mixed002",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Дисперсия",
+  "theme": "Меры разброса",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+    </div>
+  </div>
+</div>`,
+  "answer": "9",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    
+    <div class="mt-3 mb-2">2. Квадраты отклонений:</div>
+    <div class="text-center">$$(+3)^2 = 9,\\quad (-3)^2 = 9$$ (каждое по 3 раза)</div>
+    
+    <div class="mt-3 mb-2">3. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\times 9 = 54$$</div>
+    
+    <div class="mt-3 mb-2">4. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{54}{6} = 9$$</div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 9</div>
+  </div>
+</div>`,
+  "randomfrom": [10, 15, 20, 25, 30]
+},
+
+
+{
+  "id": "statistics_var_mixed005",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Дисперсия",
+  "theme": "Меры разброса",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+  "answer": "{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    
+    <div class="mt-3 mb-2">2. Отклонения:</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$</div>
+    
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\times {var1-10} = {= 6 * {var1-10}}$$</div>
+    
+    <div class="mt-3 mb-2">5. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+  "randomfrom": [4, 9, 16, 25]
+},
+
+{
+  "id": "statistics_stdev_mixed005",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Стандартное отклонение",
+  "theme": "Меры разброса",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Стандартное отклонение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите стандартное отклонение (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+  "answer": "POWER({var1-10}, 1/2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Дисперсия (из предыдущего расчёта):</div>
+    <div class="text-center">$$\\sigma^2 = {var1-10}$$</div>
+    
+    <div class="mt-3 mb-2">2. Стандартное отклонение:</div>
+    <div class="text-center">$$\\sigma = \\sqrt{\\sigma^2} = \\sqrt{{var1-10}} = {= POWER({var1-10}, 1/2)}$$</div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {= POWER({var1-10}, 1/2)}</div>
+  </div>
+</div>`,
+  "randomfrom": [4, 9, 16, 25]
 },
 
 
@@ -9985,19 +10343,8 @@ let quizesSets = [
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
   },
   
-  {
-    "id": "statistics551",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Позиционные характеристики",
-    "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
-    "answers": ["Первого квартиля (25-го процентиля)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Q1 = x_{0.25}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Q1 обозначает <strong>первый квартиль</strong>, x_{0.25} — <strong>25-й процентиль</strong>. Это значение, ниже которого находятся 25% данных.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Первый квартиль (25-й процентиль)</div></div></div>"
-  },
 
-  
+
 ]
 
 window.quizesSets = quizesSets;
