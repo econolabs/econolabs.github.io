@@ -6,7 +6,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Статистическая оценка",
     "theme": "Меры центральной тенденции",
-    "text": "$$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
     "answers": ["Среднего арифметического"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
@@ -17,29 +17,32 @@ let quizesSets = [
     "header": "Тест",
     "title": "Описательная статистика",
     "theme": "Меры центральной тенденции",
-    "text": "$$Me = \\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+    "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
     "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
     "answers": ["Медианы"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
   },
+
   {
     "id": "statistics544",
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Анализ данных",
     "theme": "Меры разброса",
-    "text": "$$\\sigma^2 = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
     "answers": ["Дисперсии по генеральной совокупности"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма квадратов отклонений</strong> от среднего, в знаменателе — <strong>n</strong> (деление на количество наблюдений). Это <strong>дисперсия по генеральной совокупности</strong> (VAR.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Дисперсия по генеральной совокупности</div></div></div>"
   },
+
+
   {
     "id": "statistics545",
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Статистический показатель",
     "theme": "Меры разброса",
-    "text": "$$\\sigma = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
     "answers": ["Стандартного отклонения по генеральной совокупности"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
@@ -50,7 +53,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Количественная оценка",
     "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$r = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
     "answers": ["Коэффициента корреляции Пирсона"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
@@ -61,7 +64,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Описательная статистика",
     "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$\\text{Cov}(X,Y) = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
     "answers": ["Ковариации по генеральной совокупности"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>"
@@ -72,7 +75,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Статистическая оценка",
     "theme": "Регрессионный анализ",
-    "text": "$$a = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
     "answers": ["Углового коэффициента (наклона) регрессии"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
@@ -83,22 +86,12 @@ let quizesSets = [
     "header": "Тест",
     "title": "Анализ данных",
     "theme": "Регрессионный анализ",
-    "text": "$$b = \\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
+    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
     "answers": ["Свободного члена (пересечения) регрессии"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
   },
-  {
-    "id": "statistics550",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистический показатель",
-    "theme": "Регрессионный анализ",
-    "text": "$$R^2 = r^2$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента корреляции", "Коэффициента детерминации", "Ковариации", "Стандартной ошибки регрессии"],
-    "answers": ["Коэффициента детерминации"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$R^2 = r^2$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадрат коэффициента корреляции</strong>. R² показывает, какой процент дисперсии зависимой переменной объясняется моделью. Это <strong>коэффициент детерминации</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент детерминации</div></div></div>"
-  },
+  
   {
     "id": "statistics551",
     "type": "multiplechoices",
@@ -5891,6 +5884,503 @@ let quizesSets = [
         answer: "=FORECAST.LINEAR(30,A2:A6,B2:B6)",
        
     },
+
+{
+  "id": "regression_slope_mental_001",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди угловой коэффициент",
+  "theme": "Регрессия",
+  "text": "Точки: $A(0, 0)$ и $B({= {var1-10}*2}, {= {var1-10}*2*{var1-10}})$. Найдите $k = \\frac{y_2 - y_1}{x_2 - x_1}$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_slope_mental_002",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди угловой коэффициент",
+  "theme": "Регрессия",
+  "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_intercept_mental_003",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди свободный член b",
+  "theme": "Регрессия",
+  "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим b</h5></div><div class='card-body'><div class='alert alert-secondary'>$$b = y - 2x = ({= {var1-10}*2 + {var1-10}}) - 2 \\cdot ({= {var1-10}}) = {= {var1-10}*2 + {var1-10}} - {= {var1-10}*2} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $b = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_predict_mental_004",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди значение y",
+  "theme": "Регрессия",
+  "text": "Прямая $y = {var1-10} \\cdot x$ проходит через начало координат. Чему равен $y$ при $x = 1$?",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
+},
+
+{
+  "id": "regression_find_x_mental_005",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди значение x",
+  "theme": "Регрессия",
+  "text": "Прямая $y = 3x$ проходит через точку с $y = {= {var1-10}*3}$. Найдите $x$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$x = \\frac{y}{3} = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $x = {var1-10}$</div></div></div>"
+},
+{
+  "id": "regression_sum_mental_006",
+  "type": "mathwithrandomnumber",
+  "header": "Линейная регрессия (устный счёт)",
+  "title": "Найди сумму k + b",
+  "theme": "Регрессия",
+  "text": "Прямая проходит через точки $A(0, 0)$ и $B(1, {var1-10})$. Найдите $k + b$.",
+  "answer": "{var1-10}",
+  "randomfrom": [2, 3, 4, 5, 8, 10, 20],
+  "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{var1-10} - 0}{1 - 0} = {var1-10}$$<br>$$b = y_1 - k \\cdot x_1 = 0 - {var1-10} \\cdot 0 = 0$$<br>$$k + b = {var1-10} + 0 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k + b = {var1-10}$</div></div></div>"
+},
+
+
+  {
+  "id": "regression_slope_001",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Вычисление коэффициента наклона k",
+  "theme": "Регрессия",
+ 
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
+  "choices": [
+    "$k = 2$",
+    "$k = 0.5$",
+    "$k = -2$",
+    "$k = 1$",
+    "$k = 8$"
+  ],
+  "answers": ["$k = 2$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Коэффициент наклона прямой (k)</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула углового коэффициента:</strong>
+      $$k = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем координаты точек</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $A(x_1, y_1) = (6, 2)$</p>
+        <p class="card-text">Точка $B(x_2, y_2) = (10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим разности координат</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\Delta y = y_2 - y_1 = 10 - 2 = 8$$</p>
+        <p class="card-text">$$\\Delta x = x_2 - x_1 = 10 - 6 = 4$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Вычисляем угловой коэффициент</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$k = \\frac{\\Delta y}{\\Delta x} = \\frac{8}{4} = 2$$</p>
+        <div class="alert alert-success mt-2">
+          📈 <strong>Интерпретация:</strong> При увеличении $x$ на 1 единицу, $y$ увеличивается на 2 единицы.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $k = 2$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_intercept_002",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Вычисление свободного члена b",
+  "theme": "Регрессия",
+ 
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Зная, что $k = 2$, найдите свободный член $b$.",
+  "choices": [
+    "$b = -10$",
+    "$b = -6$",
+    "$b = 0$",
+    "$b = 6$",
+    "$b = 10$"
+  ],
+  "answers": ["$b = -10$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Нахождение свободного члена b</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула для нахождения b:</strong>
+      $$b = y_1 - k \\cdot x_1$$
+      или
+      $$b = y_2 - k \\cdot x_2$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Известные данные</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$k = 2$ (из предыдущего расчёта)</p>
+        <p class="card-text">Точка $A(6, 2)$ или $B(10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Подставляем в уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Используем точку $A(6, 2)$:</p>
+        <p class="card-text">$$y = kx + b \\Rightarrow 2 = 2 \\cdot 6 + b$$</p>
+        <p class="card-text">$$2 = 12 + b$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 3: Решаем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$b = 2 - 12 = -10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 4: Проверка со второй точкой</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $B(10, 10)$:</p>
+        <p class="card-text">$$10 = 2 \\cdot 10 + b \\Rightarrow 10 = 20 + b \\Rightarrow b = -10$$ ✓</p>
+        <div class="alert alert-info mt-2">
+          📈 <strong>Уравнение прямой:</strong> $y = 2x - 10$
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $b = -10$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_equation_003",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Составление уравнения прямой",
+  "theme": "Регрессия",
+ 
+  "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
+  "choices": [
+    "$y = 2x - 10$",
+    "$y = 2x + 10$",
+    "$y = 0.5x - 1$",
+    "$y = 0.5x + 1$",
+    "$y = 8x - 46$"
+  ],
+  "answers": ["$y = 2x - 10$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Уравнение прямой по двум точкам</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Общий вид уравнения прямой:</strong>
+      $$y = kx + b$$
+      где $k$ — угловой коэффициент, $b$ — свободный член.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Находим угловой коэффициент k</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$k = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{10 - 2}{10 - 6} = \\frac{8}{4} = 2$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим свободный член b</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Используем точку $A(6, 2)$:</p>
+        <p class="card-text">$$2 = 2 \\cdot 6 + b \\Rightarrow b = 2 - 12 = -10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Записываем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2x - 10$$</p>
+        <div class="alert alert-info mt-2">
+          📊 <strong>Проверка:</strong><br>
+          При $x = 6$: $y = 2 \\cdot 6 - 10 = 12 - 10 = 2$ ✓<br>
+          При $x = 10$: $y = 2 \\cdot 10 - 10 = 20 - 10 = 10$ ✓
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 2x - 10$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_predict_004",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Прогнозирование по уравнению регрессии",
+  "theme": "Регрессия",
+ 
+  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 15$?",
+  "choices": [
+    "$y = 20$",
+    "$y = 25$",
+    "$y = 30$",
+    "$y = 35$",
+    "$y = 40$"
+  ],
+  "answers": ["$y = 20$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Прогнозирование по линейной регрессии</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уравнение регрессии:</strong>
+      $$y = 2x - 10$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Подставляем значение x = 15</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2 \\cdot 15 - 10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 30 - 10 = 20$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Интерпретация</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          📈 <strong>Прогноз:</strong> При $x = 15$ модель предсказывает $y = 20$.<br>
+          ⚠️ <strong>Внимание:</strong> Экстраполяция за пределы исходного диапазона $[6, 10]$ может быть неточной!
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 20$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_interpolate_005",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Интерполяция по уравнению регрессии",
+  "theme": "Регрессия",
+ 
+  "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 8$?",
+  "choices": [
+    "$y = 2$",
+    "$y = 4$",
+    "$y = 6$",
+    "$y = 8$",
+    "$y = 10$"
+  ],
+  "answers": ["$y = 6$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интерполяция по линейной регрессии</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уравнение регрессии:</strong>
+      $$y = 2x - 10$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Подставляем значение x = 8</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 2 \\cdot 8 - 10$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$y = 16 - 10 = 6$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Визуализация</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = 2x - 10$</th><th>Тип</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>6</td><td>2</td><td class="table-info">Исходная точка A</td></tr>
+              <tr class="table-success"><td>8</td><td>6</td><td>Интерполяция (внутри диапазона)</td></tr>
+              <tr><td>10</td><td>10</td><td class="table-info">Исходная точка B</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-info mt-2">
+          📈 <strong>Интерполяция:</strong> $x = 8$ находится между 6 и 10, поэтому прогноз надёжен.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $y = 6$
+    </div>
+  </div>
+</div>`
+},
+
+  {
+  "id": "regression_formula_006",
+  "type": "multiplechoices",
+  "header": "Линейная регрессия по двум точкам",
+  "title": "Уравнение прямой через две точки (каноническая форма)",
+  "theme": "Регрессия",
+  "text": "Какое уравнение прямой в канонической форме проходит через точки $A(6, 2)$ и $B(10, 10)$?",
+  "choices": [
+    "$\\frac{x - 6}{4} = \\frac{y - 2}{8}$",
+    "$\\frac{x - 6}{8} = \\frac{y - 2}{4}$",
+    "$\\frac{x - 2}{6} = \\frac{y - 6}{10}$",
+    "$\\frac{x - 10}{6} = \\frac{y - 10}{2}$",
+    "$\\frac{x - 2}{8} = \\frac{y - 6}{4}$"
+  ],
+  "answers": ["$\\frac{x - 6}{4} = \\frac{y - 2}{8}$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Каноническое уравнение прямой</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Каноническая форма уравнения прямой через две точки:</strong>
+      $$\\frac{x - x_1}{x_2 - x_1} = \\frac{y - y_1}{y_2 - y_1}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем координаты</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Точка $A(x_1, y_1) = (6, 2)$</p>
+        <p class="card-text">Точка $B(x_2, y_2) = (10, 10)$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим разности</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$x_2 - x_1 = 10 - 6 = 4$$</p>
+        <p class="card-text">$$y_2 - y_1 = 10 - 2 = 8$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Подставляем в формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{x - 6}{4} = \\frac{y - 2}{8}$$</p>
+        <div class="alert alert-info mt-2">
+          📐 Это уравнение можно упростить до $y = 2x - 10$:<br>
+          $$\\frac{x - 6}{4} = \\frac{y - 2}{8} \\Rightarrow 8(x - 6) = 4(y - 2)$$<br>
+          $$8x - 48 = 4y - 8 \\Rightarrow 4y = 8x - 40 \\Rightarrow y = 2x - 10$$
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{x - 6}{4} = \\frac{y - 2}{8}$
+    </div>
+  </div>
+</div>`
+},
 
 
 
