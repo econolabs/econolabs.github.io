@@ -1,215 +1,650 @@
 let quizesSets = [
 
-   {
-  "id": "statistics_regression_costs001",
+  {
+  "id": "exponential_function001april",
   "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Тестирование. Регрессия",
-  "theme": "Корреляционно-регрессионный анализ",
-  "functionGraph": "true",
-  "functionType": "regressionPointsGraph",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Постоянные затраты
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
-    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
-  </div>
-</div>`,
-  "answer": "{var1-10}/{var1-10}",
+  "header": "Показательная функция",
+  "title": "Свойства показательной функции",
+  "theme": "Показательная функция",
+  "text": "Чему равно $$2^{{var1-10}} = ?$$",
+  "answer": "POWER(2, {var1-10})",
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    Решение
+    <h5>Вычисление показательной функции</h5>
   </div>
   <div class="card-body">
-    <div class="mb-2">1. Исходные данные:</div>
-    <div class="text-center">
-      $$x_1 = 10,\\ y_1 = 6$$
-      $$x_2 = 12,\\ y_2 = 7$$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение показательной функции
+      </div>
+      <div class="card-body">
+        <p class="card-text">Показательная функция — это функция вида $y = a^x$, где $a > 0$, $a \\neq 1$.</p>
+        <p class="card-text">При возведении числа в отрицательную степень:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
-    <div class="text-center">
-      $$y = a \\cdot x + b$$
-    </div>
-    <div class="mb-2">где a — переменные затраты на единицу выручки, b — постоянные затраты.</div>
-    
-    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
-    <div class="text-center">
-      $$
-      \\begin{cases}
-      6 = a \\cdot 10 + b \\\\
-      7 = a \\cdot 12 + b
-      \\end{cases}
-      $$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно вычислить:</p>
+        <p class="card-text text-center">$$2^{{var1-10}}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
-    <div class="text-center">
-      $$(7 - 6) = (12a - 10a) + (b - b)$$
-      $$1 = 2a$$
-      $$a = 0.5$$
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+        <p class="card-text text-center">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">5. Подставляем a в первое уравнение:</div>
-    <div class="text-center">
-      $$6 = 0.5 \\times 10 + b$$
-      $$6 = 5 + b$$
-      $$b = 1$$
-    </div>
-    
-    <div class="mt-3 mb-2">6. Проверка через второе уравнение:</div>
-    <div class="text-center">
-      $$7 = 0.5 \\times 12 + 1 = 6 + 1 = 7$$ ✓
-    </div>
-    
-    <div class="mt-3 mb-2">7. Затраты при нулевой выручке (x = 0):</div>
-    <div class="text-center">
-      $$y = a \\cdot 0 + b = b = 1$$
-    </div>
-    
-    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": ["12"]
+  "randomfrom": [-1, -2, -3, -4, -5]
 },
 
-  {
-  "id": "statistics_regression_costs001",
+
+{
+  "id": "logarithms_product001",
   "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-  "functionGraph": "true",
-  "functionType": "costsRevenueGraph",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Постоянные затраты
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
-    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
-  </div>
-</div>`,
-  "answer": "{var1-10}/{var1-10}",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    Решение
+    <h5>Вычисление логарифма</h5>
   </div>
   <div class="card-body">
-    <div class="mb-2">1. Исходные данные:</div>
-    <div class="text-center">
-      $$x_1 = 10,\\ y_1 = 6$$
-      $$x_2 = 12,\\ y_2 = 7$$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
-    <div class="text-center">
-      $$y = a \\cdot x + b$$
-    </div>
-    <div class="mb-2">где a — переменные затраты на единицу выручки, b — постоянные затраты.</div>
-    
-    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
-    <div class="text-center">
-      $$
-      \\begin{cases}
-      6 = a \\cdot 10 + b \\\\
-      7 = a \\cdot 12 + b
-      \\end{cases}
-      $$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
-    <div class="text-center">
-      $$(7 - 6) = (12a - 10a) + (b - b)$$
-      $$1 = 2a$$
-      $$a = 0.5$$
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">5. Подставляем a в первое уравнение:</div>
-    <div class="text-center">
-      $$6 = 0.5 \\times 10 + b$$
-      $$6 = 5 + b$$
-      $$b = 1$$
-    </div>
-    
-    <div class="mt-3 mb-2">6. Проверка через второе уравнение:</div>
-    <div class="text-center">
-      $$7 = 0.5 \\times 12 + 1 = 6 + 1 = 7$$ ✓
-    </div>
-    
-    <div class="mt-3 mb-2">7. Затраты при нулевой выручке (x = 0):</div>
-    <div class="text-center">
-      $$y = a \\cdot 0 + b = b = 1$$
-    </div>
-    
-    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
+   
   </div>
 </div>`,
-  "randomfrom": ["12"]
+  "randomfrom": [8, 16, 32, 64]
+},
+
+{
+  "id": "logarithms_product001april",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>`,
+  "randomfrom": [1/2, 1/4, 1/8]
 },
 
  {
-  "id": "statistics_regression_cost002",
+  "id": "logarithms_product002",
   "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Линейная регрессия. Постоянные и переменные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-   "functionGraph": "true",
-  "functionType": "costsRevenueGraph",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Постоянные затраты
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
-    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
-  </div>
-</div>`,
-  "answer": "{var1-10}/{var1-10}",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{3}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 3)",
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
-    Решение
+    <h5>Вычисление логарифма</h5>
   </div>
   <div class="card-body">
-    <div class="mb-2">1. Исходные данные:</div>
-    <div class="text-center">
-      $$x_1 = 10,\\ y_1 = 6$$
-      $$x_2 = 12,\\ y_2 = 7$$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">2. Угловой коэффициент (наклон):</div>
-    <div class="text-center">
-      $$a = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{7 - 6}{12 - 10} = \\frac{1}{2} = 0.5$$
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$3^c = {var1-10}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">3. Уравнение прямой:</div>
-    <div class="text-center">
-      $$y = a \\cdot x + b$$
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$3^{{=LOG({var1-10}, 3)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{3}{var1-10} = {=LOG({var1-10}, 3)}$$</p>
+      </div>
     </div>
     
-    <div class="mt-3 mb-2">4. Находим свободный член b (затраты при x = 0):</div>
-    <div class="text-center">
-      $$b = y_1 - a \\cdot x_1 = 6 - 0.5 \\times 10 = 6 - 5 = 1$$
-    </div>
     
-    <div class="mt-3 mb-2">5. Проверка через вторую точку:</div>
-    <div class="text-center">
-      $$b = y_2 - a \\cdot x_2 = 7 - 0.5 \\times 12 = 7 - 6 = 1$$
-    </div>
-    
-    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": ["12"]
+  "randomfrom": [9, 27, 81, 243]
 },
+
+
+
+
+  {
+  "id": "geometry_volume_cube001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Объёмы многогранников",
+  "theme": "Объёмы и площади",
+  "text": "$$V = a^3$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём куба",
+    "Объём прямоугольного параллелепипеда",
+    "Объём шара",
+    "Площадь поверхности куба",
+    "Объём пирамиды"
+  ],
+  "answers": ["Объём куба"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула объёма куба</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Куб — это правильный многогранник, все грани которого — квадраты со стороной <strong>a</strong>.</p>
+        <p class="card-text text-center">$$V = a \\cdot a \\cdot a = a^3$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Объём куба</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "geometry_volume_cuboid001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Объёмы многогранников",
+  "theme": "Объёмы и площади",
+  "text": "$$V = a \\cdot b \\cdot c$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём куба",
+    "Объём прямоугольного параллелепипеда",
+    "Объём цилиндра",
+    "Площадь поверхности параллелепипеда",
+    "Объём призмы"
+  ],
+  "answers": ["Объём прямоугольного параллелепипеда"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула объёма прямоугольного параллелепипеда</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Прямоугольный параллелепипед — это многогранник с измерениями <strong>a</strong> (длина), <strong>b</strong> (ширина) и <strong>c</strong> (высота).</p>
+        <p class="card-text text-center">$$V = a \\cdot b \\cdot c$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Объём прямоугольного параллелепипеда</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "geometry_volume_sphere001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Объёмы тел вращения",
+  "theme": "Объёмы и площади",
+  "text": "$$V = \\frac{4}{3}\\pi R^3$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём цилиндра",
+    "Объём конуса",
+    "Объём шара",
+    "Площадь поверхности шара",
+    "Объём усечённого конуса"
+  ],
+  "answers": ["Объём шара"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула объёма шара</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Шар — это тело вращения, образованное вращением полукруга вокруг диаметра.</p>
+        <p class="card-text text-center">$$V = \\frac{4}{3}\\pi R^3$$</p>
+        <p class="card-text">где <strong>R</strong> — радиус шара.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Объём шара</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "geometry_volume_cylinder001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Объёмы тел вращения",
+  "theme": "Объёмы и площади",
+  "text": "$$V = \\pi R^2 h$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём конуса",
+    "Объём цилиндра",
+    "Площадь боковой поверхности цилиндра",
+    "Объём шара",
+    "Объём призмы"
+  ],
+  "answers": ["Объём цилиндра"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула объёма цилиндра</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Цилиндр — это тело вращения, образованное вращением прямоугольника вокруг одной из сторон.</p>
+        <p class="card-text text-center">$$V = S_{\\text{осн}} \\cdot h = \\pi R^2 h$$</p>
+        <p class="card-text">где <strong>R</strong> — радиус основания, <strong>h</strong> — высота.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Объём цилиндра</div>
+  </div>
+</div>`
+},
+
+
+{
+  "id": "geometry_volume_cone001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Объёмы тел вращения",
+  "theme": "Объёмы и площади",
+  "text": "$$V = \\frac{1}{3}\\pi R^2 h$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём цилиндра",
+    "Объём конуса",
+    "Объём пирамиды",
+    "Объём усечённого конуса",
+    "Площадь поверхности конуса"
+  ],
+  "answers": ["Объём конуса"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула объёма конуса</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Конус — это тело вращения, образованное вращением прямоугольного треугольника вокруг катета.</p>
+        <p class="card-text text-center">$$V = \\frac{1}{3} \\pi R^2 h$$</p>
+        <p class="card-text">где <strong>R</strong> — радиус основания, <strong>h</strong> — высота.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Объём конуса</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "geometry_area_sphere001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Площади поверхности",
+  "theme": "Объёмы и площади",
+  "text": "$$S = 4\\pi R^2$$\n\nДанная формула определяет:",
+  "choices": [
+    "Площадь поверхности куба",
+    "Площадь поверхности цилиндра",
+    "Площадь поверхности шара",
+    "Объём шара",
+    "Площадь круга"
+  ],
+  "answers": ["Площадь поверхности шара"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула площади поверхности шара</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text text-center">$$S = 4\\pi R^2$$</p>
+        <p class="card-text">где <strong>R</strong> — радиус шара.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Площадь поверхности шара</div>
+  </div>
+</div>`
+},
+
+
+{
+  "id": "geometry_area_cube001",
+  "type": "multiplechoices",
+  "header": "Геометрия",
+  "title": "Площади поверхности",
+  "theme": "Объёмы и площади",
+  "text": "$$S = 6a^2$$\n\nДанная формула определяет:",
+  "choices": [
+    "Объём куба",
+    "Площадь поверхности куба",
+    "Площадь грани куба",
+    "Площадь поверхности прямоугольного параллелепипеда",
+    "Диагональ куба"
+  ],
+  "answers": ["Площадь поверхности куба"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула площади поверхности куба</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Пояснение</div>
+      <div class="card-body">
+        <p class="card-text">Куб имеет 6 граней, каждая из которых — квадрат со стороной <strong>a</strong>.</p>
+        <p class="card-text text-center">$$S = 6 \\cdot a^2$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Площадь поверхности куба</div>
+  </div>
+</div>`
+},
+
+
+{
+  "id": "integral_volume_sphere001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Объём шара",
+  "theme": "Определённый интеграл",
+  "text": "Для вычисления объёма шара радиуса $R$ необходимо взять следующий интеграл:",
+  "choices": [
+    "$$\\pi \\int_{-R}^{R} (R^2 - x^2) dx$$",
+    "$$2\\pi \\int_{0}^{R} x^2 dx$$",
+    "$$\\pi \\int_{0}^{R} x^2 dx$$",
+    "$$4\\pi \\int_{0}^{R} x^2 dx$$",
+    "$$\\int_{-R}^{R} \\sqrt{R^2 - x^2} dx$$"
+  ],
+  "answers": ["$$\\pi \\int_{-R}^{R} (R^2 - x^2) dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Объём шара через интеграл</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Вывод формулы</div>
+      <div class="card-body">
+        <p class="card-text">Шар можно получить вращением полуокружности $y = \\sqrt{R^2 - x^2}$ вокруг оси OX.</p>
+        <p class="card-text text-center">$$V = \\pi \\int_{-R}^{R} [f(x)]^2 dx = \\pi \\int_{-R}^{R} (R^2 - x^2) dx$$</p>
+        <p class="card-text">Вычисляя интеграл, получаем $V = \\frac{4}{3}\\pi R^3$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\pi \\int_{-R}^{R} (R^2 - x^2) dx$</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_volume_cone001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Объём конуса",
+  "theme": "Определённый интеграл",
+  "text": "Для вычисления объёма конуса высоты $h$ и радиусом основания $R$ необходимо взять следующий интеграл:",
+  "choices": [
+    "$$\\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$$",
+    "$$\\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right) dx$$",
+    "$$2\\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$$",
+    "$$\\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$$",
+    "$$\\pi \\int_{0}^{R} \\left(\\frac{h}{R} y\\right)^2 dy$$"
+  ],
+  "answers": ["$$\\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Объём конуса через интеграл</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Вывод формулы</div>
+      <div class="card-body">
+        <p class="card-text">Конус можно получить вращением прямой $y = \\frac{R}{h} x$ вокруг оси OX.</p>
+        <p class="card-text text-center">$$V = \\pi \\int_{0}^{h} [f(x)]^2 dx = \\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$$</p>
+        <p class="card-text">Вычисляя интеграл, получаем $V = \\frac{1}{3}\\pi R^2 h$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\pi \\int_{0}^{h} \\left(\\frac{R}{h} x\\right)^2 dx$</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_volume_cylinder001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Объём цилиндра",
+  "theme": "Определённый интеграл",
+  "text": "Для вычисления объёма цилиндра высоты $h$ и радиусом основания $R$ необходимо взять следующий интеграл:",
+  "choices": [
+    "$$\\pi \\int_{0}^{h} R^2 dx$$",
+    "$$\\pi \\int_{0}^{R} h^2 dy$$",
+    "$$2\\pi \\int_{0}^{h} R^2 dx$$",
+    "$$\\int_{0}^{h} R^2 dx$$",
+    "$$\\pi \\int_{0}^{R} x^2 dx$$"
+  ],
+  "answers": ["$$\\pi \\int_{0}^{h} R^2 dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Объём цилиндра через интеграл</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Вывод формулы</div>
+      <div class="card-body">
+        <p class="card-text">Цилиндр можно получить вращением прямой $y = R$ (константа) вокруг оси OX.</p>
+        <p class="card-text text-center">$$V = \\pi \\int_{0}^{h} [f(x)]^2 dx = \\pi \\int_{0}^{h} R^2 dx$$</p>
+        <p class="card-text">Вычисляя интеграл, получаем $V = \\pi R^2 h$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\pi \\int_{0}^{h} R^2 dx$</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_volume_frustum001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Объём усечённого конуса",
+  "theme": "Определённый интеграл",
+  "text": "Для вычисления объёма усечённого конуса высоты $h$ с радиусами оснований $R_1$ и $R_2$ ($R_1 > R_2$) необходимо взять следующий интеграл:",
+  "choices": [
+    "$$\\pi \\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$$",
+    "$$\\pi \\int_{0}^{h} \\left(\\frac{R_1 + R_2}{2}\\right)^2 dx$$",
+    "$$\\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$$",
+    "$$\\pi \\int_{0}^{h} (R_1^2 + R_2^2) dx$$",
+    "$$2\\pi \\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$$"
+  ],
+  "answers": ["$$\\pi \\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Объём усечённого конуса через интеграл</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Вывод формулы</div>
+      <div class="card-body">
+        <p class="card-text">Усечённый конус можно получить вращением прямой, соединяющей точки $(0, R_1)$ и $(h, R_2)$ вокруг оси OX.</p>
+        <p class="card-text">Уравнение прямой: $r(x) = R_1 - \\frac{R_1 - R_2}{h} x$</p>
+        <p class="card-text text-center">$$V = \\pi \\int_{0}^{h} [r(x)]^2 dx = \\pi \\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\pi \\int_{0}^{h} \\left(R_1 - \\frac{R_1 - R_2}{h} x\\right)^2 dx$</div>
+  </div>
+</div>`
+},
+
+{
+  "id": "integral_area_curvilinear001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Площадь криволинейной трапеции",
+  "theme": "Определённый интеграл",
+  "text": "Площадь криволинейной трапеции, ограниченной кривой $y = f(x)$, осью $OX$ и прямыми $x = a$, $x = b$, вычисляется по формуле:",
+  "choices": [
+    "$$\\int_{a}^{b} f(x) dx$$",
+    "$$\\pi \\int_{a}^{b} [f(x)]^2 dx$$",
+    "$$\\int_{a}^{b} |f(x)| dx$$",
+    "$$\\int_{a}^{b} f\'(x) dx$$",
+    "$$\\int_{a}^{b} x f(x) dx$$"
+  ],
+  "answers": ["$$\\int_{a}^{b} f(x) dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Площадь криволинейной трапеции</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Геометрический смысл определённого интеграла</div>
+      <div class="card-body">
+        <p class="card-text">Определённый интеграл от функции $f(x)$ на отрезке $[a; b]$ численно равен площади криволинейной трапеции.</p>
+        <p class="card-text text-center">$$S = \\int_{a}^{b} f(x) dx$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\int_{a}^{b} f(x) dx$</div>
+  </div>
+</div>`
+},
+
+
+{
+  "id": "integral_area_between_curves001",
+  "type": "multiplechoices",
+  "header": "Интегралы",
+  "title": "Площадь между двумя кривыми",
+  "theme": "Определённый интеграл",
+  "text": "Площадь фигуры, ограниченной сверху кривой $y = f(x)$, снизу кривой $y = g(x)$, и прямыми $x = a$, $x = b$, вычисляется по формуле:",
+  "choices": [
+    "$$\\int_{a}^{b} [f(x) - g(x)] dx$$",
+    "$$\\int_{a}^{b} [f(x) + g(x)] dx$$",
+    "$$\\int_{a}^{b} |f(x) + g(x)| dx$$",
+    "$$\\int_{a}^{b} \\frac{f(x)}{g(x)} dx$$",
+    "$$\\int_{a}^{b} f(x) g(x) dx$$"
+  ],
+  "answers": ["$$\\int_{a}^{b} [f(x) - g(x)] dx$$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Площадь между двумя кривыми</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Разность функций</div>
+      <div class="card-body">
+        <p class="card-text">Площадь фигуры между двумя кривыми равна интегралу от разности верхней и нижней функций.</p>
+        <p class="card-text text-center">$$S = \\int_{a}^{b} [f(x) - g(x)] dx$$</p>
+        <p class="card-text">где $f(x) \\ge g(x)$ на отрезке $[a; b]$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: $\\int_{a}^{b} [f(x) - g(x)] dx$</div>
+  </div>
+</div>`
+},
+
 
 {
   "id": "statistics_regression_costs003",
@@ -437,6 +872,1078 @@ let quizesSets = [
 </div>`,
   "randomfrom": [12, 15, 20]
 },
+
+
+ {
+    "id": "statistics_mean_mixed001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Среднее арифметическое",
+    "theme": "Средние величины",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Среднее арифметическое
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите среднее арифметическое чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+      <div>{= {var1-10} + 4}</div>
+      <div>{= {var1-10} - 4}</div>
+    </div>
+     </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Сумма чисел:</div>
+    <div class="text-center">
+      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)}$$
+    </div>
+    <div class="mt-3 mb-2">Количество чисел: 6</div>
+    <div class="mb-2">Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = \\frac{{= ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)}}{6} = {= (({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4) + ({var1-10}+4) + ({var1-10}-4)) / 6}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+    "randomfrom": [10, 15, 20, 25, 30, 35]
+  },
+
+  {
+    "id": "statistics_var_equal001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Дисперсия",
+    "theme": "Меры разброса",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-2">
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+      <div>{var1-10}</div>
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}*0",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = {var1-10}$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
+    <div class="text-center">
+      $$ {var1-10} - {var1-10} = 0$$ (для каждого из 6 чисел)
+    </div>
+    
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">
+      $$0^2 = 0$$ (для каждого из 6 чисел)
+    </div>
+    
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">
+      $$0 + 0 + 0 + 0 + 0 + 0 = 0$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Дисперсия (делим на количество чисел n = 6):</div>
+    <div class="text-center">
+      $$\\sigma^2 = \\frac{0}{6} = 0$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 0</div>
+  </div>
+</div>`,
+    "randomfrom": [5, 8, 12, 15, 20]
+  },
+
+{
+  "id": "statistics_var_mixed002",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Дисперсия",
+  "theme": "Меры разброса",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+      <div>{= {var1-10} + 3}</div>
+      <div>{= {var1-10} - 3}</div>
+    </div>
+  </div>
+</div>`,
+  "answer": "9",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    
+    <div class="mt-3 mb-2">2. Квадраты отклонений:</div>
+    <div class="text-center">$$(+3)^2 = 9,\\quad (-3)^2 = 9$$ (каждое по 3 раза)</div>
+    
+    <div class="mt-3 mb-2">3. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\times 9 = 54$$</div>
+    
+    <div class="mt-3 mb-2">4. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{54}{6} = 9$$</div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 9</div>
+  </div>
+</div>`,
+  "randomfrom": [10, 15, 20, 25, 30]
+},
+
+{
+  "id": "statistics_stdev_mixed005",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Стандартное отклонение",
+  "theme": "Меры разброса",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Стандартное отклонение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите стандартное отклонение (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+  "answer": "POWER({var1-10}, 1/2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Дисперсия (из предыдущего расчёта):</div>
+    <div class="text-center">$$\\sigma^2 = {var1-10}$$</div>
+    
+    <div class="mt-3 mb-2">2. Стандартное отклонение:</div>
+    <div class="text-center">$$\\sigma = \\sqrt{\\sigma^2} = \\sqrt{{var1-10}} = {= POWER({var1-10}, 1/2)}$$</div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {= POWER({var1-10}, 1/2)}</div>
+  </div>
+</div>`,
+  "randomfrom": [4, 9, 16, 25]
+},
+
+{
+    "id": "powers_negative001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-2}$$ в виде десятичной дроби",
+    "answer": "1 / POWER({var1-10}, 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Число в отрицательной степени равно единице, делённой на это число в положительной степени:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {={var1-10}}^{-2} = \\frac{1}{{var1-10}^2} $$</p>
+        <p class="card-text">$$ {={var1-10}^2} = {=POWER({var1-10},2)} $$</p>
+        <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+     <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
+    </div>
+   
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_negative002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень дроби",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$",
+    "answer": "POWER({var1-10}, 3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень дроби</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Дробь в отрицательной степени переворачивается:</p>
+        <p class="card-text text-center">$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$\\left(\\frac{1}{{var1-10}}\\right)^{-3} = \\left(\\frac{{var1-10}}{1}\\right)^3 = {var1-10}^3$$</p>
+        <p class="card-text">$$ {var1-10}^3 = {= POWER({var1-10}, 3)} $$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 3)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+
+ {
+    "id": "powers_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
+    "answer": "SQRT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/2</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/2 означает квадратный корень:</p>
+        <p class="card-text text-center">$$a^{1/2} = \\sqrt{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/2} = \\sqrt{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_fraction002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень (кубический корень)",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
+    "answer": "POWER({var1-10}, 1/3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/3</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/3 означает кубический корень:</p>
+        <p class="card-text text-center">$$a^{1/3} = \\sqrt[3]{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/3} = \\sqrt[3]{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 1/3)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [8, 27, 64, 125]
+  },
+  {
+    "id": "powers_fraction003",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень 2/3",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
+    "answer": "POWER(POWER({var1-10}, 1/3), 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень m/n</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень m/n можно представить двумя способами:</p>
+        <p class="card-text text-center">$$a^{m/n} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{2/3} = (\\sqrt[3]{{var1-10}})^2$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+        <p class="card-text">$$({= POWER({var1-10}, 1/3)})^2 = {= POWER(POWER({var1-10}, 1/3), 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/3), 2)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [8, 27, 64, 125]
+  },
+
+
+  {
+    "id": "powers_negative_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная дробная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
+    "answer": "1 / SQRT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная дробная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Сначала применяем правило отрицательной степени, затем дробной:</p>
+        <p class="card-text text-center">$$a^{-m/n} = \\frac{1}{a^{m/n}} = \\frac{1}{\\sqrt[n]{a^m}}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{-1/2} = \\frac{1}{{var1-10}^{1/2}} = \\frac{1}{\\sqrt{{var1-10}}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+        <p class="card-text">$$\\frac{1}{{= SQRT({var1-10})}} = {= 1 / SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25]
+  },
+
+{
+    "id": "number_e_limit_001",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Определение числа e через предел",
+    "theme": "Числа и пределы",
+
+    "text": "Число $e$ (основание натурального логарифма) определяется как предел последовательности. Какой из следующих пределов равен числу $e$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + n\\right)^{\\frac{1}{n}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n^2}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n^2}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Число e: классическое определение через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение числа e:</strong>
+      $$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$$
+      где $n$ — натуральное число (можно также $n \\in \\mathbb{R}$, $n \\to \\infty$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Историческая справка</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Число $e$ впервые исследовал Якоб Бернулли в XVII веке при изучении задачи о непрерывном начислении процентов.</p>
+        <p class="card-text">Формула: если вклад $1$ под $100\\%$ годовых начислять $n$ раз в год, то итоговая сумма:</p>
+        <p class="card-text">$$\\left(1 + \\frac{1}{n}\\right)^n$$</p>
+        <p class="card-text">При $n \\to \\infty$ получается $e \\approx 2.71828$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Проверка на малых n</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{1}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$1$</td><td>$(2)^1 = 2$</td><td>$2.00000$</td></tr>
+              <tr><td>$2$</td><td>$(1.5)^2 = 2.25$</td><td>$2.25000$</td></tr>
+              <tr><td>$5$</td><td>$(1.2)^5$</td><td>$2.48832$</td></tr>
+              <tr><td>$10$</td><td>$(1.1)^{10}$</td><td>$2.59374$</td></tr>
+              <tr><td>$100$</td><td>$(1.01)^{100}$</td><td>$2.70481$</td></tr>
+              <tr><td>$1000$</td><td>$(1.001)^{1000}$</td><td>$2.71692$</td></tr>
+              <tr><td>$10000$</td><td>$(1.0001)^{10000}$</td><td>$2.71815$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e$</td><td>$2.71828...$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n)^{1/n} \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n)^{n^2} \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - 1/n)^n \\to 1/e \\approx 0.3679$ (обратное число)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n^2)^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + 1/n)^n \\to e \\approx 2.71828$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$
+    </div>
+
+  </div>
+</div>`
+  },
+
+   {
+    "id": "number_e_exponential_003",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Число e в определении экспоненты",
+    "theme": "Числа и пределы",
+
+    "text": "Функция $f(x) = e^x$ (экспонента) может быть определена через предел. Какой из следующих пределов равен $e^x$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{n}{x}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + x\\right)^{\\frac{n}{x}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{nx}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определение экспоненты через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение экспоненты:</strong>
+      $$e^x = \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$$
+      Это обобщение классического предела для числа $e$ (при $x=1$ получаем $e$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Связь с классическим определением</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $x = 1$:</p>
+        <p class="card-text">$$e^1 = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$$</p>
+        <p class="card-text">✓ Согласуется с определением числа $e$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Пример для x = 2</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$e^2 \\approx 7.389$$</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{2}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$10$</td><td>$(1.2)^{10}$</td><td>$6.1917$</td></tr>
+              <tr><td>$100$</td><td>$(1.02)^{100}$</td><td>$7.2446$</td></tr>
+              <tr><td>$1000$</td><td>$(1.002)^{1000}$</td><td>$7.3743$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e^2$</td><td>$7.3891$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n/x)^n \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + x)^{n/x}$ — не предел по $n$ (зависит от $n$ в показателе иначе)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - x/n)^n \\to e^{-x}$ (обратная экспонента)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/(nx))^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + x/n)^n \\to e^x$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n = e^x$
+    </div>
+
+  </div>
+</div>`
+  },
+
+ {
+    "id": "imaginary_i_definition_001",
+    "type": "multiplechoices",
+    "header": "Комплексные числа: Мнимая единица",
+    "title": "Определение мнимой единицы i",
+    "theme": "Комплексные числа",
+
+    "text": "Мнимая единица $i$ определяется как число, квадрат которого равен...",
+    "choices": [
+      "$i^2 = 1$",
+      "$i^2 = -1$",
+      "$i^2 = 0$",
+      "$i^2 = i$",
+      "$i^2 = \\sqrt{-1}$"
+    ],
+    "answers": ["$i^2 = -1$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определение мнимой единицы i</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение:</strong>
+      $$i^2 = -1$$
+      где $i$ — мнимая единица.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Историческая справка</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Мнимую единицу ввёл Леонард Эйлер в XVIII веке для решения уравнений вида $x^2 + 1 = 0$.</p>
+        <p class="card-text">Уравнение $x^2 = -1$ не имеет решений среди действительных чисел, но имеет два решения в комплексных: $x = i$ и $x = -i$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = 1$ ⇒ $i = 1$ или $i = -1$ (действительные числа)</li>
+          <li class="list-group-item list-group-item-success">✅ $i^2 = -1$ — корректное определение</li>
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = 0$ ⇒ $i = 0$ (действительное число)</li>
+          <li class="list-group-item list-group-item-danger">❌ $i^2 = i$ ⇒ $i(i - 1) = 0$ ⇒ $i = 0$ или $i = 1$</li>
+          <li class="list-group-item list-group-item-warning">⚠️ $i = \\sqrt{-1}$ — это обозначение, но формальное определение через $i^2 = -1$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Степени числа i</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$i^1$</th><th>$i^2$</th><th>$i^3$</th><th>$i^4$</th><th>$i^5$</th><th>$i^{4k}$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$i$</th><th>$-1$</th><th>$-i$</th><th>$1$</th><th>$i$</th><th>$1$</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="card-text mt-2">Степени $i$ циклически повторяются с периодом 4:</p>
+        <p class="card-text">$$i^{4k} = 1,\\quad i^{4k+1} = i,\\quad i^{4k+2} = -1,\\quad i^{4k+3} = -i$$</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $i^2 = -1$
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_trig_002",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Тригонометрия",
+    "title": "Производная синуса и косинуса",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = \\sin(x)$?",
+    "choices": [
+      "$\\sin(x)$",
+      "$\\cos(x)$",
+      "$-\\sin(x)$",
+      "$-\\cos(x)$",
+      "$\\tan(x)$"
+    ],
+    "answers": ["$\\cos(x)$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производные тригонометрических функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Основные формулы:</strong>
+      $$\\frac{d}{dx} \\sin(x) = \\cos(x)$$
+      $$\\frac{d}{dx} \\cos(x) = -\\sin(x)$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>🎭 Образная ассоциация</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">🕊️ Чайка-синус взлетает 🚀 и превращается в чайку-косинус!</p>
+        <p class="card-text">$$\uD83D\uDC0B \\sin(x) \\xrightarrow{\\text{производная}} \uD83D\uDC0B \\cos(x)$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных тригонометрических функций</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$\\sin(x)$</td><td>$\\cos(x)$</td></tr>
+              <tr class="table-info"><td>$\\cos(x)$</td><td>$-\\sin(x)$</td></tr>
+              <tr><td>$\\tan(x)$</td><td>$\\sec^2(x)$</td></tr>
+              <tr><td>$\\cot(x)$</td><td>$-\\csc^2(x)$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = \\cos(x)$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_power_001",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Степенная функция",
+    "title": "Производная степенной функции",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = x^5$?",
+    "choices": [
+      "$5x^4$",
+      "$4x^5$",
+      "$5x^6$",
+      "$x^4$",
+      "$5x^5$"
+    ],
+    "answers": ["$5x^4$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная степенной функции</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\frac{d}{dx} x^n = n \\cdot x^{n-1}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем степень</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$f(x) = x^5$, здесь $n = 5$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$f'(x) = 5 \\cdot x^{5-1} = 5x^4$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица для запоминания</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$x^2$</td><td>$2x$</td></tr>
+              <tr><td>$x^3$</td><td>$3x^2$</td></tr>
+              <tr><td>$x^4$</td><td>$4x^3$</td></tr>
+              <tr class="table-success"><td>$x^5$</td><td>$5x^4$</td></tr>
+              <tr><td>$x^{10}$</td><td>$10x^9$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = 5x^4$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_exp_log_003",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Экспонента и логарифм",
+    "title": "Производная экспоненты и натурального логарифма",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = e^x$?",
+    "choices": [
+      "$e^x$",
+      "$x e^{x-1}$",
+      "$\\frac{1}{x}$",
+      "$\\ln(x)$",
+      "$x e^x$"
+    ],
+    "answers": ["$e^x$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная экспоненты и логарифма</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уникальное свойство экспоненты:</strong>
+      $$\\frac{d}{dx} e^x = e^x$$
+      <hr>
+      <strong>📌 Производная натурального логарифма:</strong>
+      $$\\frac{d}{dx} \\ln(x) = \\frac{1}{x}, \\quad x > 0$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>✨ Экспонента — функция, равная своей производной</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Это уникальное свойство! Никакая другая функция не обладает им в такой простоте.</p>
+        <div class="alert alert-success">
+          🚀 Чайка-экспонента взлетает, и её скорость взлёта равна высоте!
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$e^x$</td><td>$e^x$</td></tr>
+              <tr><td>$a^x$</td><td>$a^x \\ln(a)$</td></tr>
+              <tr class="table-info"><td>$\\ln(x)$</td><td>$\\frac{1}{x}$</td></tr>
+              <tr><td>$\\log_a(x)$</td><td>$\\frac{1}{x \\ln(a)}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = e^x$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "integral_power_005",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Степенная функция",
+    "title": "Неопределённый интеграл степенной функции",
+    "theme": "Интегралы",
+
+    "text": "Чему равен неопределённый интеграл $\\int x^3 \\, dx$?",
+    "choices": [
+      "$\\frac{x^4}{4} + C$",
+      "$3x^2 + C$",
+      "$\\frac{x^2}{2} + C$",
+      "$x^4 + C$",
+      "$\\frac{x^3}{3} + C$"
+    ],
+    "answers": ["$\\frac{x^4}{4} + C$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Интеграл степенной функции</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C, \\quad n \\neq -1$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем степень</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$\\int x^3 \\, dx$, здесь $n = 3$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int x^3 \\, dx = \\frac{x^{3+1}}{3+1} + C = \\frac{x^4}{4} + C$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица интегралов</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$\\int x^2 \\, dx$</td><td>$\\frac{x^3}{3} + C$</td></tr>
+              <tr class="table-success"><td>$\\int x^3 \\, dx$</td><td>$\\frac{x^4}{4} + C$</td></tr>
+              <tr><td>$\\int x^4 \\, dx$</td><td>$\\frac{x^5}{5} + C$</td></tr>
+              <tr><td>$\\int x^n \\, dx$</td><td>$\\frac{x^{n+1}}{n+1} + C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{x^4}{4} + C$
+    </div>
+  </div>
+</div>`
+  },
+
+   {
+    "id": "integral_definite_008",
+    "type": "multiplechoices",
+    "header": "Интегрирование: Определённый интеграл",
+    "title": "Вычисление площади под кривой",
+    "theme": "Интегралы",
+
+    "text": "Чему равен определённый интеграл $\\int_0^1 x^2 \\, dx$?",
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
+    ],
+    "answers": ["$\\frac{1}{3}$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определённый интеграл и площадь</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула Ньютона-Лейбница:</strong>
+      $$\\int_a^b f(x) \\, dx = F(b) - F(a)$$
+      где $F(x)$ — первообразная $f(x)$.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Находим первообразную</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Для $f(x) = x^2$:</p>
+        <p class="card-text">$$F(x) = \\frac{x^3}{3}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу Ньютона-Лейбница</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_0^1 x^2 \\, dx = F(1) - F(0) = \\frac{1^3}{3} - \\frac{0^3}{3}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Вычисляем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_0^1 x^2 \\, dx = \\frac{1}{3} - 0 = \\frac{1}{3}$$</p>
+        <div class="alert alert-info mt-2">
+          📐 <strong>Геометрический смысл:</strong> Площадь под параболой $y = x^2$ на отрезке $[0, 1]$ равна $\\frac{1}{3}$.
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $\\frac{1}{3}$
+    </div>
+  </div>
+</div>`
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   {

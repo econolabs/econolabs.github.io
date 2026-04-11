@@ -7153,11 +7153,12 @@ let quizesSets = [
 </div>`,
     "randomfrom": [2, 3, 4, 5, 6]
   },
+
   {
     "id": "powers_fraction001",
     "type": "mathwithrandomnumber",
     "header": "Степени",
-    "title": "Дробная степень (квадратный корень)",
+    "title": "Дробная степень",
     "theme": "Степени",
     "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
     "answer": "SQRT({var1-10})",
@@ -8866,57 +8867,209 @@ let quizesSets = [
     "answers": ["1"],
     "hint": "<p>Логарифм числа по равному ему основанию равен 1.</p>$$\\log_a a = 1 \\text{ для любого } a > 0, a \\neq 1$$$$7^1 = 7$$$$\\log_7 7 = 1$$"
   },
-  {
-    "id": "log006",
-    "type": "multiplechoices",
-    "header": "Логарифмы",
-    "title": "Основные свойства",
-    "theme": "Логарифмы",
-    "text": "Упростите выражение: $\\log_2 4 + \\log_2 8$",
-    "choices": [
-      "3",
-      "4",
-      "5",
-      "6",
-      "7"
-    ],
-    "answers": ["5"],
-    "hint": "<p>Используем свойство сложения логарифмов с одинаковыми основаниями.</p>$$\\log_a b + \\log_a c = \\log_a (b \\cdot c)$$$$\\log_2 4 + \\log_2 8 = \\log_2 (4 \\cdot 8) = \\log_2 32$$$$2^5 = 32$$$$\\log_2 32 = 5$$"
-  },
-  {
-    "id": "log007",
-    "type": "multiplechoices",
-    "header": "Логарифмы",
-    "title": "Основные свойства 2",
-    "theme": "Логарифмы",
-    "text": "Упростите выражение: $\\log_3 81 - \\log_3 3$",
-    "choices": [
-      "2",
-      "3",
-      "4",
-      "1",
-      "0"
-    ],
-    "answers": ["3"],
-    "hint": "<p>Используем свойство вычитания логарифмов с одинаковыми основаниями.</p>$$\\log_a b - \\log_a c = \\log_a \\left(\\frac{b}{c}\\right)$$$$\\log_3 81 - \\log_3 3 = \\log_3 \\left(\\frac{81}{3}\\right) = \\log_3 27$$$$3^3 = 27$$$$\\log_3 27 = 3$$"
-  },
-  {
-    "id": "log008",
-    "type": "multiplechoices",
-    "header": "Логарифмы",
-    "title": "Основные свойства 3",
-    "theme": "Логарифмы",
-    "text": "Упростите выражение: $2 \\cdot \\log_5 25$",
-    "choices": [
-      "2",
-      "3",
-      "4",
-      "5",
-      "6"
-    ],
-    "answers": ["4"],
-    "hint": "<p>Используем свойство вынесения множителя перед логарифмом.</p>$$n \\cdot \\log_a b = \\log_a (b^n)$$$$2 \\cdot \\log_5 25 = \\log_5 (25^2) = \\log_5 625$$$$5^4 = 625$$$$\\log_5 625 = 4$$"
-  },
+ {
+  "id": "exponential_function001april",
+  "type": "mathwithrandomnumber",
+  "header": "Показательная функция",
+  "title": "Свойства показательной функции",
+  "theme": "Показательная функция",
+  "text": "Чему равно $$2^{{var1-10}} = ?$$",
+  "answer": "POWER(2, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление показательной функции</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение показательной функции
+      </div>
+      <div class="card-body">
+        <p class="card-text">Показательная функция — это функция вида $y = a^x$, где $a > 0$, $a \\neq 1$.</p>
+        <p class="card-text">При возведении числа в отрицательную степень:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно вычислить:</p>
+        <p class="card-text text-center">$$2^{{var1-10}}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+        <p class="card-text text-center">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+      </div>
+    </div>
+    
+  </div>
+</div>`,
+  "randomfrom": [-1, -2, -3, -4, -5]
+},
+
+
+{
+  "id": "logarithms_product001",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>`,
+  "randomfrom": [8, 16, 32, 64]
+},
+
+{
+  "id": "logarithms_product001april",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>`,
+  "randomfrom": [1/2, 1/4, 1/8]
+},
+
+ {
+  "id": "logarithms_product002",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{3}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$3^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$3^{{=LOG({var1-10}, 3)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{3}{var1-10} = {=LOG({var1-10}, 3)}$$</p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>`,
+  "randomfrom": [9, 27, 81, 243]
+},
+
+
+
   {
     "id": "log009",
     "type": "multiplechoices",
@@ -8955,18 +9108,6 @@ let quizesSets = [
 
   
   
-
-  {
-    "id": "math004random3",
-    "type": "mathwithrandomnumber",
-    "header": "Устный счёт",
-    "title": "Степени 4",
-    "theme": "Степени",
-    "text": "Чему равно $$2^{{var1-10}} + 2^{{var1-10} + 1}$$?",
-    "answer": "POWER(2, {var1-10}) + POWER(2, {={var1-10}+1})",
-    "hint": "$2^{{var1-10}} = {= POWER(2, {var1-10})}$, $2^{{var1-10} + 1} = {= POWER(2, {var1-10} + 1)}$, сумма = {= POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)}",
-    "randomfrom": [2, 3, 4, 5, 6]
-  },
 
   
   
@@ -9347,6 +9488,7 @@ let quizesSets = [
   "header": "Статистика",
   "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия",
   "theme": "Корреляционно-регрессионный анализ",
+   "altpath": "currentDay",
   "functionGraph": "true",
   "functionType": "costsRevenueGraph",
   "text": `
@@ -9425,6 +9567,7 @@ let quizesSets = [
   "title": "Линейная регрессия. Постоянные и переменные затраты предприятия",
   "theme": "Корреляционно-регрессионный анализ",
    "functionGraph": "true",
+    "altpath": "currentDay",
   "functionType": "costsRevenueGraph",
   "text": `
 <div class="card">
@@ -9481,6 +9624,7 @@ let quizesSets = [
   "header": "Статистика",
   "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия 2",
   "theme": "Корреляционно-регрессионный анализ",
+   "altpath": "currentDay",
   "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -9550,6 +9694,7 @@ let quizesSets = [
   "header": "Статистика",
   "title": "Линейная регрессия. Постоянные и переменные затраты предприятия 2",
   "theme": "Корреляционно-регрессионный анализ",
+   "altpath": "currentDay",
   "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -9605,6 +9750,7 @@ let quizesSets = [
   "header": "Статистика",
   "title": "Система линейных уравнений. Удельные затраты предприятия",
   "theme": "Корреляционно-регрессионный анализ",
+   "altpath": "currentDay",
   "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -9663,6 +9809,7 @@ let quizesSets = [
   "header": "Статистика",
   "title": "Регрессия. Удельные затраты предприятия",
   "theme": "Корреляционно-регрессионный анализ",
+   "altpath": "currentDay",
   "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -9712,6 +9859,7 @@ let quizesSets = [
     "theme": "Регрессия",
     "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
     "answer": "{var1-10}",
+     "altpath": "currentDay",
     "randomfrom": [2, 3, 4, 5, 8, 10, 20],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
   },
@@ -9721,6 +9869,7 @@ let quizesSets = [
     "type": "mathwithrandomnumber",
     "header": "Линейная регрессия (устный счёт)",
     "title": "Найди свободный член b",
+     "altpath": "currentDay",
     "theme": "Регрессия",
     "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
     "answer": "{var1-10}",
@@ -9750,7 +9899,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Вычисление коэффициента наклона k",
     "theme": "Регрессия",
-
+ "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
     "choices": [
       "$k = 2$",
@@ -9817,7 +9966,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Вычисление свободного члена b",
     "theme": "Регрессия",
-
+ "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Найдите свободный член $b$.",
     "choices": [
       "$b = -10$",
@@ -9897,7 +10046,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Составление уравнения прямой",
     "theme": "Регрессия",
-
+ "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
     "choices": [
       "$y = 2x - 10$",
@@ -9966,7 +10115,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Прогнозирование по уравнению регрессии",
     "theme": "Регрессия",
-
+ "altpath": "currentDay",
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 15$?",
     "choices": [
       "$y = 20$",
@@ -10030,8 +10179,8 @@ let quizesSets = [
     "type": "multiplechoices",
     "header": "Линейная регрессия по двум точкам",
     "title": "Интерполяция по уравнению регрессии",
+     "altpath": "currentDay",
     "theme": "Регрессия",
-
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 8$?",
     "choices": [
       "$y = 2$",
@@ -10176,16 +10325,78 @@ let quizesSets = [
     "header": "Тест",
     "title": "Статистическая оценка",
     "theme": "Меры центральной тенденции",
+     "altpath": "currentDay",
     "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
     "answers": ["Среднего арифметического"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
   },
+
+  {
+  "id": "finance_wacc_calc003",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Расчет средней взвешенной",
+  "theme": "Оценка капитала",
+  "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
+  "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт WACC (средневзвешенной стоимости капитала)</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула WACC (без учёта налога)
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$WACC = \\frac{E}{E+D} \\cdot r_e + \\frac{D}{E+D} \\cdot r_d$$</p>
+        <ul>
+          <li><strong>E</strong> — собственный капитал = {var1-10} млн руб.</li>
+          <li><strong>D</strong> — заёмный капитал = {=1000-{var1-10}} млн руб.</li>
+          <li><strong>rₑ</strong> — стоимость собственного капитала = 15%</li>
+          <li><strong>r<sub>d</sub></strong> — стоимость заёмного капитала = 10%</li>
+          <li><strong>E + D</strong> = 1000 млн руб.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Расчёт весов
+      </div>
+      <div class="card-body">
+        <p class="card-text">Доля собственного капитала: $$\\frac{{var1-10}}{1000} = {= {var1-10} / 1000}$$</p>
+        <p class="card-text">Доля заёмного капитала: $$\\frac{{=1000-{var1-10}}}{1000} = {= (1000 - {var1-10}) / 1000}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление WACC
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$WACC = {= {var1-10} / 1000} \\cdot 15\\% + {= (1000 - {var1-10}) / 1000} \\cdot 10\\%$$</p>
+        <p class="card-text">$$WACC = {= ({var1-10} / 1000) * 15} + {= ((1000 - {var1-10}) / 1000) * 10} = {= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}\\%$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10</code> или <code>{= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [800, 700, 600, 500, 400, 300, 200],
+   "altpath": "currentDay",
+},
+
   {
     "id": "statistics543",
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Описательная статистика",
+     "altpath": "currentDay",
     "theme": "Меры центральной тенденции",
     "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
     "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
@@ -10198,6 +10409,7 @@ let quizesSets = [
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Анализ данных",
+     "altpath": "currentDay",
     "theme": "Меры разброса",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
@@ -10212,6 +10424,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Статистический показатель",
     "theme": "Меры разброса",
+     "altpath": "currentDay",
     "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
     "answers": ["Стандартного отклонения по генеральной совокупности"],
@@ -10223,6 +10436,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Количественная оценка",
     "theme": "Корреляционно-регрессионный анализ",
+     "altpath": "currentDay",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
     "answers": ["Коэффициента корреляции Пирсона"],
@@ -10234,6 +10448,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Описательная статистика",
     "theme": "Корреляционно-регрессионный анализ",
+     "altpath": "currentDay",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
     "answers": ["Ковариации по генеральной совокупности"],
@@ -10243,6 +10458,7 @@ let quizesSets = [
     "id": "statistics548",
     "type": "multiplechoices",
     "header": "Тест",
+     "altpath": "currentDay",
     "title": "Статистическая оценка",
     "theme": "Регрессионный анализ",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
@@ -10259,6 +10475,7 @@ let quizesSets = [
     "header": "Статистика",
     "title": "Среднее арифметическое",
     "theme": "Средние величины",
+     "altpath": "currentDay",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -10304,6 +10521,7 @@ let quizesSets = [
     "header": "Статистика",
     "title": "Дисперсия",
     "theme": "Меры разброса",
+     "altpath": "currentDay",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -10404,7 +10622,8 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: 9</div>
   </div>
 </div>`,
-  "randomfrom": [10, 15, 20, 25, 30]
+  "randomfrom": [10, 15, 20, 25, 30],
+   "altpath": "currentDay"
 },
 
 
@@ -10456,7 +10675,8 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
-  "randomfrom": [4, 9, 16, 25]
+  "randomfrom": [4, 9, 16, 25],
+   "altpath": "currentDay"
 },
 
 {
@@ -10498,8 +10718,512 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {= POWER({var1-10}, 1/2)}</div>
   </div>
 </div>`,
-  "randomfrom": [4, 9, 16, 25]
+  "randomfrom": [4, 9, 16, 25],
+   "altpath": "currentDay"
 },
+
+{
+  "id": "finance_simple_interest001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Простые проценты",
+  "theme": "Проценты",
+  "text": "$$F = P \\cdot (1 + n \\cdot i)$$\n\nДанная формула определяет:",
+  "choices": [
+    "Наращенную сумму по простым процентам",
+    "Наращенную сумму по сложным процентам",
+    "Дисконтированную стоимость",
+    "Текущую стоимость аннуитета",
+    "Формулу Гордона"
+  ],
+  "answers": ["Наращенную сумму по простым процентам"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула простых процентов</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>F</strong> — наращенная сумма (будущая стоимость)</li>
+          <li><strong>P</strong> — первоначальная сумма</li>
+          <li><strong>n</strong> — количество периодов</li>
+          <li><strong>i</strong> — процентная ставка</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Особенность</div>
+      <div class="card-body">
+        <p class="card-text">Проценты начисляются только на первоначальную сумму P.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Наращенную сумму по простым процентам</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+{
+  "id": "finance_compound_interest001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Сложные проценты",
+  "theme": "Проценты",
+  "text": "$$F = P \\cdot (1 + i)^n$$\n\nДанная формула определяет:",
+  "choices": [
+    "Наращенную сумму по простым процентам",
+    "Наращенную сумму по сложным процентам",
+    "Текущую стоимость аннуитета",
+    "Формулу Гордона",
+    "Будущую стоимость аннуитета"
+  ],
+  "answers": ["Наращенную сумму по сложным процентам"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула сложных процентов</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>F</strong> — наращенная сумма (будущая стоимость)</li>
+          <li><strong>P</strong> — первоначальная сумма</li>
+          <li><strong>n</strong> — количество периодов</li>
+          <li><strong>i</strong> — процентная ставка</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Особенность</div>
+      <div class="card-body">
+        <p class="card-text">Проценты начисляются на наращенную сумму (проценты на проценты).</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Наращенную сумму по сложным процентам</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+
+
+{
+  "id": "finance_present_value001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Дисконтирование",
+  "theme": "Проценты",
+  "text": "$$P = \\frac{F}{(1 + i)^n}$$\n\nДанная формула определяет:",
+  "choices": [
+    "Будущую стоимость",
+    "Текущую (приведённую) стоимость",
+    "Наращенную сумму по простым процентам",
+    "Формулу Гордона",
+    "Перпетуитет"
+  ],
+  "answers": ["Текущую (приведённую) стоимость"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула дисконтирования</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>P</strong> — текущая (приведённая) стоимость</li>
+          <li><strong>F</strong> — будущая стоимость</li>
+          <li><strong>n</strong> — количество периодов</li>
+          <li><strong>i</strong> — ставка дисконтирования</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Смысл</div>
+      <div class="card-body">
+        <p class="card-text">Сколько нужно вложить сегодня, чтобы через n периодов получить сумму F.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Текущую (приведённую) стоимость</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+{
+  "id": "finance_perpetuity001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Перпетуитет",
+  "theme": "Аннуитеты",
+  "text": "$$PV = \\frac{C}{r}$$\n\nДанная формула определяет текущую стоимость:",
+  "choices": [
+    "Обычного аннуитета",
+    "Перпетуитета (вечной ренты)",
+    "Наращенной суммы аннуитета",
+    "Формулы Гордона",
+    "Дисконтированного аннуитета"
+  ],
+  "answers": ["Перпетуитета (вечной ренты)"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Перпетуитет (вечная рента)</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>PV</strong> — текущая стоимость</li>
+          <li><strong>C</strong> — периодический платёж</li>
+          <li><strong>r</strong> — процентная ставка</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Особенность</div>
+      <div class="card-body">
+        <p class="card-text">Перпетуитет — это поток платежей, который продолжается бесконечно.</p>
+        <p class="card-text text-center">$$PV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\frac{C}{(1+r)^3} + \\dots = \\frac{C}{r}$$</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Перпетуитет (вечная рента)</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+{
+  "id": "finance_gordon_model001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Модель Гордона",
+  "theme": "Оценка акций",
+  "text": "$$P = \\frac{D_1}{r - g}$$\n\nДанная формула определяет:",
+  "choices": [
+    "Текущую стоимость облигации",
+    "Внутреннюю стоимость акции с постоянным темпом роста дивидендов",
+    "Будущую стоимость аннуитета",
+    "Текущую стоимость перпетуитета",
+    "Доходность к погашению"
+  ],
+  "answers": ["Внутреннюю стоимость акции с постоянным темпом роста дивидендов"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Формула Гордона (модель постоянного роста)</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>P</strong> — внутренняя стоимость акции</li>
+          <li><strong>D₁</strong> — дивиденд за следующий период</li>
+          <li><strong>r</strong> — требуемая норма доходности</li>
+          <li><strong>g</strong> — постоянный темп роста дивидендов</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Условия применимости</div>
+      <div class="card-body">
+        <p class="card-text">Модель работает при условии $r > g$ и предполагает постоянный темп роста дивидендов.</p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Связь с перпетуитетом</div>
+      <div class="card-body">
+        <p class="card-text">Формула является обобщением перпетуитета: при $g = 0$ получаем $P = D_1 / r$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Внутреннюю стоимость акции с постоянным темпом роста дивидендов</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+{
+  "id": "finance_growing_perpetuity001",
+  "type": "multiplechoices",
+  "header": "Финансовая математика",
+  "title": "Растущий перпетуитет",
+  "theme": "Аннуитеты",
+  "text": "$$PV = \\frac{C}{r - g}$$\n\nДанная формула определяет текущую стоимость:",
+  "choices": [
+    "Обычного аннуитета",
+    "Перпетуитета с постоянным темпом роста",
+    "Бесконечного аннуитета",
+    "Формулу сложных процентов",
+    "Наращенной суммы"
+  ],
+  "answers": ["Перпетуитета с постоянным темпом роста"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Растущий перпетуитет</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Обозначения</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>PV</strong> — текущая стоимость</li>
+          <li><strong>C</strong> — первый платёж</li>
+          <li><strong>r</strong> — ставка дисконтирования</li>
+          <li><strong>g</strong> — темп роста платежей</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Условие</div>
+      <div class="card-body">
+        <p class="card-text">Формула работает при $r > g$.</p>
+      </div>
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: Перпетуитет с постоянным темпом роста</div>
+  </div>
+</div>`,
+ "altpath": "currentDay"
+},
+
+{
+  "id": "finance_simple_interest_calc001",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Простые проценты",
+  "theme": "Проценты",
+  "text": "Вклад 1000 руб. размещён под 10% годовых на {var1-10} лет по схеме простых процентов. Чему равна наращенная сумма?",
+  "answer": "1000 * (1 + {var1-10} * 0.1)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт наращенной суммы по простым процентам</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула простых процентов
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$F = P \\cdot (1 + n \\cdot i)$$</p>
+        <ul>
+          <li><strong>P</strong> = 1000 руб.</li>
+          <li><strong>n</strong> = {var1-10} лет</li>
+          <li><strong>i</strong> = 10% = 0.1</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$F = 1000 \\cdot (1 + {var1-10} \\cdot 0.1) = 1000 \\cdot (1 + {= {var1-10} * 0.1}) = 1000 \\cdot {= 1 + {var1-10} * 0.1} = {= 1000 * (1 + {var1-10} * 0.1)}$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>1000 * (1 + {var1-10} * 0.1)</code> или <code>{= 1000 * (1 + {var1-10} * 0.1)}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5],
+   "altpath": "currentDay"
+},
+
+{
+  "id": "finance_compound_interest_calc001",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Сложные проценты",
+  "theme": "Проценты",
+  "text": "Вклад 1000 руб. размещён под 10% годовых на {var1-10} лет по схеме сложных процентов. Чему равна наращенная сумма?",
+  "answer": "1000 * POWER(1 + 0.1, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт наращенной суммы по сложным процентам</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула сложных процентов
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$F = P \\cdot (1 + i)^n$$</p>
+        <ul>
+          <li><strong>P</strong> = 1000 руб.</li>
+          <li><strong>n</strong> = {var1-10} лет</li>
+          <li><strong>i</strong> = 10% = 0.1</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$F = 1000 \\cdot (1 + 0.1)^{{var1-10}} = 1000 \\cdot {= POWER(1.1, {var1-10})} = {= 1000 * POWER(1.1, {var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>1000 * POWER(1 + 0.1, {var1-10})</code> или <code>{= 1000 * POWER(1.1, {var1-10})}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5],
+   "altpath": "currentDay"
+},
+
+{
+  "id": "finance_present_value_calc001",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Дисконтирование",
+  "theme": "Проценты",
+  "text": "Какую сумму нужно вложить сегодня под 10% годовых (сложные проценты), чтобы через {var1-10} лет получить 1000 руб.?",
+  "answer": "1000 / POWER(1 + 0.1, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт приведённой стоимости</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула дисконтирования
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$P = \\frac{F}{(1 + i)^n}$$</p>
+        <ul>
+          <li><strong>F</strong> = 1000 руб.</li>
+          <li><strong>n</strong> = {var1-10} лет</li>
+          <li><strong>i</strong> = 10% = 0.1</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$P = \\frac{1000}{(1 + 0.1)^{{var1-10}}} = \\frac{1000}{{= POWER(1.1, {var1-10})}} = {= 1000 / POWER(1.1, {var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>1000 / POWER(1 + 0.1, {var1-10})</code> или <code>{= 1000 / POWER(1.1, {var1-10})}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4],
+   "altpath": "currentDay"
+},
+
+{
+  "id": "finance_perpetuity_calc001",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Перпетуитет",
+  "theme": "Аннуитеты",
+  "text": "Вечная рента приносит ежегодный платёж {var1-10} руб. Ставка дисконтирования 10%. Чему равна текущая стоимость перпетуитета?",
+  "answer": "{var1-10} / 0.1",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт текущей стоимости перпетуитета</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула перпетуитета
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$PV = \\frac{C}{r}$$</p>
+        <ul>
+          <li><strong>C</strong> = {var1-10} руб.</li>
+          <li><strong>r</strong> = 10% = 0.1</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$PV = \\frac{{var1-10}}{0.1} = {= {var1-10} / 0.1}$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>{var1-10} / 0.1</code> или <code>{= {var1-10} / 0.1}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40, 50],
+   "altpath": "currentDay"
+},
+
+{
+  "id": "finance_gordon_calc001",
+  "type": "mathwithrandomnumber",
+  "header": "Финансовая математика",
+  "title": "Модель Гордона",
+  "theme": "Оценка акций",
+  "text": "Ожидаемый дивиденд акции в следующем году составит {var1-10} руб. Требуемая норма доходности 12%, постоянный темп роста дивидендов 2%. Чему равна внутренняя стоимость акции?",
+  "answer": "{var1-10} / (0.12 - 0.02)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт стоимости акции по модели Гордона</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула Гордона
+      </div>
+      <div class="card-body">
+        <p class="card-text text-center">$$P = \\frac{D_1}{r - g}$$</p>
+        <ul>
+          <li><strong>D₁</strong> = {var1-10} руб.</li>
+          <li><strong>r</strong> = 12% = 0.12</li>
+          <li><strong>g</strong> = 2% = 0.02</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$P = \\frac{{var1-10}}{0.12 - 0.02} = \\frac{{var1-10}}{0.10} = {= {var1-10} / 0.1}$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>{var1-10} / (0.12 - 0.02)</code> или <code>{= {var1-10} / 0.1}</code>
+    </div>
+  </div>
+</div>`,
+  "randomfrom": [5, 10, 15, 20, 25],
+  "altpath": "currentDay"
+},
+
+
 
 
 
