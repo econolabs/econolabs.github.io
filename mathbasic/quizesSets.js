@@ -1,5 +1,82 @@
 let quizesSets = [
 
+   {
+  "id": "statistics_regression_costs001",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Тестирование. Регрессия",
+  "theme": "Корреляционно-регрессионный анализ",
+  "functionGraph": "true",
+  "functionType": "regressionPointsGraph",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
+  </div>
+</div>`,
+  "answer": "{var1-10}/{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = 12,\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    <div class="mb-2">где a — переменные затраты на единицу выручки, b — постоянные затраты.</div>
+    
+    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
+    <div class="text-center">
+      $$
+      \\begin{cases}
+      6 = a \\cdot 10 + b \\\\
+      7 = a \\cdot 12 + b
+      \\end{cases}
+      $$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
+    <div class="text-center">
+      $$(7 - 6) = (12a - 10a) + (b - b)$$
+      $$1 = 2a$$
+      $$a = 0.5$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Подставляем a в первое уравнение:</div>
+    <div class="text-center">
+      $$6 = 0.5 \\times 10 + b$$
+      $$6 = 5 + b$$
+      $$b = 1$$
+    </div>
+    
+    <div class="mt-3 mb-2">6. Проверка через второе уравнение:</div>
+    <div class="text-center">
+      $$7 = 0.5 \\times 12 + 1 = 6 + 1 = 7$$ ✓
+    </div>
+    
+    <div class="mt-3 mb-2">7. Затраты при нулевой выручке (x = 0):</div>
+    <div class="text-center">
+      $$y = a \\cdot 0 + b = b = 1$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": ["12"]
+},
+
   {
   "id": "statistics_regression_costs001",
   "type": "mathwithrandomnumber",

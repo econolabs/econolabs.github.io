@@ -21,6 +21,111 @@ let boardConfig = {
     showCopyright: false,
 }
 
+function regressionPointsGraph(board) {
+    // Данные: (выручка, затраты) - обе переменные в пределах 1-5
+    var data = [
+        [1.0, 1.2],   // выручка 1.0, затраты 1.2
+        [1.5, 1.6],   // выручка 1.5, затраты 1.6
+        [2.0, 2.1],   // выручка 2.0, затраты 2.1
+        [2.5, 2.4],   // выручка 2.5, затраты 2.4
+        [3.0, 2.9],   // выручка 3.0, затраты 2.9
+        [3.2, 3.3],   // выручка 3.2, затраты 3.3 (выброс)
+        [3.8, 3.7],   // выручка 3.8, затраты 3.7
+        [4.0, 3.9],   // выручка 4.0, затраты 3.9
+        [4.5, 4.3],   // выручка 4.5, затраты 4.3
+        [5.0, 4.8]    // выручка 5.0, затраты 4.8
+    ];
+    
+    // Расчёт коэффициентов линейной регрессии
+    var n = data.length;
+    var sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+    
+    for (var i = 0; i < n; i++) {
+        var x = data[i][0];
+        var y = data[i][1];
+        sumX += x;
+        sumY += y;
+        sumXY += x * y;
+        sumX2 += x * x;
+    }
+    
+    var slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+    var intercept = (sumY - slope * sumX) / n;
+    
+    // Расчёт коэффициента корреляции R²
+    var meanX = sumX / n;
+    var meanY = sumY / n;
+    var num = 0, denX = 0, denY = 0;
+    for (var i = 0; i < n; i++) {
+        var dx = data[i][0] - meanX;
+        var dy = data[i][1] - meanY;
+        num += dx * dy;
+        denX += dx * dx;
+        denY += dy * dy;
+    }
+    var r = num / Math.sqrt(denX * denY);
+    var r2 = (r * r).toFixed(4);
+    
+    // Добавляем точки
+    var points = [];
+    for (var i = 0; i < n; i++) {
+        points.push(board.create('point', [data[i][0], data[i][1]], {
+            name: '',
+            color: colors.primary,
+            size: 4,
+            strokeColor: colors.primary,
+            fillColor: colors.primary,
+            highlightStrokeColor: colors.danger,
+            highlightFillColor: colors.danger
+        }));
+    }
+    
+    // Добавляем линию регрессии
+    var line = board.create('functiongraph', [function(x) { return slope * x + intercept; }], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3,
+        dash: 0
+    });
+    
+    // Уравнение регрессии на графике
+    board.create('text', [1.2, 4.8, 'Затраты = ' + slope.toFixed(3) + ' × Выручка + ' + intercept.toFixed(2)], {
+        fontSize: 12,
+        color: colors.secondary,
+        fontWeight: 'bold'
+    });
+    
+    // R² на графике
+    board.create('text', [1.2, 4.5, 'R² = ' + r2 + ' (' + (r2 * 100).toFixed(1) + '%)'], {
+        fontSize: 11,
+        color: colors.gray
+    });
+    
+    // Подписи осей
+    board.create('text', [5.2, 0.8, 'Выручка'], {
+        fontSize: 12,
+        color: colors.gray
+    });
+    
+    board.create('text', [0.5, 5.0, 'Затраты'], {
+        fontSize: 12,
+        color: colors.gray,
+        rotate: 90
+    });
+    
+    return {
+        style, boardConfig: { ...boardConfig, boundingbox: [-1, 6, 6, -1], } 
+      //  ...boardConfig,
+      //  style: 'scatter',
+        // boardConfig: {
+       //      boundingbox: [0.5, 5.5, 5.5, 0.5],
+        //     axis: true,
+        //     grid: true,
+        //     pan: { enabled: true },
+        //     zoom: { enabled: true, factorX: 1.2, factorY: 1.2 }
+        // }
+    };
+}
+
 function costsRevenueGraph(board) {
     // Данные: (выручка, затраты)
     var x1 = 10, y1 = 6;

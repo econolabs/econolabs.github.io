@@ -8953,30 +8953,8 @@ let quizesSets = [
   },
 
 
-  {
-    "id": "math004random1",
-    "type": "quizwithrandomnumber",
-    "header": "Устный счёт",
-    "title": "Степени 2",
-    "theme": "Степени",
-    "text": "Чему равно {var1-10}² + {={var1-10}+2}²?",
-    "answer": "{var1-10}*{var1-10}+({var1-10}+2) *({var1-10}+2)",
-    "hint": `
-    Число во второй степени можно вынести за скобку<br>
-    {var1-10}² = {={var1-10}*{var1-10}}, {={var1-10}+2}² = {=({var1-10}+2) *({var1-10}+2)}, сумма = {={var1-10}*{var1-10}+({var1-10}+2) *({var1-10}+2)}`,
-    "randomfrom": [3, 4, 5, 6, 7, 8]
-  },
-  {
-    "id": "math004random2",
-    "type": "mathwithrandomnumber",
-    "header": "Устный счёт",
-    "title": "Степени 3",
-    "theme": "Степени",
-    "text": "Чему равно {var1-10}³ - {var1-10}²?",
-    "answer": "POWER({var1-10}, 3) - POWER({var1-10}, 2)",
-    "hint": "{var1-10}³ = {={var1-10}*{var1-10}*{var1-10}}, {var1-10}² = {={var1-10}*{var1-10}}, разность = {={var1-10}*{var1-10}*{var1-10}- {var1-10}*{var1-10}}",
-    "randomfrom": [2, 3, 4, 5, 6, 8, 10]
-  },
+  
+  
 
   {
     "id": "math004random3",
@@ -8985,50 +8963,13 @@ let quizesSets = [
     "title": "Степени 4",
     "theme": "Степени",
     "text": "Чему равно $$2^{{var1-10}} + 2^{{var1-10} + 1}$$?",
-    "answer": "POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)",
+    "answer": "POWER(2, {var1-10}) + POWER(2, {={var1-10}+1})",
     "hint": "$2^{{var1-10}} = {= POWER(2, {var1-10})}$, $2^{{var1-10} + 1} = {= POWER(2, {var1-10} + 1)}$, сумма = {= POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)}",
     "randomfrom": [2, 3, 4, 5, 6]
   },
 
-  {
-    "id": "math005",
-    "type": "multiplechoices",
-    "header": "Устный счёт",
-    "title": "Упрощение выражения 3",
-    "theme": "Уравнения",
-    "text": "Чему равно x, если 3x + 5 = 20?",
-    "choices": [
-      "3",
-      "4",
-      "5",
-      "6",
-      "7"
-    ],
-    "answers": ["5"],
-    "hint": "<p>Нужно изолировать x на одной стороне уравнения.</p><ul><li><strong>Шаг 1:</strong> Вычтите 5 из обеих частей: 3x +5 - 5 = 20 - 5 → 3x = 15</li><li><strong>Шаг 2:</strong> Разделите обе части на 3: 3x / 3 = 15 / 3 → x = 5</li></ul>"
-  },
-  {
-    "id": "math005random1",
-    "type": "mathwithrandomnumber",
-    "header": "Устный счёт",
-    "title": "Упрощение выражения 4",
-    "theme": "Уравнения",
-    "text": "Чему равно x, если {var1-10}x +5 = 25?",
-    "answer": "(25 - 5) / {var1-10}",
-    "hint": "{var1-10}x +5 = 25 → {var1-10}x = 20 → x = 20 / {var1-10}= {=20 / {var1-10}}",
-    "randomfrom": [2, 4, 5, 10, 20]
-  },
-  {
-    "id": "math005random2",
-    "type": "mathwithrandomnumber",
-    "header": "Устный счёт",
-    "title": "Упрощение выражения 5",
-    "theme": "Уравнения",
-    "text": "Чему равно x, если 2x - {var1-10}= 10?",
-    "answer": "(10 +{var1-10}) / 2",
-    "hint": "2x - {var1-10}= 10 → 2x = {=10 +{var1-10}} → x = {=(10 +{var1-10}) / 2}",
-    "randomfrom": [2, 4, 6, 8, 10, 12]
-  },
+  
+  
   {
     "id": "math005random3",
     "type": "mathwithrandomnumber",
@@ -9064,7 +9005,7 @@ let quizesSets = [
     "header": "Устный счёт",
     "title": "Решение неравенства 2",
     "theme": "Неравенства",
-    "text": "Найдите наибольшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
+    "text": "Найдите наибольшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {={var1-10} + 6} $$",
     "answer": "FLOOR(({var1-10} + 7) / 2, 1)",
     "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наибольшее целое x = $\\left\\lfloor \\frac{{var1-10} + 7}{2} \\right\\rfloor$",
     "randomfrom": [2, 4, 6, 8, 10]
@@ -9076,7 +9017,7 @@ let quizesSets = [
     "header": "Устный счёт",
     "title": "Решение неравенства 3",
     "theme": "Неравенства",
-    "text": "Найдите наименьшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {var1-10} + 6$$",
+    "text": "Найдите наименьшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {={var1-10} + 6} $$",
     "answer": "CEILING(({var1-10} + 2) / 2, 1)",
     "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наименьшее целое x = $\\left\\lceil \\frac{{var1-10} + 2}{2} \\right\\rceil$",
     "randomfrom": [2, 4, 6, 8, 10]
@@ -9729,7 +9670,7 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
-    <div class="mb-3">Используя формулу углового коэффициента регрессии $$a = \\frac{y_2 - y_1}{x_2 - x_1}$$, найдите удельные (переменные) затраты на 1 руб. выручки.</div>
+    <div class="mb-3">Используя формулу углового коэффициента регрессии, найдите удельные (переменные) затраты на 1 руб. выручки.</div>
   </div>
 </div>`,
   "answer": "1 / ({var1-10} - 10)",
@@ -9764,18 +9705,6 @@ let quizesSets = [
 
 
   {
-    "id": "regression_slope_mental_001",
-    "type": "mathwithrandomnumber",
-    "header": "Линейная регрессия (устный счёт)",
-    "title": "Найди угловой коэффициент",
-    "theme": "Регрессия",
-    "text": "Точки: $A(0, 0)$ и $B({= {var1-10}*2}, {= {var1-10}*2*{var1-10}})$. Найдите $k = \\frac{y_2 - y_1}{x_2 - x_1}$.",
-    "answer": "{var1-10}",
-    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*2*{var1-10}} - 0}{{= {var1-10}*2} - 0} = \\frac{{= {var1-10}*2*{var1-10}}}{{= {var1-10}*2}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
-  },
-
-  {
     "id": "regression_slope_mental_002",
     "type": "mathwithrandomnumber",
     "header": "Линейная регрессия (устный счёт)",
@@ -9799,29 +9728,9 @@ let quizesSets = [
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим b</h5></div><div class='card-body'><div class='alert alert-secondary'>$$b = y - 2x = ({= {var1-10}*2 + {var1-10}}) - 2 \\cdot ({= {var1-10}}) = {= {var1-10}*2 + {var1-10}} - {= {var1-10}*2} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $b = {var1-10}$</div></div></div>"
   },
 
-  {
-    "id": "regression_predict_mental_004",
-    "type": "mathwithrandomnumber",
-    "header": "Линейная регрессия (устный счёт)",
-    "title": "Найди значение y",
-    "theme": "Регрессия",
-    "text": "Прямая $y = {var1-10} \\cdot x$ проходит через начало координат. Чему равен $y$ при $x = 1$?",
-    "answer": "{var1-10}",
-    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$y = {var1-10} \\cdot 1 = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $y = {var1-10}$</div></div></div>"
-  },
+ 
 
-  {
-    "id": "regression_find_x_mental_005",
-    "type": "mathwithrandomnumber",
-    "header": "Линейная регрессия (устный счёт)",
-    "title": "Найди значение x",
-    "theme": "Регрессия",
-    "text": "Прямая $y = 3x$ проходит через точку с $y = {= {var1-10}*3}$. Найдите $x$.",
-    "answer": "{var1-10}",
-    "randomfrom": [2, 3, 4, 5, 8, 10, 20],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт</h5></div><div class='card-body'><div class='alert alert-secondary'>$$x = \\frac{y}{3} = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $x = {var1-10}$</div></div></div>"
-  },
+  
   {
     "id": "regression_sum_mental_006",
     "type": "mathwithrandomnumber",
@@ -9909,7 +9818,7 @@ let quizesSets = [
     "title": "Вычисление свободного члена b",
     "theme": "Регрессия",
 
-    "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Зная, что $k = 2$, найдите свободный член $b$.",
+    "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Найдите свободный член $b$.",
     "choices": [
       "$b = -10$",
       "$b = -6$",
@@ -10058,7 +9967,7 @@ let quizesSets = [
     "title": "Прогнозирование по уравнению регрессии",
     "theme": "Регрессия",
 
-    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 15$?",
+    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 15$?",
     "choices": [
       "$y = 20$",
       "$y = 25$",
@@ -10123,7 +10032,7 @@ let quizesSets = [
     "title": "Интерполяция по уравнению регрессии",
     "theme": "Регрессия",
 
-    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии $y = 2x - 10$. Какое значение $y$ предсказывается для $x = 8$?",
+    "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 8$?",
     "choices": [
       "$y = 2$",
       "$y = 4$",
@@ -10341,30 +10250,9 @@ let quizesSets = [
     "answers": ["Углового коэффициента (наклона) регрессии"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
   },
-  {
-    "id": "statistics549",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Регрессионный анализ",
-    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
-    "answers": ["Свободного члена (пересечения) регрессии"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
-  },
+  
 
-  {
-    "id": "statistics551",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Позиционные характеристики",
-    "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
-    "answers": ["Первого квартиля (25-го процентиля)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Q1 = x_{0.25}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Q1 обозначает <strong>первый квартиль</strong>, x_{0.25} — <strong>25-й процентиль</strong>. Это значение, ниже которого находятся 25% данных.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Первый квартиль (25-й процентиль)</div></div></div>"
-  },
-
+  
     {
     "id": "statistics_mean_mixed001",
     "type": "mathwithrandomnumber",
@@ -10614,97 +10502,7 @@ let quizesSets = [
 },
 
 
-{
-    "id": "statistics542",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистическая оценка",
-    "theme": "Меры центральной тенденции",
-    "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
-    "answers": ["Среднего арифметического"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
-  },
-  {
-    "id": "statistics543",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Меры центральной тенденции",
-    "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
-    "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
-    "answers": ["Медианы"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
-  },
 
-  {
-    "id": "statistics544",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Меры разброса",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
-    "answers": ["Дисперсии по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма квадратов отклонений</strong> от среднего, в знаменателе — <strong>n</strong> (деление на количество наблюдений). Это <strong>дисперсия по генеральной совокупности</strong> (VAR.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Дисперсия по генеральной совокупности</div></div></div>"
-  },
-
-
-  {
-    "id": "statistics545",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистический показатель",
-    "theme": "Меры разброса",
-    "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
-    "answers": ["Стандартного отклонения по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
-  },
-  {
-    "id": "statistics546",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
-    "answers": ["Коэффициента корреляции Пирсона"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
-  },
-  {
-    "id": "statistics547",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
-    "answers": ["Ковариации по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>"
-  },
-  {
-    "id": "statistics548",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистическая оценка",
-    "theme": "Регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
-    "answers": ["Углового коэффициента (наклона) регрессии"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
-  },
-  {
-    "id": "statistics549",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Регрессионный анализ",
-    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
-    "answers": ["Свободного члена (пересечения) регрессии"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
-  },
   
 
 
