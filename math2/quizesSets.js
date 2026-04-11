@@ -9401,6 +9401,369 @@ let quizesSets = [
   },
 
   {
+  "id": "statistics_regression_costs001",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия",
+  "theme": "Корреляционно-регрессионный анализ",
+  "functionGraph": "true",
+  "functionType": "costsRevenueGraph",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
+  </div>
+</div>`,
+  "answer": "{var1-10}/{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = 12,\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    <div class="mb-2">где a — переменные затраты на единицу выручки, b — постоянные затраты.</div>
+    
+    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
+    <div class="text-center">
+      $$
+      \\begin{cases}
+      6 = a \\cdot 10 + b \\\\
+      7 = a \\cdot 12 + b
+      \\end{cases}
+      $$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
+    <div class="text-center">
+      $$(7 - 6) = (12a - 10a) + (b - b)$$
+      $$1 = 2a$$
+      $$a = 0.5$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Подставляем a в первое уравнение:</div>
+    <div class="text-center">
+      $$6 = 0.5 \\times 10 + b$$
+      $$6 = 5 + b$$
+      $$b = 1$$
+    </div>
+    
+    <div class="mt-3 mb-2">6. Проверка через второе уравнение:</div>
+    <div class="text-center">
+      $$7 = 0.5 \\times 12 + 1 = 6 + 1 = 7$$ ✓
+    </div>
+    
+    <div class="mt-3 mb-2">7. Затраты при нулевой выручке (x = 0):</div>
+    <div class="text-center">
+      $$y = a \\cdot 0 + b = b = 1$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": ["12"]
+},
+
+ {
+  "id": "statistics_regression_cost002",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Линейная регрессия. Постоянные и переменные затраты предприятия",
+  "theme": "Корреляционно-регрессионный анализ",
+   "functionGraph": "true",
+  "functionType": "costsRevenueGraph",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
+  </div>
+</div>`,
+  "answer": "{var1-10}/{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = 12,\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Угловой коэффициент (наклон):</div>
+    <div class="text-center">
+      $$a = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{7 - 6}{12 - 10} = \\frac{1}{2} = 0.5$$
+    </div>
+    
+    <div class="mt-3 mb-2">3. Уравнение прямой:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Находим свободный член b (затраты при x = 0):</div>
+    <div class="text-center">
+      $$b = y_1 - a \\cdot x_1 = 6 - 0.5 \\times 10 = 6 - 5 = 1$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Проверка через вторую точку:</div>
+    <div class="text-center">
+      $$b = y_2 - a \\cdot x_2 = 7 - 0.5 \\times 12 = 7 - 6 = 1$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": ["12"]
+},
+
+{
+  "id": "statistics_regression_costs003",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия 2",
+  "theme": "Корреляционно-регрессионный анализ",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
+  </div>
+</div>`,
+  "answer": "6-10/({var1-10}-10)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = {var1-10},\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    <div class="mb-2">где a — переменные затраты на единицу выручки, b — постоянные затраты.</div>
+    
+    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
+    <div class="text-center">
+      $$
+      \\begin{cases}
+      6 = a \\cdot 10 + b \\\\
+      7 = a \\cdot {var1-10} + b
+      \\end{cases}
+      $$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
+    <div class="text-center">
+      $$(7 - 6) = ({var1-10} \\cdot a - 10a) + (b - b)$$
+      $$1 = ({var1-10} - 10) \\cdot a$$
+      $$a = \\frac{1}{{var1-10} - 10} = {= 1 / ({var1-10} - 10)}$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Подставляем a в первое уравнение:</div>
+    <div class="text-center">
+      $$6 = 10 \\cdot \\frac{1}{{var1-10} - 10} + b$$
+      $$b = 6 - \\frac{10}{{var1-10} - 10} = {= 6 - 10 / ({var1-10} - 10)}$$
+    </div>
+    
+    <div class="mt-3 mb-2">6. Затраты при нулевой выручке (x = 0):</div>
+    <div class="text-center">
+      $$y = a \\cdot 0 + b = b = {= 6 - 10 / ({var1-10} - 10)}$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {= 6 - 10 / ({var1-10} - 10)} млрд. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": [12, 15, 20]
+},
+
+ {
+  "id": "statistics_regression_cost004",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Линейная регрессия. Постоянные и переменные затраты предприятия 2",
+  "theme": "Корреляционно-регрессионный анализ",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
+  </div>
+</div>`,
+ "answer": "6-10/({var1-10}-10)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = 12,\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Угловой коэффициент (наклон):</div>
+    <div class="text-center">
+      $$a = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{7 - 6}{12 - 10} = \\frac{1}{2} = 0.5$$
+    </div>
+    
+    <div class="mt-3 mb-2">3. Уравнение прямой:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Находим свободный член b (затраты при x = 0):</div>
+    <div class="text-center">
+      $$b = y_1 - a \\cdot x_1 = 6 - 0.5 \\times 10 = 6 - 5 = 1$$
+    </div>
+    
+    <div class="mt-3 mb-2">5. Проверка через вторую точку:</div>
+    <div class="text-center">
+      $$b = y_2 - a \\cdot x_2 = 7 - 0.5 \\times 12 = 7 - 6 = 1$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": [12, 15, 20]
+},
+
+{
+  "id": "statistics_regression_varcost_system005",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Система линейных уравнений. Удельные затраты предприятия",
+  "theme": "Корреляционно-регрессионный анализ",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Удельные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите удельные (переменные) затраты на 1 руб. выручки (угловой коэффициент a).</div>
+  </div>
+</div>`,
+  "answer": "1 / ({var1-10} - 10)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = {var1-10},\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Уравнение линейной зависимости:</div>
+    <div class="text-center">
+      $$y = a \\cdot x + b$$
+    </div>
+    <div class="mb-2">где a — удельные (переменные) затраты на единицу выручки, b — постоянные затраты.</div>
+    
+    <div class="mt-3 mb-2">3. Составляем систему уравнений:</div>
+    <div class="text-center">
+      $$
+      \\begin{cases}
+      6 = a \\cdot 10 + b \\\\
+      7 = a \\cdot {var1-10} + b
+      \\end{cases}
+      $$
+    </div>
+    
+    <div class="mt-3 mb-2">4. Вычитаем первое уравнение из второго:</div>
+    <div class="text-center">
+      $$(7 - 6) = ({var1-10} \\cdot a - 10a) + (b - b)$$
+      $$1 = ({var1-10} - 10) \\cdot a$$
+      $$a = \\frac{1}{{var1-10} - 10} = {= 1 / ({var1-10} - 10)}$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {= 1 / ({var1-10} - 10)}</div>
+  </div>
+</div>`,
+  "randomfrom": [12, 15, 20]
+},
+
+{
+  "id": "statistics_regression_varcost_slope006",
+  "type": "mathwithrandomnumber",
+  "header": "Статистика",
+  "title": "Регрессия. Удельные затраты предприятия",
+  "theme": "Корреляционно-регрессионный анализ",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Удельные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Затраты предприятия при выручке 10 млрд. руб. равны 6 млрд. руб., при выручке {var1-10} млрд. руб. равны 7 млрд. руб.</div>
+    <div class="mb-3">Используя формулу углового коэффициента регрессии $$a = \\frac{y_2 - y_1}{x_2 - x_1}$$, найдите удельные (переменные) затраты на 1 руб. выручки.</div>
+  </div>
+</div>`,
+  "answer": "1 / ({var1-10} - 10)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Исходные данные:</div>
+    <div class="text-center">
+      $$x_1 = 10,\\ y_1 = 6$$
+      $$x_2 = {var1-10},\\ y_2 = 7$$
+    </div>
+    
+    <div class="mt-3 mb-2">2. Формула углового коэффициента регрессии:</div>
+    <div class="text-center">
+      $$a = \\frac{y_2 - y_1}{x_2 - x_1}$$
+    </div>
+    
+    <div class="mt-3 mb-2">3. Подставляем значения:</div>
+    <div class="text-center">
+      $$a = \\frac{7 - 6}{{var1-10} - 10} = \\frac{1}{{var1-10} - 10} = {= 1 / ({var1-10} - 10)}$$
+    </div>
+    
+    <div class="alert alert-primary mt-3">Ответ: {= 1 / ({var1-10} - 10) </div>
+  </div>
+</div>`,
+  "randomfrom": [12, 15, 20]
+},
+
+
+
+  {
     "id": "regression_slope_mental_001",
     "type": "mathwithrandomnumber",
     "header": "Линейная регрессия (устный счёт)",

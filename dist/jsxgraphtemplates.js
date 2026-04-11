@@ -21,6 +21,80 @@ let boardConfig = {
     showCopyright: false,
 }
 
+function costsRevenueGraph(board) {
+    // Данные: (выручка, затраты)
+    var x1 = 10, y1 = 6;
+    var x2 = 12, y2 = 7;
+    
+    // Угловой коэффициент и свободный член
+    var a = (y2 - y1) / (x2 - x1); // a = 0.5
+    var b = y1 - a * x1;           // b = 1
+    
+    // Точки (выручка, затраты)
+    var point1 = board.create('point', [x1, y1], {
+        name: 'A',
+        color: colors.primary,
+        size: 4,
+        label: { offset: [5, -10], fontSize: 14 }
+    });
+    
+    var point2 = board.create('point', [x2, y2], {
+        name: 'B',
+        color: colors.primary,
+        size: 4,
+        label: { offset: [5, -10], fontSize: 14 }
+    });
+    
+    // Точка пересечения с осью Y (постоянные затраты)
+    var pointIntercept = board.create('point', [0, b], {
+        name: 'C',
+        color: colors.success,
+        size: 4,
+        face: 'cross',
+        label: { text: 'Постоянные затраты', offset: [10, -10], fontSize: 12 }
+    });
+    
+    // Линия регрессии (зависимость затрат от выручки)
+    var line = board.create('functiongraph', [function(x) { return a * x + b; }], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3,
+        dash: 0
+    });
+    
+    // Подписи осей
+    board.create('text', [14, 1.5, 'Выручка (млрд. руб.)'], {
+        fontSize: 12,
+        color: colors.secondary
+    });
+    
+    board.create('text', [1, 8.5, 'Затраты (млрд. руб.)'], {
+        fontSize: 12,
+        color: colors.secondary,
+        rotate: 90
+    });
+    
+    // // Аннотация: уравнение прямой
+    // board.create('text', [2, 8.2, 'Уравнение: затраты = 0.5 × выручка + 1'], {
+    //     fontSize: 13,
+    //     color: colors.secondary,
+    //     fontWeight: 'bold'
+    // });
+    
+    return {
+        style: 'line',
+        boardConfig: {
+            boundingbox: [-1, 8, 15, -1],
+            axis: true,
+            grid: true,
+            zoom: {
+                factorX: 0.5,
+                factorY: 0.5
+            }
+        }
+    };
+}
+
+
 function circle_center_origin(board, radius=3) {
     var p1 = board.create('point', [0, 0]);
     var c = board.create('circle', [p1, 3]);
