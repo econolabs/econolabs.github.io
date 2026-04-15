@@ -789,6 +789,11 @@ const applicationSlice = createSlice({
     name: 'application',
     initialState,
     reducers: {
+        seedState: (state, action) => {
+          Object.keys(action.payload.object).map((key) => {
+          state[key] = action.payload.object[key];
+          });
+        },
         setOpenAvatars: (state, action) => {
             state.openavatars = action.payload
         },
@@ -1149,7 +1154,15 @@ function updateQuiz(activePage) {
 
     if (quiz.type === "quizwithrandomnumber") {
         $("#usercalculations").style.display = "block";
-        let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
+
+        let randomNumber = store.getState().application.selectedoption;        
+        if (Array.isArray(quiz?.randomfrom)) {
+             randomNumber = quiz.randomfrom[Math.floor(Math.random() * quiz.randomfrom.length)]
+              store.dispatch(applicationSlice.actions.seedState(        
+            {object: { selectedoption: randomNumber }}
+            ));
+        }
+        let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: randomNumber });
         //     console.log(res.answer)
         $("#quizString").innerHTML = res.quizString;
         $("#quizChecks").innerHTML = `
@@ -1194,7 +1207,14 @@ function renderPagination() {
         btn.addEventListener('click', function (event) {
             const pageNumber = parseInt(event.target.getAttribute("page"));
             store.dispatch(applicationSlice.actions.setInitialQuizOptions());
-            store.dispatch(applicationSlice.actions.setActivePage(pageNumber));
+            store.dispatch(applicationSlice.actions.seedState(
+         //setActivePage(pageNumber)
+            {object: {
+                activePage: pageNumber,
+                selectedoptions: [],
+                selectedoption: Math.random() * 9 + 1
+            }}
+            ));
             $("#userComment").value = "Мой комментарий";
             $("#quizChecks").innerHTML = "";
             $("#accountingblock").style.display = "none";
