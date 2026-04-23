@@ -10,7 +10,7 @@
 let { createSlice, configureStore } = RTK;
 let { createApi, setupListeners, fakeBaseQuery } = RTKQ;
 
-let { alphabet, loadState, shuffle, getFirebaseNode, updateFirebaseNode, getFirebaseNodeKey } = basicfirebasecrudauthservices;
+let { alphabet, loadState, shuffle, getFirebaseNode, updateFirebaseNode, getFirebaseNodeKey, saveState } = basicfirebasecrudauthservices;
 
 
 /**

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Minimal KaTeX · Vanilla JS</title>
+    <!-- KaTeX minimal CSS (core styles) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+    <!-- (Optional) favicon placeholder: none needed -->
+    <style>
+        /* minimal global reset & clean baseline */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fefefe;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            color: #1a1e24;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            padding: 2rem 1.8rem;
+            transition: all 0.2s ease;
+        }
+
+        /* headings and text */
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.35rem;
+            color: #0a0c10;
+        }
+
+        .sub {
+            font-size: 0.9rem;
+            color: #5b6e8c;
+            border-left: 3px solid #d0d9e8;
+            padding-left: 0.9rem;
+            margin-top: 0.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: #e6edf4;
+        }
+
+        /* each formula card style */
+        .formula-card {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 1.4rem;
+        }
+
+        .formula-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .formula-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            color: #4a627a;
+            margin-bottom: 0.6rem;
+        }
+
+        .katex-block {
+            margin: 0.75rem 0 0.4rem 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.2rem 0;
+        }
+
+        /* inline math style */
+        .inline-math-demo {
+            background: #f8fafd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footnote {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #6c7e9e;
+            text-align: center;
+            background: #fafcff;
+            padding: 0.8rem;
+            border-radius: 24px;
+        }
+
+        code {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: #eff3f8;
+            padding: 0.2rem 0.3rem;
+            border-radius: 8px;
+            font-size: 0.85em;
+        }
+
+        button {
+            background: none;
+            border: 1px solid #cddae9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #2c3e5c;
+            cursor: pointer;
+            transition: 0.1s linear;
+        }
+
+        button:hover {
+            background: #eef3fc;
+            border-color: #9bb1ca;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⟡ minimal KaTeX</h1>
+    <div class="sub">vanilla JavaScript · beautiful math rendering</div>
+
+    <!-- section: display math (block) examples -->
+    <div class="formula-card">
+        <div class="formula-label">✨ Quadratic formula</div>
+        <div id="math-quadratic" class="katex-block"></div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">🧮 Cauchy-Schwarz (inline + block demo)</div>
+        <div id="math-cauchy" class="katex-block"></div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">⚡ Euler's identity</div>
+        <div id="math-euler" class="katex-block"></div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">📊 Gaussian integral</div>
+        <div id="math-gaussian" class="katex-block"></div>
+    </div>
+
+    <!-- inline math demo area: dynamic content using KaTeX inline rendering -->
+    <hr>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.8rem;">
+        <div>
+            <span class="formula-label" style="margin-bottom: 0;">🔠 inline math sample:</span>
+            <div style="margin-top: 0.5rem;">
+                <span id="inline-demo" class="inline-math-demo"></span>
+            </div>
+        </div>
+        <button id="refreshInlineBtn" aria-label="refresh inline formula">⟳ random inline</button>
+    </div>
+
+    <div class="footnote">
+        🧪 powered by <strong>KaTeX</strong> · pure client-side · no frameworks
+    </div>
+</div>
+
+<!-- Load KaTeX from CDN (vanilla JS) -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+
+<!-- main vanilla script: render all math elements -->
+<script>
+    (function() {
+        // helper: safely render block math (display mode) into a target element by ID
+        function renderBlockMath(elementId, latexExpression) {
+            const container = document.getElementById(elementId);
+            if (!container) {
+                console.warn(`Element with id "${elementId}" not found.`);
+                return;
+            }
+            try {
+                // render with displayMode: true -> block style, centered, larger
+                const renderedHtml = katex.renderToString(latexExpression, {
+                    displayMode: true,
+                    throwOnError: false,      // graceful fallback: show error as text in red
+                    errorColor: '#c0342d',
+                    output: 'html'
+                });
+                container.innerHTML = renderedHtml;
+            } catch (err) {
+                console.error(`KaTeX error in block "${elementId}":`, err);
+                container.innerHTML = `<span style="color:#b91c1c; background:#fff0f0; padding:0.2rem 0.5rem; border-radius:12px;">⚠️ ${err.message}</span>`;
+            }
+        }
+
+        // helper: render inline math (displayMode: false) directly into an element
+        function renderInlineMath(elementId, latexExpression) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+            try {
+                const renderedHtml = katex.renderToString(latexExpression, {
+                    displayMode: false,
+                    throwOnError: false,
+                    errorColor: '#c0342d'
+                });
+                container.innerHTML = renderedHtml;
+            } catch (err) {
+                container.innerHTML = `<span style="color:#b91c1c;">[error: ${err.message}]</span>`;
+            }
+        }
+
+        // ----- predefined beautiful LaTeX expressions (block) -----
+        const blockExpressions = {
+            quadratic: `x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}`,
+            cauchy: `\\left( \\sum_{i=1}^{n} a_i b_i \\right)^2 \\leq \\left( \\sum_{i=1}^{n} a_i^2 \\right) \\left( \\sum_{i=1}^{n} b_i^2 \\right)`,
+            euler: `e^{i\\pi} + 1 = 0`,
+            gaussian: `\\int_{-\\infty}^{\\infty} e^{-x^2} \\, dx = \\sqrt{\\pi}`
+        };
+
+        // optional: add a matrix / fancier block for demonstration? already nice set.
+        // we render all four block math elements
+        renderBlockMath('math-quadratic', blockExpressions.quadratic);
+        renderBlockMath('math-cauchy', blockExpressions.cauchy);
+        renderBlockMath('math-euler', blockExpressions.euler);
+        renderBlockMath('math-gaussian', blockExpressions.gaussian);
+
+        // ----- inline math dynamic gallery (multiple random expressions) -----
+        const inlineLibrary = [
+            "\\alpha + \\beta = \\gamma",
+            "\\nabla \\cdot \\mathbf{E} = \\frac{\\rho}{\\varepsilon_0}",
+            "\\hat{H} \\psi = E \\psi",
+            "\\frac{d}{dx} \\left( x^2 \\right) = 2x",
+            "\\mathbb{R}^n \\to \\mathbb{C}",
+            "\\sum_{k=1}^{\\infty} \\frac{1}{k^2} = \\frac{\\pi^2}{6}",
+            "\\mathcal{L}\\{f(t)\\} = F(s)",
+            "\\mathrm{e}^{\\int \\mu \\, dx}",
+            "\\sqrt{\\frac{a}{b}} \\quad \\text{and} \\quad \\sqrt[n]{x}",
+            "\\binom{n}{k} = \\frac{n!}{k!(n-k)!}",
+            "\\{ \\forall \\varepsilon > 0 \\; \\exists \\delta > 0 \\}",
+            "\\langle u, v \\rangle = \\|u\\| \\|v\\| \\cos\\theta",
+            "\\oint_{\\partial \\Sigma} \\mathbf{B} \\cdot d\\boldsymbol{\\ell} = \\mu_0 I_{\\text{enc}}"
+        ];
+
+        // function to set a random inline expression
+        let currentInlineLatex = inlineLibrary[0]; // default
+
+        function updateRandomInline() {
+            // pick random index from library
+            const randomIndex = Math.floor(Math.random() * inlineLibrary.length);
+            const newLatex = inlineLibrary[randomIndex];
+            currentInlineLatex = newLatex;
+            renderInlineMath('inline-demo', currentInlineLatex);
+        }
+
+        // initial render of inline math (first element)
+        renderInlineMath('inline-demo', inlineLibrary[0]);
+
+        // attach button event (vanilla js)
+        const refreshBtn = document.getElementById('refreshInlineBtn');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', updateRandomInline);
+        }
+
+        // optional: also show a nice initial note for dynamic feel
+        //  ensure that all containers have proper overflow handling and accessibility
+        //  add micro-adjustments: provide data-title attributes? not needed.
+
+        // small extra: show that you can re-render everything on window load or resize?
+        // but no need. all renders already done.
+        // but in case of some CDN race? the script loads after KaTeX, so safe.
+        console.log('✅ Minimal KaTeX page ready — vanilla JS, all formulas rendered.');
+    })();
+</script>
+<!-- ensure that no external dependencies besides katex are used — pure vanilla -->
+</body>
+</html>
