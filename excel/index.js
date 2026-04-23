@@ -780,7 +780,8 @@ const initialState = {
     activePage: null,
     correctquizes: [],
     currentDay: null,
-    openavatars: {}
+    openavatars: {},
+    correntlyAnsweredPages: []
 }
 
 
@@ -790,9 +791,9 @@ const applicationSlice = createSlice({
     initialState,
     reducers: {
         seedState: (state, action) => {
-          Object.keys(action.payload.object).map((key) => {
-          state[key] = action.payload.object[key];
-          });
+            Object.keys(action.payload.object).map((key) => {
+                state[key] = action.payload.object[key];
+            });
         },
         setOpenAvatars: (state, action) => {
             state.openavatars = action.payload
@@ -823,7 +824,11 @@ const applicationSlice = createSlice({
         },
         setActivePage: (state, action) => {
             state.activePage = action.payload;
-        }
+        },
+        addItemToArray: (state, action) => {
+         //   console.log(action.payload)
+            state[action.payload.arrayName].push(action.payload.item);
+        },
     }
 })
 
@@ -917,7 +922,7 @@ function doSaveQuiz(answer, type, content, quizString) {
 function handleCheckQuiz(e) {
     e.preventDefault();
     //   console.log("Do Calculate");
-    let { selectedoption, selectedoptions, activePage } = store.getState().application;
+    let { selectedoption, selectedoptions, activePage, correntlyAnsweredPages } = store.getState().application;
     let { text, answer, hint = "",
         dataArray = [], type, answers = []
     } = resQuizesArray.data[activePage];
@@ -1027,6 +1032,11 @@ function handleCheckQuiz(e) {
     }
 
     if (checkquiz) {
+        store.dispatch(applicationSlice.actions.addItemToArray({
+            arrayName: "correntlyAnsweredPages",
+            item: activePage
+        }));
+          
         doSaveQuiz(reqanswer, posttype, quizString, quizString)
 
     } else {
@@ -1155,11 +1165,11 @@ function updateQuiz(activePage) {
     if (quiz.type === "quizwithrandomnumber") {
         $("#usercalculations").style.display = "block";
 
-        let randomNumber = store.getState().application.selectedoption;        
+        let randomNumber = store.getState().application.selectedoption;
         if (Array.isArray(quiz?.randomfrom)) {
-             randomNumber = quiz.randomfrom[Math.floor(Math.random() * quiz.randomfrom.length)]
-              store.dispatch(applicationSlice.actions.seedState(        
-            {object: { selectedoption: randomNumber }}
+            randomNumber = quiz.randomfrom[Math.floor(Math.random() * quiz.randomfrom.length)]
+            store.dispatch(applicationSlice.actions.seedState(
+                { object: { selectedoption: randomNumber } }
             ));
         }
         let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: randomNumber });
@@ -1184,15 +1194,24 @@ function updateQuiz(activePage) {
 //     return res
 // }
 
+function checkLocallyAndGlobally(index, title, text) {
+    let correntlyAnsweredPages = store.getState().application.correntlyAnsweredPages;
+    let correctquizes = store.getState().application.correctquizes;
+    console.log(correntlyAnsweredPages, index)
+    if (correntlyAnsweredPages.includes(index)) {
+        return true
+    } else {
+        return foundQuiz(identifyQuiz(title, text), correctquizes)
+    }
+}
+
 
 function renderPagination() {
     let correctquizes = store.getState().application.correctquizes;
     $("#quizbuttonslist").innerHTML = resQuizesArray.data.map((item, index) => {
         return `<button
-        class='${foundQuiz(
-            identifyQuiz(item.title, item.text),
-            correctquizes
-        )
+        class='${checkLocallyAndGlobally(index, item.title, item.text)
+                //  foundQuiz(identifyQuiz(item.title, item.text),correctquizes)
                 ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
         page=${index}
        >
@@ -1208,12 +1227,14 @@ function renderPagination() {
             const pageNumber = parseInt(event.target.getAttribute("page"));
             store.dispatch(applicationSlice.actions.setInitialQuizOptions());
             store.dispatch(applicationSlice.actions.seedState(
-         //setActivePage(pageNumber)
-            {object: {
-                activePage: pageNumber,
-                selectedoptions: [],
-                selectedoption: Math.random() * 9 + 1
-            }}
+                //setActivePage(pageNumber)
+                {
+                    object: {
+                        activePage: pageNumber,
+                        selectedoptions: [],
+                        selectedoption: Math.random() * 9 + 1
+                    }
+                }
             ));
             $("#userComment").value = "Мой комментарий";
             $("#quizChecks").innerHTML = "";
