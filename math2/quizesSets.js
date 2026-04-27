@@ -10810,6 +10810,81 @@ let quizesSets = [
  "altpath": "currentDay"
 },
 
+{
+  "id": "math_infinite_geometric_series002",
+  "type": "multiplechoices",
+  "header": "Математика",
+  "title": "Сумма бесконечной геометрической прогрессии",
+  "theme": "Прогрессии",
+  "text": "Дана бесконечно убывающая геометрическая прогрессия, где:\n\n- a — первый член\n- q — знаменатель (|q| < 1)\n\nПо какой формуле вычисляется сумма всех членов этой прогрессии?",
+  "choices": [
+    "$$ S = \\frac{a}{1 - q} $$",
+    "$$ S = \\frac{a}{1 + q} $$",
+    "$$ S = \\frac{a}{q - 1} $$",
+    "$$ S = \\frac{a}{1 - q^n} $$",
+    "$$ S = a \\cdot (1 - q^n) $$"
+  ],
+  "answers": ["$$ S = \\frac{a}{1 - q} $$"],
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Сумма бесконечной геометрической прогрессии</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение
+      </div>
+      <div class="card-body">
+        <p>Геометрическая прогрессия — это последовательность чисел, где каждый следующий член получается умножением предыдущего на постоянное число <strong>q</strong> (знаменатель):</p>
+        <p class="text-center">$$ a, \\; aq, \\; aq^2, \\; aq^3, \\; \\dots $$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-secondary text-white">
+        Вывод формулы суммы
+      </div>
+      <div class="card-body">
+        <p>Сумма первых <strong>n</strong> членов:</p>
+        <p class="text-center">$$ S_n = a + aq + aq^2 + \\dots + aq^{n-1} = a \\cdot \\frac{1 - q^n}{1 - q} $$</p>
+        
+        <p>Если <strong>|q| < 1</strong>, то при <strong>n → ∞</strong> выполняется <strong>q^n → 0</strong>.</p>
+        
+        <p>Следовательно, сумма <strong>бесконечного</strong> числа членов:</p>
+        <p class="text-center">$$ S = \\lim_{n \\to \\infty} S_n = a \\cdot \\frac{1 - 0}{1 - q} = \\frac{a}{1 - q} $$</p>
+        
+        <div class="alert alert-success mt-2">
+          <strong>Формула:</strong> $$ S = \\frac{a}{1 - q} $$
+        </div>
+        <p class="mt-2"><strong>Условие применимости:</strong> |q| < 1 (прогрессия бесконечно убывает).</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-warning text-dark">
+        Пример
+      </div>
+      <div class="card-body">
+        <p>Рассмотрим прогрессию: $$ 1, \\; \\frac{1}{2}, \\; \\frac{1}{4}, \\; \\frac{1}{8}, \\; \\dots $$</p>
+        <ul>
+          <li>Первый член: a = 1</li>
+          <li>Знаменатель: q = 1/2</li>
+        </ul>
+        <p class="text-center">$$ S = \\frac{1}{1 - \\frac{1}{2}} = \\frac{1}{\\frac{1}{2}} = 2 $$</p>
+        <p>Проверка: 1 + 0.5 + 0.25 + 0.125 + ... = 2</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> $$ S = \\frac{a}{1 - q} $$
+    </div>
+  </div>
+</div>`,
+  "altpath": "currentDay"
+},
+
 
 
 {
@@ -10862,7 +10937,7 @@ let quizesSets = [
   "header": "Финансовая математика",
   "title": "Перпетуитет",
   "theme": "Аннуитеты",
-  "text": "$$PV = \\frac{C}{r}$$\n\nДанная формула определяет текущую стоимость:",
+  "text": "$$ PV = \\frac{C}{r} $$\n\nДанная формула определяет текущую стоимость:",
   "choices": [
     "Обычного аннуитета",
     "Перпетуитета (вечной ренты)",
@@ -10883,21 +10958,70 @@ let quizesSets = [
         <ul>
           <li><strong>PV</strong> — текущая стоимость</li>
           <li><strong>C</strong> — периодический платёж</li>
-          <li><strong>r</strong> — процентная ставка</li>
+          <li><strong>r</strong> — процентная ставка (норма дисконтирования)</li>
         </ul>
       </div>
     </div>
+    
     <div class="card mb-3">
-      <div class="card-header bg-info text-white">Особенность</div>
+      <div class="card-header bg-secondary text-white">Математический вывод через сумму бесконечной геометрической прогрессии</div>
       <div class="card-body">
-        <p class="card-text">Перпетуитет — это поток платежей, который продолжается бесконечно.</p>
-        <p class="card-text text-center">$$PV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\frac{C}{(1+r)^3} + \\dots = \\frac{C}{r}$$</p>
+        <p><strong>Шаг 1. Записываем поток платежей</strong></p>
+        <p>Перпетуитет приносит бесконечный поток одинаковых платежей C в конце каждого периода:</p>
+        <p class="text-center">$$ C, \\; C, \\; C, \\; C, \\; \\dots $$</p>
+        
+        <p><strong>Шаг 2. Дисконтируем каждый платёж к текущему моменту</strong></p>
+        <p>Платёж через 1 год дисконтируется как $$\\frac{C}{1+r}$$, через 2 года — $$\\frac{C}{(1+r)^2}$$, и так далее:</p>
+        <p class="text-center">$$ PV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\frac{C}{(1+r)^3} + \\frac{C}{(1+r)^4} + \\dots $$</p>
+        
+        <p><strong>Шаг 3. Выносим общий множитель</strong></p>
+        <p class="text-center">$$ PV = \\frac{C}{1+r} \\left[ 1 + \\frac{1}{1+r} + \\left(\\frac{1}{1+r}\\right)^2 + \\left(\\frac{1}{1+r}\\right)^3 + \\dots \\right] $$</p>
+        
+        <p><strong>Шаг 4. Распознаём бесконечную геометрическую прогрессию</strong></p>
+        <p>В квадратных скобках — <strong>бесконечно убывающая геометрическая прогрессия</strong>:</p>
+        <ul>
+          <li><strong>Первый член:</strong> $$ a = 1 $$</li>
+          <li><strong>Знаменатель:</strong> $$ q = \\frac{1}{1+r} $$</li>
+        </ul>
+        <p>Поскольку $$ r > 0 $$, то $$ 0 < q < 1 $$, и ряд сходится.</p>
+        
+        <p><strong>Шаг 5. Применяем формулу суммы бесконечной геометрической прогрессии</strong></p>
+        <p>Формула суммы: $$ S = \\frac{a}{1 - q} $$, где |q| < 1.</p>
+        <p>Подставляем a = 1 и $$ q = \\frac{1}{1+r} $$:</p>
+        <p class="text-center">$$ S = \\frac{1}{1 - \\frac{1}{1+r}} $$</p>
+        
+        <p><strong>Шаг 6. Упрощаем знаменатель</strong></p>
+        <p class="text-center">$$ 1 - \\frac{1}{1+r} = \\frac{1+r}{1+r} - \\frac{1}{1+r} = \\frac{1+r - 1}{1+r} = \\frac{r}{1+r} $$</p>
+        
+        <p><strong>Шаг 7. Находим сумму прогрессии</strong></p>
+        <p class="text-center">$$ S = \\frac{1}{\\frac{r}{1+r}} = \\frac{1+r}{r} $$</p>
+        
+        <p><strong>Шаг 8. Подставляем обратно в выражение для PV</strong></p>
+        <p class="text-center">$$ PV = \\frac{C}{1+r} \\cdot S = \\frac{C}{1+r} \\cdot \\frac{1+r}{r} = \\frac{C}{r} $$</p>
+        
+        <div class="alert alert-success mt-2">
+          <strong>Итог:</strong> $$ PV = \\frac{C}{r} $$ — это формула текущей стоимости <strong>перпетуитета (вечной ренты)</strong>.
+        </div>
       </div>
     </div>
-    <div class="alert alert-primary mt-3">Ответ: Перпетуитет (вечная рента)</div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Важные замечания</div>
+      <div class="card-body">
+        <ul>
+          <li>Формула предполагает, что первый платёж поступает <strong>в конце первого периода</strong> (обычный перпетуитет).</li>
+          <li>Если платежи начинаются <strong>сегодня</strong> (авансовый перпетуитет), формула будет: $$ PV = C + \\frac{C}{r} $$.</li>
+          <li>Ставка <strong>r</strong> и платеж <strong>C</strong> должны быть приведены к одному временному периоду (год, месяц и т.д.).</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> Перпетуитет (вечная рента)
+    </div>
   </div>
 </div>`,
- "altpath": "currentDay"
+  "altpath": "currentDay"
 },
 
 {
