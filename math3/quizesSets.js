@@ -1,8 +1,475 @@
 let quizesSets = [
 
+  {
+    "id": "algebra-fsu-001",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Квадрат суммы",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Чему равно выражение $(a+b)^2$?",
+    "choices": [
+      "$a^2 - 2ab + b^2$",
+      "$a^2 + 2ab + b^2$",
+      "$a^2 - b^2$",
+      "$a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$a^3 + b^3$"
+    ],
+    "answers": ["$a^2 + 2ab + b^2$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Квадрат суммы</h5>
+        <p>Формула квадрата суммы двух выражений:</p>
+        <p class="text-center">$$(a+b)^2 = a^2 + 2ab + b^2$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки по определению квадрата и правилу умножения многочленов:</p>
+          <p>$$(a+b)^2 = (a+b)(a+b) = a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$$</p>
+          <p>$$= a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Представим квадрат со стороной $(a+b)$:</p>
+              <div style="font-family: monospace;">
+                <div>┌─────────┬─────┐</div>
+                <div>│    a²   │ ab  │ a</div>
+                <div>├─────────┼─────┤</div>
+                <div>│    ab   │ b²  │ b</div>
+                <div>└─────────┴─────┘</div>
+                <div>   a        b</div>
+              </div>
+              <p>Площадь всего квадрата: $(a+b)^2$</p>
+              <p>Сумма площадей частей: $a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x+3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9$</p>
+              <p>2. $(2y+5)^2 = (2y)^2 + 2 \\cdot 2y \\cdot 5 + 5^2 = 4y^2 + 20y + 25$</p>
+              <p>3. $(a+b+c)^2$ можно представить как $[(a+b)+c]^2$ и применить формулу дважды.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $a^2 - 2ab + b^2$ — это <strong>квадрат разности</strong> $(a-b)^2$.<br>
+        • $a^2 - b^2$ — это <strong>разность квадратов</strong> $(a-b)(a+b)$.<br>
+        • $a^3 + 3a^2b + 3ab^2 + b^3$ — это <strong>куб суммы</strong> $(a+b)^3$.<br>
+        • $a^3 + b^3$ — это <strong>сумма кубов</strong> $(a+b)(a^2-ab+b^2)$.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Квадрат суммы = квадрат первого + удвоенное произведение + квадрат второго.
+      </div>
+    </div>`
+  },
+
+  {
+    "id": "algebra-fsu-002",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Квадрат разности",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Чему равно выражение $(a-b)^2$?",
+    "choices": [
+      "$a^2 - 2ab + b^2$",
+      "$a^2 + 2ab + b^2$",
+      "$a^2 - b^2$",
+      "$a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 - b^3$"
+    ],
+    "answers": ["$a^2 - 2ab + b^2$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Квадрат разности</h5>
+        <p>Формула квадрата разности двух выражений:</p>
+        <p class="text-center">$$(a-b)^2 = a^2 - 2ab + b^2$$</p>
+        <p class="mt-2">При возведении разности в квадрат <strong>удвоенное произведение</strong> берётся со знаком <strong>«минус»</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки, рассматривая разность как сумму с отрицательным вторым слагаемым:</p>
+          <p>$$(a-b)^2 = (a + (-b))^2 = a^2 + 2 \\cdot a \\cdot (-b) + (-b)^2$$</p>
+          <p>$$= a^2 - 2ab + b^2$$</p>
+          <p>Или через умножение многочленов:</p>
+          <p>$$(a-b)(a-b) = a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Квадрат со стороной $a$ «вырезает» квадрат со стороной $b$ из угла:</p>
+              <div style="font-family: monospace; background: #f8f9fa; padding: 10px;">
+                <div>┌─────────────────┬─────┐</div>
+                <div>│                 │     │</div>
+                <div>│      a²         │     │</div>
+                <div>│                 │     │</div>
+                <div>│         ┌───────┼─────┤</div>
+                <div>│         │       │     │</div>
+                <div>│         │  b²   │     │</div>
+                <div>├─────────┴───────┤     │</div>
+                <div>│                 │     │</div>
+                <div>└─────────────────┴─────┘</div>
+              </div>
+              <p class="mt-2">Площадь оставшейся фигуры: $a^2 - 2ab + b^2$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x-4)^2 = x^2 - 2 \\cdot x \\cdot 4 + 4^2 = x^2 - 8x + 16$</p>
+              <p>2. $(3y-2)^2 = (3y)^2 - 2 \\cdot 3y \\cdot 2 + 2^2 = 9y^2 - 12y + 4$</p>
+              <p>3. $(5 - m)^2 = 25 - 10m + m^2$ (перестановка слагаемых не меняет знак удвоенного произведения!)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $a^2 + 2ab + b^2$ — это <strong>квадрат суммы</strong> $(a+b)^2$ (знак «плюс» перед $2ab$).<br>
+        • $a^2 - b^2$ — это <strong>разность квадратов</strong> $(a-b)(a+b)$ (нет среднего члена).<br>
+        • $a^3 - 3a^2b + 3ab^2 - b^3$ — это <strong>куб разности</strong> $(a-b)^3$ (третья степень).<br>
+        • $a^3 - b^3$ — это <strong>разность кубов</strong> $(a-b)(a^2+ab+b^2)$.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Квадрат разности = квадрат первого <strong>минус</strong> удвоенное произведение + квадрат второго.<br>
+        Частая ошибка: забыть минус или написать $a^2 - b^2$.
+      </div>
+    </div>`
+  },
+
+  {
+    "id": "algebra-fsu-003",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Разность квадратов",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Чему равно выражение $a^2 - b^2$?",
+    "choices": [
+      "$(a-b)(a+b)$",
+      "$(a-b)^2$",
+      "$(a+b)^2$",
+      "$(a-b)(a^2+ab+b^2)$",
+      "$(a+b)(a^2-ab+b^2)$"
+    ],
+    "answers": ["$(a-b)(a+b)$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Разность квадратов</h5>
+        <p>Формула разности квадратов двух выражений:</p>
+        <p class="text-center">$$a^2 - b^2 = (a-b)(a+b)$$</p>
+        <p class="mt-2">Это единственная формула ФСУ, где <strong>нет удвоенного произведения</strong> и <strong>нет квадратов в правой части</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки в произведении разности и суммы:</p>
+          <p>$$(a-b)(a+b) = a \\cdot a + a \\cdot b - b \\cdot a - b \\cdot b$$</p>
+          <p>$$= a^2 + ab - ab - b^2 = a^2 - b^2$$</p>
+          <p class="mt-2"><strong>Важно:</strong> средние члены $ab$ и $-ab$ взаимно уничтожаются.</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Из квадрата $a^2$ вырезаем квадрат $b^2$:</p>
+              <div style="font-family: monospace; background: #f8f9fa; padding: 10px;">
+                <div>┌─────────────┬─────┐</div>
+                <div>│             │     │</div>
+                <div>│             │     │</div>
+                <div>│     a²      │  b  │</div>
+                <div>│             │     │</div>
+                <div>│         ┌───┴─────┤</div>
+                <div>│         │         │</div>
+                <div>└─────────┴─────────┘</div>
+                <div>    a        a-b</div>
+              </div>
+              <p>Оставшуюся фигуру можно разрезать и сложить в прямоугольник $(a-b) \\times (a+b)$.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $x^2 - 16 = (x-4)(x+4)$</p>
+              <p>2. $49 - y^2 = (7-y)(7+y)$ (порядок множителей не важен)</p>
+              <p>3. $(2x)^2 - 9 = (2x-3)(2x+3) = 4x^2 - 9$</p>
+              <p>4. $x^4 - 1 = (x^2-1)(x^2+1) = (x-1)(x+1)(x^2+1)$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-danger mb-2">
+        <strong>⚠️ Частые ошибки:</strong>
+        <ul class="mb-0 mt-1">
+          <li><strong>$a^2 + b^2$</strong> — не раскладывается на действительные множители!</li>
+          <li>$a^2 - b^2 \\neq (a-b)^2$ (во втором случае есть $-2ab$)</li>
+          <li>Не путайте с <strong>разностью кубов</strong> $a^3-b^3 = (a-b)(a^2+ab+b^2)$</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $(a-b)^2$ — это <strong>квадрат разности</strong> $a^2 - 2ab + b^2$ (лишний член $-2ab$).<br>
+        • $(a+b)^2$ — это <strong>квадрат суммы</strong> $a^2 + 2ab + b^2$ (не тот знак и лишний член).<br>
+        • $(a-b)(a^2+ab+b^2)$ — это <strong>разность кубов</strong> $a^3 - b^3$ (третья степень).<br>
+        • $(a+b)(a^2-ab+b^2)$ — это <strong>сумма кубов</strong> $a^3 + b^3$ (третья степень, плюс).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Разность квадратов = произведение разности на сумму.<br>
+        Формула-«убийца» среднего члена: $ab - ab = 0$.
+      </div>
+    </div>`
+  },
+
+  {
+    "id": "algebra-fsu-004",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Куб суммы",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Чему равно выражение $(a+b)^3$?",
+    "choices": [
+      "$a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$a^3 + 2a^2b + 2ab^2 + b^3$",
+      "$a^3 + b^3$",
+      "$a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$a^3 + 3a^2b - 3ab^2 + b^3$"
+    ],
+    "answers": ["$a^3 + 3a^2b + 3ab^2 + b^3$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Куб суммы</h5>
+        <p>Формула куба суммы двух выражений:</p>
+        <p class="text-center">$$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$$</p>
+        <p class="mt-2">Коэффициенты <strong>1, 3, 3, 1</strong> — это третья строка <strong>треугольника Паскаля</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Куб суммы — это квадрат суммы, умноженный на сумму:</p>
+          <p>$$(a+b)^3 = (a+b)^2 \\cdot (a+b) = (a^2 + 2ab + b^2)(a+b)$$</p>
+          <p>Раскроем скобки:</p>
+          <p>$$= a^2\\cdot a + a^2\\cdot b + 2ab\\cdot a + 2ab\\cdot b + b^2\\cdot a + b^2\\cdot b$$</p>
+          <p>$$= a^3 + a^2b + 2a^2b + 2ab^2 + ab^2 + b^3$$</p>
+          <p>$$= a^3 + 3a^2b + 3ab^2 + b^3$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Треугольник Паскаля</strong>
+            </div>
+            <div class="card-body">
+              <div style="font-family: monospace; text-align: center;">
+                <div>n=0:       1</div>
+                <div>n=1:      1   1</div>
+                <div>n=2:     1   2   1</div>
+                <div>n=3:    1   3   3   1</div>
+                <div>n=4:   1   4   6   4   1</div>
+              </div>
+              <p class="mt-2">Каждое число — сумма двух чисел над ним.</p>
+              <p>Строка для $n=3$ даёт коэффициенты куба суммы: $1, 3, 3, 1$.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x+2)^3 = x^3 + 3 \\cdot x^2 \\cdot 2 + 3 \\cdot x \\cdot 2^2 + 2^3$</p>
+              <p>$$= x^3 + 6x^2 + 12x + 8$$</p>
+              <p>2. $(2y+1)^3 = 8y^3 + 3 \\cdot 4y^2 \\cdot 1 + 3 \\cdot 2y \\cdot 1 + 1$</p>
+              <p>$$= 8y^3 + 12y^2 + 6y + 1$$</p>
+              <p>3. $(a+3)^3 = a^3 + 9a^2 + 27a + 27$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-danger mb-2">
+        <strong>⚠️ Частые ошибки:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Забывают коэффициент 3: пишут $a^3 + a^2b + ab^2 + b^3$</li>
+          <li>Путают с квадратом суммы: $(a+b)^2 = a^2 + 2ab + b^2$</li>
+          <li>Ошибаются в степенях: $3ab^2$, а не $3a^2b^2$</li>
+          <li>Путают с суммой кубов: $a^3+b^3 = (a+b)(a^2-ab+b^2)$</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $a^3 + 2a^2b + 2ab^2 + b^3$ — неправильные коэффициенты (должны быть 3, а не 2).<br>
+        • $a^3 + 3a^2b + 3ab^2 + b^3$ — правильный ответ.<br>
+        • $a^3 + b^3$ — это <strong>сумма кубов</strong> (нет средних членов).<br>
+        • $a^3 + 3a^2b + 3ab^2 + b^3$ — правильный ответ (дублирование для проверки внимательности).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Куб суммы = куб первого + утроенный квадрат первого на второе + утроенное первое на квадрат второго + куб второго.<br>
+        Коэффициенты: <strong>1 3 3 1</strong> — как у треугольника Паскаля!
+      </div>
+    </div>`
+  },
+
+  {
+    "id": "algebra-fsu-005",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Куб разности",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Чему равно выражение $(a-b)^3$?",
+    "choices": [
+      "$a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 - 2a^2b + 2ab^2 - b^3$",
+      "$a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 - b^3$",
+      "$a^3 + 3a^2b + 3ab^2 + b^3$"
+    ],
+    "answers": ["$a^3 - 3a^2b + 3ab^2 - b^3$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Куб разности</h5>
+        <p>Формула куба разности двух выражений:</p>
+        <p class="text-center">$$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$$</p>
+        <p class="mt-2">Знаки чередуются: <strong>плюс, минус, плюс, минус</strong>.<br>
+        Коэффициенты <strong>1, 3, 3, 1</strong> — как у куба суммы.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Куб разности — это куб суммы с отрицательным вторым слагаемым:</p>
+          <p>$$(a-b)^3 = (a + (-b))^3 = a^3 + 3a^2(-b) + 3a(-b)^2 + (-b)^3$$</p>
+          <p>$$= a^3 - 3a^2b + 3ab^2 - b^3$$</p>
+          <p>Или через умножение: $(a-b)^3 = (a-b)^2 \\cdot (a-b) = (a^2 - 2ab + b^2)(a-b)$</p>
+          <p>$$= a^3 - a^2b - 2a^2b + 2ab^2 + ab^2 - b^3 = a^3 - 3a^2b + 3ab^2 - b^3$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Треугольник Паскаля со знаками</strong>
+            </div>
+            <div class="card-body">
+              <div style="font-family: monospace; text-align: center;">
+                <div>$(a-b)^0:$       1</div>
+                <div>$(a-b)^1:$      1    -1</div>
+                <div>$(a-b)^2:$     1    -2     1</div>
+                <div>$(a-b)^3:$    1    -3     3    -1</div>
+                <div>$(a-b)^4:$   1    -4     6    -4     1</div>
+              </div>
+              <p class="mt-2">Знак $(-1)^k$ для $k$-го слагаемого.</p>
+              <p><strong>Запомните:</strong> на нечётных степенях $b$ — минус.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x-2)^3 = x^3 - 3 \\cdot x^2 \\cdot 2 + 3 \\cdot x \\cdot 2^2 - 2^3$</p>
+              <p>$$= x^3 - 6x^2 + 12x - 8$$</p>
+              <p>2. $(3y-1)^3 = 27y^3 - 3 \\cdot 9y^2 \\cdot 1 + 3 \\cdot 3y \\cdot 1 - 1$</p>
+              <p>$$= 27y^3 - 27y^2 + 9y - 1$$</p>
+              <p>3. $(5 - m)^3 = 125 - 75m + 15m^2 - m^3$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-danger mb-2">
+        <strong>⚠️ Частые ошибки:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Забывают знак минус перед $b^3$</li>
+          <li>Пишут $a^3 - 3a^2b - 3ab^2 - b^3$ (неправильные знаки)</li>
+          <li>Путают с кубом суммы: $(a-b)^3 \\neq a^3 + 3a^2b + 3ab^2 + b^3$</li>
+          <li>Путают с разностью кубов: $a^3-b^3 = (a-b)(a^2+ab+b^2)$</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $a^3 - 2a^2b + 2ab^2 - b^3$ — неправильные коэффициенты (должны быть 3, а не 2).<br>
+        • $a^3 - 3a^2b + 3ab^2 - b^3$ — правильный ответ.<br>
+        • $a^3 - b^3$ — это <strong>разность кубов</strong> (нет средних членов).<br>
+        • $a^3 + 3a^2b + 3ab^2 + b^3$ — это <strong>куб суммы</strong> (все знаки плюс).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Куб разности = куб первого <strong>минус</strong> утроенный квадрат первого на второе <strong>плюс</strong> утроенное первое на квадрат второго <strong>минус</strong> куб второго.<br>
+        Знаки чередуются: <strong>+ - + -</strong>
+      </div>
+    </div>`
+},
 
 
- {
+
+  {
     "id": "system009",
     "type": "mathwithrandomnumber",
     "header": "Системы уравнений",
@@ -204,15 +671,15 @@ let quizesSets = [
     "randomfrom": [2, 5, 8, 11]
   },
 
-{
-  "id": "line_equation_system001-1",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная функция",
-  "title": "Уравнение прямой по двум точкам 1",
-  "theme": "Системы уравнений",
-  "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
-  "answer": "{var1-10}",
-  "hint": `
+  {
+    "id": "line_equation_system001-1",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная функция",
+    "title": "Уравнение прямой по двум точкам 1",
+    "theme": "Системы уравнений",
+    "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Нахождение k через систему уравнений</h5>
@@ -257,18 +724,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [2, 3, 4, 5, 6]
-},
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
 
-{
-  "id": "line_equation_system001-2",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная функция",
-  "title": "Уравнение прямой по двум точкам 2",
-  "theme": "Системы уравнений",
-  "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
-  "answer": "{var1-10}",
-  "hint": `
+  {
+    "id": "line_equation_system001-2",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная функция",
+    "title": "Уравнение прямой по двум точкам 2",
+    "theme": "Системы уравнений",
+    "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Нахождение k через систему уравнений</h5>
@@ -313,18 +780,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [2, 4, 8, 10]
-},
+    "randomfrom": [2, 4, 8, 10]
+  },
 
-{
-  "id": "line_equation_system001-3",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная функция",
-  "title": "Уравнение прямой по двум точкам 3",
-  "theme": "Системы уравнений",
-  "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
-  "answer": "{var1-10}",
-  "hint": `
+  {
+    "id": "line_equation_system001-3",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная функция",
+    "title": "Уравнение прямой по двум точкам 3",
+    "theme": "Системы уравнений",
+    "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Нахождение k через систему уравнений</h5>
@@ -369,18 +836,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [1, 10, 20]
-},
+    "randomfrom": [1, 10, 20]
+  },
 
-{
-  "id": "line_equation_system_b001",
-  "type": "mathwithrandomnumber",
-  "header": "Линейная функция",
-  "title": "Уравнение прямой по двум точкам",
-  "theme": "Системы уравнений",
-  "text": "Прямая проходит через точки A(1, {= 2*{var1-10}}) и B(2, {= 3*{var1-10}}). Найдите коэффициент b в уравнении y = kx + b.",
-  "answer": "{var1-10}",
-  "hint": `
+  {
+    "id": "line_equation_system_b001",
+    "type": "mathwithrandomnumber",
+    "header": "Линейная функция",
+    "title": "Уравнение прямой по двум точкам",
+    "theme": "Системы уравнений",
+    "text": "Прямая проходит через точки A(1, {= 2*{var1-10}}) и B(2, {= 3*{var1-10}}). Найдите коэффициент b в уравнении y = kx + b.",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Нахождение b через систему уравнений</h5>
@@ -426,8 +893,8 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [3, 4, 5, 6, 7]
-},
+    "randomfrom": [3, 4, 5, 6, 7]
+  },
 
 
 
@@ -440,7 +907,7 @@ let quizesSets = [
     "theme": "Регрессия",
     "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
     "answer": "{var1-10}",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "randomfrom": [2, 3, 4, 5, 8, 10, 20],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📐 Устный счёт: находим k</h5></div><div class='card-body'><div class='alert alert-secondary'>$$k = \\frac{{= {var1-10}*{var1-10}*2} - {= {var1-10}*{var1-10}}}{{= {var1-10}*2} - {= {var1-10}}} = \\frac{{= {var1-10}*{var1-10}}}{{= {var1-10}}} = {var1-10}$$</div><div class='alert alert-success'><strong>✅ Ответ:</strong> $k = {var1-10}$</div></div></div>"
   },
@@ -450,7 +917,7 @@ let quizesSets = [
     "type": "mathwithrandomnumber",
     "header": "Линейная регрессия (устный счёт)",
     "title": "Найди свободный член b",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "theme": "Регрессия",
     "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
     "answer": "{var1-10}",
@@ -459,13 +926,13 @@ let quizesSets = [
   },
 
 
-   {
+  {
     "id": "regression_slope_001",
     "type": "multiplechoices",
     "header": "Линейная регрессия по двум точкам",
     "title": "Вычисление коэффициента наклона k",
     "theme": "Регрессия",
- "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
     "choices": [
       "$k = 2$",
@@ -532,7 +999,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Вычисление свободного члена b",
     "theme": "Регрессия",
- "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Найдите свободный член $b$.",
     "choices": [
       "$b = -10$",
@@ -606,13 +1073,13 @@ let quizesSets = [
 </div>`
   },
 
-    {
+  {
     "id": "regression_equation_003",
     "type": "multiplechoices",
     "header": "Линейная регрессия по двум точкам",
     "title": "Составление уравнения прямой",
     "theme": "Регрессия",
- "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
     "choices": [
       "$y = 2x - 10$",
@@ -681,7 +1148,7 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Прогнозирование по уравнению регрессии",
     "theme": "Регрессия",
- "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 15$?",
     "choices": [
       "$y = 20$",
@@ -740,12 +1207,12 @@ let quizesSets = [
 </div>`
   },
 
-    {
+  {
     "id": "regression_interpolate_005",
     "type": "multiplechoices",
     "header": "Линейная регрессия по двум точкам",
     "title": "Интерполяция по уравнению регрессии",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "theme": "Регрессия",
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 8$?",
     "choices": [
@@ -884,16 +1351,16 @@ let quizesSets = [
 </div>`
   },
 
-    {
-  "id": "statistics_regression_costs001",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-   "altpath": "currentDay",
-  "functionGraph": "true",
-  "functionType": "costsRevenueGraph",
-  "text": `
+  {
+    "id": "statistics_regression_costs001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Постоянные затраты
@@ -903,8 +1370,8 @@ let quizesSets = [
     <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
   </div>
 </div>`,
-  "answer": "{var1-10}/{var1-10}",
-  "hint": `
+    "answer": "{var1-10}/{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -959,19 +1426,19 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": ["12"]
-},
+    "randomfrom": ["12"]
+  },
 
- {
-  "id": "statistics_regression_cost002",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Линейная регрессия. Постоянные и переменные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-   "functionGraph": "true",
+  {
+    "id": "statistics_regression_cost002",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Линейная регрессия. Постоянные и переменные затраты предприятия",
+    "theme": "Корреляционно-регрессионный анализ",
+    "functionGraph": "true",
     "altpath": "currentDay",
-  "functionType": "costsRevenueGraph",
-  "text": `
+    "functionType": "costsRevenueGraph",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Постоянные затраты
@@ -981,8 +1448,8 @@ let quizesSets = [
     <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
   </div>
 </div>`,
-  "answer": "{var1-10}/{var1-10}",
-  "hint": `
+    "answer": "{var1-10}/{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1017,17 +1484,17 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": ["12"]
-},
+    "randomfrom": ["12"]
+  },
 
-{
-  "id": "statistics_regression_costs003",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия 2",
-  "theme": "Корреляционно-регрессионный анализ",
-   "altpath": "currentDay",
-  "text": `
+  {
+    "id": "statistics_regression_costs003",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия 2",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Постоянные затраты
@@ -1037,8 +1504,8 @@ let quizesSets = [
     <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
   </div>
 </div>`,
-  "answer": "6-10/({var1-10}-10)",
-  "hint": `
+    "answer": "6-10/({var1-10}-10)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1087,17 +1554,17 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {= 6 - 10 / ({var1-10} - 10)} млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": [12, 15, 20]
-},
+    "randomfrom": [12, 15, 20]
+  },
 
- {
-  "id": "statistics_regression_cost004",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Линейная регрессия. Постоянные и переменные затраты предприятия 2",
-  "theme": "Корреляционно-регрессионный анализ",
-   "altpath": "currentDay",
-  "text": `
+  {
+    "id": "statistics_regression_cost004",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Линейная регрессия. Постоянные и переменные затраты предприятия 2",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Постоянные затраты
@@ -1107,8 +1574,8 @@ let quizesSets = [
     <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите затраты предприятия при нулевой выручке (постоянные затраты).</div>
   </div>
 </div>`,
- "answer": "6-10/({var1-10}-10)",
-  "hint": `
+    "answer": "6-10/({var1-10}-10)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1143,17 +1610,17 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: 1 млрд. руб.</div>
   </div>
 </div>`,
-  "randomfrom": [12, 15, 20]
-},
+    "randomfrom": [12, 15, 20]
+  },
 
-{
-  "id": "statistics_regression_varcost_system005",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Система линейных уравнений. Удельные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-   "altpath": "currentDay",
-  "text": `
+  {
+    "id": "statistics_regression_varcost_system005",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Система линейных уравнений. Удельные затраты предприятия",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Удельные затраты
@@ -1163,8 +1630,8 @@ let quizesSets = [
     <div class="mb-3">Предполагая линейную зависимость затрат от выручки, найдите удельные (переменные) затраты на 1 руб. выручки (угловой коэффициент a).</div>
   </div>
 </div>`,
-  "answer": "1 / ({var1-10} - 10)",
-  "hint": `
+    "answer": "1 / ({var1-10} - 10)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1202,17 +1669,17 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {= 1 / ({var1-10} - 10)}</div>
   </div>
 </div>`,
-  "randomfrom": [12, 15, 20]
-},
+    "randomfrom": [12, 15, 20]
+  },
 
-{
-  "id": "statistics_regression_varcost_slope006",
-  "type": "mathwithrandomnumber",
-  "header": "Статистика",
-  "title": "Регрессия. Удельные затраты предприятия",
-  "theme": "Корреляционно-регрессионный анализ",
-   "altpath": "currentDay",
-  "text": `
+  {
+    "id": "statistics_regression_varcost_slope006",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Регрессия. Удельные затраты предприятия",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Удельные затраты
@@ -1222,8 +1689,8 @@ let quizesSets = [
     <div class="mb-3">Используя формулу углового коэффициента регрессии, найдите удельные (переменные) затраты на 1 руб. выручки.</div>
   </div>
 </div>`,
-  "answer": "1 / ({var1-10} - 10)",
-  "hint": `
+    "answer": "1 / ({var1-10} - 10)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1248,19 +1715,19 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {= 1 / ({var1-10} - 10) </div>
   </div>
 </div>`,
-  "randomfrom": [12, 15, 20]
-},
+    "randomfrom": [12, 15, 20]
+  },
 
 
-    {
-        "id": "finance_simple_interest_calc001",
-        "type": "mathwithrandomnumber",
-        "header": "Финансовая математика",
-        "title": "Простые проценты",
-        "theme": "Проценты",
-        "text": "Какую сумму нужно положить под 10% годовых (простые проценты), чтобы через 2 года накопить {= {var1-10} * (1 + 2 * 0.1)} руб.?",
-        "answer": "{var1-10}",
-        "hint": `
+  {
+    "id": "finance_simple_interest_calc001",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Простые проценты",
+    "theme": "Проценты",
+    "text": "Какую сумму нужно положить под 10% годовых (простые проценты), чтобы через 2 года накопить {= {var1-10} * (1 + 2 * 0.1)} руб.?",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт первоначального вклада по простым процентам</h5>
@@ -1294,19 +1761,19 @@ let quizesSets = [
     
   </div>
 </div>`,
-        "randomfrom": [100, 200, 300, 400, 500],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [100, 200, 300, 400, 500],
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_present_value_calc001",
-        "type": "mathwithrandomnumber",
-        "header": "Финансовая математика",
-        "title": "Дисконтирование",
-        "theme": "Проценты",
-        "text": "Какую сумму нужно вложить сегодня под 10% годовых (сложные проценты), чтобы через 2 года получить {= {var1-10} * POWER(1.1, 2)} руб.?",
-        "answer": "{var1-10}",
-        "hint": `
+  {
+    "id": "finance_present_value_calc001",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Дисконтирование",
+    "theme": "Проценты",
+    "text": "Какую сумму нужно вложить сегодня под 10% годовых (сложные проценты), чтобы через 2 года получить {= {var1-10} * POWER(1.1, 2)} руб.?",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт приведённой стоимости</h5>
@@ -1349,19 +1816,19 @@ let quizesSets = [
    
   </div>
 </div>`,
-        "randomfrom": [100, 200, 300, 400],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [100, 200, 300, 400],
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_compound_yield_calc001",
-        "type": "mathwithrandomnumber",
-        "header": "Финансовая математика",
-        "title": "Сложная доходность",
-        "theme": "Доходность",
-        "text": "Инвестор купил актив за 100 руб. и продал его через 2 года за {= 100 * POWER(1 + {var1-10}/100, 2)} руб. Рассчитайте сложную годовую доходность (в процентах).",
-        "answer": "{var1-10}",
-        "hint": `
+  {
+    "id": "finance_compound_yield_calc001",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Сложная доходность",
+    "theme": "Доходность",
+    "text": "Инвестор купил актив за 100 руб. и продал его через 2 года за {= 100 * POWER(1 + {var1-10}/100, 2)} руб. Рассчитайте сложную годовую доходность (в процентах).",
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт сложной годовой доходности</h5>
@@ -1411,26 +1878,26 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "randomfrom": [10, 20, 30, 40, 50],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [10, 20, 30, 40, 50],
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_simple_interest001",
-        "type": "multiplechoices",
-        "header": "Финансовая математика",
-        "title": "Простые проценты",
-        "theme": "Проценты",
-        "text": "$$F = P \\cdot (1 + n \\cdot i)$$\n\nДанная формула определяет:",
-        "choices": [
-            "Наращенную сумму по простым процентам",
-            "Наращенную сумму по сложным процентам",
-            "Дисконтированную стоимость",
-            "Текущую стоимость аннуитета",
-            "Формулу Гордона"
-        ],
-        "answers": ["Наращенную сумму по простым процентам"],
-        "hint": `
+  {
+    "id": "finance_simple_interest001",
+    "type": "multiplechoices",
+    "header": "Финансовая математика",
+    "title": "Простые проценты",
+    "theme": "Проценты",
+    "text": "$$F = P \\cdot (1 + n \\cdot i)$$\n\nДанная формула определяет:",
+    "choices": [
+      "Наращенную сумму по простым процентам",
+      "Наращенную сумму по сложным процентам",
+      "Дисконтированную стоимость",
+      "Текущую стоимость аннуитета",
+      "Формулу Гордона"
+    ],
+    "answers": ["Наращенную сумму по простым процентам"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Формула простых процентов</h5>
@@ -1456,27 +1923,27 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: Наращенную сумму по простым процентам</div>
   </div>
 </div>`,
-        "altpath": "currentDay"
-    },
+    "altpath": "currentDay"
+  },
 
 
 
-    {
-        "id": "finance_compound_interest001",
-        "type": "multiplechoices",
-        "header": "Финансовая математика",
-        "title": "Сложные проценты",
-        "theme": "Проценты",
-        "text": "$$F = P \\cdot (1 + i)^n$$\n\nДанная формула определяет:",
-        "choices": [
-            "Наращенную сумму по простым процентам",
-            "Наращенную сумму по сложным процентам",
-            "Текущую стоимость аннуитета",
-            "Формулу Гордона",
-            "Будущую стоимость аннуитета"
-        ],
-        "answers": ["Наращенную сумму по сложным процентам"],
-        "hint": `
+  {
+    "id": "finance_compound_interest001",
+    "type": "multiplechoices",
+    "header": "Финансовая математика",
+    "title": "Сложные проценты",
+    "theme": "Проценты",
+    "text": "$$F = P \\cdot (1 + i)^n$$\n\nДанная формула определяет:",
+    "choices": [
+      "Наращенную сумму по простым процентам",
+      "Наращенную сумму по сложным процентам",
+      "Текущую стоимость аннуитета",
+      "Формулу Гордона",
+      "Будущую стоимость аннуитета"
+    ],
+    "answers": ["Наращенную сумму по сложным процентам"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Формула сложных процентов</h5>
@@ -1502,25 +1969,25 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: Наращенную сумму по сложным процентам</div>
   </div>
 </div>`,
-        "altpath": "currentDay"
-    },
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_present_value001",
-        "type": "multiplechoices",
-        "header": "Финансовая математика",
-        "title": "Дисконтирование",
-        "theme": "Проценты",
-        "text": "$$P = \\frac{F}{(1 + i)^n}$$\n\nДанная формула определяет:",
-        "choices": [
-            "Будущую стоимость",
-            "Текущую (приведённую) стоимость",
-            "Наращенную сумму по простым процентам",
-            "Формулу Гордона",
-            "Перпетуитет"
-        ],
-        "answers": ["Текущую (приведённую) стоимость"],
-        "hint": `
+  {
+    "id": "finance_present_value001",
+    "type": "multiplechoices",
+    "header": "Финансовая математика",
+    "title": "Дисконтирование",
+    "theme": "Проценты",
+    "text": "$$P = \\frac{F}{(1 + i)^n}$$\n\nДанная формула определяет:",
+    "choices": [
+      "Будущую стоимость",
+      "Текущую (приведённую) стоимость",
+      "Наращенную сумму по простым процентам",
+      "Формулу Гордона",
+      "Перпетуитет"
+    ],
+    "answers": ["Текущую (приведённую) стоимость"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Формула дисконтирования</h5>
@@ -1546,26 +2013,26 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: Текущую (приведённую) стоимость</div>
   </div>
 </div>`,
-        "altpath": "currentDay"
-    },
+    "altpath": "currentDay"
+  },
 
 
-    {
-        "id": "math_infinite_geometric_series002",
-        "type": "multiplechoices",
-        "header": "Математика",
-        "title": "Сумма бесконечной геометрической прогрессии",
-        "theme": "Прогрессии",
-        "text": "Дана бесконечно убывающая геометрическая прогрессия, где:\n\n- a — первый член\n- q — знаменатель (|q| < 1)\n\nПо какой формуле вычисляется сумма всех членов этой прогрессии?",
-        "choices": [
-            "$$ S = \\frac{a}{1 - q} $$",
-            "$$ S = \\frac{a}{1 + q} $$",
-            "$$ S = \\frac{a}{q - 1} $$",
-            "$$ S = \\frac{a}{1 - q^n} $$",
-            "$$ S = a \\cdot (1 - q^n) $$"
-        ],
-        "answers": ["$$ S = \\frac{a}{1 - q} $$"],
-        "hint": `
+  {
+    "id": "math_infinite_geometric_series002",
+    "type": "multiplechoices",
+    "header": "Математика",
+    "title": "Сумма бесконечной геометрической прогрессии",
+    "theme": "Прогрессии",
+    "text": "Дана бесконечно убывающая геометрическая прогрессия, где:\n\n- a — первый член\n- q — знаменатель (|q| < 1)\n\nПо какой формуле вычисляется сумма всех членов этой прогрессии?",
+    "choices": [
+      "$$ S = \\frac{a}{1 - q} $$",
+      "$$ S = \\frac{a}{1 + q} $$",
+      "$$ S = \\frac{a}{q - 1} $$",
+      "$$ S = \\frac{a}{1 - q^n} $$",
+      "$$ S = a \\cdot (1 - q^n) $$"
+    ],
+    "answers": ["$$ S = \\frac{a}{1 - q} $$"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Сумма бесконечной геометрической прогрессии</h5>
@@ -1622,26 +2089,26 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "altpath": "currentDay"
-    },
+    "altpath": "currentDay"
+  },
 
 
-    {
-        "id": "finance_growing_perpetuity001",
-        "type": "multiplechoices",
-        "header": "Финансовая математика",
-        "title": "Растущий перпетуитет",
-        "theme": "Аннуитеты",
-        "text": "$$ PV = \\frac{C}{r - g} $$\n\nДанная формула определяет текущую стоимость:",
-        "choices": [
-            "Обычного аннуитета",
-            "Перпетуитета с постоянным темпом роста",
-            "Бесконечного аннуитета",
-            "Формулу сложных процентов",
-            "Наращенной суммы"
-        ],
-        "answers": ["Перпетуитета с постоянным темпом роста"],
-        "hint": `
+  {
+    "id": "finance_growing_perpetuity001",
+    "type": "multiplechoices",
+    "header": "Финансовая математика",
+    "title": "Растущий перпетуитет",
+    "theme": "Аннуитеты",
+    "text": "$$ PV = \\frac{C}{r - g} $$\n\nДанная формула определяет текущую стоимость:",
+    "choices": [
+      "Обычного аннуитета",
+      "Перпетуитета с постоянным темпом роста",
+      "Бесконечного аннуитета",
+      "Формулу сложных процентов",
+      "Наращенной суммы"
+    ],
+    "answers": ["Перпетуитета с постоянным темпом роста"],
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Растущий перпетуитет</h5>
@@ -1703,18 +2170,18 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "altpath": "currentDay"
-    },
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_perpetuity_calc001",
-        "type": "mathwithrandomnumber",
-        "header": "Финансовая математика",
-        "title": "Перпетуитет",
-        "theme": "Аннуитеты",
-        "text": "Вечная рента приносит ежегодный платёж {var1-10} руб. Ставка дисконтирования 10%. Чему равна текущая стоимость перпетуитета?",
-        "answer": "{var1-10} / 0.1",
-        "hint": `
+  {
+    "id": "finance_perpetuity_calc001",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Перпетуитет",
+    "theme": "Аннуитеты",
+    "text": "Вечная рента приносит ежегодный платёж {var1-10} руб. Ставка дисконтирования 10%. Чему равна текущая стоимость перпетуитета?",
+    "answer": "{var1-10} / 0.1",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт текущей стоимости перпетуитета</h5>
@@ -1757,19 +2224,19 @@ let quizesSets = [
    
   </div>
 </div>`,
-        "randomfrom": [10, 20, 30, 40, 50],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [10, 20, 30, 40, 50],
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "finance_gordon_calc001",
-        "type": "mathwithrandomnumber",
-        "header": "Финансовая математика",
-        "title": "Модель Гордона",
-        "theme": "Оценка акций",
-        "text": "Ожидаемый дивиденд акции в следующем году составит {var1-10} руб. Требуемая норма доходности 12%, постоянный темп роста дивидендов 2%. Чему равна внутренняя стоимость акции?",
-        "answer": "{var1-10} / (0.12 - 0.02)",
-        "hint": `
+  {
+    "id": "finance_gordon_calc001",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Модель Гордона",
+    "theme": "Оценка акций",
+    "text": "Ожидаемый дивиденд акции в следующем году составит {var1-10} руб. Требуемая норма доходности 12%, постоянный темп роста дивидендов 2%. Чему равна внутренняя стоимость акции?",
+    "answer": "{var1-10} / (0.12 - 0.02)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт стоимости акции по модели Гордона</h5>
@@ -1812,19 +2279,19 @@ let quizesSets = [
 
   </div>
 </div>`,
-        "randomfrom": [5, 10, 15, 20, 25],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [5, 10, 15, 20, 25],
+    "altpath": "currentDay"
+  },
 
 
-    {
-        "id": "statistics_mean_mixed001",
-        "type": "mathwithrandomnumber",
-        "header": "Статистика",
-        "title": "Среднее арифметическое",
-        "theme": "Средние величины",
-        "altpath": "currentDay",
-        "text": `
+  {
+    "id": "statistics_mean_mixed001",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Среднее арифметическое",
+    "theme": "Средние величины",
+    "altpath": "currentDay",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Среднее арифметическое
@@ -1841,8 +2308,8 @@ let quizesSets = [
     </div>
      </div>
 </div>`,
-        "answer": "{var1-10}",
-        "hint": `
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1859,16 +2326,16 @@ let quizesSets = [
     </div>
     </div>
 </div>`,
-        "randomfrom": [10, 15, 20, 25, 30, 35]
-    },
+    "randomfrom": [10, 15, 20, 25, 30, 35]
+  },
 
-    {
-        "id": "statistics_var_mixed005",
-        "type": "mathwithrandomnumber",
-        "header": "Статистика",
-        "title": "Дисперсия",
-        "theme": "Меры разброса",
-        "text": `
+  {
+    "id": "statistics_var_mixed005",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Дисперсия",
+    "theme": "Меры разброса",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Дисперсия
@@ -1885,8 +2352,8 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "answer": "{var1-10}",
-        "hint": `
+    "answer": "{var1-10}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -1910,18 +2377,18 @@ let quizesSets = [
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
-        "randomfrom": [4, 9, 16, 25],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [4, 9, 16, 25],
+    "altpath": "currentDay"
+  },
 
 
-    {
-        "id": "statistics_stdev_mixed005",
-        "type": "mathwithrandomnumber",
-        "header": "Статистика",
-        "title": "Стандартное отклонение",
-        "theme": "Меры разброса",
-        "text": `
+  {
+    "id": "statistics_stdev_mixed005",
+    "type": "mathwithrandomnumber",
+    "header": "Статистика",
+    "title": "Стандартное отклонение",
+    "theme": "Меры разброса",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Стандартное отклонение
@@ -1938,8 +2405,8 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "answer": "POWER({var1-10}, 1/2)",
-        "hint": `
+    "answer": "POWER({var1-10}, 1/2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Порядок расчёта стандартного отклонения</h5>
@@ -2018,29 +2485,29 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-        "randomfrom": [4, 9, 16, 25],
-        "altpath": "currentDay"
-    },
+    "randomfrom": [4, 9, 16, 25],
+    "altpath": "currentDay"
+  },
 
-    {
-        "id": "statistics547",
-        "type": "multiplechoices",
-        "header": "Тест",
-        "title": "Описательная статистика",
-        "theme": "Корреляционно-регрессионный анализ",
-        "altpath": "currentDay",
-        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
-        "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
-        "answers": ["Ковариации по генеральной совокупности"],
-        "hint": `<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>`
-    },
+  {
+    "id": "statistics547",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Корреляционно-регрессионный анализ",
+    "altpath": "currentDay",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
+    "answers": ["Ковариации по генеральной совокупности"],
+    "hint": `<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>`
+  },
 
-     {
+  {
     "id": "statistics543",
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Описательная статистика",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "theme": "Меры центральной тенденции",
     "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
     "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
@@ -2053,7 +2520,7 @@ let quizesSets = [
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Анализ данных",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "theme": "Меры разброса",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
@@ -2068,7 +2535,7 @@ let quizesSets = [
     "header": "Тест",
     "title": "Статистический показатель",
     "theme": "Меры разброса",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
     "answers": ["Стандартного отклонения по генеральной совокупности"],
@@ -2080,20 +2547,20 @@ let quizesSets = [
     "header": "Тест",
     "title": "Количественная оценка",
     "theme": "Корреляционно-регрессионный анализ",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
     "answers": ["Коэффициента корреляции Пирсона"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
   },
 
-    {
+  {
     "id": "statistics542",
     "type": "multiplechoices",
     "header": "Тест",
     "title": "Статистическая оценка",
     "theme": "Меры центральной тенденции",
-     "altpath": "currentDay",
+    "altpath": "currentDay",
     "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
     "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
     "answers": ["Среднего арифметического"],
@@ -2101,14 +2568,14 @@ let quizesSets = [
   },
 
   {
-  "id": "finance_wacc_calc003",
-  "type": "mathwithrandomnumber",
-  "header": "Финансовая математика",
-  "title": "Расчет средней взвешенной",
-  "theme": "Оценка капитала",
-  "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
-  "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
-  "hint": `
+    "id": "finance_wacc_calc003",
+    "type": "mathwithrandomnumber",
+    "header": "Финансовая математика",
+    "title": "Расчет средней взвешенной",
+    "theme": "Оценка капитала",
+    "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
+    "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Расчёт WACC (средневзвешенной стоимости капитала)</h5>
@@ -2155,12 +2622,12 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-  "randomfrom": [800, 700, 600, 500, 400, 300, 200],
-   "altpath": "currentDay",
-},
+    "randomfrom": [800, 700, 600, 500, 400, 300, 200],
+    "altpath": "currentDay",
+  },
 
 
- // Тесты по логарифмам
+  // Тесты по логарифмам
   {
     "id": "log001",
     "type": "multiplechoices",
@@ -2246,15 +2713,15 @@ let quizesSets = [
     "answers": ["1"],
     "hint": "<p>Логарифм числа по равному ему основанию равен 1.</p>$$\\log_a a = 1 \\text{ для любого } a > 0, a \\neq 1$$$$7^1 = 7$$$$\\log_7 7 = 1$$"
   },
- {
-  "id": "exponential_function001april",
-  "type": "mathwithrandomnumber",
-  "header": "Показательная функция",
-  "title": "Свойства показательной функции",
-  "theme": "Показательная функция",
-  "text": "Чему равно $$2^{{var1-10}} = ?$$",
-  "answer": "POWER(2, {var1-10})",
-  "hint": `
+  {
+    "id": "exponential_function001april",
+    "type": "mathwithrandomnumber",
+    "header": "Показательная функция",
+    "title": "Свойства показательной функции",
+    "theme": "Показательная функция",
+    "text": "Чему равно $$2^{{var1-10}} = ?$$",
+    "answer": "POWER(2, {var1-10})",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Вычисление показательной функции</h5>
@@ -2293,19 +2760,19 @@ let quizesSets = [
     
   </div>
 </div>`,
-  "randomfrom": [-1, -2, -3, -4, -5]
-},
+    "randomfrom": [-1, -2, -3, -4, -5]
+  },
 
 
-{
-  "id": "logarithms_product001",
-  "type": "mathwithrandomnumber",
-  "header": "Логарифмы",
-  "title": "Свойства логарифмов",
-  "theme": "Логарифмы",
-  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
-  "answer": "LOG({var1-10}, 2)",
-  "hint": `
+  {
+    "id": "logarithms_product001",
+    "type": "mathwithrandomnumber",
+    "header": "Логарифмы",
+    "title": "Свойства логарифмов",
+    "theme": "Логарифмы",
+    "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+    "answer": "LOG({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Вычисление логарифма</h5>
@@ -2344,18 +2811,18 @@ let quizesSets = [
    
   </div>
 </div>`,
-  "randomfrom": [8, 16, 32, 64]
-},
+    "randomfrom": [8, 16, 32, 64]
+  },
 
-{
-  "id": "logarithms_product001april",
-  "type": "mathwithrandomnumber",
-  "header": "Логарифмы",
-  "title": "Свойства логарифмов",
-  "theme": "Логарифмы",
-  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
-  "answer": "LOG({var1-10}, 2)",
-  "hint": `
+  {
+    "id": "logarithms_product001april",
+    "type": "mathwithrandomnumber",
+    "header": "Логарифмы",
+    "title": "Свойства логарифмов",
+    "theme": "Логарифмы",
+    "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+    "answer": "LOG({var1-10}, 2)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Вычисление логарифма</h5>
@@ -2394,18 +2861,18 @@ let quizesSets = [
    
   </div>
 </div>`,
-  "randomfrom": [1/2, 1/4, 1/8]
-},
+    "randomfrom": [1 / 2, 1 / 4, 1 / 8]
+  },
 
- {
-  "id": "logarithms_product002",
-  "type": "mathwithrandomnumber",
-  "header": "Логарифмы",
-  "title": "Свойства логарифмов",
-  "theme": "Логарифмы",
-  "text": "Чему равно $$\\log_{3}{var1-10} = ?$$",
-  "answer": "LOG({var1-10}, 3)",
-  "hint": `
+  {
+    "id": "logarithms_product002",
+    "type": "mathwithrandomnumber",
+    "header": "Логарифмы",
+    "title": "Свойства логарифмов",
+    "theme": "Логарифмы",
+    "text": "Чему равно $$\\log_{3}{var1-10} = ?$$",
+    "answer": "LOG({var1-10}, 3)",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Вычисление логарифма</h5>
@@ -2444,8 +2911,8 @@ let quizesSets = [
     
   </div>
 </div>`,
-  "randomfrom": [9, 27, 81, 243]
-},
+    "randomfrom": [9, 27, 81, 243]
+  },
 
 
 
@@ -2485,7 +2952,7 @@ let quizesSets = [
   },
 
 
-  
+
   {
     "id": "imaginary_i_euler_004",
     "type": "multiplechoices",
@@ -3272,7 +3739,7 @@ let quizesSets = [
 </div>`
   },
 
-  
+
   {
     "id": "powers001",
     "type": "multiplechoices",
@@ -4322,6 +4789,1102 @@ let quizesSets = [
 </div>`
   },
 
+
+{
+    "id": "stats-absfreq-001",
+    "type": "multiplechoices",
+    "header": "Статистика. Абсолютная частота",
+    "title": "Что такое абсолютная частота?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна абсолютная частота числа 5?",
+    "choices": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "10"
+    ],
+    "answers": ["5"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Абсолютная частота</h5>
+        <p><strong>Абсолютная частота</strong> — это количество раз, которое данное значение встречается в ряду данных.</p>
+        <p class="mt-2">Обозначается обычно как <strong>n</strong> или <strong>f</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
+          <p>Подсчитаем, сколько раз встречается число <strong>5</strong>:</p>
+          <ul>
+            <li>1-е число: <strong>5</strong> ✓ (1)</li>
+            <li>2-е число: 7</li>
+            <li>3-е число: <strong>5</strong> ✓ (2)</li>
+            <li>4-е число: 3</li>
+            <li>5-е число: <strong>5</strong> ✓ (3)</li>
+            <li>6-е число: 8</li>
+            <li>7-е число: 7</li>
+            <li>8-е число: <strong>5</strong> ✓ (4)</li>
+            <li>9-е число: 2</li>
+            <li>10-е число: <strong>5</strong> ✓ (5)</li>
+          </ul>
+          <p class="mt-2"><strong>Ответ: 5</strong> (число 5 встречается 5 раз)</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3 — это сколько раз встречается, например, число 7 (но не 5).<br>
+        • 4 — близкий, но неверный результат.<br>
+        • 6 — слишком много.<br>
+        • 10 — это общее количество чисел в ряду (объём выборки).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong> Абсолютная частота = <strong>сколько раз</strong> встретилось значение.<br>
+        Обозначение: <strong>nᵢ</strong> (частота i-го значения).
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 Важно отличать:</strong>
+        </div>
+        <div class="card-body">
+          <p>• <strong>Абсолютная частота</strong> — количество повторений (целое число).</p>
+          <p>• <strong>Относительная частота</strong> — абсолютная частота, делённая на объём выборки (доля или процент).</p>
+          <p class="mb-0">В данном примере относительная частота числа 5 равна $5/10 = 0.5$ (50%).</p>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "stats-relfreq-002",
+    "type": "multiplechoices",
+    "header": "Статистика. Относительная частота",
+    "title": "Что такое относительная частота?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна относительная частота числа 5 (в долях единицы)?",
+    "choices": [
+      "0,5",
+      "0,4",
+      "0,6",
+      "0,5",
+      "0,7",
+      "2"
+    ],
+    "answers": ["0,5"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Относительная частота</h5>
+        <p><strong>Относительная частота</strong> — это отношение абсолютной частоты значения к общему объёму выборки.</p>
+        <p class="text-center mt-2">$$\\text{Относительная частота} = \\frac{\\text{Абсолютная частота}}{\\text{Объём выборки}}$$</p>
+        <p>Выражается в долях единицы (от 0 до 1) или в процентах.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
+          <ul>
+            <li><strong>Объём выборки</strong> (общее количество чисел) = <strong>10</strong></li>
+            <li><strong>Абсолютная частота</strong> числа 5 = <strong>5</strong> (нашли в прошлом тесте)</li>
+            <li><strong>Относительная частота</strong> = $\\frac{5}{10} = 0,5$</li>
+          </ul>
+          <p class="mt-2 text-success"><strong>Ответ: 0,5</strong> (или 50%, если в процентах)</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mb-2">
+        <strong>⚠️ Внимание:</strong> В вопросе указано <strong>«в долях единицы»</strong>, поэтому ответ 0,5, а не 50% или 1/2.
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 0,4 — слишком мало (соответствует абсолютной частоте 4).<br>
+        • 0,6 — слишком много (соответствует абсолютной частоте 6).<br>
+        • 0,7 — соответствует абсолютной частоте 7 (но в выборке всего 5 пятёрок).<br>
+        • 2 — это вообще не доля единицы (больше 1).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        • Абсолютная частота: $n = 5$ — <strong>сколько раз</strong>.<br>
+        • Относительная частота: $w = 5/10 = 0,5$ — <strong>какая доля</strong>.<br>
+        • Сумма всех относительных частот всегда равна <strong>1</strong>.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 Для справки</strong>
+        </div>
+        <div class="card-body">
+          <p>Относительная частота для каждого значения в этом ряду:</p>
+          <ul class="mb-0">
+            <li>Число 2: $1/10 = 0,1$</li>
+            <li>Число 3: $1/10 = 0,1$</li>
+            <li>Число 5: $5/10 = 0,5$</li>
+            <li>Число 7: $2/10 = 0,2$</li>
+            <li>Число 8: $1/10 = 0,1$</li>
+            <li><strong>Сумма: $0,1 + 0,1 + 0,5 + 0,2 + 0,1 = 1,0$ ✓</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "stats-sample-003",
+    "type": "multiplechoices",
+    "header": "Статистика. Объём выборки",
+    "title": "Что такое объём выборки?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равен объём выборки?",
+    "choices": [
+      "5",
+      "10",
+      "52",
+      "5,2",
+      "0,5"
+    ],
+    "answers": ["10"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Объём выборки</h5>
+        <p><strong>Объём выборки</strong> (обозначается <strong>n</strong> или <strong>N</strong>) — это общее количество элементов в ряду данных.</p>
+        <p class="text-center mt-2">$$n = \\text{сколько всего чисел (измерений, наблюдений)}$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
+          <p>Просто <strong>посчитаем</strong> количество чисел:</p>
+          <ul>
+            <li>1-е число: 5</li>
+            <li>2-е число: 7</li>
+            <li>3-е число: 5</li>
+            <li>4-е число: 3</li>
+            <li>5-е число: 5</li>
+            <li>6-е число: 8</li>
+            <li>7-е число: 7</li>
+            <li>8-е число: 5</li>
+            <li>9-е число: 2</li>
+            <li>10-е число: 5</li>
+          </ul>
+          <p class="mt-2">Всего чисел: <strong>10</strong></p>
+          <p class="text-success"><strong>Ответ: 10</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mb-2">
+        <strong>⚠️ Частые ошибки:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Не путайте объём выборки с <strong>абсолютной частотой</strong> (сколько раз встретилось конкретное число).</li>
+          <li>Не путайте с <strong>суммой значений</strong> (здесь сумма = 5+7+5+3+5+8+7+5+2+5 = 52).</li>
+          <li>Не путайте со <strong>средним арифметическим</strong> (52/10 = 5,2).</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 5 — это абсолютная частота числа 5 (а не объём выборки).<br>
+        • 52 — это <strong>сумма всех чисел</strong> в ряду.<br>
+        • 5,2 — это <strong>среднее арифметическое</strong> (52/10).<br>
+        • 0,5 — это относительная частота числа 5 (5/10).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        • Объём выборки = <strong>сколько всего</strong>.<br>
+        • Абсолютная частота = <strong>сколько раз встретилось конкретное значение</strong>.<br>
+        • Относительная частота = абсолютная частота / объём выборки.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 Сводка для этого ряда чисел</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <strong>Понятие</strong>
+            </div>
+            <div class="col-6">
+              <strong>Значение</strong>
+            </div>
+          </div>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-6">Объём выборки (N)</div>
+            <div class="col-6"><strong>10</strong></div>
+          </div>
+          <div class="row">
+            <div class="col-6">Абсолютная частота числа 5</div>
+            <div class="col-6">5</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Относительная частота числа 5</div>
+            <div class="col-6">0,5 (50%)</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Сумма всех значений</div>
+            <div class="col-6">52</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Среднее арифметическое</div>
+            <div class="col-6">5,2</div>
+          </div>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "stats-range-004",
+    "type": "multiplechoices",
+    "header": "Статистика. Размах",
+    "title": "Что такое размах?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равен размах этого ряда?",
+    "choices": [
+      "2",
+      "8",
+      "5",
+      "6",
+      "10"
+    ],
+    "answers": ["6"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Размах ряда</h5>
+        <p><strong>Размах</strong> — это разность между наибольшим и наименьшим значениями в ряду данных.</p>
+        <p class="text-center mt-2">$$R = x_{\\text{max}} - x_{\\text{min}}$$</p>
+        <p>Показывает, насколько сильно разбросаны данные.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Ряд чисел: <strong>5, 7, 5, 3, 5, 8, 7, 5, 2, 5</strong></p>
+          
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="alert alert-success text-center">
+                <strong>Наибольшее значение</strong><br>
+                $$x_{\\text{max}} = 8$$
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="alert alert-danger text-center">
+                <strong>Наименьшее значение</strong><br>
+                $$x_{\\text{min}} = 2$$
+              </div>
+            </div>
+          </div>
+          
+          <p class="text-center mt-3">
+            $$R = x_{\\text{max}} - x_{\\text{min}} = 8 - 2 = 6$$
+          </p>
+          
+          <p class="text-success"><strong>Ответ: 6</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mb-2">
+        <strong>⚠️ Частые ошибки:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Называют размахом <strong>само наибольшее значение</strong> (8).</li>
+          <li>Называют размахом <strong>само наименьшее значение</strong> (2).</li>
+          <li>Путают с <strong>абсолютной частотой</strong> моды (5).</li>
+          <li>Путают с <strong>объёмом выборки</strong> (10).</li>
+          <li>Вычитают не из максимума минимум, а наоборот (получают отрицательное число, но размах всегда положительный).</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 2 — это <strong>минимальное значение</strong> в ряду (а не размах).<br>
+        • 8 — это <strong>максимальное значение</strong> в ряду (а не размах).<br>
+        • 5 — это <strong>абсолютная частота</strong> числа 5 (мода), а не размах.<br>
+        • 10 — это <strong>объём выборки</strong> (количество чисел), а не размах.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Размах = <strong>максимум − минимум</strong><br>
+        Характеризует <strong>ширину</strong> разброса данных.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 Сводка для этого ряда чисел</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">Наибольшее значение (max)</div>
+            <div class="col-6"><strong>8</strong></div>
+          </div>
+          <div class="row">
+            <div class="col-6">Наименьшее значение (min)</div>
+            <div class="col-6"><strong>2</strong></div>
+          </div>
+          <div class="row">
+            <div class="col-6">Объём выборки (n)</div>
+            <div class="col-6">10</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Сумма значений</div>
+            <div class="col-6">52</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Среднее арифметическое</div>
+            <div class="col-6">5,2</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Мода (наиболее частое значение)</div>
+            <div class="col-6">5</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Абсолютная частота моды</div>
+            <div class="col-6">5</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Относительная частота моды</div>
+            <div class="col-6">0,5</div>
+          </div>
+          <div class="row bg-light">
+            <div class="col-6"><strong>Размах</strong></div>
+            <div class="col-6"><strong>8 - 2 = 6</strong></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card border-success mt-2">
+        <div class="card-header bg-success text-white">
+          <strong>📌 Наглядный пример</strong>
+        </div>
+        <div class="card-body">
+          <p>Представьте ряд точек на числовой прямой:</p>
+          <div style="font-family: monospace; text-align: center; font-size: 14px;">
+            <div>——•——•——•——•——•——•——•——•——•——•——→</div>
+            <div>0   1   2   3   4   5   6   7   8   9   10</div>
+            <div>    ↑                               ↑</div>
+            <div>   min                            max</div>
+            <div>   (2)                             (8)</div>
+          </div>
+          <p class="mt-2 text-center">Расстояние между крайними точками = <strong>6</strong> — это и есть размах.</p>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "stats-mode-005",
+    "type": "multiplechoices",
+    "header": "Статистика. Мода",
+    "title": "Что такое мода?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна мода этого ряда?",
+    "choices": [
+      "2",
+      "3",
+      "5",
+      "7",
+      "8"
+    ],
+    "answers": ["5"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Мода ряда</h5>
+        <p><strong>Мода</strong> — это значение, которое <strong>чаще всего встречается</strong> в ряду данных.</p>
+        <p class="text-center mt-2">$$\\text{Мода} = \\text{значение с наибольшей абсолютной частотой}$$</p>
+        <p>Обозначается обычно как <strong>Mo</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Ряд чисел: <strong>5, 7, 5, 3, 5, 8, 7, 5, 2, 5</strong></p>
+          
+          <p>Подсчитаем абсолютную частоту каждого значения:</p>
+          
+          <table class="table table-bordered mt-3">
+            <thead class="thead-light">
+              <tr><th>Значение</th><th>Сколько раз встречается</th><th>Абсолютная частота</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2</td><td>один раз</td><td>1</td></tr>
+              <tr><td>3</td><td>один раз</td><td>1</td></tr>
+              <tr class="table-success"><td><strong>5</strong></td><td><strong>пять раз</strong></td><td><strong>5</strong></td></tr>
+              <tr><td>7</td><td>два раза</td><td>2</td></tr>
+              <tr><td>8</td><td>один раз</td><td>1</td></tr>
+            </tbody>
+          </table>
+          
+          <p>Чаще всего (5 раз) встречается число <strong>5</strong>.</p>
+          <p class="text-success"><strong>Ответ: мода = 5</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mb-2">
+        <strong>⚠️ Важные нюансы про моду:</strong>
+        <ul class="mb-0 mt-1">
+          <li><strong>Унимодальный ряд</strong> — одна мода (как в нашем примере).</li>
+          <li><strong>Мультимодальный ряд</strong> — несколько мод (например: 1, 1, 2, 2, 3 → моды 1 и 2).</li>
+          <li><strong>Если все значения встречаются одинаково часто</strong> — моды нет (или говорят, что ряд не модальный).</li>
+          <li>Моду можно найти <strong>и для нечисловых данных</strong> (например, самый популярный цвет или бренд).</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 2, 3, 7, 8 — эти числа встречаются реже (1 или 2 раза), чем 5 (5 раз).<br>
+        • 5 — правильный ответ, так как имеет <strong>наибольшую абсолютную частоту</strong>.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        • Мода = <strong>«толпа»</strong> (самое популярное значение).<br>
+        • Не путайте моду с <strong>абсолютной частотой</strong> (5 — это значение, а частота моды = 5).<br>
+        • Мода, в отличие от среднего, не чувствительна к выбросам.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 Полная сводка для этого ряда</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6"><strong>Характеристика</strong></div>
+            <div class="col-6"><strong>Значение</strong></div>
+          </div>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-6">Объём выборки</div>
+            <div class="col-6">10</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Сумма значений</div>
+            <div class="col-6">52</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Среднее арифметическое</div>
+            <div class="col-6">5,2</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Наименьшее значение (min)</div>
+            <div class="col-6">2</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Наибольшее значение (max)</div>
+            <div class="col-6">8</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Размах</div>
+            <div class="col-6">6</div>
+          </div>
+          <div class="row bg-light">
+            <div class="col-6"><strong>Мода</strong></div>
+            <div class="col-6"><strong>5</strong></div>
+          </div>
+          <div class="row">
+            <div class="col-6">Абсолютная частота моды</div>
+            <div class="col-6">5</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Относительная частота моды</div>
+            <div class="col-6">0,5 (50%)</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card border-success mt-2">
+        <div class="card-header bg-success text-white">
+          <strong>📌 Примеры из жизни</strong>
+        </div>
+        <div class="card-body">
+          <ul class="mb-0">
+            <li>В опросе «Какой цвет вам нравится?» мода — самый популярный цвет.</li>
+            <li>В магазине мода — самый продаваемый размер обуви.</li>
+            <li>В классе мода — наиболее распространённая оценка за контрольную.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mt-2">
+        <strong>🔍 Интересный факт:</strong><br>
+        Слово «мода» происходит от латинского <em>modus</em> — «мера, правило, способ». В статистику этот термин ввёл пионер британской статистики Карл Пирсон.
+      </div>
+    </div>`
+},
+
+{
+    "id": "stats-median-006",
+    "type": "multiplechoices",
+    "header": "Статистика. Медиана",
+    "title": "Что такое медиана?",
+    "theme": "Элементы статистики",
+    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна медиана этого ряда?",
+    "choices": [
+      "5",
+      "5,2",
+      "5,5",
+      "5",
+      "2"
+    ],
+    "answers": ["5"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Медиана ряда</h5>
+        <p><strong>Медиана</strong> — это число, которое находится <strong>в середине</strong> упорядоченного по возрастанию ряда данных.</p>
+        <p class="text-center mt-2">
+          Если количество элементов <strong>нечётное</strong>: медиана = средний элемент.<br>
+          Если количество элементов <strong>чётное</strong>: медиана = среднее арифметическое двух средних элементов.
+        </p>
+        <p>Обозначается обычно как <strong>Me</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (пошагово)</strong>
+        </div>
+        <div class="card-body">
+          <p><strong>Шаг 1:</strong> Исходный ряд: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
+          <p><strong>Шаг 2:</strong> Упорядочиваем по возрастанию:</p>
+          <div class="alert alert-success text-center">
+            <strong>2, 3, 5, 5, 5, 5, 5, 7, 7, 8</strong>
+          </div>
+          <p><strong>Шаг 3:</strong> Количество элементов = <strong>10</strong> (чётное)</p>
+          <p><strong>Шаг 4:</strong> Находим два средних элемента:</p>
+          <ul>
+            <li>5-й элемент: <strong>5</strong></li>
+            <li>6-й элемент: <strong>5</strong></li>
+          </ul>
+          <p><strong>Шаг 5:</strong> Медиана = среднее арифметическое двух средних:</p>
+          <p class="text-center">$$\\frac{5 + 5}{2} = \\frac{10}{2} = 5$$</p>
+          <p class="text-success"><strong>Ответ: медиана = 5</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-warning mb-2">
+        <strong>⚠️ Важные нюансы про медиану:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Перед поиском медианы ряд <strong>обязательно нужно упорядочить</strong> (по возрастанию или убыванию).</li>
+          <li>Медиана устойчива к <strong>выбросам</strong> (в отличие от среднего арифметического).</li>
+          <li>Если количество элементов нечётное (например, 9), медиана — это <strong>5-й элемент</strong>.</li>
+          <li>Если чётное (10) — два средних элемента: 5-й и 6-й.</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 5,2 — это <strong>среднее арифметическое</strong> (сумма 52 / 10).<br>
+        • 5,5 — часто получается, если ошибочно взять два центральных числа 5 и 5 (не влияет), <strong>или</strong> если неправильно упорядочить.<br>
+        • 2 — это <strong>минимальное значение</strong> (минимум), а не медиана.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        • Медиана делит упорядоченный ряд <strong>пополам</strong>: 50% элементов ≤ медианы, 50% ≥ медианы.<br>
+        • В нашем ряду: 2, 3, (5,5,5,5,5), 7, 7, 8 — все пятёрки по центру.<br>
+        • Медиана = 5 означает, что половина чисел ≤ 5, половина ≥ 5.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📈 ПОЛНАЯ СВОДКА для этого ряда</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6"><strong>Характеристика</strong></div>
+            <div class="col-6"><strong>Значение</strong></div>
+          </div>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-6">Объём выборки</div>
+            <div class="col-6">10</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Сумма значений</div>
+            <div class="col-6">52</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Среднее арифметическое</div>
+            <div class="col-6">5,2</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Минимум (min)</div>
+            <div class="col-6">2</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Максимум (max)</div>
+            <div class="col-6">8</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Размах</div>
+            <div class="col-6">6</div>
+          </div>
+          <div class="row">
+            <div class="col-6">Мода</div>
+            <div class="col-6">5</div>
+          </div>
+          <div class="row bg-light">
+            <div class="col-6"><strong>Медиана</strong></div>
+            <div class="col-6"><strong>5</strong></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card border-success mt-2">
+        <div class="card-header bg-success text-white">
+          <strong>📌 Что важнее: среднее, мода или медиана?</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Среднее</strong><br>
+              Чувствительно к выбросам<br>
+              <span class="text-muted">Пример: доход в стране</span>
+            </div>
+            <div class="col-md-4">
+              <strong>Мода</strong><br>
+              Для самых частых значений<br>
+              <span class="text-muted">Пример: популярный размер обуви</span>
+            </div>
+            <div class="col-md-4">
+              <strong>Медиана</strong><br>
+              Устойчива к выбросам<br>
+              <span class="text-muted">Пример: цены на жильё</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-info mt-2">
+        <strong>🔍 Интересный факт:</strong><br>
+        В симметричном распределении <strong>среднее = мода = медиана</strong>. В нашем примере они почти совпали (5,2; 5; 5), что говорит о почти симметричном распределении пятёрок в центре.
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-001",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Сколько всего исходов?",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Игральный кубик бросают один раз. Сколько всего возможных исходов у этого эксперимента?",
+    "choices": [
+      "3",
+      "6",
+      "8",
+      "12",
+      "36"
+    ],
+    "answers": ["6"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎲 Исходы бросания кубика</h5>
+        <p>Стандартный игральный кубик имеет <strong>6 граней</strong>, на которых нанесены числа от 1 до 6.</p>
+        <p>При одном бросании может выпасть одно из этих чисел.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Возможные исходы: <strong>1, 2, 3, 4, 5, 6</strong></p>
+          <p>Всего исходов: <strong>6</strong></p>
+          <div class="text-center">
+            <span class="badge badge-primary p-2 mx-1">1</span>
+            <span class="badge badge-primary p-2 mx-1">2</span>
+            <span class="badge badge-primary p-2 mx-1">3</span>
+            <span class="badge badge-primary p-2 mx-1">4</span>
+            <span class="badge badge-primary p-2 mx-1">5</span>
+            <span class="badge badge-primary p-2 mx-1">6</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3 — слишком мало (это, например, количество чётных исходов).<br>
+        • 8, 12 — у стандартного кубика нет столько граней.<br>
+        • 36 — это количество исходов при <strong>двух</strong> бросаниях кубика (6×6).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При одном бросании кубика — <strong>6 равновозможных исходов</strong>.
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-002",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Вероятность выпадения числа",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет число 4?",
+    "choices": [
+      "1/6",
+      "1/2",
+      "1/4",
+      "1/3",
+      "4/6"
+    ],
+    "answers": ["1/6"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Классическое определение вероятности</h5>
+        <p class="text-center">$$P = \\frac{\\text{Число благоприятных исходов}}{\\text{Общее число исходов}}$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Общее число исходов: <strong>6</strong></li>
+            <li>Благоприятный исход (выпало число 4): <strong>1</strong></li>
+            <li>Вероятность: $P = \\frac{1}{6}$</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/2 — вероятность выпадения <strong>чётного</strong> числа.<br>
+        • 1/4 — вероятность выпадения, например, числа больше 4? (2/6=1/3, не 1/4).<br>
+        • 1/3 — вероятность выпадения числа больше 4 (5 или 6).<br>
+        • 4/6 = 2/3 — слишком большая вероятность.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        У каждого отдельного числа на кубике вероятность выпадения $\\frac{1}{6}$.
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-003",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Вероятность чётного числа",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет чётное число?",
+    "choices": [
+      "1/6",
+      "1/3",
+      "1/2",
+      "2/3",
+      "5/6"
+    ],
+    "answers": ["1/2"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Вероятность события</h5>
+        <p>Событие «выпало чётное число» включает несколько благоприятных исходов.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Общее число исходов: <strong>6</strong></li>
+            <li>Чётные числа на кубике: <strong>2, 4, 6</strong> (3 исхода)</li>
+            <li>Вероятность: $P = \\frac{3}{6} = \\frac{1}{2}$</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/6 — вероятность одного конкретного числа.<br>
+        • 1/3 — вероятность чисел, кратных 3 (3 и 6).<br>
+        • 2/3 — вероятность чисел, нечётных или больших 3.<br>
+        • 5/6 — почти всегда, кроме одного исхода.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Чётных чисел на кубике 3 из 6 → вероятность $\\frac{1}{2}$.
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-004",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Два кубика: сколько исходов?",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Два игральных кубика бросают одновременно. Сколько всего возможных различных исходов (упорядоченных пар) у этого эксперимента?",
+    "choices": [
+      "12",
+      "18",
+      "21",
+      "36",
+      "42"
+    ],
+    "answers": ["36"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎲🎲 Основное правило комбинаторики</h5>
+        <p>Если одно событие может произойти $n$ способами, а другое — $m$ способами, то вместе они могут произойти $n \\times m$ способами.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Первый кубик: <strong>6</strong> исходов (1–6)</li>
+            <li>Второй кубик: <strong>6</strong> исходов (1–6)</li>
+            <li>Общее число пар: $6 \\times 6 = 36$</li>
+          </ul>
+          <p>Примеры исходов: (1,1), (1,2), (1,3), ..., (6,5), (6,6)</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 12 — это $6+6$ (неправильное сложение, нужно умножение).<br>
+        • 18, 21, 42 — не соответствуют $6 \\times 6 = 36$.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При бросании двух кубиков — <strong>36 равновозможных исходов</strong>.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📌 Таблица исходов</strong>
+        </div>
+        <div class="card-body">
+          <div style="font-family: monospace; font-size: 12px;">
+              1   2   3   4   5   6<br>
+            1 ●   ●   ●   ●   ●   ●<br>
+            2 ●   ●   ●   ●   ●   ●<br>
+            3 ●   ●   ●   ●   ●   ●<br>
+            4 ●   ●   ●   ●   ●   ●<br>
+            5 ●   ●   ●   ●   ●   ●<br>
+            6 ●   ●   ●   ●   ●   ●
+          </div>
+          <p class="mt-2">Каждая точка — один исход. Всего 6×6 = 36.</p>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-005",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Вероятность суммы на двух кубиках",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что сумма выпавших чисел равна 7?",
+    "choices": [
+      "1/6",
+      "1/9",
+      "5/36",
+      "6/36",
+      "6/36"
+    ],
+    "answers": ["6/36"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎲🎲 Сумма на двух кубиках</h5>
+        <p>Нужно посчитать, сколько пар дают сумму 7.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Общее число исходов: <strong>36</strong></p>
+          <p>Пары, дающие сумму 7:</p>
+          <div class="text-center">
+            (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)
+          </div>
+          <p>Всего <strong>6</strong> благоприятных исходов.</p>
+          <p>Вероятность: $P = \\frac{6}{36} = \\frac{1}{6}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/6 — это правильный ответ, но его нужно записать как 6/36.<br>
+        • 1/9 ≈ 4/36 — соответствует сумме, например, 5 или 9?<br>
+        • 5/36 — соответствует сумме 6 или 8.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Сумма 7 — самая вероятная при бросании двух кубиков. Её вероятность $\\frac{6}{36} = \\frac{1}{6}$.
+      </div>
+      
+      <div class="card border-warning mt-2">
+        <div class="card-header bg-warning text-dark">
+          <strong>📊 Для справки: вероятности сумм</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">Сумма</div>
+            <div class="col-8">Вероятность</div>
+          </div>
+          <hr class="my-1">
+          <div class="row"><div class="col-4">2, 12</div><div class="col-8">1/36</div></div>
+          <div class="row"><div class="col-4">3, 11</div><div class="col-8">2/36 = 1/18</div></div>
+          <div class="row"><div class="col-4">4, 10</div><div class="col-8">3/36 = 1/12</div></div>
+          <div class="row"><div class="col-4">5, 9</div><div class="col-8">4/36 = 1/9</div></div>
+          <div class="row"><div class="col-4">6, 8</div><div class="col-8">5/36</div></div>
+          <div class="row bg-light"><div class="col-4"><strong>7</strong></div><div class="col-8"><strong>6/36 = 1/6</strong></div></div>
+        </div>
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-006",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Вероятность произведения на двух кубиках",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что произведение выпавших чисел будет равно 12?",
+    "choices": [
+      "1/9",
+      "1/12",
+      "1/18",
+      "4/36",
+      "4/36"
+    ],
+    "answers": ["4/36"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎲🎲 Произведение на двух кубиках</h5>
+        <p>Нужно перебрать все пары, дающие произведение 12.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Общее число исходов: <strong>36</strong></p>
+          <p>Пары, в которых произведение равно 12:</p>
+          <ul>
+            <li>(2, 6): 2×6 = 12</li>
+            <li>(3, 4): 3×4 = 12</li>
+            <li>(4, 3): 4×3 = 12</li>
+            <li>(6, 2): 6×2 = 12</li>
+          </ul>
+          <p>Всего <strong>4</strong> благоприятных исхода.</p>
+          <p>Вероятность: $P = \\frac{4}{36} = \\frac{1}{9}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/9 — это правильный ответ (4/36 = 1/9).<br>
+        • 1/12 — соответствует 3/36 (например, произведение 18?).<br>
+        • 1/18 — соответствует 2/36 (например, произведение 6?).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При поиске произведения важно не забывать про обратные пары: (2,6) и (6,2) — разные исходы.
+      </div>
+    </div>`
+},
+
+{
+    "id": "combin-dice-007",
+    "type": "multiplechoices",
+    "header": "Комбинаторика. Игральный кубик",
+    "title": "Вероятность события «хотя бы одна шестёрка»",
+    "theme": "Комбинаторика и вероятность",
+    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что хотя бы на одном из кубиков выпадет 6?",
+    "choices": [
+      "1/6",
+      "11/36",
+      "1/3",
+      "11/36",
+      "2/6"
+    ],
+    "answers": ["11/36"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎲🎲 Событие «хотя бы один»</h5>
+        <p>Удобно использовать <strong>правило противоположного события</strong>.</p>
+        <p class="text-center">$$P(\\text{хотя бы одна 6}) = 1 - P(\\text{ни одной 6})$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (через противоположное событие)</strong>
+        </div>
+        <div class="card-body">
+          <p><strong>Шаг 1:</strong> Найдём вероятность того, что <strong>ни одной 6 не выпало</strong>.</p>
+          <ul>
+            <li>На первом кубике не 6: 5 вариантов (1,2,3,4,5)</li>
+            <li>На втором кубике не 6: 5 вариантов (1,2,3,4,5)</li>
+            <li>$P(\\text{ни одной 6}) = \\frac{5}{6} \\times \\frac{5}{6} = \\frac{25}{36}$</li>
+          </ul>
+          <p><strong>Шаг 2:</strong> Вычитаем из 1:</p>
+          <p>$P(\\text{хотя бы одна 6}) = 1 - \\frac{25}{36} = \\frac{11}{36}$</p>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Решение (прямым подсчётом)</strong>
+        </div>
+        <div class="card-body">
+          <p>Благоприятные исходы:</p>
+          <ul>
+            <li>6 на первом, на втором что угодно: (6,1)-(6,6) → <strong>6</strong> исходов</li>
+            <li>6 на втором, на первом что угодно: (1,6)-(5,6) → <strong>5</strong> исходов (исход (6,6) уже учтён)</li>
+            <li>Всего: $6 + 5 = 11$ исходов</li>
+          </ul>
+          <p>$P = \\frac{11}{36}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/6 = 6/36 — вероятность того, что на <strong>конкретном</strong> кубике выпала 6.<br>
+        • 1/3 = 12/36 — близко, но неверно (ошибка: сложили 6+6, забыли вычесть повторяющийся (6,6)).<br>
+        • 2/6 ≈ 12/36 — та же ошибка.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $P(\\text{хотя бы один}) = 1 - P(\\text{ни одного})$ — это часто проще, чем прямой подсчёт.
+      </div>
+    </div>`
+},
 
 
 
