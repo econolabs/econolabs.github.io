@@ -677,6 +677,9 @@ let quizesSets = [
     "header": "Линейная функция",
     "title": "Уравнение прямой по двум точкам 1",
     "theme": "Системы уравнений",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
     "answer": "{var1-10}",
     "hint": `
@@ -733,6 +736,9 @@ let quizesSets = [
     "header": "Линейная функция",
     "title": "Уравнение прямой по двум точкам 2",
     "theme": "Системы уравнений",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
     "answer": "{var1-10}",
     "hint": `
@@ -791,6 +797,9 @@ let quizesSets = [
     "theme": "Системы уравнений",
     "text": "Прямая проходит через точки A(1, {= 2*{var1-10} + 3}) и B(3, {= 4*{var1-10} + 3}). Найдите угловой коэффициент k.",
     "answer": "{var1-10}",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -845,6 +854,9 @@ let quizesSets = [
     "header": "Линейная функция",
     "title": "Уравнение прямой по двум точкам",
     "theme": "Системы уравнений",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Прямая проходит через точки A(1, {= 2*{var1-10}}) и B(2, {= 3*{var1-10}}). Найдите коэффициент b в уравнении y = kx + b.",
     "answer": "{var1-10}",
     "hint": `
@@ -905,6 +917,9 @@ let quizesSets = [
     "header": "Линейная регрессия (устный счёт)",
     "title": "Найди угловой коэффициент",
     "theme": "Регрессия",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Точки: $A({= {var1-10}}, {= {var1-10}*{var1-10}})$ и $B({= {var1-10}*2}, {= {var1-10}*{var1-10}*2})$. Найдите $k$.",
     "answer": "{var1-10}",
     "altpath": "currentDay",
@@ -919,6 +934,9 @@ let quizesSets = [
     "title": "Найди свободный член b",
     "altpath": "currentDay",
     "theme": "Регрессия",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Прямая $y = 2x + b$ проходит через точку $({= {var1-10}}, {= {var1-10}*2 + {var1-10}})$. Найдите $b$.",
     "answer": "{var1-10}",
     "randomfrom": [2, 3, 4, 5, 8, 10, 20],
@@ -933,6 +951,9 @@ let quizesSets = [
     "title": "Вычисление коэффициента наклона k",
     "theme": "Регрессия",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
+    
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Чему равен коэффициент наклона $k$ прямой, проходящей через эти точки?",
     "choices": [
       "$k = 2$",
@@ -1000,6 +1021,8 @@ let quizesSets = [
     "title": "Вычисление свободного члена b",
     "theme": "Регрессия",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",  
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Уравнение прямой имеет вид $y = kx + b$. Найдите свободный член $b$.",
     "choices": [
       "$b = -10$",
@@ -1080,6 +1103,8 @@ let quizesSets = [
     "title": "Составление уравнения прямой",
     "theme": "Регрессия",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Даны две точки: $A(6, 2)$ и $B(10, 10)$. Какое уравнение прямой проходит через эти точки?",
     "choices": [
       "$y = 2x - 10$",
@@ -1149,6 +1174,8 @@ let quizesSets = [
     "title": "Прогнозирование по уравнению регрессии",
     "theme": "Регрессия",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 15$?",
     "choices": [
       "$y = 20$",
@@ -1213,6 +1240,8 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Интерполяция по уравнению регрессии",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "theme": "Регрессия",
     "text": "По точкам $A(6, 2)$ и $B(10, 10)$ построено уравнение регрессии. Какое значение $y$ предсказывается для $x = 8$?",
     "choices": [
@@ -1289,6 +1318,9 @@ let quizesSets = [
     "header": "Линейная регрессия по двум точкам",
     "title": "Уравнение прямой через две точки (каноническая форма)",
     "theme": "Регрессия",
+    "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": "Какое уравнение прямой в канонической форме проходит через точки $A(6, 2)$ и $B(10, 10)$?",
     "choices": [
       "$\\frac{x - 6}{4} = \\frac{y - 2}{8}$",
@@ -1494,6 +1526,8 @@ let quizesSets = [
     "title": "Система линейных уравнений. Постоянные и переменные затраты предприятия 2",
     "theme": "Корреляционно-регрессионный анализ",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -1564,6 +1598,8 @@ let quizesSets = [
     "title": "Линейная регрессия. Постоянные и переменные затраты предприятия 2",
     "theme": "Корреляционно-регрессионный анализ",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -1620,6 +1656,8 @@ let quizesSets = [
     "title": "Система линейных уравнений. Удельные затраты предприятия",
     "theme": "Корреляционно-регрессионный анализ",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -1679,6 +1717,8 @@ let quizesSets = [
     "title": "Регрессия. Удельные затраты предприятия",
     "theme": "Корреляционно-регрессионный анализ",
     "altpath": "currentDay",
+    "functionGraph": "true",
+    "functionType": "costsRevenueGraph",
     "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">

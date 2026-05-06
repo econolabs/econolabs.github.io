@@ -21,6 +21,63 @@ let boardConfig = {
     showCopyright: false,
 }
 
+// function costsRevenueGraph(board) {
+//     // Define the two points
+//     const point1 = [50, 40];
+//     const point2 = [60, 44];
+    
+//     // Calculate slope (m) and intercept (b)
+//     const slope = (point2[1] - point1[1]) / (point2[0] - point1[0]);
+//     const intercept = point1[1] - slope * point1[0];
+    
+//     // Create the function graph (this part is correct)
+//     board.create('functiongraph', [function(x) { return slope * x + intercept; }], {
+//         strokeColor: colors.secondary,
+//         strokeWidth: 3
+//     });
+    
+//     // Create points correctly using coordinates array
+//     board.create('point', [point1[0], point1[1]], {
+//         name: 'P₁',
+//         color: colors.primary,
+//         size: 4,
+//         fixed: true  // Makes points fixed and not draggable
+//     });
+    
+//     board.create('point', [point2[0], point2[1]], {
+//         name: 'P₂',
+//         color: colors.primary,
+//         size: 4,
+//         fixed: true
+//     });
+    
+//     // Optional: Add labels for the points
+//     board.create('text', [point1[0] + 0.5, point1[1] + 0.5, `(${point1[0]}, ${point1[1]})`], {
+//         fontSize: 12,
+//         color: colors.text
+//     });
+    
+//     board.create('text', [point2[0] + 0.5, point2[1] + 0.5, `(${point2[0]}, ${point2[1]})`], {
+//         fontSize: 12,
+//         color: colors.text
+//     });
+    
+//     // Add slope and intercept info
+//     board.create('text', [45, 47, `Slope: ${slope.toFixed(2)}\nIntercept: ${intercept.toFixed(2)}`], {
+//         fontSize: 12,
+//         color: colors.text,
+//         fixed: true
+//     });
+    
+//     return { 
+//         style, 
+//         boardConfig: { 
+//             ...boardConfig, 
+//             boundingbox: [40, 50, 70, 35]
+//         } 
+//     };
+// }
+
 function regressionPointsGraph(board) {
     // Данные: (выручка, затраты) - обе переменные в пределах 1-5
     var data = [
@@ -167,12 +224,12 @@ function costsRevenueGraph(board) {
     });
     
     // Подписи осей
-    board.create('text', [14, 1.5, 'Выручка (млрд. руб.)'], {
+    board.create('text', [10, 1, 'Выручка'], {
         fontSize: 12,
         color: colors.secondary
     });
     
-    board.create('text', [1, 8.5, 'Затраты (млрд. руб.)'], {
+    board.create('text', [1, 7, 'Затраты'], {
         fontSize: 12,
         color: colors.secondary,
         rotate: 90
@@ -358,6 +415,8 @@ function integral_test_visual(board) {
 
     return integral_symmetric_x(board, a);
 }
+
+
 
 function linearsimple4(board) {
     board.create('functiongraph', ['4*x'], {
