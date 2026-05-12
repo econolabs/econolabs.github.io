@@ -1,978 +1,1531 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Bootstrap CSS 
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     -->
-    <link rel="stylesheet" href="../dist/original.css" />
+  <link rel="stylesheet" href="../dist/original.css" />
 
-    <script src="./quizesSets.js"></script>
+  <script src="./quizesSets.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
 
-    <script src="../dist/react18.3.1.production.min.js"></script>
-    <script src="../dist/react-dom18.3.1.production.min.js"></script>
-    <script src="../dist/redux-toolkit.umd.min.js"></script>
-    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
-    <title>Теория аудита</title>
-  </head>
+  <script src="../dist/react18.3.1.production.min.js"></script>
+  <script src="../dist/react-dom18.3.1.production.min.js"></script>
+  <script src="../dist/redux-toolkit.umd.min.js"></script>
+  <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+  <title>Теория аудита</title>
+</head>
 
-  <body
-    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
-    data-base="fincalculations"
-    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
-  >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span class="sr-only"></span></a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <a href="https://vk.com/dmglvn">
-            <img
-              loading="lazy"
-              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
-              alt=""
-              style="
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="sr-only"></span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href="https://vk.com/dmglvn">
+          <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+            style="
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
                 filter: grayscale(100%);
                 object-fit: cover;
-              "
-            />
-          </a>
-        </form>
-      </div>
-    </nav>
+              " />
+        </a>
+      </form>
+    </div>
+  </nav>
 
-    <div class="container">
-      <h1 class="text-secondary">Теория аудита</h1>
+  <div class="container">
+    <h1 class="text-secondary">Теория аудита</h1>
 
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title.jpg"
-            alt="Основы аудита"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 1. Сущность, цели и задачи аудиторской деятельности
-          </h3>
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Основы аудита"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 1. Сущность, цели и задачи аудиторской деятельности
+        </h3>
 
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> Аудит — это не только проверка отчетности,
-            но и <strong>независимая оценка</strong> достоверности информации
-            для снижения предпринимательских рисков.
-          </div>
-
-          <h5>Правовая основа (Теория аудита):</h5>
-          <ul>
-            <li>
-              Федеральный закон от 30.12.2008 № 307-ФЗ "Об аудиторской
-              деятельности"
-            </li>
-            <li>Международные стандарты аудита (МСА), введенные в РФ</li>
-            <li>Кодекс профессиональной этики аудиторов</li>
-          </ul>
-
-          <h5>Основное определение:</h5>
-          <p>
-            Аудит — это независимая проверка бухгалтерской (финансовой)
-            отчетности аудируемого лица с целью выражения мнения о ее
-            достоверности.
-          </p>
-
-          <h5>Ключевые цели аудита (согласно МСА 200):</h5>
-          <ul>
-            <li>
-              <strong>Получение разумной уверенности</strong> в том, что
-              отчетность не содержит существенных искажений (обусловленных
-              недобросовестными действиями или ошибками).
-            </li>
-            <li>
-              <strong>Выражение мнения</strong> аудитора в форме аудиторского
-              заключения.
-            </li>
-            <li>
-              <strong>Снижение информационного риска</strong> для пользователей
-              отчетности (инвесторов, банков, государства).
-            </li>
-          </ul>
-
-          <h5>Отличие аудита от других форм контроля:</h5>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <strong>Аудит:</strong>
-              <ul class="small">
-                <li>Независимость</li>
-                <li>Платная услуга</li>
-                <li>Оценка по МСА/ФСАД</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <strong>Ревизия / Гос.контроль:</strong>
-              <ul class="small">
-                <li>Внутриведомственная проверка</li>
-                <li>Бесплатно для объекта</li>
-                <li>Финансовые взыскания</li>
-              </ul>
-            </div>
-          </div>
-
-          <p class="mt-3">
-            <a
-              class="link-opacity-100"
-              href="https://www.consultant.ru/document/cons_doc_LAW_83311/"
-              target="_blank"
-            >
-              ФЗ №307-ФЗ "Об аудиторской деятельности" (4-я редакция)
-            </a>
-          </p>
-
-          <div class="alert alert-success mt-2">
-            <small
-              ><strong>Субъекты обязательного аудита:</strong> АО, банки,
-              страховщики, НПФ, организации с выручкой > 800 млн руб. или
-              активами > 400 млн руб.</small
-            >
-          </div>
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> Аудит — это не только проверка отчетности,
+          но и <strong>независимая оценка</strong> достоверности информации
+          для снижения предпринимательских рисков.
         </div>
-      </div>
 
-      <div class="card my-3" style="max-width: 800px">
+        <h5>Правовая основа (Теория аудита):</h5>
+        <ul>
+          <li>
+            Федеральный закон от 30.12.2008 № 307-ФЗ "Об аудиторской
+            деятельности"
+          </li>
+          <li>Международные стандарты аудита (МСА), введенные в РФ</li>
+          <li>Кодекс профессиональной этики аудиторов</li>
+        </ul>
+
+        <h5>Основное определение:</h5>
         <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title2.jpg"
-            alt="Стандарты аудита"
-            style="filter: grayscale(1)"
-          />
+          Аудит — это независимая проверка бухгалтерской (финансовой)
+          отчетности аудируемого лица с целью выражения мнения о ее
+          достоверности.
         </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 3. Нормативное регулирование и профессиональные стандарты
-            аудита
-          </h3>
 
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> В РФ действуют
-            <strong>Международные стандарты аудита (МСА)</strong>, переведенные
-            и принятые как <strong>ФСАД</strong> (Федеральные стандарты
-            аудиторской деятельности).
-          </div>
+        <h5>Ключевые цели аудита (согласно МСА 200):</h5>
+        <ul>
+          <li>
+            <strong>Получение разумной уверенности</strong> в том, что
+            отчетность не содержит существенных искажений (обусловленных
+            недобросовестными действиями или ошибками).
+          </li>
+          <li>
+            <strong>Выражение мнения</strong> аудитора в форме аудиторского
+            заключения.
+          </li>
+          <li>
+            <strong>Снижение информационного риска</strong> для пользователей
+            отчетности (инвесторов, банков, государства).
+          </li>
+        </ul>
 
-          <h5>Основополагающие принципы аудита (МСА 200):</h5>
-          <ul>
-            <li>
-              <strong>Честность, объективность и независимость</strong> —
-              ключевые принципы.
-            </li>
-            <li>
-              <strong>Профессиональная компетентность</strong> и должная
-              тщательность.
-            </li>
-            <li><strong>Конфиденциальность</strong> информации клиента.</li>
-            <li>
-              <strong>Профессиональное поведение</strong> (соблюдение
-              законодательства).
-            </li>
-          </ul>
-
-          <h5>Уровни регулирования аудита в РФ:</h5>
-          <ul>
-            <li>
-              <strong>1 уровень:</strong> ФЗ №307-ФЗ (федеральное
-              законодательство).
-            </li>
-            <li>
-              <strong>2 уровень:</strong> Федеральные стандарты аудита (ФСАД
-              1-42).
-            </li>
-            <li>
-              <strong>3 уровень:</strong> Внутренние стандарты СРО аудиторов.
-            </li>
-            <li>
-              <strong>4 уровень:</strong> Внутрифирменные стандарты аудиторской
-              организации.
-            </li>
-          </ul>
-
-          <h5>Ключевые МСА для практики:</h5>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <ul class="small">
-                <li><strong>МСА 200:</strong> Цели аудитора</li>
-                <li><strong>МСА 230:</strong> Рабочая документация</li>
-                <li><strong>МСА 315:</strong> Изучение системы контроля</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <ul class="small">
-                <li><strong>МСА 330:</strong> Процедуры аудитора</li>
-                <li><strong>МСА 700:</strong> Аудиторское заключение</li>
-                <li><strong>МСА 720:</strong> Прочая информация</li>
-              </ul>
-            </div>
-          </div>
-
-          <p class="mt-3">
-            <a
-              class="link-opacity-100"
-              href="https://minfin.gov.ru/ru/performance/audit/standards/standarts_audit/"
-              target="_blank"
-            >
-              Официальный перечень ФСАД (МСА) на сайте Минфина РФ
-            </a>
-          </p>
-
-          <div class="alert alert-success mt-2">
-            <small
-              ><strong>Профессиональный скептицизм:</strong> Аудитор не должен
-              доверять документам вслепую — он обязан критически оценивать
-              доказательства и запрашивать пояснения.</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title3.jpg"
-            alt="Этапы аудита"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 5. Технология и этапы проведения аудиторской проверки
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> Аудит делится на 3 крупных этапа:
-            <strong
-              >планирование → сбор доказательств → формирование мнения</strong
-            >
-            (итоговый документ — заключение).
-          </div>
-
-          <h5>1. Этап планирования (МСА 300):</h5>
-          <ul>
-            <li>
-              Предварительное планирование: оценка независимости, договор с
-              клиентом
-            </li>
-            <li>Разработка общей стратегии аудита</li>
-            <li>
-              Составление плана и программы аудита (определение уровня
-              существенности и аудиторского риска)
-            </li>
-          </ul>
-
-          <h5>2. Этап выполнения (сбор аудиторских доказательств):</h5>
-          <ul>
-            <li>
-              <strong>Процедуры проверки по существу:</strong>
-              <ul class="small">
-                <li>
-                  Детальные тесты (проверка первичных документов,
-                  инвентаризация)
-                </li>
-                <li>
-                  Аналитические процедуры (сравнение показателей, анализ
-                  трендов)
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong>Тесты средств контроля</strong> (если аудитор решает на
-              них полагаться)
-            </li>
-            <li>Запросы, подтверждения, пересчет, наблюдение</li>
-          </ul>
-
-          <h5>3. Заключительный этап:</h5>
-          <ul>
-            <li>Обобщение выявленных искажений</li>
-            <li>Формирование письменной информации (отчета) руководству</li>
-            <li>
-              Подготовка
-              <strong>аудиторского заключения</strong> (модифицированное или
-              немодифицированное мнение)
-            </li>
-          </ul>
-
-          <div class="alert alert-info mt-2">
-            <strong>Модифицированное мнение (МСА 705):</strong>
-            <ul class="small mb-0">
-              <li>
-                <strong>Мнение с оговоркой</strong> — искажения существенны, но
-                не всеохватны
-              </li>
-              <li>
-                <strong>Отрицательное мнение</strong> — искажения существенны и
-                всеохватны
-              </li>
-              <li>
-                <strong>Отказ от выражения мнения</strong> — невозможно получить
-                доказательства
-              </li>
+        <h5>Отличие аудита от других форм контроля:</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <strong>Аудит:</strong>
+            <ul class="small">
+              <li>Независимость</li>
+              <li>Платная услуга</li>
+              <li>Оценка по МСА/ФСАД</li>
             </ul>
           </div>
-
-          <p class="mt-3">
-            <a
-              class="link-opacity-100"
-              href="https://www.minfin.ru/common/upload/library/2023/06/main/MSA_200_800.pdf"
-              target="_blank"
-            >
-              МСА 200 "Основные цели независимого аудитора" (pdf)
-            </a>
-          </p>
-
-          <div class="alert alert-success mt-2">
-            <small
-              ><strong>Рабочая документация аудитора (МСА 230):</strong> Все
-              запросы, расчеты, тесты и копии документов должны храниться не
-              менее 5 лет для обоснования выданного заключения.</small
-            >
+          <div class="col-md-6">
+            <strong>Ревизия / Гос.контроль:</strong>
+            <ul class="small">
+              <li>Внутриведомственная проверка</li>
+              <li>Бесплатно для объекта</li>
+              <li>Финансовые взыскания</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title4.jpg"
-            alt="Аудиторские доказательства"
-            style="filter: grayscale(1)"
-          />
+        <p class="mt-3">
+          <a class="link-opacity-100" href="https://www.consultant.ru/document/cons_doc_LAW_83311/" target="_blank">
+            ФЗ №307-ФЗ "Об аудиторской деятельности" (4-я редакция)
+          </a>
         </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 7. Аудиторские доказательства и методы сбора информации
-          </h3>
 
-          <div class="alert alert-secondary mb-3">
-            <strong>Определение (МСА 500):</strong> Аудиторские доказательства —
-            это информация, используемая аудитором для обоснования мнения. Она
-            включает первичные документы, учетные записи и пояснения
-            руководства.
-          </div>
-
-          <h5>Классификация доказательств:</h5>
-          <ul>
-            <li>
-              По источнику: внутренние (от клиента) и внешние (от банков,
-              контрагентов).
-            </li>
-            <li>
-              По характеру: визуальные, документальные, устные, электронные.
-            </li>
-            <li>
-              <strong>Наиболее надежные:</strong> Внешние, полученные напрямую
-              аудитором (подтверждение дебиторской задолженности).
-            </li>
-          </ul>
-
-          <h5>Процедуры получения доказательств:</h5>
-          <div class="row">
-            <div class="col-md-4">
-              <ul class="small">
-                <li>Инспектирование</li>
-                <li>Наблюдение</li>
-                <li>Запрос</li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul class="small">
-                <li>Подтверждение</li>
-                <li>Пересчет</li>
-                <li>Повторное выполнение</li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul class="small">
-                <li>Аналитические процедуры</li>
-                <li>Сканирование</li>
-              </ul>
-            </div>
-          </div>
-
-          <h5>Аудиторская выборка (МСА 530):</h5>
-          <p>
-            Применяется, когда невозможно проверить 100% операций. Риски выборки
-            связаны с тем, что вывод по выборке может отличаться от результата
-            по всей совокупности.
-          </p>
-          <ul>
-            <li>
-              <strong>Статистическая выборка:</strong> случайный отбор,
-              математическая оценка риска.
-            </li>
-            <li>
-              <strong>Нестатистическая выборка:</strong> основана на
-              профессиональном суждении (например, все операции свыше 1 млн
-              руб.).
-            </li>
-          </ul>
-
-          <div class="alert alert-warning mt-2">
-            <small
-              ><strong>Внимание:</strong> Аудитор обязан оценить достаточность и
-              надлежащий характер доказательств. Недостаток доказательств
-              является основанием для модификации мнения.</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title8.jpg"
-            alt="Грубые нарушения бухучета"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 8. Грубые нарушения бухгалтерского учета: что это и каковы
-            штрафы в 2026 году (ст. 15.11 КоАП РФ)
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> С 2026 года требования к бухучету
-            ужесточились. Под грубое нарушение подпадают действия, которые могут
-            привести к существенному искажению отчетности или уходу от налогов.
-          </div>
-
-          <h5>Что считается грубым нарушением (ст. 15.11 КоАП РФ):</h5>
-          <ul>
-            <li>
-              <strong>Занижение налогов и сборов на 10% и более</strong> из-за
-              искажения данных бухучета
-            </li>
-            <li>
-              <strong
-                >Искажение показателя отчетности, выраженного в деньгах, на 10%
-                и более</strong
-              >
-            </li>
-            <li>
-              <strong>Регистрация мнимого или притворного объекта</strong>
-              (несуществующих расходов, обязательств, не имевших места фактов
-              хозжизни)
-            </li>
-            <li>
-              <strong>Ведение счетов бухучета вне применяемых регистров</strong>
-            </li>
-            <li>
-              <strong
-                >Отчетность составлена не на основе данных регистров</strong
-              >
-            </li>
-            <li>
-              <strong
-                >Отсутствие первичных документов, регистров, отчетности или
-                аудиторского заключения</strong
-              >
-              (если аудит обязателен) в течение установленных сроков хранения
-            </li>
-          </ul>
-
-          <h5>Размеры штрафов (ст. 15.11 КоАП РФ) — 2026:</h5>
-          <ul>
-            <li>
-              <strong>Первичное нарушение:</strong> штраф на должностных лиц от
-              5 000 до 10 000 рублей
-            </li>
-            <li>
-              <strong>Повторное нарушение:</strong> штраф от 10 000 до 20 000
-              рублей <strong>либо дисквалификация</strong> на срок от 1 года до
-              2 лет
-            </li>
-          </ul>
-
-          <h5>Когда можно избежать ответственности (освобождение):</h5>
-          <ul>
-            <li>
-              <strong>Подана уточненная декларация</strong> и уплачены налог +
-              пени (по ст. 81 НК РФ)
-            </li>
-            <li>
-              <strong>Ошибка исправлена</strong> до утверждения бухгалтерской
-              отчетности (представлена пересмотренная отчетность)
-            </li>
-            <li>
-              Искажение произошло не по вине бухгалтера, а из-за неверных
-              первичных документов от других лиц
-            </li>
-          </ul>
-
-          <p class="mt-3">
-            <a
-              class="link-opacity-100"
-              href="https://sudact.ru/law/koap/razdel-ii/glava-15_2/statia-15.11_1/"
-              target="_blank"
-            >
-              Статья 15.11 КоАП РФ — действующая редакция 2026 года
-            </a>
-          </p>
-
-          <div class="alert alert-success mt-2">
-            <small
-              ><strong>Памятка бухгалтеру:</strong> Если вы обнаружили ошибку
-              сами — лучше подать уточненку и доплатить налог до того, как это
-              найдут налоговики. Тогда штрафа по ст. 15.11 можно
-              избежать.</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title9.jpg"
-            alt="Нарушения налогового учета"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 9. Штрафы за грубые нарушения правил учета доходов и расходов
-            (ст. 120 НК РФ)
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> Статья 120 НК РФ — одно из самых
-            "популярных" наказаний для бухгалтеров. Штрафы зависят от того, было
-            ли занижение налогов и сколько периодов нарушений выявлено.
-          </div>
-
-          <h5>Что считается грубым нарушением правил учета:</h5>
-          <ul>
-            <li>
-              <strong>Отсутствие первичных документов</strong> (накладных,
-              актов, кассовых чеков, авансовых отчетов)
-            </li>
-            <li>
-              <strong>Отсутствие счетов-фактур</strong> (отдельно выделенный
-              риск)
-            </li>
-            <li>
-              <strong
-                >Отсутствие регистров бухгалтерского или налогового
-                учета</strong
-              >
-              (ОСВ, карточек счетов)
-            </li>
-            <li>
-              <strong
-                >Систематическое (2 и более раза в течение года) несвоевременное
-                или неправильное отражение</strong
-              >
-              операций, денег, имущества на счетах и в регистрах
-            </li>
-          </ul>
-
-          <h5>Штрафы по ст. 120 НК РФ (три уровня):</h5>
-          <div class="table-responsive">
-            <table class="table table-sm table-bordered">
-              <thead class="table-light">
-                <tr>
-                  <th>Ситуация</th>
-                  <th>Штраф</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Нарушение в течение
-                    <strong>одного налогового периода</strong> (без занижения
-                    налогов)
-                  </td>
-                  <td><strong>10 000 руб.</strong></td>
-                </tr>
-                <tr>
-                  <td>
-                    Нарушение в течение
-                    <strong>более одного налогового периода</strong> (без
-                    занижения налогов)
-                  </td>
-                  <td><strong>30 000 руб.</strong></td>
-                </tr>
-                <tr>
-                  <td>
-                    Нарушение <strong>повлекло занижение налоговой базы</strong>
-                  </td>
-                  <td>
-                    <strong>20% от неуплаченной суммы</strong> налога, но
-                    <strong>не менее 40 000 руб.</strong>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h5>Важный нюанс 2026 года:</h5>
-          <p>
-            С 2026 года ужесточен контроль расхождений между бухгалтерским и
-            налоговым учетом. Ошибки в определении момента признания доходов и
-            расходов стали критическими — они могут привести к искажению базы и
-            штрафам .
-          </p>
-
-          <div class="alert alert-warning mt-2">
-            <small
-              ><strong>Важно:</strong> Правило "систематичности" означает: двух
-              ошибок в одном году достаточно для штрафа по ст. 120 НК РФ, даже
-              если каждая по отдельности мелкая .</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title10.jpg"
-            alt="Неуплата налогов"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 10. Неуплата или неполная уплата налогов (ст. 122 НК РФ) и
-            уголовная ответственность (ст. 198, 199 УК РФ)
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> Самая опасная для бухгалтера ситуация —
-            когда ошибка привела к реальной неуплате налога. Здесь штрафы
-            многократно выше, и есть риск уголовного преследования.
-          </div>
-
-          <h5>Штрафы по ст. 122 НК РФ:</h5>
-          <ul>
-            <li>
-              <strong
-                >Неуплата/неполная уплата в результате занижения базы или иного
-                неправильного исчисления</strong
-              >
-              — штраф <strong>20% от неуплаченной суммы</strong>
-            </li>
-            <li>
-              <strong>Деяние совершено УМЫШЛЕННО</strong> — штраф
-              <strong>40% от неуплаченной суммы</strong>
-            </li>
-          </ul>
-
-          <h5>
-            Уголовная ответственность (ст. 199 УК РФ — уклонение от уплаты
-            налогов с организации):
-          </h5>
-          <div class="table-responsive">
-            <table class="table table-sm table-bordered">
-              <thead class="table-light">
-                <tr>
-                  <th>Размер недоимки (за 3 финансовых года подряд)</th>
-                  <th>Наказание</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <strong>Крупный размер</strong><br />(<strong
-                      >> 18,75 млн руб.</strong
-                    >)
-                  </td>
-                  <td>
-                    штраф 200-500 тыс. руб. <strong>или</strong> принудительные
-                    работы до 2 лет <strong>или</strong> лишение свободы до 2
-                    лет
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Особо крупный размер</strong><br />(<strong
-                      >> 56,25 млн руб.</strong
-                    >)
-                  </td>
-                  <td>
-                    штраф 500 тыс. - 1,5 млн руб., принудительные работы до 5
-                    лет <strong>или</strong> лишение свободы до 6 лет
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h5>
-            НОВИНКА 2026! Статья 173.3 УК РФ — подложные счета-фактуры и
-            декларации:
-          </h5>
-          <ul>
-            <li>
-              Использование фиктивных документов, отражение операций без
-              реальной экономической сути
-            </li>
-            <li>
-              Наказание: штраф до 300 000 руб. <strong>или</strong> лишение
-              свободы до 4 лет (до 7 лет при отягчающих)
-            </li>
-          </ul>
-
-          <div class="alert alert-danger mt-2">
-            <small
-              ><strong>Главный риск 2026 года:</strong> Даже "технические"
-              ошибки в первичке могут быть переквалифицированы в уголовное дело,
-              если налоговая докажет умысел .</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title11.jpg"
-            alt="Ошибки отчетности"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 11. Ошибки при сдаче отчетности и ответственность (НДФЛ,
-            персданные, контрольные соотношения)
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> В 2026 году ФНС усилила автоматический
-            контроль отчетности. Любое несоответствие контрольным соотношениям —
-            блокировка приема или требование пояснений.
-          </div>
-
-          <h5>Топ-10 ошибок при сдаче отчетности — 2026:</h5>
-          <ul>
-            <li>
-              <strong>Неверный КБК</strong> в уведомлениях об исчисленных
-              налогах (платежи "зависают", на основной налог капают пени)
-            </li>
-            <li>
-              <strong>Ошибки в персональных данных</strong> в ЕФС-1 (СНИЛС, ИНН
-              сотрудника) — сведения не засчитываются
-            </li>
-            <li>
-              <strong
-                >Нарушение контрольных соотношений в декларации по НДС</strong
-              >
-              — декларация может считаться непредставленной (п. 5.3 ст. 174 НК
-              РФ)
-            </li>
-            <li>
-              <strong>Несоответствие данных ФНС и учетной системы</strong> (не
-              проведена сверка с ЕНС)
-            </li>
-            <li>
-              <strong>Неактуальный ОКТМО</strong> после переезда или открытия
-              обособленного подразделения
-            </li>
-            <li>
-              <strong>Превышение лимитов на спецрежиме</strong> (например, на
-              УСН — доходы более установленного порога)
-            </li>
-            <li>
-              <strong>Неправильный период отчетности</strong> (перепутали 1
-              квартал с полугодием)
-            </li>
-            <li>
-              <strong>Ошибки в кодах льгот</strong> — код не совпадает со
-              справочником ФНС
-            </li>
-            <li>
-              <strong>Нет пояснений при убытке</strong> в декларации —
-              требование пояснений, а при игнорировании — выездная проверка
-            </li>
-            <li>
-              <strong>Устаревшие формы для Росстата</strong> — отчет считается
-              непредставленным
-            </li>
-          </ul>
-
-          <h5>Штрафы за ошибки в отчетности:</h5>
-          <ul>
-            <li>
-              За ошибки в персональных данных (6-НДФЛ, ЕФС-1) —
-              <strong>500 руб. за каждый документ</strong> с недостоверными
-              сведениями (ст. 126.1 НК РФ)
-            </li>
-            <li>
-              За непредставление декларации в срок —
-              <strong>5% от неуплаченной суммы</strong> за каждый
-              полный/неполный месяц, но не более 30% и не менее 1 000 руб. (ст.
-              119 НК РФ)
-            </li>
-          </ul>
-
-          <h5>НОВИНКА 2026! Ответственность за утечку персональных данных:</h5>
-          <ul>
-            <li>
-              Штраф для юрлиц за утечку ПДн (более 100 000 человек) —
-              <strong>до 15 млн рублей</strong>
-            </li>
-            <li>
-              Статья 272.1 УК РФ — лишение свободы до 8 лет за трансграничную
-              передачу ПДн без разрешения
-            </li>
-            <li>Для ИП и должностных лиц — штраф до 2 млн рублей</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card my-3" style="max-width: 800px">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title11.jpg"
-            alt="Налоговая реформа 2026"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <h3 class="card-title">
-            Тема 11. Что нового в 2026 году: главные риски для бухгалтера и
-            компании
-          </h3>
-
-          <div class="alert alert-secondary mb-3">
-            <strong>Важно:</strong> 2026 год стал переломным для налогового
-            учета в России. Повышение ставок, изменение лимитов и новые правила
-            признания доходов/расходов создали зоны повышенного риска.
-          </div>
-
-          <h5>Изменение 1. НДС — ставка повышена до 22%</h5>
-          <ul>
-            <li>
-              Лимит доходов для освобождения от НДС снижен с 60 млн до
-              <strong>10 млн рублей</strong>
-            </li>
-            <li>
-              Отменены некоторые льготы (например, нулевая ставка на российское
-              ПО)
-            </li>
-            <li>
-              <strong>Риск:</strong> неверное определение даты перехода и
-              несвоевременная регистрация приводят к потере вычетов и
-              доначислениям
-            </li>
-          </ul>
-
-          <h5>Изменение 2. Запрет на "догоняющие расходы"</h5>
-          <ul>
-            <li>
-              С 2026 года <strong>запрещено включать</strong> в текущий период
-              расходы прошлых лет, если они выявлены позднее
-            </li>
-            <li>
-              <strong>Риск:</strong> попытки корректировать прошлые периоды
-              через текущий приведут к искажению отчетности и конфликтам с ФНС
-            </li>
-          </ul>
-
-          <h5>Изменение 3. Новые правила признания доходов</h5>
-          <ul>
-            <li>
-              Уточнены критерии: дата перехода права собственности, момент
-              исполнения обязательств, поступление оплаты
-            </li>
-            <li>
-              <strong>Риск:</strong> ошибка в определении даты признания дохода
-              = искажение налоговой базы и пени
-            </li>
-          </ul>
-
-          <h5>Изменение 4. Спецрежимы под угрозой</h5>
-          <ul>
-            <li>
-              Снижение порогов УСН и ПСН, повышение страховых взносов для
-              IT-компаний (с 7,6% до 15%)
-            </li>
-            <li>
-              <strong>Риск:</strong> несвоевременное выявление превышения
-              лимитов → автоматический переход на ОСНО и доначисление налогов за
-              весь год
-            </li>
-          </ul>
-
-          <div class="alert alert-info mt-2">
-            <small
-              ><strong>Чек-лист для бухгалтера на 2026 год:</strong> Проверить
-              учетную политику до конца 2025 г., обновить ПО для работы с НДС
-              22%, отслеживать разъяснения Минфина .</small
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card my-3">
-        <p>
-          <img
-            loading="lazy"
-            class="card-img-top"
-            src="../h1title5.jpg"
-            alt="1"
-            style="filter: grayscale(1)"
-          />
-        </p>
-        <div class="card-body">
-          <div id="root" class="container mt-1"></div>
+        <div class="alert alert-success mt-2">
+          <small><strong>Субъекты обязательного аудита:</strong> АО, банки,
+            страховщики, НПФ, организации с выручкой > 800 млн руб. или
+            активами > 400 млн руб.</small>
         </div>
       </div>
     </div>
 
-    <script src="../dist/basicfirebasecrudauthservices.js"></script>
-    <script src="./bundle.js"></script>
-  </body>
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Стандарты аудита"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 3. Нормативное регулирование и профессиональные стандарты
+          аудита
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> В РФ действуют
+          <strong>Международные стандарты аудита (МСА)</strong>, переведенные
+          и принятые как <strong>ФСАД</strong> (Федеральные стандарты
+          аудиторской деятельности).
+        </div>
+
+        <h5>Основополагающие принципы аудита (МСА 200):</h5>
+        <ul>
+          <li>
+            <strong>Честность, объективность и независимость</strong> —
+            ключевые принципы.
+          </li>
+          <li>
+            <strong>Профессиональная компетентность</strong> и должная
+            тщательность.
+          </li>
+          <li><strong>Конфиденциальность</strong> информации клиента.</li>
+          <li>
+            <strong>Профессиональное поведение</strong> (соблюдение
+            законодательства).
+          </li>
+        </ul>
+
+        <h5>Уровни регулирования аудита в РФ:</h5>
+        <ul>
+          <li>
+            <strong>1 уровень:</strong> ФЗ №307-ФЗ (федеральное
+            законодательство).
+          </li>
+          <li>
+            <strong>2 уровень:</strong> Федеральные стандарты аудита (ФСАД
+            1-42).
+          </li>
+          <li>
+            <strong>3 уровень:</strong> Внутренние стандарты СРО аудиторов.
+          </li>
+          <li>
+            <strong>4 уровень:</strong> Внутрифирменные стандарты аудиторской
+            организации.
+          </li>
+        </ul>
+
+        <h5>Ключевые МСА для практики:</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <ul class="small">
+              <li><strong>МСА 200:</strong> Цели аудитора</li>
+              <li><strong>МСА 230:</strong> Рабочая документация</li>
+              <li><strong>МСА 315:</strong> Изучение системы контроля</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="small">
+              <li><strong>МСА 330:</strong> Процедуры аудитора</li>
+              <li><strong>МСА 700:</strong> Аудиторское заключение</li>
+              <li><strong>МСА 720:</strong> Прочая информация</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-3">
+          <a class="link-opacity-100" href="https://minfin.gov.ru/ru/performance/audit/standards/standarts_audit/"
+            target="_blank">
+            Официальный перечень ФСАД (МСА) на сайте Минфина РФ
+          </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+          <small><strong>Профессиональный скептицизм:</strong> Аудитор не должен
+            доверять документам вслепую — он обязан критически оценивать
+            доказательства и запрашивать пояснения.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Этапы аудита"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 5. Технология и этапы проведения аудиторской проверки
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> Аудит делится на 3 крупных этапа:
+          <strong>планирование → сбор доказательств → формирование мнения</strong>
+          (итоговый документ — заключение).
+        </div>
+
+        <h5>1. Этап планирования (МСА 300):</h5>
+        <ul>
+          <li>
+            Предварительное планирование: оценка независимости, договор с
+            клиентом
+          </li>
+          <li>Разработка общей стратегии аудита</li>
+          <li>
+            Составление плана и программы аудита (определение уровня
+            существенности и аудиторского риска)
+          </li>
+        </ul>
+
+        <h5>2. Этап выполнения (сбор аудиторских доказательств):</h5>
+        <ul>
+          <li>
+            <strong>Процедуры проверки по существу:</strong>
+            <ul class="small">
+              <li>
+                Детальные тесты (проверка первичных документов,
+                инвентаризация)
+              </li>
+              <li>
+                Аналитические процедуры (сравнение показателей, анализ
+                трендов)
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Тесты средств контроля</strong> (если аудитор решает на
+            них полагаться)
+          </li>
+          <li>Запросы, подтверждения, пересчет, наблюдение</li>
+        </ul>
+
+        <h5>3. Заключительный этап:</h5>
+        <ul>
+          <li>Обобщение выявленных искажений</li>
+          <li>Формирование письменной информации (отчета) руководству</li>
+          <li>
+            Подготовка
+            <strong>аудиторского заключения</strong> (модифицированное или
+            немодифицированное мнение)
+          </li>
+        </ul>
+
+        <div class="alert alert-info mt-2">
+          <strong>Модифицированное мнение (МСА 705):</strong>
+          <ul class="small mb-0">
+            <li>
+              <strong>Мнение с оговоркой</strong> — искажения существенны, но
+              не всеохватны
+            </li>
+            <li>
+              <strong>Отрицательное мнение</strong> — искажения существенны и
+              всеохватны
+            </li>
+            <li>
+              <strong>Отказ от выражения мнения</strong> — невозможно получить
+              доказательства
+            </li>
+          </ul>
+        </div>
+
+        <p class="mt-3">
+          <a class="link-opacity-100" href="https://www.minfin.ru/common/upload/library/2023/06/main/MSA_200_800.pdf"
+            target="_blank">
+            МСА 200 "Основные цели независимого аудитора" (pdf)
+          </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+          <small><strong>Рабочая документация аудитора (МСА 230):</strong> Все
+            запросы, расчеты, тесты и копии документов должны храниться не
+            менее 5 лет для обоснования выданного заключения.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Аудиторские доказательства"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 7. Аудиторские доказательства и методы сбора информации
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Определение (МСА 500):</strong> Аудиторские доказательства —
+          это информация, используемая аудитором для обоснования мнения. Она
+          включает первичные документы, учетные записи и пояснения
+          руководства.
+        </div>
+
+        <h5>Классификация доказательств:</h5>
+        <ul>
+          <li>
+            По источнику: внутренние (от клиента) и внешние (от банков,
+            контрагентов).
+          </li>
+          <li>
+            По характеру: визуальные, документальные, устные, электронные.
+          </li>
+          <li>
+            <strong>Наиболее надежные:</strong> Внешние, полученные напрямую
+            аудитором (подтверждение дебиторской задолженности).
+          </li>
+        </ul>
+
+        <h5>Процедуры получения доказательств:</h5>
+        <div class="row">
+          <div class="col-md-4">
+            <ul class="small">
+              <li>Инспектирование</li>
+              <li>Наблюдение</li>
+              <li>Запрос</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="small">
+              <li>Подтверждение</li>
+              <li>Пересчет</li>
+              <li>Повторное выполнение</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="small">
+              <li>Аналитические процедуры</li>
+              <li>Сканирование</li>
+            </ul>
+          </div>
+        </div>
+
+        <h5>Аудиторская выборка (МСА 530):</h5>
+        <p>
+          Применяется, когда невозможно проверить 100% операций. Риски выборки
+          связаны с тем, что вывод по выборке может отличаться от результата
+          по всей совокупности.
+        </p>
+        <ul>
+          <li>
+            <strong>Статистическая выборка:</strong> случайный отбор,
+            математическая оценка риска.
+          </li>
+          <li>
+            <strong>Нестатистическая выборка:</strong> основана на
+            профессиональном суждении (например, все операции свыше 1 млн
+            руб.).
+          </li>
+        </ul>
+
+        <div class="alert alert-warning mt-2">
+          <small><strong>Внимание:</strong> Аудитор обязан оценить достаточность и
+            надлежащий характер доказательств. Недостаток доказательств
+            является основанием для модификации мнения.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Грубые нарушения бухучета"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 8. Грубые нарушения бухгалтерского учета: что это и каковы
+          штрафы в 2026 году (ст. 15.11 КоАП РФ)
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> С 2026 года требования к бухучету
+          ужесточились. Под грубое нарушение подпадают действия, которые могут
+          привести к существенному искажению отчетности или уходу от налогов.
+        </div>
+
+        <h5>Что считается грубым нарушением (ст. 15.11 КоАП РФ):</h5>
+        <ul>
+          <li>
+            <strong>Занижение налогов и сборов на 10% и более</strong> из-за
+            искажения данных бухучета
+          </li>
+          <li>
+            <strong>Искажение показателя отчетности, выраженного в деньгах, на 10%
+              и более</strong>
+          </li>
+          <li>
+            <strong>Регистрация мнимого или притворного объекта</strong>
+            (несуществующих расходов, обязательств, не имевших места фактов
+            хозжизни)
+          </li>
+          <li>
+            <strong>Ведение счетов бухучета вне применяемых регистров</strong>
+          </li>
+          <li>
+            <strong>Отчетность составлена не на основе данных регистров</strong>
+          </li>
+          <li>
+            <strong>Отсутствие первичных документов, регистров, отчетности или
+              аудиторского заключения</strong>
+            (если аудит обязателен) в течение установленных сроков хранения
+          </li>
+        </ul>
+
+        <h5>Размеры штрафов (ст. 15.11 КоАП РФ) — 2026:</h5>
+        <ul>
+          <li>
+            <strong>Первичное нарушение:</strong> штраф на должностных лиц от
+            5 000 до 10 000 рублей
+          </li>
+          <li>
+            <strong>Повторное нарушение:</strong> штраф от 10 000 до 20 000
+            рублей <strong>либо дисквалификация</strong> на срок от 1 года до
+            2 лет
+          </li>
+        </ul>
+
+        <h5>Когда можно избежать ответственности (освобождение):</h5>
+        <ul>
+          <li>
+            <strong>Подана уточненная декларация</strong> и уплачены налог +
+            пени (по ст. 81 НК РФ)
+          </li>
+          <li>
+            <strong>Ошибка исправлена</strong> до утверждения бухгалтерской
+            отчетности (представлена пересмотренная отчетность)
+          </li>
+          <li>
+            Искажение произошло не по вине бухгалтера, а из-за неверных
+            первичных документов от других лиц
+          </li>
+        </ul>
+
+        <p class="mt-3">
+          <a class="link-opacity-100" href="https://sudact.ru/law/koap/razdel-ii/glava-15_2/statia-15.11_1/"
+            target="_blank">
+            Статья 15.11 КоАП РФ — действующая редакция 2026 года
+          </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+          <small><strong>Памятка бухгалтеру:</strong> Если вы обнаружили ошибку
+            сами — лучше подать уточненку и доплатить налог до того, как это
+            найдут налоговики. Тогда штрафа по ст. 15.11 можно
+            избежать.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Нарушения налогового учета"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 9. Штрафы за грубые нарушения правил учета доходов и расходов
+          (ст. 120 НК РФ)
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> Статья 120 НК РФ — одно из самых
+          "популярных" наказаний для бухгалтеров. Штрафы зависят от того, было
+          ли занижение налогов и сколько периодов нарушений выявлено.
+        </div>
+
+        <h5>Что считается грубым нарушением правил учета:</h5>
+        <ul>
+          <li>
+            <strong>Отсутствие первичных документов</strong> (накладных,
+            актов, кассовых чеков, авансовых отчетов)
+          </li>
+          <li>
+            <strong>Отсутствие счетов-фактур</strong> (отдельно выделенный
+            риск)
+          </li>
+          <li>
+            <strong>Отсутствие регистров бухгалтерского или налогового
+              учета</strong>
+            (ОСВ, карточек счетов)
+          </li>
+          <li>
+            <strong>Систематическое (2 и более раза в течение года) несвоевременное
+              или неправильное отражение</strong>
+            операций, денег, имущества на счетах и в регистрах
+          </li>
+        </ul>
+
+        <h5>Штрафы по ст. 120 НК РФ (три уровня):</h5>
+        <div>
+          <table class="table table-sm ">
+            <thead class="table-light">
+              <tr>
+                <th>Ситуация</th>
+                <th>Штраф</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Нарушение в течение
+                  <strong>одного налогового периода</strong> (без занижения
+                  налогов)
+                </td>
+                <td><strong>10 000 руб.</strong></td>
+              </tr>
+              <tr>
+                <td>
+                  Нарушение в течение
+                  <strong>более одного налогового периода</strong> (без
+                  занижения налогов)
+                </td>
+                <td><strong>30 000 руб.</strong></td>
+              </tr>
+              <tr>
+                <td>
+                  Нарушение <strong>повлекло занижение налоговой базы</strong>
+                </td>
+                <td>
+                  <strong>20% от неуплаченной суммы</strong> налога, но
+                  <strong>не менее 40 000 руб.</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>Важный нюанс 2026 года:</h5>
+        <p>
+          С 2026 года ужесточен контроль расхождений между бухгалтерским и
+          налоговым учетом. Ошибки в определении момента признания доходов и
+          расходов стали критическими — они могут привести к искажению базы и
+          штрафам .
+        </p>
+
+        <div class="alert alert-warning mt-2">
+          <small><strong>Важно:</strong> Правило "систематичности" означает: двух
+            ошибок в одном году достаточно для штрафа по ст. 120 НК РФ, даже
+            если каждая по отдельности мелкая .</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Неуплата налогов"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 10. Неуплата или неполная уплата налогов (ст. 122 НК РФ) и
+          уголовная ответственность (ст. 198, 199 УК РФ)
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> Самая опасная для бухгалтера ситуация —
+          когда ошибка привела к реальной неуплате налога. Здесь штрафы
+          многократно выше, и есть риск уголовного преследования.
+        </div>
+
+        <h5>Штрафы по ст. 122 НК РФ:</h5>
+        <ul>
+          <li>
+            <strong>Неуплата/неполная уплата в результате занижения базы или иного
+              неправильного исчисления</strong>
+            — штраф <strong>20% от неуплаченной суммы</strong>
+          </li>
+          <li>
+            <strong>Деяние совершено УМЫШЛЕННО</strong> — штраф
+            <strong>40% от неуплаченной суммы</strong>
+          </li>
+        </ul>
+
+        <h5>
+          Уголовная ответственность (ст. 199 УК РФ — уклонение от уплаты
+          налогов с организации):
+        </h5>
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead class="table-light">
+              <tr>
+                <th>Размер недоимки (за 3 финансовых года подряд)</th>
+                <th>Наказание</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Крупный размер</strong><br />(<strong>> 18,75 млн руб.</strong>)
+                </td>
+                <td>
+                  штраф 200-500 тыс. руб. <strong>или</strong> принудительные
+                  работы до 2 лет <strong>или</strong> лишение свободы до 2
+                  лет
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Особо крупный размер</strong><br />(<strong>> 56,25 млн руб.</strong>)
+                </td>
+                <td>
+                  штраф 500 тыс. - 1,5 млн руб., принудительные работы до 5
+                  лет <strong>или</strong> лишение свободы до 6 лет
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>
+          НОВИНКА 2026! Статья 173.3 УК РФ — подложные счета-фактуры и
+          декларации:
+        </h5>
+        <ul>
+          <li>
+            Использование фиктивных документов, отражение операций без
+            реальной экономической сути
+          </li>
+          <li>
+            Наказание: штраф до 300 000 руб. <strong>или</strong> лишение
+            свободы до 4 лет (до 7 лет при отягчающих)
+          </li>
+        </ul>
+
+        <div class="alert alert-danger mt-2">
+          <small><strong>Главный риск 2026 года:</strong> Даже "технические"
+            ошибки в первичке могут быть переквалифицированы в уголовное дело,
+            если налоговая докажет умысел .</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Ошибки отчетности"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 11. Ошибки при сдаче отчетности и ответственность (НДФЛ,
+          персданные, контрольные соотношения)
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> В 2026 году ФНС усилила автоматический
+          контроль отчетности. Любое несоответствие контрольным соотношениям —
+          блокировка приема или требование пояснений.
+        </div>
+
+        <h5>Топ-10 ошибок при сдаче отчетности — 2026:</h5>
+        <ul>
+          <li>
+            <strong>Неверный КБК</strong> в уведомлениях об исчисленных
+            налогах (платежи "зависают", на основной налог капают пени)
+          </li>
+          <li>
+            <strong>Ошибки в персональных данных</strong> в ЕФС-1 (СНИЛС, ИНН
+            сотрудника) — сведения не засчитываются
+          </li>
+          <li>
+            <strong>Нарушение контрольных соотношений в декларации по НДС</strong>
+            — декларация может считаться непредставленной (п. 5.3 ст. 174 НК
+            РФ)
+          </li>
+          <li>
+            <strong>Несоответствие данных ФНС и учетной системы</strong> (не
+            проведена сверка с ЕНС)
+          </li>
+          <li>
+            <strong>Неактуальный ОКТМО</strong> после переезда или открытия
+            обособленного подразделения
+          </li>
+          <li>
+            <strong>Превышение лимитов на спецрежиме</strong> (например, на
+            УСН — доходы более установленного порога)
+          </li>
+          <li>
+            <strong>Неправильный период отчетности</strong> (перепутали 1
+            квартал с полугодием)
+          </li>
+          <li>
+            <strong>Ошибки в кодах льгот</strong> — код не совпадает со
+            справочником ФНС
+          </li>
+          <li>
+            <strong>Нет пояснений при убытке</strong> в декларации —
+            требование пояснений, а при игнорировании — выездная проверка
+          </li>
+          <li>
+            <strong>Устаревшие формы для Росстата</strong> — отчет считается
+            непредставленным
+          </li>
+        </ul>
+
+        <h5>Штрафы за ошибки в отчетности:</h5>
+        <ul>
+          <li>
+            За ошибки в персональных данных (6-НДФЛ, ЕФС-1) —
+            <strong>500 руб. за каждый документ</strong> с недостоверными
+            сведениями (ст. 126.1 НК РФ)
+          </li>
+          <li>
+            За непредставление декларации в срок —
+            <strong>5% от неуплаченной суммы</strong> за каждый
+            полный/неполный месяц, но не более 30% и не менее 1 000 руб. (ст.
+            119 НК РФ)
+          </li>
+        </ul>
+
+        <h5>НОВИНКА 2026! Ответственность за утечку персональных данных:</h5>
+        <ul>
+          <li>
+            Штраф для юрлиц за утечку ПДн (более 100 000 человек) —
+            <strong>до 15 млн рублей</strong>
+          </li>
+          <li>
+            Статья 272.1 УК РФ — лишение свободы до 8 лет за трансграничную
+            передачу ПДн без разрешения
+          </li>
+          <li>Для ИП и должностных лиц — штраф до 2 млн рублей</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width: 800px">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Налоговая реформа 2026"
+          style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">
+          Тема 11. Что нового в 2026 году: главные риски для бухгалтера и
+          компании
+        </h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> 2026 год стал переломным для налогового
+          учета в России. Повышение ставок, изменение лимитов и новые правила
+          признания доходов/расходов создали зоны повышенного риска.
+        </div>
+
+        <h5>Изменение 1. НДС — ставка повышена до 22%</h5>
+        <ul>
+          <li>
+            Лимит доходов для освобождения от НДС снижен с 60 млн до
+            <strong>10 млн рублей</strong>
+          </li>
+          <li>
+            Отменены некоторые льготы (например, нулевая ставка на российское
+            ПО)
+          </li>
+          <li>
+            <strong>Риск:</strong> неверное определение даты перехода и
+            несвоевременная регистрация приводят к потере вычетов и
+            доначислениям
+          </li>
+        </ul>
+
+        <h5>Изменение 2. Запрет на "догоняющие расходы"</h5>
+        <ul>
+          <li>
+            С 2026 года <strong>запрещено включать</strong> в текущий период
+            расходы прошлых лет, если они выявлены позднее
+          </li>
+          <li>
+            <strong>Риск:</strong> попытки корректировать прошлые периоды
+            через текущий приведут к искажению отчетности и конфликтам с ФНС
+          </li>
+        </ul>
+
+        <h5>Изменение 3. Новые правила признания доходов</h5>
+        <ul>
+          <li>
+            Уточнены критерии: дата перехода права собственности, момент
+            исполнения обязательств, поступление оплаты
+          </li>
+          <li>
+            <strong>Риск:</strong> ошибка в определении даты признания дохода
+            = искажение налоговой базы и пени
+          </li>
+        </ul>
+
+        <h5>Изменение 4. Спецрежимы под угрозой</h5>
+        <ul>
+          <li>
+            Снижение порогов УСН и ПСН, повышение страховых взносов для
+            IT-компаний (с 7,6% до 15%)
+          </li>
+          <li>
+            <strong>Риск:</strong> несвоевременное выявление превышения
+            лимитов → автоматический переход на ОСНО и доначисление налогов за
+            весь год
+          </li>
+        </ul>
+
+        <div class="alert alert-info mt-2">
+          <small><strong>Чек-лист для бухгалтера на 2026 год:</strong> Проверить
+            учетную политику до конца 2025 г., обновить ПО для работы с НДС
+            22%, отслеживать разъяснения Минфина .</small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card my-3" style="max-width:800px;">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Типичные ошибки в учете основных средств"
+          style="filter: grayscale(1);">
+      </p>
+      <div class="card-body">
+        <h3 class="card-title">Тема. Типичные ошибки в учете основных средств (ОС) — 2026</h3>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Важно:</strong> С 2022 года действуют ФСБУ 6/2020 и ФСБУ 26/2020. Многие ошибки прошлых лет перестали
+          быть актуальными, но появились новые зоны риска.
+        </div>
+
+        <h5>Нормативная база 2026:</h5>
+        <ul>
+          <li>ФСБУ 6/2020 «Основные средства»</li>
+          <li>ФСБУ 26/2020 «Капитальные вложения»</li>
+          <li>ПБУ 6/01 (утратил силу с 2022 г., но некоторые переходные положения ещё актуальны)</li>
+          <li>Методические рекомендации Минфина по применению ФСБУ 6/2020 (письма и разъяснения 2023–2025 гг.)</li>
+        </ul>
+
+        <h5>Ошибка 1. Неправильное формирование первоначальной стоимости</h5>
+        <p>Чаще всего забывают включать в стоимость ОС <strong>затраты на доставку, монтаж, пуско-наладку, таможенные
+            пошлины и консультационные услуги</strong>, связанные с приобретением.</p>
+        <ul class="small">
+          <li><strong>Правило (ФСБУ 6/2020 п. 8–11):</strong> В первоначальную стоимость включаются все затраты,
+            непосредственно связанные с приобретением и доведением ОС до состояния, пригодного к использованию.</li>
+          <li><strong>Последствия:</strong> Занижение амортизации, занижение налога на имущество (при расчете от
+            балансовой стоимости), занижение налоговой базы по прибыли (если затраты списали единовременно, а не через
+            амортизацию).</li>
+        </ul>
+
+        <h5>Ошибка 2. Неверное определение момента признания ОС (дата ввода в эксплуатацию)</h5>
+        <p>ОС признается в учете <strong>в момент, когда объект готов к использованию</strong>, а не в момент подписания
+          акта приема-передачи, не в момент оплаты и не в момент государственной регистрации права.</p>
+        <ul class="small">
+          <li><strong>Правило (ФСБУ 6/2020 п. 4, 5):</strong> Объект принимается к учету, когда организация получила
+            контроль над ним (риски и выгоды) и он готов к использованию по назначению.</li>
+          <li><strong>Пример ошибки:</strong> Недвижимость куплена и фактически эксплуатируется, но право собственности
+            не зарегистрировано. Бухгалтер не признает ОС до получения свидетельства — это неверно. Амортизацию нужно
+            начислять с момента фактического начала использования.</li>
+        </ul>
+
+        <h5>Ошибка 3. Путаница с лимитом стоимости и единицей инвентарного объекта</h5>
+        <p>С 2024 года лимит стоимости для признания ОС может быть любым <strong>(устанавливается в учетной политике, но
+            не выше 100 000 руб. по аналогии с налоговым учетом)</strong> — многие ошибаются со старыми лимитами.</p>
+        <ul class="small">
+          <li><strong>Риск:</strong> Объекты стоимостью 10–20 тыс. руб., которые являются самостоятельными инвентарными
+            единицами, ошибочно учитывают как малоценку (МПЗ), хотя по ФСБУ 6/2020 они могут быть ОС, если лимит в УП
+            установлен выше.</li>
+          <li><strong>Правило:</strong> Учетная политика должна четко прописывать лимит ОС. Если его нет — по умолчанию
+            40 000 руб. (как в старом ПБУ), но это спорно с ФНС.</li>
+        </ul>
+
+        <h5>Ошибка 4. Неверный способ начисления амортизации</h5>
+        <p>ФСБУ 6/2020 допускает <strong>три способа:</strong> линейный, уменьшаемого остатка, пропорционально объему
+          продукции. Но многие продолжают использовать только линейный без экономического обоснования.</p>
+        <ul class="small">
+          <li><strong>Ошибка:</strong> Копируют налоговый способ амортизации (линейный или нелинейный).</li>
+          <li><strong>Правило:</strong> Способ должен отражать реальную структуру потребления будущих экономических
+            выгод. Для ОС, которые быстро теряют стоимость (компьютеры, телефоны, автомобили) может быть экономически
+            обоснован способ уменьшаемого остатка.</li>
+          <li><strong>Риск:</strong> Налоговая может не принять амортизацию для налога на прибыль, если способ не
+            соответствует НК РФ (в налоговом учете — только линейный или нелинейный по группам), возникает отложенный
+            налог и необходимо вести два учета.</li>
+        </ul>
+
+        <h5>Ошибка 5. Не проводится (или проводится формально) тест на обесценение</h5>
+        <p>ФСБУ 6/2020 требует <strong>обязательной проверки ОС на обесценение</strong> при наличии признаков (МСФО
+          (IAS) 36 по аналогии).</p>
+        <ul class="small">
+          <li><strong>Признаки обесценения:</strong> падение рыночной стоимости, физическое повреждение, ухудшение
+            экономических показателей актива, устаревание.</li>
+          <li><strong>Ошибка:</strong> Игнорирование требования или формальное заполнение «галочки» без расчета
+            возмещаемой стоимости.</li>
+          <li><strong>Последствия:</strong> Убытки от обесценения не признаются, балансовая стоимость ОС завышена, налог
+            на имущество завышен, пользователи отчетности введены в заблуждение.</li>
+        </ul>
+
+        <h5>Ошибка 6. Неверный учет ремонтов, модернизации и капвложений</h5>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <strong>Типичные ошибки:</strong>
+            <ul class="small">
+              <li>Ремонт списывают как капвложения (увеличивают стоимость ОС)</li>
+              <li>Модернизацию, увеличивающую срок службы, ошибочно списывают на расходы</li>
+              <li>Затраты на арендованный объект не отделяют от затрат на собственный</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <strong>Правило (ФСБУ 26/2020):</strong>
+            <ul class="small">
+              <li>Ремонт (поддержание) — расходы периода</li>
+              <li>Модернизация / реконструкция / дооборудование — увеличивают стоимость ОС или признаются отдельным
+                инвентарным объектом (если выделима)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h5>Ошибка 7. Выбытие ОС: неверная дата списания и неоприходование запчастей</h5>
+        <ul>
+          <li><strong>Ошибка:</strong> Прекращают начислять амортизацию с момента подписания акта о списании, хотя
+            объект ещё используется.</li>
+          <li><strong>Правило (ФСБУ 6/2020):</strong> Амортизация начисляется до момента выбытия (даже если объект не
+            используется, но находится на балансе).</li>
+          <li><strong>Ошибка:</strong> При ликвидации ОС полученные запчасти, лом, материалы не приходуются на склад или
+            приходуются по заниженной стоимости.</li>
+          <li><strong>Риск:</strong> Занижение прочих доходов и налога на прибыль.</li>
+        </ul>
+
+        <h5>Ошибка 8. Неверный пересмотр срока полезного использования (СПИ)</h5>
+        <p>ФСБУ 6/2020 требует <strong>ежегодной проверки СПИ, ликвидационной стоимости и способа амортизации</strong>.
+          Однако многие бухгалтеры устанавливают СПИ один раз и более не пересматривают.</p>
+        <ul class="small">
+          <li><strong>Пример:</strong> Компьютер первоначально установлен СПИ 3 года. Через 1 год его модернизировали,
+            фактический срок службы увеличился до 5 лет. Если не пересмотреть СПИ, амортизация будет начисляться
+            некорректно.</li>
+          <li><strong>Последствия:</strong> Искажение расходов, неверная остаточная стоимость.</li>
+        </ul>
+
+        <div class="alert alert-danger mt-2">
+          <small><strong>Главные риски 2026 года для учета ОС:</strong> Неприменение ФСБУ 6/2020 (штраф по ст. 15.11
+            КоАП РФ как грубое нарушение), неверная первоначальная стоимость, игнорирование теста на обесценение. ФНС
+            активно использует аналитические модули для выявления расхождений между бухгалтерским и налоговым учетом
+            ОС.</small>
+        </div>
+
+        <h5>Чек-лист самопроверки для бухгалтера:</h5>
+        <ul class="small">
+          <li>☐ Пересмотрена ли учетная политика под ФСБУ 6/2020 и ФСБУ 26/2020?</li>
+          <li>☐ По всем ОС сформирована правильная первоначальная стоимость?</li>
+          <li>☐ Проведен ли тест на обесценение при наличии признаков?</li>
+          <li>☐ Пересматривался ли СПИ в течение срока службы объекта?</li>
+          <li>☐ Соответствует ли выбранный способ амортизации реальному потреблению выгод?</li>
+          <li>☐ Правильно ли разграничены ремонт и модернизация?</li>
+          <li>☐ При выбытии ОС оприходованы ли запчасти/материалы по рыночной стоимости?</li>
+        </ul>
+
+        <p class="mt-3">
+          <a class="link-opacity-100"
+            href="https://minfin.gov.ru/ru/document/?id_4=140434-fsbu_6_2020_osnovnye_sredstva" target="_blank">
+            Полный текст ФСБУ 6/2020 «Основные средства» — официальное приложение
+          </a>
+        </p>
+        <p>
+          <a class="link-opacity-100"
+            href="https://minfin.gov.ru/ru/document/?id_4=140435-fsbu_26_2020_kapitalnye_vlozheniya" target="_blank">
+            ФСБУ 26/2020 «Капитальные вложения»
+          </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+          <small><strong>Бесплатный инструмент:</strong> В большинстве бухгалтерских программ (1С, БЭСТ, Парус) есть
+            отчет «Анализ состояния ОС», который помогает выявить объекты с истекшим СПИ, но не полностью
+            самортизированные, а также некорректные способы амортизации.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card my-3" style="max-width:800px;">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title15.jpg" alt="Аудит запасов"
+            style="filter: grayscale(1);">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема. Аудит запасов: процедуры, риски, типичные нарушения</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Запасы — одна из самых рискованных статей баланса. МСА 501 устанавливает специальные требования к аудиторским доказательствам в отношении наличия и состояния запасов, включая обязательное присутствие при инвентаризации.
+        </div>
+
+        <h5>Нормативная база аудита запасов:</h5>
+        <ul>
+            <li><strong>МСА 501</strong> «Особенности получения аудиторских доказательств в конкретных случаях» — ключевой стандарт для аудита запасов [citation:7]</li>
+            <li><strong>МСА 500</strong> «Аудиторские доказательства»</li>
+            <li><strong>ФСБУ 5/2019</strong> «Запасы» — критерии признания, оценки и обесценения [citation:6]</li>
+            <li><strong>Методические рекомендации</strong> по инвентаризации (Приказ Минфина № 49)</li>
+        </ul>
+
+        <h5>Что относится к запасам согласно ФСБУ 5/2019:</h5>
+        <ul>
+            <li>Сырьё и материалы, используемые в производстве [citation:4]</li>
+            <li>Товары, приобретённые для перепродажи [citation:9]</li>
+            <li>Готовая продукция</li>
+            <li>Незавершённое производство (НЗП) [citation:6]</li>
+        </ul>
+        <p class="small">Критерии: актив используется в течение <strong>12 месяцев</strong> или операционного цикла и не достигает лимита ОС, установленного в учётной политике [citation:9].</p>
+
+        <h5>Основные процедуры аудита запасов (МСА 501):</h5>
+
+        <h6>1. Присутствие при инвентаризации (п. 4 МСА 501) [citation:7]</h6>
+        <p>Аудитор <strong>обязан присутствовать</strong> при инвентаризации, если запасы существенны для отчётности. Исключение — практическая неосуществимость [citation:2].</p>
+        <ul class="small">
+            <li><strong>Оценка указаний руководства</strong> и процедур учёта и контроля результатов инвентаризации</li>
+            <li><strong>Наблюдение</strong> за выполнением процедур подсчёта</li>
+            <li><strong>Проверка (осмотр) запасов</strong> — выявление устаревших, повреждённых, неликвидных остатков</li>
+            <li><strong>Выполнение контрольных пересчётов</strong> — сверка описей с фактическим наличием и наоборот [citation:3]</li>
+        </ul>
+
+        <h6>2. Если инвентаризация проводилась не на отчётную дату (п. 5 МСА 501) [citation:7]</h6>
+        <p>Аудитор должен получить доказательства правильности учёта <strong>изменений в запасах</strong> между датой инвентаризации и отчётной датой:</p>
+        <ul class="small">
+            <li>Проверка движения запасов (приход/расход) в межпериод</li>
+            <li>«Пересчёт вперёд» или «пересчёт назад» по учётным регистрам [citation:3]</li>
+            <li>Анализ документов (накладных, актов) за этот период</li>
+        </ul>
+
+        <h6>3. Запасы, находящиеся у третьих лиц (п. 8 МСА 501) [citation:7]</h6>
+        <p>Если запасы хранятся у внешнего контрагента (на ответственном хранении, переработке, комиссии):</p>
+        <ul class="small">
+            <li><strong>Запрос подтверждения</strong> от третьего лица (аудиторское подтверждение) [citation:2]</li>
+            <li><strong>Инспектирование</strong> запасов у третьего лица при необходимости</li>
+        </ul>
+
+        <h6>4. Если присутствие при инвентаризации практически неосуществимо (п. 7 МСА 501)</h6>
+        <p>Аудитор выполняет <strong>альтернативные процедуры</strong> (например, выборочная контрольная инвентаризация после отчётной даты с анализом движения за период) [citation:3]. При невозможности — модифицирует мнение [citation:7].</p>
+
+        <h5>Риски и типичные нарушения при аудите запасов:</h5>
+
+        <div class="alert alert-warning mt-2">
+            <strong>1. Неверная оценка себестоимости</strong>
+            <p class="small mb-0">В себестоимость запасов должны включаться все затраты, связанные с приобретением и доведением до состояния, пригодного к использованию (цена, транспорт, пошлины, услуги посредников). Ошибка: списание транспортных расходов сразу в расходы периода без права на упрощение [citation:6].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>2. Неверный метод оценки при выбытии (FIFO, средняя, по единице)</strong>
+            <p class="small mb-0">Метод должен быть закреплён в учётной политике и применяться последовательно. В условиях инфляции FIFO завышает прибыль и налог на прибыль [citation:6].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>3. Игнорирование (или формальное проведение) теста на обесценение</strong>
+            <p class="small mb-0">ФСБУ 5/2019 требует проверки запасов на обесценение: если чистая стоимость реализации ниже балансовой, создаётся резерв. Многие компании не проводят такую проверку или не документируют её — это грубое нарушение [citation:6][citation:10].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>4. Отсутствие раздельного учёта собственных запасов и принятых на ответственное хранение</strong>
+            <p class="small mb-0">При инвентаризации товары, принятые на комиссию или переработку, должны вноситься в отдельные описи. Смешение приводит к искажению активов [citation:3].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>5. Списание материалов на производство без подтверждения фактического использования</strong>
+            <p class="small mb-0">Передача материалов на объект или участок — это не списание в производство. Необходимы отчёты подотчётных лиц о фактическом расходе [citation:8].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>6. Неоприходование запасов до получения всех документов</strong>
+            <p class="small mb-0">Если товар физически поступил, но документы от поставщика ещё не получены, его нельзя не отражать в учёте — это искажение. Такие запасы должны быть отражены по предварительной оценке [citation:6].</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>7. Необоснованное применение упрощений (для МСП)</strong>
+            <p class="small mb-0">Субъекты малого бизнеса вправе списывать транспортные расходы и управленческие затраты сразу в расходы периода. Однако если компания не имеет права на упрощения, а применяет их — это нарушение [citation:4][citation:6].</p>
+        </div>
+
+        <h5>Как аудитор проверяет запасы: чек-лист процедур</h5>
+        <ul class="small">
+            <li>☐ Оценка системы внутреннего контроля запасов (документооборот, складской учёт, доступ, инвентаризации)</li>
+            <li>☐ Присутствие при инвентаризации на отчётную дату (или альтернативные процедуры)</li>
+            <li>☐ Проверка правильности формирования себестоимости запасов (включение всех затрат)</li>
+            <li>☐ Проверка методов оценки при выбытии (соответствие УП, последовательность применения)</li>
+            <li>☐ Анализ неликвидных, залежалых, повреждённых запасов и проверка резерва под обесценение [citation:10]</li>
+            <li>☐ Проверка правильности учёта запасов на ответственном хранении (забаланс) [citation:3]</li>
+            <li>☐ Сверка запасов на отчётную дату с данными инвентаризации (процедуры «вперёд/назад»)</li>
+            <li>☐ Проверка раскрытия информации о запасах в отчётности (в том числе о залогах, ограничениях)</li>
+        </ul>
+
+        <div class="alert alert-info mt-2">
+            <small><strong>Новое в аудите запасов (2025–2026):</strong> ФСБУ 5/2019 действует с 2021 года, но всё ещё вызывает сложности. Основная проблема для аудитора — проверка профессионального суждения бухгалтера при определении обесценения запасов, так как стандартизированных форм документов нет, и пакет доказательств формируется организацией самостоятельно [citation:10].</small>
+        </div>
+
+        <h5>Пример рабочего документа аудитора (фрагмент РД‑1.1 «Инвентаризация МПЗ»):</h5>
+        <table class="table table-sm table-bordered small">
+            <thead class="table-light">
+                <tr><th>Выявленное нарушение</th><th>Документ-основание</th><th>Сумма искажения</th><th>Рекомендации</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Транспортные расходы списаны сразу на счёт 90 без включения в себестоимость запасов</td>
+                <td>Анализ счёта 90, договоры поставки, транспортные накладные</td>
+                <td>Занижение себестоимости запасов на 850 тыс. руб.</td>
+                <td>Скорректировать себестоимость, пересчитать налог на прибыль и налог на имущество</td>
+                </tr>
+                <tr><td>Не создан резерв под обесценение залежалых товаров (срок хранения > 2 лет)</td>
+                <td>Инвентаризационная ведомость, складские карточки</td>
+                <td>Завышение активов на 320 тыс. руб.</td>
+                <td>Создать резерв, списать убыток от обесценения</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="mt-3">
+            <a class="link-opacity-100" href="https://minfin.gov.ru/ru/document/?id_4=140436-fsbu_5_2019_zapasy" target="_blank">
+                Полный текст ФСБУ 5/2019 «Запасы» — Минфин РФ
+            </a>
+        </p>
+        <p>
+            <a class="link-opacity-100" href="https://www.consultant.ru/document/cons_doc_LAW_510933/" target="_blank">
+                МСА 501 «Особенности получения аудиторских доказательств в конкретных случаях» — Актуальная редакция
+            </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Для студентов и практикующих аудиторов:</strong> Запомните «золотое правило» аудита запасов — аудитор должен <strong>увидеть запасы своими глазами</strong> (осмотр) и <strong>пересчитать их</strong> (контрольный пересчёт). Это основа доказательств существования и состояния. Если вы не были на инвентаризации — у вас нет достаточных оснований для вывода о запасах [citation:7].</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width:800px;">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Аудит дебиторской задолженности"
+            style="filter: grayscale(1);">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема. Аудит дебиторской задолженности: процедуры, риски, подтверждение</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Дебиторская задолженность (ДЗ) — одна из самых рискованных статей баланса. 
+            МСА 505 устанавливает специальные требования к <strong>аудиторским подтверждениям</strong> от третьих лиц, 
+            а также требует проверки резерва по сомнительным долгам и правильности классификации.
+        </div>
+
+        <h5>Нормативная база аудита ДЗ:</h5>
+        <ul>
+            <li><strong>МСА 505</strong> «Внешние подтверждения» — ключевой стандарт для аудита ДЗ </li>
+            <li><strong>МСА 570</strong> «Непрерывность деятельности» — влияние просроченной ДЗ на способность организации продолжать работу </li>
+            <li><strong>ФСБУ 4/2023</strong> «Бухгалтерская (финансовая) отчетность» — классификация и раскрытие информации о ДЗ </li>
+            <li><strong>Положение по бухгалтерскому учёту дебиторской задолженности (отраслевые рекомендации)</strong> </li>
+            <li>Гражданский кодекс РФ (ст. 196, 197 — сроки исковой давности, перерыв течения) </li>
+        </ul>
+
+        <h5>Что проверяет аудитор в ДЗ:</h5>
+        <ul>
+            <li><strong>Существование (existence):</strong> действительно ли задолженность существует и дебитор реален </li>
+            <li><strong>Права и обязанности (rights and obligations):</strong> принадлежит ли ДЗ организации, нет ли встречных требований / цессии </li>
+            <li><strong>Полнота (completeness):</strong> вся ли ДЗ отражена, нет ли пропущенных поставок / оказанных услуг </li>
+            <li><strong>Точность и оценка (accuracy and valuation):</strong> правильно ли рассчитан резерв по сомнительным долгам </li>
+            <li><strong>Классификация и представление (classification and presentation):</strong> разделение на краткосрочную (<12 мес.) и долгосрочную (>12 мес.) </li>
+        </ul>
+
+        <h5>Основные процедуры аудита ДЗ:</h5>
+
+        <h6>1. Внешние подтверждения (МСА 505 — ключевая процедура) </h6>
+        <p>Аудитор <strong>должен направить запросы</strong> дебиторам (контрагентам) для подтверждения суммы задолженности на отчётную дату. Исключение — если ДЗ несущественна или риск оценки низкий, но это нужно обосновать .</p>
+        <ul class="small">
+            <li><strong>Формы запросов:</strong> положительная (просят ответить «да/нет» или указать сумму) / отрицательная (ответ только при несогласии) — положительная надёжнее </li>
+            <li><strong>Выборка:</strong> все крупные дебиторы (> уровня существенности), а также группы одинаковых по размеру (метод случайной выборки) </li>
+            <li><strong>Обработка неответов:</strong> если дебитор не ответил — нужно выполнить альтернативные процедуры (проверка последующей оплаты, договора, накладных, актов сверки)</li>
+        </ul>
+
+        <h6>2. Проверка резерва по сомнительным долгам</h6>
+        <p>Согласно ФСБУ 4/2023, резерв по сомнительным долгам создаётся <strong>обязательно</strong> для любой просроченной или сомнительной ДЗ, вне зависимости от периода просрочки .</p>
+        <ul class="small">
+            <li><strong>Что проверяет аудитор:</strong> 
+                <ul class="small">
+                    <li>Соответствие метода расчёта резерва учётной политике (индивидуальный / на основе просрочки)</li>
+                    <li>Корректность расчёта (процент сомнительности, продолжительность просрочки)</li>
+                    <li>Наличие документов, подтверждающих безнадёжность (акты сверки, переписка, решение суда, выписка из ЕГРЮЛ о ликвидации дебитора)</li>
+                </ul>
+            </li>
+            <li><strong>Типичные ошибки:</strong> резерв не создаётся вовсе; создаётся только для ДЗ свыше 45 дней (хотя по ФСБУ — для любой просрочки); неверно определяется налоговая база (для налога на прибыль резерв создаётся только для ДЗ свыше 45 дней — это разница между бухгалтерским и налоговым учётом)</li>
+        </ul>
+
+        <h6>3. Аналитическая проверка и «старение» ДЗ (aging schedule)</h6>
+        <p>Аудитор строит <strong>ведомость старения дебиторской задолженности</strong> — группировка по срокам возникновения (0-30 дней, 31-60, 61-90, 91-180, 180-365, >365 дней). По каждой группе оценивает риск неоплаты и достаточность резерва.</p>
+        <ul class="small">
+            <li><strong>Красные флаги:</strong> большая доля ДЗ старше 90 дней, рост ДЗ без роста выручки, концентрация на одном дебиторе (>10% валюты баланса), судебные разбирательства, аффилированность крупных дебиторов с собственниками проверяемой компании.</li>
+        </ul>
+
+        <h6>4. Проверка расчётов с покупателями и заказчиками (счет 62)</h6>
+        <ul>
+            <li>Сверка оборотов по счету 62 с выручкой (счет 90) и поступлениями (счет 51 — наличие оплат). Несоответствие может свидетельствовать о «бумажной» выручке или фиктивных отгрузках.</li>
+            <li>Проверка на наличие авансов полученных (кредитовый остаток по счёту 62), которые должны быть переклассифицированы в кредиторскую задолженность или доходы будущих периодов.</li>
+            <li>Подтверждение актов сверки с дебиторами (договорные условия периодической сверки).</li>
+        </ul>
+
+        <h5>Риски и типичные нарушения при учёте ДЗ:</h5>
+
+        <div class="alert alert-warning mt-2">
+            <strong>1. «Серая» или фиктивная дебиторская задолженность</strong>
+            <p class="small mb-0">Отражаются отгрузки на подставные компании или аффилированных лиц, оплата по которым не планируется. Цель — искусственное завышение выручки/активов. Выявляется через отсутствие подтверждений, отсутствие реальных контактов дебитора, подозрительные адреса массовой регистрации.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>2. Не создание резерва по сомнительным долгам (нарушение ФСБУ 4/2023)</strong>
+            <p class="small mb-0">Если ДЗ просрочена, но резерв не создан — актив завышен, а прибыль завышена. Многие компании создают резерв только для налогового учёта (по правилам ст. 266 НК РФ, начиная с 45 дней), а для бухгалтерского — игнорируют.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>3. Неверная классификация ДЗ (долгосрочная / краткосрочная)</strong>
+            <p class="small mb-0">Задолженность, ожидаемая к погашению более чем через 12 месяцев, должна быть отражена в разделе внеоборотных активов. Ошибки влияют на текущую ликвидность и коэффициенты финансовой устойчивости.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>4. Пропуск списания безнадёжной ДЗ по истечении срока исковой давности (3 года)</strong>
+            <p class="small mb-0">По истечении трёх лет (общий срок исковой давности, ст. 196 ГК РФ) долг должен быть списан за счёт резерва или на убытки. Несписание завышает активы и налог на имущество (при расчёте от баланса).</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>5. Отсутствие раздельного учёта авансов выданных и полученных</strong>
+            <p class="small mb-0">Авансы выданные (счет 60.02) — это тоже дебиторская задолженность, но часто её не проверяют. Это риск неполучения товара (работы, услуги) при недобросовестном поставщике.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>6. Нарушение при переуступке права требования (цессии)</strong>
+            <p class="small mb-0">При продаже ДЗ фактору (факторинг) или по договору цессии должна быть корректно отражена выбывающая ДЗ и финансовый результат. Ошибки: несписание проданной ДЗ, неверная оценка дохода/расхода по сделке.</p>
+        </div>
+
+        <h5>Как аудитор проверяет ДЗ: чек-лист процедур</h5>
+        <ul class="small">
+            <li>☐ <strong>Запрос подтверждений (МСА 505):</strong> выборка дебиторов, рассылка запросов, анализ ответов, альтернативные процедуры для неответивших.</li>
+            <li>☐ <strong>Проверка договоров и первичных документов:</strong> существуют ли договоры, акты, накладные, счета-фактуры, подтверждающие реальность ДЗ.</li>
+            <li>☐ <strong>Проверка расчётов и оплат:</strong> анализ банковских выписок, кассовых документов, актов сверки.</li>
+            <li>☐ <strong>Анализ просроченной ДЗ:</strong> построение aging schedule, обоснованность резерва, проверка безнадёжных долгов.</li>
+            <li>☐ <strong>Проверка аффилированности:</strong> анализ крупных дебиторов на связь с компанией (учредители, управляющие). Аффилированная ДЗ — повышенный риск невозврата и низкой надежности доказательств.</li>
+            <li>☐ <strong>Анализ последующих событий:</strong> поступление оплаты после отчётной даты — лучшее доказательство существования ДЗ.</li>
+            <li>☐ <strong>Проверка отражения ДЗ в отчётности:</strong> корректная классификация, раскрытие залогов, ограничений, цессии.</li>
+        </ul>
+
+        <div class="alert alert-info mt-2">
+            <small><strong>Новое в аудите ДЗ (2025–2026):</strong> С введением ФСБУ 4/2023 ужесточены требования к классификации ДЗ и обязательному созданию резерва под обесценение (сомнительные долги). Также автоматизированные системы ФНС выявляют расхождения в сроках исковой давности по контрагентам — риски доначисления налогов при несписанной ДЗ возросли.</small>
+        </div>
+
+        <h5>Пример рабочего документа аудитора (фрагмент РД‑2.1 «Дебиторская задолженность»):</h5>
+        <table class="table table-sm table-bordered small">
+            <thead class="table-light">
+                <tr><th>Дебитор</th><th>Сумма на 31.12.2025</th><th>Срок возникновения</th><th>Подтверждение</th><th>Резерв</th><th>Примечание аудитора</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ООО «Альфа»</td>
+                    <td>2 500 000 руб.</td>
+                    <td>15.10.2025</td>
+                    <td>Подтверждено (письмо от 24.01.2026)</td>
+                    <td>350 000 руб. (14%)</td>
+                    <td>Частичная оплата после отчётной даты подтверждена</td>
+                </tr>
+                <tr>
+                    <td>ООО «Бета»</td>
+                    <td>1 200 000 руб.</td>
+                    <td>05.03.2023</td>
+                    <td>Нет ответа (запрос от 12.01.2026)</td>
+                    <td>1 200 000 руб. (100%)</td>
+                    <td>ДЗ старше 3 лет — срок исковой давности истёк, не списана. Рекомендовано списание за счёт резерва или на убытки</td>
+                </tr>
+                <tr>
+                    <td>ООО «Гамма» (аффилирована с учредителем)</td>
+                    <td>8 000 000 руб.</td>
+                    <td>01.11.2024</td>
+                    <td>Подтверждено, но оплаты нет</td>
+                    <td>2 000 000 руб. (25%)</td>
+                    <td>Высокий риск невозврата, аффилированное лицо. Сумма составляет 15% валюты баланса — угроза непрерывности деятельности (МСА 570)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-danger mt-2">
+            <small><strong>Важнейший риск для аудитора:</strong> Если руководство отказывается предоставить подтверждения или не позволяет разослать запросы ключевым дебиторам, это ограничение объёма аудита (scope limitation). При существенности ДЗ аудитор обязан выразить <strong>отказ от выражения мнения</strong> (МСА 705).</small>
+        </div>
+
+        <p class="mt-3">
+            <a class="link-opacity-100" href="https://www.consultant.ru/document/cons_doc_LAW_510938/" target="_blank">
+                МСА 505 «Внешние подтверждения» — Актуальная редакция 2026
+            </a>
+        </p>
+        <p>
+            <a class="link-opacity-100" href="https://minfin.gov.ru/ru/document/?id_4=149672-fsbu_4_2023_bukhgalterskaya_otchetnost" target="_blank">
+                ФСБУ 4/2023 «Бухгалтерская (финансовая) отчетность»
+            </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Для студентов и практикующих аудиторов:</strong> Запомните «золотое правило» аудита ДЗ — <strong>внешнее подтверждение от дебитора</strong> (МСА 505) является самым надёжным доказательством существования и точности задолженности. Без него аудитор не может быть уверен. Альтернативные процедуры (проверка последующей оплаты, договоров) — только при невозможности получить подтверждение.</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width:800px;">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Аудит денежных средств"
+            style="filter: grayscale(1);">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема. Аудит денежных средств: касса, расчётный счёт, валютные операции</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Денежные средства (ДС) — наиболее ликвидный актив и самый уязвимый для хищений. 
+            Аудит ДС требует повышенного внимания к <strong>кассовой дисциплине, банковским выпискам, подлинности документов</strong> 
+            и проверки на наличие «технических» и фиктивных операций.
+        </div>
+
+        <h5>Нормативная база аудита ДС:</h5>
+        <ul>
+            <li><strong>МСА 240</strong> «Обязанности аудитора в отношении недобросовестных действий» — операции с ДС — зона повышенного риска мошенничества </li>
+            <li><strong>МСА 500</strong> «Аудиторские доказательства» — проверка банковских выписок, кассовых ордеров </li>
+            <li><strong>Указание Банка России № 5348-У</strong> «Порядок ведения кассовых операций» (действующая редакция) </li>
+            <li><strong>Федеральный закон № 54-ФЗ</strong> «О применении контрольно-кассовой техники» (ККТ) </li>
+            <li><strong>Положение Банка России № 762-П</strong> «О правилах осуществления перевода денежных средств» </li>
+            <li><strong>ФСБУ 4/2023</strong> — представление денежных средств в отчётности (строка 1250 бухгалтерского баланса) </li>
+        </ul>
+
+        <h5>Какие счета и остатки проверяет аудитор:</h5>
+        <ul>
+            <li><strong>Счёт 50 «Касса»</strong> — наличные деньги в рублях и иностранной валюте </li>
+            <li><strong>Счёт 51 «Расчётные счета»</strong> — безналичные рублёвые средства в банках </li>
+            <li><strong>Счёт 52 «Валютные счета»</strong> — средства в иностранной валюте </li>
+            <li><strong>Счёт 55 «Специальные счета в банках»</strong> — аккредитивы, депозиты, чековые книжки </li>
+            <li><strong>Счёт 57 «Переводы в пути»</strong> — инкассированные средства, переводы (особо рисковая зона для «зависания»)</li>
+            <li><strong>«Золотой запас»</strong> (если есть) — счёт 58 «Финансовые вложения» (краткосрочные депозиты) </li>
+        </ul>
+
+        <h5>Основные аудиторские процедуры по ДС:</h5>
+
+        <h6>1. Проверка банковских выписок (расчётный счёт) — ключевая процедура</h6>
+        <p>Аудитор должен убедиться, что выписки получены <strong>напрямую из банка (или из надёжной системы ДБО)</strong>, а не через клиента. Наиболее надёжны: выписки с электронной подписью банка или запрос подтверждения остатка напрямую в банк (по МСА 505).</p>
+        <ul class="small">
+            <li><strong>Что проверяется:</strong>
+                <ul>
+                    <li>Соответствие остатка по выписке на отчётную дату данным учёта (счёт 51)</li>
+                    <li>Наличие документов-оснований по каждому платежу (платёжные поручения, инкассо, мемориальные ордера)</li>
+                    <li>Отсутствие «технических» платежей на фирмы-однодневки и необоснованных списаний</li>
+                    <li>Соответствие назначения платежа договору (например, оплата за реальный товар, работу)</li>
+                    <li>Проверка на наличие несанкционированных списаний (списания без акцепта)</li>
+                </ul>
+            </li>
+            <li><strong>Красный флаг:</strong> выписку клиент распечатал сам и принёс аудитору — возможна подделка или удаление операций. Рекомендовано запрашивать выписки через интернет-банк с онлайн-доступом или направлять подтверждение напрямую в банк.</li>
+        </ul>
+
+        <h6>2. Неожиданная инвентаризация кассы</h6>
+        <p>Аудитор имеет право (и должен, если риск высок) провести <strong>внезапную ревизию кассы</strong> без предупреждения.</p>
+        <ul class="small">
+            <li><strong>Проверяемые элементы:</strong>
+                <ul>
+                    <li>Фактический остаток наличных денег и денежных документов (путём полного пересчёта)</li>
+                    <li>Соответствие остатка данным кассовой книги и отчёта кассира</li>
+                    <li>Наличие приходных и расходных кассовых ордеров (ПКО, РКО)</li>
+                    <li>Соблюдение лимита остатка кассы (если установлен) — сверхлимитные суммы должны быть сданы в банк</li>
+                    <li>Правильность оформления кассовых документов (подписи, расшифровки, сумма прописью)</li>
+                </ul>
+            </li>
+            <li><strong>Типичные нарушения:</strong> неоприходование наличных («мимо кассы»), подделка подписей в расходниках, отсутствие кассовой книги.</li>
+        </ul>
+
+        <h6>3. Проверка на «зависшие» переводы и инкассацию (счёт 57)</h6>
+        <p>Остатки на счете 57 «Переводы в пути» — зона риска: средства списаны с расчётного счёта, но ещё не зачислены на другой счёт (или внесены в кассу, но не сданы в банк). Аудитор проверяет:</p>
+        <ul class="small">
+            <li>Дату списания и ожидаемую дату зачисления — длительные зависания (>5 банковских дней) подозрительны</li>
+            <li>Наличие квитанций о внесении наличных в банк или инкассаторской выписки</li>
+            <li>Факт отражения в выписке банка получателя — если прошло более 10 дней, возможна ошибка или хищение</li>
+        </ul>
+
+        <h6>4. Проверка соблюдения кассовой дисциплины (Указание ЦБ № 5348-У)</h6>
+        <ul class="small">
+            <li>Расчёты наличными между юрлицами — не более 100 000 руб. по одному договору. Превышение — штраф по ст. 15.1 КоАП РФ</li>
+            <li>Наличие кассовой книги и своевременность её ведения (записи в день операции)</li>
+            <li>Правильность применения ККТ (онлайн-касса, выдача чеков, фискальный накопитель)</li>
+        </ul>
+
+        <h6>5. Подтверждение остатков на счетах в банках (МСА 505 — внешние подтверждения)</h6>
+        <p>Аудитор направляет <strong>запрос в банк</strong> о подтверждении остатка на отчётную дату. Банк должен ответить напрямую аудитору. Это надёжнейшее доказательство существования ДС.</p>
+
+        <h6>6. Анализ движения ДС («шлюзование» и «технические» счета)</h6>
+        <ul>
+            <li>Анализ крупных и необычных операций: поступление и быстрое списание (несколько часов/дней) — признак «транзитных» средств</li>
+            <li>Проверка операций с аффилированными лицами и офшорными компаниями — высокий риск вывода активов</li>
+            <li>Сравнение оборота по счёту 51 с выручкой по отчёту о прибылях и убытках — расхождения сигнализируют о неотражённой («чёрной») выручке или фиктивном НДС</li>
+        </ul>
+
+        <h5>Типичные схемы мошенничества с ДС и как их выявляет аудитор:</h5>
+
+        <div class="alert alert-warning mt-2">
+            <strong>1. Инкассирование с занижением (обсчёт кассира)</strong>
+            <p class="small mb-0">Схема: кассир вносит в банк меньшую сумму, чем получил от покупателей. Выявление: сравнение данных ККТ (фискальный отчёт) с данными кассовой книги и выпиской банка о сдаче наличных.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>2. Подложные банковские выписки («бумажные» махинации)</strong>
+            <p class="small mb-0">Схема: подделка выписок, удаление списаний. Выявление: запрос выписки напрямую из банка, сверка с выписками клиента (ИБ-доступ аудитора). Надёжнее всего — подтверждение остатка по МСА 505.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>3. «Технические» счета и обналичивание через фирмы-однодневки</strong>
+            <p class="small mb-0">Схема: перечисление денег на подставной счёт за якобы оказанные услуги/товары с последующим обналичиванием. Выявление: анализ контрагентов по признакам «фирм-однодневок» (адрес массовой регистрации, отсутствие персонала, сайта, нетипичный договор).</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>4. «Ламинирование» кассовых ордеров (повторное проведение)</strong>
+            <p class="small mb-0">Схема: один и тот же расходный ордер дважды отражается в кассе (один раз на бумаге, другой раз в электронном учёте). Выявление: проверка нумерации РКО на разрывы, дублирование номеров, сверка с датой и суммой.</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>5. Несвоевременная сдача выручки (плавающий остаток сверх лимита)</strong>
+            <p class="small mb-0">Схема: кассир оставляет сверхлимитную выручку в кассе под видом «завтра сдам». Выявление: проверка соблюдения лимита остатка кассы ежедневно (по кассовой книге).</p>
+        </div>
+
+        <div class="alert alert-warning mt-2">
+            <strong>6. Выдача под отчёт на несуществующие цели</strong>
+            <p class="small mb-0">Схема: выдача наличных под отчёт «на хознужды» без последующего отчёта либо с фиктивными чеками. Выявление: проверка авансовых отчетов, сроков отчётности (по закону 3 дня), факт возврата остатка.</p>
+        </div>
+
+        <h5>Чек-лист аудитора по ДС (обязательные процедуры):</h5>
+        <ul class="small">
+            <li>☐ Получены ли прямые подтверждения остатков из банков (МСА 505)? </li>
+            <li>☐ Проведена ли внезапная инвентаризация кассы? (рекомендовано в高风险зоне) </li>
+            <li>☐ Проанализированы ли крупные и необычные операции за период (выборка)? </li>
+            <li>☐ Сверены ли данные ККТ (Z-отчёты) с кассовой книгой и выписками банка? </li>
+            <li>☐ Проверены ли кассовые документы на подлинность подписей и соответствие нормативам?</li>
+            <li>☐ Соблюдается ли лимит расчётов наличными (100 тыс. по одному договору)? </li>
+            <li>☐ Есть ли несанкционированные списания с расчётного счёта (без акцепта)? </li>
+            <li>☐ Проанализированы ли операции с валютой на соответствие валютному законодательству (паспорта сделок, сроки репатриации)?</li>
+            <li>☐ Корректно ли отражены переводы в пути (счет 57) — нет ли «зависших» остатков? </li>
+        </ul>
+
+        <div class="alert alert-info mt-2">
+            <small><strong>Новое в аудите ДС (2025–2026):</strong> С развитием ЕНС и автоматизации банковского контроля ФНС, выписки из банка и кассовые операции стали более прозрачными. Однако выросло количество «технических» счетов и фиктивных сделок — аудитор должен проверять реальность бизнес-операций за движением ДС. Также актуальны проверки соблюдения сроков репатриации валюты и валютного контроля (для экспортно-импортных операций).</small>
+        </div>
+
+        <h5>Пример рабочего документа аудитора (фрагмент РД‑3.1 «Денежные средства и их эквиваленты»):</h5>
+        <table class="table table-sm table-bordered small">
+            <thead class="table-light">
+                <tr><th>Показатель / операция</th><th>По учёту клиента</th><th>Результат проверки</th><th>Отклонение</th><th>Комментарий аудитора</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Остаток по сч. 51 на 31.12.2025 (руб.)</td>
+                    <td>3 250 000 руб.</td>
+                    <td>Подтверждение банка — 3 250 000 руб. (письмо от 15.01.2026)</td>
+                    <td>0 руб.</td>
+                    <td>Соответствует, расхождений нет</td>
+                </tr>
+                <tr>
+                    <td>Остаток кассы на 31.12.2025 (наличные)</td>
+                    <td>127 500 руб.</td>
+                    <td>Инвентаризация на 10.02.2026: фактически 78 200 руб.</td>
+                    <td>(49 300 руб.)</td>
+                    <td>Недостача. Кассир не смог объяснить. Рекомендовано списание за счёт виновного лица</td>
+                </tr>
+                <tr>
+                    <td>Перечисления в период 01.09.2025–31.12.2025 на ООО «ТехСнаб» (5 операций)</td>
+                    <td>2 300 000 руб.</td>
+                    <td>Контрагент не ответил на подтверждение, нет в ЕГРЮЛ с 10.10.2025</td>
+                    <td>Нет документов-оснований</td>
+                    <td>Возможны фиктивные операции, рекомендовано отразить как сомнительную ДЗ</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-danger mt-2">
+            <small><strong>Ключевое ограничение (scope limitation):</strong> Если руководство отказывается предоставить прямой доступ к системе ДБО или запрещает направлять запросы в банк, аудитор ограничен в доказательствах. При существенности ДС это ведёт к отказу от выражения мнения (МСА 705).</small>
+        </div>
+
+        <p class="mt-3">
+            <a class="link-opacity-100" href="https://www.consultant.ru/document/cons_doc_LAW_510933/" target="_blank">
+                МСА 240 «Обязанности аудитора в отношении недобросовестных действий»
+            </a>
+        </p>
+        <p>
+            <a class="link-opacity-100" href="https://www.cbr.ru/Queries/UniDbQuery/File/103197/474" target="_blank">
+                Указание Банка России № 5348-У «Порядок ведения кассовых операций»
+            </a>
+        </p>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Памятка аудитору:</strong> При проверке денежных средств помните о «золотом» правиле — <strong>наименее надежны</strong> доказательства, полученные от клиента (его выписки, его копии ордеров). <strong>Наиболее надежны</strong> — прямые подтверждения из банков, онлайн-доступ к ДБО, и собственный пересчёт наличных. Всегда проверяйте <strong>реальность операций</strong>, а не только формальные остатки.</small>
+        </div>
+    </div>
+</div>
+
+
+    <div class="card my-3">
+      <p>
+        <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="1" style="filter: grayscale(1)" />
+      </p>
+      <div class="card-body">
+        <div id="root" class="container mt-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../dist/basicfirebasecrudauthservices.js"></script>
+  <script src="./bundle.js"></script>
+</body>
+
 </html>
