@@ -8314,7 +8314,7 @@
 	  }, "\u0422\u0435\u0441\u0442\u044B"), /*#__PURE__*/React$1.createElement("hr", null));
 	}
 	function isObject(value) {
-	  return value !== null && typeof value === 'object';
+	  return value !== null && typeof value === "object";
 	}
 	function QuizSet({
 	  set,
@@ -8333,7 +8333,7 @@
 	  //  const [selectedQuiz, setSelectedQuiz] = useState(0);
 	  //  const [loading, setLoading] = useState(false);
 
-	  const onPreviousPageClick = () => {
+	  function onPreviousPageClick() {
 	    if (state.currentPage < 1) {
 	      localDispatch({
 	        type: "SEED_STATE",
@@ -8353,8 +8353,9 @@
 	        }
 	      });
 	    }
-	  };
-	  const onNextPageClick = () => {
+	  }
+	  function onNextPageClick() {
+	    console.log(state.currentPage, pagesCount);
 	    if (state.currentPage + 2 > pagesCount) return;
 	    localDispatch({
 	      type: "SEED_STATE",
@@ -8364,7 +8365,7 @@
 	        }
 	      }
 	    });
-	  };
+	  }
 	  function doSelectQuiz(index) {
 	    localDispatch({
 	      type: "SEED_STATE",
@@ -8394,40 +8395,52 @@
 	  // }
 
 	  const pagesCount = Math.ceil(quizesIds.length / state.itemsPerPage);
+	  console.log(pagesCount);
 	  const isCurrentPageFirst = state.currentPage === 0;
+	  console.log(isCurrentPageFirst);
 	  const isCurrentPageLast = state.currentPage === pagesCount - 1;
-	  let quizprops = window.quizesSets[state.selectedQuiz]; // qSets[set] 
+	  console.log(isCurrentPageLast);
+	  let quizprops = window.quizesSets[state.selectedQuiz]; // qSets[set]
 	  console.log(quizprops);
 	  if (quizesIds.length > 10) {
 	    // qSets[set].length
 
 	    let items = [];
-	    for (let index = state.currentPage * state.itemsPerPage; index < state.currentPage * state.itemsPerPage + state.itemsPerPage; index++) {
-	      items.push(/*#__PURE__*/React$1.createElement("li", {
-	        className: index === state.selectedQuiz ? "page-item active" : "page-item",
-	        onClick: () => doSelectQuiz(index)
-	      }, /*#__PURE__*/React$1.createElement("a", {
-	        className: "page-link"
-	      }, index + 1)));
+	    for (let index = state.currentPage * state.itemsPerPage; index < state.currentPage * state.itemsPerPage + state.itemsPerPage && index < quizesIds.length - 1; index++) {
+	      items.push(/*#__PURE__*/React$1.createElement(Button, {
+	        variant: index === state.selectedQuiz ? "outline-primary" : "outline-secondary",
+	        onClick: () => doSelectQuiz(index),
+	        key: index
+	      },
+	      //    qSets[set].length
+	      quizesIds.length < 10 ? /*#__PURE__*/React$1.createElement("span", {
+	        className: "m-2"
+	      }, index + 1) : /*#__PURE__*/React$1.createElement("small", null, index + 1)));
 	    }
 	    return /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(Navbar, {
 	      bg: "light"
-	    }, /*#__PURE__*/React$1.createElement(Navbar.Brand, null, setTitle)), /*#__PURE__*/React$1.createElement("br", null), /*#__PURE__*/React$1.createElement("nav", {
-	      "aria-label": "Page navigation example"
-	    }, /*#__PURE__*/React$1.createElement("ul", {
-	      className: "pagination pagination-sm justify-content-end"
-	    }, /*#__PURE__*/React$1.createElement("li", {
-	      className: isCurrentPageFirst ? "page-item disabled" : "page-item",
-	      onClick: onPreviousPageClick
-	    }, /*#__PURE__*/React$1.createElement("a", {
-	      className: "page-link",
-	      tabindex: "-1"
-	    }, "<<")), items, /*#__PURE__*/React$1.createElement("li", {
-	      className: isCurrentPageLast ? "page-item disabled" : "page-item",
-	      onClick: onNextPageClick
-	    }, /*#__PURE__*/React$1.createElement("a", {
-	      className: "page-link"
-	    }, ">>")))), /*#__PURE__*/React$1.createElement("hr", null), state.loading || !isObject(quizprops) ? /*#__PURE__*/React$1.createElement("div", null, "...") : /*#__PURE__*/React$1.createElement(QuizCardWithStorage, _extends({
+	    }, /*#__PURE__*/React$1.createElement(Navbar.Brand, null, setTitle)), /*#__PURE__*/React$1.createElement("br", null), /*#__PURE__*/React$1.createElement("div", {
+	      className: "d-flex justify-content-end"
+	    }, /*#__PURE__*/React$1.createElement(ButtonGroup, {
+	      size: "sm",
+	      className: "my-1"
+	    }, /*#__PURE__*/React$1.createElement(Button, {
+	      disabled: isCurrentPageFirst ? true : false,
+	      variant: "outline-secondary",
+	      onClick: () => onPreviousPageClick()
+	    },
+	    //    qSets[set].length
+	    quizesIds.length < 10 ? /*#__PURE__*/React$1.createElement("span", {
+	      className: "m-2"
+	    }, "<<") : /*#__PURE__*/React$1.createElement("small", null, "<<")), items, /*#__PURE__*/React$1.createElement(Button, {
+	      disabled: isCurrentPageLast ? true : false,
+	      variant: "outline-secondary",
+	      onClick: () => onNextPageClick()
+	    },
+	    //    qSets[set].length
+	    quizesIds.length < 10 ? /*#__PURE__*/React$1.createElement("span", {
+	      className: "m-2"
+	    }, ">>") : /*#__PURE__*/React$1.createElement("small", null, ">>")))), /*#__PURE__*/React$1.createElement("hr", null), state.loading || !isObject(quizprops) ? /*#__PURE__*/React$1.createElement("div", null, "...") : /*#__PURE__*/React$1.createElement(QuizCardWithStorage, _extends({
 	      key: state.selectedQuiz,
 	      setId: state.selectedQuiz + 1
 	    }, quizprops)));
@@ -8439,10 +8452,8 @@
 	    //  qSets[set].length < 5 ? "lg" : "sm"
 	  }, quizesIds
 	  // qSets[set]
-	  .map((quiz, index) =>
-	  /*#__PURE__*/
-	  // qSets[set]
-	  React$1.createElement(Button, {
+	  .map((quiz, index // qSets[set]
+	  ) => /*#__PURE__*/React$1.createElement(Button, {
 	    variant: "outline-secondary",
 	    onClick: () => doSelectQuiz(index),
 	    key: index
@@ -8597,18 +8608,25 @@
 	    className: "mb-2"
 	  }))))), /*#__PURE__*/React$1.createElement(InputGroup, {
 	    size: "sm",
-	    style: {
-	      width: "95%",
-	      margin: "1rem"
-	    }
-	  }, /*#__PURE__*/React$1.createElement(InputGroup.Prepend, null, showAnswer ? /*#__PURE__*/React$1.createElement(InputGroup.Text, {
+	    className: "p-1"
+	  }, /*#__PURE__*/React$1.createElement(InputGroup.Prepend, null, showAnswer ? /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(InputGroup.Text, {
 	    id: "basic-addon1"
 	  }, /*#__PURE__*/React$1.createElement("span", {
+	    style: {
+	      maxWidth: "400px",
+	      whiteSpace: "nowrap" /* Prevent text from wrapping */,
+	      overflow: "hidden" /* Hide the extra text */,
+	      textOverflow: "ellipsis"
+	    },
 	    className: answerIsRight ? "text-success" : "text-danger"
-	  }, "\u041F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0439 \u043E\u0442\u0432\u0435\u0442: ", props.answers[0])) : /*#__PURE__*/React$1.createElement(Button, {
+	  }, "Ответ: " + props.answers[0]))) : /*#__PURE__*/React$1.createElement(Button, {
 	    variant: "outline-secondary",
 	    onClick: handleCheckAnswer
-	  }, "\u041E\u0442\u0432\u0435\u0442")))));
+	  }, "\u041E\u0442\u0432\u0435\u0442"))), !!props?.hint && showAnswer ? /*#__PURE__*/React$1.createElement("div", {
+	    className: "text-secondary p-1"
+	  }, ReactHtmlParser(props.hint)) :
+	  // <ReactMarkdown source={props.hint} escapeHtml={false} /></div>
+	  null));
 	}
 	function CaseStatistics(props) {
 	  const [showAnswer, setShowAnswer] = React$1.useState(null);
@@ -8624,7 +8642,7 @@
 	      setAnswerIsRight(true);
 	      if (email.length > 6) {
 	        let userEmail = email.replace(/[^a-zA-Z0-9]/g, "_");
-	        let idPost = getFirebaseNodeKey('usersCraft/' + userEmail + "/posts");
+	        let idPost = getFirebaseNodeKey("usersCraft/" + userEmail + "/posts");
 	        //    firebase.database().ref(userEmail).child("posts").push().key;
 	        let currentDay = new Intl.DateTimeFormat("en", {
 	          weekday: "short",
@@ -8752,10 +8770,10 @@
 	  answer = Math.round(
 	  // createNewDraft([[answer]])[0][0]
 
-	  doCalculate(answer)
-
+	  doCalculate(answer) *
 	  //   parser.parse(answer).result
-	  * 1000) / 1000;
+
+	  1000) / 1000;
 	  let stringExtractor = extract(["{=", "}"]);
 	  let stuffIneed = stringExtractor(quizString);
 	  //console.log(stuffIneed);
@@ -8764,10 +8782,9 @@
 	  for (let i = 0; i < stuffIneed.length; i++) {
 	    // console.log(createNewDraft(createProtoArray({A1: [stuffIneed[i]]}, 1, 1))[0][0]);
 
-	    let feedback = Math.round(doCalculate(stuffIneed[i])
-
+	    let feedback = Math.round(doCalculate(stuffIneed[i]) *
 	    //  parser.parse(stuffIneed[i]).result
-	    * 1000) / 1000;
+	    1000) / 1000;
 	    // console.log(answer);
 	    quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
 	  }
@@ -8777,7 +8794,7 @@
 	      setAnswerIsRight(true);
 	      if (email.length > 6) {
 	        let userEmail = email.replace(/[^a-zA-Z0-9]/g, "_");
-	        let idPost = getFirebaseNodeKey('usersCraft/' + userEmail + "/posts");
+	        let idPost = getFirebaseNodeKey("usersCraft/" + userEmail + "/posts");
 	        //    firebase.database().ref(userEmail).child("posts").push().key;
 	        let currentDay = new Intl.DateTimeFormat("en", {
 	          weekday: "short",
@@ -8898,10 +8915,11 @@
 	  //  console.log(quizString);
 	  let stringExtractor = extract(["{=", "}"]);
 	  let stuffIneed = stringExtractor(quizString);
-	  let feedback = Math.round(doCalculate(stuffIneed[0])
+	  let feedback = Math.round(doCalculate(stuffIneed[0]) *
 	  //   createNewDraft([[stuffIneed[0]]])[0][0]
 	  //  parser.parse(stuffIneed[0]).result
-	  * 1000) / 1000;
+
+	  1000) / 1000;
 	  // for (let i = 0; i < stuffIneed.length; i++) {
 	  //   let feedback = Math.round(parser.parse(stuffIneed[i]).result * 1000) / 1000;
 	  //    quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
@@ -8916,7 +8934,7 @@
 	  return /*#__PURE__*/React$1.createElement("div", null, media.map((item, index) => {
 	    let series = item.series.map(seriesItem => {
 	      let itemData = seriesItem.data.map(dataItem => {
-	        if ((typeof dataItem === 'string' || dataItem instanceof String) && dataItem.startsWith('{=')) {
+	        if ((typeof dataItem === "string" || dataItem instanceof String) && dataItem.startsWith("{=")) {
 	          console.log(dataItem, randomNumber);
 	          return calculateRandomNumber(dataItem, randomNumber); // 1000
 	        } else {
