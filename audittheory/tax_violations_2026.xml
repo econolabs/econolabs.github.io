@@ -1,0 +1,1682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 1 -->
+  <question type="multichoice">
+    <name>
+      <text>Ст. 15.11 КоАП РФ — грубое нарушение</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое искажение бухгалтерской отчетности считается 'грубым нарушением' по ст. 15.11 КоАП РФ в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 15.11 КоАП РФ четко определяет: грубым считается искажение любого показателя отчетности в денежном выражении НЕ МЕНЕЕ ЧЕМ НА 10% . Меньшие искажения не подпадают под эту статью.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Искажение любого показателя на 5%</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Искажение любого показателя, выраженного в денежном измерении, не менее чем на 10%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Любая арифметическая ошибка в отчетности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Неверное указание ОКВЭД в отчетности</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 2 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф по ст. 15.11 КоАП РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Каков размер штрафа для должностного лица за первичное грубое нарушение правил бухучета по ст. 15.11 КоАП РФ в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>По части 1 статьи 15.11 КоАП РФ за первое грубое нарушение требований к бухучету и отчетности должностному лицу грозит штраф от 5 000 до 10 000 рублей . Повторное нарушение (часть 2) влечет более высокий штраф или дисквалификацию.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>От 1 000 до 3 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>От 3 000 до 5 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>От 5 000 до 10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>От 10 000 до 20 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 3 -->
+  <question type="multichoice">
+    <name>
+      <text>Повторное нарушение и дисквалификация</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое наказание грозит главному бухгалтеру за ПОВТОРНОЕ грубое нарушение требований к бухучету по ст. 15.11 КоАП РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Часть 2 статьи 15.11 КоАП РФ предусматривает за повторное нарушение либо повышенный штраф (от 10 000 до 20 000 руб.), либо дисквалификацию должностного лица на срок от одного года до двух лет .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Только штраф от 5 000 до 10 000 руб.</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Штраф от 10 000 до 20 000 рублей или дисквалификация на 1-2 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Уголовная ответственность с лишением свободы</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 4 -->
+  <question type="multichoice">
+    <name>
+      <text>Мнимый объект учета</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что из перечисленного является грубым нарушением по ст. 15.11 КоАП РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Среди критериев грубого нарушения, перечисленных в статье 15.11 КоАП РФ, есть "регистрация в регистрах бухгалтерского учета мнимого или притворного объекта" (неосуществленных расходов, несуществующих обязательств) . Опечатка в приказе к бухучету не относится.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Опечатка в фамилии директора в приказе</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Регистрация в регистрах мнимого объекта учета (например, несуществующих расходов)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Использование нелицензионного программного обеспечения</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отсутствие графика отпусков</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 5 -->
+  <question type="multichoice">
+    <name>
+      <text>Как избежать штрафа по ст. 15.11</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>В каком случае должностное лицо может быть освобождено от административной ответственности по ст. 15.11 КоАП РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 15.11 КоАП РФ предусматривает освобождение от ответственности в случае исправления ошибки до утверждения отчетности (пересмотренная отчетность) или при подаче уточненной декларации с уплатой налога и пеней .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Если ошибку обнаружил сам и подал уточненную декларацию до утверждения отчетности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если ошибку не заметил никто</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если компания сменила юридический адрес</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если бухгалтер находится в отпуске</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 6 -->
+  <question type="multichoice">
+    <name>
+      <text>Основания для ст. 120 НК РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что из перечисленного НЕ является основанием для штрафа по статье 120 НК РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 120 НК РФ наказывает за ГРУБЫЕ нарушения: отсутствие первички, счетов-фактур, регистров. Единичная техническая ошибка (при условии, что не систематическая) может не подпадать под определение "грубого нарушения" — ключевое слово "систематическое" имеет значение .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Отсутствие первичных документов (накладных, актов)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отсутствие счетов-фактур</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отсутствие регистров налогового учета</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Неверный расчет амортизации из-за технической ошибки (единичный случай)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 7 -->
+  <question type="multichoice">
+    <name>
+      <text>Систематичность нарушений по ст.120</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что означает 'систематическое нарушение' по ст. 120 НК РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 120 НК РФ определяет систематическое нарушение как "два раза и более в течение календарного года" несвоевременное или неправильное отражение операций . Поэтому даже две ошибки за год могут квалифицироваться как грубое нарушение.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Нарушение повторяется каждый месяц</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Два раза и более в течение календарного года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Нарушение, которое привело к штрафу</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Нарушение, о котором сообщили в ФНС</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 8 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф по ст. 120 НК РФ — базовый уровень</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какой минимальный штраф грозит организации по ст. 120 НК РФ, если нарушение обнаружено впервые и не привело к занижению налогов?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Базовый уровень ответственности по ст. 120 НК РФ (нарушение в течение одного налогового периода без занижения налоговой базы) — штраф 10 000 рублей .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>1 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>30 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 9 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за нарушение в нескольких периодах (ст.120)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Если организация допустила грубые нарушения правил учета в двух разных налоговых периодах, но сумма налогов не занижена, штраф составит:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>По ст. 120 НК РФ, если деяния совершены в течение более одного налогового периода, штраф увеличивается до 30 000 рублей (даже если занижения налогов не было) .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>20 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>30 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>40 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 10 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф по ст.120 с занижением налоговой базы</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Организация нарушила правила учета, что привело к занижению налога на прибыль на 200 000 руб. Какой штраф предусмотрен по ст. 120 НК РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Если нарушение по ст. 120 НК РФ повлекло занижение налоговой базы, штраф = 20% от неуплаченной суммы, но не менее 40 000 руб. 20% от 200 000 руб. = 40 000 руб. .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>30 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>40 000 рублей (как 20% от неуплаченной суммы, но не менее 40 000 руб.)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>200 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 11 -->
+  <question type="multichoice">
+    <name>
+      <text>Ст. 122 НК РФ — 20%</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Каков стандартный размер штрафа по статье 122 НК РФ за неуплату/неполную уплату налога в результате занижения базы?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Стандартный размер штрафа по ст. 122 НК РФ — 20% от неуплаченной суммы налога (если нет умысла). При доказанном умысле — 40% .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>5% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>20% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>40% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Фиксированная сумма 50 000 руб.</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 12 -->
+  <question type="multichoice">
+    <name>
+      <text>Умышленная неуплата налога — ст.122</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Если налоговая докажет, что занижение налога было совершено умышленно, штраф по статье 122 НК РФ составит:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>При умышленном совершении налогового правонарушения штраф по ст. 122 НК РФ увеличивается до 40% от неуплаченной суммы налога .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>20% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>30% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>40% от неуплаченной суммы</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>50% от неуплаченной суммы</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 13 -->
+  <question type="multichoice">
+    <name>
+      <text>Уголовная ответственность — крупный размер (ст.199)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какой размер недоимки считается КРУПНЫМ для привлечения к уголовной ответственности по ст. 199 УК РФ (уклонение от уплаты налогов организацией)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Крупный размер по ст. 199 УК РФ (налоговые преступления) — это сумма налогов (сборов) за период в пределах трех финансовых лет подряд, составляющая более 15 млн рублей .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Более 5 млн руб. за 3 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Более 15 млн руб. за 3 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Более 30 млн руб. за 3 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Более 50 млн руб. за 3 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 14 -->
+  <question type="multichoice">
+    <name>
+      <text>Уголовная ответственность — макс. срок ст.199 УК РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Максимальный срок лишения свободы по статье 199 УК РФ (при отягчающих обстоятельствах, особо крупный размер) составляет:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>При особо крупном размере (более 45 млн руб. за 3 года) или при совершении преступления группой лиц по предварительному сговору максимальное наказание по ст. 199 УК РФ — лишение свободы до 6 лет. Однако по новой ст. 173.3 УК РФ (подложные документы) — до 7 лет .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>3 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>4 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>6 лет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>7 лет</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 15 -->
+  <question type="multichoice">
+    <name>
+      <text>Новая ст. 173.3 УК РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что предусматривает новая статья 173.3 УК РФ, введенная в действие к 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 173.3 УК РФ — новая норма, введенная для борьбы с использованием фиктивных документов. Она предусматривает наказание за использование заведомо подложных счетов-фактур, налоговых деклараций (расчетов), если это совершено с целью уклонения от уплаты налогов .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ответственность за неверное заполнение декларации по НДС</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Ответственность за использование подложных счетов-фактур и налоговых деклараций</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ответственность за утечку персональных данных</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ответственность за незаконное предпринимательство</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 16 -->
+  <question type="multichoice">
+    <name>
+      <text>Контрольные соотношения НДС (п.5.3 ст.174 НК РФ)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что грозит компании, если в декларации по НДС нарушены контрольные соотношения (п. 5.3 ст. 174 НК РФ)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Если декларация по НДС не проходит контрольные соотношения, она считается НЕПРЕДСТАВЛЕННОЙ (в соответствии с п. 5.3 ст. 174 НК РФ). У компании есть 5 дней на исправление .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Штраф 1 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Декларация считается непредставленной, и может быть заблокирован счет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Автоматическое назначение выездной проверки</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 17 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за ошибки в персональных данных (ст.126.1)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Каков размер штрафа по статье 126.1 НК РФ за представление документов с недостоверными персональными данными (например, неверный СНИЛС в ЕФС-1)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 126.1 НК РФ устанавливает штраф за представление налоговым агентом документов, содержащих недостоверные сведения, в размере 500 рублей за каждый такой документ .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>500 рублей за каждый документ</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>1 000 рублей за каждый документ</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5 000 рублей за каждый документ</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>10 000 рублей за каждый документ</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 18 -->
+  <question type="multichoice">
+    <name>
+      <text>Типичная ошибка — КБК в уведомлении</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какая ошибка в 2026 году является одной из самых частых при отправке уведомлений об исчисленных налогах?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>При работе через ЕНС ошибка в КБК в уведомлении об исчисленных суммах налогов остается лидером среди нарушений. Ошибка в одной цифре приводит к тому, что платеж "зависает", а на основной налог начинают капать пени .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Неверный ИНН организации</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Неверный КБК (из-за чего платеж 'зависает' и начисляются пени)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Неверное наименование организации</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Неверный адрес электронной почты</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 19 -->
+  <question type="multichoice">
+    <name>
+      <text>Непредставление декларации в срок (ст.119)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Организация опоздала с подачей декларации по НДС на 2 месяца. Сумма налога к уплате 100 000 руб. Штраф по ст. 119 НК РФ составит:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ст. 119 НК РФ — штраф 5% от неуплаченной суммы налога за каждый полный или неполный месяц просрочки, но не более 30% и не менее 1 000 руб. За 2 месяца — 10% (10 000 руб. из 100 000 руб.).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>5 000 руб. (5% x 2 месяца)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>10 000 руб. (10% от суммы налога)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>15 000 руб. (5% за каждый полный/неполный месяц, минимальный предел не менее 1000 руб., но не более 30%)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>100 000 руб. (вся сумма налога)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 20 -->
+  <question type="multichoice">
+    <name>
+      <text>Убыток в декларации — рекомендация</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что рекомендуется сделать компании, которая показывает убыток в налоговой декларации, чтобы минимизировать риски?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Сам убыток — не нарушение и не криминал. Однако он привлекает внимание налоговиков. Рекомендуется приложить к отчету пояснительную записку — иначе вероятно требование пояснений, а при игнорировании — выездная проверка .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ничего, убыток не является нарушением</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Приложить пояснительную записку, объясняющую причины убытка</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Срочно доплатить налог, чтобы убрать убыток</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подать уточненную декларацию с прибылью</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 21 -->
+  <question type="multichoice">
+    <name>
+      <text>Повышение НДС в 2026 году</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Как изменилась ставка НДС с 2026 года?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>С 1 января 2026 года ставка НДС повышена с 20% до 22%. Одновременно снижен лимит доходов для освобождения от НДС с 60 млн до 10 млн рублей .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Повышена с 18% до 20%</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Повышена с 20% до 22%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Снижена с 20% до 18%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Осталась без изменений (20%)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 22 -->
+  <question type="multichoice">
+    <name>
+      <text>Новый лимит для освобождения от НДС (ст.145 НК РФ)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Каков лимит доходов для освобождения от уплаты НДС в 2026 году (ст. 145 НК РФ)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>В 2026 году лимит доходов для применения освобождения от НДС снижен с 60 млн рублей до 10 млн рублей. Это означает, что многие компании, ранее не платившие НДС, теперь обязаны его исчислять и уплачивать .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>60 млн рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>30 млн рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>10 млн рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>2 млн рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 23 -->
+  <question type="multichoice">
+    <name>
+      <text>Запрет на 'догоняющие расходы'</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что означает новый запрет 2026 года на 'догоняющие расходы'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>С 2026 года запрещено "догоняющее" включение в текущий период расходов прошлых лет, если они выявлены позднее. Искажение отчетности через "догоняющие" проводки теперь чревато конфликтами с ФНС .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Нельзя учитывать расходы, если они больше доходов</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Запрещено включать в текущий период расходы прошлых лет, выявленные с опозданием</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Нельзя сокращать расходы, не подтвержденные документально</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Все расходы должны быть предварительно одобрены руководством</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 24 -->
+  <question type="multichoice">
+    <name>
+      <text>Повышение страховых взносов для IT-компаний</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Как изменился размер страховых взносов для IT-компаний в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>С 2026 года страховые взносы для IT-компаний повышены с 7,6% до 15%. Одновременно снято освобождение от НДС на российское ПО .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Повышен с 7,6% до 15%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Повышен с 15% до 22%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Снижен с 14% до 7,6%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Остался без изменений (14%)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 25 -->
+  <question type="multichoice">
+    <name>
+      <text>Риск потери спецрежима (УСН)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое последствие может быть, если компания на УСН превысила лимиты доходов в 2026 году, но продолжала сдавать 'упрощенную' декларацию?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Если компания на спецрежиме превысила лимиты (доходы, численность) и не перешла на общий режим добровольно, налоговая доначислит налоги по ОСНО за весь период с начала года, плюс пени и штрафы. Это один из главных рисков 2026 года .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Штраф 1 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Автоматический переход на ОСНО с доначислением налогов за весь год</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Запрет на ведение деятельности</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 26 -->
+  <question type="multichoice">
+    <name>
+      <text>Утечка персональных данных — штраф</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какой максимальный штраф грозит юридическому лицу за массовую утечку персональных данных (более 100 000 человек) в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>В 2026 году за массовую утечку персональных данных (100 000+ записей) штраф для юридических лиц может достигать 15 миллионов рублей .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>1 млн рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5 млн рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>15 млн рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>30 млн рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 27 -->
+  <question type="multichoice">
+    <name>
+      <text>Ст. 272.1 УК РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое наказание предусматривает статья 272.1 УК РФ за незаконную обработку персональных данных с использованием служебного положения?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 272.1 УК РФ (незаконная обработка персональных данных) с 2026 года предусматривает серьезную ответственность: при отягчающих обстоятельствах (служебное положение, корысть, группа лиц) — штраф до 1 млн руб. или лишение свободы до 6 лет. За трансграничную передачу без разрешения — до 8 лет .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Только административный штраф</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Штраф до 1 млн рублей или лишение свободы до 6 лет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только дисквалификация</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Общественные работы</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 28 -->
+  <question type="multichoice">
+    <name>
+      <text>Регистрация в Роскомнадзоре — штраф</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какой штраф грозит организации за отсутствие регистрации в реестре Роскомнадзора как оператора персональных данных в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>За отсутствие регистрации в Роскомнадзоре при работе с персональными данными в 2026 году грозят штрафы: для должностных лиц — от 50 000 до 100 000 руб., для юридических лиц — от 300 000 до 1 млн руб. .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>От 10 000 до 30 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>От 50 000 до 100 000 рублей для должностных лиц, от 300 000 до 1 млн рублей для юрлиц</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Дисквалификация руководителя</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 29 -->
+  <question type="multichoice">
+    <name>
+      <text>Ошибка в периоде отчетности</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>К чему может привести ошибка в периоде отчетности (например, сдача полугодовой отчетности за 1 квартал)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>В 2026 году автоматические системы ФНС настроены на строгий контроль. Ошибка в периоде (указан не тот код) может привести к тому, что отчет будет отвергнут как дубликат или расценен как пропуск срока со всеми вытекающими штрафами .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Отчетность будет принята, но с замечанием</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Система может воспринять как дубликат или пропуск срока, что влечет автоматические штрафы</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ни к чему, ошибка техническая и не влияет на налоги</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только к необходимости подать пояснения</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 30 -->
+  <question type="multichoice">
+    <name>
+      <text>Ошибка в коде льготы</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что грозит организации, если в декларации указан неверный код налоговой льготы?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Код льготы должен строго соответствовать актуальному справочнику ФНС. Неверный код может привести к отказу в применении льготы, доначислению налога, пеней и штрафа по ст. 122 НК РФ .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ничего страшного, налоговая сама исправит</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Льгота может быть аннулирована, последует доначисление налога, пеней и штрафов</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Штраф 500 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 31 -->
+  <question type="multichoice">
+    <name>
+      <text>Нет подтверждения отправки через оператора ЭДО</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Почему важно иметь подтверждение от оператора ЭДО о своевременной отправке отчетности?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Если случился сбой на приемном шлюзе ФНС (особенно в пиковые дни), и отчет официально не зарегистрирован, подтверждение от оператора ЭДО о своевременной отправке будет доказательством в споре с налоговиками .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Для статистики</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>При сбое на стороне ФНС подтверждение имеет юридическую силу и доказывает, что отчетность сдана вовремя</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Чтобы получить скидку от оператора</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Это не важно, достаточно квитанции ФНС</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 32 -->
+  <question type="multichoice">
+    <name>
+      <text>Подача уточненки ДО проверки</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое преимущество дает подача уточненной налоговой декларации ДО того, как налоговая обнаружит ошибку?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 81 НК РФ и примечание к ст. 15.11 КоАП РФ: если налогоплательщик самостоятельно обнаружил ошибку, подал уточненную декларацию и уплатил недоимку и пени до того, как налоговая назначила выездную проверку или нашла ошибку камерально, то штраф можно избежать (освобождение от ответственности) .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Можно избежать штрафа (при условии уплаты налога и пеней до подачи уточненки)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Штраф уменьшается вдвое</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Можно не платить пени</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Налоговая не имеет права проводить проверку</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 33 -->
+  <question type="multichoice">
+    <name>
+      <text>Устаревшая форма отчетности в Росстат</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что означает сдача отчета в Росстат на устаревшем бланке (по форме, которая уже не действует)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Формы статистической отчетности обновляются регулярно. Подача отчета на недействующей форме (старом бланке) приравнивается к его отсутствию со всеми штрафными последствиями .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Штраф 1 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Отчет считается непредставленным, как и при полном отсутствии</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только уведомление об ошибке с правом исправления</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ничего, если правильно заполнены цифры</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 34 -->
+  <question type="multichoice">
+    <name>
+      <text>Счет-фактура как отдельный риск (ст.120)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Почему отсутствие счетов-фактур выделено в ст. 120 НК РФ как отдельное основание для штрафа?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Счет-фактура — ключевой документ для НДС. Отсутствие счета-фактуры не позволяет принять входной НДС к вычету, а также может свидетельствовать о неотражении операции. НК РФ выделяет его отдельно в ст. 120 .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Потому что счета-фактуры — самые дорогие документы</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Потому что они участвуют в администрировании НДС, и их отсутствие искажает расчеты с бюджетом</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Потому что счета-фактуры сложнее всего восстанавливать</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Потому что их проще всего подделать</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 35 -->
+  <question type="multichoice">
+    <name>
+      <text>Ответственность за подложные документы (ст.173.3 УК РФ)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>По какой статье УК РФ в 2026 году могут привлечь за использование подложных счетов-фактур даже при отсутствии умысла на уклонение от налогов?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 173.3 УК РФ была введена именно для борьбы с использованием фиктивных документов независимо от доказывания умысла на уклонение от уплаты налогов (хотя эти статьи часто применяются вместе). Наказание — до 4 лет лишения свободы, при отягчающих — до 7 лет .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ст. 159 (мошенничество)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Ст. 173.3 (подложные счета-фактуры и декларации)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ст. 199 (уклонение от уплаты налогов)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ст. 327 (подделка документов)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 36 -->
+  <question type="multichoice">
+    <name>
+      <text>Старые регистры бухучета (ведение вне регистров)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что грозит организации, если при проверке обнаружено, что счета бухгалтерского учета ведутся не в регистрах, установленных учетной политикой, а 'в тетрадке'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 15.11 КоАП РФ прямо относит к грубым нарушениям "ведение счетов бухгалтерского учета вне применяемых регистров бухгалтерского учета" .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Это нормально, если все сходится</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Грубое нарушение по ст. 15.11 КоАП РФ (ведение вне регистров)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только замечание</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Штраф 1 млн рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 37 -->
+  <question type="multichoice">
+    <name>
+      <text>Аудиторское заключение (ст.15.11)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какая ответственность грозит организации, обязанной проводить аудит, если у нее отсутствует аудиторское заключение в течение установленного срока хранения?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Перечень грубых нарушений по ст. 15.11 КоАП РФ включает "отсутствие у экономического субъекта... аудиторского заключения (в случае, если проведение аудита является обязательным) в течение установленных сроков хранения" .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Штраф по ст. 15.11 КоАП РФ как за грубое нарушение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Никакой, за хранение заключения отвечает аудитор</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только предупреждение</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Аннулирование лицензии</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 38 -->
+  <question type="multichoice">
+    <name>
+      <text>Умысел в налоговых нарушениях (ст.122 НК РФ)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Как налоговая инспекция может доказать умысел в неуплате налогов по ст. 122 НК РФ (что увеличивает штраф до 40%)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Умысел доказывается через обстоятельства: использование подложных документов, фиктивный документооборот, создание "технических" компаний, нелогичное снижение налогов при росте выручки. В 2026 году с введением ст. 173.3 УК РФ это стало еще актуальнее .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Только через confession (признание) директора</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Через совокупность обстоятельств: фиктивный документооборот, отсутствие реальных операций, нелогичность поведения</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Это невозможно доказать, умысел всегда предполагается</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только через показания свидетелей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 39 -->
+  <question type="multichoice">
+    <name>
+      <text>Что делать при получении 'уведомления об отказе'</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Что означает 'Уведомление об отказе' от ФНС при сдаче электронной отчетности?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>При получении "Уведомления об отказе" отчет считается не представленным. Но если успеть исправить и направить в течение 5 дней (п. 5.4 ст. 174 НК РФ для НДС, есть аналогичные правила для других налогов), днем сдачи будет считаться первоначальная дата — это позволяет избежать штрафа за просрочку .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Отчет утерян, нужно подать заново с опозданием</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Отчет считается непредставленным, его нужно исправить и отправить снова в течение 5 дней, тогда датой сдачи будет первоначальная</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Налоговая отказывается от проверки в принципе</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отчет принят, но нужно предоставить пояснения</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 40 -->
+  <question type="multichoice">
+    <name>
+      <text>Итоговое резюме рисков 2026</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по нарушениям бухучета и штрафам 2026</b><br>Какое из изменений 2026 года влечет НАИБОЛЬШИЙ риск для бухгалтера с точки зрения уголовной ответственности?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Повышение ставок и изменение правил грозит штрафами и доначислениями. Но введение уголовной ответственности (ст. 173.3 УК РФ — срок до 7 лет) и серьезное ужесточение наказаний за утечку персональных данных (ст. 272.1 УК РФ — до 8 лет) — это прямые риски для бухгалтера как физического лица, вплоть до реального лишения свободы .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Повышение НДС до 22%</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Новые правила признания доходов</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Введение ст. 173.3 УК РФ за подложные счета-фактуры и усиление ст. 272.1 УК РФ за утечку персональных данных</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Запрет на 'догоняющие расходы'</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 41 (доп. из второй части) -->
+  <question type="multichoice">
+    <name>
+      <text>Сроки уплаты НДС в 2026 году</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>В 2026 году налоговым периодом по НДС признается квартал. Каков общий порядок уплаты НДС в бюджет для плательщиков налога?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>По общему правилу для плательщиков НДС сумма налога по итогам квартала перечисляется в бюджет равномерно в течение следующих трех месяцев. Это правило распространяется на ОСНО, ЕСХН, а с 2026 года — и на УСН (при превышении порога доходов) .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Уплатить всю сумму НДС единым платежом не позднее 28-го числа месяца, следующего за истекшим кварталом</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Уплатить НДС равными долями в течение трех месяцев: не позднее 28-го числа каждого из трех месяцев, следующих за отчетным кварталом</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Уплатить НДС не позднее 30-го апреля следующего года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Уплатить НДС двумя платежами: 50% до 28-го числа следующего месяца и 50% до 28-го числа второго месяца</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 42 (бывший tax_deadline_004) -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за несвоевременную сдачу декларации (ст.119)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Организация просрочила сдачу налоговой декларации. Какой штраф грозит налогоплательщику по ст. 119 НК РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Статья 119 НК РФ устанавливает штраф в размере 5% от неуплаченной суммы налога за каждый полный или неполный месяц просрочки, но не более 30% и не менее 1 000 рублей .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Фиксированный штраф 5 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Штраф 10 000 рублей за каждый месяц просрочки</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>5% от неуплаченной суммы налога за каждый полный или неполный месяц просрочки, но не более 30% и не менее 1 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>20% от суммы налога, указанного в декларации</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 43 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за неуплату НДФЛ налоговым агентом (ст.123)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Налоговый агент (работодатель) удержал НДФЛ из зарплаты сотрудников, но не перечислил налог в бюджет вовремя. Каков размер штрафа?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Согласно п. 1 ст. 123 НК РФ, если налоговый агент не удержал и/или не перечислил НДФЛ, с него может быть взыскан штраф в размере 20% от суммы, которую необходимо было удержать/перечислить в бюджет .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>10% от суммы, подлежащей перечислению</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>20% от суммы, которую необходимо было перечислить в бюджет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5 000 рублей за каждого сотрудника</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Штраф не предусмотрен, только пени</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 44 -->
+  <question type="multichoice">
+    <name>
+      <text>Расчет пеней в 2026 году (временный порядок)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>В 2026 году действует временный порядок начисления пеней для организаций. Как рассчитываются пени для юридического лица при просрочке уплаты налога более 90 дней?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Федеральным законом от 29.10.2024 № 362-ФЗ установлен временный порядок начисления пеней, продленный до 31 декабря 2026 года: с 1 по 30 день — 1/300, с 31 по 90 день — 1/150, с 91 дня — снова 1/300 ключевой ставки ЦБ РФ .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>1/150 ключевой ставки ЦБ РФ за каждый день просрочки весь период</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>1/300 ключевой ставки ЦБ РФ весь период просрочки</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>1/300 ставки первые 30 дней, затем 1/150 с 31 по 90 день, и с 91 дня — снова 1/300</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Фиксированная сумма 10 000 рублей плюс 0,1% от недоимки за каждый день</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 45 -->
+  <question type="multichoice">
+    <name>
+      <text>Новое в исполнительском сборе с 2026 года</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>С января 2026 года изменился размер исполнительского сбора для юридических лиц при принудительном взыскании долга судебными приставами. Каков новый минимальный порог?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>С 9 января 2026 года минимальный порог исполнительского сбора для юридических лиц вырос с 10 000 до 20 000 рублей. Для физических лиц и ИП — с 1 000 до 2 000 рублей. Сам сбор составляет 12% от суммы отрицательного сальдо ЕНС .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>15 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>20 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>50 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 46 -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за неуплату налога (ст.122 НК РФ)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>По результатам проверки выявлена неуплата налога в результате занижения налоговой базы без признаков умысла. Какой штраф грозит налогоплательщику?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ст. 122 НК РФ устанавливает штраф 20% от неуплаченной суммы налога при неуплате в результате занижения базы или иного неправильного исчисления. При умышленном совершении деяния штраф увеличивается до 40% .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>10% от неуплаченной суммы налога</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>20% от неуплаченной суммы налога</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>40% от неуплаченной суммы налога</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5% от неуплаченной суммы за каждый месяц просрочки</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 47 -->
+  <question type="multichoice">
+    <name>
+      <text>Сроки уплаты налога на прибыль: ежемесячные авансы</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Организация на ОСНО уплачивает ежемесячные авансовые платежи по налогу на прибыль исходя из прибыли предыдущего квартала. До какого числа нужно перечислить аванс за март 2026 года?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ежемесячные авансовые платежи по налогу на прибыль перечисляются не позднее 28-го числа каждого месяца. Если 28-е число выпадает на выходной, срок переносится на следующий рабочий день. В марте 2026 года 28 марта — суббота, поэтому срок уплаты — 30 марта .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 марта 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 марта 2026 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 30 марта 2026 года (перенос с выходного)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 апреля 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 48 -->
+  <question type="multichoice">
+    <name>
+      <text>Годовой налог на прибыль — срок уплаты</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Каков крайний срок уплаты налога на прибыль по итогам 2026 года?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Согласно п. 1 ст. 287 НК РФ, налог на прибыль по итогам года уплачивается не позднее 28 марта года, следующего за отчетным. При совпадении с выходным срок переносится .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 марта 2027 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 марта 2027 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 марта 2027 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 апреля 2027 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 49 -->
+  <question type="multichoice">
+    <name>
+      <text>Срок уплаты аванса по УСН за 1 квартал 2026</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Организация на УСН обязана уплатить авансовый платеж за 1 квартал 2026 года. До какого числа это нужно сделать?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Согласно ст. 346.21 НК РФ, авансовые платежи по УСН уплачиваются не позднее 28-го числа месяца, следующего за отчетным периодом. За 1 квартал — не позднее 28 апреля .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 апреля 2026 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 апреля 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 апреля 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 мая 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 50 -->
+  <question type="multichoice">
+    <name>
+      <text>Годовой налог по УСН для организаций</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Организация на УСН за 2026 год получила доход. До какого числа нужно уплатить итоговый налог по УСН?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Организации уплачивают налог по УСН за год не позднее 28 марта следующего года. Для ИП срок — 28 апреля. В 2027 году 28 марта — воскресенье? Проверьте производственный календарь на 2027 год и помните о правиле переноса с выходных .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 марта 2027 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 марта 2027 года (перенос с выходного)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 марта 2027 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 апреля 2027 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 51 -->
+  <question type="multichoice">
+    <name>
+      <text>Срок уплаты налога на имущество организаций за 2026 год</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Организация должна уплатить налог на имущество по итогам 2026 года. Какой срок уплаты установлен НК РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>В 2026 году действуют прежние сроки уплаты имущественных налогов: налог за год — не позднее 28 февраля следующего года. 28 февраля 2027 года — воскресенье, поэтому срок переносится на 1 марта 2027 года. С 2027 года сроки изменятся .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 февраля 2027 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 1 марта 2027 года (перенос с выходного)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 марта 2027 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 марта 2027 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 52 -->
+  <question type="multichoice">
+    <name>
+      <text>Авансы по налогу на имущество за 2 квартал 2026</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>До какого числа нужно уплатить авансовый платеж по налогу на имущество организаций за 2 квартал 2026 года?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Авансовые платежи по налогу на имущество перечисляются не позднее 28-го числа месяца, следующего за отчетным периодом. За 2 квартал — не позднее 28 июля. С 2027 года сроки изменятся (будет 28 августа) .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 июля 2026 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 июля 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 июля 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 октября 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 53 -->
+  <question type="multichoice">
+    <name>
+      <text>Срок уплаты страховых взносов (кроме травматизма)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Работодатель начислил страховые взносы с зарплаты сотрудников за апрель 2026 года. До какого числа нужно перечислить взносы в бюджет?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Согласно п. 3 ст. 431 НК РФ, страховые взносы (кроме взносов на травматизм) уплачиваются не позднее 28-го числа месяца, следующего за расчетным. За апрель — не позднее 28 мая .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 25 мая 2026 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 мая 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 мая 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 15 июня 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 54 -->
+  <question type="multichoice">
+    <name>
+      <text>Срок уплаты взносов на травматизм</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>В каком порядке уплачиваются взносы на обязательное социальное страхование от несчастных случаев (взносы на травматизм) в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Взносы на травматизм регулируются Законом № 125-ФЗ. В отличие от других страховых взносов, их уплачивают ежемесячно не позднее 15-го числа месяца, следующего за расчетным .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ежеквартально не позднее 28-го числа месяца, следующего за кварталом</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ежемесячно не позднее 28-го числа следующего месяца</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Ежемесячно не позднее 15-го числа месяца, следующего за расчетным</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Один раз в год не позднее 28 марта</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 55 -->
+  <question type="multichoice">
+    <name>
+      <text>НДФЛ: срок перечисления удержанного налога</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>Зарплата за май 2026 года выплачена сотрудникам 5 июня. До какого числа нужно перечислить удержанный НДФЛ в бюджет?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>По общему правилу НДФЛ, удержанный с зарплаты, перечисляется не позднее дня, следующего за днем выплаты дохода. При выплате 5 июня — срок 6 июня. Если 6 июня выходной — перенос. Для большей части доходов действуют единые сроки перечисления: за период с 1 по 22 число — до 28-го числа текущего месяца, за период с 23 по последнее число — до 5-го числа следующего месяца. Взносы уплачиваются до 28-го числа следующего месяца .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Не позднее 28 мая 2026 года</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не позднее 28 июня 2026 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 29 июня 2026 года (перенос с выходного)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Не позднее 30 июня 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 56 (последний) -->
+  <question type="multichoice">
+    <name>
+      <text>Правило переноса срока уплаты налогов в 2026 году</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по срокам уплаты налогов и наказаниям 2026</b><br>В 2026 году действует особенность переноса сроков уплаты налогов. Какое правило применяется?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>В 2026 году действуют старые правила — срок уплаты, выпадающий на выходной, переносится на следующий рабочий день. Однако с 2026 года рассматривалась поправка об уплате в предшествующий рабочий день, но она пока не принята окончательно .</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Если последний день срока уплаты выпадает на выходной, срок переносится на следующий рабочий день</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если последний день срока уплаты выпадает на выходной, налог нужно уплатить в предшествующий рабочий день</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Сроки уплаты налогов никогда не переносятся</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Перенос возможен только по письменному заявлению налогоплательщика</text>
+    </answer>
+  </question>
+</quiz>
