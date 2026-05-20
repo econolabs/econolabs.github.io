@@ -1,5 +1,422 @@
 let quizesSets = [
 
+   {
+    "id": "synonyms001",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Эмбеддинг — как сказать по-русски",
+    "theme": "Терминология RAG и векторов",
+    "text": "Какой из перечисленных терминов является наиболее точным русскоязычным синонимом английского слова 'embedding' в контексте нейросетей?",
+    "choices": [
+      "Внедрение",
+      "Векторное представление (смысловой вектор)",
+      "Встраивание",
+      "Кодировка"
+    ],
+    "answers": ["Векторное представление (смысловой вектор)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Как перевести "embedding" на русский?</h5>
+        <p>Английское слово "embedding" в контексте нейросетей не имеет одного устоявшегося перевода.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Основные варианты перевода</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Векторное представление</strong> — наиболее точный и понятный для русскоязычных студентов вариант</li>
+            <li><strong>Смысловой вектор</strong> — подчёркивает семантический смысл</li>
+            <li><strong>Эмбеддинг</strong> — прямая транслитерация (часто используется в профессиональной среде)</li>
+            <li><strong>Вложенное представление</strong> — калька с английского, редко используется</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-success mt-2">
+        <strong>Запомните:</strong> Эмбеддинг — это <strong>вектор чисел</strong>, который кодирует смысл текста, изображения или другого объекта.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms002",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'токен'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В контексте работы больших языковых моделей (LLM) английское слово 'token' лучше всего переводится на русский язык как:",
+    "choices": [
+      "Маркер",
+      "Символ",
+      "Единица текста (часть слова, слово или знак препинания)",
+      "Жетон"
+    ],
+    "answers": ["Единица текста (часть слова, слово или знак препинания)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Что такое токен?</h5>
+        <p>Токен — это минимальная единица текста, которую обрабатывает языковая модель.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Варианты перевода 'token'</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Токен</strong> — прямая транслитерация (самый распространённый вариант в IT-среде)</li>
+            <li><strong>Единица текста</strong> — описательный, понятный для начинающих</li>
+            <li><strong>Лексема</strong> — термин из лингвистики, но в AI используется редко</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 'Маркер' — используется в контексте разметки (markup).<br>
+        • 'Символ' — слишком узко (токен может быть целым словом).<br>
+        • 'Жетон' — бытовое значение, не имеет отношения к IT.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms003",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'similarity'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В контексте сравнения векторов английское слово 'similarity' ('cosine similarity') лучше всего переводится как:",
+    "choices": [
+      "Идентичность",
+      "Сходство (или мера сходства)",
+      "Равенство",
+      "Корреляция"
+    ],
+    "answers": ["Сходство (или мера сходства)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Cosine similarity — косинусное сходство</h5>
+        <p>Это мера того, насколько два вектора направлены в одну сторону.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Правильный перевод</strong>
+        </div>
+        <div class="card-body">
+          <p><strong>Cosine similarity = Косинусное сходство</strong> (или косинусная близость)</p>
+          <p>Это стандартный термин в русскоязычной математической и IT-литературе.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 'Идентичность' — слишком сильное слово (означает полное совпадение).<br>
+        • 'Равенство' — подразумевает точное равенство векторов.<br>
+        • 'Корреляция' — статистический термин, имеет другой смысл.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms004",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'Retrieval'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В аббревиатуре RAG буква 'R' означает 'Retrieval'. Как лучше всего перевести это слово на русский язык в контексте RAG?",
+    "choices": [
+      "Извлечение (или поиск)",
+      "Сохранение",
+      "Восстановление",
+      "Ретроспектива"
+    ],
+    "answers": ["Извлечение (или поиск)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Что означает Retrieval в RAG?</h5>
+        <p>RAG = Retrieval-Augmented Generation — <strong>поиск</strong> (извлечение) + <strong>дополнение</strong> + <strong>генерация</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Варианты перевода 'retrieval'</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Поиск</strong> — наиболее понятный и распространённый вариант</li>
+            <li><strong>Извлечение</strong> — более точный, но менее употребимый</li>
+            <li><strong>Поиск информации</strong> — полный, но длинный вариант</li>
+          </ul>
+          <p>В RAG речь идёт о том, чтобы <strong>найти</strong> в базе знаний релевантные документы.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 'Сохранение' — это хранение (storage), а не поиск.<br>
+        • 'Восстановление' — восстановление удалённых данных.<br>
+        • 'Ретроспектива' — взгляд в прошлое, не имеет отношения к поиску.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms005",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'Augmented'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В аббревиатуре RAG буква 'A' означает 'Augmented'. Как лучше всего перевести это слово на русский язык в контексте RAG?",
+    "choices": [
+      "Увеличенный",
+      "Дополненный (контекстом)",
+      "Расширенный",
+      "Улучшенный"
+    ],
+    "answers": ["Дополненный (контекстом)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Что означает Augmented в RAG?</h5>
+        <p>RAG = Retrieval-<strong>Augmented</strong> Generation — поиск + <strong>дополнение</strong> + генерация.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Смысл термина 'Augmented'</strong>
+        </div>
+        <div class="card-body">
+          <p>В RAG мы <strong>дополняем</strong> запрос пользователя найденными документами (контекстом).</p>
+          <p>Запрос + Контекст → LLM → Ответ</p>
+          <p>Поэтому 'augmented' лучше всего переводить как <strong>дополненный</strong>.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 'Увеличенный' — про размер, а не про добавление контекста.<br>
+        • 'Расширенный' — тоже про размер, менее точен.<br>
+        • 'Улучшенный' — слишком общее слово.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms006",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'Hallucination'",
+    "theme": "Терминология RAG и векторов",
+    "text": "Английское слово 'hallucination' применительно к работе LLM (больших языковых моделей) на русский язык чаще всего переводят как:",
+    "choices": [
+      "Ошибка",
+      "Галлюцинация (выдумка модели)",
+      "Шум",
+      "Артефакт"
+    ],
+    "answers": ["Галлюцинация (выдумка модели)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Галлюцинация в LLM</h5>
+        <p>Это когда модель генерирует информацию, которая звучит правдоподобно, но не соответствует действительности.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Варианты перевода</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Галлюцинация</strong> — прямая транслитерация, устоявшийся термин в AI-сообществе</li>
+            <li><strong>Выдумка модели</strong> — описательный, понятный для начинающих вариант</li>
+            <li><strong>Ложный факт</strong> — также используется</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>Пример галлюцинации:</strong><br>
+        Вопрос: "Какой документ нужен для вычета?"<br>
+        Ответ LLM (галлюцинация): "Форма КНД-1151080"<br>
+        Реальность: Такой формы не существует.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms007",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'Chunking'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В контексте RAG английское слово 'chunking' лучше всего переводится на русский язык как:",
+    "choices": [
+      "Сжатие",
+      "Нарезка (разбиение документа на фрагменты)",
+      "Кэширование",
+      "Фрагментация"
+    ],
+    "answers": ["Нарезка (разбиение документа на фрагменты)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Что такое чанкинг?</h5>
+        <p>Чанкинг — это процесс разбиения большого документа на небольшие фрагменты (чанки).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Варианты перевода</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Нарезка</strong> — самый понятный для начинающих вариант</li>
+            <li><strong>Разбиение на чанки</strong> — профессиональный термин, часто используется</li>
+            <li><strong>Сегментация</strong> — более научный термин</li>
+          </ul>
+          <p>Цель чанкинга: получить кусочки текста, которые поместятся в контекстное окно LLM.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 'Сжатие' — уменьшение объёма данных.<br>
+        • 'Кэширование' — сохранение результатов для ускорения.<br>
+        • 'Фрагментация' — хаотичное разрушение целостности.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms008",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'Context Window'",
+    "theme": "Терминология RAG и векторов",
+    "text": "Выражение 'context window' применительно к работе LLM на русский язык лучше всего переводится как:",
+    "choices": [
+      "Контекстное окно (максимальное количество токенов, которое модель может обработать за раз)",
+      "Окно обзора",
+      "Рабочая область",
+      "Память модели"
+    ],
+    "answers": ["Контекстное окно (максимальное количество токенов, которое модель может обработать за раз)"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Что такое контекстное окно?</h5>
+        <p>Это максимальное количество токенов, которое LLM может "видеть" одновременно.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Примеры размеров контекстного окна</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>GPT-3.5: 4K–16K токенов</li>
+            <li>GPT-4 Turbo: 128K токенов</li>
+            <li>Gemini 1.5 Pro: 2 млн токенов</li>
+            <li>DeepSeek-V3: 128K–1M токенов</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>Что входит в контекстное окно?</strong><br>
+        Системный промпт + найденные RAG-чанки + история диалога + запрос пользователя + ответ модели.
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms009",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слов 'Recall' и 'Precision'",
+    "theme": "Терминология RAG и векторов",
+    "text": "В метриках качества поиска английские термины 'recall' и 'precision' на русский язык традиционно переводятся как:",
+    "choices": [
+      "Вспоминание и точность",
+      "Полнота и точность",
+      "Память и аккуратность",
+      "Охват и правильность"
+    ],
+    "answers": ["Полнота и точность"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>Recall и Precision — стандартные метрики поиска</h5>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Recall (Полнота)</strong>
+            </div>
+            <div class="card-body">
+              <p>Сколько релевантных документов мы нашли из всех существующих?</p>
+              <p class="text-center">$$Recall = \\frac{TP}{TP + FN}$$</p>
+              <p>Пример: В базе 10 релевантных документов. Система нашла 8. Recall = 0.8</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Precision (Точность)</strong>
+            </div>
+            <div class="card-body">
+              <p>Сколько из найденных документов действительно релевантны?</p>
+              <p class="text-center">$$Precision = \\frac{TP}{TP + FP}$$</p>
+              <p>Пример: Система нашла 10 документов, из них 8 релевантны. Precision = 0.8</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>Запомните:</strong> Полнота (Recall) отвечает на вопрос "ничего не упустили?", а Точность (Precision) — "тому, что нашли, можно верить?".
+      </div>
+    </div>`
+  },
+  {
+    "id": "synonyms010",
+    "type": "multiplechoices",
+    "header": "Русскоязычные синонимы в AI",
+    "title": "Синонимы слова 'LLM'",
+    "theme": "Терминология RAG и векторов",
+    "text": "Английская аббревиатура LLM (Large Language Model) на русский язык чаще всего расшифровывается и переводится как:",
+    "choices": [
+      "Большая языковая модель",
+      "Крупная лингвистическая машина",
+      "Модель большого языка",
+      "Глубокая нейросеть"
+    ],
+    "answers": ["Большая языковая модель"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>LLM — Large Language Model</h5>
+        <p>Это нейросеть, обученная на огромных объёмах текста и способная генерировать связный текст.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Примеры LLM</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>GPT-4 / GPT-4o</strong> (OpenAI)</li>
+            <li><strong>DeepSeek-V3</strong> (DeepSeek)</li>
+            <li><strong>GigaChat</strong> (Сбер)</li>
+            <li><strong>YandexGPT</strong> (Яндекс)</li>
+            <li><strong>Claude</strong> (Anthropic)</li>
+            <li><strong>Gemini</strong> (Google)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-success mt-2">
+        <strong>Почему 'большая'?</strong><br>
+        Потому что модель содержит миллиарды параметров (например, GPT-3 — 175 млрд параметров) и обучена на терабайтах текста.
+      </div>
+    </div>`
+  },
+
   {
     "id": "litho001",
     "type": "multiplechoices",

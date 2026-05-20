@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../dist/original.css">
+    <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+    <title>Бухгалтерский учет расчетных операций и капитала коммерческой организации</title>
+    <style>
+        /* дополнительные стили для единообразия с предыдущей страницей */
+        .card-img-top {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            filter: grayscale(0.7);
+        }
+        .badge-success-custom {
+            background-color: #28a745;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+        .table-bordered th, .table-bordered td {
+            vertical-align: middle;
+        }
+        .alert-info-custom {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations" data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <!-- Навигация (как на исходной странице) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#"><span class="sr-only"></span></a></li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt="" style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-secondary mt-3 mb-4">Бухгалтерский учет расчетных операций и капитала коммерческой организации</h1>
+
+        <!-- ТЕМА 1: Расчеты с поставщиками и подрядчиками -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Расчеты с поставщиками" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 1. Учет расчетов с поставщиками и подрядчиками (счет 60)</h3>
+                <p><strong>Счет 60 "Расчеты с поставщиками и подрядчиками"</strong> – активно-пассивный, предназначен для обобщения информации о расчетах с контрагентами за полученные товары, работы, услуги.</p>
+                <div class="alert alert-secondary">Ключевые моменты: кредитовое сальдо – задолженность перед поставщиками, дебетовое – сумма выданных авансов.</div>
+                <h5>Типовые проводки по счету 60:</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-sm">
+                        <thead class="table-light">
+                            <tr><th>Хозяйственная операция</th><th>Дебет</th><th>Кредит</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Поступили материалы (товары) от поставщика</td><td>10, 41</td><td>60</td></tr>
+                            <tr><td>Отражена задолженность подрядчику за выполненные работы</td><td>20, 26</td><td>60</td></tr>
+                            <tr><td>Перечислена оплата поставщику</td><td>60</td><td>51</td></tr>
+                            <tr><td>Выдан аванс поставщику</td><td>60 (субсчет "Авансы выданные")</td><td>51</td></tr>
+                            <tr><td>Зачтен ранее выданный аванс</td><td>60</td><td>60 (авансы)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Аналитический учет:</strong> по каждому поставщику, договору, сроку возникновения задолженности. Обязательна сверка расчетов (акты сверки).</p>
+            </div>
+        </div>
+
+        <!-- ТЕМА 2: Расчеты с покупателями и заказчиками -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Расчеты с покупателями" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 2. Учет расчетов с покупателями и заказчиками (счет 62)</h3>
+                <p><strong>Счет 62 "Расчеты с покупателями и заказчиками"</strong> – активно-пассивный, отражает дебиторскую и кредиторскую задолженность по отгрузкам и полученным авансам.</p>
+                <ul>
+                    <li>Дебет 62 – задолженность покупателя за отгруженную продукцию.</li>
+                    <li>Кредит 62 – погашение долга или получение аванса.</li>
+                </ul>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light"><tr><th>Операция</th><th>Дт</th><th>Кт</th></tr></thead>
+                        <tbody>
+                            <tr><td>Отгружена готовая продукция покупателю</td><td>62</td><td>90.1</td></tr>
+                            <tr><td>Поступила оплата от покупателя</td><td>51</td><td>62</td></tr>
+                            <tr><td>Получен аванс под будущую поставку</td><td>51</td><td>62 (субсчет "Авансы полученные")</td></tr>
+                            <tr><td>Зачет аванса после отгрузки</td><td>62 (авансы)</td><td>62</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-info-custom mt-2">При получении аванса начисляется НДС: Дт 76.АВ Кт 68. При отгрузке – восстановление НДС с аванса.</div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 3: Расчеты с подотчетными лицами -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Подотчетные лица" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 3. Учет расчетов с подотчетными лицами (счет 71)</h3>
+                <p><strong>Счет 71 "Расчеты с подотчетными лицами"</strong> – активно-пассивный, контролирует выдачу и использование денежных средств под отчет на хозяйственные и командировочные расходы.</p>
+                <h5>Основные операции:</h5>
+                <ul>
+                    <li>Выдача денег под отчет: Дт 71 Кт 50 (51).</li>
+                    <li>Списание расходов на основании авансового отчета: Дт 10, 20, 26, 44 Кт 71.</li>
+                    <li>Возврат неизрасходованной суммы: Дт 50 Кт 71.</li>
+                    <li>Удержание невозвращенного остатка из зарплаты: Дт 70 Кт 71.</li>
+                </ul>
+                <p><strong>Важно:</strong> авансовый отчет должен быть сдан в течение 3 рабочих дней после окончания командировки или истечения срока, на который выданы деньги.</p>
+                <div class="alert alert-success"><strong>Документальное оформление:</strong> заявление на выдачу подотчет, приказ о командировке, авансовый отчет, чеки, билеты.</div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 4: Расчеты с персоналом по оплате труда -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Зарплата" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 4. Учет расчетов с персоналом по оплате труда (счет 70)</h3>
+                <p><strong>Счет 70 "Расчеты с персоналом по оплате труда"</strong> – пассивный, отражает начисление заработной платы, отпускных, пособий и удержания.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Начисление зарплаты:</h6>
+                        <ul class="small">
+                            <li>Дт 20, 23, 25, 26, 44 Кт 70 – основная зарплата.</li>
+                            <li>Дт 91.2 Кт 70 – оплата труда при ликвидации последствий ЧС.</li>
+                            <li>Дт 69 Кт 70 – пособия за счет ФСС.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Удержания из зарплаты:</h6>
+                        <ul class="small">
+                            <li>Дт 70 Кт 68 – НДФЛ.</li>
+                            <li>Дт 70 Кт 76 – алименты, профсоюзные взносы.</li>
+                            <li>Дт 70 Кт 71 – невозвращенные подотчетные суммы.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>Выплата зарплаты: Дт 70 Кт 50 (51). Сроки выплаты строго регламентированы ТК РФ.</p>
+            </div>
+        </div>
+
+        <!-- ТЕМА 5: Расчеты по налогам и сборам (68, 69) -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="Налоги" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 5. Учет расчетов по налогам и страховым взносам (счета 68, 69)</h3>
+                <p><strong>Счет 68 "Расчеты по налогам и сборам"</strong> – пассивный, обобщает информацию по расчетам с бюджетом (НДС, налог на прибыль, имущество, транспортный и др.).<br>
+                <strong>Счет 69 "Расчеты по социальному страхованию"</strong> – учет взносов в ПФР, ФСС, ФОМС.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light">
+                            <tr><th>Операция</th><th>Дебет</th><th>Кредит</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Начислен НДС с продаж</td><td>90.3</td><td>68.НДС</td></tr>
+                            <tr><td>Начислен налог на прибыль</td><td>99</td><td>68.Прибыль</td></tr>
+                            <tr><td>Начислены страховые взносы (ПФР, ФСС, ФОМС)</td><td>20,26,44</td><td>69</td></tr>
+                            <tr><td>Перечислены налоги/взносы в бюджет</td><td>68,69</td><td>51</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-light">Декларации по основным налогам сдаются ежеквартально или ежемесячно в зависимости от режима налогообложения.</div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 6: Учет кредитов и займов (66, 67) -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Кредиты и займы" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 6. Учет кредитов и займов (счета 66, 67)</h3>
+                <p><strong>Счет 66 "Расчеты по краткосрочным кредитам и займам"</strong> (срок до 1 года), <strong>счет 67 "Долгосрочные кредиты и займы"</strong> (свыше 1 года).</p>
+                <ul>
+                    <li>Получение кредита: Дт 51 Кт 66 (67).</li>
+                    <li>Начисление процентов: Дт 91.2 Кт 66 (67).</li>
+                    <li>Погашение основного долга и процентов: Дт 66,67 Кт 51.</li>
+                    <li>Если заем получен от учредителя: Дт 50/51 Кт 66 – беспроцентный заем.</li>
+                </ul>
+                <p><em>Согласно ФСБУ 5/2019 и ФСБУ 6/2020, проценты по инвестиционному активу включаются в стоимость актива, если выполняются условия.</em></p>
+            </div>
+        </div>
+
+        <!-- ТЕМА 7: Учет расчетов с учредителями (75, 80) -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Учетный капитал" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 7. Учет уставного капитала и расчетов с учредителями (счета 75, 80)</h3>
+                <p><strong>Счет 80 "Уставный капитал"</strong> – пассивный, отражает величину уставного капитала, зафиксированную в учредительных документах.<br>
+                <strong>Счет 75 "Расчеты с учредителями"</strong> – активно-пассивный, для расчетов по вкладам в УК и выплате доходов.</p>
+                <h5>Корреспонденция при формировании УК:</h5>
+                <ul>
+                    <li>Отражена задолженность учредителей по вкладам: Дт 75.1 Кт 80.</li>
+                    <li>Внесены вклады: Дт 08,10,50,51 Кт 75.1.</li>
+                </ul>
+                <h5>Начисление и выплата дивидендов:</h5>
+                <ul>
+                    <li>Начислены дивиденды: Дт 84 Кт 75.2 (учредители – юрлица) или 70 (работники).</li>
+                    <li>Удержан налог (НДФЛ/налог на прибыль): Дт 75.2 Кт 68.</li>
+                    <li>Выплачены дивиденды: Дт 75.2 Кт 51.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ТЕМА 8: Учет резервного и добавочного капитала (82, 83) -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Резервы и добавочный капитал" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 8. Учет резервного капитала и добавочного капитала (счета 82, 83)</h3>
+                <p><strong>Счет 82 "Резервный капитал"</strong> – пассивный, формируется за счет чистой прибыли (для АО – обязательно, для ООО – по желанию).<br>
+                <strong>Счет 83 "Добавочный капитал"</strong> – пассивный, учитывает прирост стоимости внеоборотных активов при дооценке, эмиссионный доход и др.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Резервный капитал:</h6>
+                        <ul class="small">
+                            <li>Отчисления от прибыли: Дт 84 Кт 82.</li>
+                            <li>Использование на покрытие убытков: Дт 82 Кт 84.</li>
+                            <li>Погашение облигаций: Дт 82 Кт 66,67.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Добавочный капитал:</h6>
+                        <ul class="small">
+                            <li>Дооценка ОС: Дт 01 Кт 83.</li>
+                            <li>Эмиссионный доход (разница номинала и цены размещения акций): Дт 75 Кт 83.</li>
+                            <li>Уценка ОС в пределах предыдущей дооценки: Дт 83 Кт 01.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 9: Финансовые результаты и нераспределенная прибыль (99, 84) -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Прибыль и убытки" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 9. Учет финансовых результатов и нераспределенной прибыли (счета 99, 84)</h3>
+                <p><strong>Счет 99 "Прибыли и убытки"</strong> – активно-пассивный, формирует конечный финансовый результат за год.<br>
+                <strong>Счет 84 "Нераспределенная прибыль (непокрытый убыток)"</strong> – итоговый счет капитала.</p>
+                <h5>Реформация баланса:</h5>
+                <ul>
+                    <li>Закрытие субсчетов 90 и 91 на 99: Дт 90.9 Кт 99 (прибыль от продаж), Дт 99 Кт 90.9 (убыток).</li>
+                    <li>Начисление условного расхода по налогу на прибыль (ПБУ 18/02): Дт 99 Кт 68.</li>
+                    <li>Списание чистой прибыли в нераспределенную: Дт 99 Кт 84.</li>
+                    <li>Убыток: Дт 84 Кт 99.</li>
+                    <li>Использование прибыли на дивиденды: Дт 84 Кт 75/70.</li>
+                </ul>
+                <div class="alert alert-success"><strong>Важно:</strong> Сальдо счета 84 показывает капитализированную прибыль, доступную для реинвестирования.</div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 10: Практический кейс – проводки по расчетным операциям и капиталу -->
+        <div class="card my-3" style="max-width:1000px;">
+            <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Практикум" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 10. Практический пример: комплексная задача по расчетам и капиталу</h3>
+                <div class="alert alert-secondary">Исходные данные: ООО "Альфа" за январь 2025 совершило операции:</div>
+                <ol class="small">
+                    <li>Уставный капитал 500 000 руб. (сформирован полностью).</li>
+                    <li>Получен краткосрочный кредит 300 000 руб.</li>
+                    <li>Приобретены материалы у поставщика на 120 000 руб. + НДС 20% (счет-фактура).</li>
+                    <li>Отгружена продукция покупателю на 240 000 руб. + НДС.</li>
+                    <li>Начислена зарплата рабочим 80 000 руб., страховые взносы (30%) 24 000 руб.</li>
+                    <li>Перечислен налог НДС в бюджет 20 000 руб.</li>
+                    <li>Выданы подотчет на хознужды 10 000 руб.</li>
+                    <li>Списан авансовый отчет на канцтовары 8 000 руб.</li>
+                    <li>Получен аванс от покупателя 50 000 руб.</li>
+                </ol>
+                <h6>Требуется составить корреспонденцию счетов.</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light"><tr><th>№</th><th>Дебет</th><th>Кредит</th><th>Сумма</th><th>Пояснение</th></tr></thead>
+                        <tbody>
+                            <tr><td>2</td><td>51</td><td>66</td><td>300 000</td><td>Получен кредит</td></tr>
+                            <tr><td>3</td><td>10</td><td>60</td><td>120 000</td><td>Материалы</td></tr>
+                            <tr><td>3а</td><td>19</td><td>60</td><td>24 000</td><td>НДС по материалам</td></tr>
+                            <tr><td>4</td><td>62</td><td>90.1</td><td>288 000</td><td>Выручка с НДС (240 000+НДС 48 000)</td></tr>
+                            <tr><td>4б</td><td>90.3</td><td>68</td><td>48 000</td><td>НДС начислен</td></tr>
+                            <tr><td>5</td><td>20</td><td>70</td><td>80 000</td><td>Зарплата</td></tr>
+                            <tr><td>5в</td><td>20</td><td>69</td><td>24 000</td><td>Страховые взносы</td></tr>
+                            <tr><td>6</td><td>68</td><td>51</td><td>20 000</td><td>Уплачен НДС</td></tr>
+                            <tr><td>7</td><td>71</td><td>50</td><td>10 000</td><td>Выданы подотчет</td></tr>
+                            <tr><td>8</td><td>26</td><td>71</td><td>8 000</td><td>Списаны канцтовары</td></tr>
+                            <tr><td>9</td><td>51</td><td>62.ав</td><td>50 000</td><td>Аванс получен</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-2">
+                    <a href="#" class="btn btn-sm btn-outline-primary" onclick="alert('Проверьте закрытие счетов 90, 91 и формирование финансового результата. Прибыль от продаж = 288 000 - 48 000 (НДС) - себестоимость (материалы и зарплата).')">Подсказка по расчету прибыли</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТЕМА 11: Учетная политика в части расчетов и капитала -->
+        <div class="card my-3" style="max-width:1000px;">
+            <div class="card-body">
+                <h3 class="card-title">Тема 11. Раскрытие информации о расчетах и капитале в отчетности</h3>
+                <p>Согласно ФСБУ 4/2023 "Бухгалтерская (финансовая) отчетность", в балансе и пояснениях необходимо раскрывать:</p>
+                <ul>
+                    <li>Суммы дебиторской и кредиторской задолженности с разбивкой по срокам.</li>
+                    <li>Информацию о резервах по сомнительным долгам (Дт 91 Кт 63).</li>
+                    <li>Изменения в уставном, добавочном, резервном капиталах.</li>
+                    <li>Сведения о дивидендах, объявленных и выплаченных.</li>
+                    <li>Расшифровку кредитов и займов (ставки, сроки, обеспечение).</li>
+                </ul>
+                <div class="alert alert-info-custom">Для малых предприятий допускается сокращенный объем пояснений, но обязательны данные о существенных остатках по расчетам с контрагентами.</div>
+            </div>
+        </div>
+
+    <div class="card my-3" >
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+
+            <div id="simpleaccounting" class="container" data-openquizid="assetsaccounting"></div>
+
+
+                <h3 class="card-title">Самостоятельная работа (домашнее задание)</h3>
+
+                <div class="alert alert-primary m-3">
+                   <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
+                        бухгалтерского учета
+                        финансово-хозяйственной деятельности организаций Приказ Минфина России от 31.10.2000 № 94н</a><br>
+                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
+                    Всегда иметь с собой на занятиях <br>
+                    Знать близко к тексту<br>                    
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div> <!-- конец container -->
+
+    <!-- Скрипты для интерактива (как на исходной странице) -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./simpleaccounting.js"></script>
+</body>
+</html>

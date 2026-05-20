@@ -1,541 +1,958 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прикладные инструменты ИИ — Практические работы для JupyterLite</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f5f7fb;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .card {
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-        }
-        .card-img-top {
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
-            filter: grayscale(100%);
-            height: 160px;
-            object-fit: cover;
-        }
-        .card-title {
-            color: #1e2a3e;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        pre {
-            background-color: #1e2a3e;
-            color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            overflow-x: auto;
-        }
-        .badge-ai {
-            background-color: #4f46e5;
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        .text-muted-small {
-            font-size: 0.8rem;
-            color: #6c757d;
-            border-top: 1px solid #e9ecef;
-            padding-top: 0.75rem;
-            margin-top: 1rem;
-        }
-        h1 {
-            color: #0f172a;
-            font-weight: 700;
-        }
-        .lead {
-            color: #334155;
-        }
-        .card-body {
-            padding: 1.5rem;
-        }
-    </style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    -->
+  <link rel="stylesheet" href="../dist/original.css" />
+
+       <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css">
+
+  
+
+    <link rel="stylesheet" href="../dist/katex.min.css" />
+
+    <script src="../dist/katex.min.js"></script>
+
+    
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/rtk-query.umd.min.js"></script>
+
+
+  <script src="./quizesSets.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+  <!-- <script src="../dist/react18.3.1.production.min.js"></script>
+  <script src="../dist/react-dom18.3.1.production.min.js"></script>
+  <script src="../dist/redux-toolkit.umd.min.js"></script>
+  <script src="../dist/react-bootstrap1.6.8.min.js"></script> -->
+  <title>Прикладные инструменты искусственного интеллекта</title>
 </head>
-<body>
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1>🤖 Прикладные инструменты искусственного интеллекта</h1>
-        <p class="lead">Практические работы для JupyterLite — копируйте код и запускайте прямо в браузере</p>
-        <p class="text-muted">✅ Все примеры адаптированы для работы в WebAssembly-окружении | ✅ Никакой установки | ✅ Мгновенный результат</p>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+  data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="sr-only"></span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href="https://vk.com/dmglvn">
+          <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+            style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+        </a>
+      </form>
     </div>
+  </nav>
 
-    <!-- Карточка 1: Трансформеры прямо в браузере -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=AI+Model+in+Browser" alt="Нейросеть в браузере" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🧠 1. Трансформеры прямо в браузере — анализ тональности текста</h3>
-            <div class="badge-ai">🤗 transformers.js</div>
-            <p>Загружаем настоящую ИИ-модель (DistilBERT) и анализируем эмоции в тексте — всё локально, без сервера.</p>
-            <pre><code class="language-python"># Карточка 1: Трансформеры прямо в браузере
-# Эта карточка загружает настоящую ИИ-модель и запускает её локально
+  <div class="container">
+    <h1 class="text-secondary">Прикладные инструменты искусственного интеллекта</h1>
 
-%pip install transformers_js_py
-
-from transformers_js_py import import_transformers_js
-
-transformers = await import_transformers_js()
-pipe = await transformers.pipeline('sentiment-analysis')
-
-result = await pipe('I love learning about artificial intelligence!')
-print(f"Результат: {result}")
-
-# Попробуйте изменить текст!
-# result = await pipe('This is terrible, I hate it.')
-# print(result)</code></pre>
-            <div class="text-muted-small">🔬 Что происходит: загружается модель DistilBERT, которая определяет позитив/негатив текста. Работает прямо в вашем браузере через WebAssembly.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 2: Кластеризация K-Means -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=K-Means+Clustering" alt="Кластеризация" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🎯 2. Кластеризация данных — как Netflix рекомендует фильмы</h3>
-            <div class="badge-ai">📊 scikit-learn</div>
-            <p>Алгоритм K-Means группирует пользователей по интересам — основа рекомендательных систем.</p>
-            <pre><code class="language-python"># Карточка 2: Кластеризация — как Netflix узнаёт ваши вкусы
-
-%pip install scikit-learn numpy matplotlib seaborn
-
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
-
-# Генерируем "зрителей" (точки) и "жанры" (кластеры)
-X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.60, random_state=42)
-
-# Обучаем K-Means
-kmeans = KMeans(n_clusters=4, random_state=42)
-y_kmeans = kmeans.fit_predict(X)
-
-# Визуализируем кластеры
-plt.figure(figsize=(10, 6))
-plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap='viridis')
-plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], 
-            marker='x', s=200, linewidths=3, color='red')
-plt.title('Кластеризация пользователей по предпочтениям (K-Means)')
-plt.xlabel('Признак 1')
-plt.ylabel('Признак 2')
-plt.show()
-
-print("Красные крестики — центры кластеров (жанры).")
-print("Каждый цвет — группа людей со схожими интересами.")</code></pre>
-            <div class="text-muted-small">📌 K-Means — один из самых популярных алгоритмов неконтролируемого обучения. Netflix, Spotify и Amazon используют его для группировки пользователей.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 3: Линейная регрессия -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Linear+Regression" alt="Регрессия" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">📈 3. Линейная регрессия — предсказываем успеваемость студентов</h3>
-            <div class="badge-ai">📉 scikit-learn</div>
-            <p>Модель машинного обучения, которая предсказывает числовые значения на основе исторических данных.</p>
-            <pre><code class="language-python"># Карточка 3: Линейная регрессия — предсказываем оценки
-
-%pip install scikit-learn numpy matplotlib pandas
-
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
-# Данные: часы подготовки и итоговая оценка
-hours = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).reshape(-1, 1)
-scores = np.array([45, 50, 55, 60, 65, 70, 75, 85, 90, 95])
-
-# Создаём и обучаем модель
-model = LinearRegression()
-model.fit(hours, scores)
-
-# Предсказываем
-hours_pred = np.array([11, 12]).reshape(-1, 1)
-scores_pred = model.predict(hours_pred)
-
-# Визуализация
-plt.scatter(hours, scores, color='blue', label='Реальные данные')
-plt.plot(hours, model.predict(hours), color='red', linewidth=2, label='Линия регрессии')
-plt.scatter(hours_pred, scores_pred, color='green', s=100, marker='s', label='Предсказание')
-plt.xlabel('Часы подготовки')
-plt.ylabel('Итоговая оценка')
-plt.title('Предсказание оценки по часам занятий')
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.show()
-
-print(f"Коэффициент (наклон): {model.coef_[0]:.2f}")
-print(f"Свободный член: {model.intercept_:.2f}")
-print(f"R² (качество модели): {r2_score(scores, model.predict(hours)):.3f}")
-print(f"Предсказание для 11 часов: {scores_pred[0]:.1f} баллов")</code></pre>
-            <div class="text-muted-small">🧮 Линейная регрессия — основа прогнозирования цен на жильё, продаж, нагрузки и многого другого.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 4: Нейросеть на чистом Python (один нейрон) -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Neural+Network+from+Scratch" alt="Нейрон" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">⚡ 4. Нейросеть с нуля — один нейрон, который обучается</h3>
-            <div class="badge-ai">🧠 numpy</div>
-            <p>Реализуем простейший перцептрон и обучим его на логическом ИЛИ — поймём, как работают нейросети внутри.</p>
-            <pre><code class="language-python"># Карточка 4: Нейросеть с нуля — один нейрон
-
-%pip install numpy
-
-import numpy as np
-
-# Активационная функция (ступенька)
-def step_function(x):
-    return 1 if x >= 0 else 0
-
-class Perceptron:
-    def __init__(self, n_inputs, learning_rate=0.1):
-        self.weights = np.random.randn(n_inputs)
-        self.bias = np.random.randn()
-        self.lr = learning_rate
     
-    def predict(self, inputs):
-        linear = np.dot(inputs, self.weights) + self.bias
-        return step_function(linear)
-    
-    def train(self, X, y, epochs=20):
-        for epoch in range(epochs):
-            errors = 0
-            for inputs, target in zip(X, y):
-                prediction = self.predict(inputs)
-                error = target - prediction
-                if error != 0:
-                    self.weights += self.lr * error * np.array(inputs)
-                    self.bias += self.lr * error
-                    errors += 1
-            if epoch % 5 == 0:
-                print(f"Эпоха {epoch}: ошибок {errors}")
+     
+  <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Искусственный интеллект в Python</h3>
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center mb-4">
+                Практическое руководство для работы в Jupyter Lite
+              </h1>
+              <p class="lead text-center">
+                https://econolabspython.github.io/jupyterlite/lab/index.html
+              </p>
 
-# Логическое ИЛИ
-X_train = [[0,0], [0,1], [1,0], [1,1]]
-y_train = [0, 1, 1, 1]
-
-p = Perceptron(n_inputs=2, learning_rate=0.1)
-p.train(X_train, y_train, epochs=20)
-
-print("\nПроверка обученного перцептрона (ЛОГИЧЕСКОЕ ИЛИ):")
-for inputs in X_train:
-    print(f"{inputs} → {p.predict(inputs)}")
-
-# Задание: измените логическую функцию на "И" (y_train = [0,0,0,1]) и посмотрите, обучится ли?</code></pre>
-            <div class="text-muted-small">🔬 Так работают все нейросети: миллиарды таких нейронов, соединённых в слои, порождают ChatGPT и Midjourney.</div>
+              <div class="text-center mb-5">
+                <p class="lead">
+                  Практические работы для JupyterLite — копируйте код и
+                  запускайте прямо в браузере
+                </p>
+              
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Карточка 5: RAG — чат с вашими документами -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=RAG+Document+Chat" alt="RAG" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">📄 5. RAG — заставляем ИИ отвечать по вашим документам</h3>
-            <div class="badge-ai">🧩 transformers + faiss</div>
-            <p>Retrieval-Augmented Generation: сначала ищем нужный фрагмент, потом генерируем ответ на его основе.</p>
-            <pre><code class="language-python"># Карточка 5: RAG — чат с вашими документами
+        <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Токены и эмбеддинги — как AI понимает текст</h3>
 
-%pip install sentence-transformers faiss-cpu
 
-import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
+    <div class="card-body">
+        <h3>Токены и эмбеддинги — как AI понимает текст</h3>
+        <p class="card-text">Прежде чем AI сможет работать с текстом, он превращает его в числа. Токены — это «кирпичики» текста, а эмбеддинги — их числовые координаты в пространстве смыслов.</p>
 
-# Наш учебный документ (короткая инструкция)
-documents = [
-    "JupyterLite позволяет запускать Python в браузере без сервера.",
-    "Для установки библиотек используйте %pip install или await piplite.install().",
-    "ИИ-модели могут работать прямо в браузере через WebAssembly.",
-    "RAG расшифровывается как Retrieval-Augmented Generation.",
-    "Сегодня мы изучаем практические инструменты искусственного интеллекта."
-]
-
-# Загружаем эмбеддер (превращает текст в числа)
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-# Создаём векторную базу
-embeddings = model.encode(documents)
-dimension = embeddings.shape[1]
-index = faiss.IndexFlatL2(dimension)
-index.add(embeddings.astype(np.float32))
-
-# Функция поиска
-def retrieve(query, k=2):
-    query_embedding = model.encode([query])
-    distances, indices = index.search(query_embedding.astype(np.float32), k)
-    return [documents[i] for i in indices[0]]
-
-# Пример поиска
-question = "Как установить библиотеку в JupyterLite?"
-relevant_chunks = retrieve(question)
-print(f"Вопрос: {question}")
-print("Найденные релевантные фрагменты:")
-for chunk in relevant_chunks:
-    print(f"  - {chunk}")
-
-# Имитация генерации ответа (настоящий RAG использует LLM)
-print("\n💡 Смоделированный ответ ИИ:")
-print("Чтобы установить библиотеку в JupyterLite, используйте команду %pip install или await piplite.install().")
-
-# Дополнительное задание: измените вопрос и посмотрите, какие фрагменты найдутся</code></pre>
-            <div class="text-muted-small">📚 RAG — технология, которая лежит в основе корпоративных чат-ботов. Модель не галлюцинирует, потому что отвечает строго по вашим документам.</div>
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Токенизация:</span><br>
+            «Привет, мир!» → [«Привет», «,», « мир», «!»] — 4 токена<br><br>
+            <span class="sql-keyword"># Эмбеддинг (условный):</span><br>
+            «кот» → [0.12, -0.34, 0.56, ..., 0.78]  # 384 или 768 чисел<br>
+            «кошка» → [0.13, -0.35, 0.55, ..., 0.79]  # почти такой же вектор
         </div>
-    </div>
 
-    <!-- Карточка 6: Генерация текста с transformers -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Text+Generation" alt="Генерация текста" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">✍️ 6. Генерация текста — маленькая языковая модель в браузере</h3>
-            <div class="badge-ai">🤗 transformers.js</div>
-            <p>Загружаем миниатюрную GPT-подобную модель и генерируем текст по подсказке.</p>
-            <pre><code class="language-python"># Карточка 6: Генерация текста в браузере
-
-%pip install transformers_js_py
-
-from transformers_js_py import import_transformers_js
-
-transformers = await import_transformers_js()
-
-# Загружаем маленькую модель для генерации
-generator = await transformers.pipeline('text-generation', model='Xenova/distilgpt2')
-
-prompt = "The future of artificial intelligence is"
-result = await generator(prompt, max_new_tokens=50, do_sample=True, temperature=0.8)
-
-print("Промпт:", prompt)
-print("Сгенерировано:", result[0]['generated_text'])
-
-# Попробуйте другие промпты:
-# prompt = "In 2030, most people will work as"
-# prompt = "The most important skill in the AI age is"</code></pre>
-            <div class="text-muted-small">📝 DistilGPT2 — уменьшенная версия GPT-2. Достаточно мала, чтобы работать в браузере, но демонстрирует принцип автогенерации текста.</div>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Токен:</strong></p>
+                <ul>
+                    <li>Минимальная единица текста для LLM</li>
+                    <li>Это может быть: слово, часть слова, знак препинания, пробел</li>
+                    <li>За токены платят при использовании API</li>
+                    <li>1 токен ≈ 0.75 слова на русском</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Эмбеддинг (вектор):</strong></p>
+                <ul>
+                    <li>Числовое представление смысла</li>
+                    <li>Похожие тексты → близкие векторы</li>
+                    <li>Размерность: от 384 (small) до 1536+ (large)</li>
+                    <li>Основа для поиска по смыслу</li>
+                </ul>
+            </div>
         </div>
-    </div>
-
-    <!-- Карточка 7: Распознавание изображений с MobileNet -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Image+Classification" alt="Распознавание" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🖼️ 7. Компьютерное зрение — что изображено на картинке?</h3>
-            <div class="badge-ai">👁️ transformers.js</div>
-            <p>Нейросеть MobileNet распознаёт объекты на изображении прямо в браузере.</p>
-            <pre><code class="language-python"># Карточка 7: Распознавание изображений — классификация
-
-%pip install transformers_js_py pillow
-
-from transformers_js_py import import_transformers_js
-import numpy as np
-from PIL import Image
-
-transformers = await import_transformers_js()
-
-# Загружаем модель классификации изображений
-classifier = await transformers.pipeline('image-classification', model='Xenova/mobilenet-v2')
-
-# Создаём простую тестовую картинку (32x32, случайные пиксели — в реальности загрузите свою)
-# В JupyterLite можно загрузить файл через загрузчик файлов, здесь — имитация
-print("Для демонстрации: создаём случайное изображение. В реальном проекте загрузите фото.")
-random_image = Image.fromarray(np.random.randint(0, 255, (224, 224, 3), dtype=np.uint8))
-
-# Распознаём объекты (на случайной картинке результат будет шумом)
-# В реальности: results = await classifier("my_cat.jpg")
-results = await classifier(random_image)
-
-print("Топ-3 предсказанных класса:")
-for res in results[:3]:
-    print(f"  {res['label']}: {res['score']:.4f}")
-
-print("\n💡 В реальном проекте загрузите настоящее изображение (фото кошки/собаки/машины) и посмотрите на точность.")</code></pre>
-            <div class="text-muted-small">📸 MobileNet — лёгкая нейросеть, работающая даже на телефонах. Она используется в Google Lens и подобных приложениях.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 8: Эмбеддинги и поиск смыслов -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Embeddings" alt="Эмбеддинги" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🔍 8. Эмбеддинги — как ИИ понимает смысл слов</h3>
-            <div class="badge-ai">📐 sentence-transformers</div>
-            <p>Превращаем слова и предложения в числа, чтобы искать похожие смыслы.</p>
-            <pre><code class="language-python"># Карточка 8: Эмбеддинги — смысл через числа
-
-%pip install sentence-transformers
-
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-
-# Загружаем модель для получения эмбеддингов
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-# Набор фраз для анализа
-phrases = [
-    "Я люблю программировать на Python",
-    "Python — мой любимый язык программирования",
-    "Сегодня отличная погода для прогулки",
-    "Машинное обучение меняет мир",
-    "Нейросети генерируют текст и изображения"
-]
-
-# Получаем эмбеддинги (векторные представления)
-embeddings = model.encode(phrases)
-
-# Сравниваем первую фразу со всеми остальными
-target_phrase = phrases[0]
-target_embedding = embeddings[0]
-
-print(f"Ищем похожие по смыслу на: '{target_phrase}'\n")
-
-for i, phrase in enumerate(phrases):
-    similarity = cosine_similarity([target_embedding], [embeddings[i]])[0][0]
-    print(f"{'✅' if i == 0 else '  '} Сходство с '{phrase}': {similarity:.4f}")
-
-# Дополнительное задание: добавьте свою фразу в список и посмотрите, с какой она будет иметь максимальное сходство.</code></pre>
-            <div class="text-muted-small">🧩 Эмбеддинги — фундамент для поиска, RAG, кластеризации. Они превращают неструктурированный текст в числа, с которыми может работать математика.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 9: Простая нейросеть на Keras (через TensorFlow.js) -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Simple+Neural+Network" alt="Keras нейросеть" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🏗️ 9. Нейросеть на Keras (через TensorFlow.js) — XOR задача</h3>
-            <div class="badge-ai">🧮 TensorFlow.js</div>
-            <p>Обучаем простую нейросеть с двумя скрытыми слоями решать задачу XOR (исключающее ИЛИ).</p>
-            <pre><code class="language-python"># Карточка 9: Нейросеть на Keras — XOR
-
-%pip install tensorflow
-
-import numpy as np
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-
-# Данные XOR: входы и правильные ответы
-X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=np.float32)
-y = np.array([[0], [1], [1], [0]], dtype=np.float32)
-
-# Строим модель
-model = Sequential([
-    Dense(8, activation='relu', input_shape=(2,)),
-    Dense(8, activation='relu'),
-    Dense(1, activation='sigmoid')
-])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-# Обучаем
-history = model.fit(X, y, epochs=500, verbose=0)
-
-# Проверяем
-print("Обучение завершено. Точность на обучающей выборке:")
-loss, accuracy = model.evaluate(X, y, verbose=0)
-print(f"Accuracy: {accuracy:.4f}")
-
-print("\nПредсказания модели:")
-for inputs in X:
-    pred = model.predict(inputs.reshape(1,2), verbose=0)[0][0]
-    print(f"{inputs} → {pred:.4f} (округлённо: {round(pred)})")
-
-print("\nЭто доказывает, что нейросеть может выучить нелинейную функцию XOR.")</code></pre>
-            <div class="text-muted-small">🎓 XOR — классический пример, который не мог решить перцептрон в 1969 году, что привело к «зиме ИИ». Современные сети с несколькими слоями решают её легко.</div>
-        </div>
-    </div>
-
-    <!-- Карточка 10: Генерация изображений (Stable Diffusion через API, демо без API-ключа) -->
-    <div class="card my-4" style="max-width: 100%;">
-        <img loading="lazy" class="card-img-top" src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Stable+Diffusion" alt="Генерация" style="filter: grayscale(1);">
-        <div class="card-body">
-            <h3 class="card-title">🎨 10. Принцип работы диффузионных моделей — симуляция шумоподавления</h3>
-            <div class="badge-ai">🖌️ Диффузия</div>
-            <p>Генерация изображений вроде Stable Diffusion работает так: модель постепенно убирает шум из случайного пятна, превращая его в осмысленную картинку.</p>
-            <pre><code class="language-python"># Карточка 10: Принцип диффузионных моделей (симуляция)
-
-%pip install numpy matplotlib
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-def add_noise(image, noise_level):
-    """Добавляет шум к изображению"""
-    noise = np.random.randn(*image.shape) * noise_level
-    return np.clip(image + noise, 0, 1)
-
-def denoise_step(noisy_image, step, total_steps):
-    """Симуляция одного шага денойзинга (упрощённо)"""
-    # В реальной модели это делает нейросеть
-    alpha = step / total_steps
-    denoised = noisy_image * (1 + alpha) - alpha * np.random.randn(*noisy_image.shape) * 0.1
-    return np.clip(denoised, 0, 1)
-
-# Создаём простое "изображение" (цифра 8 в виде матрицы)
-clean_image = np.zeros((28, 28))
-clean_image[10:18, 10:18] = 1  # квадрат 8x8
-# Рисуем круг (упрощённо)
-for i in range(28):
-    for j in range(28):
-        if (i-14)**2 + (j-14)**2 < 36:
-            clean_image[i, j] = 1
-
-# Добавляем шум
-noisy = add_noise(clean_image, noise_level=0.5)
-
-# Симулируем процесс денойзинга
-steps = 10
-current = noisy.copy()
-fig, axes = plt.subplots(1, steps+2, figsize=(15, 3))
-axes[0].imshow(clean_image, cmap='gray')
-axes[0].set_title("Оригинал")
-axes[1].imshow(noisy, cmap='gray')
-axes[1].set_title("Зашумлённое")
-
-for i in range(steps):
-    current = denoise_step(current, i+1, steps)
-    axes[i+2].imshow(current, cmap='gray')
-    axes[i+2].set_title(f"Шаг {i+1}")
-
-for ax in axes:
-    ax.axis('off')
-plt.tight_layout()
-plt.show()
-
-print("Это симуляция обратного диффузионного процесса.")
-print("Реальные модели (Stable Diffusion, DALL-E) обучаются предсказывать шум, который нужно убрать.")
-print("На входе — случайный шум, на выходе — осмысленное изображение.")</code></pre>
-            <div class="text-muted-small">✨ Диффузионные модели — основа Midjourney, DALL-E и Stable Diffusion. Они превращают случайный шум в красивое изображение за сотни шагов.</div>
-        </div>
-    </div>
-
-    <div class="alert alert-primary mt-5" role="alert">
-        <strong>💡 Как использовать эти карточки:</strong><br>
-        1. Зайдите на ваш JupyterLite: <code>https://econolabspython.github.io/jupyterlite/lab/index.html</code><br>
-        2. Создайте новый ноутбук (File → New → Notebook)<br>
-        3. Скопируйте код из любой карточки (от <code># Карточка X...</code> до последней строки)<br>
-        4. Вставьте в ячейку и нажмите Shift+Enter — всё заработает!<br>
-        5. Экспериментируйте: меняйте параметры, добавляйте свои данные.
-    </div>
-    <div class="alert alert-secondary mt-3">
-        <strong>📦 Библиотеки, которые используются в карточках:</strong> transformers_js_py, scikit-learn, numpy, matplotlib, pandas, sentence-transformers, faiss-cpu, tensorflow, pillow. Все они устанавливаются через <code>%pip install</code> или <code>await piplite.install()</code> прямо в ноутбуке.
     </div>
 </div>
+</div>
+
+     <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Векторы и меры сходства — как сравнивать смыслы</h3>
+
+        <p class="card-text">Чтобы найти похожие документы, нужно уметь измерять расстояние между векторами. Главный инструмент — косинусное сходство.</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Косинусное сходство (cosine similarity):</span><br>
+            cos(θ) = (A·B) / (|A| × |B|)<br>
+            результат: от 0 (не похожи) до 1 (очень похожи)<br><br>
+            <span class="sql-keyword"># Пример:</span><br>
+            «кот спит» и «кошка отдыхает» → сходство 0.95<br>
+            «кот спит» и «я люблю пиццу» → сходство 0.12
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Косинусное сходство:</strong></p>
+                <ul>
+                    <li>Игнорирует длину вектора (важен только угол)</li>
+                    <li>Стандарт для текстовых эмбеддингов</li>
+                    <li>1 = одинаковый смысл, 0 = никакой связи</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Другие меры:</strong></p>
+                <ul>
+                    <li><strong>Евклидово расстояние:</strong> прямое расстояние между точками</li>
+                    <li><strong>Манхэттенское расстояние:</strong> сумма модулей разниц</li>
+                    <li><strong>Для текстов:</strong> косинусное — лучший выбор</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+     <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">RAG — как заставить AI отвечать по вашим документам</h3>
+
+        <p class="card-text">RAG (Retrieval-Augmented Generation) — подход, при котором AI сначала ищет ответ в вашей базе знаний, а потом отвечает, опираясь на найденные факты. Это как «открытая книжка на экзамене».</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Три шага RAG:</span><br>
+            1. Поиск (Retrieval): вопрос → эмбеддинг → поиск похожих чанков<br>
+            2. Контекст: найденные чанки добавляются в промпт<br>
+            3. Генерация: LLM отвечает ТОЛЬКО по контексту
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Зачем нужен RAG:</strong></p>
+                <ul>
+                    <li>LLM знает только то, на чём обучена (данные до 2023–2024)</li>
+                    <li>Ваши документы (законы, инструкции) — свежие и специфичные</li>
+                    <li>RAG добавляет актуальные факты в контекст</li>
+                    <li>Снижает галлюцинации (выдумки)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Ключевые понятия RAG:</strong></p>
+                <ul>
+                    <li><strong>Чанкинг:</strong> нарезка документов на кусочки</li>
+                    <li><strong>Векторная БД:</strong> хранилище эмбеддингов</li>
+                    <li><strong>Контекстное окно:</strong> сколько токенов помещается</li>
+                    <li><strong>Галлюцинация:</strong> когда AI уверенно врёт</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+     <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Чанкинг и контекстное окно — как уместить всё в память</h3>
+
+        <p class="card-text">У LLM есть ограничение на количество токенов за один вызов — это контекстное окно. Чтобы загрузить в него большой документ, его нужно нарезать на чанки.</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Пример чанкинга:</span><br>
+            Документ (10 000 токенов) → чанки по 500 токенов + перекрытие 50<br>
+            Чанк 1: [0...500]<br>
+            Чанк 2: [450...950]  ← перекрытие сохраняет контекст на границе<br>
+            Чанк 3: [900...1400]<br>
+            ...
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Рекомендации по чанкингу:</strong></p>
+                <ul>
+                    <li>500–1500 токенов на чанк</li>
+                    <li>Перекрытие (overlap) 10–20%</li>
+                    <li>Резать по границам абзацев/предложений</li>
+                    <li>Семантический чанкинг (по смыслу) — лучше, но сложнее</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>📌 Контекстное окно моделей:</strong></p>
+                <ul>
+                    <li>GPT-3.5: 4K–16K токенов</li>
+                    <li>GPT-4 Turbo: 128K токенов</li>
+                    <li>Gemini 1.5 Pro: 2M токенов (целые книги!)</li>
+                    <li>DeepSeek-V3: 128K–1M токенов</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Векторные БД и поиск — как найти нужное среди миллионов</h3>
+
+
+        <p class="card-text">Обычные SQL-базы данных ищут точные совпадения. Векторные БД ищут похожие по смыслу — среди миллиардов векторов за доли секунды.</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Как работает векторный поиск:</span><br>
+            Запрос «налоги для ИП» → эмбеддинг запроса<br>
+            ↓<br>
+            Векторная БД ищет ближайшие векторы (косинусное сходство)<br>
+            ↓<br>
+            Возвращает: «налоговая база ИП», «страховые взносы ИП», «УСН для ИП»
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Популярные векторные БД:</strong></p>
+                <ul>
+                    <li><strong>FAISS</strong> (Facebook) — для больших объёмов</li>
+                    <li><strong>Chroma</strong> — простая, для прототипов</li>
+                    <li><strong>Qdrant</strong> — с фильтрацией и API</li>
+                    <li><strong>Milvus</strong> — enterprise-решение</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Ключевая технология — ANN:</strong></p>
+                <ul>
+                    <li>ANN (Approximate Nearest Neighbor)</li>
+                    <li>Не точный, а «приближённый» поиск</li>
+                    <li>Жертвует точностью ради скорости (x100–x1000)</li>
+                    <li>Для RAG этого достаточно</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">LLM и галлюцинации — когда AI уверенно врёт</h3>
+
+
+        <p class="card-text">LLM (Large Language Model) — большая языковая модель. Она обучена предсказывать следующее слово, а не проверять факты. Отсюда галлюцинации.</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Пример галлюцинации:</span><br>
+            Вопрос: «Какой документ нужен для вычета на ребёнка?»<br>
+            Ответ LLM (без RAG): «Форма КНД-1151080»<br>
+            Реальность: такой формы НЕ СУЩЕСТВУЕТ!<br><br>
+            <span class="sql-keyword"># Как бороться:</span><br>
+            Промт: «Отвечай ТОЛЬКО по контексту. Если не знаешь — скажи "не знаю"»
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Почему LLM галлюцинирует:</strong></p>
+                <ul>
+                    <li>Цель LLM — правдоподобный текст, а не истина</li>
+                    <li>Если модель не знает ответа — она «додумывает»</li>
+                    <li>Отсутствие контекста или плохой промпт</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Как снизить галлюцинации:</strong></p>
+                <ul>
+                    <li>✅ RAG (дать факты из надёжного источника)</li>
+                    <li>✅ Запретить отвечать без контекста</li>
+                    <li>✅ Низкая температура (0.0–0.2) для фактов</li>
+                    <li>✅ Попросить указать источник (цитату из документа)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Гибридный поиск и переранжирование — как улучшить качество поиска</h3>
+
+<!-- Карточка 7: Гибридный поиск и переранжирование -->
+<div class="card mx-auto" style="max-width: 800px; margin: 10px">
+    <img src="../h1title8.jpg" class="card-img-top" alt="Гибридный поиск и переранжирование">
+    <div class="card-body">
+        <h3>Гибридный поиск и переранжирование — как улучшить качество поиска</h3>
+        <p class="card-text">Векторный поиск хорош по смыслу, но плох с точными терминами. Гибридный поиск объединяет его с полнотекстовым. А переранжирование — финальная «шлифовка» результатов.</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Гибридный поиск:</span><br>
+            Векторный поиск (по смыслу) + Полнотекстовый (BM25 по ключевым словам)<br>
+            ↓ объединение через RRF<br>
+            Результат: и «синонимы», и «точный термин»<br><br>
+            <span class="sql-keyword"># Переранжирование (Reranking):</span><br>
+            Быстрый поиск (50 кандидатов) → Reranker (медленный, точный) → Топ-5
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Гибридный поиск — когда нужен:</strong></p>
+                <ul>
+                    <li>Пользователь ищет точный номер закона («ст. 137 УК РФ»)</li>
+                    <li>В тексте есть редкие термины (ИНН, ОГРН, SNILS)</li>
+                    <li>Важна и смысловая близость, и точное совпадение</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Переранжирование — зачем:</strong></p>
+                <ul>
+                    <li>Первичный поиск быстрый, но не очень точный (ANN)</li>
+                    <li>Reranker (кросс-энкодер) оценивает точнее</li>
+                    <li>Пример: <code>reranker = CrossEncoder('intfloat/e5-mistral-7b')</code></li>
+                    <li>Повышает качество топа-5 на 20–30%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Карточка 8: Основные метрики качества RAG -->
+<div class="card mx-auto" style="max-width: 800px; margin: 10px">
+    <img src="../h1title9.jpg" class="card-img-top" alt="Метрики качества RAG">
+    <div class="card-body">
+        <h3>📊 Метрики качества RAG — как измерить, работает ли система</h3>
+        <p class="card-text">RAG можно улучшать только если его измерять. Основные метрики делятся на поиск (retrieval) и генерацию (generation).</p>
+
+        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+            <span class="sql-keyword"># Метрики поиска:</span><br>
+            - Precision@k: сколько из k найденных — релевантны<br>
+            - Recall@k: сколько релевантных найдено из всех<br>
+            - MRR: насколько высоко первый релевантный результат<br><br>
+            <span class="sql-keyword"># Метрики генерации:</span><br>
+            - Faithfulness: ответ верен контексту?<br>
+            - Ответ по эталону: ROUGE, BERTScore, LLM-as-a-judge
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Для поиска (retrieval):</strong></p>
+                <ul>
+                    <li><strong>Recall@5:</strong> есть ли ответ в топ-5 чанках?</li>
+                    <li><strong>Precision@3:</strong> сколько из топ-3 — нужные?</li>
+                    <li><strong>MRR:</strong> важен порядок результатов</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Для генерации (generation):</strong></p>
+                <ul>
+                    <li><strong>Faithfulness:</strong> AI не придумал лишнего?</li>
+                    <li><strong>Ответ по эталону:</strong> совпадает с идеалом?</li>
+                    <li><strong>LLM-as-a-judge:</strong> GPT оценивает ответ (от 1 до 5)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+        <img
+          src="../h1title10.jpg"
+          class="card-img-top"
+          alt="Библиотеки Python для RAG и векторов"
+          style="filter: grayscale(1)"
+        />
+        <div class="card-body">
+          <h3>Python-библиотеки для RAG, векторов и LLM</h3>
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center mb-4">Работа с данными в Jupyter Lite</h1>
+              <p class="lead text-center">
+                Обзор совместимых и альтернативных инструментов
+              </p>
+
+              <!-- Блок с целями обучения -->
+              <div class="alert alert-primary">
+                <h4>Цели занятия:</h4>
+                <ul>
+                  <li>
+                    Понять, какие библиотеки работают в JupyterLite (Pyodide), а
+                    какие — нет
+                  </li>
+                  <li>
+                    Научиться реализовывать базовые операции RAG на чистом
+                    Python + NumPy
+                  </li>
+                  <li>
+                    Освоить косинусное сходство, поиск ближайших соседей (kNN) и
+                    визуализацию векторов
+                  </li>
+                  <li>
+                    Среда выполнения:
+                    <a
+                      href="https://econolabspython.github.io/jupyterlite/lab/index.html"
+                      target="_blank"
+                      >Jupyter Lite</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Таблица библиотек -->
+              <h4 class="mt-4">✅ Работают в JupyterLite (чистый Python)</h4>
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Назначение</th>
+                    <th>Пример кода</th>
+                    <th>Зачем для RAG/векторов</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>NumPy</strong></td>
+                    <td>Массивы и линейная алгебра</td>
+                    <td><code>np.dot(v1,v2)</code></td>
+                    <td>
+                      Хранение эмбеддингов, косинусное сходство, нормализация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pandas</strong></td>
+                    <td>Таблицы и метаданные</td>
+                    <td><code>df['embedding'].iloc[0]</code></td>
+                    <td>
+                      Хранение текстов + векторов в одной таблице, фильтрация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scikit-learn</strong></td>
+                    <td>Метрики и ML</td>
+                    <td><code>cosine_similarity()</code></td>
+                    <td>
+                      Готовые метрики сходства, PCA для визуализации, TF‑IDF как
+                      baseline
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Matplotlib</strong></td>
+                    <td>Визуализация</td>
+                    <td><code>plt.scatter(x, y)</code></td>
+                    <td>
+                      2D‑проекция векторов (через PCA) — наглядно показать
+                      кластеры
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Plotly</strong></td>
+                    <td>Интерактивная визуализация</td>
+                    <td><code>px.scatter_3d()</code></td>
+                    <td>3D‑графики эмбеддингов, zoom, hover</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                ⚠️ НЕ работают (C‑расширения / тяжелые фреймворки)
+              </h4>
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Причина</th>
+                    <th>Обходной путь (учебный)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>Тянет PyTorch (C++)</td>
+                    <td>
+                      Заранее сгенерировать CSV с эмбеддингами на своём
+                      компьютере → загрузить в JupyterLite .
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Написан на C++</td>
+                    <td>
+                      Реализовать наивный kNN через NumPy (5‑10 строк кода). Для
+                      небольших данных (до 1000 векторов) — идеально для
+                      обучения.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Transformers (HuggingFace)</strong></td>
+                    <td>Тянет PyTorch/TensorFlow</td>
+                    <td>
+                      Использовать готовые эмбеддинги из CSV или вызвать API (но
+                      в JupyterLite могут быть CORS-ограничения).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain / LlamaIndex</strong></td>
+                    <td>Тянут тяжёлые зависимости</td>
+                    <td>
+                      Написать свой простой RAG-пайплайн из 20–30 строк кода —
+                      лучше понимание концепций.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Milvus Lite</strong></td>
+                    <td>Может работать (экспериментально)</td>
+                    <td>
+                      Проверить <code>%pip install pymilvus</code>. Если не
+                      встанет — использовать Pandas + NumPy как «векторную БД»
+                      для учебных целей.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                💡 Образовательные альтернативы (написать самим)
+              </h4>
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Что заменяем</th>
+                    <th>Самодельная реализация (10–30 строк)</th>
+                    <th>Педагогическая ценность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Наивный kNN через <code>np.linalg.norm</code></td>
+                    <td>Понимание проблемы масштабирования O(N) → ANN</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>CSV с готовыми эмбеддингами</td>
+                    <td>
+                      Разделение «дорогого вычисления» и «быстрого поиска»
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain</strong></td>
+                    <td>Конвейер: эмбеддинг → поиск → промпт → генерация</td>
+                    <td>Понимание каждого шага RAG в отдельности</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Векторная БД</strong></td>
+                    <td>Pandas + сортировка по косинусному сходству</td>
+                    <td>Принцип работы индексации и поиска</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Пример кода -->
+              <h4 class="mt-4">
+                📝 Учебный мини‑RAG на NumPy (работает в JupyterLite)
+              </h4>
+              <pre
+                style="
+                  background: #f4f4f4;
+                  padding: 12px;
+                  border-radius: 8px;
+                  overflow-x: auto;
+                "
+              >
+import numpy as np
+import pandas as pd
+
+# 1. Загружаем готовые эмбеддинги (заранее сгенерированы)
+df = pd.read_csv('embeddings.csv')  # колонки: text, emb_0, emb_1, ..., emb_383
+texts = df['text'].tolist()
+vectors = df.iloc[:, 1:].values.astype(np.float32)
+
+# 2. Функция косинусного сходства
+def cosine_sim(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+# 3. Поиск k ближайших соседей (наивный kNN)
+def knn(query_vec, vectors, k=3):
+    sims = [cosine_sim(query_vec, v) for v in vectors]
+    best_idx = np.argsort(sims)[-k:][::-1]
+    return best_idx, [sims[i] for i in best_idx]
+
+# 4. Пример использования
+query = "как оформить загранпаспорт"
+# query_vec — эмбеддинг запроса (тоже из CSV или внешнего API)
+idx, scores = knn(query_vec, vectors, k=3)
+for i, score in zip(idx, scores):
+    print(f"{score:.3f} — {texts[i]}")</pre
+              >
+
+              <div class="alert alert-success small mt-3">
+                💡 <strong>Вывод для студентов:</strong> Ограничения JupyterLite
+                — не проблема. Вы научитесь реализовывать ключевые идеи RAG
+                «руками», что даст глубокое понимание того, как работают
+                «тяжёлые» библиотеки под капотом.
+              </div>
+
+              <div class="text-muted-small mt-3">
+                🔗 <strong>Ссылка на среду:</strong>
+                <a
+                  href="https://econolabspython.github.io/jupyterlite/lab/index.html"
+                  target="_blank"
+                  >Jupyter Lite</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема 1. Векторы: что это и зачем они нейросетям</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Вектор — это упорядоченный набор чисел. В нейросетях текст, изображение или аудио превращаются в вектор — «цифровой слепок смысла».
+        </div>
+
+        <h5>Определение вектора с точки зрения математики:</h5>
+        <p>
+            Вектор — это элемент линейного пространства, который задаётся координатами. В прикладных задачах вектор — это просто строка или столбец чисел.
+        </p>
+        <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+v = [0.12, -0.34, 0.56, 0.78, -0.21]  # вектор размерности 5</pre>
+
+        <h5>Как текст становится вектором (эмбеддингом):</h5>
+        <ul>
+            <li><strong>Токенизация:</strong> текст разбивается на токены (слова, части слов).</li>
+            <li><strong>Преобразование в числа:</strong> нейросеть-энкодер переводит токены в набор чисел.</li>
+            <li><strong>Результат:</strong> эмбеддинг — вектор фиксированной размерности (например, 384, 768 или 1536 чисел).</li>
+        </ul>
+
+        <h5>Почему размерность важна:</h5>
+        <ul>
+            <li><strong>Маленькая размерность (64–128):</strong> быстро, но теряется много смысла.</li>
+            <li><strong>Большая размерность (768–1536):</strong> точнее передаёт смысл, но требует больше памяти и вычислений.</li>
+        </ul>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Пример для ИТ-студента:</strong> Эмбеддинг предложения «кот спит на диване» — это массив чисел типа float32 размером 768. Два семантически близких предложения будут иметь почти одинаковые векторы.</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Матрицы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема 2. Матрицы: как хранить много векторов</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Матрица — это просто таблица чисел, где каждая строка или столбец может быть отдельным вектором. В векторных базах данных тысячи и миллионы векторов хранятся именно в матрицах.
+        </div>
+
+        <h5>Определение матрицы:</h5>
+        <p>
+            Матрица размером m × n — это прямоугольная таблица, содержащая m строк и n столбцов. Каждая строка матрицы — это отдельный вектор размерности n.
+        </p>
+        <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+# Матрица 3 × 4 (3 вектора размерности 4)
+         [[0.1, 0.2, 0.3, 0.4],   # вектор 1
+          [0.5, 0.6, 0.7, 0.8],   # вектор 2
+          [0.9, 1.0, 1.1, 1.2]]   # вектор 3</pre>
+
+        <h5>Как матрицы используются в RAG:</h5>
+        <ul>
+            <li><strong>Хранение эмбеддингов:</strong> Все чанки документов превращаются в векторы и образуют матрицу.</li>
+            <li><strong>Пакетные операции:</strong> За один раз можно вычислить сходство между запросом и тысячами векторов.</li>
+            <li><strong>Снижение размерности:</strong> Матрицы позволяют применять PCA (метод главных компонент) для визуализации векторов на плоскости.</li>
+        </ul>
+
+        <h5>Пример из реальной задачи:</h5>
+        <p>
+            База знаний госоргана содержит 10 000 документов. Каждый документ превращён в эмбеддинг размерности 384. Итоговая матрица имеет размер 10 000 × 384 чисел. При поиске запрос (вектор 1 × 384) умножается на эту матрицу для получения косинусного сходства.
+        </p>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Формула для ИТ-студента:</strong> Матрица эмбеддингов E размера N × d, где N — количество документов, d — размерность эмбеддинга.</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Косинусное сходство" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема 3. Косинусное сходство: как сравнивать векторы</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Косинусное сходство измеряет угол между двумя векторами. Чем меньше угол, тем более похожи тексты по смыслу.
+        </div>
+
+        <h5>Формула косинусного сходства:</h5>
+        <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+cos(θ) = (a · b) / (||a|| × ||b||)
+
+где a · b — скалярное произведение векторов,
+||a|| — длина (норма) вектора a</pre>
+
+        <h5>Как это работает на практике:</h5>
+        <ul>
+            <li>Результат косинусного сходства лежит в диапазоне от 0 до 1 (если векторы неотрицательные).</li>
+            <li>cos = 1: векторы сонаправлены — текст про одно и то же.</li>
+            <li>cos = 0: векторы перпендикулярны — смыслы совершенно разные.</li>
+            <li>cos = -1: векторы противоположны — тексты антагонистичны (редко для эмбеддингов).</li>
+        </ul>
+
+        <h5>Пример из жизни:</h5>
+        <p>
+            Эмбеддинг «кот спит на диване» и «кошка отдыхает на софе» дадут косинусное сходство ≈ 0.95 — почти одинаковый смысл. Эмбеддинг «кот спит» и «я люблю программировать» даст сходство ≈ 0.1.
+        </p>
+
+        <h5>Почему косинусное, а не евклидово расстояние:</h5>
+        <ul>
+            <li>Евклидово расстояние зависит от длины вектора.</li>
+            <li>Косинусное сходство учитывает только направление, что важно для текстов: короткий текст может быть очень похож на длинный по смыслу.</li>
+        </ul>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Математическая формулировка:</strong> Косинусное сходство — это нормализованное скалярное произведение.</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Линейная алгебра в RAG" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема 4. Линейная алгебра в RAG: матричное умножение</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Поиск ближайших соседей — это умножение матрицы эмбеддингов на вектор запроса. Линейная алгебра лежит в основе любой векторной базы данных.
+        </div>
+
+        <h5>Поиск через скалярное произведение:</h5>
+        <p>
+            Если эмбеддинги нормализованы (имеют длину 1), то косинусное сходство превращается в скалярное произведение. Поиск — это умножение матрицы E на вектор q.
+        </p>
+        <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+# E — матрица эмбеддингов (N × d)
+# q — вектор запроса (1 × d)
+# Результат scores = E × q^T  — вектор длиной N (сходство с каждым документом)</pre>
+
+        <h5>Проблема масштабирования (почему нужен FAISS):</h5>
+        <ul>
+            <li><strong>Наивный поиск:</strong> для каждого запроса нужно вычислить сходство со всеми N векторами. Сложность O(N × d).</li>
+            <li><strong>N = 1 млн, d = 768:</strong> нужно 768 млн операций на запрос. Это медленно.</li>
+            <li><strong>Решение — ANN (приближённый поиск):</strong> алгоритмы вроде HNSW строят графы и ищут не по всей матрице, а по «подозрительным» соседям. Сложность падает до O(log N).</li>
+        </ul>
+
+        <h5>Что изучать дальше из линейной алгебры:</h5>
+        <ul>
+            <li><strong>SVD (сингулярное разложение):</strong> лежит в основе LSA (латентно-семантического анализа).</li>
+            <li><strong>PCA (метод главных компонент):</strong> снижение размерности для визуализации и ускорения.</li>
+            <li><strong>QR-разложение:</strong> используется в некоторых ANN-алгоритмах.</li>
+        </ul>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Связь с курсом математики:</strong> Операции с матрицами и векторами, которые вы изучаете на линейной алгебре, — это именно то, что выполняется миллиарды раз при работе RAG-систем.</small>
+        </div>
+    </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Векторные базы данных" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Тема 5. Векторные базы данных: мост между матрицами и поиском</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Векторная база данных — это специализированное хранилище, которое внутри использует матрицы и алгоритмы линейной алгебры для быстрого поиска похожих векторов.
+        </div>
+
+        <h5>Как устроена векторная БД изнутри:</h5>
+        <ul>
+            <li>Матрица эмбеддингов хранится в памяти или на диске.</li>
+            <li>Для ускорения поиска строятся индексы (HNSW, IVF, PQ) — дополнительные структуры данных, основанные на графах или кластеризации.</li>
+            <li>При запросе индекс быстро находит кандидатов, затем вычисляются точные расстояния.</li>
+        </ul>
+
+        <h5>Пример: индекс IVF (Inverted File Index)</h5>
+        <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+1. Все N векторов разбиваются на K кластеров (k-means).
+2. При запросе определяются ближайшие кластеры.
+3. Поиск выполняется только внутри этих кластеров.</pre>
+
+        <h5>Сравнение с классическими базами данных:</h5>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <strong>SQL / Реляционная БД:</strong>
+                <ul class="small">
+                    <li>Ищет точные совпадения (WHERE name = "Иванов")</li>
+                    <li>Индексы — B-tree, хеш-таблицы</li>
+                    <li>Не умеет искать «похожее»</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <strong>Векторная БД (Chroma, FAISS, Qdrant):</strong>
+                <ul class="small">
+                    <li>Ищет по смыслу (косинусное сходство)</li>
+                    <li>Индексы — HNSW, IVF, PQ</li>
+                    <li>Оптимизирована для многомерных данных</li>
+                </ul>
+            </div>
+        </div>
+
+        <h5>Почему нельзя использовать обычную SQL-БД:</h5>
+        <ul>
+            <li>Индексы B-tree работают хорошо только для одномерных данных.</li>
+            <li>Для 768-мерных векторов полный перебор занимает секунды на миллион записей, а индекс HNSW — миллисекунды.</li>
+        </ul>
+
+        <div class="alert alert-success mt-2">
+            <small><strong>Итог для студента:</strong> Понимание матриц и векторов — это фундамент. Векторная БД — это надстройка, которая делает возможным поиск по смыслу среди миллионов документов за доли секунды.</small>
+        </div>
+    </div>
+</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <form id="quizform">
+
+                                <!-- Контейнер для JSXGraph (появляется только когда нужен) -->
+<div id="jsxgraph-container" style="display: none; margin: 20px 0;"></div>
+
+
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                  </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+     </div>
+
+  <script src="../dist/basicfirebasecrudauthservices.js"></script>
+  <script src="./index.js"></script>
 </body>
+
 </html>

@@ -1080,73 +1080,66 @@ async function fetchQuizHint(activePage) {
     updateQuiz(activePage)
 }
 
-// Изменённая функция updateQuiz (добавлена обработка формул в text и choices)
-async function updateQuiz(activePage) {
+function updateQuiz(activePage) {
     let quiz = resQuizesArray.data[activePage];
-    
+    //    console.log(quiz);
     $("#quizformdataarray").style.display = "none";
+
     $("#usercalculations").style.display = "none";
     $("#inputFormula").value = "";
     $("#resformula").innerHTML = "<small class='text-muted'>Песочница, попробуйте =2+2 или =AVERAGE(B2:B13)</small>";
     $("#answerButton").disabled = false;
-    
-    // Обработка заголовков (без формул, они обычно не содержат математики)
     $("#quizTitle").innerHTML = quiz.title;
     $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
+
     $("#userComment").style.display = "block";
     $("#answerButton").className = "btn btn-outline-primary m-3";
     $("#answerButton").style.display = "block";
 
-    // Обработка casewithrandomnumber
+
+
     if (quiz?.type === "casewithrandomnumber" && Array.isArray(quiz?.dataArray)) {
         $("#usercalculations").style.display = "block";
+        //     let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: store.getState().application.selectedoption });
+        //     console.log(res.answer)
         $("#quizformdataarray").innerHTML = markupForDataArray(quiz?.dataArray) + "<br>" + quiz?.text + "<hr>";
         $("#quizformdataarray").style.display = "block";
         if (!!quiz?.hint) {
-            await setMathInnerHTML($("#quizHint"), quiz.hint).catch(console.error);
+            setMathInnerHTML($("#quizHint"), hint).catch(console.error);
         }
+
+        //  $("#quizHint").innerHTML = quiz?.hint;
     }
 
-    // Обработка multiplechoices (основной тип для тестов с формулами)
     if (quiz.type === "multiplechoices") {
-        // 1. Обрабатываем текст вопроса с формулами
-        await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
-        
-        // 2. Обрабатываем варианты ответов (choices) с формулами
-        if (quiz.answers.length > 1) {
-            // Чекбоксы (несколько правильных ответов)
-            let choicesWithMath = await Promise.all(
-                quiz.choices.map(async (choice) => {
-                    const tempDiv = document.createElement('div');
-                    await setMathInnerHTML(tempDiv, choice);
-                    return tempDiv.innerHTML;
-                })
-            );
-            chectQuiz.addEvents(choicesWithMath);
-        } else {
-            // Радиокнопки (один правильный ответ)
-            let choicesWithMath = await Promise.all(
-                quiz.choices.map(async (choice) => {
-                    const tempDiv = document.createElement('div');
-                    await setMathInnerHTML(tempDiv, choice);
-                    return tempDiv.innerHTML;
-                })
-            );
-            choiceQuiz.addEvents(choicesWithMath);
-        }
+
+
+        setMathInnerHTML($("#quizString"), quiz?.text)
+            .then(() => {
+                // $("#quizString").innerHTML = quiz.text;
+                if (quiz.answers.length > 1) {
+                    chectQuiz.addEvents(quiz.choices)
+                } else { choiceQuiz.addEvents(quiz.choices) }
+                //    $("#quizcontainer").style.display = "block";
+            })
+            .catch(console.error)
+
+
     }
 
-    // Обработка accounting
     if (quiz.type === "accounting") {
-        await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
-        
+        $("#quizString").innerHTML = quiz.text;
+
+
         let markup = `
            <div class="row m-1 g-1">
                 <div class="col-12 col-md-6">
-                    <select class="form-select form-select-sm" aria-label="debet" id="debet" name="debet">
+                    <select class="form-select form-select-sm" aria-label="debet" id="debet" name="debet"">
                     ${'<option value="...">Дебет</option>' +
             quiz.choices
-                .map(item => `<option value="${item}">${item}</option>`)
+                .map(item => {
+                    return `<option value="${item}">${item}</option>`
+                })
                 .join("")
             }                       
                     </select>
@@ -1155,19 +1148,42 @@ async function updateQuiz(activePage) {
                     <select class="form-select form-select-sm" aria-label="credit" id="credit" name="credit">
                        ${'<option value="...">Кредит</option>' +
             quiz.choices
-                .map(item => `<option value="${item}">${item}</option>`)
+                .map(item => {
+                    return `<option value="${item}">${item}</option>`
+                })
                 .join("")
             }
                     </select>
                 </div>
-           </div>`;
-        
+           </div>
+           `;
+
         $("#accountingblock").innerHTML = markup;
         $("#accountingblock").style.display = "block";
     }
+
+    if (quiz.type === "quizwithrandomnumber") {
+        $("#usercalculations").style.display = "block";
+
+        let randomNumber = store.getState().application.selectedoption;
+        if (Array.isArray(quiz?.randomfrom)) {
+            randomNumber = quiz.randomfrom[Math.floor(Math.random() * quiz.randomfrom.length)]
+            store.dispatch(applicationSlice.actions.seedState(
+                { object: { selectedoption: randomNumber } }
+            ));
+        }
+        let res = processquizwithrandomnumber({ quizString: quiz.text, answer: quiz.answer, randomNumber: randomNumber });
+        //     console.log(res.answer)
+        $("#quizString").innerHTML = res.quizString;
+        $("#quizChecks").innerHTML = `
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Число</span>
+                <input type="text" class="form-control" aria-label="quizinput" aria-describedby="quiz-input-sm" id="feedback">
+            </div>`;
+    }
+
+    renderPagination()
 }
-
-
 
 // function foundQuiz(text) {
 //     let correctquizes = store.getState().application.correctquizes;

@@ -1,12 +1,5 @@
 
 
-// import { getApps, deleteApp, initializeApp } from 'firebase/app';
-// import { getDatabase, get, ref, update, push, child } from 'firebase/database';
-//import { createSlice, configureStore } from '@reduxjs/toolkit';
-//import { createApi, setupListeners, fakeBaseQuery } from '@reduxjs/toolkit/query';
-
-//import { debounce } from 'lodash-es';
-
 let { createSlice, configureStore } = RTK;
 let { createApi, setupListeners, fakeBaseQuery } = RTKQ;
 
@@ -21,8 +14,6 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const parser = new formulaParser.Parser();
 
-//const store = createRtkFirebaseStore();
-
 
 //let resOpenQuizes;
 //let resUserAvatar;
@@ -30,7 +21,8 @@ let resUserPosts;
 let resQuizesArray;
 //let resOpenQuizesCasesIds;
 let resOpenQuizCaseById;
-
+// Глобальный объект для хранения активной доски JSXGraph
+let activeJSXGraphBoard;
 /**
   * Functions
 */
@@ -1080,7 +1072,323 @@ async function fetchQuizHint(activePage) {
     updateQuiz(activePage)
 }
 
-// Изменённая функция updateQuiz (добавлена обработка формул в text и choices)
+// Функция для отрисовки двух векторов с возможностью перетаскивания и отображением угла
+function drawTwoVectorsBoard(containerId) {
+      // Очищаем предыдущую доску
+    if (activeJSXGraphBoard) {
+        try {
+            activeJSXGraphBoard = null;
+        } catch(e) { console.warn(e); }
+    }
+    
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Очищаем контейнер
+    container.innerHTML = '';
+    
+    // Создаём обёртку
+    const boardWrapper = document.createElement('div');
+    boardWrapper.style.position = 'relative';
+    boardWrapper.style.display = 'inline-block';
+    boardWrapper.style.width = '450px';
+    boardWrapper.style.height = '450px';
+    boardWrapper.style.margin = '0 auto';
+    
+    const boardDiv = document.createElement('div');
+    boardDiv.id = 'jsxgraph_board_' + Date.now();
+    boardDiv.style.width = '450px';
+    boardDiv.style.height = '450px';
+    
+    boardWrapper.appendChild(boardDiv);
+    container.appendChild(boardWrapper);
+    
+    // Инициализация доски
+    const board = JXG.JSXGraph.initBoard(boardDiv.id, {
+        boundingbox: [-2, 2, 2, -2],
+        axis: true,
+        grid: true,
+        showNavigation: false,
+        showCopyright: false
+    });
+    
+    activeJSXGraphBoard = board;
+    
+    // Начало координат
+    const O = board.create('point', [0, 0], {
+        name: 'O',
+        size: 4,
+        color: '#212529',
+        fixed: true,
+        withLabel: true,
+        label: { offset: [-15, -15] }
+    });
+    
+    // Точки для перетаскивания (концы векторов)
+    const pointA = board.create('point', [1, 0.5], {
+        name: 'A',
+        size: 6,
+        color: '#dc3545',
+        label: { offset: [10, -10] }
+    });
+    
+    const pointB = board.create('point', [0.5, 1], {
+        name: 'B',
+        size: 6,
+        color: '#007bff',
+        label: { offset: [10, -10] }
+    });
+    
+    // Векторы (стрелки)
+    const vecA = board.create('arrow', [O, pointA], {
+        strokeColor: '#dc3545',
+        strokeWidth: 3,
+        lastArrow: true
+    });
+    
+    const vecB = board.create('arrow', [O, pointB], {
+        strokeColor: '#007bff',
+        strokeWidth: 3,
+        lastArrow: true
+    });
+    
+    // Дуга для отображения угла
+    const angleArc = board.create('angle', [pointB, O, pointA], {
+        radius: 0.5,
+        strokeColor: '#28a745',
+        strokeWidth: 2,
+        name: 'θ',
+        label: { offset: [10, 10], fontSize: 16 }
+    });
+    
+    // Функции вычислений
+    function calculateCosine() {
+        const coordsA = pointA.coords.usrCoords;
+        const coordsB = pointB.coords.usrCoords;
+        const x1 = coordsA[1];
+        const y1 = coordsA[2];
+        const x2 = coordsB[1];
+        const y2 = coordsB[2];
+        
+        const dot = x1 * x2 + y1 * y2;
+        const normA = Math.hypot(x1, y1);
+        const normB = Math.hypot(x2, y2);
+        
+        if (normA === 0 || normB === 0) return 0;
+        return dot / (normA * normB);
+    }
+    
+    function calculateAngleDegrees() {
+        const cos = calculateCosine();
+        const angleRad = Math.acos(Math.min(1, Math.max(-1, cos)));
+        return angleRad * 180 / Math.PI;
+    }
+    
+    // Обновление информационной панели
+    function updateInfo() {
+        const cos = calculateCosine();
+        const angle = calculateAngleDegrees();
+        
+        const coordsA = pointA.coords.usrCoords;
+        const coordsB = pointB.coords.usrCoords;
+        
+        let infoPanel = document.getElementById('vectors-info-panel');
+        if (!infoPanel) {
+            infoPanel = document.createElement('div');
+            infoPanel.id = 'vectors-info-panel';
+            infoPanel.style.marginTop = '15px';
+            infoPanel.style.padding = '10px';
+            infoPanel.style.backgroundColor = '#f8f9fa';
+            infoPanel.style.borderRadius = '8px';
+            infoPanel.style.textAlign = 'center';
+            container.appendChild(infoPanel);
+        }
+        
+        infoPanel.innerHTML = `
+            <strong style="color:#dc3545;">a</strong> = (${coordsA[1].toFixed(3)}, ${coordsA[2].toFixed(3)}) &nbsp;|&nbsp;
+            <strong style="color:#007bff;">b</strong> = (${coordsB[1].toFixed(3)}, ${coordsB[2].toFixed(3)})<br>
+            <strong>cos θ</strong> = ${cos.toFixed(4)} &nbsp;|&nbsp;
+            <strong>θ</strong> = ${angle.toFixed(1)}°<br>
+            <span class="text-muted small">💡 Перетащите точки A и B!</span>
+        `;
+    }
+    
+    // Добавляем обработчики
+    pointA.on('drag', updateInfo);
+    pointB.on('drag', updateInfo);
+    
+    setTimeout(updateInfo, 100);
+    
+    return board;
+}
+
+// Функция для отрисовки единичных базисных векторов (исправленная версия)
+function drawUnitVectorsBoard(containerId) {
+    // Очищаем предыдущую доску, если есть
+    if (activeJSXGraphBoard) {
+        try {
+            activeJSXGraphBoard = null;
+        } catch(e) { console.warn(e); }
+    }
+    
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Очищаем контейнер
+    container.innerHTML = '';
+    
+    // Создаём новый div для доски
+    const boardDiv = document.createElement('div');
+    boardDiv.id = 'jsxgraph_board_' + Date.now();
+    boardDiv.style.width = '400px';
+    boardDiv.style.height = '400px';
+    boardDiv.style.margin = '0 auto';
+    container.appendChild(boardDiv);
+    
+    // Инициализация доски
+    const board = JXG.JSXGraph.initBoard(boardDiv.id, {
+        boundingbox: [-1.5, 1.5, 1.5, -1.5],
+        axis: true,
+        grid: true,
+        showNavigation: false,
+        showCopyright: false
+    });
+    
+    activeJSXGraphBoard = board;
+    
+    // Начало координат
+    const O = board.create('point', [0, 0], {
+        name: 'O',
+        size: 4,
+        color: '#212529',
+        fixed: true,
+        withLabel: true,
+        label: { offset: [-10, -10] }
+    });
+    
+    const colors = {
+        i: '#dc3545',   // красный
+        j: '#007bff',   // синий
+        negi: '#ffc107', // жёлтый
+        negj: '#28a745'  // зелёный
+    };
+    
+    const vectors = [
+        { end: [1, 0], tex: '\\vec{i}', color: colors.i, labelX: 1.15, labelY: 0.15 },
+        { end: [0, 1], tex: '\\vec{j}', color: colors.j, labelX: 0.1, labelY: 1.15 },
+        { end: [-1, 0], tex: '-\\vec{i}', color: colors.negi, labelX: -1.25, labelY: 0.15 },
+        { end: [0, -1], tex: '-\\vec{j}', color: colors.negj, labelX: 0.1, labelY: -1.25 }
+    ];
+    
+    vectors.forEach(vec => {
+        // Конечная точка вектора (невидимая)
+        const P = board.create('point', vec.end, {
+            size: 0,
+            visible: false,
+            fixed: true
+        });
+        
+        // Стрелка
+        board.create('arrow', [O, P], {
+            strokeColor: vec.color,
+            strokeWidth: 3,
+            lastArrow: true
+        });
+        
+        // Текстовая метка с обычным текстом (сначала создаём пустую)
+        const textObj = board.create('text', [vec.labelX, vec.labelY, ''], {
+            color: vec.color,
+            fontSize: 18,
+            fixed: true,
+            display: 'html'
+        });
+        
+        // Получаем HTML-элемент текста и вручную рендерим KaTeX
+        const renderKatex = () => {
+            const svgNode = textObj.renderer.svgNode;
+            if (svgNode && svgNode.innerHTML === '') {
+                try {
+                    const span = document.createElement('span');
+                    if (typeof katex !== 'undefined') {
+                        katex.render(vec.tex, span, { displayMode: false, throwOnError: false });
+                        svgNode.innerHTML = '';
+                        svgNode.appendChild(span);
+                    } else {
+                        svgNode.innerHTML = vec.tex;
+                    }
+                } catch (e) {
+                    console.error('KaTeX error:', e);
+                    svgNode.innerHTML = vec.tex;
+                }
+            }
+        };
+        
+        // Пробуем разные способы привязки к событию
+        if (typeof textObj.addUpdate === 'function') {
+            textObj.addUpdate(renderKatex);
+        } else if (typeof textObj.on === 'function') {
+            textObj.on('update', renderKatex);
+        } else {
+            // Используем setTimeout как fallback
+            setTimeout(renderKatex, 100);
+        }
+    });
+    
+    // Легенда
+    const legendText = board.create('text', [-1.4, -1.3, ''], {
+        fontSize: 11,
+        color: '#6c757d',
+        fixed: true,
+        display: 'html'
+    });
+    
+    const renderLegend = () => {
+        const svgNode = legendText.renderer.svgNode;
+        if (svgNode && svgNode.innerHTML === '') {
+            svgNode.innerHTML = '<span style="font-size:11px;">Базисные векторы: <span style="color:#dc3545;">i</span>, <span style="color:#007bff;">j</span>, <span style="color:#ffc107;">-i</span>, <span style="color:#28a745;">-j</span></span>';
+        }
+    };
+    
+    if (typeof legendText.addUpdate === 'function') {
+        legendText.addUpdate(renderLegend);
+    } else if (typeof legendText.on === 'function') {
+        legendText.on('update', renderLegend);
+    } else {
+        setTimeout(renderLegend, 100);
+    }
+    
+    // Запасной вариант: принудительный рендер через 200 мс
+    setTimeout(() => {
+        vectors.forEach((vec, idx) => {
+            const svgNode = document.querySelector(`#${boardDiv.id} text[katex-marker-${idx}]`) || 
+                           document.querySelector(`#${boardDiv.id} text`);
+            // Альтернативный поиск не нужен, так как мы уже обработали каждый textObj
+        });
+    }, 200);
+    
+    return board;
+}
+
+// Функция-диспетчер для разных типов JSXGraph
+function drawJSXGraph(type, containerId) {
+    switch(type) {
+        case 'unitVectors':
+            return drawUnitVectorsBoard(containerId);
+              case 'twoVectors':
+            return drawTwoVectorsBoard(containerId);
+        // Здесь можно добавить другие типы:
+        // case 'vectorSum':
+        //     return drawVectorSumBoard(containerId);
+        // case 'matrixTransform':
+        //     return drawMatrixTransformBoard(containerId);
+        default:
+            console.warn('Unknown JSXGraph type:', type);
+            return null;
+    }
+}
+
+
+// ОБНОВЛЁННАЯ ФУНКЦИЯ updateQuiz
 async function updateQuiz(activePage) {
     let quiz = resQuizesArray.data[activePage];
     
@@ -1090,13 +1398,32 @@ async function updateQuiz(activePage) {
     $("#resformula").innerHTML = "<small class='text-muted'>Песочница, попробуйте =2+2 или =AVERAGE(B2:B13)</small>";
     $("#answerButton").disabled = false;
     
-    // Обработка заголовков (без формул, они обычно не содержат математики)
+    // Очищаем контейнер JSXGraph, если он есть
+    const jsxgraphContainer = document.getElementById('jsxgraph-container');
+    if (jsxgraphContainer) {
+        jsxgraphContainer.innerHTML = '';
+        jsxgraphContainer.style.display = 'none';
+    }
+    
+    // Обработка заголовков
     $("#quizTitle").innerHTML = quiz.title;
     $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
     $("#userComment").style.display = "block";
     $("#answerButton").className = "btn btn-outline-primary m-3";
     $("#answerButton").style.display = "block";
-
+    
+    // ========== НОВЫЙ БЛОК: Обработка JSXGraph ==========
+    if (quiz.JSXGraph === "true" && quiz.JSXGraphType) {
+        const jsxgraphContainer = document.getElementById('jsxgraph-container');
+        if (jsxgraphContainer) {
+            jsxgraphContainer.style.display = 'block';
+            // Небольшая задержка, чтобы DOM обновился
+            setTimeout(() => {
+                drawJSXGraph(quiz.JSXGraphType, 'jsxgraph-container');
+            }, 50);
+        }
+    }
+    
     // Обработка casewithrandomnumber
     if (quiz?.type === "casewithrandomnumber" && Array.isArray(quiz?.dataArray)) {
         $("#usercalculations").style.display = "block";
@@ -1106,15 +1433,12 @@ async function updateQuiz(activePage) {
             await setMathInnerHTML($("#quizHint"), quiz.hint).catch(console.error);
         }
     }
-
-    // Обработка multiplechoices (основной тип для тестов с формулами)
+    
+    // Обработка multiplechoices
     if (quiz.type === "multiplechoices") {
-        // 1. Обрабатываем текст вопроса с формулами
         await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
         
-        // 2. Обрабатываем варианты ответов (choices) с формулами
         if (quiz.answers.length > 1) {
-            // Чекбоксы (несколько правильных ответов)
             let choicesWithMath = await Promise.all(
                 quiz.choices.map(async (choice) => {
                     const tempDiv = document.createElement('div');
@@ -1124,7 +1448,6 @@ async function updateQuiz(activePage) {
             );
             chectQuiz.addEvents(choicesWithMath);
         } else {
-            // Радиокнопки (один правильный ответ)
             let choicesWithMath = await Promise.all(
                 quiz.choices.map(async (choice) => {
                     const tempDiv = document.createElement('div');
@@ -1135,7 +1458,7 @@ async function updateQuiz(activePage) {
             choiceQuiz.addEvents(choicesWithMath);
         }
     }
-
+    
     // Обработка accounting
     if (quiz.type === "accounting") {
         await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
@@ -1165,6 +1488,35 @@ async function updateQuiz(activePage) {
         $("#accountingblock").innerHTML = markup;
         $("#accountingblock").style.display = "block";
     }
+    
+    // Обработка quizwithrandomnumber
+    if (quiz.type === "quizwithrandomnumber") {
+        $("#usercalculations").style.display = "block";
+        
+        let randomNumber = store.getState().application.selectedoption;
+        if (Array.isArray(quiz?.randomfrom)) {
+            randomNumber = quiz.randomfrom[Math.floor(Math.random() * quiz.randomfrom.length)];
+            store.dispatch(applicationSlice.actions.seedState(
+                { object: { selectedoption: randomNumber } }
+            ));
+        }
+        
+        let res = processquizwithrandomnumber({ 
+            quizString: quiz.text, 
+            answer: quiz.answer, 
+            randomNumber: randomNumber 
+        });
+        
+        await setMathInnerHTML($("#quizString"), res.quizString).catch(console.error);
+        
+        $("#quizChecks").innerHTML = `
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Число</span>
+                <input type="text" class="form-control" aria-label="quizinput" aria-describedby="quiz-input-sm" id="feedback">
+            </div>`;
+    }
+    
+    renderPagination();
 }
 
 
@@ -1181,7 +1533,7 @@ async function updateQuiz(activePage) {
 function checkLocallyAndGlobally(index, title, text) {
     let correntlyAnsweredPages = store.getState().application.correntlyAnsweredPages;
     let correctquizes = store.getState().application.correctquizes;
-    console.log(correntlyAnsweredPages, index)
+   // console.log(correntlyAnsweredPages, index)
     if (correntlyAnsweredPages.includes(index)) {
         return true
     } else {
@@ -1359,56 +1711,4 @@ initialLoad().then(() => {
     $("#quizcontainer").style.display = "block";
     renderPagination()
 });
-
-// function loadState() {
-//     try {
-//       const serializedState = localStorage.getItem('econolabs');
-//       if (serializedState === null) {
-//         return undefined;
-//       }
-//       return JSON.parse(serializedState);
-//     } catch (err) {
-//       return undefined
-//     }
-//   };
-
-// function shuffle(array) {
-//   return array.sort(() => Math.random() - 0.5);
-// }
-
-// async function getFirebaseNode({
-//     url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
-//     type = "array"
-// }) {
-//     try {
-//         let snapshot = await get(ref(db, url));
-//         if (snapshot.exists()) {
-//             let res = snapshot.val();
-//             if (type === "array") { return Object.keys(res).map(objKey => res[objKey]) }
-//             return res
-//         } else {
-//             if (type === "array") { return [] } else { return null }
-//         }
-//     }
-//     catch (err) {
-//         console.log(err);
-//         if (type === "array") { return [] } else { return {} }
-//     }
-// }
-
-// async function updateFirebaseNode(updates = { temp: "temp" }) {
-//     try {
-//         //let res = await timeout(3000); console.log(updates);
-//         await update(ref(db), updates);
-//         return true
-//     }
-//     catch (error) {
-//         console.error(error)
-//         return error
-//     }
-// }
-
-// function getFirebaseNodeKey(url) {
-//     return push(child(ref(db), url + "/")).key;
-// }
 
