@@ -148,9 +148,179 @@
     <div class="card-body">
         <h3 class="card-title">Векторы и меры сходства — как сравнивать смыслы</h3>
 
+
+        <div style="text-align: center; margin: 16px 0;">
+ <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <line x1="30" y1="270" x2="270" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <line x1="30" y1="270" x2="30" y2="30" stroke="#333" stroke-width="2" marker-end="url(#arrowGray)"/>
+  
+  <text x="270" y="265" font-size="14" fill="#333" font-family="sans-serif">x</text>
+  <text x="25" y="35" font-size="14" fill="#333" font-family="sans-serif">y</text>
+  
+  <line x1="30" y1="270" x2="180" y2="120" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <line x1="30" y1="270" x2="150" y2="60" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <text x="185" y="115" font-size="16" fill="#dc3545" font-family="sans-serif" font-weight="bold">a</text>
+  <text x="155" y="55" font-size="16" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  
+  <circle cx="30" cy="270" r="4" fill="#333"/>
+  <text x="15" y="285" font-size="12" fill="#333" font-family="sans-serif">O</text>
+  
+  <text x="50" y="290" font-size="11" fill="#6c757d" font-family="sans-serif">
+    cos θ = (a·b) / (|a|·|b|)
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <line x1="150" y1="260" x2="150" y2="40" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="150" x2="260" y2="150" stroke="#333" stroke-width="1.5"/>
+  
+  <text x="258" y="147" font-size="12" fill="#333" font-family="sans-serif">x</text>
+  <text x="147" y="38" font-size="12" fill="#333" font-family="sans-serif">y</text>
+  
+  <circle cx="150" cy="150" r="90" fill="none" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="6,4"/>
+  
+  <line x1="150" y1="150" x2="240" y2="150" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <line x1="150" y1="150" x2="195" y2="72" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <line x1="195" y1="72" x2="195" y2="150" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="4,4"/>
+  
+  <circle cx="195" cy="150" r="3" fill="#6c757d"/>
+  <text x="195" y="165" font-size="10" fill="#6c757d" font-family="sans-serif" text-anchor="middle">(cos θ, 0)</text>
+  
+  <circle cx="195" cy="72" r="4" fill="#007bff"/>
+  <circle cx="150" cy="150" r="3" fill="#333"/>
+  
+  <text x="242" y="148" font-size="13" fill="#dc3545" font-family="sans-serif" font-weight="bold">i = (1,0)</text>
+  <text x="198" y="68" font-size="13" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  <text x="135" y="165" font-size="11" fill="#333" font-family="sans-serif">O</text>
+  
+  <text x="150" y="280" font-size="11" fill="#6c757d" font-family="sans-serif" text-anchor="middle">
+    Единичные векторы: a·b = cos θ
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .rotating {
+      animation: spin 4s linear infinite;
+      transform-origin: 150px 150px;
+    }
+  </style>
+  
+  <!-- Оси координат -->
+  <line x1="150" y1="280" x2="150" y2="20" stroke="#333" stroke-width="1.5"/>
+  <line x1="20" y1="150" x2="280" y2="150" stroke="#333" stroke-width="1.5"/>
+  
+  <text x="275" y="147" font-size="12" fill="#333" font-family="sans-serif">x</text>
+  <text x="147" y="25" font-size="12" fill="#333" font-family="sans-serif">y</text>
+  
+  <!-- Фиксированный красный вектор (вправо) -->
+  <line x1="150" y1="150" x2="240" y2="150" stroke="#dc3545" stroke-width="4" marker-end="url(#arrowRed)"/>
+  <text x="242" y="145" font-size="14" fill="#dc3545" font-family="sans-serif" font-weight="bold">a</text>
+  
+  <!-- Вращающийся синий вектор (вокруг начала координат) -->
+  <g class="rotating">
+    <line x1="150" y1="150" x2="150" y2="60" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <text x="155" y="55" font-size="14" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  </g>
+  
+  <text x="150" y="285" font-size="11" fill="#6c757d" font-family="sans-serif" text-anchor="middle">
+    Синий вектор вращается, красный фиксирован
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+<svg width="100%" height="240" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+  
+  <g transform="translate(30, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 0°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = 1</text>
+  </g>
+  
+  <g transform="translate(330, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="10" y2="90" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 90°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = 0</text>
+  </g>
+  
+  <g transform="translate(630, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="-80" y2="170" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 180°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = -1</text>
+  </g>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+
+
         <p class="card-text">Чтобы найти похожие документы, нужно уметь измерять расстояние между векторами. Главный инструмент — косинусное сходство.</p>
 
-        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
+        <div>
             <span class="sql-keyword"># Косинусное сходство (cosine similarity):</span><br>
             cos(θ) = (A·B) / (|A| × |B|)<br>
             результат: от 0 (не похожи) до 1 (очень похожи)<br><br>
@@ -191,12 +361,14 @@
 
         <p class="card-text">RAG (Retrieval-Augmented Generation) — подход, при котором AI сначала ищет ответ в вашей базе знаний, а потом отвечает, опираясь на найденные факты. Это как «открытая книжка на экзамене».</p>
 
-        <div class="code-block" style="background:#f4f4f4; padding:10px; border-radius:5px; font-family:monospace;">
-            <span class="sql-keyword"># Три шага RAG:</span><br>
-            1. Поиск (Retrieval): вопрос → эмбеддинг → поиск похожих чанков<br>
+
+        <div class="alert alert-primary" role="alert">
+  1. Поиск (Retrieval): вопрос → эмбеддинг → поиск похожих чанков<br>
             2. Контекст: найденные чанки добавляются в промпт<br>
             3. Генерация: LLM отвечает ТОЛЬКО по контексту
-        </div>
+</div>
+
+  
 
         <div class="row">
             <div class="col-md-6">
@@ -698,12 +870,18 @@ for i, score in zip(idx, scores):
         <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
 v = [0.12, -0.34, 0.56, 0.78, -0.21]  # вектор размерности 5</pre>
 
-        <h5>Как текст становится вектором (эмбеддингом):</h5>
-        <ul>
+       
+
+        <div class="alert alert-primary" role="alert">
+   <h5>Как текст становится вектором (эмбеддингом):</h5>
+    <ul>
             <li><strong>Токенизация:</strong> текст разбивается на токены (слова, части слов).</li>
             <li><strong>Преобразование в числа:</strong> нейросеть-энкодер переводит токены в набор чисел.</li>
             <li><strong>Результат:</strong> эмбеддинг — вектор фиксированной размерности (например, 384, 768 или 1536 чисел).</li>
         </ul>
+
+</div>
+       
 
         <h5>Почему размерность важна:</h5>
         <ul>

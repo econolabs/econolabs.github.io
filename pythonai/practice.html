@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" href="../dist/original.css" />
+
+    <title>Практики Python AI</title>
+  </head>
+
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span class="sr-only"></span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="https://vk.com/dmglvn">
+            <img
+              loading="lazy"
+              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+              alt=""
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              "
+            />
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 style="color: #217346">
+        Практическое руководство для работы в Jupyter Lite
+      </h1>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            class="card-img-top"
+            style="filter: grayscale(1)"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Искусственный интеллект в Python"
+            loading="lazy"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">Искусственный интеллект в Python</h3>
+          <div class="row">
+            <div class="col-12">
+              <p class="lead text-center">
+                https://econolabspython.github.io/jupyterlite/lab/index.html
+              </p>
+              <div class="text-center mb-5">
+                <p class="lead">
+                  Практические работы для JupyterLite — копируйте код и
+                  запускайте прямо в браузере
+                </p>
+                <p class="text-muted">
+                  Все примеры адаптированы для работы в WebAssembly-окружении
+                </p>
+                <p>
+                  JupyterLite работает на <strong>Pyodide</strong> (Python в
+                  браузере). Это значит:
+                </p>
+                <ul>
+                  <li>
+                    Работают только
+                    <strong>«чистые» Python-библиотеки</strong> (без
+                    C-расширений, которые компилируются под конкретную ОС) .
+                  </li>
+                  <li>
+                    <strong
+                      >TensorFlow, PyTorch, Transformers (HuggingFace)</strong
+                    >
+                    — НЕ работают .
+                  </li>
+                  <li>
+                    <strong>Запросы в интернет (requests, API)</strong> —
+                    ограничены политикой CORS и безопасностью браузера.
+                  </li>
+                  <li>
+                    <strong>NumPy, Pandas, Scikit-learn</strong> —
+                    предустановлены и работают.
+                  </li>
+                </ul>
+                <div class="alert alert-warning small mt-2">
+                  <strong>Совет:</strong> Для изучения концепций RAG и векторов
+                  используйте «облегчённые» альтернативы. Для полноценного ML —
+                  переходите на Google Colab или локальный JupyterLab.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            class="card-img-top"
+            style="filter: grayscale(1)"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Таблица совместимости"
+            loading="lazy"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">Итоговая таблица совместимости</h3>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Библиотека/Инструмент</th>
+                <th>В JupyterLite</th>
+                <th>Альтернатива / Обход</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NumPy, Pandas, Scikit-learn</td>
+                <td class="text-success">Работает</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Matplotlib, Plotly</td>
+                <td class="text-success">Работает</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Sentence Transformers</td>
+                <td class="text-danger">Нет (PyTorch)</td>
+                <td>Готовые CSV с эмбеддингами</td>
+              </tr>
+              <tr>
+                <td>FAISS</td>
+                <td class="text-danger">Нет (C++)</td>
+                <td>Самостоятельная реализация kNN</td>
+              </tr>
+              <tr>
+                <td>Transformers (HuggingFace)</td>
+                <td class="text-danger">Нет</td>
+                <td>Работа с результатами, API-вызовы</td>
+              </tr>
+              <tr>
+                <td>Milvus Lite</td>
+                <td class="text-warning">️ Теоретически</td>
+                <td>Pandas + NumPy</td>
+              </tr>
+              <tr>
+                <td>LangChain / LlamaIndex</td>
+                <td class="text-danger">Нет</td>
+                <td>Собрать «велосипед» из 5–10 строк кода</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="alert alert-success small mt-2">
+            <strong>Вывод для преподавания:</strong> Ограничения JupyterLite —
+            не проблема, а возможность объяснить,
+            <strong>как работают библиотеки под капотом</strong>.
+          </div>
+        </div>
+      </div>
+
+         <div class="card my-3" style="max-width: 800px">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Векторы и меры сходства — как сравнивать смыслы</h3>
+
+
+        <div style="text-align: center; margin: 16px 0;">
+ <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <line x1="30" y1="270" x2="270" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <line x1="30" y1="270" x2="30" y2="30" stroke="#333" stroke-width="2" marker-end="url(#arrowGray)"/>
+  
+  <text x="270" y="265" font-size="14" fill="#333" font-family="sans-serif">x</text>
+  <text x="25" y="35" font-size="14" fill="#333" font-family="sans-serif">y</text>
+  
+  <line x1="30" y1="270" x2="180" y2="120" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <line x1="30" y1="270" x2="150" y2="60" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <text x="185" y="115" font-size="16" fill="#dc3545" font-family="sans-serif" font-weight="bold">a</text>
+  <text x="155" y="55" font-size="16" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  
+  <circle cx="30" cy="270" r="4" fill="#333"/>
+  <text x="15" y="285" font-size="12" fill="#333" font-family="sans-serif">O</text>
+  
+  <text x="50" y="290" font-size="11" fill="#6c757d" font-family="sans-serif">
+    cos θ = (a·b) / (|a|·|b|)
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <line x1="150" y1="260" x2="150" y2="40" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="150" x2="260" y2="150" stroke="#333" stroke-width="1.5"/>
+  
+  <text x="258" y="147" font-size="12" fill="#333" font-family="sans-serif">x</text>
+  <text x="147" y="38" font-size="12" fill="#333" font-family="sans-serif">y</text>
+  
+  <circle cx="150" cy="150" r="90" fill="none" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="6,4"/>
+  
+  <line x1="150" y1="150" x2="240" y2="150" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <line x1="150" y1="150" x2="195" y2="72" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  
+  <line x1="195" y1="72" x2="195" y2="150" stroke="#6c757d" stroke-width="1.5" stroke-dasharray="4,4"/>
+  
+  <circle cx="195" cy="150" r="3" fill="#6c757d"/>
+  <text x="195" y="165" font-size="10" fill="#6c757d" font-family="sans-serif" text-anchor="middle">(cos θ, 0)</text>
+  
+  <circle cx="195" cy="72" r="4" fill="#007bff"/>
+  <circle cx="150" cy="150" r="3" fill="#333"/>
+  
+  <text x="242" y="148" font-size="13" fill="#dc3545" font-family="sans-serif" font-weight="bold">i = (1,0)</text>
+  <text x="198" y="68" font-size="13" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  <text x="135" y="165" font-size="11" fill="#333" font-family="sans-serif">O</text>
+  
+  <text x="150" y="280" font-size="11" fill="#6c757d" font-family="sans-serif" text-anchor="middle">
+    Единичные векторы: a·b = cos θ
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .rotating {
+      animation: spin 4s linear infinite;
+      transform-origin: 150px 150px;
+    }
+  </style>
+  
+  <!-- Оси координат -->
+  <line x1="150" y1="280" x2="150" y2="20" stroke="#333" stroke-width="1.5"/>
+  <line x1="20" y1="150" x2="280" y2="150" stroke="#333" stroke-width="1.5"/>
+  
+  <text x="275" y="147" font-size="12" fill="#333" font-family="sans-serif">x</text>
+  <text x="147" y="25" font-size="12" fill="#333" font-family="sans-serif">y</text>
+  
+  <!-- Фиксированный красный вектор (вправо) -->
+  <line x1="150" y1="150" x2="240" y2="150" stroke="#dc3545" stroke-width="4" marker-end="url(#arrowRed)"/>
+  <text x="242" y="145" font-size="14" fill="#dc3545" font-family="sans-serif" font-weight="bold">a</text>
+  
+  <!-- Вращающийся синий вектор (вокруг начала координат) -->
+  <g class="rotating">
+    <line x1="150" y1="150" x2="150" y2="60" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <text x="155" y="55" font-size="14" fill="#007bff" font-family="sans-serif" font-weight="bold">b</text>
+  </g>
+  
+  <text x="150" y="285" font-size="11" fill="#6c757d" font-family="sans-serif" text-anchor="middle">
+    Синий вектор вращается, красный фиксирован
+  </text>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<div style="text-align: center; margin: 16px 0;">
+<svg width="100%" height="240" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+  
+  <g transform="translate(30, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 0°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = 1</text>
+  </g>
+  
+  <g transform="translate(330, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="10" y2="90" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 90°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = 0</text>
+  </g>
+  
+  <g transform="translate(630, 10)">
+    <line x1="10" y1="170" x2="10" y2="20" stroke="#ccc" stroke-width="1"/>
+    <line x1="10" y1="170" x2="180" y2="170" stroke="#ccc" stroke-width="1"/>
+    
+    <line x1="10" y1="170" x2="120" y2="170" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <line x1="10" y1="170" x2="-80" y2="170" stroke="#007bff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    
+    <text x="65" y="195" font-size="12" fill="#28a745" font-family="sans-serif" text-anchor="middle">θ = 180°</text>
+    <text x="65" y="210" font-size="12" fill="#dc3545" font-family="sans-serif" text-anchor="middle">cos θ = -1</text>
+  </g>
+  
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+
+
+        <p class="card-text">Чтобы найти похожие документы, нужно уметь измерять расстояние между векторами. Главный инструмент — косинусное сходство.</p>
+
+        <div>
+            <span class="sql-keyword"># Косинусное сходство (cosine similarity):</span><br>
+            cos(θ) = (A·B) / (|A| × |B|)<br>
+            результат: от 0 (не похожи) до 1 (очень похожи)<br><br>
+            <span class="sql-keyword"># Пример:</span><br>
+            «кот спит» и «кошка отдыхает» → сходство 0.95<br>
+            «кот спит» и «я люблю пиццу» → сходство 0.12
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Косинусное сходство:</strong></p>
+                <ul>
+                    <li>Игнорирует длину вектора (важен только угол)</li>
+                    <li>Стандарт для текстовых эмбеддингов</li>
+                    <li>1 = одинаковый смысл, 0 = никакой связи</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Другие меры:</strong></p>
+                <ul>
+                    <li><strong>Евклидово расстояние:</strong> прямое расстояние между точками</li>
+                    <li><strong>Манхэттенское расстояние:</strong> сумма модулей разниц</li>
+                    <li><strong>Для текстов:</strong> косинусное — лучший выбор</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      class="card-img-top"
+      style="filter: grayscale(1)"
+      src="https://econolabs.github.io/h1title3.jpg"
+      alt="NumPy"
+      loading="lazy"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">NumPy — скалярное произведение и единичные векторы</h3>
+
+    <p>
+      <strong>Что делает:</strong> Работа с многомерными массивами,
+      математические операции, линейная алгебра (матрицы, векторы).
+    </p>
+
+    <p>
+      <strong>Зачем для RAG/векторов:</strong> Эмбеддинги — это векторы чисел.
+      NumPy нужен для вычисления косинусного сходства, нормализации, операций с
+      матрицами эмбеддингов.
+    </p>
+
+    <p>
+      <strong>Статус в JupyterLite:</strong> <strong>Предустановлен</strong>,
+      работает отлично.
+    </p>
+
+    <!-- Основные функции -->
+    <h5 class="mt-3 mb-2">Основные функции NumPy для RAG</h5>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+      <div style="flex: 1; min-width: 150px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+          "
+        >
+          np.dot(a, b)<br />
+          np.linalg.norm(v)<br />
+          np.argsort(arr)
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 150px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+          "
+        >
+          np.hstack([v1, v2])<br />
+          np.vstack([v1, v2])<br />
+          np.linalg.svd(M)
+        </div>
+      </div>
+    </div>
+
+    <!-- Примеры np.dot для единичных векторов -->
+    <h5 class="mt-3 mb-2">
+      Примеры np.dot(a, b) для единичных векторов
+    </h5>
+
+    <!-- Пример 1: сонаправленные -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #dc3545;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 12px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;">import numpy as np
+
+# Единичные векторы: a = (1, 0), b = (1, 0) - сонаправлены
+a = np.array([1, 0])
+b = np.array([1, 0])
+
+dot = np.dot(a, b)
+print(f"a · b = {dot}")                    # 1.0
+print(f"Угол: {np.arccos(dot) * 180 / np.pi:.0f}°")  # 0°</pre>
+    </div>
+
+    <!-- Пример 2: перпендикулярные -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #28a745;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 12px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Единичные векторы: a = (1, 0), b = (0, 1) - перпендикулярны
+a = np.array([1, 0])
+b = np.array([0, 1])
+
+dot = np.dot(a, b)
+print(f"a · b = {dot}")                    # 0.0
+print(f"Угол: {np.arccos(dot) * 180 / np.pi:.0f}°")  # 90°</pre>
+    </div>
+
+    <!-- Пример 3: противоположные -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #ffc107;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 12px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Единичные векторы: a = (1, 0), b = (-1, 0) - противоположны
+a = np.array([1, 0])
+b = np.array([-1, 0])
+
+dot = np.dot(a, b)
+print(f"a · b = {dot}")                    # -1.0
+print(f"Угол: {np.arccos(dot) * 180 / np.pi:.0f}°")  # 180°</pre>
+    </div>
+
+    <!-- Пример 4: угол 45 градусов -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #17a2b8;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 12px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Единичные векторы: a = (1, 0), b = (√2/2, √2/2) - угол 45°
+import math
+a = np.array([1, 0])
+b = np.array([math.sqrt(2)/2, math.sqrt(2)/2])
+
+dot = np.dot(a, b)
+print(f"a · b = {dot:.4f}")                # 0.7071
+print(f"Угол: {np.arccos(dot) * 180 / np.pi:.0f}°")  # 45°</pre>
+    </div>
+
+    <!-- Пример 5: угол 120 градусов -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #6f42c1;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Единичные векторы: a = (1, 0), b = (-0.5, √3/2) - угол 120°
+import math
+a = np.array([1, 0])
+b = np.array([-0.5, math.sqrt(3)/2])
+
+dot = np.dot(a, b)
+print(f"a · b = {dot:.4f}")                # -0.5
+print(f"Угол: {np.arccos(dot) * 180 / np.pi:.0f}°")  # 120°</pre>
+    </div>
+
+    <!-- Вывод по единичным векторам -->
+    <div
+      style="
+        background-color: #e3f2fd;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        margin-bottom: 16px;
+      "
+    >
+      <strong>Правило для единичных векторов:</strong><br />
+      • a · b = 1  → угол 0° (сонаправлены)<br />
+      • a · b = 0  → угол 90° (перпендикулярны)<br />
+      • a · b = -1 → угол 180° (противоположны)<br />
+      • a · b = cos(θ) для любых единичных векторов
+    </div>
+
+    <!-- Пример: kNN -->
+    <h5 class="mt-3 mb-2">Пример: kNN на чистом NumPy</h5>
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;">def knn(embeddings, query, k=3):
+    norms = np.linalg.norm(embeddings, axis=1)
+    query_norm = np.linalg.norm(query)
+    cos_sim = np.dot(embeddings, query) / (norms * query_norm)
+    return np.argsort(cos_sim)[-k:][::-1]
+
+# Пример
+embeddings = np.random.rand(100, 384)
+query = np.random.rand(384)
+top_k = knn(embeddings, query, k=5)
+print("Индексы ближайших:", top_k)</pre>
+    </div>
+
+    <!-- Шпаргалка -->
+    <h5 class="mt-3 mb-2">Краткая шпаргалка</h5>
+    <div
+      style="
+        background-color: #e9ecef;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Скалярное произведение
+dot = np.dot(a, b)
+
+# Косинусное сходство (общий случай)
+cos = np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+# Косинусное сходство для единичных векторов
+cos = np.dot(a, b)
+
+# Нормализация вектора
+v_norm = v / np.linalg.norm(v)</pre>
+    </div>
+
+    <!-- Учебная задача -->
+    <div
+      style="
+        background-color: #e9ecef;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      "
+    >
+      <strong>Учебная задача:</strong>
+      <ol style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+        <li>Создайте единичные векторы для углов 0°, 60°, 90°, 120°, 180°</li>
+        <li>Вычислите np.dot(a, b) для каждой пары</li>
+        <li>Проверьте, что результат равен cos(угла)</li>
+        <li>Сгенерируйте 1000 случайных векторов и найдите 5 ближайших соседей
+        </li>
+      </ol>
+    </div>
+
+    <div style="color: #6c757d; font-size: 0.8em; margin-top: 12px;">
+      <strong>Где ещё применяется NumPy в RAG:</strong> нормализация признаков,
+      снижение размерности (SVD/PCA), кластеризация (k-means), обработка
+      выбросов.
+    </div>
+  </div>
+</div>
+
+      <div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      class="card-img-top"
+      style="filter: grayscale(1)"
+      src="https://econolabs.github.io/h1title3.jpg"
+      alt="NumPy"
+      loading="lazy"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">NumPy — фундамент числовых операций</h3>
+
+    <p>
+      <strong>Что делает:</strong> Работа с многомерными массивами,
+      математические операции, линейная алгебра (матрицы, векторы).
+    </p>
+
+    <p>
+      <strong>Зачем для RAG/векторов:</strong> Эмбеддинги — это векторы чисел.
+      NumPy нужен для вычисления косинусного сходства, нормализации, операций с
+      матрицами эмбеддингов.
+    </p>
+
+    <p>
+      <strong>Статус в JupyterLite:</strong> <strong>Предустановлен</strong>,
+      работает отлично.
+    </p>
+
+    <!-- Основные функции для RAG -->
+    <h5 class="mt-3 mb-2">Основные функции NumPy для RAG</h5>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+      <div style="flex: 1; min-width: 180px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+          "
+        >
+          np.dot(a, b)<br />
+          np.linalg.norm(v)<br />
+          np.argsort(arr)
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 180px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+          "
+        >
+          np.hstack([v1, v2])<br />
+          np.vstack([v1, v2])<br />
+          np.linalg.svd(M)
+        </div>
+      </div>
+    </div>
+
+    <!-- Пример: косинусное сходство -->
+    <h5 class="mt-3 mb-2">Пример: косинусное сходство</h5>
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;">import numpy as np
+
+# Два вектора эмбеддингов
+vec1 = np.array([0.1, 0.2, 0.3])
+vec2 = np.array([0.15, 0.25, 0.35])
+
+# Косинусное сходство
+cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+print(f"Сходство: {cosine_sim:.4f}")</pre>
+    </div>
+
+    <!-- Пример: kNN -->
+    <h5 class="mt-3 mb-2">Пример: kNN на чистом NumPy</h5>
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;">def knn(embeddings, query, k=3):
+    # embeddings: матрица N x d
+    # query: вектор запроса (d,)
+    norms = np.linalg.norm(embeddings, axis=1)
+    query_norm = np.linalg.norm(query)
+    cos_sim = np.dot(embeddings, query) / (norms * query_norm)
+    return np.argsort(cos_sim)[-k:][::-1]
+
+# Пример
+embeddings = np.random.rand(100, 384)
+query = np.random.rand(384)
+top_k = knn(embeddings, query, k=5)
+print("Индексы ближайших:", top_k)</pre>
+    </div>
+
+    <!-- Шпаргалка -->
+    <h5 class="mt-3 mb-2">Краткая шпаргалка</h5>
+    <div
+      style="
+        background-color: #e9ecef;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: inherit;"># Косинусное сходство (нормализованные)
+cos = np.dot(v1, v2)
+
+# Косинусное сходство (общий случай)
+cos = np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+
+# Нормализация вектора
+v_norm = v / np.linalg.norm(v)
+
+# Евклидово расстояние
+dist = np.linalg.norm(v1 - v2)</pre>
+    </div>
+
+    <!-- Учебная задача -->
+    <div
+      class="alert alert-secondary mt-3"
+      style="
+        background-color: #e9ecef;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      "
+    >
+      <strong>Учебная задача (понять ANN):</strong>
+      <ol style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+        <li>Сгенерируйте 1000 случайных векторов (1000, 128)</li>
+        <li>Найдите 5 ближайших соседей для случайного запроса</li>
+        <li>Замерьте время (import time; time.time())</li>
+        <li>Поймите: для 1 млн векторов нужен FAISS</li>
+      </ol>
+    </div>
+
+    <div style="color: #6c757d; font-size: 0.8em; margin-top: 12px;">
+      <strong>Где ещё применяется NumPy в RAG:</strong> нормализация признаков,
+      снижение размерности (SVD/PCA), кластеризация (k-means), обработка
+      выбросов.
+    </div>
+  </div>
+</div>
+
+   <div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      class="card-img-top"
+      style="filter: grayscale(1)"
+      src="https://econolabs.github.io/h1title3.jpg"
+      alt="NumPy"
+      loading="lazy"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+       NumPy — фундамент числовых операций для RAG и векторов
+    </h3>
+
+    <p>
+      <strong>Что делает:</strong> NumPy — это библиотека для работы с
+      многомерными массивами, математическими операциями и линейной алгеброй.
+      Почти все современные библиотеки машинного обучения (PyTorch, TensorFlow,
+      Scikit-learn) используют NumPy под капотом.
+    </p>
+
+    <p>
+      <strong>Зачем для RAG/векторов:</strong> Эмбеддинги — это векторы чисел.
+      В RAG-системах миллионы документов превращаются в матрицы эмбеддингов.
+      NumPy нужен для:
+    </p>
+    <ul>
+      <li>Вычисления косинусного сходства между запросом и документами</li>
+      <li>Нормализации векторов (приведение к единичной длине)</li>
+      <li>Поиска ближайших соседей (kNN) для небольших баз знаний</li>
+      <li>Снижения размерности (PCA) для визуализации эмбеддингов</li>
+      <li>Быстрых матричных операций (умножение, транспонирование)</li>
+    </ul>
+
+    <p>
+      <strong>Статус в JupyterLite:</strong> 
+      <strong>Предустановлен</strong>, работает отлично (чистый Python, без
+      C-расширений).
+    </p>
+
+    <!-- ========== ОСНОВНЫЕ ФУНКЦИИ ДЛЯ RAG ========== -->
+    <h5 class="mt-3 mb-2">
+       Основные функции NumPy для RAG и векторного поиска
+    </h5>
+
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Функция / Метод</th>
+            <th>Назначение</th>
+            <th>Пример использования в RAG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>np.array()</code></td>
+            <td>Создание массива из списка</td>
+            <td>Преобразование эмбеддинга (списка чисел) в массив NumPy</td>
+          </tr>
+          <tr>
+            <td><code>np.dot(a, b)</code></td>
+            <td>Скалярное произведение векторов</td>
+            <td>Быстрое вычисление числителя косинусного сходства</td>
+          </tr>
+          <tr>
+            <td><code>np.linalg.norm(v)</code></td>
+            <td>Евклидова норма (длина) вектора</td>
+            <td>Вычисление знаменателя косинусного сходства (||a||·||b||)</td>
+          </tr>
+          <tr>
+            <td><code>np.corrcoef(a, b)</code></td>
+            <td>Коэффициент корреляции</td>
+            <td>Альтернативная мера сходства между векторами</td>
+          </tr>
+          <tr>
+            <td><code>np.linalg.matrix_rank(M)</code></td>
+            <td>Ранг матрицы</td>
+            <td>Проверка, не вырождена ли матрица эмбеддингов</td>
+          </tr>
+          <tr>
+            <td><code>np.argsort(arr)</code></td>
+            <td>Возвращает индексы для сортировки</td>
+            <td>Находит k ближайших соседей (kNN) по расстоянию</td>
+          </tr>
+          <tr>
+            <td><code>np.hstack() / np.vstack()</code></td>
+            <td>Объединение массивов по горизонтали/вертикали</td>
+            <td>Сборка матрицы эмбеддингов из отдельных векторов</td>
+          </tr>
+          <tr>
+            <td><code>np.linalg.eig(M)</code></td>
+            <td>Собственные значения и векторы</td>
+            <td>Основа PCA для снижения размерности эмбеддингов</td>
+          </tr>
+          <tr>
+            <td><code>np.linalg.svd(M)</code></td>
+            <td>Сингулярное разложение</td>
+            <td>Ещё один метод снижения размерности и сжатия эмбеддингов</td>
+          </tr>
+          <tr>
+            <td><code>np.mean(arr, axis=...)</code></td>
+            <td>Среднее значение</td>
+            <td>Усреднение эмбеддингов для создания центроида кластера</td>
+          </tr>
+          <tr>
+            <td><code>np.std(arr, axis=...)</code></td>
+            <td>Стандартное отклонение</td>
+            <td>Нормализация данных (Z-score) перед обучением</td>
+          </tr>
+          <tr>
+            <td><code>np.linalg.norm(v)</code></td>
+            <td>Евклидова норма вектора</td>
+            <td>Нормализация вектора: v / np.linalg.norm(v)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ========== ПРИМЕР РЕАЛИЗАЦИИ kNN ========== -->
+    <h5 class="mt-3 mb-2"> kNN — поиск ближайших соседей на NumPy</h5>
+    <p>
+      Для небольших векторных баз (до 1000 векторов) можно реализовать
+      полноценный поиск на чистом NumPy без FAISS:
+    </p>
+
+    <pre
+      style="
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 12px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 13px;
+      "
+    ><code><span style="color:#569cd6">import</span> numpy <span style="color:#569cd6">as</span> np
+
+<span style="color:#6a9955"># ----- 1. ЗАГРУЗКА ДАННЫХ -----</span>
+<span style="color:#6a9955"># Матрица эмбеддингов (N документов, d=384)</span>
+embeddings = np.random.rand(1000, 384).astype(np.float32)
+
+<span style="color:#6a9955"># Тексты документов (для отображения результатов)</span>
+texts = [f<span style="color:#ce9178">"Документ {i}"</span> <span style="color:#569cd6">for</span> i <span style="color:#569cd6">in</span> <span style="color:#569cd6">range</span>(1000)]
+
+<span style="color:#6a9955"># Вектор запроса (например, эмбеддинг вопроса пользователя)</span>
+query_embedding = np.random.rand(384).astype(np.float32)
+
+<span style="color:#6a9955"># ----- 2. НОРМАЛИЗАЦИЯ (для ускорения) -----</span>
+<span style="color:#6a9955"># Нормализованные векторы имеют длину 1 → cos = dot</span>
+embeddings_norm = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)
+query_norm = query_embedding / np.linalg.norm(query_embedding)
+
+<span style="color:#6a9955"># ----- 3. ПОИСК k БЛИЖАЙШИХ СОСЕДЕЙ -----</span>
+k = 5
+<span style="color:#6a9955"># Косинусное сходство = скалярное произведение (для нормализованных)</span>
+cos_sim = np.dot(embeddings_norm, query_norm)
+
+<span style="color:#6a9955"># Индексы top-k (с наибольшим сходством)</span>
+top_k_idx = np.argsort(cos_sim)[-k:][::-1]
+top_k_scores = cos_sim[top_k_idx]
+
+<span style="color:#6a9955"># ----- 4. ВЫВОД РЕЗУЛЬТАТОВ -----</span>
+<span style="color:#569cd6">print</span>(<span style="color:#ce9178">f"Топ-{k} релевантных документов:"</span>)
+<span style="color:#569cd6">for</span> i, (idx, score) <span style="color:#569cd6">in</span> <span style="color:#569cd6">enumerate</span>(<span style="color:#569cd6">zip</span>(top_k_idx, top_k_scores)):
+    <span style="color:#569cd6">print</span>(<span style="color:#ce9178">f"  {i+1}. {texts[idx]} (сходство: {score:.4f})"</span>)
+</code></pre>
+
+    <!-- ========== КРАТКИЙ ШПАРГАЛОЧНЫЙ БЛОК ========== -->
+    <h5 class="mt-3 mb-2"> Краткий шпаргалка по формулам</h5>
+
+    <div class="row g-2 mb-3">
+      <div class="col-md-6">
+        <div class="card border-primary h-100">
+          <div class="card-header bg-primary text-white">
+            Косинусное сходство
+          </div>
+          <div class="card-body">
+            <pre style="margin:0; background: none; padding: 0"><code>cos = np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-success h-100">
+          <div class="card-header bg-success text-white">Нормализация вектора</div>
+          <div class="card-body">
+            <pre style="margin:0; background: none; padding: 0"><code>v_norm = v / np.linalg.norm(v)</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-warning h-100">
+          <div class="card-header bg-warning text-dark">
+            Евклидово расстояние
+          </div>
+          <div class="card-body">
+            <pre style="margin:0; background: none; padding: 0"><code>dist = np.linalg.norm(a - b)</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-info h-100">
+          <div class="card-header bg-info text-white">
+            Матрица расстояний (N×N)
+          </div>
+          <div class="card-body">
+            <pre style="margin:0; background: none; padding: 0"><code>dist_matrix = np.linalg.norm(emb[:, None] - emb, axis=2)</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== УЧЕБНАЯ ЗАДАЧА ========== -->
+    <div class="alert alert-secondary mt-2">
+      <strong>🧠 Учебная задача (понять ANN):</strong>
+      <ol class="mt-2 mb-0">
+        <li>
+          Сгенерируйте 100 случайных векторов размерности 64 (np.random.rand)
+        </li>
+        <li>Выберите случайный вектор запроса</li>
+        <li>
+          Реализуйте наивный kNN (полный перебор) через NumPy — найдите 5
+          ближайших соседей
+        </li>
+        <li>
+          Замерьте время выполнения (time.time()) — убедитесь, что для 1 млн
+          векторов это будет очень медленно
+        </li>
+        <li>
+          <strong>Вывод:</strong> Для больших баз нужен FAISS (ANN) вместо
+          наивного поиска
+        </li>
+      </ol>
+    </div>
+
+    <div class="text-muted-small mt-3">
+      <strong> Где ещё применяется NumPy в RAG:</strong> Обработка выбросов,
+      нормализация признаков, вычисление ковариационных матриц, кластеризация
+      (k-means), сжатие эмбеддингов через SVD.
+    </div>
+  </div>
+</div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            class="card-img-top"
+            style="filter: grayscale(1)"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Scikit-learn"
+            loading="lazy"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">Scikit-learn — классический ML и метрики</h3>
+          <p><strong>Что дает для RAG:</strong></p>
+          <ul>
+            <li>
+              <code>sklearn.metrics.pairwise.cosine_similarity</code> — готовая
+              косинусная близость ;
+            </li>
+            <li>
+              <code>sklearn.feature_extraction.text.TfidfVectorizer</code> —
+              классические «векторы» слов (baseline для сравнения с
+              эмбеддингами);
+            </li>
+            <li>
+              <code>sklearn.decomposition.PCA</code> — снижение размерности для
+              визуализации векторов (сотни измерений → 2D/3D).
+            </li>
+          </ul>
+          <p>
+            <strong>Статус в JupyterLite:</strong>
+            <strong>Предустановлен</strong> .
+          </p>
+          <pre style="background: #f4f4f4; padding: 8px; border-radius: 5px">
+%pip install scikit-learn
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Эмбеддинги двух текстов (условные)
+embeddings = np.array([[0.1, 0.2], [0.15, 0.25]])
+sim = cosine_similarity(embeddings)
+print(f"Матрица сходства:\n{sim}")</pre
+          >
+          <div class="text-muted-small mt-2">
+            <strong>Задача студентам:</strong> Сравнить TF-IDF и эмбеддинги
+            (если подключить API) для поиска похожих текстов.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      class="card-img-top"
+      style="filter: grayscale(1)"
+      src="https://econolabs.github.io/h1title4.jpg"
+      alt="Scikit-learn"
+      loading="lazy"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Scikit-learn — классический ML и метрики для RAG
+    </h3>
+
+    <p>
+      <strong>Что делает:</strong> Scikit-learn — библиотека для классического
+      машинного обучения (без нейросетей). Содержит алгоритмы для
+      классификации, регрессии, кластеризации, снижения размерности и
+      метрики качества.
+    </p>
+
+    <p>
+      <strong>Зачем для RAG/векторов:</strong> Позволяет оценивать качество
+      поиска (retrieval metrics), снижать размерность эмбеддингов для
+      визуализации, создавать бейзлайны (TF-IDF) для сравнения с эмбеддингами,
+      кластеризовать документы.
+    </p>
+
+    <p>
+      <strong>Статус в JupyterLite:</strong> <strong>Предустановлен</strong>,
+      работает отлично (чистый Python, без C-расширений).
+    </p>
+
+    <!-- Основные разделы библиотеки -->
+    <h5 class="mt-3 mb-2">Основные разделы Scikit-learn для RAG</h5>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+      <div style="flex: 1; min-width: 160px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #dc3545;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Метрики качества</strong><br />
+          sklearn.metrics
+        </div>
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Снижение размерности</strong><br />
+          sklearn.decomposition
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Извлечение признаков</strong><br />
+          sklearn.feature_extraction
+        </div>
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Предобработка</strong><br />
+          sklearn.preprocessing
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #17a2b8;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Кластеризация</strong><br />
+          sklearn.cluster
+        </div>
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #6f42c1;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+          "
+        >
+          <strong>Модели</strong><br />
+          sklearn.ensemble, linear_model
+        </div>
+      </div>
+    </div>
+
+    <!-- Метрики качества для RAG -->
+    <h5 class="mt-3 mb-2">
+      Метрики качества поиска (retrieval metrics)
+    </h5>
+
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #dc3545;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import ndcg_score, average_precision_score
+
+# Пример: 5 документов, из них релевантные 1, 3, 4
+y_true = [1, 0, 1, 1, 0]   # реальная релевантность (1 - да, 0 - нет)
+y_pred = [1, 1, 0, 1, 0]   # предсказание модели
+
+# Precision (точность): сколько из найденных — релевантны
+precision = precision_score(y_true, y_pred)
+
+# Recall (полнота): сколько релевантных нашли
+recall = recall_score(y_true, y_pred)
+
+# F1-score: среднее гармоническое precision и recall
+f1 = f1_score(y_true, y_pred)
+
+print(f"Precision: {precision:.3f}")
+print(f"Recall: {recall:.3f}")
+print(f"F1-score: {f1:.3f}")</pre>
+    </div>
+
+    <!-- Precision@k, Recall@k для ранжирования -->
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+# Метрики для ранжирования (top-k)
+def precision_at_k(relevant, retrieved, k):
+    # relevant: множество релевантных индексов
+    # retrieved: список индексов в порядке ранжирования
+    retrieved_k = retrieved[:k]
+    return len(set(relevant) & set(retrieved_k)) / k
+
+def recall_at_k(relevant, retrieved, k):
+    retrieved_k = retrieved[:k]
+    return len(set(relevant) & set(retrieved_k)) / len(relevant)
+
+# Пример
+relevant_docs = {0, 2, 4}           # релевантные документы
+retrieved_docs = [0, 1, 2, 3, 4]   # порядок от модели
+
+p5 = precision_at_k(relevant_docs, retrieved_docs, 5)
+r5 = recall_at_k(relevant_docs, retrieved_docs, 5)
+
+print(f"Precision@5: {p5:.3f}")   # 3/5 = 0.6
+print(f"Recall@5: {r5:.3f}")      # 3/3 = 1.0</pre>
+    </div>
+
+    <!-- Снижение размерности (PCA) для визуализации эмбеддингов -->
+    <h5 class="mt-3 mb-2">
+      PCA — снижение размерности для визуализации эмбеддингов
+    </h5>
+
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #28a745;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+from sklearn.decomposition import PCA
+import numpy as np
+
+# Допустим, у нас есть 100 эмбеддингов размерности 384
+embeddings = np.random.rand(100, 384)
+
+# Снижаем размерность до 2D для визуализации
+pca = PCA(n_components=2)
+embeddings_2d = pca.fit_transform(embeddings)
+
+print(f"Было: {embeddings.shape}")
+print(f"Стало: {embeddings_2d.shape}")
+
+# Теперь можно построить scatter plot
+# plt.scatter(embeddings_2d[:, 0], embeddings_2d[:, 1])</pre>
+    </div>
+
+    <!-- TF-IDF как baseline для сравнения с эмбеддингами -->
+    <h5 class="mt-3 mb-2">
+      TF-IDF — классический baseline для сравнения с эмбеддингами
+    </h5>
+
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #ffc107;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Коллекция документов
+documents = [
+    "кот спит на диване",
+    "собака бегает во дворе",
+    "кот и собака дружат",
+    "налоговый вычет на ребенка"
+]
+
+# Превращаем текст в TF-IDF векторы
+vectorizer = TfidfVectorizer()
+tfidf_matrix = vectorizer.fit_transform(documents)
+
+# Поиск по запросу
+query = "кот"
+query_vec = vectorizer.transform([query])
+
+# Косинусное сходство
+similarities = cosine_similarity(query_vec, tfidf_matrix).flatten()
+
+# Топ-2 наиболее похожих
+top_idx = similarities.argsort()[-2:][::-1]
+for idx in top_idx:
+    print(f"{similarities[idx]:.3f} - {documents[idx]}")</pre>
+    </div>
+
+    <!-- Кластеризация документов -->
+    <h5 class="mt-3 mb-2">
+      Кластеризация документов по смыслу
+    </h5>
+
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #17a2b8;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+documents = [
+    "новости про спорт футбол",
+    "матч закончился победой",
+    "курс доллара вырос",
+    "экономика России растет",
+    "хоккейный матч сегодня",
+    "инфляция в еврозоне"
+]
+
+# Превращаем в векторы
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(documents)
+
+# Кластеризация на 2 группы
+kmeans = KMeans(n_clusters=2, random_state=42)
+kmeans.fit(X)
+
+# Вывод кластеров
+for i, (doc, cluster) in enumerate(zip(documents, kmeans.labels_)):
+    print(f"Кластер {cluster}: {doc}")</pre>
+    </div>
+
+    <!-- Предобработка: нормализация и стандартизация -->
+    <h5 class="mt-3 mb-2">
+      Предобработка данных для эмбеддингов
+    </h5>
+
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #6f42c1;
+        margin-bottom: 16px;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-x: auto;">
+from sklearn.preprocessing import StandardScaler, normalize
+
+# Эмбеддинги (признаки могут быть в разных масштабах)
+embeddings = np.random.rand(100, 384)
+
+# Нормализация L2 (каждый вектор имеет длину 1)
+embeddings_norm = normalize(embeddings, norm='l2')
+
+# Стандартизация (среднее = 0, дисперсия = 1)
+scaler = StandardScaler()
+embeddings_std = scaler.fit_transform(embeddings)
+
+print(f"До норм: {np.linalg.norm(embeddings[0]):.3f}")
+print(f"После L2: {np.linalg.norm(embeddings_norm[0]):.3f}")
+print(f"После стандарт: mean={embeddings_std[:,0].mean():.3f}, std={embeddings_std[:,0].std():.3f}")</pre>
+    </div>
+
+    <!-- Шпаргалка по метрикам -->
+    <h5 class="mt-3 mb-2">Краткая шпаргалка по метрикам для RAG</h5>
+
+    <div
+      style="
+        background-color: #e9ecef;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 16px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+      "
+    >
+      <pre style="margin: 0; background: none; padding: 0; overflow-x: auto;">
+# Точность: доля релевантных среди найденных
+precision = tp / (tp + fp)
+
+# Полнота: доля найденных среди всех релевантных
+recall = tp / (tp + fn)
+
+# F1 = 2 * (precision * recall) / (precision + recall)
+
+# Precision@k: precision на первых k результатах
+# Recall@k: recall на первых k результатах
+# MRR: обратный ранг первого релевантного</pre>
+    </div>
+
+    <!-- Учебная задача -->
+    <div
+      style="
+        background-color: #e3f2fd;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        margin-bottom: 16px;
+      "
+    >
+      <strong>Учебная задача (сравнение TF-IDF и эмбеддингов):</strong>
+      <ol style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+        <li>Возьмите 10 документов (например, новости или описания товаров)</li>
+        <li>Реализуйте поиск через TF-IDF + cosine_similarity из sklearn</li>
+        <li>Реализуйте поиск через эмбеддинги (можно загрузить готовые из CSV)</li>
+        <li>Сравните качество поиска для 5 разных запросов</li>
+        <li>Какой метод лучше находит синонимы? А точные термины?</li>
+      </ol>
+    </div>
+
+    <div style="color: #6c757d; font-size: 0.8em; margin-top: 12px;">
+      <strong>Где ещё применяется Scikit-learn в RAG:</strong> оценка качества
+      ранжирования (NDCG, MAP), кластеризация для уменьшения индекса,
+      отбор признаков, масштабирование, детекция выбросов в эмбеддингах.
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </body>
+</html>
