@@ -21,6 +21,349 @@ let boardConfig = {
     showCopyright: false,
 }
 
+// ========== БИНОМИАЛЬНОЕ РАСПРЕДЕЛЕНИЕ ==========
+
+function binomial_distribution(board, n, p, color) {
+    // Биномиальное распределение: столбчатая диаграмма
+    const maxK = n;
+    const step = 1;
+    for (let k = 0; k <= maxK; k++) {
+        const prob = binomialProbability(n, p, k);
+        board.create('rectangle', [[k - 0.4, 0], [k + 0.4, prob]], {
+            fillColor: color || colors.primary,
+            fillOpacity: 0.7,
+            strokeColor: color || colors.primary,
+            strokeWidth: 1
+        });
+    }
+}
+
+function binomialProbability(n, p, k) {
+    // C(n,k) * p^k * (1-p)^(n-k)
+    let comb = 1;
+    for (let i = 0; i < k; i++) {
+        comb = comb * (n - i) / (i + 1);
+    }
+    return comb * Math.pow(p, k) * Math.pow(1 - p, n - k);
+}
+
+function binom_n10_p05(board) {
+    // Биномиальное: n=10, p=0.5 (монета)
+    for (let k = 0; k <= 10; k++) {
+        const prob = binomialProbability(10, 0.5, k);
+        board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+            fillColor: colors.primary,
+            fillOpacity: 0.7,
+            strokeColor: colors.primary,
+            strokeWidth: 1
+        });
+    }
+    // Отметим мат. ожидание M=5
+    board.create('line', [[5, 0], [5, 0.27]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [5, 0.29, 'M(X)=5'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return { 
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-1, 0.3, 11, -0.05], axis: true, grid: true }
+    };
+}
+
+function binom_n60_p1_6(board) {
+    // Биномиальное: n=60, p=1/6 (кость)
+    // Аппроксимируем нормальным для наглядности
+    const n = 60, p = 1/6;
+    const mu = n * p; // 10
+    const sigma = Math.sqrt(n * p * (1 - p)); // ~2.886
+    
+    const f = (x) => {
+        return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-Math.pow(x - mu, 2) / (2 * sigma * sigma));
+    };
+    board.create('functiongraph', [f, 0, 20], {
+        strokeColor: colors.success,
+        strokeWidth: 3
+    });
+    board.create('line', [[mu, 0], [mu, f(mu)]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, f(mu) + 0.01, 'M(X)=10'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-1, 0.16, 21, -0.02], axis: true, grid: true }
+    };
+}
+
+function binom_n20_p075(board) {
+    // Биномиальное: n=20, p=0.75 (студенты)
+    for (let k = 0; k <= 20; k++) {
+        const prob = binomialProbability(20, 0.75, k);
+        board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+            fillColor: colors.success,
+            fillOpacity: 0.7,
+            strokeColor: colors.success,
+            strokeWidth: 1
+        });
+    }
+    const mu = 15;
+    board.create('line', [[mu, 0], [mu, 0.22]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, 0.24, 'M(X)=15'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-1, 0.25, 21, -0.05], axis: true, grid: true }
+    };
+}
+
+function binom_n12_p1_3(board) {
+    // Биномиальное: n=12, p=1/3
+    for (let k = 0; k <= 12; k++) {
+        const prob = binomialProbability(12, 1/3, k);
+        board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+            fillColor: colors.primary,
+            fillOpacity: 0.7,
+            strokeColor: colors.primary,
+            strokeWidth: 1
+        });
+    }
+    const mu = 4;
+    board.create('line', [[mu, 0], [mu, 0.24]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, 0.26, 'M(X)=4'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-1, 0.27, 13, -0.05], axis: true, grid: true }
+    };
+}
+
+// ========== ГЕОМЕТРИЧЕСКОЕ РАСПРЕДЕЛЕНИЕ ==========
+
+function geometric_p02(board) {
+    // Геометрическое: p=0.2, M=5
+    const p = 0.2;
+    for (let k = 1; k <= 15; k++) {
+        const prob = p * Math.pow(1 - p, k - 1);
+        board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+            fillColor: colors.yellow,
+            fillOpacity: 0.7,
+            strokeColor: colors.yellow,
+            strokeWidth: 1
+        });
+    }
+    const mu = 5;
+    board.create('line', [[mu, 0], [mu, 0.2]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, 0.22, 'M(X)=5'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [0, 0.22, 16, -0.03], axis: true, grid: true }
+    };
+}
+
+function geometric_p005(board) {
+    // Геометрическое: p=0.05, M=20
+    const p = 0.05;
+    for (let k = 1; k <= 40; k++) {
+        const prob = p * Math.pow(1 - p, k - 1);
+        if (prob > 0.005) {
+            board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+                fillColor: colors.yellow,
+                fillOpacity: 0.7,
+                strokeColor: colors.yellow,
+                strokeWidth: 1
+            });
+        }
+    }
+    const mu = 20;
+    board.create('line', [[mu, 0], [mu, 0.05]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, 0.055, 'M(X)=20'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [0, 0.08, 45, -0.01], axis: true, grid: true }
+    };
+}
+
+function geometric_p04(board) {
+    // Геометрическое: p=0.4, M=2.5
+    const p = 0.4;
+    for (let k = 1; k <= 10; k++) {
+        const prob = p * Math.pow(1 - p, k - 1);
+        board.create('rectangle', [[k - 0.35, 0], [k + 0.35, prob]], {
+            fillColor: colors.yellow,
+            fillOpacity: 0.7,
+            strokeColor: colors.yellow,
+            strokeWidth: 1
+        });
+    }
+    const mu = 2.5;
+    board.create('line', [[mu, 0], [mu, 0.4]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, 0.43, 'M(X)=2.5'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [0, 0.45, 11, -0.05], axis: true, grid: true }
+    };
+}
+
+// ========== НОРМАЛЬНОЕ РАСПРЕДЕЛЕНИЕ ==========
+
+function normal_mu12_sigma3(board) {
+    // Нормальное: μ=12, σ=3
+    const mu = 12, sigma = 3;
+    const f = (x) => {
+        return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-Math.pow(x - mu, 2) / (2 * sigma * sigma));
+    };
+    board.create('functiongraph', [f, mu - 3*sigma, mu + 3*sigma], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    board.create('line', [[mu, 0], [mu, f(mu)]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [mu, f(mu) + 0.02, 'M(X)=12'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [mu - 4.5, f(mu) + 0.05, mu + 4.5, -0.02], axis: true, grid: true }
+    };
+}
+
+function normal_mu0_sigma1(board) {
+    // Стандартное нормальное: μ=0, σ=1
+    const f = (x) => {
+        return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(-x * x / 2);
+    };
+    board.create('functiongraph', [f, -4, 4], {
+        strokeColor: colors.secondary,
+        strokeWidth: 3
+    });
+    board.create('line', [[0, 0], [0, f(0)]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [0, f(0) + 0.05, 'M(X)=0'], {
+        fontSize: 12,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    return {
+        style: { width: "100%", height: "400px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-4.5, 0.45, 4.5, -0.05], axis: true, grid: true }
+    };
+}
+
+// ========== СРАВНЕНИЕ ТРЁХ РАСПРЕДЕЛЕНИЙ ==========
+
+function three_distributions_comparison(board) {
+    // Сравнение Bi(8,0.5), Geom(0.25), N(4,1) — все M=4
+    // Bi(8,0.5) — столбцы
+    for (let k = 0; k <= 8; k++) {
+        const prob = binomialProbability(8, 0.5, k);
+        board.create('rectangle', [[k - 0.25, 0], [k + 0.25, prob]], {
+            fillColor: colors.primary,
+            fillOpacity: 0.5,
+            strokeColor: colors.primary,
+            strokeWidth: 1
+        });
+    }
+    
+    // Geom(0.25) — точки и линии
+    const p = 0.25;
+    for (let k = 1; k <= 12; k++) {
+        const prob = p * Math.pow(1 - p, k - 1);
+        board.create('point', [k, prob], {
+            fillColor: colors.yellow,
+            size: 3,
+            strokeColor: colors.yellow,
+            name: ''
+        });
+    }
+    
+    // N(4,1) — кривая
+    const f = (x) => {
+        return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(-Math.pow(x - 4, 2) / 2);
+    };
+    board.create('functiongraph', [f, 0, 8], {
+        strokeColor: colors.success,
+        strokeWidth: 2.5
+    });
+    
+    // Общая линия M=4
+    board.create('line', [[4, 0], [4, 0.45]], {
+        strokeColor: colors.danger,
+        strokeWidth: 2,
+        dash: 2
+    });
+    board.create('text', [4, 0.47, 'M=4 для всех'], {
+        fontSize: 11,
+        color: colors.danger,
+        anchorX: 'middle'
+    });
+    
+    // Легенда
+    board.create('text', [0.5, 0.52, '🔵 Bi(8,0.5)'], { fontSize: 10, color: colors.primary });
+    board.create('text', [0.5, 0.48, '🟡 Geom(0.25)'], { fontSize: 10, color: colors.yellow });
+    board.create('text', [0.5, 0.44, '🟢 N(4,1)'], { fontSize: 10, color: colors.success });
+    
+    return {
+        style: { width: "100%", height: "450px", border: "1px solid #ccc", borderRadius: "5px" },
+        boardConfig: { boundingbox: [-1, 0.55, 13, -0.08], axis: true, grid: true }
+    };
+}
+
 // function costsRevenueGraph(board) {
 //     // Define the two points
 //     const point1 = [50, 40];
