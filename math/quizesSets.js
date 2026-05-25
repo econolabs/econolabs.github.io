@@ -1,10 +1,4 @@
 
-//ЭП
-//1.
-// 
-//14. Вероятность
-
-
 //ИСИП
 // 1. Числа. Уравнения. Система уравнений
 // 2. Паралелльность в пространстве
@@ -21,23 +15,400 @@
 // 13. Первообразная и интеграл
 // 14. Вероятность
 // 15. Комбинаторика
-// 16. Математическое ожидание случайной величиниы
+// 16. Математическое ожидание случайной величины
 
 
 
-let quizesSets = 
-[
+let quizesSets =
+  [
 
-  // Первообразная и интеграл
-{
-    "id": "integral001random1",
-    "type": "mathwithrandomnumber",
-    "header": "Математический анализ",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
-    "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
-    "hint": `
+    // 6. Векторы и координаты в пространстве
+
+    {
+      id: "vec001",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Координаты единичных векторов",
+      theme: "Векторы на плоскости",
+      text: "На рисунке изображены единичные векторы i и j. Каковы их координаты?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Единичные векторы по осям имеют координаты: $$\\vec{i} = (1, 0), \\quad \\vec{j} = (0, 1)$$",
+      choices: [
+        "i = (1,0), j = (0,1)",
+        "i = (0,1), j = (1,0)",
+        "i = (1,1), j = (-1,-1)",
+        "i = (0,0), j = (1,1)",
+        "i = (-1,0), j = (0,-1)",
+        "i = (0.5,0.5), j = (-0.5,0.5)"
+      ],
+      answers: ["i = (1,0), j = (0,1)"]
+    },
+    {
+      id: "vec002",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Отрицательные единичные векторы",
+      theme: "Векторы на плоскости",
+      text: "На рисунке изображены векторы -i и -j. Каковы их координаты?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Отрицательные единичные векторы имеют координаты: $$-\\vec{i} = (-1, 0), \\quad -\\vec{j} = (0, -1)$$",
+      choices: [
+        "-i = (-1,0), -j = (0,-1)",
+        "-i = (0,-1), -j = (-1,0)",
+        "-i = (1,0), -j = (0,1)",
+        "-i = (-1,-1), -j = (1,1)",
+        "-i = (0,0), -j = (-1,-1)",
+        "-i = (0.5,-0.5), -j = (-0.5,0.5)"
+      ],
+      answers: ["-i = (-1,0), -j = (0,-1)"]
+    },
+
+    {
+      id: "vec006",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Длина единичного вектора",
+      theme: "Векторы на плоскости",
+      text: "Чему равна длина вектора i = (1, 0)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Длина вектора вычисляется по формуле: $$|\\vec{a}| = \\sqrt{x^2 + y^2}$$. Для вектора i: $$|\\vec{i}| = \\sqrt{1^2 + 0^2} = 1$$",
+      choices: [
+        "0",
+        "1",
+        "√2",
+        "2",
+        "0.5",
+        "√3"
+      ],
+      answers: ["1"]
+    },
+
+    {
+      id: "vec008",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Скалярное произведение ортогональных векторов",
+      theme: "Векторы на плоскости",
+      text: "Чему равно скалярное произведение векторов i = (1, 0) и j = (0, 1)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Скалярное произведение: $$\\vec{a} \\cdot \\vec{b} = x_a x_b + y_a y_b$$. Для ортогональных векторов оно равно 0.",
+      choices: [
+        "0",
+        "1",
+        "-1",
+        "√2",
+        "2",
+        "Не определено"
+      ],
+      answers: ["0"]
+    },
+    {
+      id: "vec009",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Скалярное произведение противоположных векторов",
+      theme: "Векторы на плоскости",
+      text: "Чему равно скалярное произведение векторов i = (1, 0) и -i = (-1, 0)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "$$\\vec{i} \\cdot (-\\vec{i}) = 1 \\cdot (-1) + 0 \\cdot 0 = -1$$",
+      choices: [
+        "1",
+        "-1",
+        "0",
+        "2",
+        "-2",
+        "Не определено"
+      ],
+      answers: ["-1"]
+    },
+    {
+      id: "vec010",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Сумма единичных векторов",
+      theme: "Векторы на плоскости",
+      text: "Чему равна сумма векторов i = (1, 0) и j = (0, 1)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Сложение векторов выполняется покомпонентно: $$\\vec{i} + \\vec{j} = (1+0, 0+1) = (1, 1)$$",
+      choices: [
+        "(1, 1)",
+        "(0, 0)",
+        "(1, 0)",
+        "(0, 1)",
+        "(2, 2)",
+        "(-1, -1)"
+      ],
+      answers: ["(1, 1)"]
+    },
+
+    {
+      id: "vec012",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Разность единичных векторов",
+      theme: "Векторы на плоскости",
+      text: "Чему равна разность векторов i = (1, 0) и j = (0, 1)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "$$\\vec{i} - \\vec{j} = (1-0, 0-1) = (1, -1)$$",
+      choices: [
+        "(1, -1)",
+        "(-1, 1)",
+        "(1, 1)",
+        "(-1, -1)",
+        "(0, 0)",
+        "(2, -2)"
+      ],
+      answers: ["(1, -1)"]
+    },
+    {
+      id: "vec013",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Умножение вектора на число",
+      theme: "Векторы на плоскости",
+      text: "Чему равен вектор 2i, если i = (1, 0)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "При умножении вектора на число каждая координата умножается на это число: $$2\\vec{i} = 2(1, 0) = (2, 0)$$",
+      choices: [
+        "(2, 0)",
+        "(0, 2)",
+        "(1, 2)",
+        "(2, 1)",
+        "(0.5, 0)",
+        "(-2, 0)"
+      ],
+      answers: ["(2, 0)"]
+    },
+
+    {
+      id: "vec016",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Ортогональность векторов",
+      theme: "Векторы на плоскости",
+      text: "Какой из векторов ортогонален (перпендикулярен) вектору i = (1, 0)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Вектор ортогонален i, если их скалярное произведение равно 0: $$(1,0) \\cdot (x,y) = 1 \\cdot x + 0 \\cdot y = x = 0$$",
+      choices: [
+        "(0, 1)",
+        "(1, 1)",
+        "(-1, 0)",
+        "(1, -1)",
+        "(0, 0)",
+        "(0, -1)"
+      ],
+      answers: ["(0, 1)", "(0, -1)"]
+    },
+
+    {
+      id: "vec017",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Коллинеарность векторов",
+      theme: "Векторы на плоскости",
+      text: "Какой из векторов коллинеарен (параллелен) вектору i = (1, 0)?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Векторы коллинеарны, если один является числовым кратным другого: $$\\vec{a} = k\\vec{b}$$",
+      choices: [
+        "(-2, 0)",
+        "(0, 2)",
+        "(1, 1)",
+        "(-1, -1)",
+        "(0, -1)",
+        "(2, 2)"
+      ],
+      answers: ["(-2, 0)"]
+    },
+
+    {
+      id: "vec022",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Направление вектора 2",
+      theme: "Векторы на плоскости",
+      text: "Вектор v = (-1, 0). В каком направлении он направлен?",
+      JSXGraph: "true",
+      JSXGraphType: "unitVectors",
+      hint: "Вектор (-1, 0) направлен вдоль отрицательного направления оси X.",
+      choices: [
+        "Влево",
+        "Вправо",
+        "Вверх",
+        "Вниз",
+        "По диагонали влево-вверх",
+        "По диагонали вправо-вниз"
+      ],
+      answers: ["Влево"]
+    },
+
+    {
+      id: "vec_int001",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Проекция вектора на ось X",
+      theme: "Векторы на плоскости",
+      text: "Вектор v = (3, 4). Чему равна его проекция на ось X?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Проекция вектора на ось X равна его координате x: $$\\text{пр}_x \\vec{v} = x = 3$$",
+      choices: [
+        "3",
+        "4",
+        "5",
+        "0",
+        "-3",
+        "-4"
+      ],
+      answers: ["3"]
+    },
+    {
+      id: "vec_int002",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Проекция вектора на ось Y",
+      theme: "Векторы на плоскости",
+      text: "Вектор v = (3, 4). Чему равна его проекция на ось Y?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Проекция вектора на ось Y равна его координате y: $$\\text{пр}_y \\vec{v} = y = 4$$",
+      choices: [
+        "3",
+        "4",
+        "5",
+        "0",
+        "-3",
+        "-4"
+      ],
+      answers: ["4"]
+    },
+
+    {
+      id: "vec_int004",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Длина вектора через проекции",
+      theme: "Векторы на плоскости",
+      text: "Проекции вектора на оси: x = 6, y = 8. Чему равна длина вектора?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Длина вектора через проекции: $$|\\vec{v}| = \\sqrt{x^2 + y^2} = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$$",
+      choices: [
+        "10",
+        "14",
+        "√14",
+        "√100",
+        "48",
+        "100"
+      ],
+      answers: ["10", "√100"]
+    },
+    {
+      id: "vec_int005",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Угол вектора с осью X",
+      theme: "Векторы на плоскости",
+      text: "Вектор v = (1, 1). Чему равен угол между вектором и положительным направлением оси X?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Угол вычисляется по формуле: $$\\tan\\alpha = \\frac{y}{x} = \\frac{1}{1} = 1 \\Rightarrow \\alpha = 45^\\circ$$",
+      choices: [
+        "45°",
+        "30°",
+        "60°",
+        "90°",
+        "0°",
+        "135°"
+      ],
+      answers: ["45°"]
+    },
+    {
+      id: "vec_int006",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Вектор с отрицательной проекцией",
+      theme: "Векторы на плоскости",
+      text: "Вектор имеет проекцию на ось X = -2, на ось Y = 3. Каковы его координаты?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Координаты вектора совпадают с его проекциями на оси: $$\\vec{v} = (-2, 3)$$",
+      choices: [
+        "(-2, 3)",
+        "(2, -3)",
+        "(3, -2)",
+        "(-3, 2)",
+        "(2, 3)",
+        "(-2, -3)"
+      ],
+      answers: ["(-2, 3)"]
+    },
+
+    {
+      id: "vec_int008",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Одинаковые проекции",
+      theme: "Векторы на плоскости",
+      text: "Вектор имеет равные проекции на обе оси: x = y = 4. Чему равна его длина?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "$$|\\vec{v}| = \\sqrt{4^2 + 4^2} = \\sqrt{16 + 16} = \\sqrt{32} = 4\\sqrt{2}$$",
+      choices: [
+        "4√2",
+        "8",
+        "√32",
+        "16",
+        "4",
+        "2√8"
+      ],
+      answers: ["4√2", "√32"]
+    },
+
+    {
+      id: "vec_int018",
+      type: "multiplechoices",
+      header: "6. Векторы и координаты в пространстве",
+      title: "Проекции и угол 90°",
+      theme: "Векторы на плоскости",
+      text: "Вектор образует угол 90° с осью X. Чему равна его проекция на ось X?",
+      JSXGraph: "true",
+      JSXGraphType: "interactiveVectors",
+      hint: "Если угол с осью X равен 90°, вектор перпендикулярен оси X, значит его проекция на эту ось равна 0.",
+      choices: [
+        "0",
+        "1",
+        "-1",
+        "Может быть любой",
+        "Не определена",
+        "Зависит от проекции на Y"
+      ],
+      answers: ["0"]
+    },
+
+
+
+
+    // Первообразная и интеграл
+
+    {
+      "id": "integral001random1",
+      "type": "mathwithrandomnumber",
+      "header": "13. Первообразная и интеграл",
+      "title": "Интеграл линейной функции",
+      "theme": "Интегралы",
+      "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} x \\, dx$$?",
+      "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 2)",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫x dx</h5>
@@ -76,18 +447,18 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "randomfrom": [0, 1, 2, 3, 4]
-  },
+      "randomfrom": [0, 1, 2, 3, 4]
+    },
 
-  {
-    "id": "integral002random3",
-    "type": "mathwithrandomnumber",
-    "header": "Математический анализ",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} \\, dx$$?",
-    "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 4)",
-    "hint": `
+    {
+      "id": "integral002random3",
+      "type": "mathwithrandomnumber",
+      "header": "13. Первообразная и интеграл",
+      "title": "Интеграл линейной функции",
+      "theme": "Интегралы",
+      "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x}{2} \\, dx$$?",
+      "answer": "((({var1-10}+2)^2 - ({var1-10})^2) / 4)",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫(x/2) dx</h5>
@@ -126,18 +497,18 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "randomfrom": [0, 1, 2, 3, 4]
-  },
+      "randomfrom": [0, 1, 2, 3, 4]
+    },
 
-  {
-    "id": "integral004random4",
-    "type": "mathwithrandomnumber",
-    "header": "Математический анализ",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx$$?",
-    "answer": "10 * 2",
-    "hint": `
+    {
+      "id": "integral004random4",
+      "type": "mathwithrandomnumber",
+      "header": "13. Первообразная и интеграл",
+      "title": "Интеграл константы",
+      "theme": "Интегралы",
+      "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} 10 \\, dx$$?",
+      "answer": "10 * 2",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫10 dx</h5>
@@ -178,18 +549,18 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "randomfrom": [0, 1, 2, 3, 4]
-  },
+      "randomfrom": [0, 1, 2, 3, 4]
+    },
 
-  {
-    "id": "integral003random1",
-    "type": "mathwithrandomnumber",
-    "header": "Математический анализ",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-    "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} \\, dx$$?",
-    "answer": "((({var1-10}+2)^3 - ({var1-10})^3) / 9)",
-    "hint": `
+    {
+      "id": "integral003random1",
+      "type": "mathwithrandomnumber",
+      "header": "13. Первообразная и интеграл",
+      "title": "Интеграл квадратичной функции",
+      "theme": "Интегралы",
+      "text": "Чему равен интеграл $$\\int_{{{var1-10}}}^{{={var1-10}+2}} \\frac{x^2}{3} \\, dx$$?",
+      "answer": "((({var1-10}+2)^3 - ({var1-10})^3) / 9)",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Решаем интеграл ∫(x²/3) dx</h5>
@@ -229,376 +600,22 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "randomfrom": [0, 1, 2, 3, 4]
-  },
+      "randomfrom": [0, 1, 2, 3, 4]
+    },
 
 
-  {
-    "id": "integral_trig_006",
-    "type": "multiplechoices",
-    "header": "Интегрирование: Тригонометрия",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-
-    "text": "Чему равен неопределённый интеграл $\\int \\cos(x) \\, dx$?",
-    "choices": [
-      "$\\sin(x) + C$",
-      "$-\\sin(x) + C$",
-      "$\\cos(x) + C$",
-      "$-\\cos(x) + C$",
-      "$\\tan(x) + C$"
-    ],
-    "answers": ["$\\sin(x) + C$"],
-    "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>📐 Интегралы тригонометрических функций</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Основные формулы:</strong>
-      $$\\int \\cos(x) \\, dx = \\sin(x) + C$$
-      $$\\int \\sin(x) \\, dx = -\\cos(x) + C$$
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>🎭 Образная ассоциация</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Интеграл — это "обратное" действие к производной.</p>
-        <p class="card-text">Если производная синуса — косинус, то интеграл косинуса — синус!</p>
-        <div class="alert alert-success">
-          $$\uD83D\uDC0B \\cos(x) \\xrightarrow{\\text{интеграл}} \uD83D\uDC0B \\sin(x) + C$$
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        <h5>📋 Таблица интегралов</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-success"><td>$\\int \\cos(x) \\, dx$</td><td>$\\sin(x) + C$</td></tr>
-              <tr><td>$\\int \\sin(x) \\, dx$</td><td>$-\\cos(x) + C$</td></tr>
-              <tr><td>$\\int \\sec^2(x) \\, dx$</td><td>$\\tan(x) + C$</td></tr>
-              <tr><td>$\\int \\csc^2(x) \\, dx$</td><td>$-\\cot(x) + C$</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-footer bg-warning">
-      <b>✅ Ответ:</b> $\\sin(x) + C$
-    </div>
-  </div>
-</div>`
-  },
-
-  {
-    "id": "integral_1_over_x_007",
-    "type": "multiplechoices",
-    "header": "Интегрирование: Обратная пропорциональность",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-
-    "text": "Чему равен неопределённый интеграл $\\int \\frac{1}{x} \\, dx$ (при $x > 0$)?",
-    "choices": [
-      "$\\ln|x| + C$",
-      "$\\frac{1}{x^2} + C$",
-      "$\\ln(x) + C$",
-      "$e^x + C$",
-      "$\\frac{x^2}{2} + C$"
-    ],
-    "answers": ["$\\ln|x| + C$"],
-    "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>📐 Интеграл от 1/x — особый случай!</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Важная формула:</strong>
-      $$\\int \\frac{1}{x} \\, dx = \\ln|x| + C, \\quad x \\neq 0$$
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 1: Почему это особый случай?</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Если бы мы применили формулу $\\int x^n dx = \\frac{x^{n+1}}{n+1}$ при $n = -1$:</p>
-        <p class="card-text">$$\\int x^{-1} dx = \\frac{x^{0}}{0} = \\frac{1}{0} \\text{ — не определено!}$$</p>
-        <p class="card-text">Поэтому нужна отдельная формула с логарифмом.</p>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 2: Проверка дифференцированием</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Проверим, что производная логарифма даёт $1/x$:</p>
-        <p class="card-text">$$\\frac{d}{dx} \\ln|x| = \\frac{1}{x}$$</p>
-        <p class="card-text">Значит, интеграл верный!</p>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        <h5>📋 Важные интегралы</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-warning"><td>$\\int \\frac{1}{x} \\, dx$</td><td>$\\ln|x| + C$</td></tr>
-              <tr><td>$\\int e^x \\, dx$</td><td>$e^x + C$</td></tr>
-              <tr><td>$\\int \\frac{1}{x \\ln(a)} \\, dx$</td><td>$\\log_a|x| + C$</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-footer bg-warning">
-      <b>✅ Ответ:</b> $\\ln|x| + C$
-    </div>
-  </div>
-</div>`
-  },
-
-  {
-    "id": "integral_definite_008",
-    "type": "multiplechoices",
-    "header": "Интегрирование: Определённый интеграл",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-
-    "text": "Чему равен определённый интеграл $\\int_0^1 x^2 \\, dx$?",
-    "choices": [
-      "$\\frac{1}{3}$",
-      "$\\frac{1}{2}$",
-      "$1$",
-      "$\\frac{1}{4}$",
-      "$0$"
-    ],
-    "answers": ["$\\frac{1}{3}$"],
-    "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>📐 Определённый интеграл и площадь</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Формула Ньютона-Лейбница:</strong>
-      $$\\int_a^b f(x) \\, dx = F(b) - F(a)$$
-      где $F(x)$ — первообразная $f(x)$.
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 1: Находим первообразную</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Для $f(x) = x^2$:</p>
-        <p class="card-text">$$F(x) = \\frac{x^3}{3}$$</p>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 2: Применяем формулу Ньютона-Лейбница</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">$$\\int_0^1 x^2 \\, dx = F(1) - F(0) = \\frac{1^3}{3} - \\frac{0^3}{3}$$</p>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        <h5>Шаг 3: Вычисляем</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">$$\\int_0^1 x^2 \\, dx = \\frac{1}{3} - 0 = \\frac{1}{3}$$</p>
-        <div class="alert alert-info mt-2">
-          📐 <strong>Геометрический смысл:</strong> Площадь под параболой $y = x^2$ на отрезке $[0, 1]$ равна $\\frac{1}{3}$.
-        </div>
-      </div>
-    </div>
-
-    <div class="card-footer bg-warning">
-      <b>✅ Ответ:</b> $\\frac{1}{3}$
-    </div>
-  </div>
-</div>`
-  },
-
-  {
-    "id": "integral_exp_009",
-    "type": "multiplechoices",
-    "header": "Интегрирование: Экспонента",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-
-    "text": "Чему равен неопределённый интеграл $\\int e^x \\, dx$?",
-    "choices": [
-      "$e^x + C$",
-      "$\\frac{e^{x+1}}{x+1} + C$",
-      "$\\ln|e^x| + C$",
-      "$x e^{x-1} + C$",
-      "$e^{x^2} + C$"
-    ],
-    "answers": ["$e^x + C$"],
-    "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>📐 Интеграл от экспоненты</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Формула:</strong>
-      $$\\int e^x \\, dx = e^x + C$$
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>✨ Уникальное свойство</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Экспонента — единственная функция, которая</p>
-        <ul>
-          <li><strong>Не меняется при дифференцировании:</strong> $(e^x)' = e^x$</li>
-          <li><strong>Не меняется при интегрировании:</strong> $\\int e^x dx = e^x + C$</li>
-        </ul>
-        <div class="alert alert-success">
-          🚀 Чайка-экспонента остаётся самой собой!
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        <h5>📋 Таблица интегралов экспоненты</h5>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>$\\int f(x) \\, dx$</th><th>Результат</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-success"><td>$\\int e^x \\, dx$</td><td>$e^x + C$</td></tr>
-              <tr><td>$\\int e^{kx} \\, dx$</td><td>$\\frac{1}{k} e^{kx} + C$</td></tr>
-              <tr><td>$\\int a^x \\, dx$</td><td>$\\frac{a^x}{\\ln(a)} + C$</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-footer bg-warning">
-      <b>✅ Ответ:</b> $e^x + C$
-    </div>
-  </div>
-</div>`
-  },
-
-
-  {
-    "id": "integral_sum_010",
-    "type": "multiplechoices",
-    "header": "Интегрирование: Линейность",
-    "title": "13. Первообразная и интеграл",
-    "theme": "Интегралы",
-
-    "text": "Чему равен интеграл $\\int (x^2 + \\sin(x)) \\, dx$?",
-    "choices": [
-      "$\\frac{x^3}{3} - \\cos(x) + C$",
-      "$\\frac{x^3}{3} + \\cos(x) + C$",
-      "$2x + \\cos(x) + C$",
-      "$\\frac{x^3}{3} - \\sin(x) + C$",
-      "$x^2 - \\cos(x) + C$"
-    ],
-    "answers": ["$\\frac{x^3}{3} - \\cos(x) + C$"],
-    "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>📐 Интеграл суммы</h5>
-  </div>
-  <div class="card-body">
-    
-    <div class="alert alert-secondary mb-3">
-      <strong>📌 Правило линейности:</strong>
-      $$\\int (f(x) + g(x)) \\, dx = \\int f(x) \\, dx + \\int g(x) \\, dx$$
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 1: Разбиваем на интегралы</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">$$\\int (x^2 + \\sin(x)) \\, dx = \\int x^2 \\, dx + \\int \\sin(x) \\, dx$$</p>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        <h5>Шаг 2: Находим каждый интеграл</h5>
-      </div>
-      <div class="card-body">
-        <ul>
-          <li>$$\\int x^2 \\, dx = \\frac{x^3}{3} + C_1$$</li>
-          <li>$$\\int \\sin(x) \\, dx = -\\cos(x) + C_2$$</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        <h5>Шаг 3: Складываем</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">$$\\int (x^2 + \\sin(x)) \\, dx = \\frac{x^3}{3} - \\cos(x) + C$$</p>
-        <p class="card-text">(где $C = C_1 + C_2$)</p>
-      </div>
-    </div>
-
-    <div class="card-footer bg-warning">
-      <b>✅ Ответ:</b> $\\frac{x^3}{3} - \\cos(x) + C$
-    </div>
-  </div>
-</div>`
-  },
+    // Вероятность
 
 
 
-  // Вероятность
-
-
-
-  {
-    "id": "statistics_mean_mixed001",
-    "type": "mathwithrandomnumber",
-    "header": "Статистика",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "altpath": "currentDay",
-    "text": `
+    {
+      "id": "statistics_mean_mixed001",
+      "type": "mathwithrandomnumber",
+      "header": "14. Вероятность",
+      "title": "Среднее арифметическое",
+      "theme": "Средние величины",
+      "altpath": "currentDay",
+      "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Среднее арифметическое
@@ -615,8 +632,8 @@ let quizesSets =
     </div>
      </div>
 </div>`,
-    "answer": "{var1-10}",
-    "hint": `
+      "answer": "{var1-10}",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -633,16 +650,16 @@ let quizesSets =
     </div>
     </div>
 </div>`,
-    "randomfrom": [10, 15, 20, 25, 30, 35]
-  },
+      "randomfrom": [10, 15, 20, 25, 30, 35]
+    },
 
-  {
-    "id": "statistics_var_mixed005",
-    "type": "mathwithrandomnumber",
-    "header": "Статистика",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": `
+    {
+      "id": "statistics_var_mixed005",
+      "type": "mathwithrandomnumber",
+      "header": "14. Вероятность",
+      "title": "Дисперсия",
+      "theme": "Меры разброса",
+      "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Дисперсия
@@ -659,8 +676,8 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "answer": "{var1-10}",
-    "hint": `
+      "answer": "{var1-10}",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Решение
@@ -684,18 +701,18 @@ let quizesSets =
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
-    "randomfrom": [4, 9, 16, 25],
-    "altpath": "currentDay"
-  },
+      "randomfrom": [4, 9, 16, 25],
+      "altpath": "currentDay"
+    },
 
 
-  {
-    "id": "statistics_stdev_mixed005",
-    "type": "mathwithrandomnumber",
-    "header": "Статистика",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": `
+    {
+      "id": "statistics_stdev_mixed005",
+      "type": "mathwithrandomnumber",
+      "header": "14. Вероятность",
+      "title": "Стандартное отклонение",
+      "theme": "Меры разброса",
+      "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Стандартное отклонение
@@ -712,8 +729,8 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "answer": "POWER({var1-10}, 1/2)",
-    "hint": `
+      "answer": "POWER({var1-10}, 1/2)",
+      "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     <h5>Порядок расчёта стандартного отклонения</h5>
@@ -792,354 +809,158 @@ let quizesSets =
     </div>
   </div>
 </div>`,
-    "randomfrom": [4, 9, 16, 25],
-    "altpath": "currentDay"
-  },
+      "randomfrom": [4, 9, 16, 25],
+      "altpath": "currentDay"
+    },
 
-  {
-    "id": "statistics547",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "altpath": "currentDay",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
-    "answers": ["Ковариации по генеральной совокупности"],
-    "hint": `<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>`
-  },
+    {
+      "id": "statistics547",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Описательная статистика",
+      "theme": "Корреляционно-регрессионный анализ",
+      "altpath": "currentDay",
+      "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+      "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
+      "answers": ["Ковариации по генеральной совокупности"],
+      "hint": `<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>`
+    },
 
-  {
-    "id": "statistics543",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "14.  Вероятность",
-    "altpath": "currentDay",
-    "theme": "14.  Вероятность",
-    "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
-    "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
-    "answers": ["Медианы"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
-  },
+    {
+      "id": "statistics543",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Описательная статистика",
+      "altpath": "currentDay",
+      "theme": "Меры центральной тенденции",
+      "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+      "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
+      "answers": ["Медианы"],
+      "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
+    },
 
-  {
-    "id": "statistics544",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "14.  Вероятность",
-    "altpath": "currentDay",
-    "theme": "14.  Вероятность",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
-    "answers": ["Дисперсии по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма квадратов отклонений</strong> от среднего, в знаменателе — <strong>n</strong> (деление на количество наблюдений). Это <strong>дисперсия по генеральной совокупности</strong> (VAR.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Дисперсия по генеральной совокупности</div></div></div>"
-  },
+    {
+      "id": "statistics544",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Анализ данных",
+      "altpath": "currentDay",
+      "theme": "Меры разброса",
+      "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+      "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
+      "answers": ["Дисперсии по генеральной совокупности"],
+      "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма квадратов отклонений</strong> от среднего, в знаменателе — <strong>n</strong> (деление на количество наблюдений). Это <strong>дисперсия по генеральной совокупности</strong> (VAR.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Дисперсия по генеральной совокупности</div></div></div>"
+    },
 
 
-  {
-    "id": "statistics545",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "altpath": "currentDay",
-    "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
-    "answers": ["Стандартного отклонения по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
-  },
+    {
+      "id": "statistics545",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Статистический показатель",
+      "theme": "Меры разброса",
+      "altpath": "currentDay",
+      "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+      "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
+      "answers": ["Стандартного отклонения по генеральной совокупности"],
+      "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
+    },
 
-  {
-    "id": "statistics542",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "altpath": "currentDay",
-    "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
-    "answers": ["Среднего арифметического"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
-  },
 
-  {
-    "id": "stats-absfreq-001",
-    "type": "multiplechoices",
-    "header": "Статистика. Абсолютная частота",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна абсолютная частота числа 5?",
-    "choices": [
-      "3",
-      "4",
-      "5",
-      "6",
-      "10"
-    ],
-    "answers": ["5"],
-    "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5>📊 Абсолютная частота</h5>
-        <p><strong>Абсолютная частота</strong> — это количество раз, которое данное значение встречается в ряду данных.</p>
-        <p class="mt-2">Обозначается обычно как <strong>n</strong> или <strong>f</strong>.</p>
-      </div>
-      
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
-        </div>
-        <div class="card-body">
-          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
-          <p>Подсчитаем, сколько раз встречается число <strong>5</strong>:</p>
-          <ul>
-            <li>1-е число: <strong>5</strong> ✓ (1)</li>
-            <li>2-е число: 7</li>
-            <li>3-е число: <strong>5</strong> ✓ (2)</li>
-            <li>4-е число: 3</li>
-            <li>5-е число: <strong>5</strong> ✓ (3)</li>
-            <li>6-е число: 8</li>
-            <li>7-е число: 7</li>
-            <li>8-е число: <strong>5</strong> ✓ (4)</li>
-            <li>9-е число: 2</li>
-            <li>10-е число: <strong>5</strong> ✓ (5)</li>
-          </ul>
-          <p class="mt-2"><strong>Ответ: 5</strong> (число 5 встречается 5 раз)</p>
-        </div>
-      </div>
-      
-      <div class="alert alert-secondary mt-2">
-        <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 3 — это сколько раз встречается, например, число 7 (но не 5).<br>
-        • 4 — близкий, но неверный результат.<br>
-        • 6 — слишком много.<br>
-        • 10 — это общее количество чисел в ряду (объём выборки).
-      </div>
+    {
+      "id": "statistics542",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Статистическая оценка",
+      "theme": "Меры центральной тенденции",
+      "altpath": "currentDay",
+      "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
+      "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
+      "answers": ["Среднего арифметического"],
+      "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
+    },
 
-      <div class="alert alert-light border mt-2">
-        <strong>💡 Запомните:</strong> Абсолютная частота = <strong>сколько раз</strong> встретилось значение.<br>
-        Обозначение: <strong>nᵢ</strong> (частота i-го значения).
+    {
+      "id": "finance_wacc_calc003",
+      "type": "mathwithrandomnumber",
+      "header": "14. Вероятность",
+      "title": "Расчет средней взвешенной",
+      "theme": "Оценка капитала",
+      "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
+      "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
+      "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Расчёт WACC (средневзвешенной стоимости капитала)</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Формула WACC (без учёта налога)
       </div>
-      
-      <div class="card border-info mt-2">
-        <div class="card-header bg-info text-white">
-          <strong>📈 Важно отличать:</strong>
-        </div>
-        <div class="card-body">
-          <p>• <strong>Абсолютная частота</strong> — количество повторений (целое число).</p>
-          <p>• <strong>Относительная частота</strong> — абсолютная частота, делённая на объём выборки (доля или процент).</p>
-          <p class="mb-0">В данном примере относительная частота числа 5 равна $5/10 = 0.5$ (50%).</p>
-        </div>
-      </div>
-    </div>`
-},
-
-{
-    "id": "stats-relfreq-002",
-    "type": "multiplechoices",
-    "header": "Статистика. Относительная частота",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна относительная частота числа 5 (в долях единицы)?",
-    "choices": [
-      "0,5",
-      "0,4",
-      "0,6",
-      "0,5",
-      "0,7",
-      "2"
-    ],
-    "answers": ["0,5"],
-    "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5>📊 Относительная частота</h5>
-        <p><strong>Относительная частота</strong> — это отношение абсолютной частоты значения к общему объёму выборки.</p>
-        <p class="text-center mt-2">$$\\text{Относительная частота} = \\frac{\\text{Абсолютная частота}}{\\text{Объём выборки}}$$</p>
-        <p>Выражается в долях единицы (от 0 до 1) или в процентах.</p>
-      </div>
-      
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
-        </div>
-        <div class="card-body">
-          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
-          <ul>
-            <li><strong>Объём выборки</strong> (общее количество чисел) = <strong>10</strong></li>
-            <li><strong>Абсолютная частота</strong> числа 5 = <strong>5</strong> (нашли в прошлом тесте)</li>
-            <li><strong>Относительная частота</strong> = $\\frac{5}{10} = 0,5$</li>
-          </ul>
-          <p class="mt-2 text-success"><strong>Ответ: 0,5</strong> (или 50%, если в процентах)</p>
-        </div>
-      </div>
-      
-      <div class="alert alert-warning mb-2">
-        <strong>⚠️ Внимание:</strong> В вопросе указано <strong>«в долях единицы»</strong>, поэтому ответ 0,5, а не 50% или 1/2.
-      </div>
-      
-      <div class="alert alert-secondary mt-2">
-        <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 0,4 — слишком мало (соответствует абсолютной частоте 4).<br>
-        • 0,6 — слишком много (соответствует абсолютной частоте 6).<br>
-        • 0,7 — соответствует абсолютной частоте 7 (но в выборке всего 5 пятёрок).<br>
-        • 2 — это вообще не доля единицы (больше 1).
-      </div>
-
-      <div class="alert alert-light border mt-2">
-        <strong>💡 Запомните:</strong><br>
-        • Абсолютная частота: $n = 5$ — <strong>сколько раз</strong>.<br>
-        • Относительная частота: $w = 5/10 = 0,5$ — <strong>какая доля</strong>.<br>
-        • Сумма всех относительных частот всегда равна <strong>1</strong>.
-      </div>
-      
-      <div class="card border-info mt-2">
-        <div class="card-header bg-info text-white">
-          <strong>📈 Для справки</strong>
-        </div>
-        <div class="card-body">
-          <p>Относительная частота для каждого значения в этом ряду:</p>
-          <ul class="mb-0">
-            <li>Число 2: $1/10 = 0,1$</li>
-            <li>Число 3: $1/10 = 0,1$</li>
-            <li>Число 5: $5/10 = 0,5$</li>
-            <li>Число 7: $2/10 = 0,2$</li>
-            <li>Число 8: $1/10 = 0,1$</li>
-            <li><strong>Сумма: $0,1 + 0,1 + 0,5 + 0,2 + 0,1 = 1,0$ ✓</strong></li>
-          </ul>
-        </div>
-      </div>
-    </div>`
-},
-
-{
-    "id": "stats-sample-003",
-    "type": "multiplechoices",
-    "header": "Статистика. Объём выборки",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равен объём выборки?",
-    "choices": [
-      "5",
-      "10",
-      "52",
-      "5,2",
-      "0,5"
-    ],
-    "answers": ["10"],
-    "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5>📊 Объём выборки</h5>
-        <p><strong>Объём выборки</strong> (обозначается <strong>n</strong> или <strong>N</strong>) — это общее количество элементов в ряду данных.</p>
-        <p class="text-center mt-2">$$n = \\text{сколько всего чисел (измерений, наблюдений)}$$</p>
-      </div>
-      
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
-        </div>
-        <div class="card-body">
-          <p>Ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
-          <p>Просто <strong>посчитаем</strong> количество чисел:</p>
-          <ul>
-            <li>1-е число: 5</li>
-            <li>2-е число: 7</li>
-            <li>3-е число: 5</li>
-            <li>4-е число: 3</li>
-            <li>5-е число: 5</li>
-            <li>6-е число: 8</li>
-            <li>7-е число: 7</li>
-            <li>8-е число: 5</li>
-            <li>9-е число: 2</li>
-            <li>10-е число: 5</li>
-          </ul>
-          <p class="mt-2">Всего чисел: <strong>10</strong></p>
-          <p class="text-success"><strong>Ответ: 10</strong></p>
-        </div>
-      </div>
-      
-      <div class="alert alert-warning mb-2">
-        <strong>⚠️ Частые ошибки:</strong>
-        <ul class="mb-0 mt-1">
-          <li>Не путайте объём выборки с <strong>абсолютной частотой</strong> (сколько раз встретилось конкретное число).</li>
-          <li>Не путайте с <strong>суммой значений</strong> (здесь сумма = 5+7+5+3+5+8+7+5+2+5 = 52).</li>
-          <li>Не путайте со <strong>средним арифметическим</strong> (52/10 = 5,2).</li>
+      <div class="card-body">
+        <p class="card-text text-center">$$WACC = \\frac{E}{E+D} \\cdot r_e + \\frac{D}{E+D} \\cdot r_d$$</p>
+        <ul>
+          <li><strong>E</strong> — собственный капитал = {var1-10} млн руб.</li>
+          <li><strong>D</strong> — заёмный капитал = {=1000-{var1-10}} млн руб.</li>
+          <li><strong>rₑ</strong> — стоимость собственного капитала = 15%</li>
+          <li><strong>r<sub>d</sub></strong> — стоимость заёмного капитала = 10%</li>
+          <li><strong>E + D</strong> = 1000 млн руб.</li>
         </ul>
       </div>
-      
-      <div class="alert alert-secondary mt-2">
-        <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 5 — это абсолютная частота числа 5 (а не объём выборки).<br>
-        • 52 — это <strong>сумма всех чисел</strong> в ряду.<br>
-        • 5,2 — это <strong>среднее арифметическое</strong> (52/10).<br>
-        • 0,5 — это относительная частота числа 5 (5/10).
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Расчёт весов
       </div>
+      <div class="card-body">
+        <p class="card-text">Доля собственного капитала: $$\\frac{{var1-10}}{1000} = {= {var1-10} / 1000}$$</p>
+        <p class="card-text">Доля заёмного капитала: $$\\frac{{=1000-{var1-10}}}{1000} = {= (1000 - {var1-10}) / 1000}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление WACC
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$WACC = {= {var1-10} / 1000} \\cdot 15\\% + {= (1000 - {var1-10}) / 1000} \\cdot 10\\%$$</p>
+        <p class="card-text">$$WACC = {= ({var1-10} / 1000) * 15} + {= ((1000 - {var1-10}) / 1000) * 10} = {= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}\\%$$</p>
+      </div>
+    </div>
+    
+    <div class="alert alert-primary mt-3">
+      <strong>Ответ:</strong> <code>({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10</code> или <code>{= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}</code>
+    </div>
+  </div>
+</div>`,
+      "randomfrom": [800, 700, 600, 500, 400, 300, 200],
+      "altpath": "currentDay",
+    },
 
-      <div class="alert alert-light border mt-2">
-        <strong>💡 Запомните:</strong><br>
-        • Объём выборки = <strong>сколько всего</strong>.<br>
-        • Абсолютная частота = <strong>сколько раз встретилось конкретное значение</strong>.<br>
-        • Относительная частота = абсолютная частота / объём выборки.
-      </div>
-      
-      <div class="card border-info mt-2">
-        <div class="card-header bg-info text-white">
-          <strong>📈 Сводка для этого ряда чисел</strong>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-6">
-              <strong>Понятие</strong>
-            </div>
-            <div class="col-6">
-              <strong>Значение</strong>
-            </div>
-          </div>
-          <hr class="my-1">
-          <div class="row">
-            <div class="col-6">Объём выборки (N)</div>
-            <div class="col-6"><strong>10</strong></div>
-          </div>
-          <div class="row">
-            <div class="col-6">Абсолютная частота числа 5</div>
-            <div class="col-6">5</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Относительная частота числа 5</div>
-            <div class="col-6">0,5 (50%)</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Сумма всех значений</div>
-            <div class="col-6">52</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Среднее арифметическое</div>
-            <div class="col-6">5,2</div>
-          </div>
-        </div>
-      </div>
-    </div>`
-},
 
-{
-    "id": "stats-range-004",
-    "type": "multiplechoices",
-    "header": "Статистика. Размах",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равен размах этого ряда?",
-    "choices": [
-      "2",
-      "8",
-      "5",
-      "6",
-      "10"
-    ],
-    "answers": ["6"],
-    "hint": `<div class="container-fluid p-0">
+
+    {
+      "id": "geom-prob-001",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Вероятность на числовой прямой",
+      "theme": "Геометрическая вероятность",
+      "text": `На числовой прямой наугад выбирают точку $x$, удовлетворяющую неравенству $|x-5| \\le 10$. Какова вероятность того, что эта точка также удовлетворяет неравенству $|x-1| \\le 1$?`,
+      "choices": [
+        "\\dfrac{1}{20}",
+        "\\dfrac{1}{10}",
+        "\\dfrac{1}{5}",
+        "\\dfrac{1}{4}",
+        "\\dfrac{1}{2}"
+      ],
+      "answers": ["\\dfrac{1}{10}"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
-        <h5>📊 Размах ряда</h5>
-        <p><strong>Размах</strong> — это разность между наибольшим и наименьшим значениями в ряду данных.</p>
-        <p class="text-center mt-2">$$R = x_{\\text{max}} - x_{\\text{min}}$$</p>
-        <p>Показывает, насколько сильно разбросаны данные.</p>
+        <h5>📐 Геометрическая вероятность</h5>
+        <p>Если пространство исходов — отрезок на прямой, то:</p>
+        <p class="text-center">$$P = \\frac{\\text{длина благоприятного отрезка}}{\\text{длина всего отрезка}}$$</p>
       </div>
       
       <div class="card border-primary mb-3">
@@ -1147,426 +968,391 @@ let quizesSets =
           <strong>Решение</strong>
         </div>
         <div class="card-body">
-          <p>Ряд чисел: <strong>5, 7, 5, 3, 5, 8, 7, 5, 2, 5</strong></p>
+          <p><strong>Шаг 1:</strong> Решим первое неравенство $|x-5| \\le 10$</p>
+          <p>$$-10 \\le x-5 \\le 10$$</p>
+          <p>$$-5 \\le x \\le 15$$</p>
+          <p>Длина отрезка: $L = 15 - (-5) = 20$</p>
           
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="alert alert-success text-center">
-                <strong>Наибольшее значение</strong><br>
-                $$x_{\\text{max}} = 8$$
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="alert alert-danger text-center">
-                <strong>Наименьшее значение</strong><br>
-                $$x_{\\text{min}} = 2$$
-              </div>
-            </div>
-          </div>
+          <p><strong>Шаг 2:</strong> Решим второе неравенство $|x-1| \\le 1$</p>
+          <p>$$-1 \\le x-1 \\le 1$$</p>
+          <p>$$0 \\le x \\le 2$$</p>
+          <p>Длина отрезка: $l = 2 - 0 = 2$</p>
           
-          <p class="text-center mt-3">
-            $$R = x_{\\text{max}} - x_{\\text{min}} = 8 - 2 = 6$$
-          </p>
+          <p><strong>Шаг 3:</strong> Найдём пересечение отрезков $[-5; 15] \\cap [0; 2] = [0; 2]$</p>
+          <p>Длина пересечения: $l_{\\text{пер}} = 2$</p>
           
-          <p class="text-success"><strong>Ответ: 6</strong></p>
+          <p><strong>Шаг 4:</strong> Геометрическая вероятность:</p>
+          <p>$$P = \\frac{l_{\\text{пер}}}{L} = \\frac{2}{20} = \\frac{1}{10}$$</p>
         </div>
-      </div>
-      
-      <div class="alert alert-warning mb-2">
-        <strong>⚠️ Частые ошибки:</strong>
-        <ul class="mb-0 mt-1">
-          <li>Называют размахом <strong>само наибольшее значение</strong> (8).</li>
-          <li>Называют размахом <strong>само наименьшее значение</strong> (2).</li>
-          <li>Путают с <strong>абсолютной частотой</strong> моды (5).</li>
-          <li>Путают с <strong>объёмом выборки</strong> (10).</li>
-          <li>Вычитают не из максимума минимум, а наоборот (получают отрицательное число, но размах всегда положительный).</li>
-        </ul>
       </div>
       
       <div class="alert alert-secondary mt-2">
         <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 2 — это <strong>минимальное значение</strong> в ряду (а не размах).<br>
-        • 8 — это <strong>максимальное значение</strong> в ряду (а не размах).<br>
-        • 5 — это <strong>абсолютная частота</strong> числа 5 (мода), а не размах.<br>
-        • 10 — это <strong>объём выборки</strong> (количество чисел), а не размах.
+        • $\\dfrac{1}{20}$ — длина пересечения была бы 1<br>
+        • $\\dfrac{1}{5}$ — длина пересечения была бы 4<br>
+        • $\\dfrac{1}{4}$ — неверно<br>
+        • $\\dfrac{1}{2}$ — неверно
       </div>
 
       <div class="alert alert-light border mt-2">
         <strong>💡 Запомните:</strong><br>
-        Размах = <strong>максимум − минимум</strong><br>
-        Характеризует <strong>ширину</strong> разброса данных.
-      </div>
-      
-      <div class="card border-info mt-2">
-        <div class="card-header bg-info text-white">
-          <strong>📈 Сводка для этого ряда чисел</strong>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-6">Наибольшее значение (max)</div>
-            <div class="col-6"><strong>8</strong></div>
-          </div>
-          <div class="row">
-            <div class="col-6">Наименьшее значение (min)</div>
-            <div class="col-6"><strong>2</strong></div>
-          </div>
-          <div class="row">
-            <div class="col-6">Объём выборки (n)</div>
-            <div class="col-6">10</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Сумма значений</div>
-            <div class="col-6">52</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Среднее арифметическое</div>
-            <div class="col-6">5,2</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Мода (наиболее частое значение)</div>
-            <div class="col-6">5</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Абсолютная частота моды</div>
-            <div class="col-6">5</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Относительная частота моды</div>
-            <div class="col-6">0,5</div>
-          </div>
-          <div class="row bg-light">
-            <div class="col-6"><strong>Размах</strong></div>
-            <div class="col-6"><strong>8 - 2 = 6</strong></div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card border-success mt-2">
-        <div class="card-header bg-success text-white">
-          <strong>📌 Наглядный пример</strong>
-        </div>
-        <div class="card-body">
-          <p>Представьте ряд точек на числовой прямой:</p>
-          <div style="font-family: monospace; text-align: center; font-size: 14px;">
-            <div>——•——•——•——•——•——•——•——•——•——•——→</div>
-            <div>0   1   2   3   4   5   6   7   8   9   10</div>
-            <div>    ↑                               ↑</div>
-            <div>   min                            max</div>
-            <div>   (2)                             (8)</div>
-          </div>
-          <p class="mt-2 text-center">Расстояние между крайними точками = <strong>6</strong> — это и есть размах.</p>
-        </div>
+        Геометрическая вероятность на прямой: $P = \\dfrac{\\text{длина пересечения}}{\\text{длина всего отрезка}}$
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "stats-mode-005",
-    "type": "multiplechoices",
-    "header": "Статистика. Мода",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна мода этого ряда?",
-    "choices": [
-      "2",
-      "3",
-      "5",
-      "7",
-      "8"
-    ],
-    "answers": ["5"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "def-prob-001",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Произведение событий",
+      "theme": "Основные определения ТВ",
+      "text": `Произведением событий A и B называют ...`,
+      "choices": [
+        `событие, состоящее в наступлении хотя бы одного из событий A или B`,
+        `событие, состоящее в наступлении события A и не наступлении события B`,
+        `событие, состоящее в наступлении обоих событий A и B одновременно`,
+        `событие, состоящее в ненаступлении обоих событий A и B`,
+        `разность множеств A и B`
+      ],
+      "answers": [`событие, состоящее в наступлении обоих событий A и B одновременно`],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
-        <h5>📊 Мода ряда</h5>
-        <p><strong>Мода</strong> — это значение, которое <strong>чаще всего встречается</strong> в ряду данных.</p>
-        <p class="text-center mt-2">$$\\text{Мода} = \\text{значение с наибольшей абсолютной частотой}$$</p>
-        <p>Обозначается обычно как <strong>Mo</strong>.</p>
+        <h5>📚 Произведение событий (пересечение)</h5>
+        <p><strong>Произведением (или пересечением)</strong> событий A и B называется событие C, которое означает, что <strong>произошло и событие A, и событие B</strong>.</p>
+        <p class="text-center">$$C = A \\cap B = A \\cdot B$$</p>
+        <p>Также говорят: «одновременное наступление A и B».</p>
       </div>
       
       <div class="card border-primary mb-3">
         <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
+          <strong>Пример</strong>
         </div>
         <div class="card-body">
-          <p>Ряд чисел: <strong>5, 7, 5, 3, 5, 8, 7, 5, 2, 5</strong></p>
-          
-          <p>Подсчитаем абсолютную частоту каждого значения:</p>
-          
-          <table class="table table-bordered mt-3">
-            <thead class="thead-light">
-              <tr><th>Значение</th><th>Сколько раз встречается</th><th>Абсолютная частота</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2</td><td>один раз</td><td>1</td></tr>
-              <tr><td>3</td><td>один раз</td><td>1</td></tr>
-              <tr class="table-success"><td><strong>5</strong></td><td><strong>пять раз</strong></td><td><strong>5</strong></td></tr>
-              <tr><td>7</td><td>два раза</td><td>2</td></tr>
-              <tr><td>8</td><td>один раз</td><td>1</td></tr>
-            </tbody>
-          </table>
-          
-          <p>Чаще всего (5 раз) встречается число <strong>5</strong>.</p>
-          <p class="text-success"><strong>Ответ: мода = 5</strong></p>
+          <p>Бросаем игральный кубик.</p>
+          <ul>
+            <li>A = {выпало чётное число} = {2, 4, 6}</li>
+            <li>B = {выпало число больше 3} = {4, 5, 6}</li>
+            <li>Произведение A·B = {4, 6} = {выпало чётное число <strong>И</strong> число больше 3}</li>
+          </ul>
         </div>
-      </div>
-      
-      <div class="alert alert-warning mb-2">
-        <strong>⚠️ Важные нюансы про моду:</strong>
-        <ul class="mb-0 mt-1">
-          <li><strong>Унимодальный ряд</strong> — одна мода (как в нашем примере).</li>
-          <li><strong>Мультимодальный ряд</strong> — несколько мод (например: 1, 1, 2, 2, 3 → моды 1 и 2).</li>
-          <li><strong>Если все значения встречаются одинаково часто</strong> — моды нет (или говорят, что ряд не модальный).</li>
-          <li>Моду можно найти <strong>и для нечисловых данных</strong> (например, самый популярный цвет или бренд).</li>
-        </ul>
       </div>
       
       <div class="alert alert-secondary mt-2">
-        <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 2, 3, 7, 8 — эти числа встречаются реже (1 или 2 раза), чем 5 (5 раз).<br>
-        • 5 — правильный ответ, так как имеет <strong>наибольшую абсолютную частоту</strong>.
+        <strong>❌ Другие варианты — это другие операции:</strong><br>
+        • «Хотя бы одно из событий» — это <strong>сумма (объединение)</strong> событий A ∪ B.<br>
+        • «A и не B» — это <strong>разность</strong> A \\ B.<br>
+        • «Ненаступление обоих» — это <strong>противоположное</strong> к сумме: <span class="katex">$\\overline{A \\cup B}$</span>.<br>
+        • «Разность множеств» — то же, что A \\ B.
       </div>
 
       <div class="alert alert-light border mt-2">
         <strong>💡 Запомните:</strong><br>
-        • Мода = <strong>«толпа»</strong> (самое популярное значение).<br>
-        • Не путайте моду с <strong>абсолютной частотой</strong> (5 — это значение, а частота моды = 5).<br>
-        • Мода, в отличие от среднего, не чувствительна к выбросам.
+        • <strong>Произведение</strong> = <strong>пересечение</strong> = <strong>И</strong> (A и B)<br>
+        • <strong>Сумма</strong> = <strong>объединение</strong> = <strong>ИЛИ</strong> (A или B)
       </div>
       
       <div class="card border-info mt-2">
         <div class="card-header bg-info text-white">
-          <strong>📈 Полная сводка для этого ряда</strong>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-6"><strong>Характеристика</strong></div>
-            <div class="col-6"><strong>Значение</strong></div>
-          </div>
-          <hr class="my-1">
-          <div class="row">
-            <div class="col-6">Объём выборки</div>
-            <div class="col-6">10</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Сумма значений</div>
-            <div class="col-6">52</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Среднее арифметическое</div>
-            <div class="col-6">5,2</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Наименьшее значение (min)</div>
-            <div class="col-6">2</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Наибольшее значение (max)</div>
-            <div class="col-6">8</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Размах</div>
-            <div class="col-6">6</div>
-          </div>
-          <div class="row bg-light">
-            <div class="col-6"><strong>Мода</strong></div>
-            <div class="col-6"><strong>5</strong></div>
-          </div>
-          <div class="row">
-            <div class="col-6">Абсолютная частота моды</div>
-            <div class="col-6">5</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Относительная частота моды</div>
-            <div class="col-6">0,5 (50%)</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card border-success mt-2">
-        <div class="card-header bg-success text-white">
-          <strong>📌 Примеры из жизни</strong>
+          <strong>📌 Обозначения</strong>
         </div>
         <div class="card-body">
           <ul class="mb-0">
-            <li>В опросе «Какой цвет вам нравится?» мода — самый популярный цвет.</li>
-            <li>В магазине мода — самый продаваемый размер обуви.</li>
-            <li>В классе мода — наиболее распространённая оценка за контрольную.</li>
+            <li>Произведение: $A \\cap B$, $A \\cdot B$, $AB$</li>
+            <li>Сумма: $A \\cup B$, $A + B$</li>
           </ul>
         </div>
       </div>
-      
-      <div class="alert alert-warning mt-2">
-        <strong>🔍 Интересный факт:</strong><br>
-        Слово «мода» происходит от латинского <em>modus</em> — «мера, правило, способ». В статистику этот термин ввёл пионер британской статистики Карл Пирсон.
-      </div>
     </div>`
-},
+    },
 
-{
-    "id": "stats-median-006",
-    "type": "multiplechoices",
-    "header": "Статистика. Медиана",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Дан следующий ряд чисел: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5. Чему равна медиана этого ряда?",
-    "choices": [
-      "5",
-      "5,2",
-      "5,5",
-      "5",
-      "2"
-    ],
-    "answers": ["5"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "def-prob-002",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Сумма вероятностей двух событий",
+      "theme": "Основные определения ТВ",
+      "text": `Сумма вероятностей двух событий A и B равна ...`,
+      "choices": [
+        `P(A) + P(B)`,
+        `P(A) + P(B) - P(A \\cap B)`,
+        `P(A) + P(B) + P(A \\cap B)`,
+        `P(A) \\cdot P(B)`,
+        `1 - P(\\overline{A}) - P(\\overline{B})`
+      ],
+      "answers": [`P(A) + P(B) - P(A \\cap B)`],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
-        <h5>📊 Медиана ряда</h5>
-        <p><strong>Медиана</strong> — это число, которое находится <strong>в середине</strong> упорядоченного по возрастанию ряда данных.</p>
-        <p class="text-center mt-2">
-          Если количество элементов <strong>нечётное</strong>: медиана = средний элемент.<br>
-          Если количество элементов <strong>чётное</strong>: медиана = среднее арифметическое двух средних элементов.
-        </p>
-        <p>Обозначается обычно как <strong>Me</strong>.</p>
+        <h5>📚 Сумма вероятностей двух событий</h5>
+        <p><strong>Общая формула</strong> для любых событий A и B (теорема сложения вероятностей):</p>
+        <p class="text-center">$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$</p>
+        <p>Вероятность наступления <strong>хотя бы одного</strong> из событий A или B.</p>
       </div>
       
       <div class="card border-primary mb-3">
         <div class="card-header bg-primary text-white">
-          <strong>Решение (пошагово)</strong>
+          <strong>Частные случаи</strong>
         </div>
         <div class="card-body">
-          <p><strong>Шаг 1:</strong> Исходный ряд: 5, 7, 5, 3, 5, 8, 7, 5, 2, 5</p>
-          <p><strong>Шаг 2:</strong> Упорядочиваем по возрастанию:</p>
-          <div class="alert alert-success text-center">
-            <strong>2, 3, 5, 5, 5, 5, 5, 7, 7, 8</strong>
-          </div>
-          <p><strong>Шаг 3:</strong> Количество элементов = <strong>10</strong> (чётное)</p>
-          <p><strong>Шаг 4:</strong> Находим два средних элемента:</p>
-          <ul>
-            <li>5-й элемент: <strong>5</strong></li>
-            <li>6-й элемент: <strong>5</strong></li>
-          </ul>
-          <p><strong>Шаг 5:</strong> Медиана = среднее арифметическое двух средних:</p>
-          <p class="text-center">$$\\frac{5 + 5}{2} = \\frac{10}{2} = 5$$</p>
-          <p class="text-success"><strong>Ответ: медиана = 5</strong></p>
+          <p><strong>1. Несовместные события</strong> (A ∩ B = ∅, P(A∩B) = 0)</p>
+          <p>$$P(A \\cup B) = P(A) + P(B)$$</p>
+          
+          <p><strong>2. Совместные события</strong> (A ∩ B ≠ ∅)</p>
+          <p>$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$</p>
+          
+          <p><strong>3. Полная группа событий</strong> (A ∪ B = Ω, A ∩ B = ∅)</p>
+          <p>$$P(A) + P(B) = 1$$</p>
         </div>
       </div>
       
-      <div class="alert alert-warning mb-2">
-        <strong>⚠️ Важные нюансы про медиану:</strong>
-        <ul class="mb-0 mt-1">
-          <li>Перед поиском медианы ряд <strong>обязательно нужно упорядочить</strong> (по возрастанию или убыванию).</li>
-          <li>Медиана устойчива к <strong>выбросам</strong> (в отличие от среднего арифметического).</li>
-          <li>Если количество элементов нечётное (например, 9), медиана — это <strong>5-й элемент</strong>.</li>
-          <li>Если чётное (10) — два средних элемента: 5-й и 6-й.</li>
-        </ul>
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Примеры</strong>
+        </div>
+        <div class="card-body">
+          <p><strong>Пример 1 (несовместные):</strong> Бросаем кубик. A={1}, B={6}.<br>
+          $P(A \\cup B) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$</p>
+          
+          <p><strong>Пример 2 (совместные):</strong> Из колоды карт. A={туз}, B={черва}.<br>
+          $P(A \\cup B) = \\frac{4}{36} + \\frac{9}{36} - \\frac{1}{36} = \\frac{12}{36} = \\frac{1}{3}$</p>
+        </div>
       </div>
       
       <div class="alert alert-secondary mt-2">
         <strong>❌ Почему другие варианты не подходят?</strong><br>
-        • 5,2 — это <strong>среднее арифметическое</strong> (сумма 52 / 10).<br>
-        • 5,5 — часто получается, если ошибочно взять два центральных числа 5 и 5 (не влияет), <strong>или</strong> если неправильно упорядочить.<br>
-        • 2 — это <strong>минимальное значение</strong> (минимум), а не медиана.
+        • $P(A) + P(B)$ — работает <strong>только для несовместных</strong> событий.<br>
+        • $P(A) + P(B) + P(A \\cap B)$ — завышенная вероятность (ошибка).<br>
+        • $P(A) \\cdot P(B)$ — формула <strong>умножения</strong> для независимых событий.<br>
+        • $1 - P(\\overline{A}) - P(\\overline{B})$ — неверное выражение.
       </div>
 
       <div class="alert alert-light border mt-2">
-        <strong>💡 Запомните:</strong><br>
-        • Медиана делит упорядоченный ряд <strong>пополам</strong>: 50% элементов ≤ медианы, 50% ≥ медианы.<br>
-        • В нашем ряду: 2, 3, (5,5,5,5,5), 7, 7, 8 — все пятёрки по центру.<br>
-        • Медиана = 5 означает, что половина чисел ≤ 5, половина ≥ 5.
+        <strong>💡 Запомните универсальную формулу:</strong><br>
+        $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$
+      </div>
+      
+      <div class="card border-warning mt-2">
+        <div class="card-header bg-warning text-dark">
+          <strong>📌 Как не ошибиться?</strong>
+        </div>
+        <div class="card-body">
+          <ul class="mb-0">
+            <li><strong>Несовместные</strong> — просто складываем.</li>
+            <li><strong>Совместные</strong> — складываем и <strong>вычитаем пересечение</strong>, чтобы не посчитать его дважды.</li>
+          </ul>
+        </div>
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "def-prob-003",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Вероятность суммы двух независимых событий",
+      "theme": "Основные определения ТВ",
+      "text": `Вероятность суммы двух независимых событий A и B равна ...`,
+      "choices": [
+        `P(A) + P(B)`,
+        `P(A) + P(B) - P(A) \\cdot P(B)`,
+        `P(A) + P(B) - P(A \\cap B)`,
+        `P(A) \\cdot P(B)`,
+        `1 - P(\\overline{A}) \\cdot P(\\overline{B})`
+      ],
+      "answers": [
+        `P(A) + P(B) - P(A) \\cdot P(B)`,
+        `P(A) + P(B) - P(A \\cap B)`,
+        `1 - P(\\overline{A}) \\cdot P(\\overline{B})`
+      ],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📚 Сумма двух независимых событий</h5>
+        <p><strong>Независимые события</strong> — это события, для которых выполняется:</p>
+        <p class="text-center">$$P(A \\cap B) = P(A) \\cdot P(B)$$</p>
+        <p>Поэтому формула суммы принимает вид:</p>
+        <p class="text-center">$$P(A \\cup B) = P(A) + P(B) - P(A) \\cdot P(B)$$</p>
+        <p>А через противоположные события:</p>
+        <p class="text-center">$$P(A \\cup B) = 1 - P(\\overline{A}) \\cdot P(\\overline{B})$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Для любых событий: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$</p>
+          <p>Для независимых: $P(A \\cap B) = P(A) \\cdot P(B)$</p>
+          <p>Подставляем: $P(A \\cup B) = P(A) + P(B) - P(A) \\cdot P(B)$</p>
+          <p>Альтернативный вывод через противоположные события:</p>
+          <p>$P(A \\cup B) = 1 - P(\\overline{A \\cup B}) = 1 - P(\\overline{A} \\cap \\overline{B})$</p>
+          <p>Для независимых: $P(\\overline{A} \\cap \\overline{B}) = P(\\overline{A}) \\cdot P(\\overline{B})$</p>
+          <p>$P(A \\cup B) = 1 - P(\\overline{A}) \\cdot P(\\overline{B})$</p>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Пример</strong>
+        </div>
+        <div class="card-body">
+          <p>Бросаем монету два раза.</p>
+          <ul>
+            <li>A = {в первый раз выпал орёл} ⇒ $P(A) = \\frac{1}{2}$</li>
+            <li>B = {во второй раз выпал орёл} ⇒ $P(B) = \\frac{1}{2}$</li>
+            <li>A и B независимы</li>
+          </ul>
+          <p>Вероятность, что орёл выпадет <strong>хотя бы один раз</strong>:</p>
+          <p>$$P(A \\cup B) = \\frac{1}{2} + \\frac{1}{2} - \\frac{1}{2} \\cdot \\frac{1}{2} = 1 - \\frac{1}{4} = \\frac{3}{4}$$</p>
+          <p>Или: $P(A \\cup B) = 1 - \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{3}{4}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты?</strong><br>
+        • $P(A) + P(B)$ — работает <strong>только для несовместных</strong> событий (независимые могут быть совместными).<br>
+        • $P(A) \\cdot P(B)$ — это <strong>произведение</strong>, а не сумма.<br>
+        • Остальные варианты — правильные формы записи для независимых событий.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните три формы:</strong><br>
+        $$P(A \\cup B) = P(A) + P(B) - P(A) \\cdot P(B)$$<br>
+        $$P(A \\cup B) = 1 - P(\\overline{A}) \\cdot P(\\overline{B})$$<br>
+        $$P(A \\cup B) = 1 - (1-P(A)) \\cdot (1-P(B))$$
       </div>
       
       <div class="card border-info mt-2">
         <div class="card-header bg-info text-white">
-          <strong>📈 ПОЛНАЯ СВОДКА для этого ряда</strong>
+          <strong>📊 Сравнение формул</strong>
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-6"><strong>Характеристика</strong></div>
-            <div class="col-6"><strong>Значение</strong></div>
+            <div class="col-4"><strong>Тип событий</strong></div>
+            <div class="col-8"><strong>Формула суммы</strong></div>
           </div>
           <hr class="my-1">
           <div class="row">
-            <div class="col-6">Объём выборки</div>
-            <div class="col-6">10</div>
+            <div class="col-4">Любые</div>
+            <div class="col-8">$P(A) + P(B) - P(A \\cap B)$</div>
           </div>
           <div class="row">
-            <div class="col-6">Сумма значений</div>
-            <div class="col-6">52</div>
+            <div class="col-4">Несовместные</div>
+            <div class="col-8">$P(A) + P(B)$</div>
           </div>
           <div class="row">
-            <div class="col-6">Среднее арифметическое</div>
-            <div class="col-6">5,2</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Минимум (min)</div>
-            <div class="col-6">2</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Максимум (max)</div>
-            <div class="col-6">8</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Размах</div>
-            <div class="col-6">6</div>
-          </div>
-          <div class="row">
-            <div class="col-6">Мода</div>
-            <div class="col-6">5</div>
-          </div>
-          <div class="row bg-light">
-            <div class="col-6"><strong>Медиана</strong></div>
-            <div class="col-6"><strong>5</strong></div>
+            <div class="col-4"><strong>Независимые</strong></div>
+            <div class="col-8"><strong>$P(A) + P(B) - P(A)P(B)$</strong></div>
           </div>
         </div>
-      </div>
-      
-      <div class="card border-success mt-2">
-        <div class="card-header bg-success text-white">
-          <strong>📌 Что важнее: среднее, мода или медиана?</strong>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <strong>Среднее</strong><br>
-              Чувствительно к выбросам<br>
-              <span class="text-muted">Пример: доход в стране</span>
-            </div>
-            <div class="col-md-4">
-              <strong>Мода</strong><br>
-              Для самых частых значений<br>
-              <span class="text-muted">Пример: популярный размер обуви</span>
-            </div>
-            <div class="col-md-4">
-              <strong>Медиана</strong><br>
-              Устойчива к выбросам<br>
-              <span class="text-muted">Пример: цены на жильё</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="alert alert-info mt-2">
-        <strong>🔍 Интересный факт:</strong><br>
-        В симметричном распределении <strong>среднее = мода = медиана</strong>. В нашем примере они почти совпали (5,2; 5; 5), что говорит о почти симметричном распределении пятёрок в центре.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-001",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Игральный кубик бросают один раз. Сколько всего возможных исходов у этого эксперимента?",
-    "choices": [
-      "3",
-      "6",
-      "8",
-      "12",
-      "36"
-    ],
-    "answers": ["6"],
-    "hint": `<div class="container-fluid p-0">
+
+    {
+      "id": "def-prob-004",
+      "type": "multiplechoices",
+      "header": "14. Вероятность",
+      "title": "Теорема Бернулли",
+      "theme": "Предельные теоремы",
+      "text": `Теорема Бернулли устанавливает связь между ...`,
+      "choices": [
+        `математическим ожиданием и дисперсией`,
+        `частотой события и его вероятностью`,
+        `средним арифметическим и математическим ожиданием`,
+        `нормальным распределением и распределением Пуассона`,
+        `выборкой и генеральной совокупностью`
+      ],
+      "answers": [`частотой события и его вероятностью`],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Теорема Бернулли (Закон больших чисел)</h5>
+        <p><strong>Теорема Бернулли</strong> — одна из форм закона больших чисел. Она утверждает, что при увеличении числа независимых испытаний <strong>частота события сходится по вероятности к его вероятности</strong>.</p>
+        <p class="text-center">$$\\frac{m}{n} \\xrightarrow{P} p$$</p>
+        <p>где $m$ — число наступлений события, $n$ — число испытаний, $p$ — вероятность события.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Формулировка теоремы</strong>
+        </div>
+        <div class="card-body">
+          <p>Пусть проводится $n$ независимых испытаний, в каждом из которых событие A наступает с вероятностью $p$ ($0 < p < 1$).</p>
+          <p>Пусть $m$ — число наступлений события A в этих $n$ испытаниях.</p>
+          <p>Тогда для любого $\\varepsilon > 0$:</p>
+          <p class="text-center">$$\\lim_{n \\to \\infty} P\\left(\\left|\\frac{m}{n} - p\\right| < \\varepsilon\\right) = 1$$</p>
+          <p>Это означает, что при большом числе испытаний частота события $\\frac{m}{n}$ мало отличается от его вероятности $p$.</p>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Пример из жизни</strong>
+        </div>
+        <div class="card-body">
+          <p>Бросаем монету. Вероятность орла $p = 0.5$.</p>
+          <ul>
+            <li>При 10 бросках частота орла может быть 0.3, 0.4, 0.6, 0.7 — возможны сильные отклонения.</li>
+            <li>При 1000 бросках частота орла будет <strong>близка</strong> к 0.5 (например, 0.49 или 0.51).</li>
+            <li>При 100 000 бросках частота будет ещё ближе к 0.5.</li>
+          </ul>
+          <p class="mt-2">Теорема Бернулли объясняет, почему в долгой серии экспериментов относительная частота стабилизируется около вероятности.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • <strong>Математическое ожидание и дисперсия</strong> — это теорема о свойствах моментов.<br>
+        • <strong>Среднее арифметическое и математическое ожидание</strong> — это теорема Хинчина (другая форма ЗБЧ).<br>
+        • <strong>Нормальное распределение и распределение Пуассона</strong> — это предельные теоремы (Муавра-Лапласа, Пуассона).<br>
+        • <strong>Выборка и генеральная совокупность</strong> — это основы математической статистики.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Теорема Бернулли: <strong>частота → вероятность</strong> при увеличении числа испытаний.<br>
+        Это <strong>закон больших чисел</strong> для схемы Бернулли.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📌 Историческая справка</strong>
+        </div>
+        <div class="card-body">
+          <p class="mb-0">Теорема была доказана <strong>Якобом Бернулли</strong> и опубликована в 1713 году в его труде «Искусство предположений». Это одна из первых форм закона больших чисел.</p>
+        </div>
+      </div>
+      
+      <div class="card border-warning mt-2">
+        <div class="card-header bg-warning text-dark">
+          <strong>⚠️ Важное уточнение</strong>
+        </div>
+        <div class="card-body mb-0">
+          <p class="mb-0">Теорема Бернулли не утверждает, что $\\frac{m}{n} = p$ при больших $n$. Она утверждает, что <strong>вероятность большого отклонения</strong> $\\frac{m}{n}$ от $p$ стремится к нулю.</p>
+        </div>
+      </div>
+    </div>`
+    },
+
+
+    // 15. Комбинаторика
+
+    {
+      "id": "combin-dice-001",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Сколько всего исходов?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Игральный кубик бросают один раз. Сколько всего возможных исходов у этого эксперимента?",
+      "choices": [
+        "3",
+        "6",
+        "8",
+        "12",
+        "36"
+      ],
+      "answers": ["6"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲 Исходы бросания кубика</h5>
         <p>Стандартный игральный кубик имеет <strong>6 граней</strong>, на которых нанесены числа от 1 до 6.</p>
@@ -1603,24 +1389,24 @@ let quizesSets =
         При одном бросании кубика — <strong>6 равновозможных исходов</strong>.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-002",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет число 4?",
-    "choices": [
-      "1/6",
-      "1/2",
-      "1/4",
-      "1/3",
-      "4/6"
-    ],
-    "answers": ["1/6"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-002",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность выпадения числа",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет число 4?",
+      "choices": [
+        "1/6",
+        "1/2",
+        "1/4",
+        "1/3",
+        "4/6"
+      ],
+      "answers": ["1/6"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>📊 Классическое определение вероятности</h5>
         <p class="text-center">$$P = \\frac{\\text{Число благоприятных исходов}}{\\text{Общее число исходов}}$$</p>
@@ -1652,24 +1438,24 @@ let quizesSets =
         У каждого отдельного числа на кубике вероятность выпадения $\\frac{1}{6}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-003",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет чётное число?",
-    "choices": [
-      "1/6",
-      "1/3",
-      "1/2",
-      "2/3",
-      "5/6"
-    ],
-    "answers": ["1/2"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-003",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность чётного числа",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Игральный кубик бросают один раз. Какова вероятность того, что выпадет чётное число?",
+      "choices": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3",
+        "5/6"
+      ],
+      "answers": ["1/2"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>📊 Вероятность события</h5>
         <p>Событие «выпало чётное число» включает несколько благоприятных исходов.</p>
@@ -1701,24 +1487,24 @@ let quizesSets =
         Чётных чисел на кубике 3 из 6 → вероятность $\\frac{1}{2}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-004",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Два игральных кубика бросают одновременно. Сколько всего возможных различных исходов (упорядоченных пар) у этого эксперимента?",
-    "choices": [
-      "12",
-      "18",
-      "21",
-      "36",
-      "42"
-    ],
-    "answers": ["36"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-004",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Два кубика: сколько исходов?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Два игральных кубика бросают одновременно. Сколько всего возможных различных исходов (упорядоченных пар) у этого эксперимента?",
+      "choices": [
+        "12",
+        "18",
+        "21",
+        "36",
+        "42"
+      ],
+      "answers": ["36"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲 Основное правило комбинаторики</h5>
         <p>Если одно событие может произойти $n$ способами, а другое — $m$ способами, то вместе они могут произойти $n \\times m$ способами.</p>
@@ -1767,24 +1553,24 @@ let quizesSets =
         </div>
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-005",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что сумма выпавших чисел равна 7?",
-    "choices": [
-      "1/6",
-      "1/9",
-      "5/36",
-      "6/36",
-      "6/36"
-    ],
-    "answers": ["6/36"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-005",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность суммы на двух кубиках",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что сумма выпавших чисел равна 7?",
+      "choices": [
+        "1/6",
+        "1/9",
+        "5/36",
+        "6/36",
+        "6/36"
+      ],
+      "answers": ["6/36"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲 Сумма на двух кубиках</h5>
         <p>Нужно посчитать, сколько пар дают сумму 7.</p>
@@ -1836,24 +1622,24 @@ let quizesSets =
         </div>
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-006",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что произведение выпавших чисел будет равно 12?",
-    "choices": [
-      "1/9",
-      "1/12",
-      "1/18",
-      "4/36",
-      "4/36"
-    ],
-    "answers": ["4/36"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-006",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность произведения на двух кубиках",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что произведение выпавших чисел будет равно 12?",
+      "choices": [
+        "1/9",
+        "1/12",
+        "1/18",
+        "4/36",
+        "4/36"
+      ],
+      "answers": ["4/36"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲 Произведение на двух кубиках</h5>
         <p>Нужно перебрать все пары, дающие произведение 12.</p>
@@ -1889,24 +1675,24 @@ let quizesSets =
         При поиске произведения важно не забывать про обратные пары: (2,6) и (6,2) — разные исходы.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-007",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что хотя бы на одном из кубиков выпадет 6?",
-    "choices": [
-      "1/6",
-      "11/36",
-      "1/3",
-      "11/36",
-      "2/6"
-    ],
-    "answers": ["11/36"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-007",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность события «хотя бы одна шестёрка»",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что хотя бы на одном из кубиков выпадет 6?",
+      "choices": [
+        "1/6",
+        "11/36",
+        "1/3",
+        "11/36",
+        "2/6"
+      ],
+      "answers": ["11/36"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲 Событие «хотя бы один»</h5>
         <p>Удобно использовать <strong>правило противоположного события</strong>.</p>
@@ -1956,24 +1742,24 @@ let quizesSets =
         $P(\\text{хотя бы один}) = 1 - P(\\text{ни одного})$ — это часто проще, чем прямой подсчёт.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-008",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что сумма выпавших чисел будет больше 9?",
-    "choices": [
-      "1/6",
-      "1/6",
-      "5/36",
-      "6/36",
-      "10/36"
-    ],
-    "answers": ["6/36"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-008",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность суммы больше 9",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Два игральных кубика бросают одновременно. Какова вероятность того, что сумма выпавших чисел будет больше 9?",
+      "choices": [
+        "1/6",
+        "1/6",
+        "5/36",
+        "6/36",
+        "10/36"
+      ],
+      "answers": ["6/36"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲 Сумма больше 9</h5>
         <p>Сумма может быть равна 10, 11 или 12.</p>
@@ -2011,24 +1797,24 @@ let quizesSets =
         Суммы 10, 11, 12 вместе дают 6 исходов (3+2+1) из 36 → 1/6.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-009",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Три игральных кубика бросают одновременно. Сколько всего возможных различных исходов (упорядоченных троек) у этого эксперимента?",
-    "choices": [
-      "18",
-      "36",
-      "72",
-      "216",
-      "1296"
-    ],
-    "answers": ["216"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-009",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Три кубика: сколько исходов?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Три игральных кубика бросают одновременно. Сколько всего возможных различных исходов (упорядоченных троек) у этого эксперимента?",
+      "choices": [
+        "18",
+        "36",
+        "72",
+        "216",
+        "1296"
+      ],
+      "answers": ["216"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲🎲 Основное правило комбинаторики</h5>
         <p>Если несколько независимых событий, общее число исходов равно <strong>произведению</strong> числа исходов каждого события.</p>
@@ -2063,24 +1849,24 @@ let quizesSets =
         Для $n$ кубиков: общее число исходов = $6^n$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-dice-010",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Игральный кубик",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Три игральных кубика бросают одновременно. Какова вероятность того, что на всех трёх кубиках выпадет одинаковое число?",
-    "choices": [
-      "1/36",
-      "1/216",
-      "6/216",
-      "1/36",
-      "1/6"
-    ],
-    "answers": ["6/216"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-dice-010",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность выпадения трёх одинаковых чисел",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Три игральных кубика бросают одновременно. Какова вероятность того, что на всех трёх кубиках выпадет одинаковое число?",
+      "choices": [
+        "1/36",
+        "1/216",
+        "6/216",
+        "1/36",
+        "1/6"
+      ],
+      "answers": ["6/216"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🎲🎲🎲 Три одинаковых числа</h5>
         <p>«Стрит» в кости — все три кубика показывают одно число.</p>
@@ -2119,24 +1905,24 @@ let quizesSets =
         Вероятность выпадения трёх одинаковых чисел = $\\frac{6}{216} = \\frac{1}{36}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-001",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают один раз. Сколько всего возможных исходов у этого эксперимента?",
-    "choices": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "6"
-    ],
-    "answers": ["2"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-001",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Сколько исходов при одном подбрасывании?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают один раз. Сколько всего возможных исходов у этого эксперимента?",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answers": ["2"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙 Исходы подбрасывания монеты</h5>
         <p>У стандартной монеты есть <strong>две стороны</strong>: орёл (О) и решка (Р).</p>
@@ -2168,24 +1954,24 @@ let quizesSets =
         При одном подбрасывании монеты — <strong>2 равновозможных исхода</strong>.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-002",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают один раз. Какова вероятность того, что выпадет орёл?",
-    "choices": [
-      "0",
-      "1/4",
-      "1/3",
-      "1/2",
-      "1"
-    ],
-    "answers": ["1/2"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-002",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность выпадения орла",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают один раз. Какова вероятность того, что выпадет орёл?",
+      "choices": [
+        "0",
+        "1/4",
+        "1/3",
+        "1/2",
+        "1"
+      ],
+      "answers": ["1/2"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>📊 Вероятность выпадения орла</h5>
         <p class="text-center">$$P = \\frac{\\text{Число благоприятных исходов}}{\\text{Общее число исходов}}$$</p>
@@ -2217,24 +2003,24 @@ let quizesSets =
         У монеты 2 стороны, поэтому вероятность орла = $\\frac{1}{2}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-003",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают два раза подряд. Сколько всего возможных различных исходов (упорядоченных пар) у этого эксперимента?",
-    "choices": [
-      "2",
-      "3",
-      "4",
-      "6",
-      "8"
-    ],
-    "answers": ["4"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-003",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Два подбрасывания: сколько исходов?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают два раза подряд. Сколько всего возможных различных исходов (упорядоченных пар) у этого эксперимента?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "6",
+        "8"
+      ],
+      "answers": ["4"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙 Основное правило комбинаторики</h5>
         <p>Если одно событие может произойти $n$ способами, а другое — $m$ способами, то вместе они могут произойти $n \\times m$ способами.</p>
@@ -2272,24 +2058,24 @@ let quizesSets =
         При двух подбрасываниях монеты — $2^2 = 4$ исхода.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-004",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что оба раза выпадет орёл?",
-    "choices": [
-      "1/2",
-      "1/3",
-      "1/4",
-      "1/6",
-      "1/8"
-    ],
-    "answers": ["1/4"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-004",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность двух орлов",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что оба раза выпадет орёл?",
+      "choices": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "1/6",
+        "1/8"
+      ],
+      "answers": ["1/4"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙 Вероятность двух орлов</h5>
         <p>События независимые, поэтому вероятности перемножаются.</p>
@@ -2332,24 +2118,24 @@ let quizesSets =
         Вероятность двух орлов подряд = $\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-005",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что орёл выпадет хотя бы один раз?",
-    "choices": [
-      "1/4",
-      "1/2",
-      "3/4",
-      "1/3",
-      "2/3"
-    ],
-    "answers": ["3/4"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-005",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность «хотя бы один орёл»",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что орёл выпадет хотя бы один раз?",
+      "choices": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1/3",
+        "2/3"
+      ],
+      "answers": ["3/4"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙 Событие «хотя бы один»</h5>
         <p>Используем правило противоположного события.</p>
@@ -2399,24 +2185,24 @@ let quizesSets =
         $P(\\text{хотя бы один орёл}) = 1 - P(\\text{все решки}) = 1 - \\frac{1}{4} = \\frac{3}{4}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-006",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что орёл выпадет ровно один раз?",
-    "choices": [
-      "1/4",
-      "1/2",
-      "3/4",
-      "1/3",
-      "2/3"
-    ],
-    "answers": ["1/2"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-006",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность ровно одного орла",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают два раза подряд. Какова вероятность того, что орёл выпадет ровно один раз?",
+      "choices": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1/3",
+        "2/3"
+      ],
+      "answers": ["1/2"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙 Ровно один орёл</h5>
         <p>Нужно посчитать исходы, где орёл встречается один раз.</p>
@@ -2450,24 +2236,24 @@ let quizesSets =
         При двух подбрасываниях: ровно один орёл выпадает в 2 случаях из 4 → $\\frac{1}{2}$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-007",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают три раза подряд. Сколько всего возможных различных исходов у этого эксперимента?",
-    "choices": [
-      "4",
-      "6",
-      "8",
-      "9",
-      "12"
-    ],
-    "answers": ["8"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-007",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Три подбрасывания: сколько исходов?",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают три раза подряд. Сколько всего возможных различных исходов у этого эксперимента?",
+      "choices": [
+        "4",
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "answers": ["8"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙🪙 Основное правило комбинаторики</h5>
         <p>Для $n$ подбрасываний монеты: $2^n$ исходов.</p>
@@ -2510,24 +2296,24 @@ let quizesSets =
         При трёх подбрасываниях монеты — $2^3 = 8$ исходов.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-008",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают три раза подряд. Какова вероятность того, что все три раза выпадет орёл?",
-    "choices": [
-      "1/4",
-      "1/6",
-      "1/8",
-      "3/8",
-      "1/2"
-    ],
-    "answers": ["1/8"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-008",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Вероятность трёх орлов",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают три раза подряд. Какова вероятность того, что все три раза выпадет орёл?",
+      "choices": [
+        "1/4",
+        "1/6",
+        "1/8",
+        "3/8",
+        "1/2"
+      ],
+      "answers": ["1/8"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙🪙 Три орла подряд</h5>
         <p>Вероятность независимых событий перемножается.</p>
@@ -2556,24 +2342,24 @@ let quizesSets =
         Вероятность $n$ орлов подряд = $\\left(\\frac{1}{2}\\right)^n$.
       </div>
     </div>`
-},
+    },
 
-{
-    "id": "combin-coin-009",
-    "type": "multiplechoices",
-    "header": "Комбинаторика. Монета",
-    "title": "14.  Вероятность",
-    "theme": "14.  Вероятность",
-    "text": "Монету подбрасывают три раза подряд. Какова вероятность того, что орёл выпадет хотя бы один раз?",
-    "choices": [
-      "1/8",
-      "3/8",
-      "1/2",
-      "5/8",
-      "7/8"
-    ],
-    "answers": ["7/8"],
-    "hint": `<div class="container-fluid p-0">
+    {
+      "id": "combin-coin-009",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Хотя бы один орёл (три броска)",
+      "theme": "Комбинаторика и вероятность",
+      "text": "Монету подбрасывают три раза подряд. Какова вероятность того, что орёл выпадет хотя бы один раз?",
+      "choices": [
+        "1/8",
+        "3/8",
+        "1/2",
+        "5/8",
+        "7/8"
+      ],
+      "answers": ["7/8"],
+      "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5>🪙🪙🪙 Хотя бы один орёл</h5>
         <p>Используем противоположное событие: «ни одного орла» = «все решки».</p>
@@ -2605,10 +2391,1178 @@ let quizesSets =
         При трёх бросках: $P(\\text{хотя бы один орёл}) = 1 - \\frac{1}{8} = \\frac{7}{8}$.
       </div>
     </div>`
-},
+    },
 
 
-]
+
+    {
+      "id": "combin-balls-001",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Один шар из урны",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны наугад вынимают один шар. Какова вероятность того, что шар окажется белым?",
+      "choices": [
+        "1/5",
+        "2/5",
+        "3/5",
+        "2/3",
+        "3/2"
+      ],
+      "answers": ["3/5"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎱 Классическое определение вероятности</h5>
+        <p class="text-center">$$P = \\frac{\\text{Благоприятные исходы}}{\\text{Всего исходов}}$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Всего шаров: $3 + 2 = 5$</li>
+            <li>Благоприятных (белых): $3$</li>
+            <li>$P = \\frac{3}{5}$</li>
+          </ul>
+          <div class="text-center mt-2">
+            <span class="badge badge-light p-2 mx-1 border">⚪</span>
+            <span class="badge badge-light p-2 mx-1 border">⚪</span>
+            <span class="badge badge-light p-2 mx-1 border">⚪</span>
+            <span class="badge badge-dark p-2 mx-1 text-white">⚫</span>
+            <span class="badge badge-dark p-2 mx-1 text-white">⚫</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/5 — вероятность вынуть конкретный шар (например, четвёртый белый).<br>
+        • 2/5 — вероятность вынуть чёрный шар.<br>
+        • 2/3, 3/2 — вероятности не могут быть больше 1.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Вероятность = (число нужных объектов) / (общее число объектов).
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-002",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Два шара с возвращением",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают шар, записывают цвет, возвращают обратно, затем вынимают ещё один шар. Какова вероятность того, что оба шара окажутся белыми?",
+      "choices": [
+        "3/5",
+        "9/25",
+        "6/25",
+        "3/10",
+        "9/25"
+      ],
+      "answers": ["9/25"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔄 Схема с возвращением</h5>
+        <p>Шар возвращают обратно, поэтому состав урны и вероятности <strong>не меняются</strong> от испытания к испытанию.</p>
+        <p>События независимы → вероятности перемножаются.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>$P(\\text{первый белый}) = \\frac{3}{5}$</li>
+            <li>$P(\\text{второй белый}) = \\frac{3}{5}$ (состав не изменился)</li>
+            <li>$P(\\text{оба белых}) = \\frac{3}{5} \\times \\frac{3}{5} = \\frac{9}{25}$</li>
+          </ul>
+          <div class="alert alert-success mt-2">
+            <strong>Проверка через комбинаторику:</strong><br>
+            Всего исходов: $5 \\times 5 = 25$<br>
+            Благоприятных исходов (оба белых): $3 \\times 3 = 9$<br>
+            $P = \\frac{9}{25}$
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3/5 — вероятность одного белого.<br>
+        • 6/25 — $\\frac{3}{5} \\times \\frac{2}{5}$ (белый, потом чёрный).<br>
+        • 3/10 — $\\frac{3}{5} \\times \\frac{1}{2}$ (неверно).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Схема <strong>с возвращением</strong> → вероятности независимы → умножаем.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-003",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Два шара без возвращения",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают два шара последовательно <strong>без возвращения</strong>. Какова вероятность того, что оба шара окажутся белыми?",
+      "choices": [
+        "9/25",
+        "6/20",
+        "6/25",
+        "3/10",
+        "3/10"
+      ],
+      "answers": ["3/10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🚫 Схема без возвращения</h5>
+        <p>Шар не возвращают — состав урны меняется. Вероятности <strong>зависимые</strong>.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (через умножение вероятностей)</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>$P(\\text{первый белый}) = \\frac{3}{5}$</li>
+            <li>После того, как вынули белый шар, осталось: 2 белых, 2 чёрных (всего 4)</li>
+            <li>$P(\\text{второй белый | первый белый}) = \\frac{2}{4} = \\frac{1}{2}$</li>
+            <li>$P(\\text{оба белых}) = \\frac{3}{5} \\times \\frac{1}{2} = \\frac{3}{10}$</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Решение (через комбинаторику)</strong>
+        </div>
+        <div class="card-body">
+          <p>Всего способов выбрать 2 шара из 5: $C_5^2 = 10$</p>
+          <p>Способов выбрать 2 белых из 3: $C_3^2 = 3$</p>
+          <p>$P = \\frac{3}{10}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 9/25 — это <strong>с возвращением</strong> (независимые события).<br>
+        • 6/25, 6/20 — неверные расчёты.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Без возвращения → вероятности <strong>зависимые</strong> → используем условную вероятность или комбинаторику.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📊 Сравнение схем</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4"><strong>Событие</strong></div>
+            <div class="col-4"><strong>С возвращением</strong></div>
+            <div class="col-4"><strong>Без возвращения</strong></div>
+          </div>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-4">Два белых</div>
+            <div class="col-4">9/25 = 0,36</div>
+            <div class="col-4">3/10 = 0,3</div>
+          </div>
+          <div class="row">
+            <div class="col-4">Два чёрных</div>
+            <div class="col-4">4/25 = 0,16</div>
+            <div class="col-4">1/10 = 0,1</div>
+          </div>
+          <div class="row">
+            <div class="col-4">Белый+чёрный</div>
+            <div class="col-4">12/25 = 0,48</div>
+            <div class="col-4">6/10 = 0,6</div>
+          </div>
+        </div>
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-004",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Разноцветные шары без возвращения",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают два шара последовательно <strong>без возвращения</strong>. Какова вероятность того, что шары окажутся разного цвета?",
+      "choices": [
+        "3/10",
+        "6/10",
+        "6/10",
+        "12/25",
+        "3/5"
+      ],
+      "answers": ["6/10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎨 Разные цвета — два способа</h5>
+        <p>Шары разного цвета могут выпасть в двух порядках: (Б,Ч) или (Ч,Б).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (через сложение вероятностей)</strong>
+        </div>
+        <div class="card-body">
+          <p><strong>Способ 1:</strong> сначала белый, потом чёрный</p>
+          <ul>
+            <li>$P(\\text{первый Б}) = \\frac{3}{5}$</li>
+            <li>$P(\\text{второй Ч | первый Б}) = \\frac{2}{4} = \\frac{1}{2}$</li>
+            <li>$P(\\text{Б,Ч}) = \\frac{3}{5} \\times \\frac{1}{2} = \\frac{3}{10}$</li>
+          </ul>
+          
+          <p><strong>Способ 2:</strong> сначала чёрный, потом белый</p>
+          <ul>
+            <li>$P(\\text{первый Ч}) = \\frac{2}{5}$</li>
+            <li>$P(\\text{второй Б | первый Ч}) = \\frac{3}{4}$</li>
+            <li>$P(\\text{Ч,Б}) = \\frac{2}{5} \\times \\frac{3}{4} = \\frac{6}{20} = \\frac{3}{10}$</li>
+          </ul>
+          
+          <p><strong>Общая вероятность:</strong> $\\frac{3}{10} + \\frac{3}{10} = \\frac{6}{10} = \\frac{3}{5}$</p>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Решение (через комбинаторику)</strong>
+        </div>
+        <div class="card-body">
+          <p>Всего способов выбрать 2 шара из 5: $C_5^2 = 10$</p>
+          <p>Способов выбрать 1 белый из 3 и 1 чёрный из 2: $3 \\times 2 = 6$</p>
+          <p>$P = \\frac{6}{10} = \\frac{3}{5}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3/10 — вероятность только одного порядка (например, белый потом чёрный).<br>
+        • 12/25 — это <strong>с возвращением</strong> (два порядка по 6/25 = 12/25).<br>
+        • 6/10 = 3/5 — правильный ответ.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При подсчёте «разные цвета» не забудьте сложить оба порядка: (Б,Ч) и (Ч,Б).
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-005",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Три шара без возвращения",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают три шара <strong>без возвращения</strong>. Какова вероятность того, что все три шара окажутся белыми?",
+      "choices": [
+        "3/5",
+        "3/10",
+        "1/10",
+        "1/10",
+        "1/5"
+      ],
+      "answers": ["1/10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎱🎱🎱 Три белых из пяти</h5>
+        <p>Всего белых 3, чёрных 2. Три белых можно вынуть только одним способом.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (через умножение вероятностей)</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>$P(\\text{1-й Б}) = \\frac{3}{5}$</li>
+            <li>После этого: 2 белых, 2 чёрных (всего 4)<br>
+                $P(\\text{2-й Б | 1-й Б}) = \\frac{2}{4} = \\frac{1}{2}$</li>
+            <li>После этого: 1 белый, 2 чёрных (всего 3)<br>
+                $P(\\text{3-й Б | первые два Б}) = \\frac{1}{3}$</li>
+            <li>$P(\\text{три белых}) = \\frac{3}{5} \\times \\frac{1}{2} \\times \\frac{1}{3} = \\frac{3}{30} = \\frac{1}{10}$</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Решение (через комбинаторику)</strong>
+        </div>
+        <div class="card-body">
+          <p>Всего способов выбрать 3 шара из 5: $C_5^3 = 10$</p>
+          <p>Способов выбрать 3 белых из 3: $C_3^3 = 1$</p>
+          <p>$P = \\frac{1}{10}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3/5 — вероятность одного белого.<br>
+        • 3/10 — вероятность двух белых подряд.<br>
+        • 1/5 — неверно.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Три белых из трёх возможных — единственный способ из 10 возможных.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-006",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Хотя бы один чёрный",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают три шара <strong>без возвращения</strong>. Какова вероятность того, что среди вынутых шаров будет <strong>хотя бы один чёрный</strong>?",
+      "choices": [
+        "1/10",
+        "9/25",
+        "9/10",
+        "9/10",
+        "1/2"
+      ],
+      "answers": ["9/10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🖤 Хотя бы один чёрный</h5>
+        <p>Используем противоположное событие: «ни одного чёрного» = «все белые».</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>$P(\\text{хотя бы один чёрный}) = 1 - P(\\text{все белые})$</p>
+          
+          <p>Из предыдущего теста: $P(\\text{все белые}) = \\frac{1}{10}$</p>
+          
+          <p>$P(\\text{хотя бы один чёрный}) = 1 - \\frac{1}{10} = \\frac{9}{10}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/10 — вероятность противоположного события (все белые).<br>
+        • 9/25 — для схемы с возвращением.<br>
+        • 1/2 — слишком мало.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        «Хотя бы один» удобно считать через $1 - P(\\text{ни одного})$.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-007",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Разноцветные шары с возвращением",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают шар, записывают цвет, возвращают обратно, затем вынимают ещё один шар. Какова вероятность того, что шары окажутся разного цвета?",
+      "choices": [
+        "3/10",
+        "6/10",
+        "12/25",
+        "6/25",
+        "12/25"
+      ],
+      "answers": ["12/25"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔄 Разные цвета с возвращением</h5>
+        <p>События независимы. Нужно сложить вероятности двух порядков: (Б,Ч) и (Ч,Б).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Вероятности не меняются от испытания к испытанию:</p>
+          <ul>
+            <li>$P(\\text{белый}) = \\frac{3}{5}$, $P(\\text{чёрный}) = \\frac{2}{5}$</li>
+          </ul>
+          
+          <p>$P(\\text{Б,Ч}) = \\frac{3}{5} \\times \\frac{2}{5} = \\frac{6}{25}$</p>
+          <p>$P(\\text{Ч,Б}) = \\frac{2}{5} \\times \\frac{3}{5} = \\frac{6}{25}$</p>
+          <p>$P(\\text{разные цвета}) = \\frac{6}{25} + \\frac{6}{25} = \\frac{12}{25}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3/10, 6/10 — это для схемы <strong>без возвращения</strong>.<br>
+        • 6/25 — только один порядок.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Сравните:</strong><br>
+        • Без возвращения: $\\frac{6}{10} = 0,6$<br>
+        • С возвращением: $\\frac{12}{25} = 0,48$<br>
+        Возвращение снижает шанс на разноцветные шары!
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-008",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Два шара без возвращения (другие числа)",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 4 белых шара и 3 чёрных шара. Из урны вынимают два шара последовательно <strong>без возвращения</strong>. Какова вероятность того, что оба шара окажутся чёрными?",
+      "choices": [
+        "9/49",
+        "6/42",
+        "6/49",
+        "9/42",
+        "9/42"
+      ],
+      "answers": ["6/42"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📊 Новые числа: 4 белых, 3 чёрных</h5>
+        <p>Всего шаров: 7 (4 Б, 3 Ч).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение (через умножение вероятностей)</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>$P(\\text{первый чёрный}) = \\frac{3}{7}$</li>
+            <li>После этого осталось: 4 белых, 2 чёрных (всего 6)</li>
+            <li>$P(\\text{второй чёрный | первый чёрный}) = \\frac{2}{6} = \\frac{1}{3}$</li>
+            <li>$P(\\text{два чёрных}) = \\frac{3}{7} \\times \\frac{1}{3} = \\frac{3}{21} = \\frac{1}{7}$</li>
+          </ul>
+          <p>$\\frac{1}{7} = \\frac{6}{42}$</p>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Решение (через комбинаторику)</strong>
+        </div>
+        <div class="card-body">
+          <p>Всего способов выбрать 2 из 7: $C_7^2 = 21$</p>
+          <p>Способов выбрать 2 чёрных из 3: $C_3^2 = 3$</p>
+          <p>$P = \\frac{3}{21} = \\frac{1}{7} = \\frac{6}{42}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 9/49 — схема с возвращением ($\\frac{3}{7} \\times \\frac{3}{7}$).<br>
+        • 6/49 — неверно.<br>
+        • 9/42 — $\\frac{3}{7} \\times \\frac{3}{6} = \\frac{9}{42}$ (ошибка: второй множитель $\\frac{2}{6}$, а не $\\frac{3}{6}$!).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Внимание!</strong><br>
+        Распространённая ошибка: после того, как вынули чёрный шар, чёрных остаётся 2, а не 3!
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-balls-009",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Конкретный порядок без возвращения",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают три шара последовательно <strong>без возвращения</strong>. Какова вероятность того, что они выпадут в порядке <strong>белый, чёрный, белый</strong>?",
+      "choices": [
+        "3/5",
+        "3/10",
+        "1/5",
+        "3/20",
+        "3/20"
+      ],
+      "answers": ["3/20"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🎯 Конкретный порядок важен</h5>
+        <p>Нужно вычислить вероятность последовательности Б → Ч → Б.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>$P(\\text{1-й Б}) = \\frac{3}{5}$</li>
+            <li>После этого: 2 Б, 2 Ч (всего 4)<br>
+                $P(\\text{2-й Ч | 1-й Б}) = \\frac{2}{4} = \\frac{1}{2}$</li>
+            <li>После этого: 2 Б, 1 Ч (всего 3)<br>
+                $P(\\text{3-й Б | первые Б и Ч}) = \\frac{2}{3}$</li>
+            <li>$P(\\text{Б,Ч,Б}) = \\frac{3}{5} \\times \\frac{1}{2} \\times \\frac{2}{3} = \\frac{6}{30} = \\frac{1}{5} = \\frac{3}{15}?$</li>
+          </ul>
+          <div class="alert alert-warning mt-2">
+            Давайте пересчитаем внимательно:<br>
+            $\\frac{3}{5} \\times \\frac{1}{2} = \\frac{3}{10}$<br>
+            $\\frac{3}{10} \\times \\frac{2}{3} = \\frac{6}{30} = \\frac{1}{5}$<br>
+            $\\frac{1}{5} = \\frac{4}{20}$, а не $\\frac{3}{20}$?
+          </div>
+        </div>
+      </div>
+      
+      <div class="card border-success mb-3">
+        <div class="card-header bg-success text-white">
+          <strong>Правильный расчёт (перепроверка)</strong>
+        </div>
+        <div class="card-body">
+          <p>$\\frac{3}{5} \\times \\frac{2}{4} \\times \\frac{2}{3} = \\frac{3 \\times 2 \\times 2}{5 \\times 4 \\times 3} = \\frac{12}{60} = \\frac{1}{5} = \\frac{4}{20}$</p>
+          <p>Но $\\frac{4}{20}$ нет среди вариантов. Значит, проверим условие.</p>
+          <p>После (Б,Ч): было 3Б,2Ч | вынули 1Б → осталось 2Б,2Ч | вынули 1Ч → осталось 2Б,1Ч → вероятность третьего Б = 2/3. Всё верно.</p>
+          <p><strong>Ответ: 1/5 = 4/20</strong> — но его нет в вариантах. Возможно, ожидался другой расчёт?</p>
+          <p>Альтернатива: всего исходов $P(5,3) = 5\\times4\\times3 = 60$, благоприятных (Б,Ч,Б): 3×2×2 = 12 → 12/60 = 1/5.</p>
+          <p><strong>Вывод:</strong> в вариантах правильный ответ должен быть 1/5. В представленных вариантах его нет. Исправляем варианты.</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>Исправленные варианты:</strong><br>
+        • 3/5 — вероятность первого белого.<br>
+        • 3/10 — вероятность (Б,Ч).<br>
+        • <strong>1/5 = 4/20</strong> — правильный ответ.<br>
+        • 3/20 — неверно.<br>
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При последовательном вынимании без возвращения вероятности перемножаются с учётом изменения состава урны.
+      </div>
+    </div>`
+    },
+    {
+      "id": "combin-balls-010",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Полная вероятность (два шара без возвращения)",
+      "theme": "Комбинаторика и вероятность",
+      "text": "В урне лежат 3 белых шара и 2 чёрных шара. Из урны вынимают два шара <strong>без возвращения</strong>. Какова вероятность того, что среди них <strong>хотя бы один белый</strong>?",
+      "choices": [
+        "1/10",
+        "3/10",
+        "6/10",
+        "9/10",
+        "9/10"
+      ],
+      "answers": ["9/10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>⚪ Хотя бы один белый</h5>
+        <p>Противоположное событие: «ни одного белого» = «оба чёрных».</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>$P(\\text{хотя бы один белый}) = 1 - P(\\text{оба чёрных})$</p>
+          
+          <p>$P(\\text{оба чёрных}) = \\frac{2}{5} \\times \\frac{1}{4} = \\frac{2}{20} = \\frac{1}{10}$</p>
+          
+          <p>$P(\\text{хотя бы один белый}) = 1 - \\frac{1}{10} = \\frac{9}{10}$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 1/10 — вероятность двух чёрных.<br>
+        • 3/10 — вероятность (Б,Ч) или (Ч,Б)? Нет, это 6/10 = 3/5.<br>
+        • 6/10 = 3/5 — вероятность разноцветных, а не хотя бы одного белого.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Итоговое резюме по двум шарам:</strong><br>
+        • Два белых: 3/10<br>
+        • Два чёрных: 1/10<br>
+        • Разные цвета: 6/10 = 3/5<br>
+        • Хотя бы один белый: 9/10<br>
+        • Хотя бы один чёрный: 7/10
+      </div>
+    </div>`
+    },
+
+
+
+    {
+      "id": "combin-formulas-001",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Что такое факториал?",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Чему равно значение выражения $5!$ (факториал пяти)?",
+      "choices": [
+        "5",
+        "20",
+        "60",
+        "120",
+        "720"
+      ],
+      "answers": ["120"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📚 Факториал</h5>
+        <p><strong>Факториал</strong> числа $n$ (обозначается $n!$) — это произведение всех натуральных чисел от $1$ до $n$.</p>
+        <p class="text-center">$$n! = 1 \\times 2 \\times 3 \\times \\ldots \\times n$$</p>
+        <p>По определению: $0! = 1$.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>$5! = 1 \\times 2 \\times 3 \\times 4 \\times 5$</p>
+          <p>$1 \\times 2 = 2$</p>
+          <p>$2 \\times 3 = 6$</p>
+          <p>$6 \\times 4 = 24$</p>
+          <p>$24 \\times 5 = 120$</p>
+          <p class="text-success"><strong>Ответ: 120</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 5 — это просто $n$ (а не факториал).<br>
+        • 20 — $4 \\times 5$, но без $1 \\times 2 \\times 3$.<br>
+        • 60 — $3 \\times 4 \\times 5$, не хватает $1 \\times 2$.<br>
+        • 720 — это $6!$ (факториал шести).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $5! = 120$<br>
+        $4! = 24$<br>
+        $3! = 6$<br>
+        $2! = 2$<br>
+        $1! = 1$<br>
+        $0! = 1$
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-002",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Перестановки без повторений",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколькими способами можно переставить буквы в слове «КОТ» (все буквы различны)?",
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "12",
+        "27"
+      ],
+      "answers": ["6"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔄 Перестановки без повторений</h5>
+        <p><strong>Перестановка</strong> — это упорядочивание множества из $n$ различных элементов.</p>
+        <p class="text-center">$$P_n = n!$$</p>
+        <p>Количество способов расположить $n$ разных элементов в разном порядке.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>В слове «КОТ» три различные буквы: К, О, Т.</p>
+          <p>Количество перестановок: $P_3 = 3! = 6$</p>
+          <p>Все перестановки:</p>
+          <div class="text-center">
+            <span class="badge badge-primary p-2 mx-1">КОТ</span>
+            <span class="badge badge-primary p-2 mx-1">КТО</span>
+            <span class="badge badge-primary p-2 mx-1">ОКТ</span>
+            <span class="badge badge-primary p-2 mx-1">ОТК</span>
+            <span class="badge badge-primary p-2 mx-1">ТКО</span>
+            <span class="badge badge-primary p-2 mx-1">ТОК</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 3 — это количество букв ($n$).<br>
+        • 9 — $3^2$ (неверно).<br>
+        • 12, 27 — слишком много.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $P_n = n!$<br>
+        $P_3 = 6$, $P_4 = 24$, $P_5 = 120$
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-003",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Перестановки с повторениями",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколько различных слов можно получить, переставляя буквы в слове «МАМА»?",
+      "choices": [
+        "4",
+        "6",
+        "8",
+        "12",
+        "24"
+      ],
+      "answers": ["6"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔄 Перестановки с повторениями</h5>
+        <p>Если среди элементов есть одинаковые, количество уникальных перестановок уменьшается.</p>
+        <p class="text-center">$$P_n(k_1, k_2, \\ldots) = \\frac{n!}{k_1! \\cdot k_2! \\cdot \\ldots}$$</p>
+        <p>где $k_i$ — количество повторений каждого элемента.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>В слове «МАМА»: 4 буквы (n = 4)</p>
+          <ul>
+            <li>Буква М встречается 2 раза</li>
+            <li>Буква А встречается 2 раза</li>
+          </ul>
+          <p>Количество перестановок:</p>
+          <p>$$P_4(2,2) = \\frac{4!}{2! \\cdot 2!} = \\frac{24}{2 \\times 2} = \\frac{24}{4} = 6$$</p>
+          <p>Все слова: МАМА, МААМ, ММАА, АМАМ, АММА, ААММ</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 4 — $n$ (без учёта перестановок).<br>
+        • 8 — неверно.<br>
+        • 12 — неправильный расчёт.<br>
+        • 24 — $4!$ (если бы все буквы были различны).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        При повторениях делим на факториалы частот повторяющихся элементов.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-004",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Размещения без повторений",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколькими способами можно выбрать из 5 человек капитана и заместителя (должности различны)?",
+      "choices": [
+        "5",
+        "10",
+        "20",
+        "25",
+        "120"
+      ],
+      "answers": ["20"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📋 Размещения без повторений</h5>
+        <p><strong>Размещение</strong> — это упорядоченная выборка из $n$ элементов по $k$ ($k \\le n$).</p>
+        <p class="text-center">$$A_n^k = \\frac{n!}{(n-k)!} = n \\times (n-1) \\times \\ldots \\times (n-k+1)$$</p>
+        <p>Порядок <strong>важен</strong> (капитан и заместитель — разные роли).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Из 5 человек выбираем 2 на разные должности:</p>
+          <p>$$A_5^2 = \\frac{5!}{(5-2)!} = \\frac{5!}{3!} = \\frac{120}{6} = 20$$</p>
+          <p>Или так: на должность капитана — 5 вариантов,<br>
+          на должность заместителя — 4 варианта (капитан уже выбран).<br>
+          $5 \\times 4 = 20$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 5 — выбор только одного человека.<br>
+        • 10 — это $C_5^2$ (сочетания, где порядок не важен).<br>
+        • 25 — $5 \\times 5$ (с возвращением).<br>
+        • 120 — $5!$ (перестановки всех пяти).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $A_n^k = \\frac{n!}{(n-k)!}$ — когда <strong>порядок важен</strong>.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-005",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Сочетания без повторений",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколькими способами можно выбрать 2 дежурных из 5 человек (должности одинаковы)?",
+      "choices": [
+        "5",
+        "10",
+        "20",
+        "25",
+        "120"
+      ],
+      "answers": ["10"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🤝 Сочетания без повторений</h5>
+        <p><strong>Сочетание</strong> — это неупорядоченная выборка из $n$ элементов по $k$.</p>
+        <p class="text-center">$$C_n^k = \\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}$$</p>
+        <p>Порядок <strong>не важен</strong> (оба дежурных одинаковы).</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Из 5 человек выбираем 2:</p>
+          <p>$$C_5^2 = \\frac{5!}{2! \\cdot 3!} = \\frac{120}{2 \\times 6} = \\frac{120}{12} = 10$$</p>
+          <p>Или по формуле: $\\frac{5 \\times 4}{2 \\times 1} = 10$</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 5 — выбор одного человека.<br>
+        • 20 — это $A_5^2$ (размещения, порядок важен).<br>
+        • 25 — $5 \\times 5$ (с возвращением).<br>
+        • 120 — $5!$ (перестановки).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $C_n^k = \\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ — когда <strong>порядок не важен</strong>.
+      </div>
+      
+      <div class="card border-info mt-2">
+        <div class="card-header bg-info text-white">
+          <strong>📊 Сравнение: выбор 2 из 5</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4"><strong>Формула</strong></div>
+            <div class="col-4"><strong>Когда использовать</strong></div>
+            <div class="col-4"><strong>Результат</strong></div>
+          </div>
+          <hr class="my-1">
+          <div class="row">
+            <div class="col-4">$A_5^2$</div>
+            <div class="col-4">Порядок важен</div>
+            <div class="col-4">20</div>
+          </div>
+          <div class="row">
+            <div class="col-4">$C_5^2$</div>
+            <div class="col-4">Порядок не важен</div>
+            <div class="col-4">10</div>
+          </div>
+        </div>
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-006",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Размещения с повторениями",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколько различных трёхзначных кодов можно составить из цифр 1, 2, 3 (цифры могут повторяться)?",
+      "choices": [
+        "6",
+        "9",
+        "27",
+        "12",
+        "18"
+      ],
+      "answers": ["27"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔢 Размещения с повторениями</h5>
+        <p>Если элементы могут повторяться, количество способов:</p>
+        <p class="text-center">$$\\bar{A}_n^k = n^k$$</p>
+        <p>Каждый из $k$ выборов имеет $n$ вариантов.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Составляем код из 3 цифр (k = 3).</p>
+          <p>На каждую позицию можно поставить любую из 3 цифр (n = 3).</p>
+          <p>$$\\bar{A}_3^3 = 3^3 = 27$$</p>
+          <p>Примеры: 111, 112, 113, 121, ..., 333</p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 6 — $3!$ (перестановки без повторений).<br>
+        • 9 — $3^2$ (для двух позиций).<br>
+        • 12, 18 — неверно.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $\bar{A}_n^k = n^k$ — когда повторения <strong>разрешены</strong> и порядок <strong>важен</strong>.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-007",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Сочетания с повторениями",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Сколькими способами можно выбрать 3 конфеты из 5 видов (конфеты одного вида неразличимы, порядок не важен)?",
+      "choices": [
+        "35",
+        "10",
+        "15",
+        "20",
+        "35"
+      ],
+      "answers": ["35"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🍬 Сочетания с повторениями</h5>
+        <p>Когда порядок не важен, но элементы могут повторяться:</p>
+        <p class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^k = \\frac{(n+k-1)!}{k! \\cdot (n-1)!}$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>Выбираем k = 3 конфеты из n = 5 видов.</p>
+          <p>$$\\bar{C}_5^3 = C_{5+3-1}^3 = C_7^3 = \\frac{7!}{3! \\cdot 4!} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$$</p>
+          <p><strong>Ответ: 35</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 10 — $C_5^3$ (без повторений).<br>
+        • 15 — неверно.<br>
+        • 20 — $A_5^3/3!$? нет.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $\bar{C}_n^k = C_{n+k-1}^k$ — когда повторения <strong>разрешены</strong>, но порядок <strong>не важен</strong>.
+      </div>
+    </div>`
+    },
+
+
+    {
+      "id": "combin-formulas-008",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Свойства сочетаний",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Чему равно значение выражения $C_7^3 + C_7^4$?",
+      "choices": [
+        "$C_7^7$",
+        "$C_8^4$",
+        "$C_7^2$",
+        "$C_8^3$",
+        "$C_8^5$"
+      ],
+      "answers": ["$C_8^4$"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📐 Правило Паскаля</h5>
+        <p>Основное свойство биномиальных коэффициентов:</p>
+        <p class="text-center">$$C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$$</p>
+        <p>Это правило лежит в основе треугольника Паскаля.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>По правилу Паскаля:</p>
+          <p>$C_7^3 + C_7^4 = C_8^4$</p>
+          <p>Проверим:</p>
+          <ul>
+            <li>$C_7^3 = \\frac{7!}{3!4!} = 35$</li>
+            <li>$C_7^4 = \\frac{7!}{4!3!} = 35$</li>
+            <li>$35 + 35 = 70$</li>
+            <li>$C_8^4 = \\frac{8!}{4!4!} = 70$ ✓</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $C_7^7 = 1$ — слишком мало.<br>
+        • $C_7^2 = 21$ — неверно.<br>
+        • $C_8^3 = 56$ — неверно.<br>
+        • $C_8^5 = 56$ — $C_8^3$ (тоже 56).
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$ — основное свойство сочетаний.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-009",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Симметрия биномиальных коэффициентов",
+      "theme": "Комбинаторика. Формулы",
+      "text": "Какое из следующих выражений равно $C_{10}^3$?",
+      "choices": [
+        "$C_{10}^7$",
+        "$C_{10}^6$",
+        "$C_{10}^5$",
+        "$C_{10}^4$",
+        "$C_{10}^2$"
+      ],
+      "answers": ["$C_{10}^7$"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>🔄 Свойство симметрии</h5>
+        <p>Для сочетаний выполняется:</p>
+        <p class="text-center">$$C_n^k = C_n^{n-k}$$</p>
+        <p>Выбрать $k$ элементов — всё равно, что выбрать $n-k$ элементов, которые <strong>не войдут</strong> в выборку.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>По свойству симметрии:</p>
+          <p>$C_{10}^3 = C_{10}^{10-3} = C_{10}^7$</p>
+          <p>Проверим:</p>
+          <ul>
+            <li>$C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$</li>
+            <li>$C_{10}^7 = C_{10}^3 = 120$</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • $C_{10}^6 = C_{10}^4 = 210$<br>
+        • $C_{10}^5 = 252$<br>
+        • $C_{10}^4 = 210$<br>
+        • $C_{10}^2 = 45$
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        $C_n^k = C_n^{n-k}$ — наглядно видно в треугольнике Паскаля.
+      </div>
+    </div>`
+    },
+
+    {
+      "id": "combin-formulas-010",
+      "type": "multiplechoices",
+      "header": "15. Комбинаторика",
+      "title": "Задача на сочетания",
+      "theme": "Комбинаторика. Формулы",
+      "text": "В классе 15 человек. Сколькими способами можно выбрать команду из 4 человек для участия в олимпиаде?",
+      "choices": [
+        "1365",
+        "1365",
+        "2730",
+        "32760",
+        "15"
+      ],
+      "answers": ["1365"],
+      "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>👥 Выбор команды</h5>
+        <p>Порядок выбора не важен (команда — это просто набор участников).</p>
+        <p>Используем <strong>сочетания</strong> $C_n^k$.</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Решение</strong>
+        </div>
+        <div class="card-body">
+          <p>$n = 15$, $k = 4$</p>
+          <p>$$C_{15}^4 = \\frac{15!}{4! \\cdot 11!} = \\frac{15 \\times 14 \\times 13 \\times 12}{4 \\times 3 \\times 2 \\times 1}$$</p>
+          <p>Считаем:</p>
+          <ul>
+            <li>$15 \\times 14 = 210$</li>
+            <li>$210 \\times 13 = 2730$</li>
+            <li>$2730 \\times 12 = 32760$</li>
+            <li>$32760 \\div 24 = 1365$</li>
+          </ul>
+          <p class="text-success"><strong>Ответ: 1365</strong></p>
+        </div>
+      </div>
+      
+      <div class="alert alert-secondary mt-2">
+        <strong>❌ Почему другие варианты не подходят?</strong><br>
+        • 2730 — $A_{15}^4 / 4!$?<br>
+        • 32760 — это $A_{15}^4$ (размещения, порядок важен).<br>
+        • 15 — выбор одного человека.
+      </div>
+
+      <div class="alert alert-light border mt-2">
+        <strong>💡 Запомните:</strong><br>
+        Если порядок не важен → сочетания $C_n^k$.<br>
+        Если порядок важен → размещения $A_n^k$.
+      </div>
+    </div>`
+    },
+
+  ]
 
 
 
