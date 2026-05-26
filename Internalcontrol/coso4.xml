@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 31: Конфликт интересов в СВК -->
+  <question type="multichoice">
+    <name>
+      <text>Конфликт интересов в СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какая ситуация создает конфликт интересов и ослабляет внутренний контроль?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Конфликт интересов — отсутствие разделения обязанностей:</h6>
+                    <p>Классический конфликт — когда один человек выполняет несколько несовместимых ролей в цикле операции.</p>
+                    <p><strong>Пример опасного совмещения:</strong></p>
+                    <ul>
+                        <li>Принимает товар на склад</li>
+                        <li>Выдает товар со склада</li>
+                        <li>Списывает товар в учете без дополнительной проверки</li>
+                    </ul>
+                    <p>Это идеальные условия для хищения. Никто не проконтролирует, куда ушел товар.</p>
+                    <p><strong>Что НЕ является конфликтом:</strong></p>
+                    <ul>
+                        <li>Два сотрудника подписывают договор — это двойной контроль</li>
+                        <li>Зарплата на карту — норма</li>
+                        <li>Директор подписывает командировку — его функция</li>
+                    </ul>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Два сотрудника подписывают крупный договор</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Менеджер склада имеет право как принимать товар, так и списывать его без дополнительной проверки (отсутствие разделения обязанностей)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Бухгалтер получает зарплату на карту</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Директор подписывает командировочное удостоверение</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 32: Иерархия документов СВК -->
+  <question type="multichoice">
+    <name>
+      <text>Иерархия документов СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой документ является наиболее общим (верхнего уровня) в системе документации внутреннего контроля?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Иерархия документов СВК:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Уровень</th><th>Документ</th><th>Кто утверждает</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-danger"><strong>Уровень 1 (верхний)</strong></td>
+                            <td><strong>Политика управления рисками и внутреннего контроля</strong> (задает принципы)</td>
+                            <td>Совет директоров/собрание участников</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Уровень 2</strong></td>
+                            <td>Регламенты/положения по процессам (Закупки, Продажи, Касса)</td>
+                            <td>Генеральный директор</td>
+                            </tr>
+                            <tr><td class="text-success"><strong>Уровень 3</strong></td>
+                            <td>Рабочие инструкции, SOP (Standard Operating Procedures)</td>
+                            <td>Руководитель подразделения</td>
+                            </tr>
+                            <tr><td class="text-secondary"><strong>Уровень 4</strong></td>
+                            <td>Матрицы RCM, журналы, формы, свидетельства контроля</td>
+                            <td>Исполнители</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Политика — самый общий документ, задающий философию и принципы СВК.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Матрица RCM по процессу 'Закупки'</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Политика управления рисками и внутреннего контроля (утвержденная советом директоров)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Инструкция по заполнению авансового отчета</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Журнал регистрации счетов-фактур</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 33: Инвентаризация как контроль -->
+  <question type="multichoice">
+    <name>
+      <text>Инвентаризация как вид контрольной процедуры</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Инвентаризация основных средств относится к какому виду контрольных процедур?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Классификация инвентаризации:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Тип контроля</th><th>Суть</th><th>Инвентаризация</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>Превентивный</strong></td>
+                            <td>Предотвращает ошибку ДО ее возникновения</td>
+                            <td>❌ Нет — инвентаризация не предотвращает пропажу</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Выявляющий (детективный)</strong></td>
+                            <td>Находит ошибку ПОСЛЕ того, как она произошла</td>
+                            <td><strong>✅ ДА</strong> — выявляет расхождения факта с учетом</td>
+                            </tr>
+                            <tr><td class="text-danger"><strong>Корректирующий</strong></td>
+                            <td>Исправляет последствия ошибки</td>
+                            <td>❌ Нет — после инвентаризации делают корректирующие проводки, но сама инвентаризация — выявляющий контроль</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Инвентаризация находит расхождения ПОСЛЕ того, как они произошли. Это классический детективный контроль.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Превентивный контроль</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Выявляющий (детективный) контроль</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Корректирующий контроль</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>ИТ-контроль</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 34: Частота контрольной процедуры -->
+  <question type="multichoice">
+    <name>
+      <text>Частота контрольной процедуры и надежность СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Если контроль выполняется 'ежедневно' в отношении операций, а не 'ежемесячно' — как это влияет на надежность СВК?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Влияние частоты контроля:</h6>
+                    <p><strong>Чем выше частота, тем:</strong></p>
+                    <ul>
+                        <li>Быстрее выявляются ошибки</li>
+                        <li>Меньше накапливающийся эффект (ошибка 1-го числа при ежемесячном контроле будет жить 30 дней)</li>
+                        <li>Выше нагрузка на персонал</li>
+                        <li>Дороже в ресурсах</li>
+                    </ul>
+                    <p><strong>Рекомендации по частоте:</strong></p>
+                    <ul>
+                        <li>Высокорисковые операции — <strong>ежедневно, в реальном времени</strong></li>
+                        <li>Среднерисковые — <strong>еженедельно</strong></li>
+                        <li>Низкорисковые — <strong>ежемесячно или реже</strong></li>
+                    </ul>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>Пример: Сверка банка раз в месяц
+→ ошибка от 1 числа будет обнаружена только через 30 дней
+
+Пример: Сверка банка каждый день
+→ ошибка обнаруживается на следующий день</code></pre>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Ежедневный контроль обычно надежнее, так как быстрее выявляет ошибки, но дороже; ежемесячный может пропустить накопившийся эффект ошибок</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Разницы нет, главное — сам факт контроля</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ежемесячный всегда надежнее, так как более тщательный</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Частота не влияет на надежность</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 35: Авторизация операции -->
+  <question type="multichoice">
+    <name>
+      <text>Авторизация операции как контрольная процедура</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что значит 'авторизация операции' (authorization) в контексте внутреннего контроля?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Авторизация — официальное разрешение (утверждение) операции:</h6>
+                    <p><strong>Особенности авторизации как контроля:</strong></p>
+                    <ul>
+                        <li>Выполняется <strong>ДО совершения операции</strong> (превентивный контроль)</li>
+                        <li>Осуществляется уполномоченным лицом (в пределах его лимита)</li>
+                        <li>Фиксируется в документе (подпись, ЭЦП, отметка в системе)</li>
+                    </ul>
+                    <p><strong>Примеры:</strong></p>
+                    <ul>
+                        <li>Директор подписал заявку на закупку — авторизация</li>
+                        <li>Руководитель утвердил командировку — авторизация</li>
+                        <li>Начальник отдела одобрил заявку на отпуск — авторизация</li>
+                    </ul>
+                    <p><strong>Что НЕ является авторизацией:</strong></p>
+                    <ul>
+                        <li>Запись операции в бухгалтерский учет — это учет, а не разрешение</li>
+                        <li>Подпись бухгалтера после операции — проверка, не авторизация</li>
+                    </ul>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Запись операции в бухгалтерский учет</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Официальное разрешение (утверждение) операции уполномоченным лицом до ее совершения (или в рамках лимита)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подпись бухгалтера на первичном документе</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Автоматический расчет НДС</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 36: Whistleblowing -->
+  <question type="multichoice">
+    <name>
+      <text>Whistleblowing в системе внутреннего контроля</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что означает понятие 'whistleblowing' в системе внутреннего контроля и аудита?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Whistleblowing — канал сообщения о нарушениях:</h6>
+                    <p>Это система, позволяющая сотрудникам, контрагентам и третьим лицам <strong>конфиденциально или анонимно сообщать</strong> о:</p>
+                    <ul>
+                        <li>Мошенничестве и хищениях</li>
+                        <li>Нарушениях этики и комплаенс</li>
+                        <li>Коррупции и взятках</li>
+                        <li>Нарушениях законодательства</li>
+                    </ul>
+                    <p><strong>Формы whistleblowing:</strong></p>
+                    <ul>
+                        <li>Анонимная горячая линия (телефон/чат)</li>
+                        <li>Ящик доверия (физический или электронный)</li>
+                        <li>Внешняя горячая линия (аутсорсинг)</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">По статистике ACFE, <strong>более 40% случаев мошенничества</strong> выявляются именно через whistleblowing. Это самый эффективный детективный контроль.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Свист при инвентаризации</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Канал сообщения о нарушениях (обычно анонимная горячая линия или ящик доверия), где сотрудники и контрагенты могут сигнализировать о мошенничестве или несоблюдении этики</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Проверка свистков в системе</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Физическая охрана</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 37: Effectiveness vs Efficiency -->
+  <question type="multichoice">
+    <name>
+      <text>Effectiveness и Efficiency контроля</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>В чем разница между 'effectiveness' и 'efficiency' контроля?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Effectiveness (Эффективность) vs Efficiency (Экономичность):</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Понятие</th><th>Что означает</th><th>Вопрос для оценки</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>Effectiveness</strong><br>(Эффективность)</td>
+                            <td>Достигает ли контроль своей цели — предотвращает/выявляет ошибку?</td>
+                            <td>"Контроль работает?"</td>
+                            </tr>
+                            <tr><td class="text-primary"><strong>Efficiency</strong><br>(Экономичность)</td>
+                            <td>Соотношение результата к затратам на контроль (время, деньги, люди)</td>
+                            <td>"Контроль не слишком дорогой для бизнеса?"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Важные комбинации:</strong></p>
+                    <ul>
+                        <li>Контроль может быть <strong>эффективным, но неэффективным</strong> — работает, но слишком дорого стоит</li>
+                        <li>Контроль может быть <strong>неэффективным, но эффективным</strong> — дешевый, но не ловит ошибки</li>
+                        <li>Идеал — <strong>эффективный и эффективный</strong></li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Хорошая СВК балансирует эффективность и экономичность.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Effectiveness — достигает ли контроль цели (предотвращает/выявляет ошибку), Efficiency — с минимальными затратами ресурсов</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Это синонимы, разницы нет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Effectiveness — дорогой контроль, Efficiency — дешевый</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Efficiency — достигает цели, Effectiveness — экономит деньги</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 38: Стандарты внутреннего аудита (IIA) -->
+  <question type="multichoice">
+    <name>
+      <text>Стандарты внутреннего аудита (IPPF)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какая организация выпускает Международные стандарты внутреннего аудита (IPPF), признанные во всем мире?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ключевые организации и их стандарты:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Организация</th><th>Сфера деятельности</th><th>Стандарты/документы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-danger"><strong>IIA</strong><br>(Institute of Internal Auditors)</td>
+                            <td><strong>Внутренний аудит</strong></td>
+                            <td><strong>IPPF</strong> (International Professional Practices Framework)</td>
+                            </tr>
+                            <tr><td class="text-primary">IFAC<br>(International Federation of Accountants)</td>
+                            <td>Внешний аудит, бухгалтеры</td>
+                            <td>МСА (ISA), Кодекс этики</td>
+                            </tr>
+                            <tr><td class="text-success">COSO</td>
+                            <td>Внутренний контроль, управление рисками</td>
+                            <td>Кубик COSO, модель ERM</td>
+                            </tr>
+                            <tr><td class="text-warning">IASB</td>
+                            <td>Бухгалтерский учет (стандарты)</td>
+                            <td>МСФО (IFRS)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">IPPF — это "библия" внутреннего аудитора.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>IFAC (Международная федерация бухгалтеров)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>IIA (Институт внутренних аудиторов)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>COSO (Комитет спонсорских организаций)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>IASB (Совет по международным стандартам учета)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 39: Принятие риска (risk acceptance) -->
+  <question type="multichoice">
+    <name>
+      <text>Принятие риска (risk acceptance) как реакция на риск</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что означает вариант реагирования на риск 'принятие риска' (risk acceptance) как часть управления рисками?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Варианты реагирования на риск (Risk Response):</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Вариант</th><th>Действие</th><th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-danger"><strong>Избегание (Avoidance)</strong></td>
+                            <td>Уйти от риска — не делать операцию</td>
+                            <td>Не выходить на рынок со сложным регулированием</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Снижение (Reduction)</strong></td>
+                            <td>Внедрить контроли, чтобы снизить риск</td>
+                            <td>Двойная подпись для платежей</td>
+                            </tr>
+                            <tr><td class="text-primary"><strong>Разделение (Sharing)</strong></td>
+                            <td>Передать часть риска третьей стороне</td>
+                            <td>Страхование, хеджирование, аутсорсинг</td>
+                            </tr>
+                            <tr><td class="text-success"><strong>Принятие (Acceptance)</strong></td>
+                            <td>Осознанное решение ничего не делать (обычно для низких рисков)</td>
+                            <td>Мелкие ошибки в канцелярских закупках</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary"><strong>Принятие риска — это не "забить", а документированное решение</strong> с мониторингом. Применяется, когда стоимость контроля превышает возможный ущерб.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Полное игнорирование риска без анализа</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Осознанное решение не предпринимать действий по снижению риска (обычно для низких рисков или когда стоимость контроля превышает возможные потери), при этом риск документируется</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Передача риска страховой компании</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Автоматическое одобрение любого риска</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 40: Оценка СВК внешним аудитором (МСА 315) -->
+  <question type="multichoice">
+    <name>
+      <text>Оценка СВК внешним аудитором (МСА 315)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Для чего внешний аудитор (по МСА 315) оценивает систему внутреннего контроля клиента?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 МСА 315 — Оценка рисков и СВК:</h6>
+                    <p>Внешний аудитор <strong>не обязан</strong> проверять СВК ради самой СВК. Он делает это для <strong>планирования аудита</strong>.</p>
+                    <p><strong>Логика МСА 315:</strong></p>
+                    <ol>
+                        <li>Аудитор оценивает СВК клиента</li>
+                        <li>Если СВК <strong>надежна</strong> (контроли работают) → аудитор может положиться на контроли → <strong>уменьшить объем детальных тестов</strong> (выборок, пересчетов)</li>
+                        <li>Если СВК <strong>ненадежна</strong> (контроли слабые) → аудитор <strong>увеличивает объем тестов по существу</strong> (проверяет больше документов)</li>
+                    </ol>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>Пример:
+СВК надежна → тест 10 операций
+СВК ненадежна → тест 50 операций</code></pre>
+                    <p class="mt-2 text-secondary">Цель — не наказать клиента, а провести аудит эффективно и с разумной уверенностью.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Чтобы заменить клиентскую службу рисков</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Чтобы определить объем (глубину) тестов по существу: если СВК надежна, можно уменьшить количество детальных тестов операций</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Чтобы оштрафовать клиента за плохие контроли</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Чтобы переделать все контроли заново</text>
+    </answer>
+  </question>
+</quiz>

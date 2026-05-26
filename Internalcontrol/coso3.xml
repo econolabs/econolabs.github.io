@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 21: Существенный недостаток контроля -->
+  <question type="multichoice">
+    <name>
+      <text>Существенный недостаток контроля (significant deficiency)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что в аудите и внутреннем контроле считается 'существенным недостатком' (significant deficiency) контроля?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Иерархия дефектов контроля (COSO / PCAOB / МСА):</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Уровень дефекта</th><th>Характеристика</th><th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-secondary"><strong>Недостаток контроля</strong> (deficiency)</td>
+                            <td>Отдельный дефект, не влияющий на общий вывод</td>
+                            <td>Одна подпись пропущена в накладной</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Существенный недостаток</strong> (significant deficiency)</td>
+                            <td>Может привести к существенному искажению отчетности, но не с высокой вероятностью самостоятельно</td>
+                            <td>Отсутствие контроля разделения обязанностей в отдельном небольшом подразделении</td>
+                            </tr>
+                            <tr><td class="text-danger"><strong>Существенная слабость</strong> (material weakness)</td>
+                            <td>Высокая вероятность существенного искажения, которое не будет предотвращено/обнаружено</td>
+                            <td>Полное отсутствие контроля кассы, все делает один человек без проверок</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Существенный недостаток — это серьезно, но еще не катастрофа. Существенная слабость (material weakness) — высокая вероятность пропуска существенной ошибки.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Любое отклонение от процедуры, даже мелкое</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Недостаток, который может привести к существенному искажению отчетности, но еще не обязательно приведет к пропуску такого искажения с высокой вероятностью</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отсутствие одной подписи в документе</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Неверный расчет налога на 500 рублей при выручке 1 млрд</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 22: Три линии защиты (Three Lines Model) -->
+  <question type="multichoice">
+    <name>
+      <text>Три линии защиты (Three Lines Model)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какое место в модели 'трех линий защиты' (Three Lines Model) занимает внутренний аудит?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Трехлинейная модель (IIA / COSO):</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Линия</th><th>Кто входит</th><th>Особенности</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>1 линия</strong> (управление рисками)</td>
+                            <td>Операционные менеджеры, исполнители</td>
+                            <td>Владельцы рисков и контролей</td>
+                            </tr>
+                            <tr><td class="text-primary"><strong>2 линия</strong> (контроль и комплаенс)</td>
+                            <td>Риск-менеджмент, СВК, комплаенс</td>
+                            <td>Помогают настраивать контроли, подчиняются руководству</td>
+                            </tr>
+                            <tr><td class="text-danger"><strong>3 линия</strong> (независимая оценка)</td>
+                            <td><strong>Внутренний аудит</strong></td>
+                            <td>Независим, подчиняется совету директоров, оценивает 1 и 2 линии</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Внутренний аудит — это <strong>третья линия</strong>, не участвует в операциях, не выполняет контроли, а независимо их оценивает.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Первая линия (операционное управление)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Вторая линия (риск-менеджмент, комплаенс, внутренний контроль)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Третья линия (независимая оценка, внутренний аудит)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Внешняя линия (государственные органы)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 23: Цикл PDCA (Деминга) -->
+  <question type="multichoice">
+    <name>
+      <text>Цикл PDCA (цикл Деминга)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что означает аббревиатура PDCA (цикл Деминга) применительно к СВК?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 PDCA — универсальный цикл улучшения процессов:</h6>
+                    <p>Применительно к СВК это <strong>непрерывный процесс совершенствования</strong> контрольной среды:</p>
+                    <ol>
+                        <li><strong>Plan (Планируй)</strong> — спланируй контроли, исходя из рисков, установи цели и процедуры</li>
+                        <li><strong>Do (Делай)</strong> — внедри контроли, обучи персонал, выполняй процедуры</li>
+                        <li><strong>Check (Проверяй)</strong> — протестируй, проверь, выяви недостатки и отклонения</li>
+                        <li><strong>Act (Улучшай / Действуй)</strong> — внеси изменения, пересмотри процедуры, скорректируй риски</li>
+                    </ol>
+                    <p class="mt-2 text-secondary">После Act — снова Plan. СВК должна постоянно эволюционировать, а не быть разовым проектом.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>People, Documents, Controls, Audit</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Plan (планируй) — Do (делай) — Check (проверяй) — Act (улучшай / действуй)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Prepare, Draft, Correct, Approve</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Правила, Действия, Контроль, Анализ</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 24: Документ-свидетельство контроля -->
+  <question type="multichoice">
+    <name>
+      <text>Документ-свидетельство выполнения контрольной процедуры</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что является надлежащим свидетельством (evidence) выполнения контрольной процедуры?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Свидетельство контроля — объективный, осязаемый артефакт:</h6>
+                    <p><strong>Примеры надлежащего evidence:</strong></p>
+                    <ul>
+                        <li>Подписанный и датированный акт сверки</li>
+                        <li>Скриншот из системы с отметкой о проверке</li>
+                        <li>Журнал регистрации с подписью ответственного</li>
+                        <li>Автоматический лог в ERP с отметкой времени и пользователем</li>
+                        <li>Сформированный отчет с отметкой о проверке</li>
+                    </ul>
+                    <p><strong>Что НЕ является evidence:</strong></p>
+                    <ul>
+                        <li>Устное заявление "я проверил" (нельзя проверить задним числом)</li>
+                        <li>Общее мнение руководителя (не факт выполнения)</li>
+                        <li>Наличие должностной инструкции (описание, а не факт выполнения)</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Без свидетельства контроля нельзя доказать, что контроль был реально выполнен.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Устное заявление сотрудника: 'я проверил'</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Подписанный акт сверки, скриншот из системы с отметкой о проверке, журнал регистрации с подписью</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Общее мнение руководителя отдела</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Наличие должностной инструкции</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 25: Автоматические vs ручные контроли -->
+  <question type="multichoice">
+    <name>
+      <text>Автоматические vs ручные контрольные процедуры</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Почему автоматические (программные) контрольные процедуры часто считаются более надежными, чем ручные?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Преимущества автоматических контролей:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Характеристика</th><th>Автоматический контроль</th><th>Ручной контроль</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Единообразие</strong></td>
+                            <td>Всегда одинаковый алгоритм</td>
+                            <td>Зависит от внимания, настроения, усталости</td>
+                            </tr>
+                            <tr><td><strong>Ошибки</strong></td>
+                            <td>Исключены человеческие ошибки (невнимательность)</td>
+                            <td>Возможны пропуски, опечатки, забыли</td>
+                            </tr>
+                            <tr><td><strong>След (лог)</strong></td>
+                            <td>Цифровой след, все действия записаны</td>
+                            <td>Трудно доказать, когда и кто выполнял</td>
+                            </tr>
+                            <tr><td><strong>Обход</strong></td>
+                            <td>Сложнее обойти (требует технических знаний)</td>
+                            <td>Можно договориться, подделать подпись</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Однако автоматические контроли не гарантируют 100% защиту — их тоже можно обойти, но это требует специальных знаний.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Они дороже, значит, лучше</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Они выполняются одинаково каждый раз, не зависят от человеческого фактора (усталость, ошибка, сговор) и оставляют цифровой след (лог)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Их невозможно обойти</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Они требуют меньше документов</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 26: COSO ERM vs COSO Internal Control -->
+  <question type="multichoice">
+    <name>
+      <text>COSO ERM vs COSO Internal Control</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Чем отличается модель COSO ERM (управление рисками) от классической модели COSO Internal Control?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Сравнение COSO Internal Control и COSO ERM:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Аспект</th><th>COSO Internal Control</th><th>COSO ERM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Охват</strong></td>
+                            <td>Операции, отчетность, комплаенс</td>
+                            <td>Добавляет <strong>стратегические цели</strong></td>
+                            </tr>
+                            <tr><td><strong>Уровень</strong></td>
+                            <td>Тактический и операционный</td>
+                            <td>Стратегический, портфель рисков</td>
+                            </tr>
+                            <tr><td><strong>Интеграция</strong></td>
+                            <td>С контролами</td>
+                            <td>С принятием стратегических решений</td>
+                            </tr>
+                            <tr><td><strong>Риск-аппетит</strong></td>
+                            <td>Обычно не выделяется явно</td>
+                            <td>Центральное понятие</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">ERM — это "большая" модель, Internal Control — часть ERM. Не устаревшая, а дополняющая.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>ERM — это более узкая модель, только про финансы</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>ERM шире: включает стратегические цели, охватывает весь портфель рисков, а не только риски отчетности и комплаенс, интегрирована с принятием стратегических решений</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>ERM — это устаревшая версия, уже не используется</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>ERM — это только для банков</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 27: Принцип наименьших привилегий -->
+  <question type="multichoice">
+    <name>
+      <text>Принцип наименьших привилегий (least privilege)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой принцип управления доступом гласит: 'пользователь должен иметь только те права, которые минимально необходимы для выполнения его рабочих функций'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Принцип наименьших привилегий (Least Privilege):</h6>
+                    <p>Это <strong>базовый принцип информационной безопасности</strong> и доступов.</p>
+                    <p><strong>Примеры:</strong></p>
+                    <ul>
+                        <li>Бухгалтеру по зарплате не нужен доступ к кассе</li>
+                        <li>Менеджеру по продажам — доступ только к своим клиентам</li>
+                        <li>Стажеру — только чтение</li>
+                    </ul>
+                    <p><strong>Другие принципы:</strong></p>
+                    <ul>
+                        <li><strong>Суперпользователь (Superuser)</strong> — полный доступ, противоположность least privilege</li>
+                        <li><strong>Разделение доступа</strong> — разные роли для разных функций</li>
+                        <li><strong>Двойной контроль (Two-person rule)</strong> — для критических операций требуется два человека</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Least privilege снижает риск как случайных ошибок, так и намеренных злоупотреблений.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Принцип суперпользователя</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Принцип наименьших привилегий (least privilege)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Принцип разделения доступа</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Принцип двойного контроля</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 28: Обязательный внутренний аудит в РФ -->
+  <question type="multichoice">
+    <name>
+      <text>Обязательный внутренний аудит в РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Для каких организаций наличие службы внутреннего аудита является обязательным требованием (согласно российскому законодательству и/или требованиям ЦБ)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Законодательные требования к внутреннему аудиту в РФ:</h6>
+                    <p><strong>Обязаны создавать внутренний аудит (или передавать функции в СРО):</strong></p>
+                    <ul>
+                        <li><strong>Акционерные общества</strong> (особенно ПАО с листингом, согласно Кодексу корпоративного управления)</li>
+                        <li><strong>Банки и кредитные организации</strong> (требования ЦБ РФ)</li>
+                        <li><strong>Страховые организации</strong></li>
+                        <li><strong>Негосударственные пенсионные фонды (НПФ)</strong></li>
+                        <li><strong>Государственные корпорации и компании с госучастием</strong></li>
+                    </ul>
+                    <p><strong>Для кого добровольно:</strong></p>
+                    <ul>
+                        <li>ООО (даже крупные) — могут создавать по желанию</li>
+                        <li>Индивидуальные предприниматели</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Требования к внутреннему аудиту прописаны в ФЗ №307-ФЗ "Об аудиторской деятельности", актах ЦБ и Банка России, Кодексе корпоративного управления.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Для всех ООО с выручкой более 1 млрд</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Для акционерных обществ, банков, страховщиков, НПФ, госкорпораций и некоторых ПАО (в зависимости от листинга)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Для любых организаций любой формы собственности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только для государственных унитарных предприятий</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 29: Функции внутреннего аудита (независимость) -->
+  <question type="multichoice">
+    <name>
+      <text>Функции внутреннего аудита (что НЕЛЬЗЯ делать)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какая из функций НЕ должна выполняться внутренним аудитом, чтобы сохранить независимость?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Что НЕ должен делать внутренний аудит (Стандарты IIA):</h6>
+                    <p><strong>Внутренний аудит может:</strong></p>
+                    <ul>
+                        <li>Оценивать эффективность СВК и управления рисками</li>
+                        <li>Консультировать по вопросам управления рисками (но не принимать решения за менеджмент)</li>
+                        <li>Проводить расследования мошенничества</li>
+                        <li>Давать рекомендации</li>
+                    </ul>
+                    <p><strong>Внутренний аудит НЕ может (нарушает независимость):</strong></p>
+                    <ul>
+                        <li class="text-danger">Исполнять роль операционного менеджера</li>
+                        <li class="text-danger">Выполнять контрольные процедуры (например, подписывать платежи, утверждать документы)</li>
+                        <li class="text-danger">Отвечать за внедрение рекомендованных им же изменений</li>
+                        <li class="text-danger">Подменять вторую линию защиты</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Угроза самоконтроля (self-review threat) — когда аудитор оценивает то, что сам же сделал.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Оценка эффективности СВК</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Консультирование по вопросам управления рисками (без принятия решений за менеджмент)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Проведение расследований мошенничества</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Исполнение роли операционного менеджера или выполнение контрольных процедур (например, подписание платежей)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 30: План внутреннего аудита -->
+  <question type="multichoice">
+    <name>
+      <text>План работы внутреннего аудита</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>На основе чего составляется годовой план работы внутреннего аудита?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Риск-ориентированное планирование внутреннего аудита:</h6>
+                    <p><strong>Основа для годового плана:</strong></p>
+                    <ol>
+                        <li><strong>Оценка рисков организации</strong> (реестр рисков, тепловая карта) — ключевой фактор</li>
+                        <li><strong>Требования и ожидания комитета по аудиту</strong> (или совета директоров)</li>
+                        <li><strong>Результаты предыдущих аудитов</strong> (повторяющиеся проблемы)</li>
+                        <li><strong>Изменения в бизнесе, законодательстве, ИТ</strong></li>
+                        <li><strong>Запросы руководства</strong> (но не в ущерб независимости)</li>
+                    </ol>
+                    <p><strong>Неправильные подходы:</strong></p>
+                    <ul>
+                        <li class="text-secondary">"Поровну по отделам" — не учитывает разные риски</li>
+                        <li class="text-secondary">"По желанию генерального директора" — нарушает независимость</li>
+                        <li class="text-secondary">"Копия прошлого года" — риски меняются</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">План утверждается комитетом по аудиту. <strong>Чем выше риск процесса — тем чаще и глубже проверка.</strong></p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Только пожеланий генерального директора</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Оценки рисков организации (реестр рисков) и требований комитета по аудиту</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Равномерного распределения по всем отделам</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Фиксированного графика из прошлого года без изменений</text>
+    </answer>
+  </question>
+</quiz>

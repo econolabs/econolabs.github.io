@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 1: Определение ошибки -->
+  <question type="multichoice">
+    <name>
+      <text>Определение ошибки в бухгалтерском учете</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Что из перечисленного НЕ является ошибкой в бухгалтерском учете в контексте ФСБУ 27/2021?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Разграничение понятий:</h6>
+                    <p><strong>Ошибка</strong> — неправильное отражение (неотражение) фактов хозяйственной жизни в регистрах и отчетности (ФСБУ 27/2021 п.2).</p>
+                    <p><strong>Изменение учетной политики</strong> — это добровольный переход от одного допустимого метода к другому, а не ошибка.</p>
+                    <p class="mt-2 text-secondary"><i class="bi bi-pencil"></i> Примеры ошибок: неверная проводка, пропуск операции, неверный расчет, использование неправильного документа.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Неправильная корреспонденция счетов</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Арифметическая ошибка в расчете амортизации</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Изменение учетной политики организации с 1 января нового года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отсутствие первичного документа при проведении операции</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 2: Существенность ошибки по ФСБУ и КоАП -->
+  <question type="multichoice">
+    <name>
+      <text>Существенность ошибки по ФСБУ и КоАП</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Каков критерий существенности ошибки для целей бухгалтерского учета (ФСБУ 27/2021) и для привлечения к ответственности по ст.15.11 КоАП РФ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚖️ Два разных критерия существенности:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Для бухучета (ФСБУ 27/2021)</th><th>Для КоАП РФ (ст.15.11)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Каждая организация <strong>устанавливает свой лимит</strong> в учетной политике (обычно 5% от валюты баланса)</td>
+                            <td>Искажение <strong>любого показателя в денежном выражении не менее чем на 10%</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-danger"><strong>⚠️ Важно:</strong> Даже если ошибка несущественна для ФСБУ, при искажении ≥10% она становится грубым нарушением для КоАП.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Более 100 000 рублей / Более 1 000 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Более 1% от выручки / Более 5% от выручки</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Более 5% от валюты баланса / Более 10% искажения показателя в денежном выражении</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Более 10% от валюты баланса / Более 5% искажения</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 3: Исправление ошибки до подписания отчетности -->
+  <question type="multichoice">
+    <name>
+      <text>Исправление ошибки до подписания отчетности</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Ошибка за 2025 год обнаружена 15 марта 2026 года. Годовая отчетность за 2025 год еще не подписана руководителем. Как правильно исправить эту ошибку?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📅 Правило из ФСБУ 27/2021 п.9:</h6>
+                    <p>Если ошибка обнаружена <strong>до даты подписания отчетности руководителем</strong>, исправление производится <mark>последним днем отчетного периода (31 декабря)</mark>.</p>
+                    <p>При этом пользователи получают уже исправленную отчетность, и никаких ретроспективных пересчетов не требуется.</p>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>📌 Проводка датируется 31 декабря 2025 года:
+Дт 62 — Кт 90.1 — доначислена выручка за 2025 год</code></pre>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправить текущим периодом (мартом 2026 года) с отражением по счету 91</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Исправить 31 декабря 2025 года (последним днем отчетного периода) с корректировкой данных отчетности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Оставить как есть, так как отчетность еще не сдана в ФНС</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Исправить через счет 84 «Нераспределенная прибыль»</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 4: Исправление ошибки после подписания, но до утверждения -->
+  <question type="multichoice">
+    <name>
+      <text>Исправление ошибки после подписания, но до утверждения</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Годовая отчетность за 2025 год подписана руководителем 20 марта 2026 года, но еще не утверждена на общем собрании участников (утверждение планируется на 25 мая 2026 года). 15 апреля 2026 года обнаружена ошибка. Как исправить?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📅 Правило из ФСБУ 27/2021 п.10:</h6>
+                    <p>Если ошибка обнаружена <strong>после подписания, но до утверждения отчетности</strong> (в период между 20 марта и 30 июня), исправление производится <mark>декабрем отчетного года (ретроспективно)</mark>.</p>
+                    <p>Пользователи (собственники) должны утверждать уже исправленную отчетность.</p>
+                    <div class="alert alert-light mt-2 border" style="background-color:#e9ecef;">
+                        <strong>📌 Сроки утверждения годовой отчетности:</strong> ООО — до 30 апреля, АО — до 30 июня.
+                    </div>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправить текущим периодом (апрелем 2026 года)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Исправить 31 декабря 2025 года (ретроспективно) с пересдачей отчетности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ждать утверждения отчетности и исправить после</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Отразить ошибку в отчетности за 2026 год без исправления 2025 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 5: Исправление несущественной ошибки после утверждения -->
+  <question type="multichoice">
+    <name>
+      <text>Исправление несущественной ошибки после утверждения</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Годовая отчетность за 2025 год утверждена 25 июня 2026 года. 15 сентября 2026 года обнаружена несущественная ошибка. Как правильно ее исправить?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📅 Правило из ФСБУ 27/2021:</h6>
+                    <p>Если ошибка обнаружена <strong>после утверждения отчетности</strong> и является <strong>несущественной</strong>:</p>
+                    <ul>
+                        <li>Исправляется <mark>текущим периодом (датой обнаружения)</mark></li>
+                        <li>Корректируется через <strong>счет 91 «Прочие доходы и расходы»</strong></li>
+                        <li>Уточненная отчетность за прошлый год НЕ подается</li>
+                    </ul>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>📌 Проводка датируется сентябрем 2026 года:
+Дт 91.2 — Кт 60 — доначислены расходы прошлого года</code></pre>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправить через счет 84 «Нераспределенная прибыль» с пересчетом прошлых лет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подать уточненную отчетность за 2025 год</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ничего не исправлять, так как ошибка несущественная</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Исправить текущим периодом (сентябрем 2026 года) через счет 91 «Прочие доходы и расходы»</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 6: Исправление существенной ошибки после утверждения -->
+  <question type="multichoice">
+    <name>
+      <text>Исправление существенной ошибки после утверждения</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Годовая отчетность за 2025 год утверждена. В ноябре 2026 года обнаружена существенная ошибка (искажение выручки на 15%). Как правильно ее исправить?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Исправление существенной ошибки (ФСБУ 27/2021 п.11-12):</h6>
+                    <p>Существенная ошибка, обнаруженная <strong>после утверждения отчетности</strong>, исправляется:</p>
+                    <ul>
+                        <li>Через <strong>счет 84 «Нераспределенная прибыль (непокрытый убыток)»</strong></li>
+                        <li>С <strong>ретроспективным пересчетом</strong> сравнительных показателей в текущей отчетности</li>
+                    </ul>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>📌 Проводка:
+Дт 84 — Кт 62 — сторнирована излишне признанная выручка
+Дт 68.04 — Кт 84 — скорректирован налог на прибыль</code></pre>
+                    <p class="mt-2 text-danger"><strong>❗ Важно:</strong> Подача уточненной отчетности в ФНС при этом ОБЯЗАТЕЛЬНА.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправить текущим периодом (ноябрем 2026 года) через счет 91</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Исправить через счет 84 «Нераспределенная прибыль» без пересчета прошлой отчетности</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Исправить через счет 84 «Нераспределенная прибыль» с ретроспективным пересчетом сравнительных показателей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подать уточненную декларацию, но бухгалтерский учет не трогать</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 7: Проводка при завышении расходов -->
+  <question type="multichoice">
+    <name>
+      <text>Проводка при исправлении завышения расходов</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>В декабре 2025 года была излишне начислена арендная плата на 50 000 руб. (несущественная ошибка). Обнаружено в марте 2026 года, отчетность за 2025 год уже утверждена. Какая проводка будет составлена?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Исправление завышения расходов прошлого года (несущественная ошибка):</h6>
+                    <p>Поскольку ошибка <strong>несущественная</strong> и отчетность <strong>утверждена</strong>, исправляем текущим периодом через счет 91.</p>
+                    <p><strong>Логика:</strong> Излишне начисленная аренда — это доход прошлого года, который не был получен. В текущем периоде восстанавливаем его как <strong>прочий доход</strong>.</p>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>✅ Правильная проводка (март 2026 года):
+Дт 60 (расчеты с арендодателем) — Кт 91.1 (прочие доходы) — 50 000 руб.</code></pre>
+                    <p class="mt-2 text-secondary">❌ Неправильно: Дт 20 — так как расходы прошлого года в текущем периоде не увеличивают себестоимость.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Дт 20 — Кт 60 (сторно) 50 000 руб.</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Дт 02 — Кт 91.1 50 000 руб.</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Дт 60 — Кт 91.1 50 000 руб.</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Дт 84 — Кт 60 50 000 руб.</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 8: Проводка при занижении амортизации -->
+  <question type="multichoice">
+    <name>
+      <text>Проводка при исправлении занижения амортизации</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>В 2025 году была занижена амортизация ОС (административное здание) на 200 000 руб. Ошибка существенная, отчетность за 2025 год уже утверждена. Какая проводка будет составлена?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Исправление занижения амортизации (существенная ошибка):</h6>
+                    <p>Поскольку ошибка <strong>существенная</strong> и отчетность <strong>утверждена</strong>:</p>
+                    <ul>
+                        <li>Корректируем через <strong>счет 84</strong> (не через 91 и не через 26)</li>
+                        <li>Доначисляем амортизацию, уменьшая нераспределенную прибыль прошлого года</li>
+                    </ul>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>✅ Правильная проводка:
+Дт 84 «Нераспределенная прибыль» — Кт 02 «Амортизация ОС» — 200 000 руб.</code></pre>
+                    <p class="mt-2 text-secondary">📌 Почему не Дт 26? Потому что расходы 2025 года не могут увеличивать расходы 2026 года. Они должны уменьшить капитал (прибыль) прошлого периода.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Дт 26 — Кт 02 200 000 руб.</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Дт 84 — Кт 02 200 000 руб.</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Дт 91.2 — Кт 02 200 000 руб.</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Дт 02 — Кт 84 200 000 руб.</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 9: Налоговые последствия - уточненка -->
+  <question type="multichoice">
+    <name>
+      <text>Когда подавать уточненную декларацию</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Когда подача уточненной налоговой декларации при исправлении ошибки ОБЯЗАТЕЛЬНА?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ст.81 НК РФ — обязанность подать уточненную декларацию:</h6>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p><strong>✅ Обязательно подавать, если:</strong> ошибка привела к <span class="text-danger">занижению суммы налога</span>, подлежащего уплате в бюджет.</p>
+                        <p><strong>❌ Не обязательно, если:</strong> ошибка привела к переплате налога (можно исправить текущим периодом или вернуть переплату).</p>
+                        <p><strong>❗ Важно:</strong> При занижении налога уточненку нужно подать ДО того, как налоговая найдет ошибку, иначе — штраф по ст.122 НК РФ.</p>
+                    </div>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Всегда, при любом исправлении ошибки</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Только если ошибка привела к занижению налога к уплате</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только если ошибка привела к переплате налога</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только если ошибка обнаружена налоговой инспекцией</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 10: Освобождение от штрафа -->
+  <question type="multichoice">
+    <name>
+      <text>Освобождение от штрафа при самостоятельном исправлении</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>При каком условии организация может быть освобождена от штрафа по ст.122 НК РФ за неполную уплату налога из-за ошибки?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">✅ Освобождение от штрафа (ст.81 НК РФ, п.4):</h6>
+                    <p>Налогоплательщик освобождается от ответственности по ст.122 НК РФ, если <strong>одновременно выполнены условия</strong>:</p>
+                    <ol>
+                        <li>Ошибка самостоятельно обнаружена и исправлена</li>
+                        <li>Подана уточненная налоговая декларация</li>
+                        <li>Уплачена недостающая сумма налога <strong>ДО того, как налоговая:</strong>
+                            <ul>
+                                <li>назначила выездную проверку, или</li>
+                                <li>обнаружила ошибку при камеральной проверке</li>
+                            </ul>
+                        </li>
+                        <li>Уплачены пени за каждый день просрочки</li>
+                    </ol>
+                    <p class="mt-2 text-secondary">⚠️ Если налоговая уже нашла ошибку — штрафа не избежать, даже если подать уточненку.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Если ошибка исправлена до назначения выездной проверки и до того, как налоговая ее обнаружила</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если сумма недоимки не превышает 100 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если ошибка несущественная</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Если ошибка исправлена в течение года после ее совершения</text>
+    </answer>
+  </question>
+</quiz>

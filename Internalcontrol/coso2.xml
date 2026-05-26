@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 11: Антифрод-контроль, красные флаги -->
+  <question type="multichoice">
+    <name>
+      <text>Антифрод-контроль — красные флаги мошенничества</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что из перечисленного является 'красным флагом' (red flag) возможного мошенничества сотрудника согласно практике ACFE?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Треугольник мошенничества (Fraud Triangle):</h6>
+                    <p>Три условия, необходимые для совершения мошенничества:</p>
+                    <ol>
+                        <li><strong>Давление (Pressure)</strong> — финансовые проблемы, долги, зависимость</li>
+                        <li><strong>Возможность (Opportunity)</strong> — слабые контроли, отсутствие разделения обязанностей</li>
+                        <li><strong>Самооправдание (Rationalization)</strong> — "я беру в долг", "мне не доплачивают"</li>
+                    </ol>
+                    <p><strong>Красные флаги (поведенческие индикаторы):</strong></p>
+                    <ul>
+                        <li>Жизнь не по средствам (дорогие покупки при скромной зарплате)</li>
+                        <li>Отказ от отпуска (боится, что подмена обнаружит хищение)</li>
+                        <li>Чрезмерный контроль над своим участком, нежелание делегировать</li>
+                        <li>Внезапные финансовые трудности или, наоборот, необъяснимое богатство</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Регулярный отпуск, выполнение сроков и образование — норма, а не красные флаги.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Сотрудник регулярно уходит в отпуск и делится задачами с коллегами</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Сотрудник живет не по средствам (дорогие покупки при скромной зарплате), отказывается от отпуска и чрезмерно контролирует свой участок</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Сотрудник всегда выполняет работу в срок</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Сотрудник имеет высшее образование</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 12: Горячая линия — эффективность -->
+  <question type="multichoice">
+    <name>
+      <text>Горячая линия как инструмент антифрод-контроля</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой элемент антифрод-контроля считается самым эффективным для выявления мошенничества (по статистике ACFE)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📊 Статистика ACFE (Ассоциация сертифицированных экспертов по борьбе с мошенничеством):</h6>
+                    <p>Более <strong>40% случаев мошенничества</strong> выявляются по наводкам сотрудников, контрагентов и анонимных источников.</p>
+                    <p><strong>Распределение способов выявления:</strong></p>
+                    <ul>
+                        <li>Горячая линия (жалобы, сигналы) — 43%</li>
+                        <li>Внутренний аудит — 15%</li>
+                        <li>Внешний аудит — 4%</li>
+                        <li>Инвентаризация — 3%</li>
+                        <li>Анализ данных — 12%</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Горячая линия (whistleblowing hotline) — самый сильный детективный контроль. Внешний аудит и инвентаризация находят лишь единицы.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Внешний аудит</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Анонимная горячая линия (whistleblowing hotline) для сотрудников и контрагентов</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Инвентаризация</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Анализ базы данных поставщиков</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 13: Риск-аппетит -->
+  <question type="multichoice">
+    <name>
+      <text>Риск-аппетит организации</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что означает 'риск-аппетит' (risk appetite) организации?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Риск-аппетит (определение COSO):</h6>
+                    <p>Это <strong>количество риска</strong> (объем, уровень), которое организация готова принять в своей деятельности для достижения стратегических целей.</p>
+                    <p><strong>Важные уточнения:</strong></p>
+                    <ul>
+                        <li>Измеряется в деньгах или количественных показателях</li>
+                        <li>Для разных типов рисков может быть разным</li>
+                        <li>Пример: аппетит к ошибкам мелкой закупки — 100 000 руб., к мошенничеству — нулевой</li>
+                        <li>Устанавливается на уровне совета директоров</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Не путайте с риск-толерантностью (допустимое отклонение) и не сводите к резервному фонду.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Желание руководителей рисковать в ущерб бизнесу</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Количество рисков, которые организация готова принять в своей деятельности для достижения целей (объем допустимого риска)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Запрет на любые риски</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Размер резервного фонда на случай кризиса</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 14: Тепловая карта рисков -->
+  <question type="multichoice">
+    <name>
+      <text>Тепловая карта рисков (risk heat map)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что такое 'тепловая карта рисков' (risk heat map)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Тепловая карта — стандартный инструмент риск-менеджмента:</h6>
+                    <p>Это <strong>матрица</strong>, где риски отображаются по двум осям:</p>
+                    <ul>
+                        <li><strong>Вертикальная ось (Y)</strong> — вероятность наступления риска (от низкой до высокой)</li>
+                        <li><strong>Горизонтальная ось (X)</strong> — влияние/значимость (от слабого до катастрофического)</li>
+                    </ul>
+                    <p><strong>Цветовая индикация:</strong></p>
+                    <ul>
+                        <li><span style="color:#dc3545;">🔴 Красный</span> — критический риск (требует немедленных контролей)</li>
+                        <li><span style="color:#ffc107;">🟡 Желтый</span> — значительный риск (требует контроля)</li>
+                        <li><span style="color:#28a745;">🟢 Зеленый</span> — приемлемый риск (мониторинг)</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Не путайте с географической картой или кадровыми рисками. Это визуализация приоритетов управления рисками.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Географическая карта регионов продаж</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Матрица, где риски отображаются по двум осям: вероятность × влияние (или значимость), обычно с цветовой индикацией (красный — высокий риск)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Список всех сотрудников с их рисками увольнения</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>График изменения рыночной доли</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 15: Качественная vs количественная оценка -->
+  <question type="multichoice">
+    <name>
+      <text>Количественная оценка риска</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что из перечисленного относится к методу КОЛИЧЕСТВЕННОЙ оценки риска?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📊 Количественная vs Качественная оценка рисков:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Метод</th><th>Характеристика</th><th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>Количественная</strong></td>
+                            <td>С цифрами, деньгами, процентами, математикой</td>
+                            <td>"Ожидаемый ущерб = 5 млн руб. × 20% = 1 млн руб."</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Качественная</strong></td>
+                            <td>Описательная, категорийная</td>
+                            <td>"Риск высокий/средний/низкий", "Красный/желтый/зеленый"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Количественная оценка требует данных, статистики, моделей. Качественная — экспертного мнения.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Риск высокий / средний / низкий (без цифр)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Ожидаемый финансовый ущерб = 5 млн руб. × вероятность 20% = 1 млн руб. (VaR, money at risk)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Экспертное мнение: 'риск значительный'</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Цветовая маркировка (красный, желтый, зеленый)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 16: Компенсирующий контроль -->
+  <question type="multichoice">
+    <name>
+      <text>Компенсирующий контроль (compensating control)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что такое 'компенсирующий контроль' (compensating control)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Компенсирующий контроль — "план Б" (аварийный контроль):</h6>
+                    <p>Это <strong>резервный контроль</strong>, который действует, если основной контроль:</p>
+                    <ul>
+                        <li>Не работает (сбой, ошибка конфигурации)</li>
+                        <li>Невозможен к применению (технические ограничения)</li>
+                        <li>Не был выполнен из-за человеческого фактора</li>
+                    </ul>
+                    <p><strong>Пример:</strong> В ИТ-системе отказал автоматический контроль дублей (основной). Компенсирующий контроль — бухгалтер вручную раз в неделю запускает отчет по повторяющимся номерам документов и проверяет.</p>
+                    <p class="mt-2 text-secondary">Компенсирующий контроль снижает, но не полностью устраняет риск сбоя основного. Обычно менее эффективен, чем основной.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Контроль, который платит сотрудникам за соблюдение процедур</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Резервный контроль, который действует, если основной контроль не работает или его невозможно применить (например, ручная сверка вместо неработающей автоматической)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Контроль, который проводится раз в год</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Контроль, который выполняет внешний аудитор</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 17: Общие ИТ-контроли (ITGC) -->
+  <question type="multichoice">
+    <name>
+      <text>Общие ИТ-контроли (ITGC)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что из перечисленного относится к общим ИТ-контролям (IT General Controls)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 ITGC (IT General Controls) — контроли всей ИТ-инфраструктуры:</h6>
+                    <p><strong>Категории ITGC:</strong></p>
+                    <ul>
+                        <li><strong>Управление доступом (Access Control)</strong> — пароли, роли, права, двухфакторная аутентификация</li>
+                        <li><strong>Управление изменениями (Change Management)</strong> — заявки на изменения, тестирование, согласование</li>
+                        <li><strong>Резервное копирование (Backup)</strong> — регулярность, проверка восстановления, хранение</li>
+                        <li><strong>Мониторинг и обслуживание</strong> — логи, аптайм, обновления</li>
+                    </ul>
+                    <p><strong>Отличие от прикладных контролей (Application Controls):</strong></p>
+                    <p class="text-secondary">ITGC — относятся ко всей системе. Прикладные — внутри конкретного бизнес-процесса (проверка формата ввода, расчет НДС, блокировка дублей).</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Контроль ввода суммы накладной в поле 'сумма'</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Автоматический расчет НДС в документе</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Политика паролей, управление доступом, резервное копирование, управление изменениями ПО</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Проверка контрольных сумм в отчете</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 18: Прикладные ИТ-контроли -->
+  <question type="multichoice">
+    <name>
+      <text>Прикладные ИТ-контроли (Application Controls)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой контроль является примером прикладного (application control) в ERP-системе?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Прикладные контроли (Application Controls):</h6>
+                    <p>Встроены в сам процесс, работают на уровне конкретной операции.</p>
+                    <p><strong>Примеры прикладных контролей:</strong></p>
+                    <ul>
+                        <li>Проверка обязательности заполнения поля ("не сохранить, если ИНН не заполнен")</li>
+                        <li>Автоматический расчет (НДС, скидка, курс)</li>
+                        <li>Блокировка при ошибке (проводка не проходит, если дебет ≠ кредит)</li>
+                        <li>Контроль диапазонов (сумма не может быть отрицательной)</li>
+                        <li>Проверка формата (ИНН — 10/12 цифр)</li>
+                    </ul>
+                    <p><strong>Что НЕ является прикладным контролем:</strong> пароли, бэкапы, разграничение прав — это ITGC.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Парольная политика (смена пароля каждые 90 дней)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ежедневное резервное копирование базы данных</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Система НЕ позволяет сохранить документ закупки, если не заполнено поле 'ИНН поставщика'</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Разграничение прав доступа по ролям (бухгалтер, кладовщик, директор)</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 19: Матрица рисков и контролей (RCM) -->
+  <question type="multichoice">
+    <name>
+      <text>Матрица рисков и контролей (RCM)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что такое Risk and Control Matrix (RCM) — матрица рисков и контролей?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 RCM — основной рабочий документ аудитора и риск-менеджера:</h6>
+                    <p>Это <strong>таблица</strong>, в которой для каждого процесса и риска указывается:</p>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Колонка</th><th>Что содержится</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Процесс / операция</td><td>Закупки, продажи, зарплата, касса</td>
+                            </tr>
+                            <tr><td>Риск</td><td>Что может пойти не так, угроза</td>
+                            </tr>
+                            <tr><td>Контрольная процедура</td><td>Что делает контроль, как работает</td>
+                            </tr>
+                            <tr><td>Периодичность</td><td>Ежедневно, еженедельно, ежемесячно</td>
+                            </tr>
+                            <tr><td>Ответственный</td><td>Кто выполняет контроль</td>
+                            </tr>
+                            <tr><td>Свидетельство контроля</td><td>Подпись, журнал, скриншот, отчет</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Без RCM нельзя сказать, что СВК задокументирована и ей можно управлять.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Список всех рисков компании без привязки к контролю</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Документ, в котором для каждого процесса/риска указана контрольная процедура, частота, ответственный и свидетельство контроля</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Бухгалтерский баланс компании</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Журнал регистрации аудиторских проверок</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 20: Тестирование контролей — повторное выполнение -->
+  <question type="multichoice">
+    <name>
+      <text>Тестирование контрольных процедур — reperformance</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой метод тестирования контроля предполагает, что аудитор самостоятельно выполняет процедуру контроля (например, пересчитывает ведомость зарплаты)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Методы тестирования контрольных процедур:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Метод</th><th>Суть</th><th>Надежность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Запрос (Inquiry)</strong></td>
+                            <td>"Как вы проверяете ведомость?" (спросили)</td>
+                            <td>Низкая</td>
+                            </tr>
+                            <tr><td><strong>Наблюдение (Observation)</strong></td>
+                            <td>Посмотрели, как сотрудник выполняет</td>
+                            <td>Средняя</td>
+                            </tr>
+                            <tr><td><strong>Инспектирование (Inspection)</strong></td>
+                            <td>Изучили подписи, штампы, журналы</td>
+                            <td>Высокая</td>
+                            </tr>
+                            <tr><td class="text-success"><strong>Повторное выполнение (Reperformance)</strong></td>
+                            <td>Аудитор сам пересчитывает, сверяет, выполняет</td>
+                            <td><strong>Самая высокая</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Reperformance — самый надежный метод, но самый затратный по времени. Обычно применяется выборочно для критических контролей.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Запрос (inquiry)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Наблюдение (observation)</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Повторное выполнение (reperformance)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Инспектирование документов (inspection)</text>
+    </answer>
+  </question>
+</quiz>

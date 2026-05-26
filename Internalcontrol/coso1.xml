@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 1: Понятие и цели СВК -->
+  <question type="multichoice">
+    <name>
+      <text>Понятие и цели СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что является основной целью системы внутреннего контроля (СВК) согласно модели COSO?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Модель COSO — три категории целей:</h6>
+                    <ul>
+                        <li><strong>Эффективность и результативность операций</strong> — достижение бизнес-целей</li>
+                        <li><strong>Достоверность бухгалтерской отчетности</strong> — предотвращение существенных искажений</li>
+                        <li><strong>Соблюдение законодательства</strong> — соответствие нормативным требованиям</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">СВК не может гарантировать 100% устранение ошибок, только <strong>разумную уверенность</strong> (reasonable assurance).</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Полное устранение всех ошибок в учете</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Обеспечение разумной уверенности в достижении целей организации (эффективность, достоверность отчетности, соблюдение законов)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Снижение налоговых платежей организации</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Замена внешнего аудита</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 2: Компоненты COSO -->
+  <question type="multichoice">
+    <name>
+      <text>Компоненты COSO</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Сколько компонентов включает модель внутреннего контроля COSO (обновленная версия 2013 г.) и как они называются?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Пять компонентов COSO (2013):</h6>
+                    <p>Запомните мнемоническое правило: <strong>"Среду Оцениваем, Процедуры Информируем, Мониторим"</strong></p>
+                    <ol>
+                        <li><strong>Контрольная среда</strong> — фундамент, философия и этика</li>
+                        <li><strong>Оценка рисков</strong> — идентификация и анализ рисков</li>
+                        <li><strong>Контрольные действия (процедуры контроля)</strong> — политики и процедуры</li>
+                        <li><strong>Информация и коммуникация</strong> — данные и обратная связь</li>
+                        <li><strong>Мониторинг</strong> — постоянная оценка СВК</li>
+                    </ol>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>3 компонента: риск, контроль, аудит</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>5 компонентов: контрольная среда, оценка рисков, процедуры контроля, информация и коммуникация, мониторинг</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>4 компонента: планирование, организация, мотивация, контроль</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>6 компонентов: стратегия, структура, системы, стиль, сотрудники, навыки</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 3: Контрольная среда -->
+  <question type="multichoice">
+    <name>
+      <text>Контрольная среда</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что из перечисленного относится к элементу 'контрольная среда' (первый компонент COSO)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Контрольная среда — фундамент СВК:</h6>
+                    <p>Это <strong>"тон наверху" (tone at the top)</strong> — философия руководства, этические ценности, организационная структура, кадровая политика.</p>
+                    <p><strong>Что НЕ относится к контрольной среде:</strong></p>
+                    <ul>
+                        <li>Сверка с поставщиками — это контрольные действия (компонент 3)</li>
+                        <li>Автоматическая блокировка дублей — ИТ-контроль (компонент 3)</li>
+                        <li>Отчет о рисках — информация и коммуникация (компонент 4)</li>
+                    </ul>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Регулярная сверка расчетов с поставщиками</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Четкое распределение полномочий и этические ценности, 'тон наверху' (tone at the top)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Автоматическая блокировка дублей в учетной системе</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ежемесячный отчет о рисках совету директоров</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 4: Оценка рисков -->
+  <question type="multichoice">
+    <name>
+      <text>Оценка рисков</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что включает в себя процесс 'оценка рисков' в рамках СВК?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Оценка рисков — второй компонент COSO:</h6>
+                    <p>Процесс включает три этапа:</p>
+                    <ol>
+                        <li><strong>Идентификация</strong> — выявление того, что может помешать достичь целей</li>
+                        <li><strong>Анализ</strong> — оценка вероятности и влияния рисков</li>
+                        <li><strong>Ранжирование</strong> — определение приоритетов</li>
+                    </ol>
+                    <p class="mt-2 text-secondary">Должностные инструкции — контрольная среда. Инвентаризация — контрольная процедура. Составление отчетности — операционный процесс.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Идентификацию, анализ и ранжирование рисков достижения целей организации</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Разработку должностных инструкций</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Проведение инвентаризации</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Составление бухгалтерской отчетности</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 5: Контрольные процедуры (превентивный) -->
+  <question type="multichoice">
+    <name>
+      <text>Типы контрольных процедур</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой тип контрольной процедуры направлен на ПРЕДОТВРАЩЕНИЕ ошибки ДО ее возникновения?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Классификация контрольных процедур:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Тип контроля</th><th>Суть</th><th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>Превентивный</strong></td><td>Предотвращает ошибку</td><td>Согласование договора юристом до подписания</td>
+                            </tr>
+                            <tr><td class="text-warning"><strong>Детективный (выявляющий)</strong></td><td>Находит ошибку после</td><td>Сверка с поставщиком</td>
+                            </tr>
+                            <tr><td class="text-danger"><strong>Корректирующий</strong></td><td>Исправляет последствия</td><td>Сторно ошибочной проводки</td>
+                            </tr>
+                            <tr><td class="text-secondary"><strong>Компенсирующий</strong></td><td>Заменяет другой контроль</td><td>Двойная подпись при отсутствии ЭДО</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Выявляющий (детективный) контроль</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Корректирующий контроль</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Превентивный (упреждающий) контроль</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Компенсирующий контроль</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 6: Разделение обязанностей -->
+  <question type="multichoice">
+    <name>
+      <text>Разделение обязанностей</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Принцип 'разделение обязанностей' (segregation of duties) в СВК означает:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚠️ Классическое правило разделения обязанностей:</h6>
+                    <p>Три ключевые функции, которые <strong>не должны совмещаться одним человеком</strong>:</p>
+                    <ol>
+                        <li><strong>Авторизация (инициация)</strong> — право подписи, разрешение на операцию</li>
+                        <li><strong>Учет (регистрация)</strong> — отражение операции в регистрах</li>
+                        <li><strong>Хранение активов (доступ)</strong> — физический или электронный доступ к деньгам, товарам, документам</li>
+                    </ol>
+                    <p class="mt-2 text-danger">Если один человек подписывает платежку, делает проводку и имеет доступ к деньгам — идеальные условия для хищения.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Каждый сотрудник работает только на одной должности</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Один сотрудник не должен совмещать функции авторизации, учета и хранения активов (чтобы снизить риск мошенничества)</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Все сотрудники должны периодически меняться местами</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Обязанности делятся только между бухгалтерией и кадровой службой</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 7: Информация и коммуникация -->
+  <question type="multichoice">
+    <name>
+      <text>Информация и коммуникация</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой пример иллюстрирует компонент 'информация и коммуникация' в COSO?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Компонент 4 — Информация и коммуникация:</h6>
+                    <p>Это про <strong>доведение нужных данных до нужных людей и обратную связь</strong>.</p>
+                    <p><strong>Примеры компонента 4:</strong></p>
+                    <ul>
+                        <li>Регламенты, инструкции (SOP), политики</li>
+                        <li>Обучение сотрудников</li>
+                        <li>Система обмена документами</li>
+                        <li>Горячая линия, каналы обратной связи</li>
+                        <li>Корпоративный портал</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Сверка и инвентаризация — это контрольные действия (компонент 3).</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Подпись генерального директора на крупном договоре</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Наличие инструкции (SOP) по процессу закупок, доступной всем сотрудникам, и канал обратной связи для вопросов</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ежемесячная сверка остатков по счетам</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Внезапная инвентаризация склада</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 8: Мониторинг СВК -->
+  <question type="multichoice">
+    <name>
+      <text>Мониторинг СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Что из перечисленного является примером мониторинга (оценки) системы внутреннего контроля?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-info my-2" style="background-color:#e6f3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Мониторинг — компонент 5 COSO:</h6>
+                    <p>Это <strong>"контроль над контролем"</strong> — постоянная оценка эффективности СВК.</p>
+                    <p><strong>Примеры мониторинга:</strong></p>
+                    <ul>
+                        <li>Внутренний аудит</li>
+                        <li>Самооценка контрольных процедур</li>
+                        <li>Тестирование контрольных действий</li>
+                        <li>Регулярные отчеты о результатах контроля</li>
+                        <li>Анализ жалоб и обращений</li>
+                    </ul>
+                    <p class="mt-2 text-secondary">Подписание договора — операция. Составление баланса — закрытие месяца. Найм сотрудника — кадровая функция.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Подписание договора поставки</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Проведение внутреннего аудита процесса закупок для проверки, работают ли контроли, как задумано</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Составление бухгалтерского баланса</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Найм нового сотрудника в отдел продаж</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 9: Внутренний аудит vs СВК -->
+  <question type="multichoice">
+    <name>
+      <text>Внутренний аудит vs СВК</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Чем внутренний аудит принципиально отличается от службы внутреннего контроля (ревизии) в организации?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Три линии защиты (Three Lines Model):</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Линия</th><th>Функция</th><th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-success"><strong>1 линия</strong></td><td>Управление рисками (операционные)</td><td>Менеджмент, бухгалтерия</td>
+                            </tr>
+                            <tr><td class="text-primary"><strong>2 линия</strong></td><td>Контроль и комплаенс (СВК)</td><td>Риск-менеджмент, служба контроля</td>
+                            </tr>
+                            <tr><td class="text-danger"><strong>3 линия</strong></td><td>Независимая оценка</td><td>Внутренний аудит (подчиняется совету директоров)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-2 text-secondary">Внутренний аудит — НЕ участвует в операциях, НЕ настраивает контроли, а независимо оценивает их эффективность.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Внутренний аудит — это внешняя фирма, а СВК — внутренняя</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Внутренний аудит независим (подчиняется совету директоров) и дает объективные рекомендации, не участвуя в операционных процессах; СВК — часть управления, может выполнять контрольные функции</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Внутренний аудит проверяет только бухгалтерию, а СВК — всё</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Внутренний аудит обязателен для всех компаний, а СВК — нет</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 10: Обязанность создания СВК в РФ -->
+  <question type="multichoice">
+    <name>
+      <text>Обязанность создания СВК в РФ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по внутреннему контролю и аудиту</b><br>Какой федеральный закон обязывает экономических субъектов создавать систему внутреннего контроля (ст. 19)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Статья 19 ФЗ №402-ФЗ:</h6>
+                    <p class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <strong>"Экономический субъект обязан организовать и осуществлять внутренний контроль совершаемых фактов хозяйственной жизни."</strong>
+                    </p>
+                    <p><strong>Другие законы — о другом:</strong></p>
+                    <ul>
+                        <li><strong>№307-ФЗ</strong> — о внешнем аудите</li>
+                        <li><strong>№115-ФЗ</strong> — о противодействии легализации доходов (ПОД/ФТ)</li>
+                        <li><strong>НК РФ</strong> — о налогах</li>
+                    </ul>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>ФЗ № 307-ФЗ 'Об аудиторской деятельности'</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>ФЗ № 402-ФЗ 'О бухгалтерском учете'</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>ФЗ № 115-ФЗ 'О противодействии легализации доходов'</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Налоговый кодекс РФ</text>
+    </answer>
+  </question>
+</quiz>

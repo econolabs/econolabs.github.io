@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Вопрос 11: Бухгалтерская справка -->
+  <question type="multichoice">
+    <name>
+      <text>Бухгалтерская справка как первичный документ</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>В каком случае оформление бухгалтерской справки для исправительной проводки является ОБЯЗАТЕЛЬНЫМ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ч.2 ст.9 Закона 402-ФЗ:</h6>
+                    <p>Каждый факт хозяйственной жизни оформляется <strong>первичным учетным документом</strong>.</p>
+                    <p>Исправительная проводка — это факт хозяйственной жизни. Следовательно, <mark>бухгалтерская справка является обязательным первичным документом</mark> для любой исправительной записи в регистрах.</p>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p><strong>Обязательные реквизиты справки (ч.2 ст.9 402-ФЗ):</strong></p>
+                        <ul class="mb-0">
+                            <li>Наименование документа и дата составления</li>
+                            <li>Содержание факта хозяйственной жизни (описание ошибки)</li>
+                            <li>Сумма исправления (цифрами и прописью)</li>
+                            <li>Корреспонденция счетов</li>
+                            <li>Подпись главного бухгалтера</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Всегда, при любой исправительной проводке</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только при исправлении существенных ошибок</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Только при исправлении ошибок, выявленных после утверждения отчетности</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Бухгалтерская справка не нужна, достаточно пояснительной записки</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 12: Запрет на догоняющие расходы 2026 -->
+  <question type="multichoice">
+    <name>
+      <text>Запрет на догоняющие расходы с 2026 года</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Что означает запрет на 'догоняющие расходы', введенный с 2026 года?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">🚫 Новый риск 2026 года — 'догоняющие расходы':</h6>
+                    <p>С 2026 года ФНС жестко отслеживает ситуации, когда организация <strong>включает в текущий период расходы прошлых лет</strong>, выявленные с опозданием.</p>
+                    <p><strong>Пример нарушения:</strong> В марте 2026 года найден акт за декабрь 2025 года на 500 000 руб. Бухгалтер делает проводку Дт 26 — Кт 60 в марте 2026 года.</p>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p class="text-danger mb-0"><strong>❗ Последствия для бухгалтера:</strong></p>
+                        <ul class="mb-0">
+                            <li>Переквалификация в грубое нарушение по ст.15.11 КоАП РФ</li>
+                            <li>Доначисление налога на прибыль за прошлый период</li>
+                            <li>Штраф 5000-10000 руб. для должностного лица</li>
+                        </ul>
+                    </div>
+                    <p class="mt-2 text-secondary"><strong>✅ Правильно:</strong> Исправлять через счет 84 с ретроспективным пересчетом или подавать уточненку за прошлый период.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Запрещено списывать расходы, если доходы их не покрывают</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Запрещено включать в текущий период расходы прошлых лет, выявленные с опозданием</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Запрещено учитывать расходы, не подтвержденные документально</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Запрещено включать в расходы оплату труда руководства</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 13: Ошибка в корреспонденции счетов -->
+  <question type="multichoice">
+    <name>
+      <text>Ошибка в корреспонденции счетов</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Бухгалтер ошибочно отразил расходы на рекламу по дебету счета 26 «Общехозяйственные расходы» вместо счета 44 «Расходы на продажу». Каким способом лучше исправить эту ошибку?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Исправление ошибки в корреспонденции счетов:</h6>
+                    <p>При ошибке в корреспонденции счетов (неправильный дебет) можно использовать <strong>метод «красное сторно»</strong> или <strong>дополнительную проводку переноса</strong>.</p>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>✅ Способ 1: Красное сторно
+Дт 26 — Кт 60 (сторно) — неправильная проводка
+Дт 44 — Кт 60 — правильная проводка
+
+✅ Способ 2: Перенос (проще, если ошибка несущественная)
+Дт 44 — Кт 26 — перенос суммы с одного счета на другой</code></pre>
+                    <p class="mt-2 text-secondary">Метод переноса допустим при несущественных ошибках, если оба счета затратные и не требуется сторнирование документов.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Сторнировать неправильную проводку и сделать правильную</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Дополнительной проводкой перенести сумму с 26 на 44</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ничего не исправлять, так как оба счета — затратные</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Списать разницу на счет 91</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 14: Сроки хранения документов -->
+  <question type="multichoice">
+    <name>
+      <text>Сроки хранения документов для исправления ошибок</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>В течение какого срока организация обязана хранить документы, подтверждающие исправление ошибок в бухгалтерском учете?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Срок хранения документов (Приказ №558, ст.29 Закона 402-ФЗ):</h6>
+                    <p>Бухгалтерские справки, которыми оформлены исправительные проводки, являются <strong>первичными учетными документами</strong>.</p>
+                    <p>Срок их хранения — <strong>не менее 5 лет после отчетного года, в котором они были составлены</strong>.</p>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p class="mb-0"><strong>Важно:</strong> Если ошибка связана с основными средствами, нематериальными активами — срок хранения <strong>до окончания налоговой проверки по этим активам</strong> (может быть более 10 лет).</p>
+                    </div>
+                    <p class="mt-2 text-secondary">⚠️ Отсутствие бухгалтерской справки при исправительной проводке — это нарушение ст.15.11 КоАП РФ (грубое нарушение правил учета).</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>3 года</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>5 лет</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Не менее 5 лет после отчетного года, в котором были внесены последние исправления</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Бессрочно</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 15: Алгоритм действий бухгалтера -->
+  <question type="multichoice">
+    <name>
+      <text>Алгоритм действий при обнаружении ошибки</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Что из перечисленного является ПРАВИЛЬНЫМ алгоритмом действий бухгалтера при обнаружении ошибки в бухгалтерском учете?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">✅ Алгоритм действий бухгалтера при обнаружении ошибки:</h6>
+                    <ol class="mt-2">
+                        <li><strong>Оценить существенность</strong> ошибки (лимит по учетной политике и 10% для КоАП)</li>
+                        <li><strong>Определить момент обнаружения</strong> (до/после подписания/после утверждения отчетности)</li>
+                        <li><strong>Выбрать способ исправления</strong> (через 91, через 84, ретроспективный пересчет)</li>
+                        <li><strong>Составить бухгалтерскую справку</strong> с обоснованием исправления</li>
+                        <li><strong>При необходимости подать уточненную налоговую декларацию</strong> (если занижен налог)</li>
+                        <li><strong>Уплатить пени</strong> (если есть недоимка)</li>
+                    </ol>
+                    <div class="mt-2 p-2" style="background-color:#d4edda; border-radius:5px; color:#155724;">
+                        <p class="mb-0"><strong>📌 Ключевое правило ФСБУ 27/2021:</strong> Исправление ошибки оформляется <strong>бухгалтерской справкой</strong> ДО того, как вносятся изменения в регистры.</p>
+                    </div>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправить ошибку → Составить бухгалтерскую справку → Оценить существенность → Определить момент обнаружения</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Оценить существенность → Определить момент обнаружения → Выбрать способ исправления → Составить бухгалтерскую справку</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Составить бухгалтерскую справку → Исправить ошибку → Подать уточненку → Оценить существенность</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подать уточненку → Исправить ошибку → Составить справку → Определить момент обнаружения</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 16: Ошибка в периоде признания -->
+  <question type="multichoice">
+    <name>
+      <text>Ошибка в периоде признания дохода</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Акт выполненных работ за декабрь 2025 года на 300 000 руб. проведен в январе 2026 года. Ошибка обнаружена в марте 2026 года, отчетность за 2025 год не утверждена. Как исправить?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-warning my-2" style="background-color:#fffbf0;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ошибка в периоде признания:</h6>
+                    <p>Доходы и расходы признаются в том периоде, к которому они относятся (принцип начисления).</p>
+                    <p>Поскольку акт за декабрь 2025, а отчетность за 2025 год еще не утверждена:</p>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>✅ Исправляем 31 декабря 2025 года:
+Дт 20 (расходы) — Кт 60 — 300 000 руб. — признаем расход в 2025 году
+Дт 60 — Кт 51 — 300 000 руб. — оплата</code></pre>
+                    <p class="mt-2 text-secondary">📌 Одновременно корректируем налоговый учет — расход уменьшает налог на прибыль за 2025 год.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>Признать расход 31 декабря 2025 года, скорректировав отчетность за 2025 год</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Оставить расход в 2026 году, так как операция уже отражена</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Признать расход через счет 84</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Признать расход через счет 91 в марте 2026 года</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 17: Штраф за грубое нарушение -->
+  <question type="multichoice">
+    <name>
+      <text>Штраф за грубое нарушение правил учета</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Какой штраф грозит должностному лицу за грубое нарушение правил бухгалтерского учета (ст.15.11 КоАП РФ) при первичном нарушении в 2026 году?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-danger my-2" style="background-color:#fff5f5;">
+                <div class="card-body">
+                    <h6 class="card-title">⚖️ Административная ответственность:</h6>
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead class="table-secondary">
+                            <tr><th>Нарушение</th><th>Штраф для должностного лица</th><th>Примечание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Первичное грубое нарушение</td><td class="text-danger"><strong>5 000 - 10 000 руб.</strong></td><td>ст.15.11 ч.1 КоАП РФ</td></tr>
+                            <tr><td>Повторное грубое нарушение</td><td class="text-danger"><strong>10 000 - 20 000 руб. или дисквалификация на 1-2 года</strong></td><td>ст.15.11 ч.2 КоАП РФ</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Грубым считается искажение любого показателя в денежном выражении не менее чем на 10%.</strong></p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>От 1 000 до 3 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>От 3 000 до 5 000 рублей</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>От 5 000 до 10 000 рублей</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>От 10 000 до 20 000 рублей</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 18: Исправление ошибки с НДС -->
+  <question type="multichoice">
+    <name>
+      <text>Исправление ошибки с НДС</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>В 2025 году не был заявлен вычет НДС по поступившему счету-фактуре на сумму 100 000 руб. (НДС 18 000 руб.). Ошибка обнаружена в 2026 году. Можно ли заявить вычет?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-success my-2" style="background-color:#f0fff4;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Вычет НДС при ошибке (ст.172 НК РФ):</h6>
+                    <p>Пропущенный вычет НДС можно заявить <strong>в течение 3 лет после окончания квартала</strong>, в котором был получен счет-фактура.</p>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p><strong>✅ Алгоритм действий:</strong></p>
+                        <ol class="mb-0">
+                            <li>Подать уточненную декларацию по НДС за тот квартал 2025 года, в котором возникло право на вычет</li>
+                            <li>Отразить вычет в книге покупок за тот квартал (дополнительный лист)</li>
+                            <li>В бухгалтерском учете: Дт 68.2 — Кт 19 — 18 000 руб.</li>
+                        </ol>
+                    </div>
+                    <p class="mt-2 text-secondary">⚠️ Важно: С 2026 года ужесточен контроль по вычетам НДС — обязательно наличие оригинала счета-фактуры с корректными реквизитами.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Нет, вычет возможен только в том квартале, к которому относится операция</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Да, в течение 3 лет после окончания квартала получения счета-фактуры</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Да, только если ошибка несущественная</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Нет, вычет потерян навсегда</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 19: Ретроспективный пересчет -->
+  <question type="multichoice">
+    <name>
+      <text>Ретроспективный пересчет при существенной ошибке</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Что означает 'ретроспективный пересчет' при исправлении существенной ошибки?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-primary my-2" style="background-color:#eef3ff;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ретроспективный пересчет (ФСБУ 27/2021 п.13):</h6>
+                    <p>Это корректировка <strong>сравнительных показателей</strong> бухгалтерской отчетности за прошлые периоды так, как если бы ошибки никогда не было.</p>
+                    <p><strong>Что пересчитывается:</strong></p>
+                    <ul>
+                        <li>Вступительное сальдо по нераспределенной прибыли за самый ранний представленный период</li>
+                        <li>Все показатели отчетности за представленные периоды ретроспективно</li>
+                    </ul>
+                    <pre class="bg-white p-2 mt-2 border rounded" style="font-size:0.85rem;"><code>📌 Пример: Ошибка 2025 года обнаружена в 2026 году.
+В отчетности за 2026 год в столбце "За 2025 год" показываются исправленные данные.</code></pre>
+                    <p class="mt-2 text-secondary">💰 В налоговом учете ретроспективный пересчет НЕ применяется — подается уточненная декларация.</p>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Исправление ошибки текущим периодом с отражением на счете 91</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Пересчет налоговых обязательств за прошлый период</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Корректировка сравнительных показателей отчетности за прошлые периоды, как если бы ошибки не было</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Подача уточненных деклараций за все периоды</text>
+    </answer>
+  </question>
+
+  <!-- Вопрос 20: Ошибка и учетная политика -->
+  <question type="multichoice">
+    <name>
+      <text>Разница между ошибкой и изменением учетной политики</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><b>Тест по отражению в учете выявленных ошибок</b><br>Чем отличается исправление ошибки от изменения учетной политики?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="card border-secondary my-2" style="background-color:#f8f9fa;">
+                <div class="card-body">
+                    <h6 class="card-title">📌 Ключевое различие (ФСБУ 27/2021 vs ФСБУ 26/2020):</h6>
+                    <div class="mt-2 p-2" style="background-color:#e9ecef; border-radius:5px;">
+                        <p><strong>❌ ОШИБКА</strong> — это <span class="text-danger">неправильное применение</span> учетной политики, арифметические просчеты, пропуски фактов.</p>
+                        <p><strong>✅ ИЗМЕНЕНИЕ УЧЕТНОЙ ПОЛИТИКИ</strong> — это добровольный <span class="text-success">переход от одного допустимого метода к другому</span> (например, с линейной амортизации на метод уменьшаемого остатка).</p>
+                    </div>
+                    <p><strong>Порядок отражения разный:</strong></p>
+                    <ul>
+                        <li>Ошибка — исправляется ретроспективно (через 84) или текущим периодом (через 91)</li>
+                        <li>Изменение УП — применяется перспективно (с 1 января нового года) или ретроспективно по решению организации</li>
+                    </ul>
+                </div>
+            </div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="0" format="html">
+      <text>Ничем, это одно и то же</text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Ошибка — неправильное применение УП, изменение УП — добровольный переход к другому методу</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Изменение УП всегда требует согласования с ФНС, а ошибка — нет</text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Ошибку нельзя исправить после утверждения отчетности, а изменение УП — можно</text>
+    </answer>
+  </question>
+</quiz>
