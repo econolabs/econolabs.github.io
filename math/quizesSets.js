@@ -22,6 +22,1259 @@
 let quizesSets =
   [
 
+    // 1. Числа. Уравнения. Система уравнений
+
+     {
+    "id": "math002random1",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Проценты 2", 
+    "theme": "Числа",
+    "text": "Чему равны 15% от {var1-10}?",
+    "answer": "{var1-10}*0.15",
+    "hint": "15% = 10% +5%. 10% от {var1-10} = {={var1-10}*0.1}, 5% = {={var1-10}*0.05}, сумма = {={var1-10}*0.15}",
+    "randomfrom": [20, 40, 60, 80, 100, 120, 140, 160]
+  },
+
+   {
+    "id": "math002random3",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Проценты 4",
+    "theme": "Числа", 
+    "text": "Чему равны 75% от {var1-10}?",
+    "answer": "{var1-10}*0.75",
+    "hint": "75% - это три четвертых. {var1-10} × 3 ÷ 4 = {={var1-10} * 0.75}",
+    "randomfrom": [40, 80, 120, 160, 200, 240, 280, 320]
+  },
+
+   {
+    "id": "fractions002",
+    "type": "multiplechoices",
+    "header": "Дроби 3",
+    "title": "Вычитание дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{3}{4} - \\frac{1}{2}$$",
+    "choices": [
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{4}$",
+      "$\\frac{1}{8}$",
+      "$\\frac{3}{8}$"
+    ],
+    "answers": ["$\\frac{1}{4}$"],
+    "hint": "<p>Приводим к общему знаменателю 4.</p>$$\\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4}$$"
+  },
+
+ {
+    "id": "fractions003",
+    "type": "multiplechoices",
+    "header": "Дроби 4",
+    "title": "Умножение дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} \\times \\frac{3}{4}$$",
+    "choices": [
+      "$\\frac{6}{12}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{7}$",
+      "$\\frac{2}{4}$",
+      "$\\frac{3}{6}$"
+    ],
+    "answers": ["$\\frac{1}{2}$"],
+    "hint": "<p>Умножаем числители и знаменатели.</p>$$\\frac{2}{3} \\times \\frac{3}{4} = \\frac{6}{12} = \\frac{1}{2}$$"
+  },
+  {
+    "id": "fractions004",
+    "type": "multiplechoices",
+    "header": "Дроби 5",
+    "title": "Деление дробей",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{2}{3} \\div \\frac{4}{5}$$",
+    "choices": [
+      "$\\frac{8}{15}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{6}{8}$",
+      "$\\frac{10}{12}$",
+      "$\\frac{4}{7}$"
+    ],
+    "answers": ["$\\frac{5}{6}$"],
+    "hint": "<p>Деление заменяем умножением на обратную дробь.</p>$$\\frac{2}{3} \\div \\frac{4}{5} = \\frac{2}{3} \\times \\frac{5}{4} = \\frac{10}{12} = \\frac{5}{6}$$"
+  },
+  {
+    "id": "fractions014",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Деление на дробь",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{3}{4} \\div \\frac{1}{2}$$",
+    "choices": [
+      "$\\frac{3}{2}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{8}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{6}$"
+    ],
+    "answers": ["$\\frac{3}{2}$"],
+    "hint": "<p>Умножаем на обратную дробь.</p>$$\\frac{3}{4} \\div \\frac{1}{2} = \\frac{3}{4} \\times \\frac{2}{1} = \\frac{6}{4} = \\frac{3}{2}$$"
+  },
+
+  {
+    "id": "fractions024",
+    "type": "multiplechoices",
+    "header": "Дроби",
+    "title": "Вычитание с разными знаменателями",
+    "theme": "Дроби",
+    "text": "Вычислите: $$\\frac{7}{8} - \\frac{2}{3}$$",
+    "choices": [
+      "$\\frac{5}{24}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{3}{5}$",
+      "$\\frac{5}{12}$",
+      "$\\frac{7}{24}$"
+    ],
+    "answers": ["$\\frac{5}{24}$"],
+    "hint": "<p>Общий знаменатель 24.</p>$$\\frac{7}{8} - \\frac{2}{3} = \\frac{21}{24} - \\frac{16}{24} = \\frac{5}{24}$$"
+  },
+
+  {
+  "id": "powers005", 
+  "type": "multiplechoices",
+  "header": "Степени",
+  "title": "Упрощение выражений 6",
+  "theme": "Степени",
+  "text": "Чему равно значение выражения $5^0$?",
+  "choices": [
+    "0",
+    "1", 
+    "5",
+    "25", 
+    "не определено"
+  ],
+  "answers": ["1"],
+  "hint": "<p>Любое число в нулевой степени равно 1.</p>$$a^0 = 1 \\text{ (где } a \\neq 0\\text{)}$$$$5^0 = 1$$"
+},
+{
+  "id": "powers006",
+  "type": "multiplechoices", 
+  "header": "Степени",
+  "title": "Упрощение выражений 7",
+  "theme": "Степени",
+  "text": "Упростите выражение: $a^5 \\cdot a^{-2}$",
+  "choices": [
+    "$a^3$",
+    "$a^7$",
+    "$a^{-10}$", 
+    "$a^{-3}$",
+    "$a^{10}$"
+  ],
+  "answers": ["$a^3$"],
+  "hint": "<p>При умножении степеней с одинаковыми основаниями показатели складываются.</p>$$a^m \\cdot a^n = a^{m+n}$$$$a^5 \\cdot a^{-2} = a^{5 + (-2)} = a^3$$"
+},
+{
+  "id": "powers007",
+  "type": "multiplechoices",
+  "header": "Степени",
+  "title": "Упрощение выражений 8", 
+  "theme": "Степени",
+  "text": "Упростите выражение: $\\left(\\frac{x}{y}\\right)^3$",
+  "choices": [
+    "$\\frac{x^3}{y}$",
+    "$\\frac{x}{y^3}$", 
+    "$\\frac{x^3}{y^3}$",
+    "$\\frac{x^2}{y^2}$",
+    "$\\frac{x}{y}$"
+  ],
+  "answers": ["$\\frac{x^3}{y^3}$"],
+  "hint": "<p>При возведении дроби в степень и числитель, и знаменатель возводятся в степень.</p>$$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$$$\\left(\\frac{x}{y}\\right)^3 = \\frac{x^3}{y^3}$$"
+},
+{
+  "id": "powers008",
+  "type": "multiplechoices",
+  "header": "Степени",
+  "title": "Упрощение выражений 9",
+  "theme": "Степени",
+  "text": "Упростите выражение: $2^3 \\cdot 2^4$", 
+  "choices": [
+    "$2^7$",
+    "$2^{12}$",
+    "$4^7$",
+    "$8^2$",
+    "$16^3$"
+  ],
+  "answers": ["$2^7$"],
+  "hint": "<p>При умножении степеней с одинаковыми основаниями показатели складываются.</p>$$a^m \\cdot a^n = a^{m+n}$$$$2^3 \\cdot 2^4 = 2^{3+4} = 2^7$$"
+},
+
+{
+    "id": "math005random1",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Упрощение выражения 4",
+    "theme": "Уравнения",
+    "text": "Чему равно x, если {var1-10}x +5 = 25?",
+    "answer": "(25 - 5) / {var1-10}",
+    "hint": "{var1-10}x +5 = 25 → {var1-10}x = 20 → x = 20 / {var1-10}= {=20 / {var1-10}}",
+    "randomfrom": [2, 4, 5, 10, 20]
+  },
+  {
+    "id": "math005random2",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Упрощение выражения 5",
+    "theme": "Уравнения",
+    "text": "Чему равно x, если 2x - {var1-10}= 10?",
+    "answer": "(10 +{var1-10}) / 2",
+    "hint": "2x - {var1-10}= 10 → 2x = {=10 +{var1-10}} → x = {=(10 +{var1-10}) / 2}",
+    "randomfrom": [2, 4, 6, 8, 10, 12]
+  },
+  {
+    "id": "math005random3",
+    "type": "mathwithrandomnumber",
+    "header": "Устный счёт",
+    "title": "Упрощение выражения 6",
+    "theme": "Уравнения",
+    "text": "Чему равно x, если {var1-10}(x +2) = 30?",
+    "answer": "30 / {var1-10}- 2",
+    "hint": "{var1-10}(x +2) = 30 → x +2 = 30 / {var1-10}= {=30 / {var1-10}} → x = {=30 / {var1-10}- 2}",
+    "randomfrom": [3, 5, 6, 10, 15]
+  },
+
+  {
+    "id": "system001",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите x 1",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} x + y = {= {var1-10}+1} \\\\ x - y = 1 \\end{cases}$$ Найдите x",
+    "answer": "({var1-10}+1+1)/2",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Складываем уравнения</p>$$(x + y) + (x - y) = {= {var1-10}+1} + 1$$$$2x = {= {var1-10}+2}$$<p>Шаг 2: Находим x</p>$$x = \\frac{{= {var1-10}+2}}{2} = {= ({var1-10}+2)/2}$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: x = 1 + y</p><p>Подставляем в первое: (1 + y) + y = {= {var1-10}+1}</p><p>1 + 2y = {= {var1-10}+1}</p><p>2y = {var1-10}</p><p>y = {= {var1-10}/2}</p><p>x = 1 + {= {var1-10}/2} = {= ({var1-10}+2)/2}</p><p>Ответ: x = {= ({var1-10}+2)/2}</p>",
+    "randomfrom": [2, 4, 6, 8, 10]
+  },
+  {
+    "id": "system002",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите y 1",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} x + y = {= {var1-10}+1} \\\\ x - y = 1 \\end{cases}$$ Найдите y",
+    "answer": "({var1-10}+1-1)/2",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Вычитаем уравнения</p>$$(x + y) - (x - y) = {= {var1-10}+1} - 1$$$$2y = {var1-10}$$<p>Шаг 2: Находим y</p>$$y = \\frac{{var1-10}}{2} = {= {var1-10}/2}$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: x = 1 + y</p><p>Подставляем в первое: (1 + y) + y = {= {var1-10}+1}</p><p>1 + 2y = {= {var1-10}+1}</p><p>2y = {var1-10}</p><p>y = {= {var1-10}/2}</p><p>Ответ: y = {= {var1-10}/2}</p>",
+    "randomfrom": [2, 4, 6, 8, 10]
+  },
+  {
+    "id": "system003",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите x 2",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 2x + y = {= {var1-10}*2} \\\\ x - y = {var1-10} \\end{cases}$$ Найдите x",
+    "answer": "({var1-10}*2+{var1-10})/3",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Складываем уравнения</p>$$(2x + y) + (x - y) = {= {var1-10}*2} + {var1-10}$$$$3x = {= {var1-10}*3}$$<p>Шаг 2: Находим x</p>$$x = \\frac{{= {var1-10}*3}}{3} = {var1-10}$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: y = x - {var1-10}</p><p>Подставляем в первое: 2x + (x - {var1-10}) = {= {var1-10}*2}</p><p>3x - {var1-10} = {= {var1-10}*2}</p><p>3x = {= {var1-10}*3}</p><p>x = {var1-10}</p><p>Ответ: x = {var1-10}</p>",
+    "randomfrom": [3, 4, 5, 6, 7, 8]
+  },
+  {
+    "id": "system004",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите y 2",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 2x + y = {= {var1-10}*2} \\\\ x - y = {var1-10} \\end{cases}$$ Найдите y",
+    "answer": "{var1-10}-{var1-10}",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Умножаем второе уравнение на 2</p>$$2x - 2y = {= {var1-10}*2}$$<p>Шаг 2: Вычитаем из первого уравнения</p>$$(2x + y) - (2x - 2y) = {= {var1-10}*2} - {= {var1-10}*2}$$$$3y = 0$$<p>Шаг 3: Находим y</p>$$y = 0$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: y = x - {var1-10}</p><p>Подставляем в первое: 2x + (x - {var1-10}) = {= {var1-10}*2}</p><p>3x - {var1-10} = {= {var1-10}*2}</p><p>3x = {= {var1-10}*3}</p><p>x = {var1-10}</p><p>y = {var1-10} - {var1-10} = 0</p><p>Ответ: y = 0</p>",
+    "randomfrom": [3, 4, 5, 6, 7, 8]
+  },
+  {
+    "id": "system005",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите x 3",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} x + 2y = {= {var1-10}+4} \\\\ 2x - y = {var1-10} \\end{cases}$$ Найдите x",
+    "answer": "({var1-10}+4+{var1-10}*2)/5",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Умножаем первое уравнение на 1, второе на 2</p>$$x + 2y = {= {var1-10}+4}$$$$4x - 2y = {= {var1-10}*2}$$<p>Шаг 2: Складываем уравнения</p>$$(x + 2y) + (4x - 2y) = {= {var1-10}+4} + {= {var1-10}*2}$$$$5x = {= {var1-10}+4 + {var1-10}*2} = {= {var1-10}*3 + 4}$$<p>Шаг 3: Находим x</p>$$x = \\frac{{= {var1-10}*3 + 4}}{5}$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: y = 2x - {var1-10}</p><p>Подставляем в первое: x + 2(2x - {var1-10}) = {= {var1-10}+4}</p><p>x + 4x - {= {var1-10}*2} = {= {var1-10}+4}</p><p>5x = {= {var1-10}+4 + {var1-10}*2} = {= {var1-10}*3 + 4}</p><p>x = {= ({var1-10}*3 + 4)/5}</p><p>Ответ: x = {= ({var1-10}*3 + 4)/5}</p>",
+    "randomfrom": [2, 3, 4, 5]
+  },
+ 
+  {
+    "id": "system007",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Найдите x 4",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 3x - y = {= {var1-10}*2} \\\\ x + y = {var1-10} \\end{cases}$$ Найдите x",
+    "answer": "({var1-10}*2+{var1-10})/4",
+    "hint": "<p><strong>Способ 1: Метод сложения</strong></p><p>Шаг 1: Складываем уравнения</p>$$(3x - y) + (x + y) = {= {var1-10}*2} + {var1-10}$$$$4x = {= {var1-10}*3}$$<p>Шаг 2: Находим x</p>$$x = \\frac{{= {var1-10}*3}}{4} = {= {var1-10}*3/4}$$<p><strong>Способ 2: Метод подстановки</strong></p><p>Из второго уравнения: y = {var1-10} - x</p><p>Подставляем в первое: 3x - ({var1-10} - x) = {= {var1-10}*2}</p><p>3x - {var1-10} + x = {= {var1-10}*2}</p><p>4x = {= {var1-10}*3}</p><p>x = {= {var1-10}*3/4}</p><p>Ответ: x = {= {var1-10}*3/4}</p>",
+    "randomfrom": [4, 8, 12, 16]
+  },
+
+   {
+    "id": "system025",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Симметричное решение",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} x + 3y = {= {var1-10}*4} \\\\ 3x + y = {= {var1-10}*4} \\end{cases}$$ Найдите x",
+    "answer": "{var1-10}",
+    "hint": "<p><strong>Метод сложения</strong></p><p>Складываем уравнения: 4x + 4y = {= {var1-10}*8}</p><p>x + y = {= {var1-10}*2}</p><p>Вычитаем из первого уравнения второе: (x+3y) - (3x+y) = 0</p><p>-2x + 2y = 0 ⇒ x = y</p><p>Подставляем в x + y = {= {var1-10}*2}: 2x = {= {var1-10}*2}</p><p>x = {var1-10}</p><p>Ответ: x = {var1-10}</p>",
+    "randomfrom": [2, 3, 4, 5]
+  },
+  {
+    "id": "system026",
+    "type": "mathwithrandomnumber",
+    "header": "Системы уравнений",
+    "title": "Краевая система",
+    "theme": "Системы уравнений",
+    "text": "Решите систему уравнений: $$\\begin{cases} 2x + 5y = {= {var1-10}*7} \\\\ x - 5y = {var1-10} \\end{cases}$$ Найдите y",
+    "answer": "{var1-10}/3",
+    "hint": "<p><strong>Метод сложения</strong></p><p>Складываем уравнения: 3x = {= {var1-10}*7 + {var1-10}} = {= {var1-10}*8}</p><p>x = {= {var1-10}*8/3}</p><p>Из второго уравнения: 5y = x - {var1-10} = {= {var1-10}*8/3} - {var1-10} = {= {var1-10}*5/3}</p><p>y = {= {var1-10}/3}</p><p>Ответ: y = {= {var1-10}/3}</p>",
+    "randomfrom": [3, 6, 9, 12]
+  },
+
+    {
+    "id": "algebra-fsu-001",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Квадрат суммы",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Какой из следующих вариантов представляет собой формулу квадрата суммы?",
+    "choices": [
+      "$(a-b)^2 = a^2 - 2ab + b^2$",
+      "$(a+b)^2 = a^2 + 2ab + b^2$",
+      "$a^2 - b^2 = (a-b)(a+b)$",
+      "$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$a^3 + b^3 = (a+b)(a^2 - ab + b^2)$"
+    ],
+    "answers": ["$(a+b)^2 = a^2 + 2ab + b^2$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Квадрат суммы</h5>
+        <p>Формула квадрата суммы двух выражений:</p>
+        <p class="text-center">$$(a+b)^2 = a^2 + 2ab + b^2$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки по определению квадрата и правилу умножения многочленов:</p>
+          <p>$$(a+b)^2 = (a+b)(a+b) = a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$$</p>
+          <p>$$= a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Представим квадрат со стороной $(a+b)$:</p>
+              <div style="font-family: monospace;">
+                <div>┌─────────┬─────┐</div>
+                <div>│    a²   │ ab  │ a</div>
+                <div>├─────────┼─────┤</div>
+                <div>│    ab   │ b²  │ b</div>
+                <div>└─────────┴─────┘</div>
+                <div>   a        b</div>
+              </div>
+              <p>Площадь всего квадрата: $(a+b)^2$</p>
+              <p>Сумма площадей частей: $a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x+3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9$</p>
+              <p>2. $(2y+5)^2 = (2y)^2 + 2 \\cdot 2y \\cdot 5 + 5^2 = 4y^2 + 20y + 25$</p>
+              <p>3. $(a+b+c)^2$ можно представить как $[(a+b)+c]^2$ и применить формулу дважды.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <strong>💡 Запомните:</strong> Квадрат суммы = квадрат первого + удвоенное произведение + квадрат второго.
+      </div>
+    </div>`
+  },
+  {
+    "id": "algebra-fsu-002",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Квадрат разности",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Какой из следующих вариантов представляет собой формулу квадрата разности?",
+    "choices": [
+      "$(a-b)^2 = a^2 - 2ab + b^2$",
+      "$(a+b)^2 = a^2 + 2ab + b^2$",
+      "$a^2 - b^2 = (a-b)(a+b)$",
+      "$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 - b^3 = (a-b)(a^2 + ab + b^2)$"
+    ],
+    "answers": ["$(a-b)^2 = a^2 - 2ab + b^2$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Квадрат разности</h5>
+        <p>Формула квадрата разности двух выражений:</p>
+        <p class="text-center">$$(a-b)^2 = a^2 - 2ab + b^2$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки:</p>
+          <p>$$(a-b)^2 = (a-b)(a-b) = a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b)$$</p>
+          <p>$$= a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$$</p>
+          <p>Или используя формулу квадрата суммы: $(a-b)^2 = [a + (-b)]^2 = a^2 + 2a(-b) + (-b)^2 = a^2 - 2ab + b^2$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Представим квадрат со стороной $a$, из которого вырезан квадрат со стороной $b$:</p>
+              <div style="font-family: monospace;">
+                <div>┌──────────────┐</div>
+                <div>│ a²           │</div>
+                <div>│  ┌─────┐     │</div>
+                <div>│  │ b²  │     │ a-b</div>
+                <div>│  └─────┘     │</div>
+                <div>└──────────────┘</div>
+                <div>      b</div>
+              </div>
+              <p>Площадь заштрихованной части: $a^2 - b^2$</p>
+              <p>Но её можно представить иначе: $(a-b)^2 + 2b(a-b) = (a-b)^2 + 2ab - 2b^2$</p>
+              <p>Приравнивая: $a^2 - b^2 = (a-b)^2 + 2ab - 2b^2$</p>
+              <p>Отсюда: $(a-b)^2 = a^2 - 2ab + b^2$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x-4)^2 = x^2 - 2 \\cdot x \\cdot 4 + 4^2 = x^2 - 8x + 16$</p>
+              <p>2. $(3y-2)^2 = (3y)^2 - 2 \\cdot 3y \\cdot 2 + 2^2 = 9y^2 - 12y + 4$</p>
+              <p>3. $(a-b-c)^2$ можно представить как $[(a-b)-c]^2$ и применить формулу.</p>
+              <p>4. Важно: $(-a+b)^2 = (b-a)^2 = b^2 - 2ab + a^2 = a^2 - 2ab + b^2$ — та же формула!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <strong>💡 Частая ошибка:</strong> $(a-b)^2 \\neq a^2 - b^2$! Не путайте с разностью квадратов.
+      </div>
+    </div>`
+  },
+  {
+    "id": "algebra-fsu-003",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Разность квадратов",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Какой из следующих вариантов представляет собой формулу разности квадратов?",
+    "choices": [
+      "$(a-b)^2 = a^2 - 2ab + b^2$",
+      "$(a+b)^2 = a^2 + 2ab + b^2$",
+      "$a^2 - b^2 = (a-b)(a+b)$",
+      "$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$a^3 + b^3 = (a+b)(a^2 - ab + b^2)$"
+    ],
+    "answers": ["$a^2 - b^2 = (a-b)(a+b)$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Разность квадратов</h5>
+        <p>Формула разности квадратов двух выражений:</p>
+        <p class="text-center">$$a^2 - b^2 = (a-b)(a+b)$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Умножим $(a-b)$ на $(a+b)$:</p>
+          <p>$$(a-b)(a+b) = a \\cdot a + a \\cdot b + (-b) \\cdot a + (-b) \\cdot b$$</p>
+          <p>$$= a^2 + ab - ab - b^2 = a^2 - b^2$$</p>
+          <p>Таким образом, разность квадратов раскладывается на произведение разности и суммы.</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Геометрическая интерпретация</strong>
+            </div>
+            <div class="card-body">
+              <p>Площадь квадрата со стороной $a$ минус площадь квадрата со стороной $b$:</p>
+              <div style="font-family: monospace;">
+                <div>┌──────────────┐</div>
+                <div>│              │</div>
+                <div>│      a²      │ a-b</div>
+                <div>│  ┌─────┐     │</div>
+                <div>│  │ b²  │     │ b</div>
+                <div>│  └─────┘     │</div>
+                <div>└──────────────┘</div>
+              </div>
+              <p>Заштрихованную область можно разрезать и сложить в прямоугольник:</p>
+              <p>Размеры прямоугольника: $(a-b)$ и $(a+b)$</p>
+              <p>Площадь: $(a-b)(a+b)$</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $x^2 - 9 = x^2 - 3^2 = (x-3)(x+3)$</p>
+              <p>2. $4y^2 - 25 = (2y)^2 - 5^2 = (2y-5)(2y+5)$</p>
+              <p>3. $a^4 - b^4 = (a^2)^2 - (b^2)^2 = (a^2 - b^2)(a^2 + b^2) = (a-b)(a+b)(a^2 + b^2)$</p>
+              <p>4. $1 - x^2 = (1-x)(1+x)$</p>
+              <p>5. Важно: $a^2 + b^2$ не раскладывается на множители в вещественных числах!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <strong>💡 Обратная операция:</strong> Формулу можно использовать и в обратную сторону: $(a-b)(a+b) = a^2 - b^2$.
+      </div>
+    </div>`
+  },
+  {
+    "id": "algebra-fsu-004",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Куб суммы",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Какой из следующих вариантов представляет собой формулу куба суммы?",
+    "choices": [
+      "$(a+b)^2 = a^2 + 2ab + b^2$",
+      "$(a-b)^2 = a^2 - 2ab + b^2$",
+      "$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 + b^3 = (a+b)(a^2 - ab + b^2)$"
+    ],
+    "answers": ["$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Куб суммы</h5>
+        <p>Формула куба суммы двух выражений:</p>
+        <p class="text-center">$$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Раскроем скобки, используя определение куба и правило умножения многочленов:</p>
+          <p>$$(a+b)^3 = (a+b)(a+b)(a+b)$$</p>
+          <p>Сначала перемножим первые две скобки: $(a+b)(a+b) = a^2 + 2ab + b^2$</p>
+          <p>Затем умножим результат на $(a+b)$:</p>
+          <p>$$(a^2 + 2ab + b^2)(a+b) = a^3 + a^2b + 2a^2b + 2ab^2 + ab^2 + b^3$$</p>
+          <p>$$= a^3 + 3a^2b + 3ab^2 + b^3$$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Запоминание коэффициентов</strong>
+            </div>
+            <div class="card-body">
+              <p>Коэффициенты в формуле куба суммы соответствуют третьей строке треугольника Паскаля:</p>
+              <p>1</p>
+              <p>1 1</p>
+              <p>1 2 1</p>
+              <p><strong>1 3 3 1</strong> ← коэффициенты для $(a+b)^3$</p>
+              <p>То есть: $1a^3 + 3a^2b + 3ab^2 + 1b^3$</p>
+              <p>Знаки все положительные.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x+2)^3 = x^3 + 3 \\cdot x^2 \\cdot 2 + 3 \\cdot x \\cdot 2^2 + 2^3$</p>
+              <p>$= x^3 + 6x^2 + 12x + 8$</p>
+              <p>2. $(2y+1)^3 = (2y)^3 + 3 \\cdot (2y)^2 \\cdot 1 + 3 \\cdot 2y \\cdot 1^2 + 1^3$</p>
+              <p>$= 8y^3 + 12y^2 + 6y + 1$</p>
+              <p>3. $(a+b+c)^3$ можно представить как $[(a+b)+c]^3$ и применить формулу.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <strong>💡 Мнемоническое правило:</strong> Куб суммы = куб первого + утроенное произведение квадрата первого на второе + утроенное произведение первого на квадрат второго + куб второго.
+      </div>
+    </div>`
+  },
+  {
+    "id": "algebra-fsu-005",
+    "type": "multiplechoices",
+    "header": "Алгебра. Формулы сокращенного умножения",
+    "title": "Куб разности",
+    "theme": "Формулы сокращенного умножения",
+    "text": "Какой из следующих вариантов представляет собой формулу куба разности?",
+    "choices": [
+      "$(a+b)^2 = a^2 + 2ab + b^2$",
+      "$(a-b)^2 = a^2 - 2ab + b^2$",
+      "$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$",
+      "$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$",
+      "$a^3 - b^3 = (a-b)(a^2 + ab + b^2)$"
+    ],
+    "answers": ["$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3">
+        <h5>📝 Куб разности</h5>
+        <p>Формула куба разности двух выражений:</p>
+        <p class="text-center">$$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$$</p>
+      </div>
+      
+      <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+          <strong>Вывод формулы</strong>
+        </div>
+        <div class="card-body">
+          <p>Можно вывести аналогично кубу суммы или представить как куб суммы с отрицательным вторым слагаемым:</p>
+          <p>$$(a-b)^3 = [a + (-b)]^3 = a^3 + 3a^2(-b) + 3a(-b)^2 + (-b)^3$$</p>
+          <p>$$= a^3 - 3a^2b + 3ab^2 - b^3$$</p>
+          <p>Или раскрыть скобки: $(a-b)^3 = (a-b)(a-b)(a-b)$</p>
+          <p>Сначала: $(a-b)(a-b) = a^2 - 2ab + b^2$</p>
+          <p>Затем: $(a^2 - 2ab + b^2)(a-b) = a^3 - a^2b - 2a^2b + 2ab^2 + ab^2 - b^3 = a^3 - 3a^2b + 3ab^2 - b^3$</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Запоминание знаков</strong>
+            </div>
+            <div class="card-body">
+              <p>Знаки в формуле куба разности чередуются, начиная с плюса:</p>
+              <p>$(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$</p>
+              <p>Можно запомнить так: знаки идут по схеме +, -, +, -</p>
+              <p>Коэффициенты те же, что и для куба суммы: 1, 3, 3, 1</p>
+              <p>Треугольник Паскаля: <strong>1 3 3 1</strong> с чередующимися знаками.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">
+              <strong>Примеры применения</strong>
+            </div>
+            <div class="card-body">
+              <p>1. $(x-1)^3 = x^3 - 3 \\cdot x^2 \\cdot 1 + 3 \\cdot x \\cdot 1^2 - 1^3$</p>
+              <p>$= x^3 - 3x^2 + 3x - 1$</p>
+              <p>2. $(2y-3)^3 = (2y)^3 - 3 \\cdot (2y)^2 \\cdot 3 + 3 \\cdot 2y \\cdot 3^2 - 3^3$</p>
+              <p>$= 8y^3 - 36y^2 + 54y - 27$</p>
+              <p>3. $(a-b-c)^3$ можно представить как $[(a-b)-c]^3$ и применить формулу.</p>
+              <p>4. Важно: $(-a+b)^3 = (b-a)^3 = b^3 - 3b^2a + 3ba^2 - a^3 = -(a^3 - 3a^2b + 3ab^2 - b^3)$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border">
+        <strong>💡 Проверка:</strong> Подставьте $a=2$, $b=1$: $(2-1)^3 = 1^3 = 1$, и по формуле: $2^3 - 3\\cdot2^2\\cdot1 + 3\\cdot2\\cdot1^2 - 1^3 = 8 - 12 + 6 - 1 = 1$ ✓
+      </div>
+    </div>`
+  },
+
+// 9. Функции и графики. Логарифмические. Показательные
+
+{
+  "id": "log001",
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Вычисление логарифмов 1",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\log_2 8$?",
+  "choices": [
+    "2",
+    "3", 
+    "4",
+    "1",
+    "0"
+  ],
+  "answers": ["3"],
+  "hint": "<p>Логарифм - это показатель степени, в которую нужно возвести основание, чтобы получить число.</p>$$\\log_a b = c \\text{ означает } a^c = b$$$$2^3 = 8$$$$\\log_2 8 = 3$$"
+},
+{
+  "id": "log002",
+  "type": "multiplechoices",
+  "header": "Логарифмы", 
+  "title": "Вычисление логарифмов 2",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\log_{10} 100$?",
+  "choices": [
+    "1",
+    "2",
+    "10",
+    "100", 
+    "0"
+  ],
+  "answers": ["2"],
+  "hint": "<p>Логарифм по основанию 10 показывает, в какую степень нужно возвести 10.</p>$$\\log_{10} 100 = c \\text{ означает } 10^c = 100$$$$10^2 = 100$$$$\\log_{10} 100 = 2$$"
+},
+{
+  "id": "log003",
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Вычисление логарифмов 3",
+  "theme": "Логарифмы", 
+  "text": "Чему равен $\\log_5 25$?",
+  "choices": [
+    "1",
+    "2",
+    "5",
+    "25",
+    "0"
+  ],
+  "answers": ["2"],
+  "hint": "<p>Найдем степень, в которую нужно возвести 5, чтобы получить 25.</p>$$\\log_5 25 = c \\text{ означает } 5^c = 25$$$$5^2 = 25$$$$\\log_5 25 = 2$$"
+},
+{
+  "id": "log004",
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Вычисление логарифмов 4",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\log_3 1$?",
+  "choices": [
+    "0", 
+    "1",
+    "3",
+    "-1",
+    "не определено"
+  ],
+  "answers": ["0"],
+  "hint": "<p>Логарифм единицы по любому основанию равен 0.</p>$$\\log_a 1 = 0 \\text{ для любого } a > 0, a \\neq 1$$$$3^0 = 1$$$$\\log_3 1 = 0$$"
+},
+{
+  "id": "log005", 
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Вычисление логарифмов 5",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\log_7 7$?",
+  "choices": [
+    "0",
+    "1", 
+    "7",
+    "14", 
+    "49"
+  ],
+  "answers": ["1"],
+  "hint": "<p>Логарифм числа по равному ему основанию равен 1.</p>$$\\log_a a = 1 \\text{ для любого } a > 0, a \\neq 1$$$$7^1 = 7$$$$\\log_7 7 = 1$$"
+},
+
+{
+  "id": "log009",
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Основные свойства 4",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\ln e$? ($\\ln$ - натуральный логарифм)",
+  "choices": [
+    "0",
+    "1", 
+    "e",
+    "2",
+    "10"
+  ],
+  "answers": ["1"],
+  "hint": "<p>Натуральный логарифм - это логарифм по основанию e.</p>$$\\ln x = \\log_e x$$<p>Число e - это математическая константа, основание натурального логарифма.</p><p>Способы вычисления e:</p>$$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n \\approx 2.71828$$$$e = \\sum_{n=0}^{\\infty} \\frac{1}{n!} = 1 + 1 + \\frac{1}{2!} + \\frac{1}{3!} + \\frac{1}{4!} + \\cdots$$<p>Уникальные свойства числа e:</p>$$\\frac{d}{dx}e^x = e^x$$$$\\int e^x dx = e^x + C$$$$e^{i\\pi} + 1 = 0 \\text{ (формула Эйлера)}$$<p>Свойство логарифма:</p>$$\\ln e = 1$$<p>так как</p>$$e^1 = e$$"
+},
+{
+  "id": "log010",
+  "type": "multiplechoices",
+  "header": "Логарифмы",
+  "title": "Основные свойства 5",
+  "theme": "Логарифмы",
+  "text": "Чему равен $\\log_4 2$?",
+  "choices": [
+    "$\\frac{1}{2}$",
+    "$\\frac{1}{4}$",
+    "2", 
+    "4",
+    "8"
+  ],
+  "answers": ["$\\frac{1}{2}$"],
+  "hint": "<p>Представим 2 как корень из 4.</p>$$2 = 4^{\\frac{1}{2}}$$$$\\log_4 2 = \\log_4 4^{\\frac{1}{2}}$$$$\\log_a a^c = c$$$$\\log_4 4^{\\frac{1}{2}} = \\frac{1}{2}$$"
+},
+
+ {
+  "id": "exponential_function001april",
+  "type": "mathwithrandomnumber",
+  "header": "Показательная функция",
+  "title": "Свойства показательной функции",
+  "theme": "Показательная функция",
+  "text": "Чему равно $$2^{{var1-10}} = ?$$",
+  "answer": "POWER(2, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление показательной функции</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение показательной функции
+      </div>
+      <div class="card-body">
+        <p class="card-text">Показательная функция — это функция вида $y = a^x$, где $a > 0$, $a \\neq 1$.</p>
+        <p class="card-text">При возведении числа в отрицательную степень:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно вычислить:</p>
+        <p class="card-text text-center">$$2^{{var1-10}}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+        <p class="card-text text-center">$$2^{{var1-10}} = {=POWER(2, {var1-10})}$$</p>
+      </div>
+    </div>
+    
+  </div>
+</div>`,
+  "randomfrom": [-1, -2, -3, -4, -5]
+},
+
+
+{
+  "id": "logarithms_product001",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>`,
+  "randomfrom": [8, 16, 32, 64]
+},
+
+{
+  "id": "logarithms_product001april",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{2}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$2^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$2^{{=LOG({var1-10}, 2)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{2}{var1-10} = {=LOG({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>`,
+  "randomfrom": [1/2, 1/4, 1/8]
+},
+
+ {
+  "id": "logarithms_product002",
+  "type": "mathwithrandomnumber",
+  "header": "Логарифмы",
+  "title": "Свойства логарифмов",
+  "theme": "Логарифмы",
+  "text": "Чему равно $$\\log_{3}{var1-10} = ?$$",
+  "answer": "LOG({var1-10}, 3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Вычисление логарифма</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Определение логарифма
+      </div>
+      <div class="card-body">
+        <p class="card-text">Логарифм числа $b$ по основанию $a$ — это показатель степени $c$, в которую нужно возвести $a$, чтобы получить $b$:</p>
+        <p class="card-text text-center">$$\\log_a b = c \\quad \\Longleftrightarrow \\quad a^c = b$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        Применяем определение
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно найти $c$, такое что:</p>
+        <p class="card-text text-center">$$3^c = {var1-10}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        Вычисление
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$3^{{=LOG({var1-10}, 3)}} = {var1-10}$$</p>
+        <p class="card-text text-center">$$\\log_{3}{var1-10} = {=LOG({var1-10}, 3)}$$</p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>`,
+  "randomfrom": [9, 27, 81, 243]
+},
+
+
+{
+  "id": "math004random3",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Степени 4", 
+  "theme": "Степени",
+  "text": "Чему равно $$2^{{var1-10}} + 2^{={var1-10} + 1}$$?",
+  "answer": "POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)",
+  "hint": "$2^{{var1-10}} = {= POWER(2, {var1-10})}$, $2^{{var1-10} + 1} = {= POWER(2, {var1-10} + 1)}$, сумма = {= POWER(2, {var1-10}) + POWER(2, {var1-10} + 1)}",
+  "randomfrom": [2, 3, 4, 5, 6]
+},
+
+{
+    "id": "functiongraph001",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 1",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "linear",
+    "func": (x) => 2 * x + 1,
+    "choices": [
+      "$y = x^2 + c$ (Квадратичная функция)",
+      "$y = kx + b$ (Линейная функция)",
+      "$y = \\sin(x)$ (Тригонометрическая функция)",
+      "$y = a^x$ (Показательная функция)",
+      "$y = \\log_a(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = kx + b$ (Линейная функция)"],
+    "hint": "Линейная функция имеет вид y = kx + b и представляет собой прямую линию на графике."
+  },
+  
+  {
+    "id": "functiongraph002",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 2",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "quadratic",
+    "func": (x) => x * x - 2,
+    "choices": [
+      "$y = kx + b$ (Линейная функция)",
+      "$y = x^2 + bx + c$ (Квадратичная функция)",
+      "$y = \\cos(x)$ (Тригонометрическая функция)",
+      "$y = e^x$ (Показательная функция)",
+      "$y = \\ln(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = x^2 + bx + c$ (Квадратичная функция)"],
+    "hint": "Квадратичная функция имеет вид y = ax² + bx + c и представляет собой параболу на графике."
+  },
+  {
+    "id": "functiongraph003",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 3",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "sinus",
+    "func": (x) => 2 * Math.sin(x),
+    "choices": [
+      "$y = x^3$ (Кубическая функция)",
+      "$y = |x|$ (Функция модуля)",
+      "$y = \\sin(x)$ (Тригонометрическая функция)",
+      "$y = \\sqrt{x}$ (Квадратный корень)",
+      "$y = \\frac{1}{x}$ (Обратная пропорциональность)"
+    ],
+    "answers": ["$y = \\sin(x)$ (Тригонометрическая функция)"],
+    "hint": "Синусоидальная функция периодически колеблется между значениями -1 и 1."
+  },
+  {
+    "id": "functiongraph004",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 4",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x / 2),
+    "choices": [
+      "$y = \\tan(x)$ (Тангенс)",
+      "$y = a^x$ (Показательная функция)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = mx + b$ (Линейная функция)",
+      "$y = \\log(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = a^x$ (Показательная функция)"],
+    "hint": "Показательная функция быстро растет (или убывает) и никогда не принимает отрицательных значений."
+  },
+  {
+    "id": "functiongraph005",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 5",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "logarithmic",
+    "func": (x) => x > 0 ? Math.log(x) : -10,
+    "choices": [
+      "$y = \\cos(x)$ (Косинусоидальная функция)",
+      "$y = x^3$ (Кубическая функция)",
+      "$y = \\log_a(x)$ (Логарифмическая функция)",
+      "$y = \\frac{1}{x}$ (Гипербола)",
+      "$y = \\sqrt{x}$ (Квадратный корень)"
+    ],
+    "answers": ["$y = \\log_a(x)$ (Логарифмическая функция)"],
+    "hint": "Логарифмическая функция определена только для x > 0 и медленно возрастает."
+  },
+  {
+    "id": "functiongraph006",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 6",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "cubic",
+    "func": (x) => (x * x * x) / 5,
+    "choices": [
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = x^3$ (Кубическая функция)",
+      "$y = \\sin(x)$ (Тригонометрическая функция)",
+      "$y = e^x$ (Показательная функция)",
+      "$y = \\ln(x)$ (Логарифмическая функция)"
+    ],
+    "answers": ["$y = x^3$ (Кубическая функция)"],
+    "hint": "Кубическая функция имеет вид y = ax³ + bx² + cx + d и может иметь точки перегиба."
+  },
+  {
+    "id": "functiongraph007",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 7",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y = |x|$ (Функция модуля)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = \\cos(x)$ (Тригонометрическая функция)",
+      "$y = \\log(x)$ (Логарифмическая функция)",
+      "$y = \\frac{1}{x}$ (Гипербола)"
+    ],
+    "answers": ["$y = |x|$ (Функция модуля)"],
+    "hint": "Функция модуля всегда возвращает неотрицательные значения и имеет характерный 'угол' в начале координат."
+  },
+  {
+    "id": "functiongraph008",
+    "type": "multiplechoices",
+    "header": "Анализ графиков функций",
+    "title": "Определение типа функции по графику 8",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Какой тип функции представлен на графике?",
+    "functionType": "cosine",
+    "func": (x) => 2 * Math.cos(x),
+    "choices": [
+      "$y = \\sin(x)$ (Синусоидальная функция)",
+      "$y = \\cos(x)$ (Косинусоидальная функция)",
+      "$y = x^2$ (Квадратичная функция)",
+      "$y = e^x$ (Показательная функция)",
+      "$y = \\tan(x)$ (Тангенсоидальная функция)"
+    ],
+    "answers": ["$y = \\cos(x)$ (Косинусоидальная функция)"],
+    "hint": "Косинусоидальная функция является периодической и начинается с максимального значения при x = 0."
+  },
+
+{
+    "id": "linearcoeff001",
+    "type": "multiplechoices",
+    "header": "Анализ линейных функций",
+    "title": "Определение коэффициентов линейной функции 1",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Определите коэффициенты k и b в уравнении y = kx + b для данного графика:",
+    "functionType": "linear_positive",
+    "func": (x) => 2 * x + 1,
+    "choices": [
+      "k = 2, b = 1",
+      "k = 1, b = 2",
+      "k = 3, b = 0",
+      "k = 2, b = -1",
+      "k = -2, b = 1"
+    ],
+    "answers": ["k = 2, b = 1"],
+    "hint": "Функция пересекает ось Y в точке (0,1) - это b. Угловой коэффициент k = 2 (при изменении x на 1, y изменяется на 2)."
+  },
+  {
+    "id": "linearcoeff002",
+    "type": "multiplechoices",
+    "header": "Анализ линейных функций",
+    "title": "Определение коэффициентов линейной функции 2",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Определите коэффициенты k и b в уравнении y = kx + b для данного графика:",
+    "functionType": "linear_negative_k",
+    "func": (x) => -2 * x + 3,
+    "choices": [
+      "k = -2, b = 3",
+      "k = 2, b = 3",
+      "k = -3, b = 2",
+      "k = -2, b = -3",
+      "k = 3, b = -2"
+    ],
+    "answers": ["k = -2, b = 3"],
+    "hint": "Функция пересекает ось Y в точке (0,3) - это b. Угловой коэффициент отрицательный k = -2 (функция убывает)."
+  },
+
+  {
+    "id": "system002",
+    "type": "multiplechoices",
+    "header": "Системы линейных уравнений",
+    "title": "Решение системы уравнений по графикам 2",
+    "theme": "Числа",
+    "functionGraph": "true",
+    "text": "Найдите решение системы уравнений (точку пересечения графиков):<br>y = x + 2<br>y = 3x - 2",
+    "functionType": "system_intersect2",
+    "func": (x) => [x + 2, 3 * x - 2],
+    "choices": [
+      "x = 2, y = 4",
+      "x = 1, y = 3",
+      "x = 3, y = 5",
+      "x = 2, y = 3",
+      "x = 1, y = 4"
+    ],
+    "answers": ["x = 2, y = 4"],
+    "hint": "Решаем систему: x + 2 = 3x - 2 ⇒ 4 = 2x ⇒ x = 2, подставляем: y = 2 + 2 = 4"
+  },
+
+
+
     // 6. Векторы и координаты в пространстве
 
     {
@@ -395,10 +1648,3046 @@ let quizesSets =
       answers: ["0"]
     },
 
+// 10. Уравнения, неравенства и их системы. Логарифмические. Показательные
+
+{
+    "id": "math008",
+    "type": "multiplechoices",
+    "header": "Устный счёт",
+    "title": "Решение неравенства 1",
+    "theme": "Неравенства",
+    "text": "Для каких целых x верно неравенство 1 < 2x - 3 ≤ 5?",
+    "choices": [
+      "x = 2, 3",
+      "x = 3, 4",
+      "x = 2, 3, 4",
+      "x = 3, 4, 5",
+      "x = 4, 5"
+    ],
+    "answers": ["x = 3, 4"],
+    "hint": "<p>Решите двойное неравенство по частям.</p><ul><li><strong>Часть 1:</strong> 1 < 2x - 3 → 1 +3 < 2x → 4 < 2x → 2 < x → x > 2</li><li><strong>Часть 2:</strong> 2x - 3 ≤ 5 → 2x ≤ 5 +3 → 2x ≤ 8 → x ≤ 4</li><li><strong>Объединение:</strong> 2 < x ≤ 4. Целые числа, удовлетворяющие этому условию: 3 и 4.</li></ul>"
+  },
+{
+  "id": "math008random1",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Решение неравенства 2",
+  "theme": "Неравенства",
+  "text": "Найдите наибольшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {={var1-10} + 6}$$",
+  "answer": "FLOOR(({var1-10} + 7) / 2, 1)",
+  "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наибольшее целое x = $\\left\\lfloor \\frac{{var1-10} + 7}{2} \\right\\rfloor$",
+  "randomfrom": [2, 4, 6, 8, 10]
+},
+
+ {
+  "id": "math008random2",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Решение неравенства 3",
+  "theme": "Неравенства",
+  "text": "Найдите наименьшее целое x, удовлетворяющее неравенству $${var1-10} < 2x - 1 \\leq {={var1-10} + 6}$$",
+  "answer": "CEILING(({var1-10} + 2) / 2, 1)",
+  "hint": "Решим неравенство: ${var1-10} < 2x - 1 \\leq {var1-10} + 6$ → ${var1-10} + 1 < 2x \\leq {var1-10} + 7$ → $\\frac{{var1-10} + 1}{2} < x \\leq \\frac{{var1-10} + 7}{2}$. Наименьшее целое x = $\\left\\lceil \\frac{{var1-10} + 2}{2} \\right\\rceil$",
+  "randomfrom": [2, 4, 6, 8, 10]
+},
+
+{
+    "id": "quadratic001",
+    "type": "mathwithrandomnumber",
+    "header": "Квадратные уравнения",
+    "title": "Наибольший корень 1",
+    "theme": "Квадратные уравнения",
+    "text": "Найдите наибольший корень уравнения: $$x^2 - {var1-10}x = 0$$",
+    "answer": "{var1-10}",
+    "hint": "<p><strong>Способ 1: Вынесение общего множителя</strong></p><p>Шаг 1: Выносим x за скобки</p>$$x^2 - {var1-10}x = x(x - {var1-10}) = 0$$<p>Шаг 2: Приравниваем каждый множитель к нулю</p>$$x = 0 \\quad \\text{или} \\quad x - {var1-10} = 0$$<p>Шаг 3: Находим корни</p>$$x_1 = 0, \\quad x_2 = {var1-10}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{var1-10}, c = 0</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{var1-10})^2 - 4 \\cdot 1 \\cdot 0 = {= {var1-10}*{var1-10}}$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{var1-10} \\pm {var1-10}}{2}$$$$x_1 = \\frac{{var1-10} - {var1-10}}{2} = 0, \\quad x_2 = \\frac{{var1-10} + {var1-10}}{2} = {var1-10}$$<p>Наибольший корень: {var1-10}</p>",
+    "randomfrom": [3, 4, 5, 6, 7, 8, 9, 10]
+  },
+  {
+    "id": "quadratic002",
+    "type": "mathwithrandomnumber",
+    "header": "Квадратные уравнения",
+    "title": "Наименьший корень 1",
+    "theme": "Квадратные уравнения",
+    "text": "Найдите наименьший корень уравнения: $$x^2 - {= {var1-10}*5}x = 0$$",
+    "answer": "0",
+    "hint": "<p><strong>Способ 1: Вынесение общего множителя</strong></p><p>Шаг 1: Выносим x за скобки</p>$$x^2 - {= {var1-10}*5}x = x(x - {= {var1-10}*5}) = 0$$<p>Шаг 2: Приравниваем каждый множитель к нулю</p>$$x = 0 \\quad \\text{или} \\quad x - {= {var1-10}*5} = 0$$<p>Шаг 3: Находим корни</p>$$x_1 = 0, \\quad x_2 = {= {var1-10}*5}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{= {var1-10}*5}, c = 0</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{= {var1-10}*5})^2 - 4 \\cdot 1 \\cdot 0 = {= {var1-10}*{var1-10}*25}$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{= {var1-10}*5} \\pm {= {var1-10}*5}}{2}$$$$x_1 = \\frac{{= {var1-10}*5} - {= {var1-10}*5}}{2} = 0, \\quad x_2 = \\frac{{= {var1-10}*5} + {= {var1-10}*5}}{2} = {= {var1-10}*5}$$<p>Наименьший корень: 0</p>",
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "quadratic003",
+    "type": "mathwithrandomnumber",
+    "header": "Квадратные уравнения",
+    "title": "Наибольший корень 2",
+    "theme": "Квадратные уравнения",
+    "text": "Найдите наибольший корень уравнения: $$x^2 - {= {var1-10}+1}x + {var1-10} = 0$$",
+    "answer": "{var1-10}",
+    "hint": "<p><strong>Способ 1: Теорема Виета</strong></p><p>Шаг 1: Записываем условия теоремы Виета</p>$$x_1 + x_2 = {= {var1-10}+1}, \\quad x_1 \\cdot x_2 = {var1-10}$$<p>Шаг 2: Подбираем числа, удовлетворяющие условиям</p><p>Ищем два числа, сумма которых {= {var1-10}+1}, а произведение {var1-10}</p><p>Подходят числа: 1 и {var1-10}, так как:</p><p>1 + {var1-10} = {= {var1-10}+1}, 1 × {var1-10} = {var1-10}</p><p>Шаг 3: Записываем корни</p>$$x_1 = 1, \\quad x_2 = {var1-10}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{= {var1-10}+1}, c = {var1-10}</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{= {var1-10}+1})^2 - 4 \\cdot 1 \\cdot {var1-10}$$$$D = {= ({var1-10}+1)*({var1-10}+1)} - {= {var1-10}*4}$$$$D = {= {var1-10}*{var1-10} + 2*{var1-10} + 1} - {= {var1-10}*4} = {= {var1-10}*{var1-10} - 2*{var1-10} + 1} = ({= {var1-10}-1})^2$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{= {var1-10}+1} \\pm {= {var1-10}-1}}{2}$$$$x_1 = \\frac{{= {var1-10}+1} - {= {var1-10}-1}}{2} = \\frac{2}{2} = 1$$$$x_2 = \\frac{{= {var1-10}+1} + {= {var1-10}-1}}{2} = \\frac{{= {var1-10}*2}}{2} = {var1-10}$$<p>Наибольший корень: {var1-10}</p>",
+    "randomfrom": [2, 3, 4, 5, 6, 7, 8]
+  },
+  {
+  "id": "quadratic004",
+  "type": "mathwithrandomnumber",
+  "header": "Квадратные уравнения",
+  "title": "Наибольший корень 3",
+  "theme": "Квадратные уравнения",
+  "text": "Найдите наибольший корень уравнения: $$x^2 - {= 2*{var1-10} + 4}x + {= {var1-10}*({var1-10}+4)} = 0$$",
+  "answer": "{var1-10}+4",
+  "hint": "<p><strong>Способ 1: Теорема Виета</strong></p><p>Шаг 1: Записываем условия теоремы Виета</p>$$x_1 + x_2 = {= 2*{var1-10} + 4}, \\quad x_1 \\cdot x_2 = {= {var1-10}*({var1-10}+4)}$$<p>Шаг 2: Подбираем числа, удовлетворяющие условиям</p><p>Ищем два числа, сумма которых {= 2*{var1-10} + 4}, а произведение {= {var1-10}*({var1-10}+4)}</p><p>Подходят числа: {var1-10} и {= {var1-10}+4}, так как:</p><p>{var1-10} + {= {var1-10}+4} = {= 2*{var1-10} + 4}, {var1-10} × {= {var1-10}+4} = {= {var1-10}*({var1-10}+4)}</p><p>Шаг 3: Записываем корни</p>$$x_1 = {var1-10}, \\quad x_2 = {= {var1-10}+4}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{= 2*{var1-10} + 4}, c = {= {var1-10}*({var1-10}+4)}</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{= 2*{var1-10} + 4})^2 - 4 \\cdot 1 \\cdot {= {var1-10}*({var1-10}+4)}$$$$D = {= (2*{var1-10}+4)*(2*{var1-10}+4)} - {= 4*{var1-10}*({var1-10}+4)}$$$$D = {= 4*{var1-10}*{var1-10} + 16*{var1-10} + 16} - {= 4*{var1-10}*{var1-10} + 16*{var1-10}} = 16$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{= 2*{var1-10} + 4} \\pm \\sqrt{16}}{2} = \\frac{{= 2*{var1-10} + 4} \\pm 4}{2}$$$$x_1 = \\frac{{= 2*{var1-10} + 4} - 4}{2} = \\frac{{= 2*{var1-10}}}{2} = {var1-10}$$$$x_2 = \\frac{{= 2*{var1-10} + 4} + 4}{2} = \\frac{{= 2*{var1-10}+8}}{2} = {= {var1-10}+4}$$<p>Наибольший корень: {= {var1-10}+4}</p>",
+  "randomfrom": [2, 3, 4, 5, 6, 7]
+},
+
+ {
+  "id": "quadratic005",
+  "type": "mathwithrandomnumber",
+  "header": "Квадратные уравнения",
+  "title": "Наибольший корень 4",
+  "theme": "Квадратные уравнения",
+  "text": "Найдите наибольший корень уравнения: $$x^2 - {= 2*{var1-10} + 3}x + {= {var1-10}*({var1-10}+3)} = 0$$",
+  "answer": "{var1-10}+3",
+  "hint": "<p><strong>Способ 1: Теорема Виета</strong></p><p>Шаг 1: Записываем условия теоремы Виета</p>$$x_1 + x_2 = {= 2*{var1-10} + 3}, \\quad x_1 \\cdot x_2 = {= {var1-10}*({var1-10}+3)}$$<p>Шаг 2: Подбираем числа, удовлетворяющие условиям</p><p>Ищем два числа, сумма которых {= 2*{var1-10} + 3}, а произведение {= {var1-10}*({var1-10}+3)}</p><p>Подходят числа: {var1-10} и {= {var1-10}+3}, так как:</p><p>{var1-10} + {= {var1-10}+3} = {= 2*{var1-10} + 3}, {var1-10} × {= {var1-10}+3} = {= {var1-10}*({var1-10}+3)}</p><p>Шаг 3: Записываем корни</p>$$x_1 = {var1-10}, \\quad x_2 = {= {var1-10}+3}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{= 2*{var1-10} + 3}, c = {= {var1-10}*({var1-10}+3)}</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{= 2*{var1-10} + 3})^2 - 4 \\cdot 1 \\cdot {= {var1-10}*({var1-10}+3)}$$$$D = {= (2*{var1-10}+3)*(2*{var1-10}+3)} - {= 4*{var1-10}*({var1-10}+3)}$$$$D = {= 4*{var1-10}*{var1-10} + 12*{var1-10} + 9} - {= 4*{var1-10}*{var1-10} + 12*{var1-10}} = 9$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{= 2*{var1-10} + 3} \\pm \\sqrt{9}}{2} = \\frac{{= 2*{var1-10} + 3} \\pm 3}{2}$$$$x_1 = \\frac{{= 2*{var1-10} + 3} - 3}{2} = \\frac{{= 2*{var1-10}}}{2} = {var1-10}$$$$x_2 = \\frac{{= 2*{var1-10} + 3} + 3}{2} = \\frac{{= 2*{var1-10}+6}}{2} = {= {var1-10}+3}$$<p>Наибольший корень: {= {var1-10}+3}</p>",
+  "randomfrom": [2, 3, 4, 5, 6, 7]
+},
+  {
+  "id": "quadratic006",
+  "type": "mathwithrandomnumber",
+  "header": "Квадратные уравнения",
+  "title": "Наименьший корень 4",
+  "theme": "Квадратные уравнения",
+  "text": "Найдите наименьший корень уравнения: $$x^2 - {= 2*{var1-10}+3}x + {={var1-10}*({var1-10}+3)} = 0$$",
+  "answer": "{var1-10}",
+  "hint": "<p><strong>Способ 1: Теорема Виета</strong></p><p>Шаг 1: Записываем условия теоремы Виета</p>$$x_1 + x_2 = {= 2*{var1-10} + 3}, \\quad x_1 \\cdot x_2 = {= {var1-10}*({var1-10}+3)}$$<p>Шаг 2: Подбираем числа, удовлетворяющие условиям</p><p>Ищем два числа, сумма которых {= 2*{var1-10} + 3}, а произведение {= {var1-10}*({var1-10}+3)}</p><p>Подходят числа: {var1-10} и {= {var1-10}+3}, так как:</p><p>{var1-10} + {= {var1-10}+3} = {= 2*{var1-10} + 3}, {var1-10} × {= {var1-10}+3} = {= {var1-10}*({var1-10}+3)}</p><p>Шаг 3: Записываем корни</p>$$x_1 = {var1-10}, \\quad x_2 = {= {var1-10}+3}$$<p><strong>Способ 2: Через дискриминант</strong></p><p>Шаг 1: Записываем коэффициенты</p><p>a = 1, b = -{= 2*{var1-10} + 3}, c = {= {var1-10}*({var1-10}+3)}</p><p>Шаг 2: Вычисляем дискриминант</p>$$D = b^2 - 4ac = (-{= 2*{var1-10} + 3})^2 - 4 \\cdot 1 \\cdot {= {var1-10}*({var1-10}+3)}$$$$D = {= (2*{var1-10}+3)*(2*{var1-10}+3)} - {= 4*{var1-10}*({var1-10}+3)}$$$$D = {= 4*{var1-10}*{var1-10} + 12*{var1-10} + 9} - {= 4*{var1-10}*{var1-10} + 12*{var1-10}} = 9$$<p>Шаг 3: Находим корни</p>$$x = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{{= 2*{var1-10} + 3} \\pm \\sqrt{9}}{2} = \\frac{{= 2*{var1-10} + 3} \\pm 3}{2}$$$$x_1 = \\frac{{= 2*{var1-10} + 3} - 3}{2} = \\frac{{= 2*{var1-10}}}{2} = {var1-10}$$$$x_2 = \\frac{{= 2*{var1-10} + 3} + 3}{2} = \\frac{{= 2*{var1-10}+6}}{2} = {= {var1-10}+3}$$<p>Наибольший корень: {= {var1-10}+3}</p>",
+  "randomfrom": [2, 3, 4, 5, 6, 7]
+},
+
+  {
+    "id": "powers_negative001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-2}$$ в виде десятичной дроби",
+    "answer": "1 / POWER({var1-10}, 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Число в отрицательной степени равно единице, делённой на это число в положительной степени:</p>
+        <p class="card-text text-center">$$a^{-n} = \\frac{1}{a^n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {={var1-10}}^{-2} = \\frac{1}{{var1-10}^2} $$</p>
+        <p class="card-text">$$ {={var1-10}^2} = {=POWER({var1-10},2)} $$</p>
+        <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+     <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
+    </div>
+   
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_negative002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная степень дроби",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $$\\left(\\frac{1}{{var1-10}}\\right)^{-3}$$",
+    "answer": "POWER({var1-10}, 3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная степень дроби</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Дробь в отрицательной степени переворачивается:</p>
+        <p class="card-text text-center">$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$\\left(\\frac{1}{{var1-10}}\\right)^{-3} = \\left(\\frac{{var1-10}}{1}\\right)^3 = {var1-10}^3$$</p>
+        <p class="card-text">$$ {var1-10}^3 = {= POWER({var1-10}, 3)} $$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 3)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+  {
+    "id": "powers_negative003",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Произведение положительной и отрицательной степени",
+    "theme": "Степени",
+    "text": "Упростите выражение: $${var1-10}^3 \\cdot {var1-10}^{-5}$$ и запишите ответ в виде десятичной дроби",
+    "answer": "1 / POWER({var1-10}, 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Умножение степеней</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">При умножении степеней с одинаковыми основаниями показатели складываются:</p>
+        <p class="card-text text-center">$$a^m \\cdot a^n = a^{m+n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^3 \\cdot {var1-10}^{-5} = {var1-10}^{3 + (-5)} = {var1-10}^{-2}$$</p>
+        <p class="card-text">$$ {var1-10}^{-2} = \\frac{1}{{var1-10}^2}$$</p>
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+        <p class="card-text">$$\\frac{1}{{= POWER({var1-10}, 2)}} = {= 1 / POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6]
+  },
+
+  {
+    "id": "powers_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/2}$$?",
+    "answer": "SQRT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/2</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/2 означает квадратный корень:</p>
+        <p class="card-text text-center">$$a^{1/2} = \\sqrt{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/2} = \\sqrt{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_fraction002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень (кубический корень)",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{1/3}$$?",
+    "answer": "POWER({var1-10}, 1/3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 1/3</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 1/3 означает кубический корень:</p>
+        <p class="card-text text-center">$$a^{1/3} = \\sqrt[3]{a}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{1/3} = \\sqrt[3]{{var1-10}}$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 1/3)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [8, 27, 64, 125]
+  },
+  {
+    "id": "powers_fraction003",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень 2/3",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{2/3}$$?",
+    "answer": "POWER(POWER({var1-10}, 1/3), 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень m/n</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень m/n можно представить двумя способами:</p>
+        <p class="card-text text-center">$$a^{m/n} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{2/3} = (\\sqrt[3]{{var1-10}})^2$$</p>
+        <p class="card-text">$$\\sqrt[3]{{var1-10}} = {= POWER({var1-10}, 1/3)}$$</p>
+        <p class="card-text">$$({= POWER({var1-10}, 1/3)})^2 = {= POWER(POWER({var1-10}, 1/3), 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/3), 2)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [8, 27, 64, 125]
+  },
+  {
+    "id": "powers_fraction004",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Дробная степень 3/2",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{3/2}$$?",
+    "answer": "POWER(POWER({var1-10}, 1/2), 3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Дробная степень 3/2</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Степень 3/2 можно представить как:</p>
+        <p class="card-text text-center">$$a^{3/2} = (\\sqrt{a})^3 = \\sqrt{a^3}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{3/2} = (\\sqrt{{var1-10}})^3$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+        <p class="card-text">$$({= SQRT({var1-10})})^3 = {= POWER(POWER({var1-10}, 1/2), 3)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER(POWER({var1-10}, 1/2), 3)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_negative_fraction001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Отрицательная дробная степень",
+    "theme": "Степени",
+    "text": "Чему равно значение выражения $${var1-10}^{-1/2}$$?",
+    "answer": "1 / SQRT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Отрицательная дробная степень</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">Сначала применяем правило отрицательной степени, затем дробной:</p>
+        <p class="card-text text-center">$$a^{-m/n} = \\frac{1}{a^{m/n}} = \\frac{1}{\\sqrt[n]{a^m}}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{-1/2} = \\frac{1}{{var1-10}^{1/2}} = \\frac{1}{\\sqrt{{var1-10}}}$$</p>
+        <p class="card-text">$$\\sqrt{{var1-10}} = {= SQRT({var1-10})}$$</p>
+        <p class="card-text">$$\\frac{1}{{= SQRT({var1-10})}} = {= 1 / SQRT({var1-10})}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= 1 / SQRT({var1-10})}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25]
+  },
+  {
+    "id": "powers_mixed001",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Смешанное выражение со степенями",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$\\frac{{var1-10}^{3} \\cdot {var1-10}^{-1/2}}{{var1-10}^{1/2}}$$",
+    "answer": "POWER({var1-10}, 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Смешанное выражение со степенями</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Складываем показатели в числителе</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^{3} \\cdot {var1-10}^{-1/2} = {var1-10}^{3 + (-1/2)} = {var1-10}^{2.5} = {var1-10}^{5/2}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Вычитаем показатель знаменателя</div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{{var1-10}^{5/2}}{{var1-10}^{1/2}} = {var1-10}^{5/2 - 1/2} = {var1-10}^{4/2} = {var1-10}^2$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Результат</div>
+      <div class="card-body">
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5]
+  },
+
+  {
+    "id": "powers_mixed002",
+    "type": "mathwithrandomnumber",
+    "header": "Степени",
+    "title": "Степень степени с дробным показателем",
+    "theme": "Степени",
+    "text": "Упростите выражение: $$({var1-10}^{2/3})^{3}$$",
+    "answer": "POWER({var1-10}, 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Степень степени</h5>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Правило</div>
+      <div class="card-body">
+        <p class="card-text">При возведении степени в степень показатели перемножаются:</p>
+        <p class="card-text text-center">$$(a^m)^n = a^{m \\cdot n}$$</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Применяем правило</div>
+      <div class="card-body">
+        <p class="card-text">$$({var1-10}^{2/3})^{3} = {var1-10}^{(2/3) \\cdot 3} = {var1-10}^{2}$$</p>
+        <p class="card-text">$$ {var1-10}^2 = {= POWER({var1-10}, 2)}$$</p>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Ответ:</b> {= POWER({var1-10}, 2)}
+    </div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5]
+  },
+
+  {
+    "id": "number_e_limit_001",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Определение числа e через предел",
+    "theme": "Числа и пределы",
+
+    "text": "Число $e$ (основание натурального логарифма) определяется как предел последовательности. Какой из следующих пределов равен числу $e$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + n\\right)^{\\frac{1}{n}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n^2}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n^2}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Число e: классическое определение через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение числа e:</strong>
+      $$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$$
+      где $n$ — натуральное число (можно также $n \\in \\mathbb{R}$, $n \\to \\infty$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Историческая справка</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Число $e$ впервые исследовал Якоб Бернулли в XVII веке при изучении задачи о непрерывном начислении процентов.</p>
+        <p class="card-text">Формула: если вклад $1$ под $100\\%$ годовых начислять $n$ раз в год, то итоговая сумма:</p>
+        <p class="card-text">$$\\left(1 + \\frac{1}{n}\\right)^n$$</p>
+        <p class="card-text">При $n \\to \\infty$ получается $e \\approx 2.71828$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Проверка на малых n</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{1}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$1$</td><td>$(2)^1 = 2$</td><td>$2.00000$</td></tr>
+              <tr><td>$2$</td><td>$(1.5)^2 = 2.25$</td><td>$2.25000$</td></tr>
+              <tr><td>$5$</td><td>$(1.2)^5$</td><td>$2.48832$</td></tr>
+              <tr><td>$10$</td><td>$(1.1)^{10}$</td><td>$2.59374$</td></tr>
+              <tr><td>$100$</td><td>$(1.01)^{100}$</td><td>$2.70481$</td></tr>
+              <tr><td>$1000$</td><td>$(1.001)^{1000}$</td><td>$2.71692$</td></tr>
+              <tr><td>$10000$</td><td>$(1.0001)^{10000}$</td><td>$2.71815$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e$</td><td>$2.71828...$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n)^{1/n} \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n)^{n^2} \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - 1/n)^n \\to 1/e \\approx 0.3679$ (обратное число)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/n^2)^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + 1/n)^n \\to e \\approx 2.71828$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "number_e_derivative_002",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Число e как основание натурального логарифма",
+    "theme": "Числа и производные",
+
+    "text": "Известно, что производная логарифмической функции $y = \\log_a(x)$ равна $\\frac{1}{x \\ln(a)}$. При каком основании $a$ производная функции $y = \\log_a(x)$ равна $\\frac{1}{x}$?",
+    "choices": [
+      "$a = 10$",
+      "$a = 2$",
+      "$a = e$",
+      "$a = \\pi$",
+      "$a = \\frac{1}{2}$"
+    ],
+    "answers": ["$a = e$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Число e и натуральный логарифм</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула производной логарифма:</strong>
+      $$\\frac{d}{dx} \\log_a(x) = \\frac{1}{x \\ln(a)}$$
+      где $\\ln(a)$ — натуральный логарифм основания $a$.
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Условие задачи</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Нам нужно, чтобы:</p>
+        <p class="card-text">$$\\frac{d}{dx} \\log_a(x) = \\frac{1}{x}$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Приравниваем формулы</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\frac{1}{x \\ln(a)} = \\frac{1}{x}$$</p>
+        <p class="card-text">Сокращаем $\\frac{1}{x}$ (при $x \\neq 0$):</p>
+        <p class="card-text">$$\\frac{1}{\\ln(a)} = 1$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 3: Решаем уравнение</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\ln(a) = 1$$</p>
+        <p class="card-text">По определению натурального логарифма:</p>
+        <p class="card-text">$$a = e^1 = e$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 4: Результат</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $a = e$ получаем:</p>
+        <p class="card-text">$$\\frac{d}{dx} \\ln(x) = \\frac{1}{x}$$</p>
+        <p class="card-text">Это свойство делает число $e$ <strong>естественным</strong> основанием логарифма.</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $a = e$
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "number_e_exponential_003",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Число e в определении экспоненты",
+    "theme": "Числа и пределы",
+
+    "text": "Функция $f(x) = e^x$ (экспонента) может быть определена через предел. Какой из следующих пределов равен $e^x$?",
+    "choices": [
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{n}{x}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + x\\right)^{\\frac{n}{x}}$",
+      "$\\lim_{n \\to \\infty} \\left(1 - \\frac{x}{n}\\right)^n$",
+      "$\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{nx}\\right)^n$"
+    ],
+    "answers": ["$\\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Определение экспоненты через предел</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Определение экспоненты:</strong>
+      $$e^x = \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n$$
+      Это обобщение классического предела для числа $e$ (при $x=1$ получаем $e$).
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Связь с классическим определением</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">При $x = 1$:</p>
+        <p class="card-text">$$e^1 = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e$$</p>
+        <p class="card-text">✓ Согласуется с определением числа $e$.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Пример для x = 2</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$e^2 \\approx 7.389$$</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$n$</th><th>$\\left(1 + \\frac{2}{n}\\right)^n$</th><th>Приближение</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$10$</td><td>$(1.2)^{10}$</td><td>$6.1917$</td></tr>
+              <tr><td>$100$</td><td>$(1.02)^{100}$</td><td>$7.2446$</td></tr>
+              <tr><td>$1000$</td><td>$(1.002)^{1000}$</td><td>$7.3743$</td></tr>
+              <tr class="table-success"><td>$\\infty$</td><td>$e^2$</td><td>$7.3891$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Почему другие варианты не подходят?</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $(1 + n/x)^n \\to \\infty$ (расходится)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + x)^{n/x}$ — не предел по $n$ (зависит от $n$ в показателе иначе)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - x/n)^n \\to e^{-x}$ (обратная экспонента)</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 + 1/(nx))^n \\to 1$ (стремится к 1)</li>
+          <li class="list-group-item list-group-item-success">✅ $(1 + x/n)^n \\to e^x$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> $\\displaystyle \\lim_{n \\to \\infty} \\left(1 + \\frac{x}{n}\\right)^n = e^x$
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "number_e_properties_004",
+    "type": "multiplechoices",
+    "header": "Математический анализ: Число e",
+    "title": "Уникальные свойства числа e",
+    "theme": "Числа и свойства",
+
+    "text": "Какое из следующих утверждений о числе $e$ является ВЕРНЫМ?",
+    "choices": [
+      "Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$",
+      "Число $e$ является корнем уравнения $\\ln(x) = 0$",
+      "Число $e$ — это $\\frac{22}{7}$",
+      "$e$ — это $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$",
+      "$e$ — это $\\frac{\\pi}{2}$"
+    ],
+    "answers": ["Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Геометрическое свойство числа e</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Интегральное определение числа e:</strong>
+      $$\\int_{1}^{e} \\frac{1}{x} \\, dx = 1$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Вычисляем интеграл</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$\\int_{1}^{e} \\frac{1}{x} \\, dx = \\ln|x| \\Big|_{1}^{e} = \\ln(e) - \\ln(1) = 1 - 0 = 1$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Геометрический смысл</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Площадь фигуры под гиперболой $y = 1/x$ на интервале $[1, e]$ равна в точности $1$.</p>
+        <div class="alert alert-secondary">
+          <strong>📐 Графическая интерпретация:</strong><br>
+          $$\\text{Площадь} = \\int_{1}^{e} \\frac{1}{x} dx = 1$$
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Проверка остальных утверждений</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">❌ $\\ln(x) = 0$ ⇒ $x = 1$ (а не $e$)</li>
+          <li class="list-group-item list-group-item-danger">❌ $22/7 \\approx 3.142$ — это приближение $\\pi$, не $e$</li>
+          <li class="list-group-item list-group-item-danger">❌ $(1 - 1/n)^n \\to 1/e \\approx 0.3679$</li>
+          <li class="list-group-item list-group-item-danger">❌ $\\pi/2 \\approx 1.571$ — это не $e$</li>
+          <li class="list-group-item list-group-item-success">✅ $\\int_{1}^{e} 1/x \\, dx = 1$ — верно!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Правильный ответ:</b> Площадь под гиперболой $y = 1/x$ от $1$ до $e$ равна $1$
+    </div>
+
+  </div>
+</div>`
+  },
+
+// 11. Вычисление производных. Последовательности. Сложные проценты
+
+  {
+    "id": "derivative_analysis_001",
+    "type": "multiplechoices",
+    "header": "Связь производных и поведения функции",
+    "title": "Анализ производных линейной функции",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Дана функция $y = 2x + 1$ (график — прямая линия).",
+    "functionType": "linear",
+    "func": (x) => 2 * x + 1,
+    "choices": [
+      "$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)",
+      "$y' > 0$ (функция возрастает), $y'' > 0$ (график вогнут вверх)",
+      "$y' < 0$ (функция убывает), $y'' = 0$ (нет перегиба, прямая)",
+      "$y' = 0$ (функция постоянна), $y'' = 0$ (горизонтальная прямая)"
+    ],
+    "answers": ["$y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>Анализ производных линейной функции $y = 2x + 1$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 1: Вычисляем первую производную $y'$</div>
+      <div class="card-body">
+        <p class="card-text">$y = 2x + 1$</p>
+        <p class="card-text">$y' = 2$</p>
+        <p class="card-text mt-2">Так как $2 > 0$, то <span class="badge bg-success">$y' > 0$ на всём промежутке</span></p>
+        <p class="card-text">Это означает, что функция <strong>строго возрастает</strong>.</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">Шаг 2: Вычисляем вторую производную $y''$</div>
+      <div class="card-body">
+        <p class="card-text">$y' = 2$</p>
+        <p class="card-text">$y'' = 0$</p>
+        <p class="card-text mt-2"><span class="badge bg-secondary">$y'' = 0$ на всём промежутке</span></p>
+        <p class="card-text">Это означает, что график не имеет ни выпуклости, ни вогнутости — он представляет собой <strong>прямую линию</strong>.</p>
+      </div>
+    </div>
+    
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">Шаг 3: Собираем результат</div>
+      <div class="card-body">
+        <p class="card-text">Для функции $y = 2x + 1$:</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">✓ $y' = 2 > 0$ → функция <strong>возрастает</strong></li>
+          <li class="list-group-item">✓ $y'' = 0$ → <strong>нет выпуклости/вогнутости</strong> (график — прямая)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-warning">
+      <b>Правильный ответ:</b> $y' > 0$ (функция возрастает), $y'' = 0$ (нет выпуклости или вогнутости, график — прямая)
+    </div>
+    
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_quadratic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных квадратичной функции",
+    "title": "Знаки производных y = x² на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^2$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "quadratic",
+    "func": (x) => x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = x^2$ на интервале $x > 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = x^2$, $y' = 2x$, $y'' = 2$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-success">
+      <div class="card-header bg-success text-white">
+        <h5>🕊️ Что происходит при $x > 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 2x$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $2x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 2$</div>
+              <div class="card-body">
+                <p class="card-text">$2 > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
+                  <em>График вогнут вниз — разгоняется как ракета</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — следим за чайкой</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = x^2$ (высота)</th><th>$y' = 2x$ (скорость)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$0$</td><td>$0$</td><td>$0$</td><td>🕊️ Касание воды, мгновение покоя</td>
+              </tr>
+              <tr class="table-success">
+                <td>$0.5$</td><td>$0.25$</td><td>$1$</td><td>🚀 Чайка взлетает, скорость 1</td>
+              </tr>
+              <tr class="table-success">
+                <td>$1$</td><td>$1$</td><td>$2$</td><td>⚡ Скорость выросла до 2</td>
+              </tr>
+              <tr class="table-success">
+                <td>$2$</td><td>$4$</td><td>$4$</td><td>🚀🚀 Скорость уже 4!</td>
+              </tr>
+              <tr class="table-success">
+                <td>$3$</td><td>$9$</td><td>$6$</td><td>⚡⚡⚡ Разгон продолжается</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Чем дальше от воды, тем быстрее летит чайка!<br>
+          Скорость (производная) растёт → $y'' > 0$
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x > 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
+          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          ⚡ Взлетает <strong>всё быстрее и быстрее</strong> → $y'' > 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для $x > 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🕊️ ЧАЙКА<br>$y > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              ⚡ ВСЁ БЫСТРЕЕ<br>$y'' > 0$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_analysis_quadratic_001",
+    "type": "multiplechoices",
+    "header": "Анализ производных квадратичной функции",
+    "title": "Определение поведения функции по знакам производных",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Дана функция $y = x^2$ (парабола, ветви вверх). Выберите верное описание знаков первой и второй производной на интервалах $x < 0$ и $x > 0$:",
+    "functionType": "quadratic",
+    "func": (x) => x * x,
+    "choices": [
+      "При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$",
+      "При $x < 0$: $y' > 0$, $y'' > 0$; при $x > 0$: $y' < 0$, $y'' > 0$",
+      "При $x < 0$: $y' < 0$, $y'' < 0$; при $x > 0$: $y' > 0$, $y'' < 0$",
+      "При $x < 0$: $y' > 0$, $y'' < 0$; при $x > 0$: $y' < 0$, $y'' < 0$",
+      "При $x < 0$: $y' = 0$, $y'' = 0$; при $x > 0$: $y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных квадратичной функции $y = x^2$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = x^2$, $y' = 2x$, $y'' = 2$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ (вогнута вниз) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Замедляется = $y'' < 0$ (выпукла вверх)
+    </div>
+
+    <div class="row">
+      <!-- Случай x > 0 -->
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-success">
+          <div class="card-header bg-success text-white">
+            <h5>📈 При $x > 0$ (правая ветвь)</h5>
+          </div>
+          <div class="card-body">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 2x$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $2x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 2$</div>
+              <div class="card-body">
+                <p class="card-text">$2 > 0$</p>
+                <div class="alert alert-warning mt-2 mb-0">
+                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
+                  <em>График вогнут вниз — разгоняется как ракета</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Случай x < 0 -->
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-primary">
+          <div class="card-header bg-primary text-white">
+            <h5>📉 При $x < 0$ (левая ветвь)</h5>
+          </div>
+          <div class="card-body">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 2x$</div>
+              <div class="card-body">
+                <p class="card-text">При $x < 0$: $2x < 0$</p>
+                <div class="alert alert-danger mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  📉 <strong>ПАДАЕТ</strong> → $y' < 0$<br>
+                  <em>Функция убывает — чайка снижается, но всё ещё над водой</em>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 2$</div>
+              <div class="card-body">
+                <p class="card-text">$2 > 0$</p>
+                <div class="alert alert-warning mt-2 mb-0">
+                  ⚡ <strong>ПАДАЕТ, НО ЗАМЕДЛЯЕТСЯ?</strong> Нет!<br>
+                  $y'' > 0$ значит <strong>ТОРМОЖЕНИЕ ПРИ СНИЖЕНИИ</strong><br>
+                  <em>Скорость падения уменьшается (падение идёт на спад) — готовимся к взлёту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Точка минимума — образ -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>🎯 Точка минимума $x = 0$ — момент чуда</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          🕊️ Чайка долетела до самой воды (точка $x=0$, $y=0$):<br>
+          • $y'(0) = 0$ — мгновение покоя, чайка коснулась воды<br>
+          • $y'' > 0$ — она <strong>готова оттолкнуться и взлететь вверх</strong><br>
+          <strong>Это точка минимума!</strong> — чайка коснулась воды и снова взмывает ввысь
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $y = x^2$</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-success">
+              <strong>На всём пути чайка НАД ВОДОЙ</strong> ($y > 0$), кроме самой воды ($y=0$)
+            </div>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            🕊️ <strong>При $x < 0$ (слева от воды):</strong><br>
+            Чайка 📉 <strong>падает</strong> ($y' < 0$), но падение 🐢 <strong>замедляется</strong> ($y'' > 0$)<br>
+            <em>→ Скорость снижения уменьшается, готовится к касанию</em>
+          </li>
+          <li class="list-group-item">
+            🕊️ <strong>При $x > 0$ (справа от воды):</strong><br>
+            Чайка 🚀 <strong>взлетает</strong> ($y' > 0$), причём ⚡ <strong>всё быстрее и быстрее</strong> ($y'' > 0$)<br>
+            <em>→ Разгоняется после отскока от воды</em>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> При $x < 0$: $y' < 0$, $y'' > 0$; при $x > 0$: $y' > 0$, $y'' > 0$
+      </div>
+    </div>
+
+    <!-- Дополнительная ассоциативная таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Ассоциативная таблица для запоминания</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>Знак $y'$</th><th>Образ</th><th>Знак $y''$</th><th>Образ</th><th>Форма графика</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success">
+                <td>$y' > 0$</td><td>🚀 Взлетает</td>
+                <td>$y'' > 0$</td><td>⚡ Всё быстрее</td><td>📈 Вогнута вниз (ускоряется)</td>
+              </tr>
+              <tr class="table-danger">
+                <td>$y' < 0$</td><td>📉 Падает</td>
+                <td>$y'' > 0$</td><td>🐢 Замедляет падение</td><td>📉 Тормозит перед минимумом</td>
+              </tr>
+              <tr class="table-warning">
+                <td>$y' > 0$</td><td>🚀 Взлетает</td>
+                <td>$y'' < 0$</td><td>🐢 Замедляет рост</td><td>📈 Выпукла вверх (насыщение)</td>
+              </tr>
+              <tr class="table-info">
+                <td>$y' < 0$</td><td>📉 Падает</td>
+                <td>$y'' < 0$</td><td>⚡ Падает всё быстрее</td><td>📉 Вогнута вниз (ускоряется вниз)</td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+
+  {
+    "id": "derivative_absolute_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных функции модуля",
+    "title": "Знаки производных y = |x| на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = |x|$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' = 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' = 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' = 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = |x|$ на интервале $x > 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> При $x > 0$: $y = x$, $y' = 1$, $y'' = 0$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🛤️ Постоянная скорость = $y'' = 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-success">
+      <div class="card-header bg-success text-white">
+        <h5>🕊️ Что происходит при $x > 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 1$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $1 > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 0$</div>
+              <div class="card-body">
+                <p class="card-text">$0 = 0$</p>
+                <div class="alert alert-secondary mt-2 mb-0">
+                  🛤️ <strong>ЛЕТИТ С ПОСТОЯННОЙ СКОРОСТЬЮ</strong> → $y'' = 0$<br>
+                  <em>График — прямая линия, нет ускорения</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — чайка летит ровно</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = |x|$ (высота)</th><th>$y' = 1$ (скорость)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$0$</th><th>$0$</th><th>$1$</th><th>🕊️ Отрыв от воды, скорость 1</th>
+              </tr>
+              <tr class="table-success">
+                <td>$1$</th><th>$1$</th><th>$1$</th><th>🛤️ Всё так же скорость 1</th>
+              寸
+              <tr class="table-success">
+                <td>$2$</th><th>$2$</th><th>$1$</th><th>🛤️ Скорость не меняется — 1</th>
+              </tr>
+              <tr class="table-success">
+                <td>$3$</th><th>$3$</th><th>$1$</th><th>🛤️ Постоянная скорость</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Важно!</strong> Вторая производная $y'' = 0$, потому что скорость <strong>не меняется</strong>.<br>
+          Чайка летит равномерно — ни разгона, ни торможения.
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x > 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
+          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          🛤️ Взлетает <strong>с постоянной скоростью</strong> → $y'' = 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 🚀 + 🛤️ = $y' > 0$, $y'' = 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' = 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для $x > 0$ (модуль)</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🕊️ ЧАЙКА<br>$y > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-secondary mb-0">
+              🛤️ С const СКОРОСТЬЮ<br>$y'' = 0$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_absolute_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных функции модуля",
+    "title": "Знаки производных y = |x| на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = |x|$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "absolute",
+    "func": (x) => Math.abs(x),
+    "choices": [
+      "$y' > 0$, $y'' = 0$",
+      "$y' < 0$, $y'' = 0$",
+      "$y' > 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' < 0$, $y'' = 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = |x|$ на интервале $x < 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> При $x < 0$: $y = -x$, $y' = -1$, $y'' = 0$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🛤️ Постоянная скорость = $y'' = 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>🕊️ Что происходит при $x < 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = -1$</div>
+              <div class="card-body">
+                <p class="card-text">При $x < 0$: $-1 < 0$</p>
+                <div class="alert alert-primary mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  📉 <strong>ПАДАЕТ</strong> → $y' < 0$<br>
+                  <em>Функция убывает — чайка снижается к воде</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 0$</div>
+              <div class="card-body">
+                <p class="card-text">$0 = 0$</p>
+                <div class="alert alert-secondary mt-2 mb-0">
+                  🛤️ <strong>ПАДАЕТ С ПОСТОЯННОЙ СКОРОСТЬЮ</strong> → $y'' = 0$<br>
+                  <em>График — прямая линия, скорость снижения не меняется</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — чайка снижается ровно</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = |x|$ (высота)</th><th>$y' = -1$ (скорость)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$-3$</th><th>$3$</th><th>$-1$</th><th>🕊️ Высоко, снижается со скоростью 1</th>
+              寸
+              <tr class="table-info">
+                <td>$-2$</th><th>$2$</th><th>$-1$</th><th>🛤️ Всё так же скорость 1 вниз</th>
+              寸
+              <tr class="table-info">
+                <td>$-1$</th><th>$1$</th><th>$-1$</th><th>🛤️ Скорость не меняется — 1</th>
+              寸
+              <tr class="table-success">
+                <td>$0$</th><th>$0$</th><th>$-1$</th><th>🕊️ Касание воды, скорость всё ещё 1</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Важно!</strong> Вторая производная $y'' = 0$, потому что скорость <strong>не меняется</strong>.<br>
+          Чайка снижается равномерно — ни ускорения, ни замедления.
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x < 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-primary">
+          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
+          📉 Чайка <strong>падает</strong> → $y' < 0$<br>
+          🛤️ Падает <strong>с постоянной скоростью</strong> → $y'' = 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 📉 + 🛤️ = $y' < 0$, $y'' = 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' < 0$, $y'' = 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для $x < 0$ (модуль)</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🕊️ ЧАЙКА<br>$y > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-primary mb-0">
+              📉 ПАДАЕТ<br>$y' < 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-secondary mb-0">
+              🛤️ С const СКОРОСТЬЮ<br>$y'' = 0$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Важное замечание про точку x = 0 -->
+    <div class="card mt-3 border-danger">
+      <div class="card-header bg-danger text-white">
+        <h5>⚠️ Особенность функции $y = |x|$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-danger mb-0">
+          В точке $x = 0$ производная <strong>НЕ СУЩЕСТВУЕТ</strong> (график имеет излом).<br>
+          Чайка резко меняет направление: падала → оттолкнулась → полетела вверх.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_cubic_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных кубической функции",
+    "title": "Знаки производных y = x³ на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^3$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "cubic",
+    "func": (x) => x * x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🧜‍♀️ Анализ производных $y = x^3$ на интервале $x < 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = x^3$, $y' = 3x^2$, $y'' = 6x$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>🧜‍♀️ Что происходит при $x < 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 3x^2$</div>
+              <div class="card-body">
+                <p class="card-text">При $x < 0$: $3x^2 > 0$ (квадрат всегда ≥ 0)</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🧜‍♀️ <strong>РУСАЛКА</strong> (функция < 0)<br>
+                  🚀 <strong>ВСПЛЫВАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — русалка поднимается из глубины</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 6x$</div>
+              <div class="card-body">
+                <p class="card-text">При $x < 0$: $6x < 0$</p>
+                <div class="alert alert-danger mt-2 mb-0">
+                  🐢 <strong>ВСПЛЫВАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$<br>
+                  <em>График выпуклый вверх — скорость всплытия уменьшается</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — русалка поднимается из глубины</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = x^3$ (глубина)</th><th>$y' = 3x^2$ (скорость)</th><th>$y'' = 6x$ (ускорение)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-danger">
+                <td>$-3$</th><th>$-27$</th><th>$27$</th><th>$-18$</th><th>🧜‍♀️ Глубоко, быстро всплывает, но тормозит</th>
+              </tr>
+              <tr class="table-danger">
+                <td>$-2$</th><th>$-8$</th><th>$12$</th><th>$-12$</th><th>🐢 Скорость уменьшается (12 → ...)</th>
+              </tr>
+              <tr class="table-warning">
+                <td>$-1$</th><th>$-1$</th><th>$3$</th><th>$-6$</th><th>🐢 Совсем медленно, почти у поверхности</th>
+              </tr>
+              <tr class="table-info">
+                <td>$0$</th><th>$0$</th><th>$0$</th><th>$0$</th><th>🔄 Мгновение покоя — точка перегиба</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Русалка всплывает 🚀, но <strong>замедляется</strong> 🐢!<br>
+          Скорость (производная) уменьшается → $y'' < 0$
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🧜‍♀️ Образный итог для $x < 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-danger">
+          🧜‍♀️ Русалка <strong>под водой</strong> → $y < 0$<br>
+          🚀 Русалка <strong>всплывает</strong> → $y' > 0$<br>
+          🐢 Всплывает <strong>всё медленнее</strong> → $y'' < 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🧜‍♀️ + 🚀 + 🐢 = $y' > 0$, $y'' < 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' < 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для $x < 0$ (кубическая)</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-danger mb-0">
+              🧜‍♀️ РУСАЛКА<br>$y < 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🚀 ВСПЛЫВАЕТ<br>$y' > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-danger mb-0">
+              🐢 ВСЁ МЕДЛЕННЕЕ<br>$y'' < 0$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_cubic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных кубической функции",
+    "title": "Знаки производных y = x³ на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = x^3$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "cubic",
+    "func": (x) => x * x * x,
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = x^3$ на интервале $x > 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = x^3$, $y' = 3x^2$, $y'' = 6x$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-success">
+      <div class="card-header bg-success text-white">
+        <h5>🕊️ Что происходит при $x > 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = 3x^2$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $3x^2 > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = 6x$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $6x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
+                  <em>График вогнут вниз — разгоняется как ракета</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — чайка разгоняется</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = x^3$ (высота)</th><th>$y' = 3x^2$ (скорость)</th><th>$y'' = 6x$ (ускорение)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$0$</th><th>$0$</th><th>$0$</th><th>$0$</th><th>🔄 Мгновение покоя — точка перегиба</th>
+              </tr>
+              <tr class="table-success">
+                <td>$1$</th><th>$1$</th><th>$3$</th><th>$6$</th><th>🚀 Чайка взлетает, скорость 3</th>
+              </tr>
+              <tr class="table-success">
+                <td>$2$</th><th>$8$</th><th>$12$</th><th>$12$</th><th>⚡ Скорость выросла до 12!</th>
+              </tr>
+              <tr class="table-success">
+                <td>$3$</th><th>$27$</th><th>$27$</th><th>$18$</th><th>⚡⚡⚡ Разгон продолжается</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Чайка взлетает 🚀 и <strong>разгоняется</strong> ⚡!<br>
+          Скорость (производная) растёт → $y'' > 0$
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x > 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
+          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          ⚡ Взлетает <strong>всё быстрее</strong> → $y'' > 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для $x > 0$ (кубическая)</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🕊️ ЧАЙКА<br>$y > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              ⚡ ВСЁ БЫСТРЕЕ<br>$y'' > 0$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_logarithmic_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных логарифмической функции",
+    "title": "Знаки производных y = ln(x) на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\ln(x)$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "logarithmic",
+    "func": (x) => Math.log(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' < 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = \\ln(x)$ на интервале $x > 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = \\ln(x)$, $y' = \\frac{1}{x}$, $y'' = -\\frac{1}{x^2}$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Важное замечание про область определения -->
+    <div class="alert alert-warning mb-3">
+      <strong>⚠️ Важно!</strong> Логарифм определён только при $x > 0$ (чайка летает только над водой, никогда не ныряет).
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-success">
+      <div class="card-header bg-success text-white">
+        <h5>🕊️ Что происходит при $x > 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = \\frac{1}{x}$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $\\frac{1}{x} > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция может быть > 0 или < 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = -\\frac{1}{x^2}$</div>
+              <div class="card-body">
+                <p class="card-text">При $x > 0$: $-\\frac{1}{x^2} < 0$</p>
+                <div class="alert alert-danger mt-2 mb-0">
+                  🐢 <strong>ВЗЛЕТАЕТ, НО ВСЁ МЕДЛЕННЕЕ</strong> → $y'' < 0$<br>
+                  <em>График выпуклый вверх — скорость роста уменьшается</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — чайка набирает высоту, но устаёт</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = \\ln(x)$ (высота)</th><th>$y' = 1/x$ (скорость)</th><th>$y'' = -1/x^2$ (ускорение)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$0.5$</th><th>$-0.69$</th><th>$2$</th><th>$-4$</th><th>🧜‍♀️ Под водой, быстро всплывает, но тормозит</th>
+              </tr>
+              <tr class="table-warning">
+                <td>$1$</th><th>$0$</th><th>$1$</th><th>$-1$</th><th>🕊️ На поверхности, скорость 1, замедляется</th>
+              </tr>
+              <tr class="table-success">
+                <td>$2$</th><th>$0.69$</th><th>$0.5$</th><th>$-0.25$</th><th>🐢 Набрала высоту, летит медленнее</th>
+              </tr>
+              <tr class="table-success">
+                <td>$3$</th><th>$1.10$</th><th>$0.33$</th><th>$-0.11$</th><th>🐢 Совсем медленно, почти зависла</th>
+              </tr>
+              <tr class="table-success">
+                <td>$4$</th><th>$1.39$</th><th>$0.25$</th><th>$-0.06$</th><th>🦥 Очень медленно, рост почти остановился</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Чайка взлетает 🚀, но <strong>замедляется</strong> 🐢!<br>
+          Скорость (производная) уменьшается → $y'' < 0$<br>
+          Чем выше чайка, тем медленнее она летит — как будто устаёт.
+        </div>
+      </div>
+    </div>
+
+    <!-- График поведения -->
+    <div class="card mb-3 border-info">
+      <div class="card-header bg-info text-white">
+        <h5>📈 Как меняется скорость?</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-secondary">
+          $y' = \\frac{1}{x}$ — это гипербола:<br>
+          • При $x \\to 0^+$: $y' \\to +\\infty$ (чайка вылетает с огромной скоростью из воды)<br>
+          • При $x = 1$: $y' = 1$ (нормальная скорость)<br>
+          • При $x \\to +\\infty$: $y' \\to 0$ (чайка почти остановилась, зависла в воздухе)
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x > 0$ (логарифм)</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          🐢 Взлетает <strong>всё медленнее</strong> → $y'' < 0$
+        </div>
+        <div class="alert alert-info mt-2">
+          📌 <strong>Важно:</strong> При $0 < x < 1$ чайка ещё <strong>под водой</strong> (🧜‍♀️ Русалка),<br>
+          но всё равно <strong>всплывает</strong> с замедлением!
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️/🧜‍♀️ + 🚀 + 🐢 = $y' > 0$, $y'' < 0$</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' < 0$
+      </div>
+    </div>
+
+    <!-- Ассоциативная мини-таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Запоминалка для логарифма $y = \\ln(x)$</h5>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-4">
+            <div class="alert alert-success mb-0">
+              🚀 ВЗЛЕТАЕТ<br>$y' > 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-danger mb-0">
+              🐢 ВСЁ МЕДЛЕННЕЕ<br>$y'' < 0$
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="alert alert-info mb-0">
+              📈 ЛОГАРИФМ<br>растёт, но затухает
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_logarithmic_comparison",
+    "type": "multiplechoices",
+    "header": "Сравнение скорости роста логарифма",
+    "title": "Скорость роста y = ln(x) на разных интервалах",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = \\ln(x)$ сравните значения первой производной $y'$ на интервалах $(0, 1)$ и $(1, +\\infty)$. Какое утверждение верно?",
+    "functionType": "logarithmic",
+    "func": (x) => Math.log(x),
+    "choices": [
+      "$y'$ больше на интервале $(0, 1)$",
+      "$y'$ больше на интервале $(1, +\\infty)$",
+      "$y'$ одинакова на обоих интервалах",
+      "$y'$ отрицательна на $(0, 1)$ и положительна на $(1, +\\infty)$",
+      "$y' = 0$ на обоих интервалах"
+    ],
+    "answers": ["$y'$ больше на интервале $(0, 1)$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Сравнение скорости роста $y = \\ln(x)$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Напоминание:</strong> $y' = \\frac{1}{x}$
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-warning">
+          <div class="card-header bg-warning text-dark">
+            <h5>🧜‍♀️ На интервале $(0, 1)$ — под водой</h5>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-secondary">
+              $x$ маленький → $y' = 1/x$ ОГРОМНЫЙ
+            </div>
+            <p class="card-text text-center mt-2">
+              <strong>Числовые примеры:</strong><br>
+              $x = 0.1$: $y' = 10$ ⚡⚡⚡<br>
+              $x = 0.2$: $y' = 5$ ⚡⚡<br>
+              $x = 0.5$: $y' = 2$ ⚡<br>
+              $x = 0.8$: $y' = 1.25$ 
+            </p>
+            <div class="alert alert-info mt-2">
+              💡 Русалка 🧜‍♀️ <strong>стремительно всплывает</strong> из глубины!<br>
+              Скорость огромная, но быстро падает.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-success">
+          <div class="card-header bg-success text-white">
+            <h5>🕊️ На интервале $(1, +\\infty)$ — над водой</h5>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-secondary">
+              $x$ большой → $y' = 1/x$ МАЛЕНЬКИЙ
+            </div>
+            <p class="card-text text-center mt-2">
+              <strong>Числовые примеры:</strong><br>
+              $x = 1$: $y' = 1$<br>
+              $x = 2$: $y' = 0.5$ 🐢<br>
+              $x = 3$: $y' \\approx 0.33$ 🐢<br>
+              $x = 10$: $y' = 0.1$ 🦥
+            </p>
+            <div class="alert alert-warning mt-2">
+              💡 Чайка 🕊️ <strong>едва ползёт</strong> в небе.<br>
+              Скорость маленькая и продолжает падать.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- График производной -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📉 График $y' = 1/x$ — гипербола</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-secondary">
+          • При $x \\to 0^+$: $y' \\to +\\infty$ (скорость стремится к бесконечности)<br>
+          • При $x = 1$: $y' = 1$<br>
+          • При $x \\to +\\infty$: $y' \\to 0$ (скорость стремится к нулю)
+        </div>
+        <div class="alert alert-success mt-2">
+          ✅ <strong>Вывод:</strong> Скорость максимальна <strong>сразу после старта</strong> (при маленьких $x$)<br>
+          и постоянно <strong>убывает</strong> с ростом $x$.
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образное сравнение</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          🧜‍♀️ <strong>На интервале $(0, 1)$:</strong> Русалка вылетает из воды как ракета! 🚀🚀🚀<br>
+          Скорость огромная (до бесконечности у самой поверхности).<br><br>
+          🕊️ <strong>На интервале $(1, +\\infty)$:</strong> Чайка уже устала, еле машет крыльями 🐢<br>
+          Скорость маленькая и стремится к нулю.
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>⚡ Максимальная скорость — в начале пути (при $x \\to 0^+$)</h4>
+          <h4>🐢 Минимальная скорость — в бесконечности (при $x \\to +\\infty$)</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y'$ больше на интервале $(0, 1)$
+      </div>
+    </div>
+
+    <!-- Ассоциативная таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Сравнительная таблица</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>Интервал</th><th>Образ</th><th>$x$</th><th>$y' = 1/x$</th><th>Скорость</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-warning">
+                <td>$(0, 1)$</th><th>🧜‍♀️ Русалка</th><th>$0.1$</th><th>$10$</th><th>⚡⚡⚡ ОГРОМНАЯ</th>
+              </tr>
+              <tr class="table-success">
+                <td>$(1, +\\infty)$</th><th>🕊️ Чайка</th><th>$10$</th><th>$0.1$</th><th>🐢 МАЛЕНЬКАЯ</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_exponential_x_negative",
+    "type": "multiplechoices",
+    "header": "Анализ производных экспоненциальной функции",
+    "title": "Знаки производных y = e^x на интервале x < 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ на интервале $x < 0$ определите знаки первой и второй производных:",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = e^x$ на интервале $x < 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = e^x$, $y' = e^x$, $y'' = e^x$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Важное замечание -->
+    <div class="alert alert-success mb-3">
+      <strong>✨ Особенность экспоненты:</strong> $y = y' = y''$ — функция, скорость и ускорение равны друг другу!
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>🕊️ Что происходит при $x < 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = e^x$</div>
+              <div class="card-body">
+                <p class="card-text">При любом $x$: $e^x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = e^x$</div>
+              <div class="card-body">
+                <p class="card-text">$e^x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
+                  <em>График вогнут вниз — разгоняется</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — чайка разгоняется ещё под водой?</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = e^x$ (высота)</th><th>$y' = e^x$ (скорость)</th><th>$y'' = e^x$ (ускорение)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$-3$</th><th>$0.05$</th><th>$0.05$</th><th>$0.05$</th><th>🧜‍♀️ Почти под водой, чуть-чуть над</th>
+              </tr>
+              <tr class="table-info">
+                <td>$-2$</th><th>$0.14$</th><th>$0.14$</th><th>$0.14$</th><th>🐣 Только вылупилась, еле ползёт</th>
+              </tr>
+              <tr class="table-success">
+                <td>$-1$</th><th>$0.37$</th><th>$0.37$</th><th>$0.37$</th><th>🐥 Набирает скорость потихоньку</th>
+              </tr>
+              <tr class="table-success">
+                <td>$0$</th><th>$1$</th><th>$1$</th><th>$1$</th><th>🕊️ Нормальная скорость 1</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Даже при отрицательных $x$ чайка уже <strong>над водой</strong> (хоть и низко)<br>
+          и <strong>разгоняется</strong> ⚡, готовясь к стремительному взлёту!
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x < 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>над водой</strong> (хоть и низко) → $y > 0$<br>
+          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          ⚡ Взлетает <strong>всё быстрее</strong> → $y'' > 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
+          <p class="text-muted">(как и при $x > 0$!)</p>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_exponential_x_positive",
+    "type": "multiplechoices",
+    "header": "Анализ производных экспоненциальной функции",
+    "title": "Знаки производных y = e^x на интервале x > 0",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ на интервале $x > 0$ определите знаки первой и второй производных:",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y' > 0$, $y'' > 0$",
+      "$y' > 0$, $y'' < 0$",
+      "$y' < 0$, $y'' > 0$",
+      "$y' < 0$, $y'' < 0$",
+      "$y' = 0$, $y'' = 0$"
+    ],
+    "answers": ["$y' > 0$, $y'' > 0$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Анализ производных $y = e^x$ на интервале $x > 0$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Исходные данные:</strong> $y = e^x$, $y' = e^x$, $y'' = e^x$
+    </div>
+
+    <!-- Образная шпаргалка -->
+    <div class="alert alert-info mb-3">
+      <strong>🎭 Образные ассоциации:</strong><br>
+      🕊️ Чайка = $y > 0$ (над водой) &nbsp;&nbsp;|&nbsp;&nbsp;
+      🧜‍♀️ Русалка = $y < 0$ (под водой)<br>
+      🚀 Взлетает = $y' > 0$ (возрастает) &nbsp;&nbsp;|&nbsp;&nbsp;
+      📉 Падает = $y' < 0$ (убывает)<br>
+      ⚡ Всё быстрее = $y'' > 0$ &nbsp;&nbsp;|&nbsp;&nbsp;
+      🐢 Всё медленнее = $y'' < 0$
+    </div>
+
+    <!-- Графическая метафора -->
+    <div class="card mb-3 border-success">
+      <div class="card-header bg-success text-white">
+        <h5>🕊️ Что происходит при $x > 0$?</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Первая производная $y' = e^x$</div>
+              <div class="card-body">
+                <p class="card-text">$e^x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  🕊️ <strong>ЧАЙКА</strong> (функция > 0)<br>
+                  🚀 <strong>ВЗЛЕТАЕТ</strong> → $y' > 0$<br>
+                  <em>Функция возрастает — чайка набирает высоту</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-2">
+              <div class="card-header bg-info text-white">Вторая производная $y'' = e^x$</div>
+              <div class="card-body">
+                <p class="card-text">$e^x > 0$</p>
+                <div class="alert alert-success mt-2 mb-0">
+                  ⚡ <strong>ВЗЛЕТАЕТ ВСЁ БЫСТРЕЕ</strong> → $y'' > 0$<br>
+                  <em>График вогнут вниз — бешеный разгон</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Числовой пример -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📊 Числовой пример — ракета улетает в космос</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$x$</th><th>$y = e^x$ (высота)</th><th>$y' = e^x$ (скорость)</th><th>$y'' = e^x$ (ускорение)</th><th>Образ</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success">
+                <td>$0$</th><th>$1$</th><th>$1$</th><th>$1$</th><th>🕊️ Старт! Скорость 1</th>
+              </tr>
+              <tr class="table-success">
+                <td>$1$</th><th>$2.72$</th><th>$2.72$</th><th>$2.72$</th><th>🚀 Уже скорость 2.7!</th>
+              </tr>
+              <tr class="table-success">
+                <td>$2$</th><th>$7.39$</th><th>$7.39$</th><th>$7.39$</th><th>⚡ Скорость 7.4 — растёт!</th>
+              </tr>
+              <tr class="table-success">
+                <td>$3$</th><th>$20.09$</th><th>$20.09$</th><th>$20.09$</th><th>🚀🚀🚀 Скорость 20!</th>
+              </tr>
+              <tr class="table-success">
+                <td>$4$</th><th>$54.60$</th><th>$54.60$</th><th>$54.60$</th><th>💫 Невероятный разгон!</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning mt-3">
+          💡 <strong>Видите?</strong> Скорость и ускорение <strong>равны высоте</strong> и растут экспоненциально!<br>
+          Чайка превратилась в 🚀 <strong>ракету</strong>, улетающую в космос!
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образный итог для $x > 0$</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🕊️ Чайка <strong>над водой</strong> → $y > 0$<br>
+          🚀 Чайка <strong>взлетает</strong> → $y' > 0$<br>
+          ⚡ Взлетает <strong>всё быстрее и быстрее</strong> → $y'' > 0$
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>🕊️ + 🚀 + ⚡ = $y' > 0$, $y'' > 0$</h4>
+          <p class="text-muted">(и это невероятное ускорение!)</p>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y' > 0$, $y'' > 0$
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_exponential_comparison",
+    "type": "multiplechoices",
+    "header": "Сравнение скорости роста экспоненты",
+    "title": "Скорость роста y = e^x на разных интервалах",
+    "theme": "Числа и производные",
+    "functionGraph": "true",
+    "text": "Для функции $y = e^x$ сравните значения первой производной $y'$ на интервалах $(-\\infty, 0)$ и $(0, +\\infty)$. Какое утверждение верно?",
+    "functionType": "exponential",
+    "func": (x) => Math.exp(x),
+    "choices": [
+      "$y'$ больше на интервале $(-\\infty, 0)$",
+      "$y'$ больше на интервале $(0, +\\infty)$",
+      "$y'$ одинакова на обоих интервалах",
+      "$y'$ отрицательна на $(-\\infty, 0)$ и положительна на $(0, +\\infty)$",
+      "$y' = 0$ на обоих интервалах"
+    ],
+    "answers": ["$y'$ больше на интервале $(0, +\\infty)$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>🕊️ Сравнение скорости роста $y = e^x$</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Напоминание:</strong> $y' = e^x$ — это та же экспонента!
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-info">
+          <div class="card-header bg-info text-white">
+            <h5>🐣 На интервале $(-\\infty, 0)$</h5>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-secondary">
+              $x$ отрицательный → $e^x$ МАЛЕНЬКИЙ
+            </div>
+            <p class="card-text text-center mt-2">
+              <strong>Числовые примеры:</strong><br>
+              $x = -3$: $y' \\approx 0.05$ 🐌<br>
+              $x = -2$: $y' \\approx 0.14$ 🐢<br>
+              $x = -1$: $y' \\approx 0.37$ 🐥<br>
+              $x = 0$: $y' = 1$ 
+            </p>
+            <div class="alert alert-info mt-2">
+              💡 Чайка только <strong>вылупилась из яйца</strong> 🐣,<br>
+              еле ползёт, набирается сил перед полётом.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="card h-100 border-danger">
+          <div class="card-header bg-danger text-white">
+            <h5>🚀 На интервале $(0, +\\infty)$</h5>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-secondary">
+              $x$ положительный → $e^x$ ОГРОМНЫЙ
+            </div>
+            <p class="card-text text-center mt-2">
+              <strong>Числовые примеры:</strong><br>
+              $x = 0$: $y' = 1$<br>
+              $x = 1$: $y' \\approx 2.72$ 🚀<br>
+              $x = 2$: $y' \\approx 7.39$ ⚡<br>
+              $x = 3$: $y' \\approx 20.09$ 💫
+            </p>
+            <div class="alert alert-danger mt-2">
+              💡 Чайка превратилась в 🚀 <strong>ракету</strong>,<br>
+              улетающую с бешеной скоростью!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- График производной -->
+    <div class="card mb-3 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5>📈 График $y' = e^x$ — та же экспонента</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-secondary">
+          • При $x \\to -\\infty$: $y' \\to 0$ (скорость стремится к нулю)<br>
+          • При $x = 0$: $y' = 1$<br>
+          • При $x \\to +\\infty$: $y' \\to +\\infty$ (скорость стремится к бесконечности)
+        </div>
+        <div class="alert alert-warning mt-2">
+          ✅ <strong>Вывод:</strong> Скорость <strong>минимальна</strong> при $x \\to -\\infty$ (чайка только родилась)<br>
+          и <strong>максимальна</strong> при $x \\to +\\infty$ (ракета улетает в космос)!
+        </div>
+      </div>
+    </div>
+
+    <!-- Образный итог -->
+    <div class="card mt-2 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5>🕊️ Образное сравнение</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-success">
+          🐣 <strong>На интервале $(-\\infty, 0)$:</strong><br>
+          Чайка только вылупилась, еле дышит, скорость почти нулевая 🐌<br><br>
+          🚀 <strong>На интервале $(0, +\\infty)$:</strong><br>
+          Чайка превратилась в ракету, скорость растёт экспоненциально и улетает в бесконечность! 💫
+        </div>
+        <hr>
+        <div class="text-center">
+          <h4>📈 Экспонента: от 0 до ∞ за мгновение!</h4>
+        </div>
+      </div>
+      <div class="card-footer bg-warning text-dark">
+        <strong>✅ Правильный ответ:</strong> $y'$ больше на интервале $(0, +\\infty)$
+      </div>
+    </div>
+
+    <!-- Ассоциативная таблица -->
+    <div class="card mt-3 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5>📋 Сравнительная таблица</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>Интервал</th><th>Образ</th><th>$x$</th><th>$y' = e^x$</th><th>Скорость</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>$(-\\infty, 0)$</th><th>🐣 Птенец</th><th>$-3$</th><th>$0.05$</th><th>🐌 ОЧЕНЬ МАЛЕНЬКАЯ</th>
+              </tr>
+              <tr class="table-danger">
+                <td>$(0, +\\infty)$</th><th>🚀 Ракета</th><th>$3$</th><th>$20.09$</th><th>💫 ОГРОМНАЯ</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>`
+  },
 
 
 
-    // Первообразная и интеграл
+  // 12. Применение производной
+
+  {
+    "id": "der2_006",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Физический смысл второй производной для y = 3x",
+    "theme": "Ускорение при равномерном движении",
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
+    "text": "Если $y = 3x$ описывает путь тела в метрах в зависимости от времени $x$ в секундах, то ускорение тела равно:",
+    "choices": [
+      "0 м/с²",
+      "1 м/с²",
+      "3 м/с²",
+      "6 м/с²",
+      "9 м/с²"
+    ],
+    "answers": ["0 м/с²"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Физическая интерпретация:</h5>
+<p><strong>Первая производная</strong> пути по времени — это <strong>скорость</strong>:</p>
+<p>$v(t) = s'(t) = (3t)' = 3$ м/с</p>
+<p><strong>Вторая производная</strong> пути по времени — это <strong>ускорение</strong>:</p>
+<p>$a(t) = s''(t) = (3)' = 0$ м/с²</p>
+<p><strong>Вывод:</strong> Тело движется равномерно прямолинейно с постоянной скоростью 3 м/с. При равномерном движении ускорение равно нулю.</p>
+<p><strong>Проверка через определение ускорения:</strong></p>
+<p>Ускорение — это изменение скорости за единицу времени:</p>
+<p>$a = \\lim\\limits_{\\Delta t \\to 0} \\frac{v(t+\\Delta t) - v(t)}{\\Delta t}$</p>
+<p>Так как $v(t) = 3$ м/с для всех $t$, то $v(t+\\Delta t) = 3$ м/с</p>
+<p>$a = \\lim\\limits_{\\Delta t \\to 0} \\frac{3 - 3}{\\Delta t} = 0$</p>
+<p><strong>Реальное движение:</strong> если тело за каждую секунду проходит 3 метра, его скорость постоянна, ускорение отсутствует.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+  {
+    "id": "der2_007",
+    "type": "multiplechoices",
+    "header": "Дифференциальное исчисление",
+    "title": "Сравнение вторых производных",
+    "theme": "Вторые производные функций y = x, 2x, 3x, 4x",
+    "text": "Сравните вторые производные функций: $y = x$, $y = 2x$, $y = 3x$, $y = 4x$",
+    "functionType": "linear_3x",
+    "func": (x) => 2 * x + x,
+    "choices": [
+      "Все вторые производные равны 0",
+      "Вторая производная больше у функции с большим коэффициентом",
+      "Вторая производная пропорциональна коэффициенту",
+      "Вторая производная равна квадрату коэффициента",
+      "Вторые производные не существуют"
+    ],
+    "answers": ["Все вторые производные равны 0"],
+    "hint": `<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h5>Сравнительный анализ:</h5>
+<p>Вычислим вторые производные для всех функций:</p>
+<table class="table table-bordered">
+<thead>
+<tr><th>Функция</th><th>Первая производная</th><th>Вторая производная</th></tr>
+</thead>
+<tbody>
+<tr><td>$y = x$</td><td>$y' = 1$</td><td>$y'' = 0$</td></tr>
+<tr><td>$y = 2x$</td><td>$y' = 2$</td><td>$y'' = 0$</td></tr>
+<tr><td>$y = 3x$</td><td>$y' = 3$</td><td>$y'' = 0$</td></tr>
+<tr><td>$y = 4x$</td><td>$y' = 4$</td><td>$y'' = 0$</td></tr>
+</tbody>
+</table>
+<p><strong>Общий вывод:</strong> Для любой линейной функции $y = kx + b$ вторая производная равна нулю независимо от значения коэффициента $k$.</p>
+<p><strong>Доказательство:</strong></p>
+<p>$y = kx + b$</p>
+<p>$y' = k$ (производная линейной функции)</p>
+<p>$y'' = (k)' = 0$ (производная константы)</p>
+<p><strong>Геометрический смысл:</strong> Вторая производная характеризует выпуклость/вогнутость функции. Для прямой линии нет кривизны, поэтому вторая производная равна нулю.</p>
+</div>
+</div>
+</div>
+</div>
+</div>`
+  },
+
+   {
+    "id": "derivative_trig_002",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Тригонометрия",
+    "title": "Производная синуса и косинуса",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = \\sin(x)$?",
+    "choices": [
+      "$\\sin(x)$",
+      "$\\cos(x)$",
+      "$-\\sin(x)$",
+      "$-\\cos(x)$",
+      "$\\tan(x)$"
+    ],
+    "answers": ["$\\cos(x)$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производные тригонометрических функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Основные формулы:</strong>
+      $$\\frac{d}{dx} \\sin(x) = \\cos(x)$$
+      $$\\frac{d}{dx} \\cos(x) = -\\sin(x)$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>🎭 Образная ассоциация</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">🕊️ Чайка-синус взлетает 🚀 и превращается в чайку-косинус!</p>
+        <p class="card-text">$$\uD83D\uDC0B \\sin(x) \\xrightarrow{\\text{производная}} \uD83D\uDC0B \\cos(x)$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных тригонометрических функций</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$\\sin(x)$</td><td>$\\cos(x)$</td></tr>
+              <tr class="table-info"><td>$\\cos(x)$</td><td>$-\\sin(x)$</td></tr>
+              <tr><td>$\\tan(x)$</td><td>$\\sec^2(x)$</td></tr>
+              <tr><td>$\\cot(x)$</td><td>$-\\csc^2(x)$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = \\cos(x)$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_power_001",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Степенная функция",
+    "title": "Производная степенной функции",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = x^5$?",
+    "choices": [
+      "$5x^4$",
+      "$4x^5$",
+      "$5x^6$",
+      "$x^4$",
+      "$5x^5$"
+    ],
+    "answers": ["$5x^4$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная степенной функции</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Формула:</strong>
+      $$\\frac{d}{dx} x^n = n \\cdot x^{n-1}$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Определяем степень</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$f(x) = x^5$, здесь $n = 5$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Применяем формулу</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$f'(x) = 5 \\cdot x^{5-1} = 5x^4$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица для запоминания</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$x^2$</td><td>$2x$</td></tr>
+              <tr><td>$x^3$</td><td>$3x^2$</td></tr>
+              <tr><td>$x^4$</td><td>$4x^3$</td></tr>
+              <tr class="table-success"><td>$x^5$</td><td>$5x^4$</td></tr>
+              <tr><td>$x^{10}$</td><td>$10x^9$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = 5x^4$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_exp_log_003",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Экспонента и логарифм",
+    "title": "Производная экспоненты и натурального логарифма",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = e^x$?",
+    "choices": [
+      "$e^x$",
+      "$x e^{x-1}$",
+      "$\\frac{1}{x}$",
+      "$\\ln(x)$",
+      "$x e^x$"
+    ],
+    "answers": ["$e^x$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная экспоненты и логарифма</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Уникальное свойство экспоненты:</strong>
+      $$\\frac{d}{dx} e^x = e^x$$
+      <hr>
+      <strong>📌 Производная натурального логарифма:</strong>
+      $$\\frac{d}{dx} \\ln(x) = \\frac{1}{x}, \\quad x > 0$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>✨ Экспонента — функция, равная своей производной</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Это уникальное свойство! Никакая другая функция не обладает им в такой простоте.</p>
+        <div class="alert alert-success">
+          🚀 Чайка-экспонента взлетает, и её скорость взлёта равна высоте!
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>📋 Таблица производных</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+            </thead>
+            <tbody>
+              <tr class="table-success"><td>$e^x$</td><td>$e^x$</td></tr>
+              <tr><td>$a^x$</td><td>$a^x \\ln(a)$</td></tr>
+              <tr class="table-info"><td>$\\ln(x)$</td><td>$\\frac{1}{x}$</td></tr>
+              <tr><td>$\\log_a(x)$</td><td>$\\frac{1}{x \\ln(a)}$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = e^x$
+    </div>
+  </div>
+</div>`
+  },
+
+  {
+    "id": "derivative_sum_004",
+    "type": "multiplechoices",
+    "header": "Дифференцирование: Линейность",
+    "title": "Производная суммы функций",
+    "theme": "Производные",
+
+    "text": "Чему равна производная функции $f(x) = x^3 + \\sin(x)$?",
+    "choices": [
+      "$3x^2 + \\cos(x)$",
+      "$3x^2 - \\cos(x)$",
+      "$x^3 + \\cos(x)$",
+      "$3x^2 + \\sin(x)$",
+      "$\\frac{x^4}{4} - \\cos(x)$"
+    ],
+    "answers": ["$3x^2 + \\cos(x)$"],
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h5>📐 Производная суммы функций</h5>
+  </div>
+  <div class="card-body">
+    
+    <div class="alert alert-secondary mb-3">
+      <strong>📌 Правило линейности:</strong>
+      $$(f(x) + g(x))' = f'(x) + g'(x)$$
+      $$(f(x) - g(x))' = f'(x) - g'(x)$$
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 1: Разбиваем на слагаемые</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$f(x) = x^3 + \\sin(x)$</p>
+        <p class="card-text">$$f'(x) = (x^3)' + (\\sin(x))'$$</p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-info text-white">
+        <h5>Шаг 2: Находим производные каждого слагаемого</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>$$(x^3)' = 3x^2$$</li>
+          <li>$$(\\sin(x))' = \\cos(x)$$</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header bg-success text-white">
+        <h5>Шаг 3: Складываем</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">$$f'(x) = 3x^2 + \\cos(x)$$</p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-warning">
+      <b>✅ Ответ:</b> $f'(x) = 3x^2 + \\cos(x)$
+    </div>
+  </div>
+</div>`
+  },
+
+
+
+// 13. Первообразная и интеграл
 
     {
       "id": "integral001random1",
@@ -880,64 +5169,64 @@ let quizesSets =
       "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5> О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong> Дана формула:</strong> $$\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5> Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма всех значений</strong>, в знаменателе — <strong>количество значений</strong>. Это формула <strong>среднего арифметического</strong>.</p></div></div><div class='alert alert-success'><strong> Правильный ответ:</strong> Среднее арифметическое</div></div></div>"
     },
 
-    {
-      "id": "finance_wacc_calc003",
-      "type": "mathwithrandomnumber",
-      "header": "14. Вероятность",
-      "title": "Расчет средней взвешенной",
-      "theme": "Оценка капитала",
-      "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
-      "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
-      "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    <h5>Расчёт WACC (средневзвешенной стоимости капитала)</h5>
-  </div>
-  <div class="card-body">
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        Формула WACC (без учёта налога)
-      </div>
-      <div class="card-body">
-        <p class="card-text text-center">$$WACC = \\frac{E}{E+D} \\cdot r_e + \\frac{D}{E+D} \\cdot r_d$$</p>
-        <ul>
-          <li><strong>E</strong> — собственный капитал = {var1-10} млн руб.</li>
-          <li><strong>D</strong> — заёмный капитал = {=1000-{var1-10}} млн руб.</li>
-          <li><strong>rₑ</strong> — стоимость собственного капитала = 15%</li>
-          <li><strong>r<sub>d</sub></strong> — стоимость заёмного капитала = 10%</li>
-          <li><strong>E + D</strong> = 1000 млн руб.</li>
-        </ul>
-      </div>
-    </div>
+//     {
+//       "id": "finance_wacc_calc003",
+//       "type": "mathwithrandomnumber",
+//       "header": "14. Вероятность",
+//       "title": "Расчет средней взвешенной",
+//       "theme": "Оценка капитала",
+//       "text": "Структура капитала компании: собственный капитал {var1-10} млн руб., заёмный капитал {=1000-{var1-10}} млн руб. Стоимость собственного капитала 15%, стоимость заёмного капитала 10%. Рассчитайте WACC (средневзвешенную стоимость капитала) в процентах (без учёта налога на прибыль).",
+//       "answer": "({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10",
+//       "hint": `
+// <div class="card">
+//   <div class="card-header bg-primary text-white">
+//     <h5>Расчёт WACC (средневзвешенной стоимости капитала)</h5>
+//   </div>
+//   <div class="card-body">
+//     <div class="card mb-3">
+//       <div class="card-header bg-info text-white">
+//         Формула WACC (без учёта налога)
+//       </div>
+//       <div class="card-body">
+//         <p class="card-text text-center">$$WACC = \\frac{E}{E+D} \\cdot r_e + \\frac{D}{E+D} \\cdot r_d$$</p>
+//         <ul>
+//           <li><strong>E</strong> — собственный капитал = {var1-10} млн руб.</li>
+//           <li><strong>D</strong> — заёмный капитал = {=1000-{var1-10}} млн руб.</li>
+//           <li><strong>rₑ</strong> — стоимость собственного капитала = 15%</li>
+//           <li><strong>r<sub>d</sub></strong> — стоимость заёмного капитала = 10%</li>
+//           <li><strong>E + D</strong> = 1000 млн руб.</li>
+//         </ul>
+//       </div>
+//     </div>
     
-    <div class="card mb-3">
-      <div class="card-header bg-info text-white">
-        Расчёт весов
-      </div>
-      <div class="card-body">
-        <p class="card-text">Доля собственного капитала: $$\\frac{{var1-10}}{1000} = {= {var1-10} / 1000}$$</p>
-        <p class="card-text">Доля заёмного капитала: $$\\frac{{=1000-{var1-10}}}{1000} = {= (1000 - {var1-10}) / 1000}$$</p>
-      </div>
-    </div>
+//     <div class="card mb-3">
+//       <div class="card-header bg-info text-white">
+//         Расчёт весов
+//       </div>
+//       <div class="card-body">
+//         <p class="card-text">Доля собственного капитала: $$\\frac{{var1-10}}{1000} = {= {var1-10} / 1000}$$</p>
+//         <p class="card-text">Доля заёмного капитала: $$\\frac{{=1000-{var1-10}}}{1000} = {= (1000 - {var1-10}) / 1000}$$</p>
+//       </div>
+//     </div>
     
-    <div class="card mb-3">
-      <div class="card-header bg-success text-white">
-        Вычисление WACC
-      </div>
-      <div class="card-body">
-        <p class="card-text">$$WACC = {= {var1-10} / 1000} \\cdot 15\\% + {= (1000 - {var1-10}) / 1000} \\cdot 10\\%$$</p>
-        <p class="card-text">$$WACC = {= ({var1-10} / 1000) * 15} + {= ((1000 - {var1-10}) / 1000) * 10} = {= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}\\%$$</p>
-      </div>
-    </div>
+//     <div class="card mb-3">
+//       <div class="card-header bg-success text-white">
+//         Вычисление WACC
+//       </div>
+//       <div class="card-body">
+//         <p class="card-text">$$WACC = {= {var1-10} / 1000} \\cdot 15\\% + {= (1000 - {var1-10}) / 1000} \\cdot 10\\%$$</p>
+//         <p class="card-text">$$WACC = {= ({var1-10} / 1000) * 15} + {= ((1000 - {var1-10}) / 1000) * 10} = {= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}\\%$$</p>
+//       </div>
+//     </div>
     
-    <div class="alert alert-primary mt-3">
-      <strong>Ответ:</strong> <code>({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10</code> или <code>{= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}</code>
-    </div>
-  </div>
-</div>`,
-      "randomfrom": [800, 700, 600, 500, 400, 300, 200],
-      "altpath": "currentDay",
-    },
+//     <div class="alert alert-primary mt-3">
+//       <strong>Ответ:</strong> <code>({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10</code> или <code>{= ({var1-10} / 1000) * 15 + ((1000 - {var1-10}) / 1000) * 10}</code>
+//     </div>
+//   </div>
+// </div>`,
+//       "randomfrom": [800, 700, 600, 500, 400, 300, 200],
+//       "altpath": "currentDay",
+//     },
 
 
 
@@ -949,13 +5238,13 @@ let quizesSets =
       "theme": "Геометрическая вероятность",
       "text": `На числовой прямой наугад выбирают точку $x$, удовлетворяющую неравенству $|x-5| \\le 10$. Какова вероятность того, что эта точка также удовлетворяет неравенству $|x-1| \\le 1$?`,
       "choices": [
-        "\\dfrac{1}{20}",
-        "\\dfrac{1}{10}",
-        "\\dfrac{1}{5}",
-        "\\dfrac{1}{4}",
-        "\\dfrac{1}{2}"
+        "$\\dfrac{1}{20}$",
+        "$\\dfrac{1}{10}$",
+        "$\\dfrac{1}{5}$",
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{2}$"
       ],
-      "answers": ["\\dfrac{1}{10}"],
+      "answers": ["$\\dfrac{1}{10}$"],
       "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5> Геометрическая вероятность</h5>
@@ -1074,13 +5363,13 @@ let quizesSets =
       "theme": "Основные определения ТВ",
       "text": `Сумма вероятностей двух событий A и B равна ...`,
       "choices": [
-        `P(A) + P(B)`,
-        `P(A) + P(B) - P(A \\cap B)`,
-        `P(A) + P(B) + P(A \\cap B)`,
-        `P(A) \\cdot P(B)`,
-        `1 - P(\\overline{A}) - P(\\overline{B})`
+        `$P(A) + P(B)$`,
+        `$P(A) + P(B) - P(A \\cap B)$`,
+        `$P(A) + P(B) + P(A \\cap B)$`,
+        `$P(A) \\cdot P(B)$`,
+        `$1 - P(\\overline{A}) - P(\\overline{B})$`
       ],
-      "answers": [`P(A) + P(B) - P(A \\cap B)`],
+      "answers": [`$P(A) + P(B) - P(A \\cap B)$`],
       "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
         <h5> Сумма вероятностей двух событий</h5>
@@ -1249,90 +5538,90 @@ let quizesSets =
     },
 
 
-    {
-      "id": "def-prob-004",
-      "type": "multiplechoices",
-      "header": "14. Вероятность",
-      "title": "Теорема Бернулли",
-      "theme": "Предельные теоремы",
-      "text": `Теорема Бернулли устанавливает связь между ...`,
-      "choices": [
-        `математическим ожиданием и дисперсией`,
-        `частотой события и его вероятностью`,
-        `средним арифметическим и математическим ожиданием`,
-        `нормальным распределением и распределением Пуассона`,
-        `выборкой и генеральной совокупностью`
-      ],
-      "answers": [`частотой события и его вероятностью`],
-      "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5> Теорема Бернулли (Закон больших чисел)</h5>
-        <p><strong>Теорема Бернулли</strong> — одна из форм закона больших чисел. Она утверждает, что при увеличении числа независимых испытаний <strong>частота события сходится по вероятности к его вероятности</strong>.</p>
-        <p class="text-center">$$\\frac{m}{n} \\xrightarrow{P} p$$</p>
-        <p>где $m$ — число наступлений события, $n$ — число испытаний, $p$ — вероятность события.</p>
-      </div>
+    // {
+    //   "id": "def-prob-004",
+    //   "type": "multiplechoices",
+    //   "header": "14. Вероятность",
+    //   "title": "Теорема Бернулли",
+    //   "theme": "Предельные теоремы",
+    //   "text": `Теорема Бернулли устанавливает связь между ...`,
+    //   "choices": [
+    //     `математическим ожиданием и дисперсией`,
+    //     `частотой события и его вероятностью`,
+    //     `средним арифметическим и математическим ожиданием`,
+    //     `нормальным распределением и распределением Пуассона`,
+    //     `выборкой и генеральной совокупностью`
+    //   ],
+    //   "answers": [`частотой события и его вероятностью`],
+    //   "hint": `<div class="container-fluid p-0">
+    //   <div class="alert alert-info mb-3">
+    //     <h5> Теорема Бернулли (Закон больших чисел)</h5>
+    //     <p><strong>Теорема Бернулли</strong> — одна из форм закона больших чисел. Она утверждает, что при увеличении числа независимых испытаний <strong>частота события сходится по вероятности к его вероятности</strong>.</p>
+    //     <p class="text-center">$$\\frac{m}{n} \\xrightarrow{P} p$$</p>
+    //     <p>где $m$ — число наступлений события, $n$ — число испытаний, $p$ — вероятность события.</p>
+    //   </div>
       
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Формулировка теоремы</strong>
-        </div>
-        <div class="card-body">
-          <p>Пусть проводится $n$ независимых испытаний, в каждом из которых событие A наступает с вероятностью $p$ ($0 < p < 1$).</p>
-          <p>Пусть $m$ — число наступлений события A в этих $n$ испытаниях.</p>
-          <p>Тогда для любого $\\varepsilon > 0$:</p>
-          <p class="text-center">$$\\lim_{n \\to \\infty} P\\left(\\left|\\frac{m}{n} - p\\right| < \\varepsilon\\right) = 1$$</p>
-          <p>Это означает, что при большом числе испытаний частота события $\\frac{m}{n}$ мало отличается от его вероятности $p$.</p>
-        </div>
-      </div>
+    //   <div class="card border-primary mb-3">
+    //     <div class="card-header bg-primary text-white">
+    //       <strong>Формулировка теоремы</strong>
+    //     </div>
+    //     <div class="card-body">
+    //       <p>Пусть проводится $n$ независимых испытаний, в каждом из которых событие A наступает с вероятностью $p$ ($0 < p < 1$).</p>
+    //       <p>Пусть $m$ — число наступлений события A в этих $n$ испытаниях.</p>
+    //       <p>Тогда для любого $\\varepsilon > 0$:</p>
+    //       <p class="text-center">$$\\lim_{n \\to \\infty} P\\left(\\left|\\frac{m}{n} - p\\right| < \\varepsilon\\right) = 1$$</p>
+    //       <p>Это означает, что при большом числе испытаний частота события $\\frac{m}{n}$ мало отличается от его вероятности $p$.</p>
+    //     </div>
+    //   </div>
       
-      <div class="card border-success mb-3">
-        <div class="card-header bg-success text-white">
-          <strong>Пример из жизни</strong>
-        </div>
-        <div class="card-body">
-          <p>Бросаем монету. Вероятность орла $p = 0.5$.</p>
-          <ul>
-            <li>При 10 бросках частота орла может быть 0.3, 0.4, 0.6, 0.7 — возможны сильные отклонения.</li>
-            <li>При 1000 бросках частота орла будет <strong>близка</strong> к 0.5 (например, 0.49 или 0.51).</li>
-            <li>При 100 000 бросках частота будет ещё ближе к 0.5.</li>
-          </ul>
-          <p class="mt-2">Теорема Бернулли объясняет, почему в долгой серии экспериментов относительная частота стабилизируется около вероятности.</p>
-        </div>
-      </div>
+    //   <div class="card border-success mb-3">
+    //     <div class="card-header bg-success text-white">
+    //       <strong>Пример из жизни</strong>
+    //     </div>
+    //     <div class="card-body">
+    //       <p>Бросаем монету. Вероятность орла $p = 0.5$.</p>
+    //       <ul>
+    //         <li>При 10 бросках частота орла может быть 0.3, 0.4, 0.6, 0.7 — возможны сильные отклонения.</li>
+    //         <li>При 1000 бросках частота орла будет <strong>близка</strong> к 0.5 (например, 0.49 или 0.51).</li>
+    //         <li>При 100 000 бросках частота будет ещё ближе к 0.5.</li>
+    //       </ul>
+    //       <p class="mt-2">Теорема Бернулли объясняет, почему в долгой серии экспериментов относительная частота стабилизируется около вероятности.</p>
+    //     </div>
+    //   </div>
       
-      <div class="alert alert-secondary mt-2">
-        <strong> Почему другие варианты не подходят?</strong><br>
-        • <strong>Математическое ожидание и дисперсия</strong> — это теорема о свойствах моментов.<br>
-        • <strong>Среднее арифметическое и математическое ожидание</strong> — это теорема Хинчина (другая форма ЗБЧ).<br>
-        • <strong>Нормальное распределение и распределение Пуассона</strong> — это предельные теоремы (Муавра-Лапласа, Пуассона).<br>
-        • <strong>Выборка и генеральная совокупность</strong> — это основы математической статистики.
-      </div>
+    //   <div class="alert alert-secondary mt-2">
+    //     <strong> Почему другие варианты не подходят?</strong><br>
+    //     • <strong>Математическое ожидание и дисперсия</strong> — это теорема о свойствах моментов.<br>
+    //     • <strong>Среднее арифметическое и математическое ожидание</strong> — это теорема Хинчина (другая форма ЗБЧ).<br>
+    //     • <strong>Нормальное распределение и распределение Пуассона</strong> — это предельные теоремы (Муавра-Лапласа, Пуассона).<br>
+    //     • <strong>Выборка и генеральная совокупность</strong> — это основы математической статистики.
+    //   </div>
 
-      <div class="alert alert-light border mt-2">
-        <strong> Запомните:</strong><br>
-        Теорема Бернулли: <strong>частота → вероятность</strong> при увеличении числа испытаний.<br>
-        Это <strong>закон больших чисел</strong> для схемы Бернулли.
-      </div>
+    //   <div class="alert alert-light border mt-2">
+    //     <strong> Запомните:</strong><br>
+    //     Теорема Бернулли: <strong>частота → вероятность</strong> при увеличении числа испытаний.<br>
+    //     Это <strong>закон больших чисел</strong> для схемы Бернулли.
+    //   </div>
       
-      <div class="card border-info mt-2">
-        <div class="card-header bg-info text-white">
-          <strong> Историческая справка</strong>
-        </div>
-        <div class="card-body">
-          <p class="mb-0">Теорема была доказана <strong>Якобом Бернулли</strong> и опубликована в 1713 году в его труде «Искусство предположений». Это одна из первых форм закона больших чисел.</p>
-        </div>
-      </div>
+    //   <div class="card border-info mt-2">
+    //     <div class="card-header bg-info text-white">
+    //       <strong> Историческая справка</strong>
+    //     </div>
+    //     <div class="card-body">
+    //       <p class="mb-0">Теорема была доказана <strong>Якобом Бернулли</strong> и опубликована в 1713 году в его труде «Искусство предположений». Это одна из первых форм закона больших чисел.</p>
+    //     </div>
+    //   </div>
       
-      <div class="card border-warning mt-2">
-        <div class="card-header bg-warning text-dark">
-          <strong>️ Важное уточнение</strong>
-        </div>
-        <div class="card-body mb-0">
-          <p class="mb-0">Теорема Бернулли не утверждает, что $\\frac{m}{n} = p$ при больших $n$. Она утверждает, что <strong>вероятность большого отклонения</strong> $\\frac{m}{n}$ от $p$ стремится к нулю.</p>
-        </div>
-      </div>
-    </div>`
-    },
+    //   <div class="card border-warning mt-2">
+    //     <div class="card-header bg-warning text-dark">
+    //       <strong>️ Важное уточнение</strong>
+    //     </div>
+    //     <div class="card-body mb-0">
+    //       <p class="mb-0">Теорема Бернулли не утверждает, что $\\frac{m}{n} = p$ при больших $n$. Она утверждает, что <strong>вероятность большого отклонения</strong> $\\frac{m}{n}$ от $p$ стремится к нулю.</p>
+    //     </div>
+    //   </div>
+    // </div>`
+    // },
 
 
     // 15. Комбинаторика
@@ -3399,113 +7688,113 @@ let quizesSets =
     },
 
 
-    {
-      "id": "combin-formulas-008",
-      "type": "multiplechoices",
-      "header": "15. Комбинаторика",
-      "title": "Свойства сочетаний",
-      "theme": "Комбинаторика. Формулы",
-      "text": "Чему равно значение выражения $C_7^3 + C_7^4$?",
-      "choices": [
-        "$C_7^7$",
-        "$C_8^4$",
-        "$C_7^2$",
-        "$C_8^3$",
-        "$C_8^5$"
-      ],
-      "answers": ["$C_8^4$"],
-      "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5> Правило Паскаля</h5>
-        <p>Основное свойство биномиальных коэффициентов:</p>
-        <p class="text-center">$$C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$$</p>
-        <p>Это правило лежит в основе треугольника Паскаля.</p>
-      </div>
+    // {
+    //   "id": "combin-formulas-008",
+    //   "type": "multiplechoices",
+    //   "header": "15. Комбинаторика",
+    //   "title": "Свойства сочетаний",
+    //   "theme": "Комбинаторика. Формулы",
+    //   "text": "Чему равно значение выражения $C_7^3 + C_7^4$?",
+    //   "choices": [
+    //     "$C_7^7$",
+    //     "$C_8^4$",
+    //     "$C_7^2$",
+    //     "$C_8^3$",
+    //     "$C_8^5$"
+    //   ],
+    //   "answers": ["$C_8^4$"],
+    //   "hint": `<div class="container-fluid p-0">
+    //   <div class="alert alert-info mb-3">
+    //     <h5> Правило Паскаля</h5>
+    //     <p>Основное свойство биномиальных коэффициентов:</p>
+    //     <p class="text-center">$$C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$$</p>
+    //     <p>Это правило лежит в основе треугольника Паскаля.</p>
+    //   </div>
       
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
-        </div>
-        <div class="card-body">
-          <p>По правилу Паскаля:</p>
-          <p>$C_7^3 + C_7^4 = C_8^4$</p>
-          <p>Проверим:</p>
-          <ul>
-            <li>$C_7^3 = \\frac{7!}{3!4!} = 35$</li>
-            <li>$C_7^4 = \\frac{7!}{4!3!} = 35$</li>
-            <li>$35 + 35 = 70$</li>
-            <li>$C_8^4 = \\frac{8!}{4!4!} = 70$ </li>
-          </ul>
-        </div>
-      </div>
+    //   <div class="card border-primary mb-3">
+    //     <div class="card-header bg-primary text-white">
+    //       <strong>Решение</strong>
+    //     </div>
+    //     <div class="card-body">
+    //       <p>По правилу Паскаля:</p>
+    //       <p>$C_7^3 + C_7^4 = C_8^4$</p>
+    //       <p>Проверим:</p>
+    //       <ul>
+    //         <li>$C_7^3 = \\frac{7!}{3!4!} = 35$</li>
+    //         <li>$C_7^4 = \\frac{7!}{4!3!} = 35$</li>
+    //         <li>$35 + 35 = 70$</li>
+    //         <li>$C_8^4 = \\frac{8!}{4!4!} = 70$ </li>
+    //       </ul>
+    //     </div>
+    //   </div>
       
-      <div class="alert alert-secondary mt-2">
-        <strong> Почему другие варианты не подходят?</strong><br>
-        • $C_7^7 = 1$ — слишком мало.<br>
-        • $C_7^2 = 21$ — неверно.<br>
-        • $C_8^3 = 56$ — неверно.<br>
-        • $C_8^5 = 56$ — $C_8^3$ (тоже 56).
-      </div>
+    //   <div class="alert alert-secondary mt-2">
+    //     <strong> Почему другие варианты не подходят?</strong><br>
+    //     • $C_7^7 = 1$ — слишком мало.<br>
+    //     • $C_7^2 = 21$ — неверно.<br>
+    //     • $C_8^3 = 56$ — неверно.<br>
+    //     • $C_8^5 = 56$ — $C_8^3$ (тоже 56).
+    //   </div>
 
-      <div class="alert alert-light border mt-2">
-        <strong> Запомните:</strong><br>
-        $C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$ — основное свойство сочетаний.
-      </div>
-    </div>`
-    },
+    //   <div class="alert alert-light border mt-2">
+    //     <strong> Запомните:</strong><br>
+    //     $C_n^k + C_n^{k+1} = C_{n+1}^{k+1}$ — основное свойство сочетаний.
+    //   </div>
+    // </div>`
+    // },
 
-    {
-      "id": "combin-formulas-009",
-      "type": "multiplechoices",
-      "header": "15. Комбинаторика",
-      "title": "Симметрия биномиальных коэффициентов",
-      "theme": "Комбинаторика. Формулы",
-      "text": "Какое из следующих выражений равно $C_{10}^3$?",
-      "choices": [
-        "$C_{10}^7$",
-        "$C_{10}^6$",
-        "$C_{10}^5$",
-        "$C_{10}^4$",
-        "$C_{10}^2$"
-      ],
-      "answers": ["$C_{10}^7$"],
-      "hint": `<div class="container-fluid p-0">
-      <div class="alert alert-info mb-3">
-        <h5> Свойство симметрии</h5>
-        <p>Для сочетаний выполняется:</p>
-        <p class="text-center">$$C_n^k = C_n^{n-k}$$</p>
-        <p>Выбрать $k$ элементов — всё равно, что выбрать $n-k$ элементов, которые <strong>не войдут</strong> в выборку.</p>
-      </div>
+    // {
+    //   "id": "combin-formulas-009",
+    //   "type": "multiplechoices",
+    //   "header": "15. Комбинаторика",
+    //   "title": "Симметрия биномиальных коэффициентов",
+    //   "theme": "Комбинаторика. Формулы",
+    //   "text": "Какое из следующих выражений равно $C_{10}^3$?",
+    //   "choices": [
+    //     "$C_{10}^7$",
+    //     "$C_{10}^6$",
+    //     "$C_{10}^5$",
+    //     "$C_{10}^4$",
+    //     "$C_{10}^2$"
+    //   ],
+    //   "answers": ["$C_{10}^7$"],
+    //   "hint": `<div class="container-fluid p-0">
+    //   <div class="alert alert-info mb-3">
+    //     <h5> Свойство симметрии</h5>
+    //     <p>Для сочетаний выполняется:</p>
+    //     <p class="text-center">$$C_n^k = C_n^{n-k}$$</p>
+    //     <p>Выбрать $k$ элементов — всё равно, что выбрать $n-k$ элементов, которые <strong>не войдут</strong> в выборку.</p>
+    //   </div>
       
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white">
-          <strong>Решение</strong>
-        </div>
-        <div class="card-body">
-          <p>По свойству симметрии:</p>
-          <p>$C_{10}^3 = C_{10}^{10-3} = C_{10}^7$</p>
-          <p>Проверим:</p>
-          <ul>
-            <li>$C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$</li>
-            <li>$C_{10}^7 = C_{10}^3 = 120$</li>
-          </ul>
-        </div>
-      </div>
+    //   <div class="card border-primary mb-3">
+    //     <div class="card-header bg-primary text-white">
+    //       <strong>Решение</strong>
+    //     </div>
+    //     <div class="card-body">
+    //       <p>По свойству симметрии:</p>
+    //       <p>$C_{10}^3 = C_{10}^{10-3} = C_{10}^7$</p>
+    //       <p>Проверим:</p>
+    //       <ul>
+    //         <li>$C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$</li>
+    //         <li>$C_{10}^7 = C_{10}^3 = 120$</li>
+    //       </ul>
+    //     </div>
+    //   </div>
       
-      <div class="alert alert-secondary mt-2">
-        <strong> Почему другие варианты не подходят?</strong><br>
-        • $C_{10}^6 = C_{10}^4 = 210$<br>
-        • $C_{10}^5 = 252$<br>
-        • $C_{10}^4 = 210$<br>
-        • $C_{10}^2 = 45$
-      </div>
+    //   <div class="alert alert-secondary mt-2">
+    //     <strong> Почему другие варианты не подходят?</strong><br>
+    //     • $C_{10}^6 = C_{10}^4 = 210$<br>
+    //     • $C_{10}^5 = 252$<br>
+    //     • $C_{10}^4 = 210$<br>
+    //     • $C_{10}^2 = 45$
+    //   </div>
 
-      <div class="alert alert-light border mt-2">
-        <strong> Запомните:</strong><br>
-        $C_n^k = C_n^{n-k}$ — наглядно видно в треугольнике Паскаля.
-      </div>
-    </div>`
-    },
+    //   <div class="alert alert-light border mt-2">
+    //     <strong> Запомните:</strong><br>
+    //     $C_n^k = C_n^{n-k}$ — наглядно видно в треугольнике Паскаля.
+    //   </div>
+    // </div>`
+    // },
 
     {
       "id": "combin-formulas-010",
