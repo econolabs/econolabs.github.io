@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS + Icons (only Bootstrap, no custom css overrides) -->
+    <link rel="stylesheet" href="../dist/original.css"  crossorigin="anonymous">
+    <!-- Additional Bootstrap Icons for visual clarity (optional but keeps native look) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+    <title>Бухгалтерский учет производства и реализации продукции коммерческой организации</title>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations" data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#"><span class="sr-only"></span></a></li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt="" style="width:40px; height:40px; border-radius:50%; filter:grayscale(100%); object-fit:cover;">
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    
+
+    <div class="container my-4">
+
+        <h1 class="text-secondary mb-4">Бухгалтерский учет производства и реализации продукции коммерческой организации</h1>
+       
+            <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Регистры бухгалтерского учета"
+                    style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Повторение 1. Регистры бухгалтерского учета</h3>
+
+                <div class="alert alert-secondary mb-3">
+                    <strong>Важно:</strong> С 2023 года действует <strong>ФСБУ 27/2021 "Документы и
+                        документооборот"</strong>, который устанавливает современные требования к регистрам
+                    бухгалтерского учета
+                </div>
+
+                <h5>Правовая основа:</h5>
+                <ul>
+                    <li>Статья 10 Федерального закона № 402-ФЗ "О бухгалтерском учете"</li>
+                    <li>ФСБУ 27/2021 "Документы и документооборот" (введен Приказом Минфина от 25.11.2021 № 193н)</li>
+                    <li>Приказ Минфина России от 30.03.2015 № 52н "Об утверждении форм регистров бухгалтерского учета"
+                    </li>
+                </ul>
+
+                <h5>Определение и основные функции:</h5>
+                <p>Регистры бухгалтерского учета — это документы (бумажные или электронные), предназначенные для
+                    систематизации и накопления информации из первичных документов с целью ее отражения в бухгалтерском
+                    учете и отчетности.</p>
+
+                <h5>Основные функции регистров:</h5>
+                <ul>
+                    <li><strong>Систематизация и накопление данных:</strong> Сбор информации из первичных документов и
+                        группировка по определенным признакам</li>
+                    <li><strong>Отражение информации:</strong> Формирование бухгалтерских проводок и отчетности</li>
+                    <li><strong>Контроль и анализ:</strong> Контроль состояния и движения имущества, расчетов и других
+                        объектов учета</li>
+                </ul>
+
+                <h5>Виды регистров:</h5>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>По назначению:</strong>
+                        <ul class="small">
+                            <li><strong>Хронологические:</strong> Журнал хозяйственных операций</li>
+                            <li><strong>Систематические:</strong> Оборотно-сальдовая ведомость</li>
+                            <li><strong>Синхронистические:</strong> Комбинированные регистры</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>По объему содержания:</strong>
+                        <ul class="small">
+                            <li><strong>Синтетические:</strong> Главная книга, обобщенные данные</li>
+                            <li><strong>Аналитические:</strong> Ведомости по конкретным объектам</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>По способу ведения:</strong>
+                        <ul class="small">
+                            <li>Бумажные</li>
+                            <li>Электронные (с ЭП)</li>
+                            <li>Смешанные</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5>Современные требования к ведению:</h5>
+                <ul>
+                    <li><strong>Электронные регистры:</strong> Равноправны с бумажными при наличии усиленной
+                        квалифицированной электронной подписи</li>
+                    <li><strong>Формат:</strong> Должны соответствовать требованиям учетной политики организации</li>
+                    <li><strong>Исправления:</strong>
+                        <ul>
+                            <li>В бумажных — санкционируются ответственными лицами с указанием даты</li>
+                            <li>В электронных — выполняются на основании бухгалтерской справки с объяснением причин</li>
+                        </ul>
+                    </li>
+                    <li><strong>Обязательные реквизиты</strong> (ст. 10 Закона № 402-ФЗ):
+                        <ul class="small">
+                            <li>Наименование регистра и экономического субъекта</li>
+                            <li>Дата начала и окончания ведения</li>
+                            <li>Хронологическая и/или систематическая группировка</li>
+                            <li>Денежное измерение с указанием единицы</li>
+                            <li>Должности и подписи ответственных лиц</li>
+                        </ul>
+                    </li>
+                    <li><strong>Хранение:</strong> Не менее 5 лет, обеспечение неизменности электронных регистров в
+                        течение всего срока</li>
+                </ul>
+
+                <h5>Новое в электронных регистрах (ФСБУ 27/2021):</h5>
+                <ul>
+                    <li>Использование квалифицированной электронной подписи</li>
+                    <li>Обязательная защита от несанкционированных изменений</li>
+                    <li>Автоматическое формирование из ERP-систем</li>
+                    <li>Требования к хранению и архивированию</li>
+                    <li>Возможность применения блокчейн-технологий для обеспечения неизменности</li>
+                </ul>
+
+                <p class="mt-3">
+                    <a class="link-opacity-100"
+                        href="https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf"
+                        target="_blank">
+                        ФСБУ 27/2021 "Документы и документооборот в бухгалтерском учете"
+                    </a>
+                </p>
+
+                <div class="alert alert-success mt-2">
+                    <small><strong>Практическое применение:</strong> Регистры группируют хозяйственные операции по
+                        счетам и могут вестись как в хронологическом, так и в систематическом порядке, например, в форме
+                        журналов, ведомостей или книг.</small>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Повторение 1. Двойная запись и бухгалтерская отчетность</h3>
+
+                <h3 class="text-secondary">Баланс</h3>
+
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <th>АКТИВЫ</th>
+                            <th scope="col" style="text-align:center">ПАССИВЫ</th>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Основные средства</td>
+                            <td>Уставный капитал</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Нераспределенная прибыль</td>
+                        </tr>
+                        <tr>
+                            <td>Материалы</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Незавершенное производство</td>
+                            <td>Долгосрочный банковский кредит</td>
+                        </tr>
+                        <tr>
+                            <td>Готовая продукция</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Дебиторская задолженность</td>
+                            <td>Краткосрочный банковский кредит</td>
+                        </tr>
+                        <tr>
+                            <td>Деньги</td>
+                            <td>Кредиторская задолженность</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <br>
+                <p><a href="https://www.gazprom.ru/f/posts/44/479056/gazprom-accounting-report-2024.pdf">Отчетность
+                        Газпрома</a></p>
+
+                <br>
+
+                <p>Что может случиться с балансом?</p>
+
+                <ul>
+                    <li>А+Х, А-Х</li>
+                    <li>А+Х, П+X</li>
+                    <li>А-Х, П-Х</li>
+                    <li>П+Х, П-Х</li>
+                </ul>
+
+               
+                    <div class="card my-1" >
+                        <div class="card-header">
+    Цель
+  </div>
+ 
+  <div class="card-body">
+    
+    <h5 class="card-title">Зачем?</h5>
+    <p class="card-text">Мы составляем баланс для анализа финансового состояния предприятия.</p>
+   
+  </div>
+  </div>
+
+
+ <div class="card my-1" >
+      <div class="card-header">
+    Метод
+  </div>
+   <div class="card-body">
+    <h5 class="card-title">Как?</h5>
+    <p class="card-text">Мы составляем баланс на основании двойной записи.</p>
+   
+  </div>
+  </div>
+
+
+
+ <div class="card my-1" >
+      <div class="card-header">
+    История вопроса
+  </div>
+   <div class="card-body">
+    <h5 class="card-title">Прототип. Развернутые листы. Book keeping</h5>
+    <p class="card-text">Активы (что?) - левая страница,<br> Пассивы (откуда?) - правая страница</p>
+     <p class="card-text">Дебет - левая страница,<br> Кредит - правая страница</p>
+
+     <div class="alert alert-primary" role="alert">
+ Слева (дебет) - увеличение активов, уменьшение пассивов<br>
+ Справа (кредит) - уменьшение активов, увеличение пассивов
+</div>
+
+
+  </div>
+  </div>
+
+              
+
+
+
+                <br>
+
+          
+
+
+                <h3 class="text-secondary">Прогноз финансовых результатов</h3>
+
+                <p>Обороты за период</p>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Доходы и расходы по обычным видам деятельности</th>
+                            <th>Прочие доходы и расходы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>регулярные, основные, прогнозируемые</td>
+                            <td>случайность</td>
+                        </tr>
+                        <tr>
+                            <td>Выручка - Себестоимость - Коммерческие расходы - Управленческие расходы</td>
+                            <td>Продажа основных средств, потери по форс-мажорным обстоятельствам, проценты кредиторам
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-secondary">Отчет об изменении денежных средств</h3>
+
+                <p>Обороты за период</p>
+
+                <h4 class="text-secondary">Прямой метод анализа</h4>
+
+                <h5 class="text-secondary">Движение денежных средств по текущей деятельности</h5>
+
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Приток средств</th>
+                            <th>Отток средств</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Покупатели</td>
+                            <td>Поставщикам оборотных активов</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Оплата труда</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Налоги...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5 class="text-secondary">Движение денежных средств по инвестиционной деятельности</h5>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Приток средств</th>
+                            <th>Отток средств</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Продажа внеоборотных активов</td>
+                            <td>Покупка внеоборотных активов</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5 class="text-secondary">Движение денежных средств по финансовой деятельности</h5>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Приток средств</th>
+                            <th>Отток средств</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Выпуск акций</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Получение кредитов</td>
+                            <td>Погашение кредитов</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Спорные вопросы в классификации денежных средств</p>
+
+                <ul>
+                    <li>Проценты по кредитам</li>
+                    <li>Дивиденды</li>
+                </ul>
+
+                <p>Логика развития компании</p>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Показатели</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Текущая деятельность</td>
+                            <td>-</td>
+                            <td>+</td>
+                            <td>++</td>
+                            <td>+++</td>
+                            <td>++</td>
+                        </tr>
+                        <tr>
+                            <td>Инвестиционная деятельность</td>
+                            <td>---</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td>Финансовая деятельность</td>
+                            <td>++++</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-secondary">Косвенный метод анализа</h2>
+
+                    <p>Как влияет на изменение денежных средств ceteris paribus?</p>
+
+                    <ul>
+                        <li>Получение прибыли ?</li>
+                        <li>Увеличение одного из активов?</li>
+                        <li>Уменьшение одного из активов?</li>
+                        <li>Увеличение конкретного долга?</li>
+                        <li>Уменьшение конкретного долга?</li>
+                    </ul>
+
+                    <h4 class="text-secondary">Отчет об изменении капитала</h4>
+
+                    <p>Обороты за период</p>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Увеличение капитала</th>
+                                <th>Уменьшение капитала</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Прибыль</td>
+                                <td>Дивиденды</td>
+                            </tr>
+                            <tr>
+                                <td>Выпуск акций</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>Разница между номинальной и рыночной стоимостью</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Дооценка основных средств</td>
+                                <td>Уценка основных средств</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title16.jpg"
+                    alt="Система счетов бухгалтерского учета" style="filter: grayscale(1);">
+            </p>
+
+
+            <div class="card-body">
+                <h3 class="card-title">Повторение 3. Система счетов бухгалтерского учета: классификация и структура</h3>
+
+                <div class="alert alert-secondary mb-3">
+                    <strong>Современная основа:</strong> Работа ведется согласно Плану счетов (Приказ Минфина № 94н от
+                    31.10.2000 в актуальной редакции) с применением ФСБУ
+                </div>
+
+                <h5>1. Классификация счетов по экономическому содержанию</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1">Активные счета</h6>
+                                <p class="small mb-1">Учет активов (имущества)</p>
+                                <ul class="small mb-0">
+                                    <li><strong>Схема:</strong> Д-т: Увеличение, К-т: Уменьшение</li>
+                                    <li><strong>Пример:</strong> 01 "Основные средства", 10 "Материалы"</li>
+                                    <li><strong>Сальдо:</strong> Только дебетовое или нулевое</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1">Пассивные счета</h6>
+                                <p class="small mb-1">Учет источников (капитал, обязательства)</p>
+                                <ul class="small mb-0">
+                                    <li><strong>Схема:</strong> Д-т: Уменьшение, К-т: Увеличение</li>
+                                    <li><strong>Пример:</strong> 80 "Уставный капитал", 66 "Кредиты"</li>
+                                    <li><strong>Сальдо:</strong> Только кредитовое или нулевое</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mt-3">2. Активно-пассивные счета</h5>
+                <p>Учитывают как активы, так и обязательства. Могут иметь два сальдо.</p>
+
+                <div class="table-responsive">
+                    <table class="table table-sm ">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Счет</th>
+                                <th>Наименование</th>
+                                <th>Активная часть</th>
+                                <th>Пассивная часть</th>
+                                <th>Пример</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>60</strong></td>
+                                <td>Расчеты с поставщиками</td>
+                                <td>Авансы выданные (Дт)</td>
+                                <td>Задолженность перед поставщиками (Кт)</td>
+                                <td>Дт 60 - перечислен аванс; Кт 60 - получен товар</td>
+                            </tr>
+                            <tr>
+                                <td><strong>62</strong></td>
+                                <td>Расчеты с покупателями</td>
+                                <td>Задолженность покупателей (Дт)</td>
+                                <td>Авансы полученные (Кт)</td>
+                                <td>Дт 62 - отгружен товар; Кт 62 - получен аванс</td>
+                            </tr>
+                            <tr>
+                                <td><strong>76</strong></td>
+                                <td>Расчеты с разными дебиторами и кредиторами</td>
+                                <td>Дебиторская задолженность (Дт)</td>
+                                <td>Кредиторская задолженность (Кт)</td>
+                                <td>Дт 76 - претензия к контрагенту; Кт 76 - обязательство</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="mt-3">3. Иерархия счетов: от синтетического к аналитическому</h5>
+
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Синтетический счет</h6>
+                            <div class="display-6">10</div>
+                            <small>"Материалы"</small>
+                        </div>
+                        <div class="mt-1">↓ открывает</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Субсчета</h6>
+                            <div>10.1 "Сырье"<br>10.2 "Топливо"<br>10.3 "Запчасти"</div>
+                        </div>
+                        <div class="mt-1">↓ детализируют</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h6>Аналитические счета<br><small>(субконто)</small></h6>
+                            <div>10.1 "Сталь листовая"<br>10.1 "Пластик ABS"<br>10.2 "Бензин АИ-95"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>4. Субконто (аналитические признаки)</h5>
+                <p>Современные системы учета (1С и аналоги) используют измерения "субконто":</p>
+                <ul>
+                    <li><strong>Виды субконто:</strong>
+                        <ul>
+                            <li>Номенклатура (материалы, товары)</li>
+                            <li>Контрагенты (поставщики, покупатели)</li>
+                            <li>Сотрудники (подотчетные лица)</li>
+                            <li>Проекты, договоры, подразделения</li>
+                        </ul>
+                    </li>
+                    <li><strong>Пример для счета 10:</strong>
+                        <ul>
+                            <li>Субконто 1: Номенклатура (Болт М8, Краска белая)</li>
+                            <li>Субконто 2: Склады (Основной, Производственный)</li>
+                            <li>Субконто 3: Партии (Партия №123 от 15.01.2024)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5 class="mt-3">5. Контрарные (регулирующие) счета</h5>
+                <p>Корректируют оценку основных счетов. Уменьшают стоимость активов.</p>
+
+                <div class="table-responsive">
+                    <table class="table table-sm ">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Основной счет</th>
+                                <th>Контрарный счет</th>
+                                <th>Назначение</th>
+                                <th>Балансовая стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>01</strong> "Основные средства"<br><em>(первоначальная стоимость)</em></td>
+                                <td><strong>02</strong> "Амортизация ОС"</td>
+                                <td>Учет накопленного износа</td>
+                                <td>01 - 02 = Остаточная стоимость</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10</strong> "Материалы"<br><em>(учетная стоимость)</em></td>
+                                <td><strong>14</strong> "Резервы под снижение стоимости"</td>
+                                <td>Создание резерва при обесценении</td>
+                                <td>10 - 14 = Рыночная стоимость</td>
+                            </tr>
+                            <tr>
+                                <td><strong>58</strong> "Финансовые вложения"</td>
+                                <td><strong>59</strong> "Резервы под обесценение"</td>
+                                <td>Резерв при падении рыночной цены</td>
+                                <td>58 - 59 = Балансовая стоимость</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="mt-3">6. Сопоставляющие (результатные) счета</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>90 "Продажи"</h6>
+                                <ul class="small">
+                                    <li>К-т 90.1 "Выручка"</li>
+                                    <li>Д-т 90.2 "Себестоимость"</li>
+                                    <li>Д-т 90.3 "НДС"</li>
+                                    <li>Д-т 90.9 "Прибыль/убыток"</li>
+                                </ul>
+                                <p class="mb-0"><strong>Итог:</strong> Финансовый результат от продаж</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>91 "Прочие доходы и расходы"</h6>
+                                <ul class="small">
+                                    <li>К-т 91.1 "Прочие доходы"</li>
+                                    <li>Д-т 91.2 "Прочие расходы"</li>
+                                    <li>Д-т/К-т 91.9 "Сальдо"</li>
+                                </ul>
+                                <p class="mb-0"><strong>Итог:</strong> Результат от прочей деятельности</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success mt-3">
+                    <small><strong>Важно:</strong> В современных учетных системах (1С) аналитический учет ведется через
+                        механизм "субконто", что позволяет получать детализированные отчеты по любому измерению: по
+                        контрагентам, номенклатуре, проектам и т.д.</small>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ========== КАРТОЧКА 1: ПРОИЗВОДСТВЕННЫЙ ЦИКЛ И ЗАТРАТЫ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Учет затрат на производство" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 1. Учет затрат на производство продукции</h3>
+                <div class="alert alert-secondary mb-3">
+                    <strong> Ключевая роль:</strong> Формирование фактической себестоимости выпускаемой продукции, калькулирование затрат по видам продукции и местам возникновения.
+                </div>
+                <h5> Классификация производственных затрат:</h5>
+                <ul>
+                    <li><strong>По экономическим элементам:</strong> материальные затраты, оплата труда, отчисления на соцнужды, амортизация, прочие затраты.</li>
+                    <li><strong>По способу включения в себестоимость:</strong> прямые (сч.20, 23) и косвенные (сч.25, 26).</li>
+                    <li><strong>По отношению к объему производства:</strong> переменные и постоянные.</li>
+                </ul>
+                <h5>🧾 Типовые проводки по учету производства:</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm ">
+                        <thead class="table-light">
+                            <tr><th>Операция</th><th>Дебет</th><th>Кредит</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Списаны материалы в основное производство</td><td>20 "Основное производство"</td><td>10 "Материалы"</td></tr>
+                            <tr><td>Начислена зарплата производственным рабочим</td><td>20</td><td>70 "Расчеты с персоналом"</td></tr>
+                            <tr><td>Списаны общепроизводственные расходы</td><td>20</td><td>25 "Общепроизводственные расходы"</td></tr>
+                            <tr><td>Оприходована готовая продукция по фактической себестоимости</td><td>43 "Готовая продукция"</td><td>20</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-success mt-2">
+                    <small><strong> Важно:</strong> Учет затрат ведется в разрезе видов продукции, заказов или переделов. Для КОММЕРЧЕСКОЙ организации точный учет себестоимости – основа ценообразования и прибыли.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 2: УЧЕТ ГОТОВОЙ ПРОДУКЦИИ И ЕЁ ВЫПУСКА ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Готовая продукция и выпуск" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 2. Учет готовой продукции и ее выпуска</h3>
+                <div class="alert alert-secondary mb-3"><strong> Назначение:</strong> Обобщение информации о наличии и движении готовой продукции (счет 43), оценка по фактической или нормативной себестоимости.</div>
+                <h5>Способы оценки готовой продукции:</h5>
+                <ul>
+                    <li>По фактической производственной себестоимости (счет 43 аналитика).</li>
+                    <li>По учетным ценам (нормативная себестоимость) с использованием счета 40 «Выпуск продукции». </li>
+                </ul>
+                <h5>Корреспонденции при выпуске:</h5>
+                <ul>
+                    <li><strong>Дт 43 Кт 20</strong> — оприходована ГП по факту.</li>
+                    <li><strong>Дт 43 Кт 40</strong> (или Дт 40 Кт 20) — с использованием счета 40, с последующим списанием отклонений.</li>
+                    <li><strong>Дт 90.2 Кт 43</strong> — списана себестоимость реализованной продукции.</li>
+                </ul>
+                <div class="alert alert-light border mt-2 p-2">
+                    <i class="bi bi-diagram-3"></i> <strong>Синтетический и аналитический учет:</strong> аналитика по видам продукции, местам хранения, партиям. Обязательна инвентаризация ГП на складах не реже раза в год.
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 3: УЧЕТ ПРОДАЖ (РЕАЛИЗАЦИИ) ПРОДУКЦИИ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Реализация продукции" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 3. Учет реализации продукции (продаж)</h3>
+                <div class="alert alert-secondary mb-3"><strong> Ключевой этап:</strong> Признание выручки от обычных видов деятельности согласно ФСБУ 5/2019 и ПБУ 9/99 (доходы).</div>
+                <h5>Бухгалтерские записи по отгрузке и реализации:</h5>
+                <div class="table-responsive">
+                    <table class="table  table-sm">
+                        <thead class="table-light"><tr><th>Операция</th><th>Дебет</th><th>Кредит</th></tr></thead>
+                        <tbody>
+                            <tr><td>Отражена выручка от продажи продукции (момент перехода права собственности)</td><td>62 "Расчеты с покупателями"</td><td>90.1 "Выручка"</td></tr>
+                            <tr><td>Списана себестоимость проданной продукции</td><td>90.2 "Себестоимость продаж"</td><td>43 "Готовая продукция" (или 41, 40)</td></tr>
+                            <tr><td>Начислен НДС с реализации (если организация на ОСН)</td><td>90.3 "НДС"</td><td>68 "Расчеты по налогам"</td></tr>
+                            <tr><td>Списаны коммерческие расходы на продажу</td><td>90.2</td><td>44 "Расходы на продажу"</td></tr>
+                            <tr><td>Поступление оплаты от покупателя</td><td>51, 50</td><td>62</td></tr>
+                            <tr><td>Закрытие счета 90: отражен финансовый результат от продаж (прибыль)</td><td>90.9 "Прибыль/убыток от продаж"</td><td>99 "Прибыли и убытки"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-success mt-2"><small><strong> Практическое применение:</strong> Для коммерческой организации реализация – главный источник дохода. Корректное отражение выручки и себестоимости влияет на налог на прибыль и показатели рентабельности.</small></div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 4: КАЛЬКУЛИРОВАНИЕ СЕБЕСТОИМОСТИ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Калькуляция себестоимости" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 4. Калькулирование себестоимости продукции</h3>
+                <div class="alert alert-secondary mb-3"><strong> Затратный механизм:</strong> Методы калькулирования (попроцессный, попередельный, позаказный) для определения полной производственной себестоимости.</div>
+                <h5>Составляющие полной себестоимости:</h5>
+                <ul>
+                    <li>Производственная себестоимость (затраты на производство: материалы, зарплата, ОПР).</li>
+                    <li>Коммерческие расходы (расходы на продажу: упаковка, реклама, доставка).</li>
+                    <li>Управленческие расходы (если учетной политикой предусмотрено включение в себестоимость продаж).</li>
+                </ul>
+                <h5>Методы распределения косвенных расходов:</h5>
+                <ul><li>Пропорционально прямым затратам, зарплате производственных рабочих, машино-часам.</li>
+                <li>Для точного учета производства продукции коммерческой организации важна обоснованная база распределения.</li></ul>
+                <div class="alert alert-info mt-2"><i class="bi bi-calculator"></i> <strong>Пример расчета:</strong> Фактическая себестоимость единицы = (Прямые затраты + косвенные затраты, распределенные) / объем выпуска.</div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 5: УЧЕТ РАСХОДОВ НА ПРОДАЖУ (КОММЕРЧЕСКИХ) ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Коммерческие расходы" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 5. Учет расходов на продажу (коммерческих расходов)</h3>
+                <div class="alert alert-secondary mb-3"><strong> Счет 44 «Расходы на продажу»:</strong> аккумулирует затраты, связанные со сбытом продукции (маркетинг, упаковка, транспорт, реклама).</div>
+                <h5>Типичные проводки по счету 44:</h5>
+                <ul>
+                    <li><strong>Дт 44 Кт 10, 70, 69, 60</strong> — начислены расходы на тару, доставку, рекламу.</li>
+                    <li><strong>Дт 90.2 Кт 44</strong> — списание расходов на продажу в себестоимость реализованной продукции (полностью или частично).</li>
+                </ul>
+                <p>Особенность: транспортные расходы по доставке готовой продукции до покупателя могут распределяться между остатками отгруженной продукции (если не включены в цену).</p>
+                <div class="alert alert-light border mt-2">️ <strong>Для производственной компании</strong> важно разделять коммерческие расходы по видам продукции или каналам сбыта.</div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 6: ФИНАНСОВЫЙ РЕЗУЛЬТАТ ОТ ПРОИЗВОДСТВА И РЕАЛИЗАЦИИ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Финансовый результат" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 6. Финансовый результат от производства и продаж</h3>
+                <div class="alert alert-secondary mb-3"><strong> Счета 90 «Продажи» и 99 «Прибыли и убытки»:</strong> Выявление валовой прибыли, прибыли от продаж и чистой прибыли коммерческой организации.</div>
+                <h5>Структура счета 90:</h5>
+                <ul>
+                    <li>90.1 — выручка (кредитовый оборот).</li>
+                    <li>90.2 — себестоимость продаж (дебетовый оборот).</li>
+                    <li>90.3 — НДС.</li>
+                    <li>90.9 — сальдо доходов/расходов, ежемесячно закрывается на 99 счет.</li>
+                </ul>
+                <h5>Формулы рентабельности продукции:</h5>
+                <p><strong>Прибыль от продаж</strong> = Выручка – Себестоимость продаж – Коммерческие расходы – Управленческие расходы.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm ">
+                        <thead class="table-light"><tr><th>Показатель</th><th>Дебет</th><th>Кредит</th></tr></thead>
+                        <tbody>
+                            <tr><td>Закрытие субсчетов 90 в конце месяца</td><td>90.1 (на сумму выручки), 90.9</td><td>90.9, 90.2, 90.3</td></tr>
+                            <tr><td>Списание чистой прибыли отчетного года</td><td>99</td><td>84 "Нераспределенная прибыль"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-success mt-2"><small> Коммерческая организация анализирует структуру продаж и себестоимости для принятия управленческих решений (ценообразование, ассортимент).</small></div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 7: НОРМАТИВНО-ПРАВОВАЯ БАЗА И ФСБУ (производство/реализация) ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="ФСБУ и стандарты" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 7. Регулирование учета производства и реализации: новые ФСБУ</h3>
+                <div class="alert alert-secondary mb-3"><strong> Актуальные стандарты:</strong> ФСБУ 5/2019 «Запасы», ФСБУ 26/2020 «Капитальные вложения», ФСБУ 27/2021 «Документы и документооборот», ПБУ 10/99 (расходы организации) в части продаж.</div>
+                <ul>
+                    <li>ФСБУ 5/2019 определяет порядок признания запасов, в том числе готовой продукции, незавершенного производства.</li>
+                    <li>Оценка готовой продукции при списании – по себестоимости каждой единицы, средней, ФИФО.</li>
+                    <li>Расходы на продажу признаются в периоде реализации, если иное не установлено учетной политикой.</li>
+                </ul>
+                <p><strong>Документооборот:</strong> накладные (ТОРГ-12), акты выполненных работ, счета-фактуры, отчеты производства, калькуляционные карты. Электронные регистры приравнены к бумажным при наличии КЭП.</p>
+                <a href="https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf" target="_blank" class="btn btn-sm btn-outline-secondary mt-1">ФСБУ 27/2021 (документооборот)</a>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 8: ИНВЕНТАРИЗАЦИЯ НЕЗАВЕРШЕНКИ И ГОТОВОЙ ПРОДУКЦИИ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="Инвентаризация" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 8. Инвентаризация незавершенного производства и готовой продукции</h3>
+                <div class="alert alert-secondary mb-3"><strong> Контроль имущества:</strong> Обязательная инвентаризация остатков НЗП (счета 20, 23) и готовой продукции (счет 43) перед годовой отчетностью и при смене мат. ответственных лиц.</div>
+                <h5>Отражение результатов в учете производства:</h5>
+                <ul>
+                    <li><strong>Излишки ГП:</strong> Дт 43 Кт 91.1 – оприходование.</li>
+                    <li><strong>Недостача в пределах норм:</strong> Дт 20 (или 44) Кт 94.</li>
+                    <li><strong>Недостача сверх норм (виновные лица):</strong> Дт 73 Кт 94 → Дт 70,50 Кт 73.</li>
+                    <li><strong>Потери от брака в производстве:</strong> Дт 28 «Брак в производстве» Кт 10,20,70 и далее списание на себестоимость Дт 20 Кт 28.</li>
+                </ul>
+                <div class="alert alert-light"> Инвентаризация НЗП позволяет уточнить фактическую себестоимость выпуска и предотвратить искажение отчетности.</div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 9: ОТРАСЛЕВЫЕ ОСОБЕННОСТИ УЧЕТА ПРОДАЖ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Отраслевые особенности" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 9. Учет реализации в различных отраслях (коммерческий аспект)</h3>
+                <div class="alert alert-secondary mb-3"><strong> Производственная компания:</strong> момент признания выручки — отгрузка, если договором не предусмотрен иной переход права (например, после оплаты).</div>
+                <ul>
+                    <li><strong>Торговые организации:</strong> реализация товаров через счет 41.</li>
+                    <li><strong>Строительные подряды:</strong> поэтапная сдача выполненных работ (сч.46).</li>
+                    <li><strong>Услуги/работы:</strong> акты оказания услуг списывают себестоимость с 20 на 90.2.</li>
+                </ul>
+                <p>Для производственной организации выручка от реализации продукции – основной фактор признания финансового результата. Применяются счета 45 «Товары отгруженные», если право собственности переходит после оплаты.</p>
+                <div class="alert alert-success mt-2"><small> С 2025 года в учете продаж усиливается контроль за сомнительной дебиторской задолженностью (резервы по ФСБУ 7/2021).</small></div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА 10: БУХГАЛТЕРСКАЯ ОТЧЕТНОСТЬ: РАСКРЫТИЕ О ПРОИЗВОДСТВЕ И РЕАЛИЗАЦИИ ========= -->
+        <div class="card my-3" style="max-width:800px;">
+            <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Отчетность по производству" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title">Тема 10. Отчетность о производстве и продажах (форма №2 и пояснения)</h3>
+                <div class="alert alert-secondary mb-3"><strong> Отчет о финансовых результатах:</strong> раскрытие выручки, себестоимости продаж, валовой прибыли, коммерческих и управленческих расходов, прибыли от продаж.</div>
+                <h5>Статьи, отражающие производственную деятельность:</h5>
+                <ul>
+                    <li>Выручка (строка 2110).</li>
+                    <li>Себестоимость продаж (2120).</li>
+                    <li>Валовая прибыль (2100).</li>
+                    <li>Коммерческие расходы (2210), Управленческие (2220).</li>
+                    <li>Прибыль (убыток) от продаж (2200).</li>
+                </ul>
+                <p>В пояснениях к балансу раскрывается информация о способах оценки готовой продукции, незавершенного производства, методах распределения косвенных расходов, динамике запасов.</p>
+                <div class="alert alert-light mt-2"><i class="bi bi-bar-chart"></i> Для коммерческой организации анализ отчета о финансовых результатах помогает оценить эффективность производства и сбыта.</div>
+            </div>
+        </div>
+
+        <!-- ========== КАРТОЧКА САМОСТОЯТЕЛЬНАЯ РАБОТА (ПЛАН СЧЕТОВ) ========= -->
+      
+        <div class="card my-3" >
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+
+            <div id="simpleaccounting" class="container" data-openquizid="productionaccounting"></div>
+
+
+                <h3 class="card-title">Самостоятельная работа (домашнее задание)</h3>
+
+                <div class="alert alert-primary m-3">
+                   <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
+                        бухгалтерского учета
+                        финансово-хозяйственной деятельности организаций Приказ Минфина России от 31.10.2000 № 94н</a><br>
+                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
+                    Всегда иметь с собой на занятиях <br>
+                    Знать близко к тексту<br>                    
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./simpleaccounting.js"></script>
+    </div>
+
+    <!-- Scripts (unchanged functionality) -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./simpleaccounting.js"></script>
+    <script src="./quizesSets.js"></script>
+    <!-- jQuery and Bootstrap JS for dropdowns, etc (Bootstrap 4 dependencies) -->
+  </body>
+</html>
