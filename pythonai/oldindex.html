@@ -713,69 +713,124 @@ print(f"Предсказание для 11 часов: {scores_pred[0]:.1f} ба
         </div>
       </div>
 
-      <!-- Карточка 4: Нейросеть на чистом Python (один нейрон) -->
-      <div class="card my-4" style="max-width: 100%">
+       <div class="card my-4" style="max-width: 100%">
         <img
           loading="lazy"
           class="card-img-top"
-          src="https://via.placeholder.com/800x160/2d3748/ffffff?text=Neural+Network+from+Scratch"
-          alt="Нейрон"
+          src="../h1title7.jpg"
+          alt="Кластеризация"
           style="filter: grayscale(1)"
         />
         <div class="card-body">
           <h3 class="card-title">
-            ⚡ 4. Нейросеть с нуля — один нейрон, который обучается
+            Нейросеть с нуля — один нейрон, который обучается
           </h3>
+
+      <!-- Карточка 4: Нейросеть на чистом Python (один нейрон) -->
+      
           <div class="badge-ai">🧠 numpy</div>
           <p>
             Реализуем простейший перцептрон и обучим его на логическом ИЛИ —
             поймём, как работают нейросети внутри.
           </p>
-          <pre><code class="language-python"># Карточка 4: Нейросеть с нуля — один нейрон
+          <!-- Карточка 1: Импорт библиотек и активационная функция -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Импорт библиотек и определение активационной функции</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <br>
+    <span class="sql-comment"># Активационная функция (ступенька)</span><br>
+    <span class="sql-comment"># Возвращает 1, если сумма >= 0, иначе 0</span><br>
+    <span class="sql-keyword">def</span> <span class="sql-function">step_function</span>(x):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-keyword">1</span> <span class="sql-keyword">if</span> x >= <span class="sql-keyword">0</span> <span class="sql-keyword">else</span> <span class="sql-keyword">0</span><br>
+</div>
 
-%pip install numpy
+<!-- Карточка 2: Реализация класса Перцептрон -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Реализация класса Perceptron</span><br>
+    <span class="sql-keyword">class</span> <span class="sql-function">Perceptron</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">__init__</span>(self, n_inputs, learning_rate=<span class="sql-keyword">0.1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Инициализация весов и смещения случайными числами</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.weights = np.random.randn(n_inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.bias = np.random.randn()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lr = learning_rate&nbsp;&nbsp;<span class="sql-comment"># Скорость обучения</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">predict</span>(self, inputs):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Вычисляем взвешенную сумму</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linear = np.dot(inputs, self.weights) + self.bias<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> step_function(linear)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">train</span>(self, X, y, epochs=<span class="sql-keyword">20</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Обучение перцептрона</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> epoch <span class="sql-keyword">in</span> range(epochs):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errors = <span class="sql-keyword">0</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> inputs, target <span class="sql-keyword">in</span> zip(X, y):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction = self.predict(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error = target - prediction<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> error != <span class="sql-keyword">0</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Правило Хебба: корректируем веса</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.weights += self.lr * error * np.array(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.bias += self.lr * error<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errors += <span class="sql-keyword">1</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> epoch % <span class="sql-keyword">5</span> == <span class="sql-keyword">0</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"Эпоха {epoch}: ошибок {errors}"</span>)<br>
+</div>
 
-import numpy as np
+<!-- Карточка 3: Обучение перцептрона (логическое ИЛИ) -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Обучение перцептрона для задачи логического ИЛИ</span><br>
+    <span class="sql-comment"># Таблица истинности для ИЛИ:</span><br>
+    <span class="sql-comment"># 0 OR 0 = 0</span><br>
+    <span class="sql-comment"># 0 OR 1 = 1</span><br>
+    <span class="sql-comment"># 1 OR 0 = 1</span><br>
+    <span class="sql-comment"># 1 OR 1 = 1</span><br>
+    <br>
+    X_train = [[<span class="sql-keyword">0</span>,<span class="sql-keyword">0</span>], [<span class="sql-keyword">0</span>,<span class="sql-keyword">1</span>], [<span class="sql-keyword">1</span>,<span class="sql-keyword">0</span>], [<span class="sql-keyword">1</span>,<span class="sql-keyword">1</span>]]<br>
+    y_train = [<span class="sql-keyword">0</span>, <span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>]<br>
+    <br>
+    p = Perceptron(n_inputs=<span class="sql-keyword">2</span>, learning_rate=<span class="sql-keyword">0.1</span>)<br>
+    p.train(X_train, y_train, epochs=<span class="sql-keyword">20</span>)<br>
+</div>
 
-# Активационная функция (ступенька)
-def step_function(x):
-    return 1 if x >= 0 else 0
+<!-- Карточка 4: Проверка результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Проверка обученного перцептрона</span><br>
+    print(<span class="sql-keyword">"\n🔍 ПРОВЕРКА ОБУЧЕННОГО ПЕРЦЕПТРОНА (ЛОГИЧЕСКОЕ ИЛИ):"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">45</span>)<br>
+    <br>
+    <span class="sql-keyword">for</span> inputs <span class="sql-keyword">in</span> X_train:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;result = p.predict(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {inputs[0]} OR {inputs[1]} = {result}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Вывод весов обученной модели</span><br>
+    print(<span class="sql-keyword">f"\n📊 Веса модели: {p.weights.round(3)}"</span>)<br>
+    print(<span class="sql-keyword">f"📊 Смещение (bias): {p.bias:.3f}"</span>)<br>
+</div>
 
-class Perceptron:
-    def __init__(self, n_inputs, learning_rate=0.1):
-        self.weights = np.random.randn(n_inputs)
-        self.bias = np.random.randn()
-        self.lr = learning_rate
-    
-    def predict(self, inputs):
-        linear = np.dot(inputs, self.weights) + self.bias
-        return step_function(linear)
-    
-    def train(self, X, y, epochs=20):
-        for epoch in range(epochs):
-            errors = 0
-            for inputs, target in zip(X, y):
-                prediction = self.predict(inputs)
-                error = target - prediction
-                if error != 0:
-                    self.weights += self.lr * error * np.array(inputs)
-                    self.bias += self.lr * error
-                    errors += 1
-            if epoch % 5 == 0:
-                print(f"Эпоха {epoch}: ошибок {errors}")
-
-# Логическое ИЛИ
-X_train = [[0,0], [0,1], [1,0], [1,1]]
-y_train = [0, 1, 1, 1]
-
-p = Perceptron(n_inputs=2, learning_rate=0.1)
-p.train(X_train, y_train, epochs=20)
-
-print("\nПроверка обученного перцептрона (ЛОГИЧЕСКОЕ ИЛИ):")
-for inputs in X_train:
-    print(f"{inputs} → {p.predict(inputs)}")
-
-# Задание: измените логическую функцию на "И" (y_train = [0,0,0,1]) и посмотрите, обучится ли?</code></pre>
+<!-- Карточка 5: Задание для студентов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: ЗАДАНИЕ ДЛЯ СТУДЕНТОВ</span><br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">"💡 ЗАДАНИЕ: ПОПРОБУЙТЕ ОБУЧИТЬ ПЕРЦЕПТРОН НА ЛОГИЧЕСКОЕ 'И'"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"""</span><br>
+<span class="sql-keyword">📝 Таблица истинности для логического 'И' (AND):</span><br>
+    <span class="sql-keyword">0 AND 0 = 0</span><br>
+    <span class="sql-keyword">0 AND 1 = 0</span><br>
+    <span class="sql-keyword">1 AND 0 = 0</span><br>
+    <span class="sql-keyword">1 AND 1 = 1</span><br>
+    <br>
+<span class="sql-keyword">🔧 Замените y_train на:</span><br>
+    y_train = [<span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, <span class="sql-keyword">1</span>]<br>
+    <br>
+<span class="sql-keyword">❓ Вопросы для исследования:</span><br>
+    1. Сможет ли перцептрон обучиться логическому 'И'?<br>
+    2. Сколько эпох потребовалось?<br>
+    3. Попробуйте обучить на логическое 'ИСКЛЮЧАЮЩЕЕ ИЛИ' (XOR):<br>
+       y_train = [0, 1, 1, 0]<br>
+       Обучится ли? Почему?<br>
+    """</span>)<br>
+</div>
           <div class="text-muted-small">
             🔬 Так работают все нейросети: миллиарды таких нейронов, соединённых
             в слои, порождают ChatGPT и Midjourney.

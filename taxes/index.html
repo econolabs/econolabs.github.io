@@ -1,53 +1,130 @@
 <!doctype html>
 <html lang="ru">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Налоги и налогообложение</title>
-    <link href="../dist/original.css" rel="stylesheet">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="../dist/original.css" />
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <script src="./quizesSets.js"></script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <link rel="stylesheet" href="../dist/katex.min.css" />
 
-</head>
+    <script src="../dist/katex.min.js"></script>
 
-<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
-    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <!-- 1. Include JSXGraph CSS and JS via CDN 
+
+    <script src="../dist/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/jsxgraph.css" />
+
+-->
+  
+
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/rtk-query.umd.min.js"></script>
+
+    <script src="./quizesSets.js"></script>
+
+ 
 
 
+    <style>
+      .fade-in-div {
+        animation: fadeIn 475;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .code-block {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border-left: 4px solid #007bff;
+        font-family: "Courier New", monospace;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-size: 0.9em;
+      }
+
+      .exercise {
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.25rem;
+      }
+
+      .sql-keyword {
+        color: #d73a49;
+        font-weight: bold;
+      }
+
+      .sql-comment {
+        color: #6a737d;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
+    <!-- Навигационная панель -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <a href="https://vk.com/dmglvn">
-                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
-                        alt="" style="
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span class="sr-only"></span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="https://vk.com/dmglvn">
+            <img
+              loading="lazy"
+              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+              alt=""
+              style="
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
                 filter: grayscale(100%);
                 object-fit: cover;
-              " />
-                </a>
-            </form>
-        </div>
+              "
+            />
+          </a>
+        </form>
+      </div>
     </nav>
-
-
-
     <div class="container">
 
         <h1 class="display-5">Налоги и налогообложение</h1>
@@ -663,9 +740,8 @@
             </div>
         </div>
 
-
-        <div class="card mb-1" style="max-width:800px;">
-            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
+       <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
                 class="card-img-top" style="filter: grayscale(1);" alt="quiz">
             <div class="card-body">
                 <div class="container" id="formcontainer" style="display: none;">
@@ -700,7 +776,7 @@
                                 <div id="usercalculations" style="display: none;">
                                     <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
                                     <input type="text" class="form-control form-control-sm" id="inputFormula">
-                                </div>
+                                  </div>
                                 <textarea class="form-control my-3" id="userComment" rows="2"
                                     style="display: none;">Мой комментарий</textarea>
                                 <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
@@ -709,44 +785,21 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
-        <!--  
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Материал</h5>
-                Тесты
-                https://infourok.ru/testy-statistika-spo-6237009.html
-                https://infourok.ru/itogovyj-test-po-statistike-spo-4442798.html
-                https://urait.ru/viewer/statistika-536914?tab=quiz#page/1
-                https://op.raj.ru/spo/555-osnovy-statistiki-uchebnoe-posobie
-                http://crimestat.ru/opendata
-                https://www.hse.ru/edu/courses/470999993#controls
-                https://openedu.ru/course/hse/STATDA/
-                https://viro33.ru/download/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B%20%D0%92%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%D0%B8%20%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%20(%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5).pdf
-                https://new.rguts.ru/sveden/files/2022_40.02.01_Pravo_i_organizaciya_soc.obespecheniya_9_klass_OP_Statistika_RP.pdf
-                https://a-pet.ru/wp-content/uploads/2015/04/OPD_02_statis.pdf
-                http://www.fa.ru/org/spo/mfc/uch/%D0%9E%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B/38.02.01/2021/OCH/BUH_11/OP/%D0%9E%D0%9F.11%20%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%AD%D0%BA%202021_1_10.pdf
-                <div class="alert alert-primary" role="alert">
-                    <a
-                        href="https://practicum.yandex.ru/trainer/statistics-basic/lesson/7ac5905e-cdb8-44f9-8cf8-a7977ff09211/">
-                        Примеры уроков
-                    </a>
-                </div>
-            </div>
-        </div>
-        <script type="module" src="../dist/quizcardwithstorage.js"></script>
--->
+    </div>
+
+  
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 
-        <script src="./basicfirebasecrudservices.umd.js"></script>
-        <script src="./vanillajsdommanagement.umd.js"></script>
-        <script src="./quizcardwithstorage.umd.js"></script>
 
-</body>
-
+      <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
