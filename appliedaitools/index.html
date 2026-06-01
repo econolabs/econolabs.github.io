@@ -2402,8 +2402,501 @@
   </div>
 </div>
 
+<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика</h1></div></div>
 
 
+<div class="card my-3" style="max-width: 800px">
+                <img src="../h1title.jpg" class="card-img-top" alt="База данных">
+                <div class="card-body">
+                    <h3>Python Basics</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-4">Данные, функции, библиотеки</h1>
+                            <p class="lead text-center">Практическое руководство для работы в Jupyter Lite</p>
+
+                            <!-- Блок с целями обучения -->
+                            <div class="alert alert-primary">
+                                <h4>Sandbox (песочница)</h4>
+                                <ul>
+                                   <li>https://econolabspython.github.io/jupyterlite/lab/index.html</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<div class="card my-3" style="max-width: 800px">
+                <img src="../h1title11.jpg" class="card-img-top" alt="Обновление данных">
+                <div class="card-body">
+                    <h3>Функции в Python</h3>
+
+
+
+                    <p class="card-text">Определение функции: Для создания функции используется конструкция def
+                        имя_функции():, а затем с ОТСТУПОМ - indent - (Tab) пишется тело функции<br>
+
+                        def имя_функции (аргументы):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;тело_функции<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return результат
+                    </p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">def</span> <span class="sql-function">add</span>(a, b):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> a + b<br><br>
+
+                        result = add(<span class="sql-number">3</span>, <span class="sql-number">5</span>)<br>
+                        print(result) <span class="sql-comment"># Вывод: 8</span><br><br>
+
+                        <span class="sql-keyword">def</span> <span class="sql-function">greet</span>(name=<span class="sql-string">'Посетитель'</span>, message=<span class="sql-string">'Привет,
+                            '</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(message, name)<br><br>
+
+                        <span class="sql-comment"># Вызов функции без указания значения по умолчанию</span><br>
+                        greet() <span class="sql-comment"># Вывод: Привет, Посетитель</span><br><br>
+
+                        <span class="sql-comment"># Вызов функции с изменённым значением по умолчанию</span><br>
+                        greet(<span class="sql-string">'Артём'</span>) <span class="sql-comment"># Вывод: Привет,
+                            Артём</span><br>
+                    </div>
+
+                    Подробнее<br>
+                    https://informatikakegeitpy.notion.site/Python-tpy-3dbb4a8f76834482ab59aa157bf88e6b<br>
+
+
+                </div>
+            </div>
+
+
+
+          <div class="card my-3" style="max-width: 800px">
+                <img src="../h1title16.jpg" class="card-img-top" alt="Поиск данных">
+                <div class="card-body">
+                    <h3>Создание собственной функции для генерации однородных данных массовых данных в Python</h3>
+
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> random<br><br>
+
+                        <span class="sql-keyword">def</span> generate_students_data(count=<span class="sql-keyword">5</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Генерирует случайные данные студентов с учетом пола<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;Args:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count (int): количество студентов для
+                        генерации<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list: список кортежей с данными студентов (name,
+                        age, grade)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Списки имен и фамилий с учетом
+                            пола</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;male_first_names = [<span class="sql-string">"Алексей"</span>, <span class="sql-string">"Иван"</span>, <span class="sql-string">"Дмитрий"</span>, <span class="sql-string">"Сергей"</span>, <span class="sql-string">"Андрей"</span>, <span class="sql-string">"Михаил"</span>, <span class="sql-string">"Владимир"</span>, <span class="sql-string">"Павел"</span>, <span class="sql-string">"Николай"</span>, <span class="sql-string">"Евгений"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;female_first_names = [<span class="sql-string">"Мария"</span>, <span class="sql-string">"Анна"</span>, <span class="sql-string">"Екатерина"</span>, <span class="sql-string">"Ольга"</span>, <span class="sql-string">"Наталья"</span>, <span class="sql-string">"Елена"</span>, <span class="sql-string">"Ирина"</span>, <span class="sql-string">"Светлана"</span>, <span class="sql-string">"Татьяна"</span>, <span class="sql-string">"Юлия"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;male_last_names = [<span class="sql-string">"Иванов"</span>, <span class="sql-string">"Петров"</span>, <span class="sql-string">"Сидоров"</span>, <span class="sql-string">"Смирнов"</span>, <span class="sql-string">"Кузнецов"</span>, <span class="sql-string">"Попов"</span>, <span class="sql-string">"Васильев"</span>, <span class="sql-string">"Михайлов"</span>, <span class="sql-string">"Новиков"</span>, <span class="sql-string">"Федоров"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;female_last_names = [<span class="sql-string">"Иванова"</span>, <span class="sql-string">"Петрова"</span>, <span class="sql-string">"Сидорова"</span>, <span class="sql-string">"Смирнова"</span>, <span class="sql-string">"Кузнецова"</span>, <span class="sql-string">"Попова"</span>, <span class="sql-string">"Васильева"</span>, <span class="sql-string">"Михайлова"</span>, <span class="sql-string">"Новикова"</span>, <span class="sql-string">"Федорова"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Возможные оценки</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grades = [<span class="sql-string">"A"</span>, <span class="sql-string">"B"</span>, <span class="sql-string">"C"</span>, <span class="sql-string">"D"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;students_data = []<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> _ <span class="sql-keyword">in</span> range(count):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сначала генерируем
+                            пол</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'male'</span>, <span class="sql-string">'female'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Выбираем имя и
+                            фамилию в зависимости от пола</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> gender ==
+                        <span class="sql-string">'male'</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name =
+                        random.choice(male_first_names)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_name =
+                        random.choice(male_last_names)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_name =
+                        random.choice(female_first_names)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_name =
+                        random.choice(female_last_names)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = <span class="sql-string">f"</span>{last_name} {first_name}<span class="sql-string">"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Генерация случайного
+                            возраста</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age = random.randint(<span class="sql-keyword">18</span>, <span class="sql-keyword">25</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Генерация случайной
+                            оценки</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade = random.choice(grades)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;students_data.append((name, age, grade))<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> students_data<br><br>
+
+                        <span class="sql-comment"># Пример использования:</span><br>
+                        students_data = generate_students_data(<span class="sql-keyword">5</span>)<br>
+                        print(students_data)<br>
+                    </div>
+                </div>
+            </div>
+
+ <div class="card my-3" style="max-width: 800px">
+                <img src="../h1title17.jpg" class="card-img-top" alt="Поиск данных">
+                <div class="card-body">
+                    <h3>Сохранение в файл, чтение из файла</h3>
+
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Пример импорта сторонней библиотеки</span><br>
+                        <span class="sql-keyword">import</span> piplite<br><br>
+                        <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"pickle"</span>)<br>
+                        <br><br>
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> random<br>
+                        <span class="sql-keyword">import</span> csv<br>
+                        <span class="sql-keyword">import</span> json<br>
+                        <span class="sql-keyword">import</span> pickle<br>
+                        <span class="sql-keyword">import</span> sqlite3<br><br>
+
+                        <span class="sql-comment"># Функция генерации данных студентов</span><br>
+                        <span class="sql-keyword">def</span> generate_students_data(count=5):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""Генерирует случайные данные
+                            студентов"""</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;male_first_names = [<span class="sql-string">"Алексей"</span>, <span class="sql-string">"Иван"</span>, <span class="sql-string">"Дмитрий"</span>, <span class="sql-string">"Сергей"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;female_first_names = [<span class="sql-string">"Мария"</span>, <span class="sql-string">"Анна"</span>, <span class="sql-string">"Екатерина"</span>, <span class="sql-string">"Ольга"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;male_last_names = [<span class="sql-string">"Иванов"</span>, <span class="sql-string">"Петров"</span>, <span class="sql-string">"Сидоров"</span>, <span class="sql-string">"Смирнов"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;female_last_names = [<span class="sql-string">"Иванова"</span>, <span class="sql-string">"Петрова"</span>, <span class="sql-string">"Сидорова"</span>, <span class="sql-string">"Смирнова"</span>]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grades = [<span class="sql-string">"A"</span>, <span class="sql-string">"B"</span>, <span class="sql-string">"C"</span>, <span class="sql-string">"D"</span>]<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;students_data = []<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> _ <span class="sql-keyword">in</span> <span class="sql-function">range</span>(count):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gender = random.choice([<span class="sql-string">'male'</span>, <span class="sql-string">'female'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> gender ==
+                        <span class="sql-string">'male'</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = <span class="sql-string">f"{random.choice(male_last_names)}
+                            {random.choice(male_first_names)}"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = <span class="sql-string">f"{random.choice(female_last_names)}
+                            {random.choice(female_first_names)}"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age = random.randint(18, 25)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade = random.choice(grades)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;students_data.append((name, age, grade))<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> students_data<br><br>
+
+                        <span class="sql-comment"># Сохранение в CSV формат</span><br>
+                        <span class="sql-keyword">def</span> save_to_csv(data, filename=<span class="sql-string">"students.csv"</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'w'</span>,
+                        newline=<span class="sql-string">''</span>, encoding=<span class="sql-string">'utf-8'</span>)
+                        <span class="sql-keyword">as</span> file:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(file)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([<span class="sql-string">'Имя'</span>, <span class="sql-string">'Возраст'</span>, <span class="sql-string">'Оценка'</span>])<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.writerows(data)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в CSV: {filename}"</span>)<br><br>
+
+                        <span class="sql-comment"># Сохранение в JSON формат</span><br>
+                        <span class="sql-keyword">def</span> save_to_json(data, filename=<span class="sql-string">"students.json"</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;students_list = []<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> name, age, grade <span class="sql-keyword">in</span> data:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;student = {<span class="sql-string">"name"</span>: name, <span class="sql-string">"age"</span>: age, <span class="sql-string">"grade"</span>: grade}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;students_list.append(student)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'w'</span>,
+                        encoding=<span class="sql-string">'utf-8'</span>) <span class="sql-keyword">as</span> file:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.dump({<span class="sql-string">"students"</span>: students_list}, file, ensure_ascii=<span class="sql-keyword">False</span>, indent=2)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в JSON: {filename}"</span>)<br><br>
+
+                        <span class="sql-comment"># Сохранение в текстовый формат</span><br>
+                        <span class="sql-keyword">def</span> save_to_txt(data, filename=<span class="sql-string">"students.txt"</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'w'</span>,
+                        encoding=<span class="sql-string">'utf-8'</span>) <span class="sql-keyword">as</span> file:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="sql-string">"Список
+                            студентов:\n"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="sql-string">"="</span> *
+                        40 + <span class="sql-string">"\n"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> name, age,
+                        grade <span class="sql-keyword">in</span> data:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="sql-string">f"Имя: {name}\nВозраст: {age}\nОценка: {grade}\n"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="sql-string">"-"</span> * 40 + <span class="sql-string">"\n"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в TXT: {filename}"</span>)<br><br>
+
+                        <span class="sql-comment"># Сохранение в бинарный формат (pickle)</span><br>
+                        <span class="sql-keyword">def</span> save_to_pickle(data, filename=<span class="sql-string">"students.pkl"</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'wb'</span>) <span class="sql-keyword">as</span> file:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pickle.dump(data, file)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в Pickle: {filename}"</span>)<br><br>
+
+                        <span class="sql-comment"># Сохранение в базу данных SQLite</span><br>
+                        <span class="sql-keyword">def</span> save_to_sqlite(data, filename=<span class="sql-string">"students.db"</span>):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;connection = sqlite3.connect(filename)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;cursor = connection.cursor()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;cursor.execute(<span class="sql-string">'''CREATE TABLE IF NOT EXISTS
+                            students (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, grade
+                            TEXT)'''</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;cursor.execute(<span class="sql-string">'DELETE FROM
+                            students'</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;cursor.executemany(<span class="sql-string">'INSERT INTO students (name,
+                            age, grade) VALUES (?, ?, ?)'</span>, data)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;connection.commit()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;connection.close()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в SQLite: {filename}"</span>)<br><br>
+
+                        <span class="sql-comment"># Основной блок выполнения</span><br>
+                        <span class="sql-keyword">if</span> __name__ == <span class="sql-string">"__main__"</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Генерация данных</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;students = generate_students_data(5)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Вывод данных в консоль</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">"Сгенерированные данные:"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> student <span class="sql-keyword">in</span> students:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(student)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сохранение во все форматы</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_csv(students)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_json(students)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_txt(students)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_pickle(students)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_sqlite(students)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">"\nВсе
+                            данные успешно сохранены в разных форматах!"</span>)
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="card my-3" style="max-width: 800px">
+                <img src="../h1title8.jpg" class="card-img-top" alt="Удаление данных">
+                <div class="card-body">
+                    <h3>Простейшая визуализация: pandas и matplotlib</h3>
+
+                    <div class="alert alert-primary" role="alert">
+                        Pandas — это библиотека Python для обработки и анализа структурированных данных, ее название
+                        происходит от «panel data» («панельные данные»).<br>
+                        Панельными данными называют информацию, полученную в результате исследований и структурированную
+                        в виде таблиц
+                    </div>
+
+                    <div class="alert alert-secondary" role="alert">
+                        Pandas Series (серия) — это одномерный массив.<br>
+                        Визуально он похож на пронумерованный список: слева в колонке находятся индексы элементов, а
+                        справа — сами элементы
+                    </div>
+
+
+                    <div class="alert alert-success" role="alert">
+                        Pandas DataFrame — это двумерный массив, похожий на таблицу/лист Excel (кстати, данные из
+                        табличных файлов Excel можно читать с помощью команды pandas.read_excel('file.xls')).<br>
+                        В нем можно проводить такие же манипуляции с данными: объединять в группы, сортировать по
+                        определенному признаку, производить вычисления.<br>
+                        Как любая таблица, датафрейм состоит из столбцов и строк, причем столбцами будут уже известные
+                        объекты — Series.
+                    </div>
+
+
+                    <div class="alert alert-primary" role="alert">
+                        Дата-аналитики составляют наглядные графики с помощью Pandas и библиотеки Matplotlib
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Пример импорта сторонней библиотеки</span><br>
+                        <span class="sql-keyword">import</span> piplite<br><br>
+                        <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"pickle"</span>)<br>
+                        <br><br>
+                    </div>
+
+                    <div class="code-block">
+                        import matplotlib.pyplot as plt<br><br>
+
+                        <span class="sql-comment"># Линейный график</span><br>
+                        x = [<span class="sql-keyword">1, 2, 3, 4, 5</span>]<br>
+                        y = [<span class="sql-keyword">2, 4, 1, 5, 3</span>]<br>
+                        plt.plot(x, y)<br>
+                        plt.title(<span class="sql-keyword">'Пример линейного графика'</span>)<br>
+                        plt.xlabel(<span class="sql-keyword">'Время'</span>)<br>
+                        plt.ylabel(<span class="sql-keyword">'Значения'</span>)<br>
+                        plt.grid(<span class="sql-keyword">True</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Столбчатая диаграмма</span><br>
+                        categories = [<span class="sql-keyword">'A', 'B', 'C', 'D'</span>]<br>
+                        values = [<span class="sql-keyword">15, 23, 18, 30</span>]<br>
+                        plt.bar(categories, values)<br>
+                        plt.title(<span class="sql-keyword">'Продажи по категориям'</span>)<br>
+                        plt.xticks(rotation=<span class="sql-keyword">45</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Круговая диаграмма</span><br>
+                        sizes = [<span class="sql-keyword">35, 25, 20, 20</span>]<br>
+                        labels = [<span class="sql-keyword">'Python', 'Java', 'C++', 'Другие'</span>]<br>
+                        plt.pie(sizes, labels=labels, autopct=<span class="sql-keyword">'%1.1f%%'</span>)<br>
+                        plt.title(<span class="sql-keyword">'Распределение языков'</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Гистограмма</span><br>
+                        data = [<span class="sql-keyword">1, 2, 2, 3, 3, 3, 4, 4, 5</span>]<br>
+                        plt.hist(data, bins=<span class="sql-keyword">5</span>)<br>
+                        plt.title(<span class="sql-keyword">'Распределение данных'</span>)<br>
+                        plt.xlabel(<span class="sql-keyword">'Значения'</span>)<br>
+                        plt.ylabel(<span class="sql-keyword">'Частота'</span>)<br>
+                        plt.show()<br><br>
+
+                        <span class="sql-comment"># Точечная диаграмма</span><br>
+                        x = [<span class="sql-keyword">1, 2, 3, 4, 5, 6</span>]<br>
+                        y = [<span class="sql-keyword">2, 4, 1, 5, 3, 6</span>]<br>
+                        plt.scatter(x, y)<br>
+                        plt.title(<span class="sql-keyword">'Точечный график'</span>)<br>
+                        plt.show()<br><br>
+                    </div>
+
+
+                    <div class="alert alert-primary" role="alert">
+                        Seaborn — это библиотека Python для статистической визуализации данных, построенная поверх
+                        Matplotlib.<br>
+                        Она упрощает создание сложных и привлекательных графиков, таких как коробчатые диаграммы,
+                        тепловые карты и диаграммы рассеяния, с помощью высокоуровневого интерфейса.<br>
+                        Seaborn тесно интегрируется с библиотекой Pandas, что позволяет напрямую визуализировать данные
+                        из фреймов данных
+                    </div>
+                </div>
+            </div>
+
+             <div class="card my-3" style="max-width: 800px">
+                <img src="../h1title10.jpg" class="card-img-top" alt="Pandas Data Analysis">
+                <div class="card-body">
+                    <h3>Основы работы с Pandas</h3>
+                    <p class="card-text">Pandas - это мощная библиотека Python для анализа и обработки данных,
+                        предоставляющая структуры данных Series и DataFrame.</p>
+                    <p class="card-text">Основные операции импорта, создания и манипуляции с табличными данными.</p>
+
+                    <div class="code-block">
+                        <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+                        <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br><br>
+
+                        <span class="sql-comment"># Создание DataFrame из словаря</span><br>
+                        data = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Имя': ['Анна', 'Борис', 'Мария', 'Дмитрий'],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Возраст': [25, 30, 22, 35],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Город': ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск']<br>
+                        }<br><br>
+
+                        df = pd.DataFrame(data)<br>
+                        <span class="sql-comment">print(df)</span><br><br>
+
+                        <span class="sql-comment"># Чтение данных из CSV файла</span><br>
+                        <span class="sql-comment"># df = pd.read_csv('data.csv')</span><br><br>
+
+                        <span class="sql-comment"># Просмотр основных характеристик данных</span><br>
+                        df.info()<br>
+                        df.describe()<br>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <strong>Важно:</strong> Всегда проверяйте данные на наличие пропущенных значений с помощью
+                        df.isnull().sum()
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ключевые возможности Pandas:</strong></p>
+                            <ul>
+                                <li>Работа с табличными данными через DataFrame</li>
+                                <li>Обработка пропущенных значений</li>
+                                <li>Группировка и агрегация данных</li>
+                                <li>Слияние и объединение таблиц</li>
+                                <li>Работа с временными рядами</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Базовые операции с DataFrame:</strong></p>
+                            <ul>
+                                <li>Выбор столбцов: df['столбец']</li>
+                                <li>Фильтрация: df[df['возраст'] &gt; 25]</li>
+                                <li>Добавление столбца: df['новый'] = значения</li>
+                                <li>Удаление столбца: df.drop('столбец', axis=1)</li>
+                                <li>Сортировка: df.sort_values('столбец')</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p><strong>Проведите анализ данных из каталога /data в JupyteeLite</strong></p>
+                            <ul>
+
+
+
+                                <li>df.info()</li>
+                                <li>df.describe()</li>
+                                <li>Добавление столбца: df['новый'] = значения</li>
+                                <li>Удаление столбца: df.drop('столбец', axis=1)</li>
+                                <li>Сортировка: df.sort_values('столбец')</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+             <div class="card my-3" style="max-width: 800px">
+                <img src="../h1title12.jpg" class="card-img-top" alt="Pandas Operations">
+                <div class="card-body">
+                    <h3>Продвинутые операции в Pandas</h3>
+                    <p class="card-text">Работа с группами данных, применение функций и обработка пропущенных значений.
+                    </p>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Группировка и агрегация данных</span><br>
+                        grouped = df.groupby('Город')['Возраст'].mean()<br>
+                        <span class="sql-comment">print(grouped)</span><br><br>
+
+                        <span class="sql-comment"># Применение функций к столбцам</span><br>
+                        df['Возраст_группа'] = df['Возраст'].apply(<span class="sql-keyword">lambda</span> x: <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;'Молодой' <span class="sql-keyword">if</span> x &lt; 30 <span class="sql-keyword">else</span> 'Взрослый')<br><br>
+
+                            <span class="sql-comment"># Обработка пропущенных значений</span><br>
+                            df.ffill(inplace=True) <span class="sql-comment"># заполнение предыдущим
+                                значением</span><br>
+                            <span class="sql-comment"># или</span><br>
+                            df.dropna(inplace=True) <span class="sql-comment"># удаление строк с
+                                пропусками</span><br><br>
+
+                            <span class="sql-comment"># Сохранение DataFrame в CSV</span><br>
+                            df.to_csv('processed_data.csv', index=False, encoding='utf-8')<br>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <strong>Совет:</strong> Используйте метод .copy() при создании подмножеств DataFrame, чтобы
+                        избежать предупреждений SettingWithCopyWarning
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Методы группировки:</strong></p>
+                            <ul>
+                                <li>.groupby() - группировка по столбцу</li>
+                                <li>.agg() - множественные агрегации</li>
+                                <li>.pivot_table() - сводные таблицы</li>
+                                <li>.merge() / .join() - объединение таблиц</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Практическое применение:</strong></p>
+                            <ul>
+                                <li>Анализ датасетов</li>
+                                <li>Предобработка данных для ML</li>
+                                <li>Анализ временных рядов</li>
+                                <li>Экспорт/импорт данных</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
 
 <h1 class="text-primary">
       2.	Работа с текстовыми нейросетями
@@ -11574,7 +12067,7 @@
 
 
 
-    <div class="card mx-auto" style="max-width: 800px; margin: 10px">
+     <div class="card my-3" style="max-width: 800px">
       <img src="../h1title.jpg" class="card-img-top" alt="База данных">
       <div class="card-body">
         <h3>Практические работы для JupyterLite </h3>
