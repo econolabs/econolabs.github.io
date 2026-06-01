@@ -104,7 +104,6 @@
     <h1 style="color: #217346">
       Прикладные инструменты искусственного интеллекта</h1>
 
-
     <h1 class="text-primary">
       Задачи курса
     </h1>
@@ -1557,7 +1556,7 @@
               Извлечение диагнозов и лекарств из электронных медицинских карт (EMR).
               Чат-бот для предварительной записи и сбора симптомов.
             </td>
-            <td>Трансформеры (BioBERT, Clinical BERT, GPT)</strong>},
+            <td>Трансформеры (BioBERT, Clinical BERT, GPT)</strong>
 
           </tr>
           <tr>
@@ -1643,7 +1642,7 @@
               Реальное время: обнаружение подозрительных транзакций по картам
               (Visa, Mastercard, Сбер). Анализ графа связей между счетами.
             </td>
-            <td>Сокращение false positive на 30–50%, экономия миллиардов $</strong>},
+            <td>Сокращение false positive на 30–50%, экономия миллиардов $</strong>
 
           </tr>
           <tr>
@@ -1727,7 +1726,7 @@
               Коллаборативная фильтрация («с другими покупателями» + DL на
               последовательностих кликов (BERT4Rec, трансформеры).
             </td>
-            <td>+15–35% продаж, удержание пользователей</strong>},
+            <td>+15–35% продаж, удержание пользователей</strong>
           </tr>
           <tr>
             <td><strong>Динамическое ценообразование</strong></strong></td>
@@ -1745,7 +1744,7 @@
               Временные ряды (SARIMA, Prophet, LSTM, трансформеры времени) —
               сколько товара везти на каждый склад.
             </td>
-            <td>Снижение дефицита и избытка запасов на 10–20%</strong>},
+            <td>Снижение дефицита и избытка запасов на 10–20%</strong>
 
           </tr>
           <tr>
@@ -2365,7 +2364,7 @@
               Социальные сети (предсказание связей), молекулярная биология
               (белки, лекарства), детекция мошеннических сетей
              </strong></td>
-            <td>GraphSAGE, GCN, GAT, Graph Transformer</strong>},
+            <td>GraphSAGE, GCN, GAT, Graph Transformer</strong>
 
           </tr>
           <tr>
@@ -2378,7 +2377,7 @@
               Прогноз временных рядов (акции, погода), распознавание речи,
               музыка, ранние NLP-задачи
              </strong></td>
-            <td>LSTM, GRU, BiLSTM</strong>},
+            <td>LSTM, GRU, BiLSTM</strong>
 
           </tr>
         </tbody>
@@ -2402,7 +2401,14 @@
   </div>
 </div>
 
-<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика</h1></div></div>
+  <div class="card my-3" style="max-width: 800px">               
+                <div class="card-body">
+<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика 1</h1></div></div>
+                </div>
+                </div>
+
+
+
 
 
 <div class="card my-3" style="max-width: 800px">
@@ -2473,8 +2479,17 @@
           <div class="card my-3" style="max-width: 800px">
                 <img src="../h1title16.jpg" class="card-img-top" alt="Поиск данных">
                 <div class="card-body">
-                    <h3>Создание собственной функции для генерации однородных данных массовых данных в Python</h3>
+                    <h3>Подключение библиотек. 
+                      Создание собственной функции для генерации однородных
+                       данных данных</h3>
 
+                        <div class="code-block">
+                        <span class="sql-comment"># Пример импорта сторонней библиотеки</span><br>
+                            <span class="sql-comment"># Если она не загружена заранее в "песочницу"</span><br>
+                        <span class="sql-keyword">import</span> piplite<br><br>
+                        <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"pickle"</span>)<br>
+                        <br><br>
+                    </div>
 
                     <div class="code-block">
                         <span class="sql-keyword">import</span> random<br><br>
@@ -2549,19 +2564,162 @@
                 <div class="card-body">
                     <h3>Сохранение в файл, чтение из файла</h3>
 
-
                     <div class="code-block">
-                        <span class="sql-comment"># Пример импорта сторонней библиотеки</span><br>
-                        <span class="sql-keyword">import</span> piplite<br><br>
-                        <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"pickle"</span>)<br>
-                        <br><br>
+                        <span class="sql-keyword">import</span> sqlite3<br><br>
+
+                        <span class="sql-comment"># Подключение к базе данных</span><br>
+                        connection = sqlite3.connect(':memory:')<br><br>
+
+                        <span class="sql-comment"># Создание курсора для выполнения SQL-запросов</span><br>
+                        cursor = connection.cursor()<br><br>
+
+                        <span class="sql-comment"># Не забудьте закрыть соединение после работы</span><br>
+                        <span class="sql-comment">connection.close()</span>
                     </div>
 
+                    <div class="code-block">
+                        <span class="sql-comment"># Создание таблицы студентов - вставьте ПОСЛЕ создания cursor,<br>
+                            # но ДО connection.close() </span><br>
+                        create_table_query = <span class="sql-keyword">'''</span><br>
+                        <span class="sql-keyword">CREATE TABLE</span> IF NOT EXISTS students (<br>
+                        id INTEGER <span class="sql-keyword">PRIMARY KEY AUTOINCREMENT</span>,<br>
+                        name TEXT <span class="sql-keyword">NOT NULL</span>,<br>
+                        age INTEGER,<br>
+                        grade TEXT<br>
+                        );<br>
+                        <span class="sql-keyword">'''</span><br><br>
+
+                        cursor.execute(create_table_query)<br>
+                        connection.commit()
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Вставка одной записи</span><br>
+                        insert_query = <span class="sql-keyword">"INSERT INTO students (name, age, grade) VALUES (?, ?,
+                            ?)"</span><br>
+                        student_data = (<span class="sql-keyword">'Иван Иванов'</span>, <span class="sql-keyword">20</span>,
+                        <span class="sql-keyword">'A'</span>)<br>
+                        cursor.execute(insert_query, student_data)<br>
+                        connection.commit()<br><br>
+
+                        <span class="sql-comment"># Вставка нескольких записей</span><br>
+                        students_list = [<br>
+                        (<span class="sql-keyword">'Мария Петрова'</span>, <span class="sql-keyword">19</span>, <span class="sql-keyword">'B'</span>),<br>
+                        (<span class="sql-keyword">'Петр Сидоров'</span>, <span class="sql-keyword">21</span>, <span class="sql-keyword">'A'</span>),<br>
+                        (<span class="sql-keyword">'Анна Козлова'</span>, <span class="sql-keyword">20</span>, <span class="sql-keyword">'C'</span>)<br>
+                        ]<br>
+                        cursor.executemany(insert_query, students_list)<br>
+                        connection.commit()<br><br>
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Выбор ВСЕХ записей ДО connection.close() </span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students"</span>)<br>
+                        all_students = cursor.fetchall()<br>
+                        <br><br>
+
+                        <span class="sql-comment"># Вывод результатов</span><br>
+                        <span class="sql-keyword">for</span> student <span class="sql-keyword">in</span>
+                        all_students:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"ID: {student[0] Имя: {student[1]
+                            Возраст: {student[2] Оценка: {student[3]}"</span>)
+                        <br>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h4>При извлечении данных слова и символы в SQL-запросах записываются последовательно в
+                            определённом порядке</h4>
+                        <ul>
+                            <li>1. SELECT — указывает столбцы таблицы, которые нужно выбрать</li>
+                            <li>2. FROM — указывает название таблицы, в которой находятся эти столбцы</li>
+                            <li>3. JOIN — объединяет несколько таблиц</li>
+                            <li>4. WHERE — фильтрует строки до выполнения группировки</li>
+                            <li>5. GROUP BY — группирует строки по указанным столбцам</li>
+                            <li>6. HAVING — фильтрует получившиеся после группировки группы</li>
+                            <li>7. ORDER BY — сортирует результат запроса</li>
+                            <li>8. LIMIT — ограничивает количество возвращаемых строк</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Выбор всех записей</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students"</span>)<br>
+                        all_students = cursor.fetchall()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(type(all_students))<br><br>
+
+                        <span class="sql-comment"># Вывод результатов</span><br>
+                        <span class="sql-keyword">for</span> student <span class="sql-keyword">in</span>
+                        all_students:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"ID: {student[0] Имя: {student[1]
+                            Возраст: {student[2] Оценка: {student[3]}"</span>)
+                        <br>
+                        <br>
+                        <span class="sql-comment"># Выбор с условием</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students WHERE age &gt; ?"</span>, (<span class="sql-keyword">19</span>,))<br>
+                        adult_students = cursor.fetchall()<br>
+                        <span class="sql-comment"># Сделайте самостоятельно вывод результатов</span><br><br>
+
+                        <span class="sql-comment"># Выбор одной записи</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT * FROM students WHERE name = ?"</span>, (<span class="sql-keyword">'Иван Иванов'</span>,))<br>
+                        one_student = cursor.fetchone()<br>
+                        print(type(student))<br>
+                        <span class="sql-comment"># Display the result</span><br>
+                        print("First Student:")<br>
+                        print(student) <br>
+                        <br>
+
+                        <span class="sql-comment"># Выбор конкретных полей</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT name, grade FROM students WHERE age BETWEEN 18
+                            AND
+                            20"</span>)<br>
+                        specific_fields = cursor.fetchall()<br>
+                        <span class="sql-comment"># Сделайте самостоятельно вывод результатов</span><br><br>
+
+                        <span class="sql-comment"># Выбор уникальных значений</span><br>
+                        cursor.execute(<span class="sql-keyword">"SELECT DISTINCT grade FROM students"</span>)<br>
+                        unique_grades = cursor.fetchall()<br><br>
+                        <span class="sql-comment"># Сделайте самостоятельно вывод результатов</span><br><br>
+
+
+                    </div>
+
+                    <div class="code-block">
+
+                        <span class="sql-comment"># Удаление всех записей из таблицы (осторожно!) -<br>
+                            вставьте код ДО добавления данных</span><br>
+                        <span class="sql-comment"># cursor.execute("DELETE FROM students")</span><br>
+                        <span class="sql-comment"># connection.commit()</span>
+                    </div>
+
+                    <div class="code-block">
+                        <span class="sql-comment"># Обновление оценки студента</span><br>
+                        update_query = <span class="sql-keyword">"UPDATE students SET grade = ? WHERE name =
+                            ?"</span><br>
+                        cursor.execute(update_query, (<span class="sql-keyword">'A+'</span>, <span class="sql-keyword">'Мария Петрова'</span>))<br>
+                        connection.commit()<br><br>
+
+                        <span class="sql-comment"># Обновление возраста всех студентов</span><br>
+                        cursor.execute(<span class="sql-keyword">"UPDATE students SET age = age + 1"</span>)<br>
+                        connection.commit()<br><br>
+
+                        <span class="sql-comment"># Обновление нескольких полей</span><br>
+                        cursor.execute(<span class="sql-keyword">'''</span><br>
+                        <span class="sql-keyword">UPDATE</span> students <br>
+                        <span class="sql-keyword">SET</span> grade = <span class="sql-keyword">?</span>, age = <span class="sql-keyword">?</span><br>
+                        <span class="sql-keyword">WHERE</span> id = <span class="sql-keyword">?</span><br>
+                        <span class="sql-keyword">'''</span>, (<span class="sql-keyword">'B+'</span>, <span class="sql-keyword">23</span>, <span class="sql-keyword">5</span>))<br>
+                        connection.commit()<br><br>
+
+                        print(<span class="sql-keyword">f"Количество обновленных строк: {cursor.rowcount}"</span>)
+                    </div>
+
+
+
+                   
                     <div class="code-block">
                         <span class="sql-keyword">import</span> random<br>
                         <span class="sql-keyword">import</span> csv<br>
                         <span class="sql-keyword">import</span> json<br>
-                        <span class="sql-keyword">import</span> pickle<br>
                         <span class="sql-keyword">import</span> sqlite3<br><br>
 
                         <span class="sql-comment"># Функция генерации данных студентов</span><br>
@@ -2608,7 +2766,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'w'</span>,
                         encoding=<span class="sql-string">'utf-8'</span>) <span class="sql-keyword">as</span> file:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.dump({<span class="sql-string">"students"</span>: students_list}, file, ensure_ascii=<span class="sql-keyword">False</span>, indent=2)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.dump({<span class="sql-string">"students"</span>: students_list file, ensure_ascii=<span class="sql-keyword">False</span>, indent=2)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в JSON: {filename}"</span>)<br><br>
 
                         <span class="sql-comment"># Сохранение в текстовый формат</span><br>
@@ -2625,12 +2783,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="sql-string">"-"</span> * 40 + <span class="sql-string">"\n"</span>)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в TXT: {filename}"</span>)<br><br>
 
-                        <span class="sql-comment"># Сохранение в бинарный формат (pickle)</span><br>
-                        <span class="sql-keyword">def</span> save_to_pickle(data, filename=<span class="sql-string">"students.pkl"</span>):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">with</span> <span class="sql-function">open</span>(filename, <span class="sql-string">'wb'</span>) <span class="sql-keyword">as</span> file:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pickle.dump(data, file)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">f"Данные сохранены в Pickle: {filename}"</span>)<br><br>
-
+                      
                         <span class="sql-comment"># Сохранение в базу данных SQLite</span><br>
                         <span class="sql-keyword">def</span> save_to_sqlite(data, filename=<span class="sql-string">"students.db"</span>):<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;connection = sqlite3.connect(filename)<br>
@@ -2660,7 +2813,6 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;save_to_csv(students)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;save_to_json(students)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;save_to_txt(students)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;save_to_pickle(students)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;save_to_sqlite(students)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">print</span>(<span class="sql-string">"\nВсе
@@ -3579,24 +3731,24 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>GoGPT</strong></strong>},
-            <td>ChatGPT, Claude, Midjourney, и др.</strong>},
-            <td>Единый интерфейс, оплата рублями, без VPN </strong>},
+            <td><strong>GoGPT</strong></strong>
+            <td>ChatGPT, Claude, Midjourney, и др.</strong>
+            <td>Единый интерфейс, оплата рублями, без VPN </strong>
           </tr>
           <tr>
-            <td><strong>AITUNNEL</strong></strong>},
-            <td>OpenAI, Google, DeepSeek</strong>},
-            <td>API для разработчиков, стабильный доступ, рубли </strong>},
+            <td><strong>AITUNNEL</strong></strong>
+            <td>OpenAI, Google, DeepSeek</strong>
+            <td>API для разработчиков, стабильный доступ, рубли </strong>
           </tr>
           <tr>
-            <td><strong>SmartBuddy</strong></strong>},
-            <td>Генерация диаграмм, работа с документами</strong>},
-            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>},
+            <td><strong>SmartBuddy</strong></strong>
+            <td>Генерация диаграмм, работа с документами</strong>
+            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
           </tr>
           <tr>
-            <td><strong>Syntx AI</strong></strong>},
-            <td>Десятки нейросетей в одном окне</strong>},
-            <td>Генерация текстов, изображений, видео </strong>},
+            <td><strong>Syntx AI</strong></strong>
+            <td>Десятки нейросетей в одном окне</strong>
+            <td>Генерация текстов, изображений, видео </strong>
           </tr>
         </tbody>
       </table>
@@ -3628,19 +3780,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>YandexGPT API</strong>},
-            <td>4000–10000₽ грант</strong>},
-            <td>60 дней</strong>},
+            <td>YandexGPT API</strong>
+            <td>4000–10000₽ грант</strong>
+            <td>60 дней</strong>
           </tr>
           <tr>
-            <td>GigaChat API (Lite)</strong>},
-            <td>~900k токенов/год</strong>},
-            <td>1 год</strong>},
+            <td>GigaChat API (Lite)</strong>
+            <td>~900k токенов/год</strong>
+            <td>1 год</strong>
           </tr>
           <tr>
-            <td>DeepSeek (чат)</strong>},
-            <td>Безлимит</strong>},
-            <td>Бессрочно</strong>},
+            <td>DeepSeek (чат)</strong>
+            <td>Безлимит</strong>
+            <td>Бессрочно</strong>
           </tr>
         </tbody>
       </table>
@@ -3683,24 +3835,24 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>GoGPT</strong></strong>},
-            <td>ChatGPT, Claude, Midjourney, и др.</strong>},
-            <td>Единый интерфейс, оплата рублями, без VPN </strong>},
+            <td><strong>GoGPT</strong></strong>
+            <td>ChatGPT, Claude, Midjourney, и др.</strong>
+            <td>Единый интерфейс, оплата рублями, без VPN </strong>
           </tr>
           <tr>
-            <td><strong>AITUNNEL</strong></strong>},
-            <td>OpenAI, Google, DeepSeek</strong>},
-            <td>API для разработчиков, стабильный доступ, рубли </strong>},
+            <td><strong>AITUNNEL</strong></strong>
+            <td>OpenAI, Google, DeepSeek</strong>
+            <td>API для разработчиков, стабильный доступ, рубли </strong>
           </tr>
           <tr>
-            <td><strong>SmartBuddy</strong></strong>},
-            <td>Генерация диаграмм, работа с документами</strong>},
-            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>},
+            <td><strong>SmartBuddy</strong></strong>
+            <td>Генерация диаграмм, работа с документами</strong>
+            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
           </tr>
           <tr>
-            <td><strong>Syntx AI</strong></strong>},
-            <td>Десятки нейросетей в одном окне</strong>},
-            <td>Генерация текстов, изображений, видео </strong>},
+            <td><strong>Syntx AI</strong></strong>
+            <td>Десятки нейросетей в одном окне</strong>
+            <td>Генерация текстов, изображений, видео </strong>
           </tr>
         </tbody>
       </table>
@@ -3732,19 +3884,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>YandexGPT API</strong>},
-            <td>4000–10000₽ грант</strong>},
-            <td>60 дней</strong>},
+            <td>YandexGPT API</strong>
+            <td>4000–10000₽ грант</strong>
+            <td>60 дней</strong>
           </tr>
           <tr>
-            <td>GigaChat API (Lite)</strong>},
-            <td>~900k токенов/год</strong>},
-            <td>1 год</strong>},
+            <td>GigaChat API (Lite)</strong>
+            <td>~900k токенов/год</strong>
+            <td>1 год</strong>
           </tr>
           <tr>
-            <td>DeepSeek (чат)</strong>},
-            <td>Безлимит</strong>},
-            <td>Бессрочно</strong>},
+            <td>DeepSeek (чат)</strong>
+            <td>Безлимит</strong>
+            <td>Бессрочно</strong>
           </tr>
         </tbody>
       </table>
@@ -3809,17 +3961,17 @@
         <tbody>
           <tr>
             <td><strong>❌ Плохой</strong></strong></td>
-            <td>«Напиши статью про ИИ»</strong>},
-            <td>Слишком широко: непонятно, для кого, какой объём, какой стиль</strong>},
+            <td>«Напиши статью про ИИ»</strong>
+            <td>Слишком широко: непонятно, для кого, какой объём, какой стиль</strong>
           </tr>
           <tr>
-            <td><strong>✅ Хороший</strong></strong>},
+            <td><strong>✅ Хороший</strong></strong>
             <td>
               «Напиши короткую статью (300–400 слов) для начинающих менеджеров
               о том, как ИИ помогает в продажах. Используй простой язык, добавь
               2 примера из реального бизнеса»
-             </strong>},
-            <td>Чёткие рамки: аудитория, объём, цель, примеры</strong>},
+             </strong>
+            <td>Чёткие рамки: аудитория, объём, цель, примеры</strong>
           </tr>
         </tbody>
       </table>
@@ -3888,24 +4040,24 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Zero-shot</strong></strong>},
-            <td>Простой запрос без примеров</strong>},
-            <td>«Переведи "Hello" на русский»</strong>},
+            <td><strong>Zero-shot</strong></strong>
+            <td>Простой запрос без примеров</strong>
+            <td>«Переведи "Hello" на русский»</strong>
           </tr>
           <tr>
-            <td><strong>Few-shot</strong></strong>},
-            <td>Приводим 2–3 примера до основного запроса</strong>},
-            <td>«Пример: "A→1", "B→2". Теперь "C→?"»</strong>},
+            <td><strong>Few-shot</strong></strong>
+            <td>Приводим 2–3 примера до основного запроса</strong>
+            <td>«Пример: "A→1", "B→2". Теперь "C→?"»</strong>
           </tr>
           <tr>
-            <td><strong>Chain-of-Thought (CoT)</strong></strong>},
-            <td>Просим объяснить ход рассуждений</strong>},
-            <td>«Реши задачу: у Маши 3 яблока, отдала 1 → сколько осталось? Объясни шаги»</strong>},
+            <td><strong>Chain-of-Thought (CoT)</strong></strong>
+            <td>Просим объяснить ход рассуждений</strong>
+            <td>«Реши задачу: у Маши 3 яблока, отдала 1 → сколько осталось? Объясни шаги»</strong>
           </tr>
           <tr>
-            <td><strong>Tree-of-Thoughts (ToT)</strong></strong>},
-            <td>Модель перебирает несколько вариантов решений</strong>},
-            <td>«Перебери 3 возможных сценария развития рынка на 2026 год и выбери лучший»</strong>},
+            <td><strong>Tree-of-Thoughts (ToT)</strong></strong>
+            <td>Модель перебирает несколько вариантов решений</strong>
+            <td>«Перебери 3 возможных сценария развития рынка на 2026 год и выбери лучший»</strong>
           </tr>
         </tbody>
       </table>
@@ -3960,65 +4112,65 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Маркетинг и копирайтинг</strong></strong>},
+            <td><strong>Маркетинг и копирайтинг</strong></strong>
             <td>
               Рекламные посты, слоганы, описания товаров, письма, сценарии
               для видео, триггеры для рассылок
-             </strong>},
+             </strong>
             <td>
               Wildberries/Ozon SEO-описания, Email-рассылки, посты в Telegram/ВК
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Бизнес и деловая переписка</strong></strong>},
+            <td><strong>Бизнес и деловая переписка</strong></strong>
             <td>
               Письма клиентам, коммерческие предложения, протоколы встреч,
               презентации, должностные инструкции
-             </strong>},
+             </strong>
             <td>
               Ответ на рекламацию, коммерческое предложение, структура бизнес-плана
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Образование и наука</strong></strong>},
+            <td><strong>Образование и наука</strong></strong>
             <td>
               Планы уроков, тесты, объяснения сложных тем, аннотации к статьям,
               рефераты (осторожно!), учебные примеры
-             </strong>},
+             </strong>
             <td>
               Конспект лекции, 5 тестовых вопросов для студентов, «объясни градиентный спуск как для 12-летнего»
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Программирование и IT</strong></strong>},
+            <td><strong>Программирование и IT</strong></strong>
             <td>
               Код на Python/JS/Java, SQL-запросы, регулярные выражения,
               документация, комментарии, рефакторинг
-             </strong>},
+             </strong>
             <td>
               «Напиши функцию для загрузки файла», «объясни этот код», «напиши тесты для API»
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Креативное письмо</strong></strong>},
+            <td><strong>Креативное письмо</strong></strong>
             <td>
               Рассказы, стихи, сценарии, диалоги, шутки, поздравления,
               тосты, биографии персонажей
-             </strong>},
+             </strong>
             <td>
               Сценарий для ролика в TikTok, поздравление с днём рождения,
               стихотворение в заданном стиле
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Аналитика и резюмирование</strong></strong>},
+            <td><strong>Аналитика и резюмирование</strong></strong>
             <td>
               Краткое содержание длинных текстов, извлечение ключевых пунктов,
               сравнение документов, перевод с пояснениями
-             </strong>},
+             </strong>
             <td>
               «Перескажи эту статью на 3 абзаца», «выпиши риски из договора»
-             </strong>},
+             </strong>
           </tr>
         </tbody>
       </table>
@@ -4070,44 +4222,44 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>🚀 Скорость создания контента</strong></strong>},
+            <td><strong>🚀 Скорость создания контента</strong></strong>
             <td>
               Генерация черновиков, писем, постов, кода в секунды вместо часов
-             </strong>},
-            <td>Рост продуктивности в 3–10 раз</strong>},
+             </strong>
+            <td>Рост продуктивности в 3–10 раз</strong>
           </tr>
           <tr>
-            <td><strong>💰 Снижение затрат</strong></strong>},
+            <td><strong>💰 Снижение затрат</strong></strong>
             <td>
               Замена части работы копирайтеров, переводчиков, аналитиков, снижение времени рутины
-             </strong>},
-            <td>Экономия бюджета до 50–80% на рутинных задачах</strong>},
+             </strong>
+            <td>Экономия бюджета до 50–80% на рутинных задачах</strong>
           </tr>
           <tr>
-            <td><strong>🌍 Круглосуточная доступность</strong></strong>},
-            <td>Работает 24/7 без перерывов, выходных, отпусков</strong>},
-            <td>Никогда не болеет и не выгорает</strong>},
+            <td><strong>🌍 Круглосуточная доступность</strong></strong>
+            <td>Работает 24/7 без перерывов, выходных, отпусков</strong>
+            <td>Никогда не болеет и не выгорает</strong>
           </tr>
           <tr>
-            <td><strong>📊 Обработка больших объёмов</strong></strong>},
+            <td><strong>📊 Обработка больших объёмов</strong></strong>
             <td>
               Может прочитать и резюмировать 100 страниц за 10–20 секунд
-             </strong>},
-            <td>Сотрудник физически не способен на это</strong>},
+             </strong>
+            <td>Сотрудник физически не способен на это</strong>
           </tr>
           <tr>
-            <td><strong>🎯 Снижение порога входа</strong></strong>},
+            <td><strong>🎯 Снижение порога входа</strong></strong>
             <td>
               Новичок с нейросетью может написать код или текст на уровне младшего специалиста
-             </strong>},
-            <td>Ускорение обучения новых сотрудников</strong>},
+             </strong>
+            <td>Ускорение обучения новых сотрудников</strong>
           </tr>
           <tr>
-            <td><strong>🌐 Мультиязычность</strong></strong>},
+            <td><strong>🌐 Мультиязычность</strong></strong>
             <td>
               Перевод с 50+ языков на лету, объяснение на иностранном, адаптация под аудиторию
-             </strong>},
-            <td>Уход от языкового барьера в работе</strong>},
+             </strong>
+            <td>Уход от языкового барьера в работе</strong>
           </tr>
         </tbody>
       </table>
@@ -4176,76 +4328,76 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>❌ Галлюцинации (hallucinations)</strong></strong>},
+            <td><strong>❌ Галлюцинации (hallucinations)</strong></strong>
             <td>
               Модель уверенно генерирует ложные факты, которых нет в обучающих данных
-             </strong>},
+             </strong>
             <td>
               «Согласно указу президента №1234 от 2027 года, ...» (указа не существует)
-             </strong>},
+             </strong>
             <td>
               Перепроверять факты! Особенно даты, законы, имена
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>❌ Не актуальные знания</strong></strong>},
+            <td><strong>❌ Не актуальные знания</strong></strong>
             <td>
               Модель знает мир на дату среза данных (например, DeepSeek — май 2025, GigaChat — 2024)
-             </strong>},
+             </strong>
             <td>
               «Кто победил на последних выборах президента в США в 2024?» (если срез до выборов)
-             </strong>},
+             </strong>
             <td>
               Включить поиск в интернете (если есть), проверить вручную
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>❌ Отсутствие причинности (нет понимания)</strong></strong>},
+            <td><strong>❌ Отсутствие причинности (нет понимания)</strong></strong>
             <td>
               Модель не понимает физику мира — только статистические паттерны
-             </strong>},
+             </strong>
             <td>
               Может сказать, что «если смешать бензин и апельсиновый сок, получится ракетное топливо» (звучит похоже на правду)
-             </strong>},
+             </strong>
             <td>
               Использовать для творчества, но не для принятия критических решений без проверки
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>❌ Предвзятость (bias)</strong></strong>},
+            <td><strong>❌ Предвзятость (bias)</strong></strong>
             <td>
               Наследует стереотипы и предрассудки из обучающих данных (интернета)
-             </strong>},
+             </strong>
             <td>
               Может связывать профессии с полом («медсестра → она», «программист → он»)
-             </strong>},
+             </strong>
             <td>
               Явно указывать в промпте «без стереотипов», корректировать ответы
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>❌ Ограниченный контекст</strong></strong>},
+            <td><strong>❌ Ограниченный контекст</strong></strong>
             <td>
               Модель «забывает» начало разговора, если диалог слишком длинный
-             </strong>},
+             </strong>
             <td>
               После 100 страниц обсуждения может потерять важную информацию из первого сообщения
-             </strong>},
+             </strong>
             <td>
               Кратко пересказывать суть в каждом новом запросе, делить на подзадачи
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>❌ Безопасность и конфиденциальность</strong></strong>},
+            <td><strong>❌ Безопасность и конфиденциальность</strong></strong>
             <td>
               Через облачные сервисы ваши данные могут использоваться для дообучения (если не отключить)
-             </strong>},
+             </strong>
             <td>
               Вы загрузили коммерческую тайну в ChatGPT → она могла «уйти» в модель
-             </strong>},
+             </strong>
             <td>
               Использовать локальные SLM, off-premise версии, читать политику конфиденциальности
-             </strong>},
+             </strong>
           </tr>
         </tbody>
       </table>
@@ -4275,6 +4427,424 @@
     </div>
   </div>
 </div>
+
+<div class="card my-3" style="max-width: 800px">
+        <p>
+          <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Матрицы и векторы" style="filter: grayscale(1)">
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 13. Python-библиотеки для RAG, векторов и LLM
+          </h3>
+
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center mb-4">Работа с данными в Jupyter Lite</h1>
+              <p class="lead text-center">
+                Обзор совместимых и альтернативных инструментов
+              </p>
+
+              <!-- Блок с целями обучения -->
+              <div class="alert alert-primary">
+                <h4>Цели занятия:</h4>
+                <ul>
+                  <li>
+                    Понять, какие библиотеки работают в JupyterLite (Pyodide), а
+                    какие — нет
+                  </li>
+                  <li>
+                    Научиться реализовывать базовые операции RAG на чистом
+                    Python + NumPy
+                  </li>
+                  <li>
+                    Освоить косинусное сходство, поиск ближайших соседей (kNN) и
+                    визуализацию векторов
+                  </li>
+                  <li>
+                    Среда выполнения:
+                    <a href="https://econolabspython.github.io/jupyterlite/lab/index.html" target="_blank">Jupyter Lite</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Таблица библиотек -->
+              <h4 class="mt-4">✅ Работают в JupyterLite (чистый Python)</h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Назначение</th>
+                    <th>Пример кода</th>
+                    <th>Зачем для RAG/векторов</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>NumPy</strong></td>
+                    <td>Массивы и линейная алгебра</td>
+                    <td><code>np.dot(v1,v2)</code></td>
+                    <td>
+                      Хранение эмбеддингов, косинусное сходство, нормализация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pandas</strong></td>
+                    <td>Таблицы и метаданные</td>
+                    <td><code>df['embedding'].iloc[0]</code></td>
+                    <td>
+                      Хранение текстов + векторов в одной таблице, фильтрация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scikit-learn</strong></td>
+                    <td>Метрики и ML</td>
+                    <td><code>cosine_similarity()</code></td>
+                    <td>
+                      Готовые метрики сходства, PCA для визуализации, TF‑IDF как
+                      baseline
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Matplotlib</strong></td>
+                    <td>Визуализация</td>
+                    <td><code>plt.scatter(x, y)</code></td>
+                    <td>
+                      2D‑проекция векторов (через PCA) — наглядно показать
+                      кластеры
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Plotly</strong></td>
+                    <td>Интерактивная визуализация</td>
+                    <td><code>px.scatter_3d()</code></td>
+                    <td>3D‑графики эмбеддингов, zoom, hover</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                ⚠️ НЕ работают (C‑расширения / тяжелые фреймворки)
+              </h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Причина</th>
+                    <th>Обходной путь (учебный)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>Тянет PyTorch (C++)</td>
+                    <td>
+                      Заранее сгенерировать CSV с эмбеддингами на своём
+                      компьютере → загрузить в JupyterLite .
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Написан на C++</td>
+                    <td>
+                      Реализовать наивный kNN через NumPy (5‑10 строк кода). Для
+                      небольших данных (до 1000 векторов) — идеально для
+                      обучения.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Transformers (HuggingFace)</strong></td>
+                    <td>Тянет PyTorch/TensorFlow</td>
+                    <td>
+                      Использовать готовые эмбеддинги из CSV или вызвать API (но
+                      в JupyterLite могут быть CORS-ограничения).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain / LlamaIndex</strong></td>
+                    <td>Тянут тяжёлые зависимости</td>
+                    <td>
+                      Написать свой простой RAG-пайплайн из 20–30 строк кода —
+                      лучше понимание концепций.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Milvus Lite</strong></td>
+                    <td>Может работать (экспериментально)</td>
+                    <td>
+                      Проверить <code>%pip install pymilvus</code>. Если не
+                      встанет — использовать Pandas + NumPy как «векторную БД»
+                      для учебных целей.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                💡 Образовательные альтернативы (написать самим)
+              </h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Что заменяем</th>
+                    <th>Самодельная реализация (10–30 строк)</th>
+                    <th>Педагогическая ценность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Наивный kNN через <code>np.linalg.norm</code></td>
+                    <td>Понимание проблемы масштабирования O(N) → ANN</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>CSV с готовыми эмбеддингами</td>
+                    <td>
+                      Разделение «дорогого вычисления» и «быстрого поиска»
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain</strong></td>
+                    <td>Конвейер: эмбеддинг → поиск → промпт → генерация</td>
+                    <td>Понимание каждого шага RAG в отдельности</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Векторная БД</strong></td>
+                    <td>Pandas + сортировка по косинусному сходству</td>
+                    <td>Принцип работы индексации и поиска</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+              <div class="alert alert-success small mt-3">
+                💡 <strong>Вывод</strong> Ограничения JupyterLite
+                — не проблема. Вы научитесь реализовывать ключевые идеи RAG
+                «руками», что даст глубокое понимание того, как работают
+                «тяжёлые» библиотеки под капотом.
+              </div>
+
+              <div class="text-muted-small mt-3">
+                🔗 <strong>Ссылка на среду:</strong>
+                <a href="https://econolabspython.github.io/jupyterlite/lab/index.html" target="_blank">Jupyter Lite</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="card my-3" style="max-width: 800px">               
+                <div class="card-body">
+<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика 2</h1></div></div>
+                </div>
+                </div>
+
+                <div class="code-block">
+            <span class="sql-comment"># Импорт библиотеки NumPy</span><br>
+            <span class="sql-keyword">import</span> numpy
+            <span class="sql-keyword">as</span> np<br>
+            <br>
+            <span class="sql-comment"># Два вектора эмбеддингов</span><br>
+            vec1 = np.array([<span class="sql-keyword">0.1</span>,
+            <span class="sql-keyword">0.2</span>,
+            <span class="sql-keyword">0.3</span>])<br>
+            vec2 = np.array([<span class="sql-keyword">0.15</span>,
+            <span class="sql-keyword">0.25</span>,
+            <span class="sql-keyword">0.35</span>])<br>
+            <br>
+            <span class="sql-comment"># Косинусное сходство</span><br>
+            cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) *
+            np.linalg.norm(vec2))<br>
+            <br>
+            print(<span class="sql-keyword">f"Сходство: {cosine_sim:.4f}"</span>)<br>
+          </div>
+
+
+          <div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Генерация 10 случайных векторов (эмбеддингов)</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+    <br>
+    <span class="sql-comment"># Устанавливаем seed для воспроизводимости результатов</span><br>
+    np.random.seed(<span class="sql-keyword">42</span>)<br>
+    <br>
+    <span class="sql-comment"># Параметры: 10 векторов, размерность 5</span><br>
+    n_vectors = <span class="sql-keyword">10</span><br>
+    dimension = <span class="sql-keyword">5</span><br>
+    <br>
+    <span class="sql-comment"># Генерируем случайные векторы</span><br>
+    vectors = np.random.randn(n_vectors, dimension)<br>
+    <br>
+    <span class="sql-comment"># Создаем DataFrame для удобного просмотра</span><br>
+    df = pd.DataFrame(vectors, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'dim_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(dimension)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)])<br>
+    <br>
+    print(<span class="sql-keyword">"Сгенерированные векторы:"</span>)<br>
+    print(df)<br>
+    print(<span class="sql-keyword">f"Форма: {vectors.shape}"</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Реализация функции поиска ближайших соседей вручную</span><br>
+    <span class="sql-keyword">from</span> scipy.spatial.distance <span class="sql-keyword">import</span> euclidean, cosine<br>
+    <br>
+    <span class="sql-keyword">def</span> <span class="sql-function">find_k_nearest_neighbors</span>(query_vector, vectors, k=<span class="sql-keyword">3</span>, metric=<span class="sql-keyword">'euclidean'</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    Находит k ближайших соседей для query вектора</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    """</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;distances = []<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, vec <span class="sql-keyword">in</span> enumerate(vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> metric == <span class="sql-keyword">'euclidean'</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = euclidean(query_vector, vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">elif</span> metric == <span class="sql-keyword">'cosine'</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = cosine(query_vector, vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = np.linalg.norm(query_vector - vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distances.append((i, dist))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сортируем по расстоянию</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;distances.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">1</span>])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;nearest_indices = [idx <span class="sql-keyword">for</span> idx, dist <span class="sql-keyword">in</span> distances[:k]]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;nearest_distances = [dist <span class="sql-keyword">for</span> idx, dist <span class="sql-keyword">in</span> distances[:k]]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> nearest_indices, nearest_distances<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Выбираем query вектор (например, 3-й вектор) и ищем соседей</span><br>
+    query_idx = <span class="sql-keyword">2</span>  <span class="sql-comment"># vec_3</span><br>
+    query_vector = vectors[query_idx]<br>
+    k = <span class="sql-keyword">3</span><br>
+    <br>
+    print(<span class="sql-keyword">f"Query вектор (vec_{query_idx+1}):"</span>)<br>
+    print(query_vector)<br>
+    print(<span class="sql-keyword">"-"</span> * <span class="sql-keyword">50</span>)<br>
+    <br>
+    <span class="sql-comment"># Поиск с евклидовой метрикой</span><br>
+    nearest_idx, nearest_dist = find_k_nearest_neighbors(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;query_vector, vectors, k=k, metric=<span class="sql-keyword">'euclidean'</span>)<br>
+    <br>
+    print(<span class="sql-keyword">f"🔍 {k} ближайших соседей (евклидово расстояние):"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx, dist) <span class="sql-keyword">in</span> enumerate(zip(nearest_idx, nearest_dist), <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> idx == query_idx:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx+1} (САМ ВЕКТОР) - расстояние: {dist:.4f}"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx+1} - расстояние: {dist:.4f}"</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Построение полной матрицы расстояний</span><br>
+    distance_matrix = np.zeros((n_vectors, n_vectors))<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distance_matrix[i, j] = euclidean(vectors[i], vectors[j])<br>
+    <br>
+    <span class="sql-comment"># Визуализация матрицы расстояний</span><br>
+    dist_df = pd.DataFrame(distance_matrix,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)])<br>
+    <br>
+    print(<span class="sql-keyword">"📊 МАТРИЦА РАССТОЯНИЙ (евклидово):"</span>)<br>
+    print(dist_df.round(<span class="sql-keyword">4</span>))<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Визуализация векторов в 2D с помощью PCA</span><br>
+    <span class="sql-keyword">from</span> sklearn.decomposition <span class="sql-keyword">import</span> PCA<br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <br>
+    <span class="sql-comment"># Снижаем размерность до 2 для визуализации</span><br>
+    pca = PCA(n_components=<span class="sql-keyword">2</span>)<br>
+    vectors_2d = pca.fit_transform(vectors)<br>
+    <br>
+    plt.figure(figsize=(<span class="sql-keyword">10</span>, <span class="sql-keyword">8</span>))<br>
+    <br>
+    <span class="sql-comment"># Рисуем все точки</span><br>
+    plt.scatter(vectors_2d[:, <span class="sql-keyword">0</span>], vectors_2d[:, <span class="sql-keyword">1</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;s=<span class="sql-keyword">100</span>, c=<span class="sql-keyword">'lightblue'</span>, edgecolors=<span class="sql-keyword">'black'</span>, zorder=<span class="sql-keyword">2</span>)<br>
+    <br>
+    <span class="sql-comment"># Выделяем query вектор</span><br>
+    plt.scatter(vectors_2d[query_idx, <span class="sql-keyword">0</span>], vectors_2d[query_idx, <span class="sql-keyword">1</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;s=<span class="sql-keyword">200</span>, c=<span class="sql-keyword">'red'</span>, edgecolors=<span class="sql-keyword">'black'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;zorder=<span class="sql-keyword">3</span>, marker=<span class="sql-keyword">'*'</span>, label=<span class="sql-keyword">f'Query (vec_{query_idx+1})'</span>)<br>
+    <br>
+    <span class="sql-comment"># Подписываем точки</span><br>
+    <span class="sql-keyword">for</span> i, (x, y) <span class="sql-keyword">in</span> enumerate(vectors_2d):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;plt.annotate(<span class="sql-keyword">f'vec_{i+1}'</span>, (x, y),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xytext=(<span class="sql-keyword">5</span>, <span class="sql-keyword">5</span>), textcoords=<span class="sql-keyword">'offset points'</span>, fontsize=<span class="sql-keyword">9</span>)<br>
+    <br>
+    plt.title(<span class="sql-keyword">'Визуализация векторов (PCA) с выделением query вектора'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.xlabel(<span class="sql-keyword">'PC1'</span>)<br>
+    plt.ylabel(<span class="sql-keyword">'PC2'</span>)<br>
+    plt.legend()<br>
+    plt.grid(<span class="sql-keyword">True</span>, alpha=<span class="sql-keyword">0.3</span>)<br>
+    plt.show()<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 6: Поиск самых похожих и самых разных пар векторов</span><br>
+    pairs = []<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(i+<span class="sql-keyword">1</span>, n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = euclidean(vectors[i], vectors[j])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pairs.append((i, j, dist))<br>
+    <br>
+    <span class="sql-comment"># Сортируем по расстоянию</span><br>
+    pairs.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">2</span>])<br>
+    <br>
+    print(<span class="sql-keyword">"🔝 ТОП-3 САМЫХ ПОХОЖИХ ПАРЫ векторов:"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx1, idx2, dist) <span class="sql-keyword">in</span> enumerate(pairs[:<span class="sql-keyword">3</span>], <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx1+1} ↔ vec_{idx2+1}: расстояние = {dist:.4f}"</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"\n🔻 ТОП-3 САМЫХ РАЗНЫХ ПАРЫ векторов:"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx1, idx2, dist) <span class="sql-keyword">in</span> enumerate(pairs[-<span class="sql-keyword">3</span>:], <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx1+1} ↔ vec_{idx2+1}: расстояние = {dist:.4f}"</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 7: Сравнение разных метрик расстояния</span><br>
+    print(<span class="sql-keyword">"\n📏 СРАВНЕНИЕ МЕТРИК ДЛЯ QUERY ВЕКТОРА:"</span>)<br>
+    print(<span class="sql-keyword">f"{'Сосед':&lt;10} {'Евклидово':&lt;12} {'Косинусное':&lt;12} {'Манхэттен':&lt;12}"</span>)<br>
+    print(<span class="sql-keyword">"-"</span> * <span class="sql-keyword">46</span>)<br>
+    <br>
+    <span class="sql-keyword">from</span> scipy.spatial.distance <span class="sql-keyword">import</span> cityblock<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> i == query_idx:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">continue</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;eucl_dist = euclidean(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cos_dist = cosine(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;man_dist = cityblock(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"vec_{i+1:&lt;4} {eucl_dist:&lt;12.4f} {cos_dist:&lt;12.4f} {man_dist:&lt;12.4f}"</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 8: Формирование итоговой таблицы результатов</span><br>
+    results_df = pd.DataFrame({<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Вектор'</span>: [<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Евклидово_расстояние'</span>: [euclidean(query_vector, vectors[i]) <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Косинусное_расстояние'</span>: [cosine(query_vector, vectors[i]) <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Ближайший_сосед'</span>: [<span class="sql-keyword">'✅'</span> <span class="sql-keyword">if</span> i <span class="sql-keyword">in</span> nearest_idx[:<span class="sql-keyword">1</span>] <span class="sql-keyword">else</span> <span class="sql-keyword">''</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)]<br>
+    })<br>
+    <br>
+    print(<span class="sql-keyword">"\n📋 ИТОГОВАЯ ТАБЛИЦА РАССТОЯНИЙ ОТ QUERY ВЕКТОРА:"</span>)<br>
+    print(results_df.round(<span class="sql-keyword">4</span>).to_string(index=<span class="sql-keyword">False</span>))<br>
+    <br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">"💡 ВЫВОДЫ:"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">f"✓ Query вектор (vec_{query_idx+1}) наиболее близок к векторам:"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;  [<span class="sql-keyword">f'vec_{idx+1}'</span> <span class="sql-keyword">for</span> idx <span class="sql-keyword">in</span> nearest_idx[:<span class="sql-keyword">3</span>]])<br>
+    print(<span class="sql-keyword">"✓ Косинусное расстояние игнорирует длину вектора, что важно для текстовых эмбеддингов"</span>)<br>
+    print(<span class="sql-keyword">"✓ Для анализа ANN (Approximate Nearest Neighbors) полезно понимать распределение расстояний"</span>)<br>
+</div>
+
+
 
 <h1 class="text-primary">
     3.	Работа с графическими нейросетями. Общая подготовка
@@ -4506,43 +5076,43 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Свёрточный (Conv2D)</strong></strong>},
+            <td><strong>Свёрточный (Conv2D)</strong></strong>
             <td>
               Проходит по изображению фильтром (ядром), выделяя признаки:
               края, углы, текстуры, формы
-             </strong>},
+             </strong>
             <td>
               Фильтр 3×3 → ищет вертикальные линии
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Подвыборки (Pooling)</strong></strong>},
+            <td><strong>Подвыборки (Pooling)</strong></strong>
             <td>
               Уменьшает размерность в 2–4 раза, оставляя самое важное
               (max pooling — выбирает максимальное значение в окне)
-             </strong>},
+             </strong>
             <td>
               2×2 max pooling → уменьшает изображение вдвое
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Активации (ReLU, Sigmoid)</strong></strong>},
+            <td><strong>Активации (ReLU, Sigmoid)</strong></strong>
             <td>
               Вносит нелинейность (без неё нейросеть — просто линейная функция)
-             </strong>},
+             </strong>
             <td>
               ReLU: отрицательные числа → 0, положительные → оставить
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Полносвязный (Dense)</strong></strong>},
+            <td><strong>Полносвязный (Dense)</strong></strong>
             <td>
               В конце сети: превращает карту признаков в вектор и делает
               финальную классификацию
-             </strong>},
+             </strong>
             <td>
               4096 признаков → 1000 вероятностей классов (ImageNet)
-             </strong>},
+             </strong>
           </tr>
         </tbody>
       </table>
@@ -4607,41 +5177,41 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>GAN (Генеративно-состязательные сети)</strong></strong>},
-            <td>2014</strong> (Гудфеллоу)</strong>},
+            <td><strong>GAN (Генеративно-состязательные сети)</strong></strong>
+            <td>2014</strong> (Гудфеллоу)</strong>
             <td>
               Две сети соревнуются: <strong>генератор</strong> создаёт фейки,
               <strong>дискриминатор</strong> их распознаёт. Конкуренция улучшает
               обе сети
-             </strong>},
+             </strong>
             <td>
               StyleGAN (лица), CycleGAN (изменение стиля, зима→лето)
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>VAE (Вариационные автоэнкодеры)</strong></strong>},
-            <td>2013</strong>},
+            <td><strong>VAE (Вариационные автоэнкодеры)</strong></strong>
+            <td>2013</strong>
             <td>
               Кодирует изображение в скрытое пространство (латентный вектор),
               затем декодирует обратно. Может генерировать новые, интерполируя
               между векторами
-             </strong>},
+             </strong>
             <td>
               Генерация лиц с промежуточными вариантами (очки + улыбка)
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Diffusion (диффузионные модели)</strong></strong>},
-            <td>2020–2022</strong> (DALL-E 2, Stable Diffusion)</strong>},
+            <td><strong>Diffusion (диффузионные модели)</strong></strong>
+            <td>2020–2022</strong> (DALL-E 2, Stable Diffusion)</strong>
             <td>
               Шаг 1: постепенное добавление шума к картинке (400–1000 шагов)
               → картинка превращается в белый шум. Шаг 2: сеть учится
               <strong>обращать процесс</strong> — из шума восстанавливать
               исходное изображение
-             </strong>},
+             </strong>
             <td>
               Stable Diffusion, Midjourney, DALL-E 3, Kandinsky
-             </strong>},
+             </strong>
           </tr>
         </tbody>
       </table>
@@ -4721,39 +5291,39 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>✅ Шедеврум</strong></strong>},
-            <td>Яндекс</strong>},
-            <td>✅ Полная</strong>},
-            <td>✅ До 100 генераций/день</strong>},
-            <td>Изображения, тексты, видео (в Про-версии)</strong>},
+            <td><strong>✅ Шедеврум</strong></strong>
+            <td>Яндекс</strong>
+            <td>✅ Полная</strong>
+            <td>✅ До 100 генераций/день</strong>
+            <td>Изображения, тексты, видео (в Про-версии)</strong>
           </tr>
           <tr>
-            <td><strong>✅ GigaChat</strong></strong>},
-            <td>Сбер</strong>},
-            <td>✅ Полная</strong>},
-            <td>✅ Несколько десятков/сутки</strong>},
-            <td>Изображения + анализ загруженных фото</strong>},
+            <td><strong>✅ GigaChat</strong></strong>
+            <td>Сбер</strong>
+            <td>✅ Полная</strong>
+            <td>✅ Несколько десятков/сутки</strong>
+            <td>Изображения + анализ загруженных фото</strong>
           </tr>
           <tr>
-            <td><strong>✅ Kandinsky (Fusion Brain)</strong></strong>},
-            <td>Сбер AI</strong>},
-            <td>✅ Полная</strong>},
-            <td>✅ 5–10 генераций/день</strong>},
-            <td>Изображения + видео до 4 сек</strong>},
+            <td><strong>✅ Kandinsky (Fusion Brain)</strong></strong>
+            <td>Сбер AI</strong>
+            <td>✅ Полная</strong>
+            <td>✅ 5–10 генераций/день</strong>
+            <td>Изображения + видео до 4 сек</strong>
           </tr>
           <tr>
-            <td><strong>✅ Qwen</strong></strong>},
-            <td>Alibaba (Китай)</strong>},
-            <td>✅ Полная</strong>},
-            <td>✅ (без регистрации)</strong>},
-            <td>Мультимодальная: текст, изображения, видео</strong>},
+            <td><strong>✅ Qwen</strong></strong>
+            <td>Alibaba (Китай)</strong>
+            <td>✅ Полная</strong>
+            <td>✅ (без регистрации)</strong>
+            <td>Мультимодальная: текст, изображения, видео</strong>
           </tr>
           <tr>
-            <td><strong>✅ Copilot / Bing</strong></strong>},
-            <td>Microsoft</strong>},
-            <td>✅ Полная</strong>},
-            <td>✅ Без жёстких лимитов</strong>},
-            <td>Изображения (GPT-4o / DALL-E 3)</strong>},
+            <td><strong>✅ Copilot / Bing</strong></strong>
+            <td>Microsoft</strong>
+            <td>✅ Полная</strong>
+            <td>✅ Без жёстких лимитов</strong>
+            <td>Изображения (GPT-4o / DALL-E 3)</strong>
           </tr>
         </tbody>
       </table>
@@ -4989,26 +5559,26 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Генерация изображений</strong></strong>},
+            <td><strong>Генерация изображений</strong></strong>
             <td>
               text-to-image прямо в чате, высокое разрешение до 2K, поддержка
               длинных промтов (до 1000 токенов) 
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Мультимодальность</strong></strong>},
+            <td><strong>Мультимодальность</strong></strong>
             <td>
               Понимает текст, изображения и видео в рамках одного разговора.
               Можно загрузить фото/видео и задать вопросы 
-             </strong>},
+             </strong>
           </tr>
           <tr>
-            <td><strong>Русский язык</strong></strong>},
-            <td>Отвечает без заметных задержек, хорошо понимает русские промпты</strong>},
+            <td><strong>Русский язык</strong></strong>
+            <td>Отвечает без заметных задержек, хорошо понимает русские промпты</strong>
           </tr>
           <tr>
-            <td><strong>Редактирование</strong></strong>},
-            <td>Редактирование существующих изображений через текстовые команды</strong>},
+            <td><strong>Редактирование</strong></strong>
+            <td>Редактирование существующих изображений через текстовые команды</strong>
           </tr>
         </tbody>
       </table>
@@ -5069,44 +5639,44 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Регистрация</strong></strong>},
-            <td>Яндекс ID</strong>},
-            <td>Номер телефона</strong>},
-            <td>Email/соцсети</strong>},
-            <td>Не нужна</strong>},
-            <td>Microsoft</strong>},
+            <td><strong>Регистрация</strong></strong>
+            <td>Яндекс ID</strong>
+            <td>Номер телефона</strong>
+            <td>Email/соцсети</strong>
+            <td>Не нужна</strong>
+            <td>Microsoft</strong>
           </tr>
           <tr>
-            <td><strong>Бесплатные лимиты</strong></strong>},
-            <td>~100/день, потом 50</strong>},
-            <td>~30–50/сутки</strong>},
-            <td>5–10/день</strong>},
-            <td>Безлимит</strong>},
-            <td>Без жёстких</strong>},
+            <td><strong>Бесплатные лимиты</strong></strong>
+            <td>~100/день, потом 50</strong>
+            <td>~30–50/сутки</strong>
+            <td>5–10/день</strong>
+            <td>Безлимит</strong>
+            <td>Без жёстких</strong>
           </tr>
           <tr>
-            <td><strong>Генерация видео</strong></strong>},
-            <td>Только в Про</strong>},
-            <td>Нет (?)</strong>},
-            <td>✅ до 4 сек</strong>},
-            <td>Нет</strong>},
-            <td>Нет</strong>},
+            <td><strong>Генерация видео</strong></strong>
+            <td>Только в Про</strong>
+            <td>Нет (?)</strong>
+            <td>✅ до 4 сек</strong>
+            <td>Нет</strong>
+            <td>Нет</strong>
           </tr>
           <tr>
-            <td><strong>Мобильное приложение</strong></strong>},
-            <td>✅ iOS/Android</strong>},
-            <td>✅</strong>},
-            <td>❌ (только веб)</strong>},
-            <td>✅</strong>},
-            <td>✅ через Bing</strong>},
+            <td><strong>Мобильное приложение</strong></strong>
+            <td>✅ iOS/Android</strong>
+            <td>✅</strong>
+            <td>❌ (только веб)</strong>
+            <td>✅</strong>
+            <td>✅ через Bing</strong>
           </tr>
           <tr>
-            <td><strong>Русские промпты</strong></strong>},
-            <td>✅ отлично</strong>},
-            <td>✅ отлично</strong>},
-            <td>✅ отлично</strong>},
-            <td>✅ хорошо</strong>},
-            <td>⚠️ лучше англ.</strong>},
+            <td><strong>Русские промпты</strong></strong>
+            <td>✅ отлично</strong>
+            <td>✅ отлично</strong>
+            <td>✅ отлично</strong>
+            <td>✅ хорошо</strong>
+            <td>⚠️ лучше англ.</strong>
           </tr>
         </tbody>
       </table>
@@ -5193,39 +5763,39 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Шедеврум</strong></strong>},
-            <td>Яндекс (YandexART 2.5)</strong>},
-            <td>✅ до 100/день</strong>},
-            <td>✅</strong>},
-            <td>Приложение iOS/Android, понимание русских промптов</strong>},
+            <td><strong>Шедеврум</strong></strong>
+            <td>Яндекс (YandexART 2.5)</strong>
+            <td>✅ до 100/день</strong>
+            <td>✅</strong>
+            <td>Приложение iOS/Android, понимание русских промптов</strong>
           </tr>
           <tr>
-            <td><strong>GigaChat</strong></strong>},
-            <td>Сбер</strong>},
-            <td>✅ 30–50/сутки</strong>},
-            <td>✅</strong>},
-            <td>Чат + конструктор стилей, API для разработчиков</strong>},
+            <td><strong>GigaChat</strong></strong>
+            <td>Сбер</strong>
+            <td>✅ 30–50/сутки</strong>
+            <td>✅</strong>
+            <td>Чат + конструктор стилей, API для разработчиков</strong>
           </tr>
           <tr>
-            <td><strong>Kandinsky (Fusion Brain)</strong></strong>},
-            <td>Сбер + AIRI</strong>},
-            <td>✅ 5–10/день</strong>},
-            <td>✅</strong>},
-            <td>Также умеет генерировать видео до 4 сек</strong>},
+            <td><strong>Kandinsky (Fusion Brain)</strong></strong>
+            <td>Сбер + AIRI</strong>
+            <td>✅ 5–10/день</strong>
+            <td>✅</strong>
+            <td>Также умеет генерировать видео до 4 сек</strong>
           </tr>
           <tr>
-            <td><strong>Qwen Image 2.0</strong></strong>},
-            <td>Alibaba</strong>},
-            <td>✅ (без регистрации)</strong>},
-            <td>✅</strong>},
-            <td>Рендеринг текста профессионального уровня</strong>},
+            <td><strong>Qwen Image 2.0</strong></strong>
+            <td>Alibaba</strong>
+            <td>✅ (без регистрации)</strong>
+            <td>✅</strong>
+            <td>Рендеринг текста профессионального уровня</strong>
           </tr>
           <tr>
-            <td><strong>Le Chat (Mistral)</strong></strong>},
-            <td>Mistral AI (Франция)</strong>},
-            <td>✅ (дневные лимиты)</strong>},
-            <td>✅</strong>},
-            <td>Модели Black Forest Labs, поддержка картинок</strong>},
+            <td><strong>Le Chat (Mistral)</strong></strong>
+            <td>Mistral AI (Франция)</strong>
+            <td>✅ (дневные лимиты)</strong>
+            <td>✅</strong>
+            <td>Модели Black Forest Labs, поддержка картинок</strong>
           </tr>
         </tbody>
       </table>
@@ -5308,14 +5878,14 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>❌ Простой</strong></strong>},
-            <td>«собака в парке»</strong>},
-            <td>Средний, предсказуемый</strong>},
+            <td><strong>❌ Простой</strong></strong>
+            <td>«собака в парке»</strong>
+            <td>Средний, предсказуемый</strong>
           </tr>
           <tr>
-            <td><strong>✅ Детальный</strong></strong>},
-            <td>«Золотистый ретривер бежит по осеннему парку, падающие кленовые листья, мягкий вечерний свет, золотистый час, фотореализм, высокое разрешение 8K»</strong>},
-            <td>Уникальный, качественный</strong>},
+            <td><strong>✅ Детальный</strong></strong>
+            <td>«Золотистый ретривер бежит по осеннему парку, падающие кленовые листья, мягкий вечерний свет, золотистый час, фотореализм, высокое разрешение 8K»</strong>
+            <td>Уникальный, качественный</strong>
           </tr>
         </tbody>
       </table>
@@ -5421,20 +5991,20 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Текст → изображение</strong></strong>},
-            <td>Нативное разрешение 2K, промпты до 1000 токенов</strong>},
+            <td><strong>Текст → изображение</strong></strong>
+            <td>Нативное разрешение 2K, промпты до 1000 токенов</strong>
           </tr>
           <tr>
-            <td><strong>Рендеринг текста</strong></strong>},
-            <td>Точное воспроизведение надписей на картинках (постеры, логотипы, инфографика)</strong>},
+            <td><strong>Рендеринг текста</strong></strong>
+            <td>Точное воспроизведение надписей на картинках (постеры, логотипы, инфографика)</strong>
           </tr>
           <tr>
-            <td><strong>Редактирование</strong></strong>},
-            <td>Изменение существующих изображений по текстовой инструкции</strong>},
+            <td><strong>Редактирование</strong></strong>
+            <td>Изменение существующих изображений по текстовой инструкции</strong>
           </tr>
           <tr>
-            <td><strong>Мультимодальность</strong></strong>},
-            <td>Понимание и генерация изображений + текста в одном разговоре</strong>},
+            <td><strong>Мультимодальность</strong></strong>
+            <td>Понимание и генерация изображений + текста в одном разговоре</strong>
           </tr>
         </tbody>
       </table>
@@ -5510,29 +6080,29 @@
         </thead>
         <tbody>
           <tr>
-            <td>Шедеврум</strong>},
-            <td>~100/день (новым), ~50/день (постоянным)</strong>},
-            <td>Ежедневно</strong>},
+            <td>Шедеврум</strong>
+            <td>~100/день (новым), ~50/день (постоянным)</strong>
+            <td>Ежедневно</strong>
           </tr>
           <tr>
-            <td>GigaChat</strong>},
-            <td>~30–50/сутки</strong>},
-            <td>Ежедневно</strong>},
+            <td>GigaChat</strong>
+            <td>~30–50/сутки</strong>
+            <td>Ежедневно</strong>
           </tr>
           <tr>
-            <td>Kandinsky (Fusion Brain)</strong>},
-            <td>5–10/день (изображения + видео)</strong>},
-            <td>Ежедневно</strong>},
+            <td>Kandinsky (Fusion Brain)</strong>
+            <td>5–10/день (изображения + видео)</strong>
+            <td>Ежедневно</strong>
           </tr>
           <tr>
-            <td>Qwen (чат)</strong>},
-            <td>Безлимит (без регистрации)</strong>},
-            <td>—</strong>},
+            <td>Qwen (чат)</strong>
+            <td>Безлимит (без регистрации)</strong>
+            <td>—</strong>
           </tr>
           <tr>
-            <td>Le Chat (Mistral)</strong>},
-            <td>Дневные лимиты (зависят от плана)</strong>},
-            <td>Ежедневно</strong>},
+            <td>Le Chat (Mistral)</strong>
+            <td>Дневные лимиты (зависят от плана)</strong>
+            <td>Ежедневно</strong>
           </tr>
         </tbody>
       </table>
@@ -5608,29 +6178,29 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Автономность</strong></strong>},
-            <td>Реактивный — ждёт запроса пользователя</strong>},
-            <td>Целенаправленный — может планировать и действовать без постоянных подсказок</strong>},
+            <td><strong>Автономность</strong></strong>
+            <td>Реактивный — ждёт запроса пользователя</strong>
+            <td>Целенаправленный — может планировать и действовать без постоянных подсказок</strong>
           </tr>
           <tr>
-            <td><strong>Использование инструментов</strong></strong>},
-            <td>Ограничено (в основном ответы на вопросы)</strong>},
-            <td>Вызывает API, работает с базами данных, отправляет письма, создаёт документы</strong>},
+            <td><strong>Использование инструментов</strong></strong>
+            <td>Ограничено (в основном ответы на вопросы)</strong>
+            <td>Вызывает API, работает с базами данных, отправляет письма, создаёт документы</strong>
           </tr>
           <tr>
-            <td><strong>Планирование</strong></strong>},
-            <td>Дерево сценариев или один вызов LLM</strong>},
-            <td>Многошаговое планирование с адаптацией по ходу выполнения (ReAct, plan-act-observe)</strong>},
+            <td><strong>Планирование</strong></strong>
+            <td>Дерево сценариев или один вызов LLM</strong>
+            <td>Многошаговое планирование с адаптацией по ходу выполнения (ReAct, plan-act-observe)</strong>
           </tr>
           <tr>
-            <td><strong>Память и контекст</strong></strong>},
-            <td>Сессионная или ограниченная</strong>},
-            <td>Долгосрочная память, понимание контекста между сессиями</strong>},
+            <td><strong>Память и контекст</strong></strong>
+            <td>Сессионная или ограниченная</strong>
+            <td>Долгосрочная память, понимание контекста между сессиями</strong>
           </tr>
           <tr>
-            <td><strong>Типичные задачи</strong></strong>},
-            <td>Часто задаваемые вопросы, маршрутизация, простые скрипты</strong>},
-            <td>Сквозная автоматизация, исследование, создание артефактов, кросс-приложения</strong>},
+            <td><strong>Типичные задачи</strong></strong>
+            <td>Часто задаваемые вопросы, маршрутизация, простые скрипты</strong>
+            <td>Сквозная автоматизация, исследование, создание артефактов, кросс-приложения</strong>
           </tr>
         </tbody>
       </table>
@@ -5684,28 +6254,28 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>DeepSeek</strong></strong>},
-            <td>DeepSeek (Китай)</strong>},
-            <td>✅</strong>},
-            <td>Безлимит сообщений, поиск в интернете, режим рассуждения, загрузка файлов</strong>},
+            <td><strong>DeepSeek</strong></strong>
+            <td>DeepSeek (Китай)</strong>
+            <td>✅</strong>
+            <td>Безлимит сообщений, поиск в интернете, режим рассуждения, загрузка файлов</strong>
           </tr>
           <tr>
-            <td><strong>Le Chat (Mistral)</strong></strong>},
-            <td>Mistral AI (Франция)</strong>},
-            <td>✅ (без регистрации!)</strong>},
-            <td>Поиск в вебе, генерация картинок, память между сессиями</strong>},
+            <td><strong>Le Chat (Mistral)</strong></strong>
+            <td>Mistral AI (Франция)</strong>
+            <td>✅ (без регистрации!)</strong>
+            <td>Поиск в вебе, генерация картинок, память между сессиями</strong>
           </tr>
           <tr>
-            <td><strong>GigaChat</strong></strong>},
-            <td>Сбер</strong>},
-            <td>✅</strong>},
-            <td>Генерация текста и изображений, голосовой ввод, работа с файлами, российская инфраструктура</strong>},
+            <td><strong>GigaChat</strong></strong>
+            <td>Сбер</strong>
+            <td>✅</strong>
+            <td>Генерация текста и изображений, голосовой ввод, работа с файлами, российская инфраструктура</strong>
           </tr>
           <tr>
-            <td><strong>Qwen</strong></strong>},
-            <td>Alibaba (Китай)</strong>},
-            <td>✅ (без регистрации)</strong>},
-            <td>Мультимодальная (текст, изображения, видео), генерация картинок</strong>},
+            <td><strong>Qwen</strong></strong>
+            <td>Alibaba (Китай)</strong>
+            <td>✅ (без регистрации)</strong>
+            <td>Мультимодальная (текст, изображения, видео), генерация картинок</strong>
           </tr>
         </tbody>
       </table>
@@ -5769,28 +6339,28 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>DeepSeek</strong></strong>},
-            <td>DeepSeek (Китай)</strong>},
-            <td>✅</strong>},
-            <td>Безлимит сообщений, поиск в интернете, режим рассуждения, загрузка файлов</strong>},
+            <td><strong>DeepSeek</strong></strong>
+            <td>DeepSeek (Китай)</strong>
+            <td>✅</strong>
+            <td>Безлимит сообщений, поиск в интернете, режим рассуждения, загрузка файлов</strong>
           </tr>
           <tr>
-            <td><strong>Le Chat (Mistral)</strong></strong>},
-            <td>Mistral AI (Франция)</strong>},
-            <td>✅ (без регистрации!)</strong>},
-            <td>Поиск в вебе, генерация картинок, память между сессиями</strong>},
+            <td><strong>Le Chat (Mistral)</strong></strong>
+            <td>Mistral AI (Франция)</strong>
+            <td>✅ (без регистрации!)</strong>
+            <td>Поиск в вебе, генерация картинок, память между сессиями</strong>
           </tr>
           <tr>
-            <td><strong>GigaChat</strong></strong>},
-            <td>Сбер</strong>},
-            <td>✅</strong>},
-            <td>Генерация текста и изображений, голосовой ввод, работа с файлами, российская инфраструктура</strong>},
+            <td><strong>GigaChat</strong></strong>
+            <td>Сбер</strong>
+            <td>✅</strong>
+            <td>Генерация текста и изображений, голосовой ввод, работа с файлами, российская инфраструктура</strong>
           </tr>
           <tr>
-            <td><strong>Qwen</strong></strong>},
-            <td>Alibaba (Китай)</strong>},
-            <td>✅ (без регистрации)</strong>},
-            <td>Мультимодальная (текст, изображения, видео), генерация картинок</strong>},
+            <td><strong>Qwen</strong></strong>
+            <td>Alibaba (Китай)</strong>
+            <td>✅ (без регистрации)</strong>
+            <td>Мультимодальная (текст, изображения, видео), генерация картинок</strong>
           </tr>
         </tbody>
       </table>
@@ -5872,16 +6442,16 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Медицина</strong></strong>},
-            <td>Запись к врачу по симптомам, подбор специалиста, ответы на вопросы о приёме</strong>},
+            <td><strong>Медицина</strong></strong>
+            <td>Запись к врачу по симптомам, подбор специалиста, ответы на вопросы о приёме</strong>
           </tr>
           <tr>
-            <td><strong>Образование</strong></strong>},
-            <td>Подбор курсов под уровень подготовки, помощь в выборе программы</strong>},
+            <td><strong>Образование</strong></strong>
+            <td>Подбор курсов под уровень подготовки, помощь в выборе программы</strong>
           </tr>
           <tr>
-            <td><strong>Финансы и банки</strong></strong>},
-            <td>Консультации по продуктам, помощь в выборе кредита/вклада, техподдержка</strong>},
+            <td><strong>Финансы и банки</strong></strong>
+            <td>Консультации по продуктам, помощь в выборе кредита/вклада, техподдержка</strong>
           </tr>
         </tbody>
       </table>
@@ -5956,20 +6526,20 @@
         </thead>
         <tbody>
           <tr>
-            <td>Сокращение расходов на подбор персонала</strong>},
-            <td>до 83%</strong>},
+            <td>Сокращение расходов на подбор персонала</strong>
+            <td>до 83%</strong>
           </tr>
           <tr>
-            <td>Снижение ручного труда тендерного отдела</strong>},
-            <td>на 35%</strong>},
+            <td>Снижение ручного труда тендерного отдела</strong>
+            <td>на 35%</strong>
           </tr>
           <tr>
-            <td>Снижение нагрузки по вводу данных в CRM</strong>},
-            <td>на 60%</strong>},
+            <td>Снижение нагрузки по вводу данных в CRM</strong>
+            <td>на 60%</strong>
           </tr>
           <tr>
-            <td>Рост конверсии в сделку</strong>},
-            <td>на 15%</strong>},
+            <td>Рост конверсии в сделку</strong>
+            <td>на 15%</strong>
           </tr>
         </tbody>
       </table>
@@ -6113,14 +6683,14 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Платформенный подход</strong></strong>},
-            <td>Использование готовой платформы (Just AI, MWS AI, Yandex Cloud) с конструктором агентов, ролевой моделью и системой мониторинга</strong>},
-            <td>Когда нужно быстро масштабировать до десятков/сотен агентов в рамках корпоративного контура</strong>},
+            <td><strong>Платформенный подход</strong></strong>
+            <td>Использование готовой платформы (Just AI, MWS AI, Yandex Cloud) с конструктором агентов, ролевой моделью и системой мониторинга</strong>
+            <td>Когда нужно быстро масштабировать до десятков/сотен агентов в рамках корпоративного контура</strong>
           </tr>
           <tr>
-            <td><strong>Кастомная разработка на фреймворках</strong></strong>},
-            <td>Написание кода с нуля на Python с использованием LangChain, CrewAI или аналогичных библиотек</strong>},
-            <td>Для глубоко специфичных задач, уникальных интеграций или требований к полной независимости от вендора</strong>},
+            <td><strong>Кастомная разработка на фреймворках</strong></strong>
+            <td>Написание кода с нуля на Python с использованием LangChain, CrewAI или аналогичных библиотек</strong>
+            <td>Для глубоко специфичных задач, уникальных интеграций или требований к полной независимости от вендора</strong>
           </tr>
         </tbody>
       </table>
@@ -6170,24 +6740,24 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>«Норникель»</strong></strong>},
-            <td>Автоматическая проверка закупочных документов по 100+ параметрам, выявление аномалий и рисков, автоматическое согласование заказов</strong>},
-            <td>До 80% аналитики по договору проверяется автоматически, точность 95–98% </strong>},
+            <td><strong>«Норникель»</strong></strong>
+            <td>Автоматическая проверка закупочных документов по 100+ параметрам, выявление аномалий и рисков, автоматическое согласование заказов</strong>
+            <td>До 80% аналитики по договору проверяется автоматически, точность 95–98% </strong>
           </tr>
           <tr>
-            <td><strong>«Газпром нефть»</strong></strong>},
-            <td>Интерпретация геофизических данных, поиск месторождений, прогнозирование аварий в бурении</strong>},
-            <td>Снижение аварий на сложных скважинах до 12%, увеличение добычи до 2% в год</strong>},
+            <td><strong>«Газпром нефть»</strong></strong>
+            <td>Интерпретация геофизических данных, поиск месторождений, прогнозирование аварий в бурении</strong>
+            <td>Снижение аварий на сложных скважинах до 12%, увеличение добычи до 2% в год</strong>
           </tr>
           <tr>
-            <td><strong>«Еврохим»</strong></strong>},
-            <td>Выявление отклонений в производстве, предиктивная аналитика обслуживания, юридические консультанты на LLM</strong>},
-            <td>Двузначное снижение внеплановых простоев, значительная экономия сырья</strong>},
+            <td><strong>«Еврохим»</strong></strong>
+            <td>Выявление отклонений в производстве, предиктивная аналитика обслуживания, юридические консультанты на LLM</strong>
+            <td>Двузначное снижение внеплановых простоев, значительная экономия сырья</strong>
           </tr>
           <tr>
-            <td><strong>АЛРОСА</strong></strong>},
-            <td>Операционная поддержка, анализ сметной документации капитального строительства</strong>},
-            <td>Сокращение времени на поиск и сверку информации в корпоративных процессах</strong>},
+            <td><strong>АЛРОСА</strong></strong>
+            <td>Операционная поддержка, анализ сметной документации капитального строительства</strong>
+            <td>Сокращение времени на поиск и сверку информации в корпоративных процессах</strong>
           </tr>
         </tbody>
       </table>
@@ -6240,24 +6810,24 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>«Норникель»</strong></strong>},
-            <td>Автоматическая проверка закупочных документов по 100+ параметрам, выявление аномалий и рисков, автоматическое согласование заказов</strong>},
-            <td>До 80% аналитики по договору проверяется автоматически, точность 95–98% </strong>},
+            <td><strong>«Норникель»</strong></strong>
+            <td>Автоматическая проверка закупочных документов по 100+ параметрам, выявление аномалий и рисков, автоматическое согласование заказов</strong>
+            <td>До 80% аналитики по договору проверяется автоматически, точность 95–98% </strong>
           </tr>
           <tr>
-            <td><strong>«Газпром нефть»</strong></strong>},
-            <td>Интерпретация геофизических данных, поиск месторождений, прогнозирование аварий в бурении</strong>},
-            <td>Снижение аварий на сложных скважинах до 12%, увеличение добычи до 2% в год</strong>},
+            <td><strong>«Газпром нефть»</strong></strong>
+            <td>Интерпретация геофизических данных, поиск месторождений, прогнозирование аварий в бурении</strong>
+            <td>Снижение аварий на сложных скважинах до 12%, увеличение добычи до 2% в год</strong>
           </tr>
           <tr>
-            <td><strong>«Еврохим»</strong></strong>},
-            <td>Выявление отклонений в производстве, предиктивная аналитика обслуживания, юридические консультанты на LLM</strong>},
-            <td>Двузначное снижение внеплановых простоев, значительная экономия сырья</strong>},
+            <td><strong>«Еврохим»</strong></strong>
+            <td>Выявление отклонений в производстве, предиктивная аналитика обслуживания, юридические консультанты на LLM</strong>
+            <td>Двузначное снижение внеплановых простоев, значительная экономия сырья</strong>
           </tr>
           <tr>
-            <td><strong>АЛРОСА</strong></strong>},
-            <td>Операционная поддержка, анализ сметной документации капитального строительства</strong>},
-            <td>Сокращение времени на поиск и сверку информации в корпоративных процессах</strong>},
+            <td><strong>АЛРОСА</strong></strong>
+            <td>Операционная поддержка, анализ сметной документации капитального строительства</strong>
+            <td>Сокращение времени на поиск и сверку информации в корпоративных процессах</strong>
           </tr>
         </tbody>
       </table>
@@ -6317,19 +6887,19 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Телеком</strong></strong>},
-            <td>Churn prediction + Next Best Action: анализ оттока абонентов на естественном языке, рекомендации по удержанию</strong>},
-            <td>Снижение оттока, персонализация предложений</strong>},
+            <td><strong>Телеком</strong></strong>
+            <td>Churn prediction + Next Best Action: анализ оттока абонентов на естественном языке, рекомендации по удержанию</strong>
+            <td>Снижение оттока, персонализация предложений</strong>
           </tr>
           <tr>
-            <td><strong>Финансы</strong></strong>},
-            <td>KYC + pKYC агенты: автоматизация проверок клиентов, мониторинг транзакций</strong>},
-            <td>Ускорение онбординга, усиление комплаенса</strong>},
+            <td><strong>Финансы</strong></strong>
+            <td>KYC + pKYC агенты: автоматизация проверок клиентов, мониторинг транзакций</strong>
+            <td>Ускорение онбординга, усиление комплаенса</strong>
           </tr>
           <tr>
-            <td><strong>Страхование</strong></strong>},
-            <td>Solvency II агенты: анализ капитала, ценообразование, урегулирование убытков</strong>},
-            <td>Сокращение ручного труда актуариев, ускорение принятия решений</strong>},
+            <td><strong>Страхование</strong></strong>
+            <td>Solvency II агенты: анализ капитала, ценообразование, урегулирование убытков</strong>
+            <td>Сокращение ручного труда актуариев, ускорение принятия решений</strong>
           </tr>
         </tbody>
       </table>
@@ -6381,20 +6951,20 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Процент автономно решённых задач (HR, IT-тикеты)</strong></strong>},
-            <td>Tata Steel >70% , Cato Networks ~60% тикетов повторяющиеся </strong>},
+            <td><strong>Процент автономно решённых задач (HR, IT-тикеты)</strong></strong>
+            <td>Tata Steel >70% , Cato Networks ~60% тикетов повторяющиеся </strong>
           </tr>
           <tr>
-            <td><strong>Сокращение времени обработки (Lead Time)</strong></strong>},
-            <td>Снижение на 40–60% в финансовых и закупочных процессах</strong>},
+            <td><strong>Сокращение времени обработки (Lead Time)</strong></strong>
+            <td>Снижение на 40–60% в финансовых и закупочных процессах</strong>
           </tr>
           <tr>
-            <td><strong>Точность проверки документов</strong></strong>},
-            <td>«Норникель»: 95–98% при автоматической проверке закупочных документов </strong>},
+            <td><strong>Точность проверки документов</strong></strong>
+            <td>«Норникель»: 95–98% при автоматической проверке закупочных документов </strong>
           </tr>
           <tr>
-            <td><strong>Время вывода агента на рынок (TTM)</strong></strong>},
-            <td>2–3 месяца для пилота, затем итеративное масштабирование</strong>},
+            <td><strong>Время вывода агента на рынок (TTM)</strong></strong>
+            <td>2–3 месяца для пилота, затем итеративное масштабирование</strong>
           </tr>
         </tbody>
       </table>
@@ -6448,34 +7018,34 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Just AI Agent Platform</strong></strong>},
-            <td>Российская low-code платформа</strong>},
-            <td>Шаблоны агентов, RBAC, отказоустойчивость, логирование и аудит</strong>},
-            <td>В реестре отечественного ПО, не требует зарубежных LLM</strong>},
+            <td><strong>Just AI Agent Platform</strong></strong>
+            <td>Российская low-code платформа</strong>
+            <td>Шаблоны агентов, RBAC, отказоустойчивость, логирование и аудит</strong>
+            <td>В реестре отечественного ПО, не требует зарубежных LLM</strong>
           </tr>
           <tr>
-            <td><strong>MWS AI Agents Platform («ИИ-команда»)</strong></strong>},
-            <td>Российская платформа</strong>},
-            <td>Создание агентов по текстовому описанию, автономное тестирование с виртуальными пользователями</strong>},
-            <td>Разворачивается в корпоративном контуре, архитектурные ограничения опасных действий</strong>},
+            <td><strong>MWS AI Agents Platform («ИИ-команда»)</strong></strong>
+            <td>Российская платформа</strong>
+            <td>Создание агентов по текстовому описанию, автономное тестирование с виртуальными пользователями</strong>
+            <td>Разворачивается в корпоративном контуре, архитектурные ограничения опасных действий</strong>
           </tr>
           <tr>
-            <td><strong>Yandex Cloud</strong></strong>},
-            <td>Облачная платформа</strong>},
-            <td>Гибридная инфраструктура (on-premise + облако), YandexGPT API, интеграция с корпоративными системами</strong>},
-            <td>Используется «Норникелем» и АЛРОСА</strong>},
+            <td><strong>Yandex Cloud</strong></strong>
+            <td>Облачная платформа</strong>
+            <td>Гибридная инфраструктура (on-premise + облако), YandexGPT API, интеграция с корпоративными системами</strong>
+            <td>Используется «Норникелем» и АЛРОСА</strong>
           </tr>
           <tr>
-            <td><strong>Google Cloud (Agent Development Kit)</strong></strong>},
-            <td>Международная платформа</strong>},
-            <td>Библиотеки для агентов, поддержка 200+ моделей, BigQuery</strong>},
-            <td>Применяется Tata Steel (300+ агентов)</strong>},
+            <td><strong>Google Cloud (Agent Development Kit)</strong></strong>
+            <td>Международная платформа</strong>
+            <td>Библиотеки для агентов, поддержка 200+ моделей, BigQuery</strong>
+            <td>Применяется Tata Steel (300+ агентов)</strong>
           </tr>
           <tr>
-            <td><strong>LangChain / CrewAI / UiPath</strong></strong>},
-            <td>Open-source фреймворки</strong>},
-            <td>Гибкая кастомная разработка, оркестрация мультиагентных систем</strong>},
-            <td>Требует сильной команды разработчиков</strong>},
+            <td><strong>LangChain / CrewAI / UiPath</strong></strong>
+            <td>Open-source фреймворки</strong>
+            <td>Гибкая кастомная разработка, оркестрация мультиагентных систем</strong>
+            <td>Требует сильной команды разработчиков</strong>
           </tr>
         </tbody>
       <td>
@@ -6538,40 +7108,40 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Табличные данные</strong></strong>},
-            <td>Классификация, регрессия, кластеризация</strong>},
-            <td>Кредитный скоринг, прогноз продаж, сегментация клиентов</strong>},
-            <td>Градиентный бустинг, MLP, TabNet</strong>},
+            <td><strong>Табличные данные</strong></strong>
+            <td>Классификация, регрессия, кластеризация</strong>
+            <td>Кредитный скоринг, прогноз продаж, сегментация клиентов</strong>
+            <td>Градиентный бустинг, MLP, TabNet</strong>
           </tr>
           <tr>
-            <td><strong>Изображения</strong></strong>},
-            <td>Классификация, детекция, сегментация, генерация</strong>},
-            <td>Распознавание дефектов, Face ID, разметка медицинских снимков, ретушь</strong>},
-            <td>CNN (ResNet, YOLO, U-Net), GAN, диффузионные модели</strong>},
+            <td><strong>Изображения</strong></strong>
+            <td>Классификация, детекция, сегментация, генерация</strong>
+            <td>Распознавание дефектов, Face ID, разметка медицинских снимков, ретушь</strong>
+            <td>CNN (ResNet, YOLO, U-Net), GAN, диффузионные модели</strong>
           </tr>
           <tr>
-            <td><strong>Текст</strong></strong>},
-            <td>Классификация, извлечение, генерация, суммаризация, перевод</strong>},
-            <td>Анализ тональности, чат-боты, машинный перевод, реферат документа</strong>},
-            <td>Трансформеры (BERT, GPT, Llama), LSTM</strong>},
+            <td><strong>Текст</strong></strong>
+            <td>Классификация, извлечение, генерация, суммаризация, перевод</strong>
+            <td>Анализ тональности, чат-боты, машинный перевод, реферат документа</strong>
+            <td>Трансформеры (BERT, GPT, Llama), LSTM</strong>
           </tr>
           <tr>
-            <td><strong>Аудио</strong></strong>},
-            <td>Распознавание, синтез, классификация</strong>},
-            <td>Голосовые помощники, транскрибация, детекция шумов</strong>},
-            <td>CNN + RNN, Whisper, Tacotron, WaveNet</strong>},
+            <td><strong>Аудио</strong></strong>
+            <td>Распознавание, синтез, классификация</strong>
+            <td>Голосовые помощники, транскрибация, детекция шумов</strong>
+            <td>CNN + RNN, Whisper, Tacotron, WaveNet</strong>
           </tr>
           <tr>
-            <td><strong>Временные ряды</strong></strong>},
-            <td>Прогнозирование, обнаружение аномалий</strong>},
-            <td>Прогноз погоды, спрос на энергию, детекция мошенничества в транзакциях</strong>},
-            <td>LSTM, Transformer (Informer), Prophet + нейросети</strong>},
+            <td><strong>Временные ряды</strong></strong>
+            <td>Прогнозирование, обнаружение аномалий</strong>
+            <td>Прогноз погоды, спрос на энергию, детекция мошенничества в транзакциях</strong>
+            <td>LSTM, Transformer (Informer), Prophet + нейросети</strong>
           </tr>
           <tr>
-            <td><strong>Видео</strong></strong>},
-            <td>Классификация действий, трекинг объектов, генерация</strong>},
-            <td>Анализ спортивных моментов, наблюдение за безопасностью</strong>},
-            <td>3D CNN, ConvLSTM, трансформеры видео</strong>},
+            <td><strong>Видео</strong></strong>
+            <td>Классификация действий, трекинг объектов, генерация</strong>
+            <td>Анализ спортивных моментов, наблюдение за безопасностью</strong>
+            <td>3D CNN, ConvLSTM, трансформеры видео</strong>
           </tr>
         </tbody>
       </table>
@@ -6637,24 +7207,24 @@
         </thead>
         <tbody>
           <tr>
-            <td>Рекомендательные системы</strong>},
-            <td>«Купившие этот товар также купили...»</strong>},
-            <td>Рост выручки 15–35%</strong>},
+            <td>Рекомендательные системы</strong>
+            <td>«Купившие этот товар также купили...»</strong>
+            <td>Рост выручки 15–35%</strong>
           </tr>
           <tr>
-            <td>Прогнозирование спроса</strong>},
-            <td>Сколько товара везти на каждый склад</strong>},
-            <td>Снижение дефицита и избытка запасов</strong>},
+            <td>Прогнозирование спроса</strong>
+            <td>Сколько товара везти на каждый склад</strong>
+            <td>Снижение дефицита и избытка запасов</strong>
           </tr>
           <tr>
-            <td>Динамическое ценообразование</strong>},
-            <td>Корректировка цены в реальном времени (Uber, Авито)</strong>},
-            <td>Рост маржи 5–15%</strong>},
+            <td>Динамическое ценообразование</strong>
+            <td>Корректировка цены в реальном времени (Uber, Авито)</strong>
+            <td>Рост маржи 5–15%</strong>
           </tr>
           <tr>
-            <td>Оптимизация маршрутов</strong>},
-            <td>Доставка с учётом пробок и окон</strong>},
-            <td>Экономия топлива 10–20%</strong>},
+            <td>Оптимизация маршрутов</strong>
+            <td>Доставка с учётом пробок и окон</strong>
+            <td>Экономия топлива 10–20%</strong>
           </tr>
         </tbody>
       </table>
@@ -6703,24 +7273,24 @@
         </thead>
         <tbody>
           <tr>
-            <td>Общий здравый смысл и причинность</strong>},
-            <td>Модели не понимают физику мира — только статистические паттерны</strong>},
-            <td>Может предложить «смешать бензин с апельсиновым соком»</strong>},
+            <td>Общий здравый смысл и причинность</strong>
+            <td>Модели не понимают физику мира — только статистические паттерны</strong>
+            <td>Может предложить «смешать бензин с апельсиновым соком»</strong>
           </tr>
           <tr>
-            <td>Творчество и оригинальность</strong>},
-            <td>Генерирует комбинацию уже существующего, настоящих открытий не делает</strong>},
-            <td>Не придумает теорию относительности или новую научную парадигму</strong>},
+            <td>Творчество и оригинальность</strong>
+            <td>Генерирует комбинацию уже существующего, настоящих открытий не делает</strong>
+            <td>Не придумает теорию относительности или новую научную парадигму</strong>
           </tr>
           <tr>
-            <td>Эмпатия и моральные суждения</strong>},
-            <td>Не имеет внутреннего опыта и ценностей</strong>},
-            <td>Не может оценить этические последствия сложного выбора</strong>},
+            <td>Эмпатия и моральные суждения</strong>
+            <td>Не имеет внутреннего опыта и ценностей</strong>
+            <td>Не может оценить этические последствия сложного выбора</strong>
           </tr>
           <tr>
-            <td>Адаптация к беспрецедентным ситуациям</strong>},
-            <td>Обучается только на том, что было в исторических данных</strong>},
-            <td>Не знает, что делать в ситуации, которой не было в обучении</strong>},
+            <td>Адаптация к беспрецедентным ситуациям</strong>
+            <td>Обучается только на том, что было в исторических данных</strong>
+            <td>Не знает, что делать в ситуации, которой не было в обучении</strong>
           </tr>
         </tbody>
       </table>
@@ -6774,34 +7344,34 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>«Норникель»</strong></strong>},
-            <td>Металлургия</strong>},
-            <td>Автоматическая проверка закупочных документов по 100+ параметрам</strong>},
-            <td>До 80% аналитики автоматически, точность 95–98%</strong>},
+            <td><strong>«Норникель»</strong></strong>
+            <td>Металлургия</strong>
+            <td>Автоматическая проверка закупочных документов по 100+ параметрам</strong>
+            <td>До 80% аналитики автоматически, точность 95–98%</strong>
           </tr>
           <tr>
-            <td><strong>«Газпром нефть»</strong></strong>},
-            <td>Нефтегаз</strong>},
-            <td>Прогнозирование аварий при бурении, интерпретация геофизических данных</strong>},
-            <td>Снижение аварий до 12%, рост добычи до 2% в год</strong>},
+            <td><strong>«Газпром нефть»</strong></strong>
+            <td>Нефтегаз</strong>
+            <td>Прогнозирование аварий при бурении, интерпретация геофизических данных</strong>
+            <td>Снижение аварий до 12%, рост добычи до 2% в год</strong>
           </tr>
           <tr>
-            <td><strong>«Северсталь»</strong></strong>},
-            <td>Металлургия</strong>},
-            <td>Визуальный контроль качества проката на линии</strong>},
-            <td>Снижение брака, сокращение ручной проверки</strong>},
+            <td><strong>«Северсталь»</strong></strong>
+            <td>Металлургия</strong>
+            <td>Визуальный контроль качества проката на линии</strong>
+            <td>Снижение брака, сокращение ручной проверки</strong>
           </tr>
           <tr>
-            <td><strong>Сбер / GigaChat</strong></strong>},
-            <td>Финансы</strong>},
-            <td>Кредитный скоринг, чат-боты, генерация изображений</strong>},
-            <td>Снижение просрочек, нагрузка на контакт-центр –40%</strong>},
+            <td><strong>Сбер / GigaChat</strong></strong>
+            <td>Финансы</strong>
+            <td>Кредитный скоринг, чат-боты, генерация изображений</strong>
+            <td>Снижение просрочек, нагрузка на контакт-центр –40%</strong>
           </tr>
           <tr>
-            <td><strong>Яндекс / Шедеврум</strong></strong>},
-            <td>IT / ритейл</strong>},
-            <td>Рекомендательные системы, генерация изображений (YandexART 2.5)</strong>},
-            <td>Рост выручки в e-commerce, качество картинок обходит мировые аналоги</strong>},
+            <td><strong>Яндекс / Шедеврум</strong></strong>
+            <td>IT / ритейл</strong>
+            <td>Рекомендательные системы, генерация изображений (YandexART 2.5)</strong>
+            <td>Рост выручки в e-commerce, качество картинок обходит мировые аналоги</strong>
           </tr>
         </tbody>
       </table>
@@ -6853,34 +7423,34 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>«Норникель»</strong></strong>},
-            <td>Металлургия</strong>},
-            <td>Автоматическая проверка закупочных документов по 100+ параметрам</strong>},
-            <td>До 80% аналитики автоматически, точность 95–98%</strong>},
+            <td><strong>«Норникель»</strong></strong>
+            <td>Металлургия</strong>
+            <td>Автоматическая проверка закупочных документов по 100+ параметрам</strong>
+            <td>До 80% аналитики автоматически, точность 95–98%</strong>
           </tr>
           <tr>
-            <td><strong>«Газпром нефть»</strong></strong>},
-            <td>Нефтегаз</strong>},
-            <td>Прогнозирование аварий при бурении, интерпретация геофизических данных</strong>},
-            <td>Снижение аварий до 12%, рост добычи до 2% в год</strong>},
+            <td><strong>«Газпром нефть»</strong></strong>
+            <td>Нефтегаз</strong>
+            <td>Прогнозирование аварий при бурении, интерпретация геофизических данных</strong>
+            <td>Снижение аварий до 12%, рост добычи до 2% в год</strong>
           </tr>
           <tr>
-            <td><strong>«Северсталь»</strong></strong>},
-            <td>Металлургия</strong>},
-            <td>Визуальный контроль качества проката на линии</strong>},
-            <td>Снижение брака, сокращение ручной проверки</strong>},
+            <td><strong>«Северсталь»</strong></strong>
+            <td>Металлургия</strong>
+            <td>Визуальный контроль качества проката на линии</strong>
+            <td>Снижение брака, сокращение ручной проверки</strong>
           </tr>
           <tr>
-            <td><strong>Сбер / GigaChat</strong></strong>},
-            <td>Финансы</strong>},
-            <td>Кредитный скоринг, чат-боты, генерация изображений</strong>},
-            <td>Снижение просрочек, нагрузка на контакт-центр –40%</strong>},
+            <td><strong>Сбер / GigaChat</strong></strong>
+            <td>Финансы</strong>
+            <td>Кредитный скоринг, чат-боты, генерация изображений</strong>
+            <td>Снижение просрочек, нагрузка на контакт-центр –40%</strong>
           </tr>
           <tr>
-            <td><strong>Яндекс / Шедеврум</strong></strong>},
-            <td>IT / ритейл</strong>},
-            <td>Рекомендательные системы, генерация изображений (YandexART 2.5)</strong>},
-            <td>Рост выручки в e-commerce, качество картинок обходит мировые аналоги</strong>},
+            <td><strong>Яндекс / Шедеврум</strong></strong>
+            <td>IT / ритейл</strong>
+            <td>Рекомендательные системы, генерация изображений (YandexART 2.5)</strong>
+            <td>Рост выручки в e-commerce, качество картинок обходит мировые аналоги</strong>
           </tr>
         </tbody>
       </table>
@@ -6959,16 +7529,16 @@
         </thead>
         <tbody>
           <tr>
-            <td>Редкие события (авиакатастрофы, рак — мало данных)</strong>},
-            <td>Данных для обучения недостаточно — модель будет галлюцинировать</strong>},
+            <td>Редкие события (авиакатастрофы, рак — мало данных)</strong>
+            <td>Данных для обучения недостаточно — модель будет галлюцинировать</strong>
           </tr>
           <tr>
-            <td>Задачи с меняющимися правилами (налоги, законы)</strong>},
-            <td>Модель устаревает быстрее, чем её переобучают</strong>},
+            <td>Задачи с меняющимися правилами (налоги, законы)</strong>
+            <td>Модель устаревает быстрее, чем её переобучают</strong>
           </tr>
           <tr>
-            <td>Абсолютная точность без фальсификаций (медицина, правосудие)</strong>},
-            <td>Ошибки модели могут стоить жизни или свободы</strong>},
+            <td>Абсолютная точность без фальсификаций (медицина, правосудие)</strong>
+            <td>Ошибки модели могут стоить жизни или свободы</strong>
           </tr>
         </tbody>
       </table>
@@ -7023,34 +7593,34 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Уровень 1: RPA + правила</strong></strong>},
-            <td>Автоматизация по жёстким правилам (if-then)</strong>},
-            <td>Перенос данных из Excel в 1С, отправка автоматических писем</strong>},
-            <td>Простые, повторяющиеся действия, правила не меняются</strong>},
+            <td><strong>Уровень 1: RPA + правила</strong></strong>
+            <td>Автоматизация по жёстким правилам (if-then)</strong>
+            <td>Перенос данных из Excel в 1С, отправка автоматических писем</strong>
+            <td>Простые, повторяющиеся действия, правила не меняются</strong>
           </tr>
           <tr>
-            <td><strong>Уровень 2: Классическое ML</strong></strong>},
-            <td>Прогнозирование, классификация, кластеризация</strong>},
-            <td>Скоринг, прогноз оттока клиентов, сегментация лидов</strong>},
-            <td>Есть исторические данные и чёткая целевая метрика</strong>},
+            <td><strong>Уровень 2: Классическое ML</strong></strong>
+            <td>Прогнозирование, классификация, кластеризация</strong>
+            <td>Скоринг, прогноз оттока клиентов, сегментация лидов</strong>
+            <td>Есть исторические данные и чёткая целевая метрика</strong>
           </tr>
           <tr>
-            <td><strong>Уровень 3: LLM-чат-боты</strong></strong>},
-            <td>Обработка естественного языка, генерация текста</strong>},
-            <td>Автоответы в техподдержку, суммаризация документов</strong>},
-            <td>Рутинная коммуникация с клиентами/сотрудниками</strong>},
+            <td><strong>Уровень 3: LLM-чат-боты</strong></strong>
+            <td>Обработка естественного языка, генерация текста</strong>
+            <td>Автоответы в техподдержку, суммаризация документов</strong>
+            <td>Рутинная коммуникация с клиентами/сотрудниками</strong>
           </tr>
           <tr>
-            <td><strong>Уровень 4: ИИ-агенты с инструментами</strong></strong>},
-            <td>Многошаговое планирование + вызов API + автономные действия</strong>},
-            <td>Агент: сбор данных → анализ → создание отчёта → отправка в Telegram</strong>},
-            <td>Сквозные задачи, требующие нескольких систем</strong>},
+            <td><strong>Уровень 4: ИИ-агенты с инструментами</strong></strong>
+            <td>Многошаговое планирование + вызов API + автономные действия</strong>
+            <td>Агент: сбор данных → анализ → создание отчёта → отправка в Telegram</strong>
+            <td>Сквозные задачи, требующие нескольких систем</strong>
           </tr>
           <tr>
-            <td><strong>Уровень 5: Мультиагентная оркестрация</strong></strong>},
-            <td>Несколько агентов координируют сложный бизнес-процесс</strong>},
-            <td>Агент-менеджер распределяет задачи между агентами-исполнителями</strong>},
-            <td>Крупные процессы с множеством участников и ролей</strong>},
+            <td><strong>Уровень 5: Мультиагентная оркестрация</strong></strong>
+            <td>Несколько агентов координируют сложный бизнес-процесс</strong>
+            <td>Агент-менеджер распределяет задачи между агентами-исполнителями</strong>
+            <td>Крупные процессы с множеством участников и ролей</strong>
           </tr>
         </tbody>
       </table>
@@ -7103,64 +7673,64 @@
         </thead>
         <tbody>
           <tr>
-            <td>1</strong>},
-            <td>Ввод и обработка документов (счета, договоры, акты)</strong>},
-            <td>OCR + LLM-извлечение данных</strong>},
-            <td>Сокращение времени обработки с 15 мин до 30 сек</strong>},
+            <td>1</strong>
+            <td>Ввод и обработка документов (счета, договоры, акты)</strong>
+            <td>OCR + LLM-извлечение данных</strong>
+            <td>Сокращение времени обработки с 15 мин до 30 сек</strong>
           </tr>
           <tr>
-            <td>2</strong>},
-            <td>Поддержка клиентов (FAQ, первая линия)</strong>},
-            <td>LLM-чат-бот с RAG</strong>},
-            <td>Автоматизация 40–70% обращений</strong>},
+            <td>2</strong>
+            <td>Поддержка клиентов (FAQ, первая линия)</strong>
+            <td>LLM-чат-бот с RAG</strong>
+            <td>Автоматизация 40–70% обращений</strong>
           </tr>
           <tr>
-            <td>3</strong>},
-            <td>Скоринг и андеррайтинг (кредиты, страхование)</strong>},
-            <td>Классическое ML (градиентный бустинг)</strong>},
-            <td>Скорость решения от часов до минут, снижение рисков</strong>},
+            <td>3</strong>
+            <td>Скоринг и андеррайтинг (кредиты, страхование)</strong>
+            <td>Классическое ML (градиентный бустинг)</strong>
+            <td>Скорость решения от часов до минут, снижение рисков</strong>
           </tr>
           <tr>
-            <td>4</strong>},
-            <td>Контроль качества продукции</strong>},
-            <td>CNN (компьютерное зрение)</strong>},
-            <td>Точность 95–99%, 24/7</strong>},
+            <td>4</strong>
+            <td>Контроль качества продукции</strong>
+            <td>CNN (компьютерное зрение)</strong>
+            <td>Точность 95–99%, 24/7</strong>
           </tr>
           <tr>
-            <td>5</strong>},
-            <td>Прогнозирование спроса / планирование запасов</strong>},
-            <td>Временные ряды (LSTM, трансформеры)</strong>},
-            <td>Снижение дефицита на 15–25%, избытка на 10–20%</strong>},
+            <td>5</strong>
+            <td>Прогнозирование спроса / планирование запасов</strong>
+            <td>Временные ряды (LSTM, трансформеры)</strong>
+            <td>Снижение дефицита на 15–25%, избытка на 10–20%</strong>
           </tr>
           <tr>
-            <td>6</strong>},
-            <td>Подбор кандидатов (скрининг резюме)</strong>},
-            <td>NLP + LLM</strong>},
-            <td>Сокращение времени найма на 30–50%</strong>},
+            <td>6</strong>
+            <td>Подбор кандидатов (скрининг резюме)</strong>
+            <td>NLP + LLM</strong>
+            <td>Сокращение времени найма на 30–50%</strong>
           </tr>
           <tr>
-            <td>7</strong>},
-            <td>Обнаружение мошенничества (fraud detection)</strong>},
-            <td>ML + графовые сети</strong>},
-            <td>Снижение false positive на 30–50%</strong>},
+            <td>7</strong>
+            <td>Обнаружение мошенничества (fraud detection)</strong>
+            <td>ML + графовые сети</strong>
+            <td>Снижение false positive на 30–50%</strong>
           </tr>
           <tr>
-            <td>8</strong>},
-            <td>Рекомендательные системы (товары, контент)</strong>},
-            <td>Коллаборативная фильтрация + DL</strong>},
-            <td>Рост выручки на 15–35%</strong>},
+            <td>8</strong>
+            <td>Рекомендательные системы (товары, контент)</strong>
+            <td>Коллаборативная фильтрация + DL</strong>
+            <td>Рост выручки на 15–35%</strong>
           </tr>
           <tr>
-            <td>9</strong>},
-            <td>Оптимизация маршрутов доставки</strong>},
-            <td>ML на графах + временные ряды</strong>},
-            <td>Экономия топлива 10–20%</strong>},
+            <td>9</strong>
+            <td>Оптимизация маршрутов доставки</strong>
+            <td>ML на графах + временные ряды</strong>
+            <td>Экономия топлива 10–20%</strong>
           </tr>
           <tr>
-            <td>10</strong>},
-            <td>Предиктивное обслуживание оборудования</strong>},
-            <td>Временные ряды + детекция аномалий</strong>},
-            <td>Снижение внеплановых простоев на 20–40%</strong>},
+            <td>10</strong>
+            <td>Предиктивное обслуживание оборудования</strong>
+            <td>Временные ряды + детекция аномалий</strong>
+            <td>Снижение внеплановых простоев на 20–40%</strong>
           </tr>
         </tbody>
       </table>
@@ -7215,22 +7785,22 @@
         </thead>
         <tbody>
           <tr>
-            <td>Магнит</strong>},
-            <td>Прогноз спроса</strong>},
-            <td>Нейросети для предсказания продаж в каждой точке</strong>},
-            <td>Снижение списаний на 15%</strong>},
+            <td>Магнит</strong>
+            <td>Прогноз спроса</strong>
+            <td>Нейросети для предсказания продаж в каждой точке</strong>
+            <td>Снижение списаний на 15%</strong>
           </tr>
           <tr>
-            <td>МТС</strong>},
-            <td>Чат-бот поддержки</strong>},
-            <td>LLM-чат-бот на базе YandexGPT</strong>},
-            <td>Автоматизация 55% обращений</strong>},
+            <td>МТС</strong>
+            <td>Чат-бот поддержки</strong>
+            <td>LLM-чат-бот на базе YandexGPT</strong>
+            <td>Автоматизация 55% обращений</strong>
           </tr>
           <tr>
-            <td>Ozon</strong>},
-            <td>Рекомендательная система</strong>},
-            <td>Deep learning для персонализации</strong>},
-            <td>Рост выручки на 20%</strong>},
+            <td>Ozon</strong>
+            <td>Рекомендательная система</strong>
+            <td>Deep learning для персонализации</strong>
+            <td>Рост выручки на 20%</strong>
           </tr>
         </tbody>
       </table>
@@ -7275,19 +7845,19 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Возврат инвестиций (ROI)</strong></strong>},
-            <td>(Экономия − Затраты) / Затраты × 100%</strong>},
-            <td>Окупаемость 6–18 месяцев</strong>},
+            <td><strong>Возврат инвестиций (ROI)</strong></strong>
+            <td>(Экономия − Затраты) / Затраты × 100%</strong>
+            <td>Окупаемость 6–18 месяцев</strong>
           </tr>
           <tr>
-            <td><strong>Экономия фонда оплаты труда (ФОТ)</strong></strong>},
-            <td>Сокращение человеко-часов × средняя ставка</strong>},
-            <td>30–70% на рутинных задачах</strong>},
+            <td><strong>Экономия фонда оплаты труда (ФОТ)</strong></strong>
+            <td>Сокращение человеко-часов × средняя ставка</strong>
+            <td>30–70% на рутинных задачах</strong>
           </tr>
           <tr>
-            <td><strong>Снижение упущенной выгоды</strong></strong>},
-            <td>Отток клиентов × LTV, брак × себестоимость</strong>},
-            <td>Снижение оттока на 15–25%</strong>},
+            <td><strong>Снижение упущенной выгоды</strong></strong>
+            <td>Отток клиентов × LTV, брак × себестоимость</strong>
+            <td>Снижение оттока на 15–25%</strong>
           </tr>
         </tbody>
       </table>
@@ -7375,14 +7945,14 @@
         </thead>
         <tbody>
           <tr>
-            <td>Техническое масштабирование</strong>},
-            <td>Автоматизация ML-пайплайна (CI/CD для моделей), увеличение пропускной способности</strong>},
-            <td>Модель стабильна 2–4 недели, время ответа ≤ SLA</strong>},
+            <td>Техническое масштабирование</strong>
+            <td>Автоматизация ML-пайплайна (CI/CD для моделей), увеличение пропускной способности</strong>
+            <td>Модель стабильна 2–4 недели, время ответа ≤ SLA</strong>
           </tr>
           <tr>
-            <td>Организационное масштабирование</strong>},
-            <td>Обучение сотрудников, создание службы поддержки, интеграция с HR-процессами</strong>},
-            <td>Пользователи приняли решение, закрыты вопросы по комплаенсу</strong>},
+            <td>Организационное масштабирование</strong>
+            <td>Обучение сотрудников, создание службы поддержки, интеграция с HR-процессами</strong>
+            <td>Пользователи приняли решение, закрыты вопросы по комплаенсу</strong>
           </tr>
         </tbody>
       </table>

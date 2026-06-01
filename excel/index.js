@@ -1,12 +1,3 @@
-
-
-// import { getApps, deleteApp, initializeApp } from 'firebase/app';
-// import { getDatabase, get, ref, update, push, child } from 'firebase/database';
-//import { createSlice, configureStore } from '@reduxjs/toolkit';
-//import { createApi, setupListeners, fakeBaseQuery } from '@reduxjs/toolkit/query';
-
-//import { debounce } from 'lodash-es';
-
 let { createSlice, configureStore } = RTK;
 let { createApi, setupListeners, fakeBaseQuery } = RTKQ;
 
@@ -295,7 +286,7 @@ async function setMathInnerHTML(element, htmlContent) {
 
         return newElement;
     };
-
+//console.log(processedContent);
     // Process and append
     const processedContent = await processElement(tempDiv);
     element.appendChild(processedContent);
@@ -526,47 +517,9 @@ class EconolabsChoiceQuiz {
 }
 
 
-
-//Firebase
-// let app;
-
-// if (getApps().length > 1) {
-//     deleteApp(getApps()[1])
-//         .then(function () {
-//             console.log("App deleted successfully");
-//         })
-//         .catch(function (error) {
-//             console.log("Error deleting app:", error);
-//         });
-// }
-// if (getApps().length < 1) {
-//     let fireconf = {};
-//     try {
-//         fireconf = document.body.dataset;
-//     } catch (err) {
-//         throw new Error('Unable to get params' + err)
-//     }
-//     const firebaseConfig = {
-//         apiKey: fireconf.api,
-//         databaseURL: "https://" + fireconf.base + ".firebaseio.com",
-//         appId: fireconf.app
-//     };
-//     app = initializeApp(firebaseConfig);
-// }
-// const db = getDatabase();
-
-
-
-
-
 /**
 * Store
 */
-
-
-
-
-
 
 const api = createApi({
     reducerPath: 'api',
@@ -1080,7 +1033,6 @@ async function fetchQuizHint(activePage) {
     updateQuiz(activePage)
 }
 
-// Изменённая функция updateQuiz (добавлена обработка формул в text и choices)
 async function updateQuiz(activePage) {
     let quiz = resQuizesArray.data[activePage];
     
@@ -1090,12 +1042,17 @@ async function updateQuiz(activePage) {
     $("#resformula").innerHTML = "<small class='text-muted'>Песочница, попробуйте =2+2 или =AVERAGE(B2:B13)</small>";
     $("#answerButton").disabled = false;
     
-    // Обработка заголовков (без формул, они обычно не содержат математики)
+    // Обработка заголовков
     $("#quizTitle").innerHTML = quiz.title;
     $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
     $("#userComment").style.display = "block";
     $("#answerButton").className = "btn btn-outline-primary m-3";
     $("#answerButton").style.display = "block";
+
+    // **FIX: Display the quiz text for ALL quiz types**
+    if (quiz.text) {
+        await setMathInnerHTML($("#quizString"), quiz.text);
+    }
 
     // Обработка casewithrandomnumber
     if (quiz?.type === "casewithrandomnumber" && Array.isArray(quiz?.dataArray)) {
@@ -1109,10 +1066,10 @@ async function updateQuiz(activePage) {
 
     // Обработка multiplechoices (основной тип для тестов с формулами)
     if (quiz.type === "multiplechoices") {
-        // 1. Обрабатываем текст вопроса с формулами
-        await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
+        // **REMOVE: This line is already handled above**
+        // let res = await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
         
-        // 2. Обрабатываем варианты ответов (choices) с формулами
+        // Обрабатываем варианты ответов (choices) с формулами
         if (quiz.answers.length > 1) {
             // Чекбоксы (несколько правильных ответов)
             let choicesWithMath = await Promise.all(
@@ -1138,7 +1095,8 @@ async function updateQuiz(activePage) {
 
     // Обработка accounting
     if (quiz.type === "accounting") {
-        await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
+        // **REMOVE: Already handled above**
+        // await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
         
         let markup = `
            <div class="row m-1 g-1">
@@ -1165,7 +1123,109 @@ async function updateQuiz(activePage) {
         $("#accountingblock").innerHTML = markup;
         $("#accountingblock").style.display = "block";
     }
+    
+    // **ADD: Handle quizwithrandomnumber type**
+    if (quiz.type === "quizwithrandomnumber") {
+        // Process the random number quiz text
+        let randomNumber = store.getState().application.selectedoption || Math.random() * 9 + 1;
+        let processed = processquizwithrandomnumber({
+            quizString: quiz.text,
+            answer: quiz.answer,
+            randomNumber: randomNumber
+        });
+        await setMathInnerHTML($("#quizString"), processed.quizString);
+    }
 }
+
+// Изменённая функция updateQuiz (добавлена обработка формул в text и choices)
+// async function updateQuiz(activePage) {
+//     let quiz = resQuizesArray.data[activePage];
+    
+//     $("#quizformdataarray").style.display = "none";
+//     $("#usercalculations").style.display = "none";
+//     $("#inputFormula").value = "";
+//     $("#resformula").innerHTML = "<small class='text-muted'>Песочница, попробуйте =2+2 или =AVERAGE(B2:B13)</small>";
+//     $("#answerButton").disabled = false;
+    
+//     // Обработка заголовков (без формул, они обычно не содержат математики)
+//     $("#quizTitle").innerHTML = quiz.title;
+//     $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
+//     $("#userComment").style.display = "block";
+//     $("#answerButton").className = "btn btn-outline-primary m-3";
+//     $("#answerButton").style.display = "block";
+
+//   quiz = JSON.parse(quiz);
+//   console.log(quiz);
+
+//     // Обработка casewithrandomnumber
+//     if (quiz?.type === "casewithrandomnumber" && Array.isArray(quiz?.dataArray)) {
+//         $("#usercalculations").style.display = "block";
+//         $("#quizformdataarray").innerHTML = markupForDataArray(quiz?.dataArray) + "<br>" + quiz?.text + "<hr>";
+//         $("#quizformdataarray").style.display = "block";
+//         if (!!quiz?.hint) {
+//             await setMathInnerHTML($("#quizHint"), quiz.hint).catch(console.error);
+//         }
+//     }
+
+//     // Обработка multiplechoices (основной тип для тестов с формулами)
+//     if (quiz.type === "multiplechoices") {
+//         // 1. Обрабатываем текст вопроса с формулами
+//       let res =  await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
+        
+//         // 2. Обрабатываем варианты ответов (choices) с формулами
+//         if (quiz.answers.length > 1) {
+//             // Чекбоксы (несколько правильных ответов)
+//             let choicesWithMath = await Promise.all(
+//                 quiz.choices.map(async (choice) => {
+//                     const tempDiv = document.createElement('div');
+//                     await setMathInnerHTML(tempDiv, choice);
+//                     return tempDiv.innerHTML;
+//                 })
+//             );
+//             chectQuiz.addEvents(choicesWithMath);
+//         } else {
+//             // Радиокнопки (один правильный ответ)
+//             let choicesWithMath = await Promise.all(
+//                 quiz.choices.map(async (choice) => {
+//                     const tempDiv = document.createElement('div');
+//                     await setMathInnerHTML(tempDiv, choice);
+//                     return tempDiv.innerHTML;
+//                 })
+//             );
+//             choiceQuiz.addEvents(choicesWithMath);
+//         }
+//     }
+
+//     // Обработка accounting
+//     if (quiz.type === "accounting") {
+//         await setMathInnerHTML($("#quizString"), quiz.text).catch(console.error);
+        
+//         let markup = `
+//            <div class="row m-1 g-1">
+//                 <div class="col-12 col-md-6">
+//                     <select class="form-select form-select-sm" aria-label="debet" id="debet" name="debet">
+//                     ${'<option value="...">Дебет</option>' +
+//             quiz.choices
+//                 .map(item => `<option value="${item}">${item}</option>`)
+//                 .join("")
+//             }                       
+//                     </select>
+//                 </div>
+//                 <div class="col-12 col-md-6">
+//                     <select class="form-select form-select-sm" aria-label="credit" id="credit" name="credit">
+//                        ${'<option value="...">Кредит</option>' +
+//             quiz.choices
+//                 .map(item => `<option value="${item}">${item}</option>`)
+//                 .join("")
+//             }
+//                     </select>
+//                 </div>
+//            </div>`;
+        
+//         $("#accountingblock").innerHTML = markup;
+//         $("#accountingblock").style.display = "block";
+//     }
+// }
 
 
 
@@ -1181,7 +1241,7 @@ async function updateQuiz(activePage) {
 function checkLocallyAndGlobally(index, title, text) {
     let correntlyAnsweredPages = store.getState().application.correntlyAnsweredPages;
     let correctquizes = store.getState().application.correctquizes;
-    console.log(correntlyAnsweredPages, index)
+ //  console.log(correntlyAnsweredPages, index)
     if (correntlyAnsweredPages.includes(index)) {
         return true
     } else {
@@ -1257,19 +1317,7 @@ let debounce_callRangeValueСalculation = debounce(function (dataArray, answer) 
 
 let debounce_callCellValueСalculation = debounce(function (answer) {
     parser.on('callCellValue', function (cellCoord, done) {
-        // using label
-        // if (cellCoord.label === 'B$6') {
-        //   done('hello');
-        // }
-        // or using indexes
-        // if (cellCoord.row.index === 5 && cellCoord.row.isAbsolute && cellCoord.column.index === 1 && !cellCoord.column.isAbsolute) {
-        //   done('hello');
-        // }
-
-        // if (cellCoord.label === 'C6') {
-        //   done(0.75);
-        // }
-        if (!!cellCoord) {
+             if (!!cellCoord) {
             done();
         }
     });
@@ -1346,10 +1394,6 @@ async function initialLoad() {
                             return identifyQuiz(item.title, item?.quizString)
                         }))]))
         store.dispatch(applicationSlice.actions.setUser(res));
-
-        //  resOpenQuizesCasesIds = await store.dispatch(api.endpoints.fetchOpenQuizesCasesIds.initiate());
-        //  console.log(resOpenQuizesCasesIds.data.filter(item => item.theme === 'Основные корпоративные налоги'))
-
     }
 }
 
@@ -1359,56 +1403,4 @@ initialLoad().then(() => {
     $("#quizcontainer").style.display = "block";
     renderPagination()
 });
-
-// function loadState() {
-//     try {
-//       const serializedState = localStorage.getItem('econolabs');
-//       if (serializedState === null) {
-//         return undefined;
-//       }
-//       return JSON.parse(serializedState);
-//     } catch (err) {
-//       return undefined
-//     }
-//   };
-
-// function shuffle(array) {
-//   return array.sort(() => Math.random() - 0.5);
-// }
-
-// async function getFirebaseNode({
-//     url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
-//     type = "array"
-// }) {
-//     try {
-//         let snapshot = await get(ref(db, url));
-//         if (snapshot.exists()) {
-//             let res = snapshot.val();
-//             if (type === "array") { return Object.keys(res).map(objKey => res[objKey]) }
-//             return res
-//         } else {
-//             if (type === "array") { return [] } else { return null }
-//         }
-//     }
-//     catch (err) {
-//         console.log(err);
-//         if (type === "array") { return [] } else { return {} }
-//     }
-// }
-
-// async function updateFirebaseNode(updates = { temp: "temp" }) {
-//     try {
-//         //let res = await timeout(3000); console.log(updates);
-//         await update(ref(db), updates);
-//         return true
-//     }
-//     catch (error) {
-//         console.error(error)
-//         return error
-//     }
-// }
-
-// function getFirebaseNodeKey(url) {
-//     return push(child(ref(db), url + "/")).key;
-// }
 
