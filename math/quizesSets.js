@@ -712,6 +712,1337 @@ let quizesSets =
     </div>`
   },
 
+  // 4. Преобразование тригонометрических уравнений
+
+  {
+    "id": "trig-parity-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Чётность",
+    "title": "Чётность синуса",
+    "theme": "Чётность функций",
+    "text": "Является ли функция $f(x) = \\sin x$ чётной или нечётной?",
+    "choices": [
+      "Чётная: sin(-x) = sin x",
+      "Нечётная: sin(-x) = -sin x",
+      "Ни чётная, ни нечётная",
+      "Периодическая",
+      "Монотонная"
+    ],
+    "answers": ["Нечётная: sin(-x) = -sin x"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Чётность синуса</h5>
+        <p>Функция f(x) называется нечётной, если f(-x) = -f(x) для всех x</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Графическая симметрия</strong>
+            </div>
+            <div class="card-body">
+              <p>График синуса симметричен относительно начала координат</p>
+              <p>Если точка (x, sin x) лежит на графике, то точка (-x, -sin x) тоже на графике</p>
+              <p>Это свойство центральной симметрии</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Примеры значений</strong>
+            </div>
+            <div class="card-body">
+              <p>sin 30° = 1/2</p>
+              <p>sin(-30°) = -1/2 = -sin 30°</p>
+              <p>sin 45° = √2/2</p>
+              <p>sin(-45°) = -√2/2 = -sin 45°</p>
+              <p>sin 60° = √3/2</p>
+              <p>sin(-60°) = -√3/2 = -sin 60°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">Синус - нечётная функция: sin(-x) = -sin x</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-parity-002",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Чётность",
+    "title": "Чётность косинуса",
+    "theme": "Чётность функций",
+    "text": "Является ли функция $f(x) = \\cos x$ чётной или нечётной?",
+    "choices": [
+      "Чётная: cos(-x) = cos x",
+      "Нечётная: cos(-x) = -cos x",
+      "Ни чётная, ни нечётная",
+      "Периодическая",
+      "Монотонная"
+    ],
+    "answers": ["Чётная: cos(-x) = cos x"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Чётность косинуса</h5>
+        <p>Функция f(x) называется чётной, если f(-x) = f(x) для всех x</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Графическая симметрия</strong>
+            </div>
+            <div class="card-body">
+              <p>График косинуса симметричен относительно оси Y</p>
+              <p>Если точка (x, cos x) лежит на графике, то точка (-x, cos x) тоже на графике</p>
+              <p>Это свойство зеркальной симметрии</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Примеры значений</strong>
+            </div>
+            <div class="card-body">
+              <p>cos 30° = √3/2</p>
+              <p>cos(-30°) = √3/2 = cos 30°</p>
+              <p>cos 45° = √2/2</p>
+              <p>cos(-45°) = √2/2 = cos 45°</p>
+              <p>cos 60° = 1/2</p>
+              <p>cos(-60°) = 1/2 = cos 60°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">Косинус - чётная функция: cos(-x) = cos x</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-parity-003",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Чётность",
+    "title": "Чётность тангенса",
+    "theme": "Чётность функций",
+    "text": "Является ли функция $f(x) = \\tan x$ чётной или нечётной?",
+    "choices": [
+      "Чётная: tan(-x) = tan x",
+      "Нечётная: tan(-x) = -tan x",
+      "Ни чётная, ни нечётная",
+      "Периодическая",
+      "Монотонная"
+    ],
+    "answers": ["Нечётная: tan(-x) = -tan x"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Чётность тангенса</h5>
+        <p>Тангенс определяется как отношение синуса к косинусу</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Через определение</strong>
+            </div>
+            <div class="card-body">
+              <p>tan x = sin x / cos x</p>
+              <p>tan(-x) = sin(-x) / cos(-x)</p>
+              <p>sin(-x) = -sin x (синус нечётный)</p>
+              <p>cos(-x) = cos x (косинус чётный)</p>
+              <p>tan(-x) = (-sin x) / cos x = -tan x</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Примеры значений</strong>
+            </div>
+            <div class="card-body">
+              <p>tan 30° = 1/√3</p>
+              <p>tan(-30°) = -1/√3 = -tan 30°</p>
+              <p>tan 45° = 1</p>
+              <p>tan(-45°) = -1 = -tan 45°</p>
+              <p>tan 60° = √3</p>
+              <p>tan(-60°) = -√3 = -tan 60°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">Тангенс - нечётная функция: tan(-x) = -tan x</p>
+      </div>
+    </div>`
+  },
+
+  {
+    "id": "trig-visual-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Основное тригонометрическое тождество",
+    "theme": "Тригонометрические тождества",
+    "text": "На рисунке показано основное тригонометрическое тождество. Какое равенство оно иллюстрирует?",
+    "JSXGraph": "true",
+    "JSXGraphType": "pythagoreanIdentity",
+    "choices": [
+      "sin²α + cos²α = 1",
+      "sin(α+β) = sinα cosβ + cosα sinβ",
+      "cos2α = cos²α - sin²α",
+      "1 + tan²α = 1/cos²α",
+      "sin2α = 2 sinα cosα"
+    ],
+    "answers": ["sin²α + cos²α = 1"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Основное тригонометрическое тождество</h5>
+      <p>На единичной окружности для любой точки P(cos α, sin α) выполняется:</p>
+    </div>
+    
+    <div class="alert alert-light border">
+      <p class="mb-0">Теорема Пифагора для прямоугольного треугольника с гипотенузой = 1:</p>
+      <p class="mb-0">cos²α + sin²α = 1² = 1</p>
+    </div>
+  </div>`
+  },
+
+  {
+    "id": "trig-visual-002",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Формулы приведения для синуса",
+    "theme": "Формулы приведения",
+    "text": "На рисунке показаны симметричные углы. Какая формула соответствует переходу от α к π-α?",
+    "JSXGraph": "true",
+    "JSXGraphType": "reductionFormulas",
+    "choices": [
+      "sin(π-α) = sinα",
+      "sin(π-α) = -sinα",
+      "sin(π-α) = cosα",
+      "sin(π-α) = -cosα",
+      "sin(π-α) = tanα"
+    ],
+    "answers": ["sin(π-α) = sinα"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Формула sin(π-α) = sinα</h5>
+      <p>Углы α и π-α симметричны относительно вертикальной оси</p>
+    </div>
+    
+    <div class="alert alert-light border">
+      <h6>💡 Симметрии на окружности:</h6>
+      <p class="mb-1">• α и π-α: одинаковая ордината (sin)</p>
+      <p class="mb-1">• α и π+α: противоположные координаты</p>
+      <p class="mb-0">• α и -α: симметрия относительно оси X</p>
+    </div>
+  </div>`
+  },
+
+  {
+    "id": "trig-visual-003",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Формула синуса суммы",
+    "theme": "Формулы сложения",
+    "text": "На рисунке геометрически выводится формула для sin(α+β). Какая это формула?",
+    "JSXGraph": "true",
+    "JSXGraphType": "additionFormulas",
+    "choices": [
+      "sin(α+β) = sinα cosβ + cosα sinβ",
+      "sin(α+β) = sinα cosβ - cosα sinβ",
+      "sin(α+β) = cosα cosβ - sinα sinβ",
+      "sin(α+β) = sinα sinβ + cosα cosβ",
+      "sin(α+β) = (sinα + sinβ)/(1 + sinα sinβ)"
+    ],
+    "answers": ["sin(α+β) = sinα cosβ + cosα sinβ"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Формула синуса суммы</h5>
+      <p>Геометрический вывод через проекции векторов на единичной окружности</p>
+    </div>
+    
+    <div class="alert alert-light border">
+      <h6>💡 Мнемоническое правило:</h6>
+      <p class="mb-1">"Син кос плюс кос син"</p>
+      <p class="mb-0">sin(α+β) = sinα·cosβ + cosα·sinβ</p>
+    </div>
+  </div>`
+  },
+
+  {
+    "id": "trig-visual-004",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Формула синуса двойного угла",
+    "theme": "Формулы двойного угла",
+    "text": "На рисунке показана связь между углами α и 2α. Чему равен sin 2α?",
+    "JSXGraph": "true",
+    "JSXGraphType": "doubleAngleFormulas",
+    "choices": [
+      "sin 2α = 2 sinα cosα",
+      "sin 2α = sin²α - cos²α",
+      "sin 2α = 2 cos²α - 1",
+      "sin 2α = 1 - 2 sin²α",
+      "sin 2α = (2 tanα)/(1 + tan²α)"
+    ],
+    "answers": ["sin 2α = 2 sinα cosα"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Формула синуса двойного угла</h5>
+      <p>Получается из формулы суммы при β = α</p>
+    </div>
+    
+    <div class="alert alert-light border">
+      <h6>💡 Две основные формулы:</h6>
+      <p class="mb-1">• sin 2α = 2 sinα cosα</p>
+      <p class="mb-0">• cos 2α = cos²α - sin²α = 2cos²α - 1 = 1 - 2sin²α</p>
+    </div>
+  </div>`
+  },
+
+  {
+    "id": "trig-visual-005",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Значения на единичной окружности",
+    "theme": "Единичная окружность",
+    "text": "На рисунке показана единичная окружность с основными углами. Чему равен sin 45°?",
+    "JSXGraph": "true",
+    "JSXGraphType": "unitCircleValues",
+    "choices": [
+      "0",
+      "1/2",
+      "√2/2",
+      "√3/2",
+      "1"
+    ],
+    "answers": ["√2/2"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Значение sin 45°</h5>
+      <p>Для угла 45° координаты на единичной окружности равны</p>
+    </div>
+    
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card border-primary mb-3">
+          <div class="card-header bg-primary text-white">
+            <strong>Координаты точки</strong>
+          </div>
+          <div class="card-body">
+            <p>Точка на окружности под углом 45°:</p>
+            <p>x = cos 45° = √2/2</p>
+            <p>y = sin 45° = √2/2</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card border-success mb-3">
+          <div class="card-header bg-success text-white">
+            <strong>Геометрический смысл</strong>
+          </div>
+          <div class="card-body">
+            <p>В прямоугольном треугольнике 45°-45°-90°:</p>
+            <p>Катеты равны, гипотенуза = 1</p>
+            <p>sin 45° = противолежащий/гипотенуза = катет/1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`
+  },
+
+
+  {
+    "id": "trig-visual-006",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Визуализация",
+    "title": "Косинус на единичной окружности",
+    "theme": "Единичная окружность",
+    "text": "На рисунке единичной окружности показаны координаты точки. Какая координата соответствует cos α?",
+    "JSXGraph": "true",
+    "JSXGraphType": "unitCircleValues",
+    "choices": [
+      "Абсцисса (x-координата)",
+      "Ордината (y-координата)",
+      "Радиус окружности",
+      "Длина дуги",
+      "Угол в радианах"
+    ],
+    "answers": ["Абсцисса (x-координата)"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Координаты на единичной окружности</h5>
+      <p>Для точки P на единичной окружности, соответствующей углу α:</p>
+    </div>
+    
+    <div class="alert alert-light border">
+      <p class="mb-1">• P(cos α, sin α)</p>
+      <p class="mb-1">• x = cos α (абсцисса)</p>
+      <p class="mb-0">• y = sin α (ордината)</p>
+    </div>
+  </div>`
+  },
+
+
+  {
+    "id": "triangle-cosine-001",
+    "type": "multiplechoices",
+    "header": "Геометрия. Треугольники",
+    "title": "Теорема косинусов",
+    "theme": "Теоремы синусов и косинусов",
+    "text": "На рисунке показан треугольник со сторонами a, b, c и углом α. Как найти сторону a по теореме косинусов?",
+    "JSXGraph": "true",
+    "JSXGraphType": "triangleSolver",
+    "choices": [
+      "a² = b² + c² + 2bc·cosα",
+      "a² = b² + c² - 2bc·cosα",
+      "a² = b² - c² - 2bc·cosα",
+      "a = b·cosα + c·cosβ",
+      "a = √(b² + c²)"
+    ],
+    "answers": ["a² = b² + c² - 2bc·cosα"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Теорема косинусов</h5>
+      <p>Обобщение теоремы Пифагора для произвольных треугольников</p>
+    </div>
+    
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card border-primary mb-3">
+          <div class="card-header bg-primary text-white">
+            <strong>Формулировка</strong>
+          </div>
+          <div class="card-body">
+            <p>Квадрат стороны равен сумме квадратов двух других сторон минус удвоенное произведение этих сторон на косинус угла между ними</p>
+            <p>$$a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\alpha$$</p>
+            <p>$$b^2 = a^2 + c^2 - 2ac \\cdot \\cos\\beta$$</p>
+            <p>$$c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma$$</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card border-success mb-3">
+          <div class="card-header bg-success text-white">
+            <strong>Частные случаи</strong>
+          </div>
+          <div class="card-body">
+            <p>Если α = 90°, то cos α = 0:</p>
+            <p>$$a^2 = b^2 + c^2$$</p>
+            <p>Теорема Пифагора!</p>
+            <p>Если α = 0° (вырожденный треугольник):</p>
+            <p>$$a^2 = b^2 + c^2 - 2bc = (b - c)^2$$</p>
+            <p>$$a = |b - c|$$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="alert alert-light border mt-3">
+      <h6>💡 Когда использовать:</h6>
+      <p class="mb-1">• Чтобы найти сторону по двум сторонам и углу между ними</p>
+      <p class="mb-1">• Чтобы найти угол по трём сторонам</p>
+      <p class="mb-0">• Вместе с теоремой синусов для полного решения треугольников</p>
+    </div>
+  </div>`
+  },
+
+
+  {
+    "id": "trig-eq-circle-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Решение уравнения sin x = a",
+    "theme": "Тригонометрические уравнения",
+    "text": "На рисунке показано решение уравнения $\\sin x = a$ на единичной окружности. Сколько решений имеет уравнение $\\sin x = 0.5$ на промежутке $[0; 2\\pi]$?",
+    "JSXGraph": "true",
+    "JSXGraphType": "trigEquationSolver",
+    "choices": ["1", "2", "3", "4", "бесконечно много"],
+    "answers": ["2"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Решение sin x = a на окружности</h5>
+      <p>Уравнение sin x = a решается как пересечение горизонтальной линии y = a с единичной окружностью</p>
+    </div>
+    
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card border-primary mb-3">
+          <div class="card-header bg-primary text-white">
+            <strong>Количество решений</strong>
+          </div>
+          <div class="card-body">
+            <p>Для уравнения sin x = a:</p>
+            <p>• Если |a| > 1: нет решений</p>
+            <p>• Если |a| = 1: одно семейство решений</p>
+            <p>• Если |a| < 1: два семейства решений</p>
+            <p>На промежутке [0; 2π] всегда 1 или 2 решения</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card border-success mb-3">
+          <div class="card-header bg-success text-white">
+            <strong>Для a = 0.5</strong>
+          </div>
+          <div class="card-body">
+            <p>sin x = 0.5</p>
+            <p>Одно решение: x₁ = arcsin(0.5) = π/6</p>
+            <p>Второе решение: x₂ = π - π/6 = 5π/6</p>
+            <p>На [0; 2π]: x = π/6 и x = 5π/6</p>
+            <p>Все решения: x = (-1)^n·π/6 + πn</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="alert alert-light border mt-3">
+      <h6>💡 Геометрическая интерпретация:</h6>
+      <p class="mb-1">Горизонтальная линия y = a пересекает единичную окружность в двух точках</p>
+      <p class="mb-0">Эти точки соответствуют углам x₁ и x₂, для которых sin x = a</p>
+    </div>
+  </div>`
+  },
+
+
+  {
+    "id": "trig-graph-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Графики функций",
+    "title": "Параметры синусоиды",
+    "theme": "Графики тригонометрических функций",
+    "text": "На рисунке показан график $y = A \\cdot \\sin(\\omega x + \\varphi)$. Что произойдёт при увеличении $\\omega$?",
+    "JSXGraph": "true",
+    "JSXGraphType": "trigGraphs",
+    "choices": [
+      "График растянется по горизонтали, период увеличится",
+      "График сожмётся по горизонтали, период уменьшится",
+      "Амплитуда увеличится",
+      "График сместится вправо",
+      "Частота колебаний уменьшится"
+    ],
+    "answers": ["График сожмётся по горизонтали, период уменьшится"],
+    "hint": `<div class="container-fluid p-0">
+    <div class="alert alert-info mb-3" role="alert">
+      <h5 class="alert-heading">📐 Параметр ω (омега)</h5>
+      <p>ω - циклическая частота, влияет на период функции</p>
+    </div>
+    
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card border-primary mb-3">
+          <div class="card-header bg-primary text-white">
+            <strong>Период функции</strong>
+          </div>
+          <div class="card-body">
+            <p>Период синуса: $T = \\frac{2\\pi}{\\omega}$</p>
+            <p>При увеличении ω:</p>
+            <p>• Знаменатель увеличивается</p>
+            <p>• Период T уменьшается</p>
+            <p>• График сжимается по горизонтали</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card border-success mb-3">
+          <div class="card-header bg-success text-white">
+            <strong>Частота колебаний</strong>
+          </div>
+          <div class="card-body">
+            <p>ω связана с частотой: $f = \\frac{\\omega}{2\\pi}$</p>
+            <p>Чем больше ω, тем выше частота</p>
+            <p>Больше колебаний на том же промежутке</p>
+            <p>График становится более "частым"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="alert alert-light border mt-3">
+      <h6>💡 Все параметры:</h6>
+      <p class="mb-1">• A - амплитуда (растяжение по вертикали)</p>
+      <p class="mb-1">• ω - частота (сжатие/растяжение по горизонтали)</p>
+      <p class="mb-0">• φ - начальная фаза (сдвиг по горизонтали)</p>
+    </div>
+  </div>`
+  },
+
+
+
+
+
+
+
+// 5. Тригонометрическе упавнения и неравенства
+
+ {
+    "id": "trig-eq-x-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Простейшее уравнение sin x = 0",
+    "theme": "Простейшие уравнения",
+    "text": "Решите уравнение: $\\sin x = 0$",
+    "choices": [
+      "$x = \\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\frac{\\pi}{2} + \\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\frac{\\pi}{2} + 2\\pi n, n \\in \\mathbb{Z}$",
+      "$x = 2\\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\pi + 2\\pi n, n \\in \\mathbb{Z}$"
+    ],
+    "answers": ["$x = \\pi n, n \\in \\mathbb{Z}$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Уравнение sin x = 0</h5>
+        <p>Синус равен нулю в точках пересечения графика с осью X</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Конкретные корни</strong>
+            </div>
+            <div class="card-body">
+              <p>На промежутке [0; 2π]:</p>
+              <p>sin 0 = 0</p>
+              <p>sin π = 0</p>
+              <p>sin 2π = 0</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Общий вид</strong>
+            </div>
+            <div class="card-body">
+              <p>Все углы, кратные π</p>
+              <p>x = 0, π, 2π, 3π, ...</p>
+              <p>И отрицательные: -π, -2π, ...</p>
+              <p>Общая формула: x = πn</p>
+              <p>где n - любое целое число</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">sin x = 0 ⇔ x = πn, n ∈ ℤ</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-eq-x-002",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Простейшее уравнение cos x = 0",
+    "theme": "Простейшие уравнения",
+    "text": "Решите уравнение: $\\cos x = 0$",
+    "choices": [
+      "$x = \\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\frac{\\pi}{2} + \\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\frac{\\pi}{2} + 2\\pi n, n \\in \\mathbb{Z}$",
+      "$x = 2\\pi n, n \\in \\mathbb{Z}$",
+      "$x = \\pi + 2\\pi n, n \\in \\mathbb{Z}$"
+    ],
+    "answers": ["$x = \\frac{\\pi}{2} + \\pi n, n \\in \\mathbb{Z}$"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Уравнение cos x = 0</h5>
+        <p>Косинус равен нулю в точках максимумов и минимумов синуса</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Конкретные корни</strong>
+            </div>
+            <div class="card-body">
+              <p>На промежутке [0; 2π]:</p>
+              <p>cos(π/2) = 0</p>
+              <p>cos(3π/2) = 0</p>
+              <p>Разность между корнями: π</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Общий вид</strong>
+            </div>
+            <div class="card-body">
+              <p>Все углы вида π/2 + πn</p>
+              <p>x = π/2, 3π/2, 5π/2, 7π/2, ...</p>
+              <p>И отрицательные: -π/2, -3π/2, ...</p>
+              <p>Общая формула: x = π/2 + πn</p>
+              <p>где n - любое целое число</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">cos x = 0 ⇔ x = π/2 + πn, n ∈ ℤ</p>
+      </div>
+    </div>`
+  },
+ 
+
+ {
+    "id": "trig-eq-simple-001",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Уравнение с sin x = 1/2",
+    "theme": "Простейшие уравнения",
+    "text": "Найдите все углы x от 0° до 360°, для которых sin x = 1/2",
+    "choices": [
+      "30° и 150°",
+      "30° и 210°",
+      "45° и 135°",
+      "60° и 120°",
+      "30° и 330°"
+    ],
+    "answers": ["30° и 150°"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Решение sin x = 1/2</h5>
+        <p>Синус равен 1/2 для углов 30° и 150°</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Первый угол</strong>
+            </div>
+            <div class="card-body">
+              <p>sin 30° = 1/2</p>
+              <p>Это угол в первой четверти</p>
+              <p>x₁ = 30°</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Второй угол</strong>
+            </div>
+            <div class="card-body">
+              <p>Синус положителен в I и II четвертях</p>
+              <p>Во второй четверти: 180° - 30° = 150°</p>
+              <p>sin 150° = sin(180° - 30°) = sin 30° = 1/2</p>
+              <p>x₂ = 150°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">sin x = a > 0: x₁ = arcsin a, x₂ = 180° - arcsin a</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-eq-simple-002",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Уравнение с cos x = √3/2",
+    "theme": "Простейшие уравнения",
+    "text": "Найдите все углы x от 0° до 360°, для которых cos x = √3/2",
+    "choices": [
+      "30° и 150°",
+      "30° и 330°",
+      "60° и 300°",
+      "45° и 315°",
+      "60° и 120°"
+    ],
+    "answers": ["30° и 330°"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Решение cos x = √3/2</h5>
+        <p>cos 30° = √3/2</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Первый угол</strong>
+            </div>
+            <div class="card-body">
+              <p>cos 30° = √3/2</p>
+              <p>Это угол в первой четверти</p>
+              <p>x₁ = 30°</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Второй угол</strong>
+            </div>
+            <div class="card-body">
+              <p>Косинус положителен в I и IV четвертях</p>
+              <p>В четвёртой четверти: 360° - 30° = 330°</p>
+              <p>cos 330° = cos(360° - 30°) = cos 30° = √3/2</p>
+              <p>x₂ = 330°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">cos x = a > 0: x₁ = arccos a, x₂ = 360° - arccos a</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-eq-simple-003",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Уравнение с tan x = 1",
+    "theme": "Простейшие уравнения",
+    "text": "Найдите все углы x от 0° до 360°, для которых tan x = 1",
+    "choices": [
+      "45° и 135°",
+      "45° и 225°",
+      "45° и 315°",
+      "30° и 210°",
+      "60° и 240°"
+    ],
+    "answers": ["45° и 225°"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Решение tan x = 1</h5>
+        <p>tan 45° = 1</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Первый угол</strong>
+            </div>
+            <div class="card-body">
+              <p>tan 45° = 1</p>
+              <p>Это угол в первой четверти</p>
+              <p>x₁ = 45°</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Второй угол</strong>
+            </div>
+            <div class="card-body">
+              <p>Тангенс положителен в I и III четвертях</p>
+              <p>В третьей четверти: 180° + 45° = 225°</p>
+              <p>tan 225° = tan(180° + 45°) = tan 45° = 1</p>
+              <p>x₂ = 225°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило:</h6>
+        <p class="mb-0">tan x = a: x₁ = arctan a, x₂ = 180° + arctan a</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-eq-simple-004",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Уравнение с sin x = -1/2",
+    "theme": "Простейшие уравнения",
+    "text": "Найдите все углы x от 0° до 360°, для которых sin x = -1/2",
+    "choices": [
+      "210° и 330°",
+      "150° и 210°",
+      "240° и 300°",
+      "225° и 315°",
+      "30° и 150°"
+    ],
+    "answers": ["210° и 330°"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Решение sin x = -1/2</h5>
+        <p>sin x = -1/2</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Находим опорный угол</strong>
+            </div>
+            <div class="card-body">
+              <p>Сначала решаем: sin x = 1/2</p>
+              <p>arcsin(1/2) = 30°</p>
+              <p>Это опорный угол</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Углы с отрицательным синусом</strong>
+            </div>
+            <div class="card-body">
+              <p>Синус отрицателен в III и IV четвертях</p>
+              <p>В третьей четверти: 180° + 30° = 210°</p>
+              <p>В четвёртой четверти: 360° - 30° = 330°</p>
+              <p>sin 210° = sin 330° = -1/2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило для sin x = -a (a > 0):</h6>
+        <p class="mb-0">x₁ = 180° + arcsin a, x₂ = 360° - arcsin a</p>
+      </div>
+    </div>`
+  },
+  {
+    "id": "trig-eq-simple-005",
+    "type": "multiplechoices",
+    "header": "Тригонометрия. Уравнения",
+    "title": "Уравнение с cos x = -√2/2",
+    "theme": "Простейшие уравнения",
+    "text": "Найдите все углы x от 0° до 360°, для которых cos x = -√2/2",
+    "choices": [
+      "135° и 225°",
+      "120° и 240°",
+      "150° и 210°",
+      "45° и 135°",
+      "135° и 315°"
+    ],
+    "answers": ["135° и 225°"],
+    "hint": `<div class="container-fluid p-0">
+      <div class="alert alert-info mb-3" role="alert">
+        <h5 class="alert-heading">📐 Решение cos x = -√2/2</h5>
+        <p>cos 45° = √2/2</p>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white">
+              <strong>Находим опорный угол</strong>
+            </div>
+            <div class="card-body">
+              <p>Сначала: cos x = √2/2</p>
+              <p>arccos(√2/2) = 45°</p>
+              <p>Это опорный угол</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">
+              <strong>Углы с отрицательным косинусом</strong>
+            </div>
+            <div class="card-body">
+              <p>Косинус отрицателен во II и III четвертях</p>
+              <p>Во второй четверти: 180° - 45° = 135°</p>
+              <p>В третьей четверти: 180° + 45° = 225°</p>
+              <p>cos 135° = cos 225° = -√2/2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-light border mt-3">
+        <h6>💡 Правило для cos x = -a (a > 0):</h6>
+        <p class="mb-0">x₁ = 180° - arccos a, x₂ = 180° + arccos a</p>
+      </div>
+    </div>`
+  },
+
+// 7. Многогранники. Объемы и площади
+
+{
+    id: "stereo001",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Геометрические характеристики",
+    theme: "Многогранники",
+    text: "Сколько рёбер у представленной фигуры?",
+    sceneType: "cube",
+    sceneOptions: {
+      showVertices: true,
+      rotationSpeed: 0.02
+    },
+    choices: [
+      "8 рёбер",
+      "10 рёбер",
+      "12 рёбер",
+      "14 рёбер",
+      "16 рёбер",
+      "6 рёбер"
+    ],
+    answers: ["12 рёбер"],
+    hint: `
+      <div class="alert alert-info mt-3">
+        <h6 class="alert-heading"><i class="fas fa-lightbulb"></i> Подсказка</h6>
+        <p class="mb-2">Вспомните определение ребра в геометрии:</p>
+        <ul class="mb-1">
+          <li>Ребро - это отрезок, соединяющий две вершины многогранника</li>
+          <li>Посчитайте количество отрезков на фигуре</li>
+          <li>Каждое ребро принадлежит двум граням</li>
+        </ul>
+        <hr>
+        <p class="mb-0 small"><strong>Формула:</strong> Для куба количество рёбер = 12</p>
+      </div>
+    `
+  },
+  {
+    id: "stereo002",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Вычисление объёма",
+    theme: "Объёмные тела",
+    text: "Рассчитайте объём фигуры, если все линейные размеры равны 2 единицам",
+    sceneType: "cube",
+    sceneOptions: {
+      size: 0.8,
+      showVertices: false
+    },
+    choices: [
+      "4 кубических единиц",
+      "6 кубических единиц",
+      "8 кубических единиц",
+      "10 кубических единиц",
+      "12 кубических единиц",
+      "16 кубических единиц"
+    ],
+    answers: ["8 кубических единиц"],
+    hint: `
+      <div class="alert alert-warning mt-3">
+        <h6 class="alert-heading"><i class="fas fa-calculator"></i> Подсказка</h6>
+        <p class="mb-2">Формула объёма куба:</p>
+        <div class="bg-light p-2 rounded mb-2">
+          V = a³, где a - длина ребра
+        </div>
+        <p class="mb-1">Если a = 2, то:</p>
+        <div class="bg-light p-2 rounded">
+          V = 2 × 2 × 2 = 8
+        </div>
+      </div>
+    `
+  },
+
+  {
+    id: "stereo005",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Объёмные соотношения",
+    theme: "Конусы",
+    text: "Чему равен объём фигуры, если радиус основания 3, а высота 4?",
+    sceneType: "cone",
+    sceneOptions: {
+      size: 1.1
+    },
+    choices: [
+      "12π",
+      "24π",
+      "36π",
+      "48π",
+      "16π",
+      "18π"
+    ],
+    answers: ["12π"],
+    hint: `
+      <div class="alert alert-warning mt-3">
+        <h6 class="alert-heading"><i class="fas fa-chart-pie"></i> Подсказка</h6>
+        <p class="mb-2">Формула объёма конуса:</p>
+        <div class="bg-light p-2 rounded mb-2">
+          V = (1/3) × π × r² × h
+        </div>
+        <p class="mb-1">При r = 3, h = 4:</p>
+        <div class="bg-light p-2 rounded">
+          V = (1/3) × π × 3² × 4 = (1/3) × π × 9 × 4 = 12π
+        </div>
+      </div>
+    `
+  },
+  
+   {
+    id: "stereo006",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Особенности формы",
+    theme: "Сферы",
+    text: "Какое свойство характеризует эту фигуру?",
+    sceneType: "sphere",
+    sceneOptions: {
+      rotationSpeed: 0.01
+    },
+    choices: [
+      "Все точки поверхности равноудалены от центра",
+      "Имеет прямоугольные грани",
+      "Обладает параллельными основаниями",
+      "Состоит из треугольных граней",
+      "Имеет постоянное сечение",
+      "Обладает вершиной"
+    ],
+    answers: ["Все точки поверхности равноудалены от центра"],
+    hint: `
+      <div class="alert alert-primary mt-3">
+        <h6 class="alert-heading"><i class="fas fa-globe"></i> Подсказка</h6>
+        <p class="mb-2">Основное свойство сферы:</p>
+        <div class="bg-light p-2 rounded mb-2">
+          Все точки сферы находятся на одинаковом расстоянии от центра
+        </div>
+        <p class="mb-0 small">Это расстояние называется <strong>радиусом</strong> сферы</p>
+      </div>
+    `
+  },
+  {
+    id: "stereo007",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Пространственные характеристики",
+    theme: "Призмы",
+    text: "Сколько боковых граней у этой фигуры?",
+    sceneType: "prism",
+    sceneOptions: {
+      showVertices: true,
+      rotationSpeed: 0.018
+    },
+    choices: [
+      "4 грани",
+      "5 граней",
+      "6 граней",
+      "7 граней",
+      "8 граней",
+      "3 грани"
+    ],
+    answers: ["6 граней"],
+    hint: `
+      <div class="alert alert-info mt-3">
+        <h6 class="alert-heading"><i class="fas fa-cube"></i> Подсказка</h6>
+        <p class="mb-2">Шестиугольная призма имеет:</p>
+        <ul class="mb-1">
+          <li>2 основания (шестиугольники)</li>
+          <li>6 боковых граней (прямоугольники)</li>
+        </ul>
+        <p class="mb-0"><strong>Боковые грани:</strong> количество равно числу сторон основания</p>
+      </div>
+    `
+  },
+
+   {
+    id: "stereo012",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Объёмные отношения",
+    theme: "Подобие",
+    text: "Во сколько раз увеличится объём фигуры, если все её линейные размеры увеличить в 2 раза?",
+    sceneType: "sphere",
+    sceneOptions: {
+      size: 0.7
+    },
+    choices: [
+      "В 2 раза",
+      "В 4 раза",
+      "В 6 раза",
+      "В 8 раза",
+      "В 10 раза",
+      "В 12 раза"
+    ],
+    answers: ["В 8 раза"],
+    hint: `
+      <div class="alert alert-warning mt-3">
+        <h6 class="alert-heading"><i class="fas fa-expand-arrows-alt"></i> Подсказка</h6>
+        <p class="mb-2">При подобии объём изменяется как куб коэффициента подобия:</p>
+        <div class="bg-light p-2 rounded mb-2">
+          V<sub>новый</sub> = k³ × V<sub>старый</sub>
+        </div>
+        <p class="mb-1">Если k = 2, то:</p>
+        <div class="bg-light p-2 rounded">
+          V<sub>новый</sub> = 2³ × V<sub>старый</sub> = 8 × V<sub>старый</sub>
+        </div>
+      </div>
+    `
+  },
+
+
+// 8. Тела вращения
+
+ {
+    id: "stereo009",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Геометрические построения",
+    theme: "Торы",
+    text: "Какая линия образует эту фигуру при вращении?",
+    sceneType: "torus",
+    sceneOptions: {
+      rotationSpeed: 0.025
+    },
+    choices: [
+      "Прямая линия",
+      "Окружность",
+      "Эллипс",
+      "Парабола",
+      "Гипербола",
+      "Отрезок"
+    ],
+    answers: ["Окружность"],
+    hint: `
+      <div class="alert alert-success mt-3">
+        <h6 class="alert-heading"><i class="fas fa-ring"></i> Подсказка</h6>
+        <p class="mb-2">Тор образуется вращением окружности вокруг оси:</p>
+        <ul class="mb-1">
+          <li>Окружность лежит в плоскости</li>
+          <li>Ось вращения находится в той же плоскости</li>
+          <li>Ось не пересекает окружность</li>
+        </ul>
+        <p class="mb-0 small">Пример: бублик, спасательный круг</p>
+      </div>
+    `
+  },
+{
+    id: "stereo008",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Расчёт площади",
+    theme: "Цилиндры",
+    text: "Чему равна площадь боковой поверхности, если радиус 2, а высота 5?",
+    sceneType: "cylinder",
+    sceneOptions: {
+      size: 0.9
+    },
+    choices: [
+      "10π",
+      "15π",
+      "20π",
+      "25π",
+      "30π",
+      "40π"
+    ],
+    answers: ["20π"],
+    hint: `
+      <div class="alert alert-warning mt-3">
+        <h6 class="alert-heading"><i class="fas fa-ruler-combined"></i> Подсказка</h6>
+        <p class="mb-2">Формула площади боковой поверхности цилиндра:</p>
+        <div class="bg-light p-2 rounded mb-2">
+          S<sub>бок</sub> = 2πrh
+        </div>
+        <p class="mb-1">При r = 2, h = 5:</p>
+        <div class="bg-light p-2 rounded">
+          S<sub>бок</sub> = 2 × π × 2 × 5 = 20π
+        </div>
+      </div>
+    `
+  },
+
+ {
+    id: "stereo003",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Свойства поверхностей",
+    theme: "Круглые тела",
+    text: "Какая формула описывает площадь полной поверхности этой фигуры?",
+    sceneType: "cylinder",
+    sceneOptions: {
+      size: 1.2,
+      showVertices: false
+    },
+    choices: [
+      "S = 2πr²",
+      "S = 4πr²",
+      "S = 2πr(r + h)",
+      "S = πr²h",
+      "S = πr(r + l)",
+      "S = 6a²"
+    ],
+    answers: ["S = 2πr(r + h)"],
+    hint: `
+      <div class="alert alert-info mt-3">
+        <h6 class="alert-heading"><i class="fas fa-shapes"></i> Подсказка</h6>
+        <p class="mb-2">Площадь полной поверхности цилиндра состоит из:</p>
+        <ul class="mb-2">
+          <li>Двух оснований (круги)</li>
+          <li>Боковой поверхности (прямоугольник)</li>
+        </ul>
+        <div class="bg-light p-2 rounded small">
+          S<sub>полн</sub> = 2 × S<sub>осн</sub> + S<sub>бок</sub> = 2πr² + 2πrh = 2πr(r + h)
+        </div>
+      </div>
+    `
+  },
+ 
+  {
+    id: "stereo004",
+    type: "multiplechoices",
+    header: "Тест по стереометрии",
+    title: "Геометрические параметры",
+    theme: "Пирамиды",
+    text: "Сколько граней у данной фигуры?",
+    sceneType: "pyramid",
+    sceneOptions: {
+      showVertices: true,
+      rotationSpeed: 0.015
+    },
+    choices: [
+      "4 грани",
+      "5 граней",
+      "6 граней",
+      "7 граней",
+      "8 граней",
+      "3 грани"
+    ],
+    answers: ["5 граней"],
+    hint: `
+      <div class="alert alert-success mt-3">
+        <h6 class="alert-heading"><i class="fas fa-dice-d20"></i> Подсказка</h6>
+        <p class="mb-2">Четырёхугольная пирамида имеет:</p>
+        <ul class="mb-1">
+          <li>1 основание (четырёхугольник)</li>
+          <li>4 боковые грани (треугольники)</li>
+        </ul>
+        <p class="mb-0"><strong>Всего:</strong> 1 + 4 = 5 граней</p>
+      </div>
+    `
+  },
+
 // 9. Функции и графики. Логарифмические. Показательные
 
 {
@@ -5442,16 +6773,16 @@ let quizesSets =
       "theme": "Основные определения ТВ",
       "text": `Вероятность суммы двух независимых событий A и B равна ...`,
       "choices": [
-        `P(A) + P(B)`,
-        `P(A) + P(B) - P(A) \\cdot P(B)`,
-        `P(A) + P(B) - P(A \\cap B)`,
-        `P(A) \\cdot P(B)`,
-        `1 - P(\\overline{A}) \\cdot P(\\overline{B})`
+        `$P(A) + P(B)$`,
+        `$P(A) + P(B) - P(A) \\cdot P(B)$`,
+        `$P(A) + P(B) - P(A \\cap B)$`,
+        `$P(A) \\cdot P(B)$`,
+        `$1 - P(\\overline{A}) \\cdot P(\\overline{B})$`
       ],
       "answers": [
-        `P(A) + P(B) - P(A) \\cdot P(B)`,
-        `P(A) + P(B) - P(A \\cap B)`,
-        `1 - P(\\overline{A}) \\cdot P(\\overline{B})`
+        `$P(A) + P(B) - P(A) \\cdot P(B)$`,
+        `$P(A) + P(B) - P(A \\cap B)$`,
+        `$1 - P(\\overline{A}) \\cdot P(\\overline{B})$`
       ],
       "hint": `<div class="container-fluid p-0">
       <div class="alert alert-info mb-3">
