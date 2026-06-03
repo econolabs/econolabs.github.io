@@ -392,7 +392,7 @@ function processquizwithrandomnumber({
                 return str.match(matcher).map(normalise);
             };
         }
-        let parser = new formulaParser.Parser(); // It returns `Object {error: null, result: 14}`
+        let parser = new formulaParser.Parser(); 
         const searchRegExp = /{var1-10}/g;
         const replaceWith = randomNumber.toString();
         quizString = quizString.replace(searchRegExp, replaceWith);

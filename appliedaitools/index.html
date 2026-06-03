@@ -931,57 +931,7 @@
   </div>
 </div>
 
-  <div class="card my-3" style="max-width: 800px">
-                <img src="../quiz.avif"
-                    class="card-img-top" style="filter: grayscale(1);" alt="quiz">
-                <div class="card-body">
-                    <div class="container" id="formcontainer" style="display: none;">
-                        <form>
-                            <div class="mb-3">
-                                <label for="emailInput" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="user" class="form-label">ФИО Группа</label>
-                                <input type="text" class="form-control" id="userInput">
-                            </div>
-
-                            <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
-                                id="loginbutton">Сохранить</button>
-                        </form>
-                    </div>
-                    <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
-                    <div class="container" id="quizcontainer" style="display: none;">
-                        <div class="card mx-auto" style="min-height: 100px;">
-                            <div class="card-header" id="quizHeader"></div>
-                            <div class="card-body">
-                                <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
-                                <div class="card-text fade-in-div" id="quizString"></div>
-                                <form id="quizform">
-                                    <div id="quizChecks" class="m-1 p-1"></div>
-                                    <div id="quizHint" class="m-1 p-1"></div>
-                                    <div class="container p-1 m-1" id="accountingblock" style="display: none;">
-                                    </div>
-                                    <div id="quizformdataarray"></div>
-                                    <div id="usercalculations" style="display: none;">
-                                        <label for="inputFormula" class="col-form-label"
-                                            id="resformula">Калькулятор</label>
-                                        <input type="text" class="form-control form-control-sm" id="inputFormula">
-                                    </div>
-                                    <textarea class="form-control my-3" id="userComment" rows="2"
-                                        style="display: none;">Мой комментарий</textarea>
-                                    <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
-                                        style="display: none;">Ответить</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+  
 <h1 class="text-primary">
       1.	Введение в работу с искусственным интеллектом. Обзор существующих нейросетей
 
@@ -1026,7 +976,7 @@
         <li>
           <strong>Системы, действующие рационально:</strong> достижение
           оптимальных целей в условиях неопределённости (современные
-          интеллектуальные агенты, reinforcement learning).
+          интеллектуальные агенты).
         </li>
       </ul>
 
@@ -1036,9 +986,9 @@
         </thead>
         <tbody>
           <tr><td><strong>Действуют как люди</strong></td><td>«Выглядит ли это как поведение человека?»</td><td>Тест Тьюринга, чат-боты</td></tr>
-          <tr><td><strong>Мыслят как люди</strong></td><td>«Как мозг это обрабатывает?»</td><td>Нейросети, fMRI-моделирование</td></tr>
+          <tr><td><strong>Мыслят как люди</strong></td><td>«Как мозг это обрабатывает?»</td><td>Нейросети</td></tr>
           <tr><td><strong>Мыслят рационально</strong></td><td>«Верен ли логический вывод?»</td><td>Экспертные системы, логические программисты</td></tr>
-          <tr><td><strong>Действуют рационально</strong></td><td>«Оптимально ли действие для достижения цели?»</td><td>Беспилотные авто, AlphaGo</td></tr>
+          <tr><td><strong>Действуют рационально</strong></td><td>«Оптимально ли действие для достижения цели?»</td><td>Беспилотные авто</td></tr>
         </tbody>
       </table>
       <p class="text-muted mt-2" style="font-size: 0.85em">
@@ -2400,6 +2350,58 @@
     </div>
   </div>
 </div>
+
+<div class="card my-3" style="max-width: 800px">
+                <img src="../quiz.avif"
+                    class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+                <div class="card-body">
+                    <div class="container" id="formcontainer" style="display: none;">
+                        <form>
+                            <div class="mb-3">
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="user" class="form-label">ФИО Группа</label>
+                                <input type="text" class="form-control" id="userInput">
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                                id="loginbutton">Сохранить</button>
+                        </form>
+                    </div>
+                    <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                    <div class="container" id="quizcontainer" style="display: none;">
+                        <div class="card mx-auto" style="min-height: 100px;">
+                            <div class="card-header" id="quizHeader"></div>
+                            <div class="card-body">
+                                <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                                <div class="card-text fade-in-div" id="quizString"></div>
+                                <form id="quizform">
+                                    <div id="quizChecks" class="m-1 p-1"></div>
+                                    <div id="quizHint" class="m-1 p-1"></div>
+                                    <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                    </div>
+                                    <div id="quizformdataarray"></div>
+                                    <div id="usercalculations" style="display: none;">
+                                        <label for="inputFormula" class="col-form-label"
+                                            id="resformula">Калькулятор</label>
+                                        <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                    </div>
+                                    <textarea class="form-control my-3" id="userComment" rows="2"
+                                        style="display: none;">Мой комментарий</textarea>
+                                    <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                        style="display: none;">Ответить</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
 
   <div class="card my-3" style="max-width: 800px">               
                 <div class="card-body">

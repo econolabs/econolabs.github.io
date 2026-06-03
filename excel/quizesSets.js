@@ -1,5 +1,17 @@
 
 let quizesSets = [
+
+    {
+    "id": "statistics543",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Меры центральной тенденции",
+    "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+    "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
+    "answers": ["Медианы"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Me = \\frac{x_{n/2} + x_{n/2+1}}{2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Формула берёт <strong>два центральных элемента</strong> упорядоченного ряда и делит их сумму на 2. Это <strong>медиана</strong> для чётного количества наблюдений.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Медиана</div></div></div>"
+  },
 {
     id: "statistics_mean_mixed001",
     type: "mathwithrandomnumber",

@@ -1482,10 +1482,14 @@ Z-оценка для значения 75:
                                 <div class="container p-1 m-1" id="accountingblock" style="display: none;">
                                 </div>
                                 <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
                                 <div id="usercalculations" style="display: none;">
                                     <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
                                     <input type="text" class="form-control form-control-sm" id="inputFormula">
-                                  </div>
+                                 </div>
                                 <textarea class="form-control my-3" id="userComment" rows="2"
                                     style="display: none;">Мой комментарий</textarea>
                                 <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
@@ -1509,6 +1513,8 @@ Z-оценка для значения 75:
 
 
       <script src="../dist/basicfirebasecrudauthservices.js"></script>
-    <script src="./index.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+    <script src="./bundle.js"></script>
+
   </body>
 </html>
