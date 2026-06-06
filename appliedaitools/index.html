@@ -2950,48 +2950,148 @@
                         df.describe()<br>
                     </div>
 
+                    <div class="code-block">
+    <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br><br>
+
+    <span class="sql-comment"># 1. Базовые операции с данными</span><br>
+    df.head(2)<br>
+    df.tail(2)<br>
+    df.shape<br>
+    df.columns<br>
+    df.index<br><br>
+
+    <span class="sql-comment"># 2. Выбор и фильтрация данных</span><br>
+    df[<span class="sql-string">'Имя'</span>]<br>
+    df[[<span class="sql-string">'Имя'</span>, <span class="sql-string">'Город'</span>]]<br>
+    df.iloc[0]<br>
+    df.iloc[1:3]<br>
+    df.loc[0, <span class="sql-string">'Имя'</span>]<br>
+    df[df[<span class="sql-string">'Возраст'</span>] > 25]<br>
+    df[df[<span class="sql-string">'Город'</span>] == <span class="sql-string">'Москва'</span>]<br><br>
+
+    <span class="sql-comment"># 3. Добавление и удаление данных</span><br>
+    df[<span class="sql-string">'Зарплата'</span>] = [50000, 60000, 45000, 70000]<br>
+    df[<span class="sql-string">'Стаж'</span>] = [2, 5, 1, 8]<br>
+    df.drop(<span class="sql-string">'Стаж'</span>, axis=1, inplace=<span class="sql-keyword">True</span>)<br>
+    df.drop(2, axis=0, inplace=<span class="sql-keyword">True</span>)<br><br>
+
+    <span class="sql-comment"># 4. Манипуляции с данными</span><br>
+    df_copy = df.copy()<br>
+    df.sort_values(<span class="sql-string">'Возраст'</span>, ascending=<span class="sql-keyword">False</span>)<br>
+    df.sort_values([<span class="sql-string">'Город'</span>, <span class="sql-string">'Возраст'</span>])<br>
+    df.rename(columns={<span class="sql-string">'Имя'</span>: <span class="sql-string">'Name'</span>, <span class="sql-string">'Возраст'</span>: <span class="sql-string">'Age'</span>}, inplace=<span class="sql-keyword">True</span>)<br>
+    df[<span class="sql-string">'Возраст'</span>] = df[<span class="sql-string">'Возраст'</span>].astype(<span class="sql-string">'float'</span>)<br><br>
+
+    <span class="sql-comment"># 5. Анализ и агрегация</span><br>
+    df[<span class="sql-string">'Возраст'</span>].mean()<br>
+    df[<span class="sql-string">'Возраст'</span>].median()<br>
+    df[<span class="sql-string">'Возраст'</span>].std()<br>
+    df.groupby(<span class="sql-string">'Город'</span>)[<span class="sql-string">'Возраст'</span>].mean()<br>
+    df[<span class="sql-string">'Город'</span>].unique()<br>
+    df[<span class="sql-string">'Город'</span>].value_counts()<br><br>
+
+    <span class="sql-comment"># 6. Работа с пропусками</span><br>
+    df.isnull()<br>
+    df.isnull().sum()<br>
+    df.fillna(df[<span class="sql-string">'Возраст'</span>].mean())<br>
+    df.dropna()<br><br>
+
+    <span class="sql-comment"># 7. Применение функций</span><br>
+    <span class="sql-keyword">def</span> возрастная_категория(возраст):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> возраст < 30:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-string">'Молодой'</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-string">'Взрослый'</span><br>
+    df[<span class="sql-string">'Категория'</span>] = df[<span class="sql-string">'Возраст'</span>].apply(возрастная_категория)<br>
+    df[<span class="sql-string">'Имя'</span>] = df[<span class="sql-string">'Имя'</span>].str.upper()<br><br>
+
+    <span class="sql-comment"># 8. Сохранение данных</span><br>
+    df.to_csv(<span class="sql-string">'output.csv'</span>, index=<span class="sql-keyword">False</span>)<br>
+    df.to_excel(<span class="sql-string">'output.xlsx'</span>, index=<span class="sql-keyword">False</span>)<br>
+    df.to_json(<span class="sql-string">'output.json'</span>, orient=<span class="sql-string">'records'</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br><br>
+
+    <span class="sql-comment"># Создание DataFrame из словаря</span><br>
+    data = {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Имя'</span>: [<span class="sql-string">'Анна'</span>, <span class="sql-string">'Борис'</span>, <span class="sql-string">'Мария'</span>, <span class="sql-string">'Дмитрий'</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Возраст'</span>: [25, 30, 22, 35],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Город'</span>: [<span class="sql-string">'Москва'</span>, <span class="sql-string">'Санкт-Петербург'</span>, <span class="sql-string">'Казань'</span>, <span class="sql-string">'Новосибирск'</span>]<br>
+    }<br><br>
+
+    df = pd.DataFrame(data)<br>
+    <span class="sql-comment">print(df)</span><br><br>
+
+    <span class="sql-comment"># Чтение данных из CSV файла</span><br>
+    <span class="sql-comment"># df = pd.read_csv('data.csv')</span><br><br>
+
+    <span class="sql-comment"># Просмотр основных характеристик данных</span><br>
+    df.info()<br>
+    df.describe()<br><br>
+
+    <hr style="border: 1px solid #ddd; margin: 15px 0;"><br>
+
+    <span class="sql-comment" style="font-weight: bold; font-size: 1.1em;">⭐ Анализ возраста: mean(), median(), std()</span><br><br>
+
+    <span class="sql-comment" style="color: #2c3e50;">📊 df['Возраст'].mean() — СРЕДНЕЕ АРИФМЕТИЧЕСКОЕ</span><br>
+    <span class="sql-comment">   Сумма всех чисел, деленная на их количество.</span><br>
+    <span class="sql-comment">   ➕ Пример: (25 + 30 + 22 + 35) ÷ 4 = 28.0</span><br>
+    <span class="sql-comment">   📍 Что означает: Если бы все были одного возраста, каждому было бы 28 лет.</span><br>
+    df[<span class="sql-string">'Возраст'</span>].mean()  <span class="sql-comment"># Результат: 28.0</span><br><br>
+
+    <span class="sql-comment" style="color: #2c3e50;">🎯 df['Возраст'].median() — МЕДИАНА (серединное значение)</span><br>
+    <span class="sql-comment">   Сортируем числа и берем то, что посередине.</span><br>
+    <span class="sql-comment">   ➕ Пример: [22, 25, 30, 35] → (25 + 30) ÷ 2 = 27.5</span><br>
+    <span class="sql-comment">   📍 Что означает: Половина людей младше 27.5 лет, половина — старше.</span><br>
+    <span class="sql-comment">   💡 Совет: Если mean и median сильно отличаются — есть выбросы!</span><br>
+    df[<span class="sql-string">'Возраст'</span>].median()  <span class="sql-comment"># Результат: 27.5</span><br><br>
+
+    <span class="sql-comment" style="color: #2c3e50;">📏 df['Возраст'].std() — СТАНДАРТНОЕ ОТКЛОНЕНИЕ</span><br>
+    <span class="sql-comment">   Показывает, насколько числа разбросаны вокруг среднего.</span><br>
+    <span class="sql-comment">   ➕ Пример: В среднем возраст отличается от 28 лет на 4.95 лет.</span><br>
+    <span class="sql-comment">   📍 Что означает:</span><br>
+    <span class="sql-comment">      • Маленькое std (2-3) → люди примерно одного возраста</span><br>
+    <span class="sql-comment">      • Большое std (15-20) → возраст сильно различается</span><br>
+    df[<span class="sql-string">'Возраст'</span>].std()  <span class="sql-comment"># Результат: примерно 4.95</span><br><br>
+
+    <hr style="border: 1px solid #ddd; margin: 15px 0;"><br>
+
+    <span class="sql-comment" style="font-weight: bold;">📌 Практический пример для понимания:</span><br>
+    <span class="sql-comment"># Создадим данные с выбросом (очень старый человек)</span><br>
+    data2 = {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Имя'</span>: [<span class="sql-string">'Анна'</span>, <span class="sql-string">'Борис'</span>, <span class="sql-string">'Мария'</span>, <span class="sql-string">'Дмитрий'</span>, <span class="sql-string">'Петр'</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'Возраст'</span>: [25, 30, 22, 35, 100]  <span class="sql-comment"># 100 лет — выброс</span><br>
+    }<br>
+    df2 = pd.DataFrame(data2)<br><br>
+
+    <span class="sql-comment">print(f"Среднее: {df2['Возраст'].mean()}")</span>    <span class="sql-comment"># 42.4 — искажено выбросом!</span><br>
+    <span class="sql-comment">print(f"Медиана: {df2['Возраст'].median()}")</span>  <span class="sql-comment"># 30.0 — честный центр</span><br>
+    <span class="sql-comment">print(f"Std: {df2['Возраст'].std():.2f}")</span>      <span class="sql-comment"># 30.99 — большой разброс</span><br><br>
+
+    <span class="sql-comment" style="color: #27ae60;">✅ Золотое правило: Если mean и median сильно отличаются — доверяйте медиане!</span><br>
+</div>
+
                     <div class="alert alert-warning">
                         <strong>Важно:</strong> Всегда проверяйте данные на наличие пропущенных значений с помощью
                         df.isnull().sum()
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>Ключевые возможности Pandas:</strong></p>
-                            <ul>
-                                <li>Работа с табличными данными через DataFrame</li>
-                                <li>Обработка пропущенных значений</li>
-                                <li>Группировка и агрегация данных</li>
-                                <li>Слияние и объединение таблиц</li>
-                                <li>Работа с временными рядами</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Базовые операции с DataFrame:</strong></p>
-                            <ul>
-                                <li>Выбор столбцов: df['столбец']</li>
-                                <li>Фильтрация: df[df['возраст'] &gt; 25]</li>
+                    <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Задание</h4>
+  <p>Проведите анализ данных из каталога /data в Jupyter Lite</p>
+  <hr>
+    <li>df.describe()</li>
+    <li>df.info()</li>
                                 <li>Добавление столбца: df['новый'] = значения</li>
                                 <li>Удаление столбца: df.drop('столбец', axis=1)</li>
                                 <li>Сортировка: df.sort_values('столбец')</li>
-                            </ul>
-                        </div>
+</div>
 
-                        <div class="col-md-6">
-                            <p><strong>Проведите анализ данных из каталога /data в JupyteeLite</strong></p>
-                            <ul>
-
-
-
-                                <li>df.info()</li>
-                                <li>df.describe()</li>
-                                <li>Добавление столбца: df['новый'] = значения</li>
-                                <li>Удаление столбца: df.drop('столбец', axis=1)</li>
-                                <li>Сортировка: df.sort_values('столбец')</li>
-                            </ul>
-                        </div>
-
-                    </div>
+              
                 </div>
             </div>
 
@@ -3102,7 +3202,7 @@
         </thead>
         <tbody>
           <tr><td>1966</strong></td><td>ELIZA</strong></td><td>Шаблонный чат-бот</strong></td><td>Нет понимания, хрупкость</strong></td></tr>
-          <tr><td>1970s</strong></td><td>Грамматики (ATN, GPSG)</strong></td><td>Правила синтаксиса</strong></td>有益的Ручное создание тысяч правил</strong></td></tr>
+          <tr><td>1970s</strong></td><td>Грамматики (ATN, GPSG)</strong></td><td>Правила синтаксиса</strong></td>Ручное создание тысяч правил</strong></td></tr>
           <tr><td>1980s</strong></td><td>n-граммы, HMM</strong></td><td>Вероятностные переходы</strong></td><td>Короткий контекст (3–5 слов)</strong></td></tr>
         </tbody>
       </table>
@@ -3411,6 +3511,3077 @@
     </div>
   </div>
 </div>
+
+
+
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title2.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 1. Токены и эмбеддинги — как AI понимает текст
+          </h3>
+
+          <div class="card-body">
+            <h3>Токены и эмбеддинги — как AI понимает текст</h3>
+            <p class="card-text">
+              Прежде чем AI сможет работать с текстом, он превращает его в
+              числа. Токены — это «кирпичики» текста, а эмбеддинги — их числовые
+              координаты в пространстве смыслов.
+            </p>
+
+            <div
+              class="code-block"
+              style="
+                background: #f4f4f4;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: monospace;
+              "
+            >
+              <span class="sql-keyword"># Токенизация:</span><br />
+              «Привет, мир!» → [«Привет», «,», « мир», «!»] — 4 токена<br /><br />
+              <span class="sql-keyword"># Эмбеддинг (условный):</span><br />
+              «кот» → [0.12, -0.34, 0.56, ..., 0.78] # 384 или 768 чисел<br />
+              «кошка» → [0.13, -0.35, 0.55, ..., 0.79] # почти такой же вектор
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Токен:</strong></p>
+                <ul>
+                  <li>Минимальная единица текста для LLM</li>
+                  <li>
+                    Это может быть: слово, часть слова, знак препинания, пробел
+                  </li>
+                  <li>За токены платят при использовании API</li>
+                  <li>1 токен ≈ 0.75 слова на русском</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Эмбеддинг (вектор):</strong></p>
+                <ul>
+                  <li>Числовое представление смысла</li>
+                  <li>Похожие тексты → близкие векторы</li>
+                  <li>Размерность: от 384 (small) до 1536+ (large)</li>
+                  <li>Основа для поиска по смыслу</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title2.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 2. Векторы: что это и зачем они нейросетям
+          </h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Вектор — это упорядоченный набор чисел. В
+            нейросетях текст, изображение или аудио превращаются в вектор —
+            «цифровой слепок смысла».
+          </div>
+
+          <h5>Определение вектора с точки зрения математики:</h5>
+          <p>
+            Вектор — это элемент линейного пространства, который задаётся
+            координатами. В прикладных задачах вектор — это просто строка или
+            столбец чисел.
+          </p>
+          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
+v = [0.12, -0.34, 0.56, 0.78, -0.21]  # вектор размерности 5</pre
+          >
+
+          <div style="text-align: center; margin: 16px 0">
+            <svg
+              width="300"
+              height="300"
+              viewBox="0 0 300 300"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="30"
+                y1="270"
+                x2="270"
+                y2="270"
+                stroke="#333"
+                stroke-width="2"
+                marker-end="url(#arrowGray)"
+              />
+              <line
+                x1="30"
+                y1="270"
+                x2="30"
+                y2="30"
+                stroke="#333"
+                stroke-width="2"
+                marker-end="url(#arrowGray)"
+              />
+
+              <text
+                x="270"
+                y="265"
+                font-size="14"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                x
+              </text>
+              <text
+                x="25"
+                y="35"
+                font-size="14"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                y
+              </text>
+
+              <line
+                x1="30"
+                y1="270"
+                x2="180"
+                y2="120"
+                stroke="#dc3545"
+                stroke-width="3"
+                marker-end="url(#arrowRed)"
+              />
+              <line
+                x1="30"
+                y1="270"
+                x2="150"
+                y2="60"
+                stroke="#007bff"
+                stroke-width="3"
+                marker-end="url(#arrowBlue)"
+              />
+
+              <text
+                x="185"
+                y="115"
+                font-size="16"
+                fill="#dc3545"
+                font-family="sans-serif"
+                font-weight="bold"
+              >
+                a
+              </text>
+              <text
+                x="155"
+                y="55"
+                font-size="16"
+                fill="#007bff"
+                font-family="sans-serif"
+                font-weight="bold"
+              >
+                b
+              </text>
+
+              <circle cx="30" cy="270" r="4" fill="#333" />
+              <text
+                x="15"
+                y="285"
+                font-size="12"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                O
+              </text>
+
+              <text
+                x="50"
+                y="290"
+                font-size="11"
+                fill="#6c757d"
+                font-family="sans-serif"
+              >
+                cos θ = (a·b) / (|a|·|b|)
+              </text>
+
+              <defs>
+                <marker
+                  id="arrowRed"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545" />
+                </marker>
+                <marker
+                  id="arrowBlue"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#007bff" />
+                </marker>
+                <marker
+                  id="arrowGray"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="7"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#333" />
+                </marker>
+              </defs>
+            </svg>
+          </div>
+
+          <div style="text-align: center; margin: 16px 0">
+            <svg
+              width="300"
+              height="300"
+              viewBox="0 0 300 300"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="150"
+                y1="260"
+                x2="150"
+                y2="40"
+                stroke="#333"
+                stroke-width="1.5"
+              />
+              <line
+                x1="40"
+                y1="150"
+                x2="260"
+                y2="150"
+                stroke="#333"
+                stroke-width="1.5"
+              />
+
+              <text
+                x="258"
+                y="147"
+                font-size="12"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                x
+              </text>
+              <text
+                x="147"
+                y="38"
+                font-size="12"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                y
+              </text>
+
+              <circle
+                cx="150"
+                cy="150"
+                r="90"
+                fill="none"
+                stroke="#6c757d"
+                stroke-width="1.5"
+                stroke-dasharray="6,4"
+              />
+
+              <line
+                x1="150"
+                y1="150"
+                x2="240"
+                y2="150"
+                stroke="#dc3545"
+                stroke-width="3"
+                marker-end="url(#arrowRed)"
+              />
+              <line
+                x1="150"
+                y1="150"
+                x2="195"
+                y2="72"
+                stroke="#007bff"
+                stroke-width="3"
+                marker-end="url(#arrowBlue)"
+              />
+
+              <line
+                x1="195"
+                y1="72"
+                x2="195"
+                y2="150"
+                stroke="#6c757d"
+                stroke-width="1.5"
+                stroke-dasharray="4,4"
+              />
+
+              <circle cx="195" cy="150" r="3" fill="#6c757d" />
+              <text
+                x="195"
+                y="165"
+                font-size="10"
+                fill="#6c757d"
+                font-family="sans-serif"
+                text-anchor="middle"
+              >
+                (cos θ, 0)
+              </text>
+
+              <circle cx="195" cy="72" r="4" fill="#007bff" />
+              <circle cx="150" cy="150" r="3" fill="#333" />
+
+              <text
+                x="242"
+                y="148"
+                font-size="13"
+                fill="#dc3545"
+                font-family="sans-serif"
+                font-weight="bold"
+              >
+                i = (1,0)
+              </text>
+              <text
+                x="198"
+                y="68"
+                font-size="13"
+                fill="#007bff"
+                font-family="sans-serif"
+                font-weight="bold"
+              >
+                b
+              </text>
+              <text
+                x="135"
+                y="165"
+                font-size="11"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                O
+              </text>
+
+              <text
+                x="150"
+                y="280"
+                font-size="11"
+                fill="#6c757d"
+                font-family="sans-serif"
+                text-anchor="middle"
+              >
+                Единичные векторы: a·b = cos θ
+              </text>
+
+              <defs>
+                <marker
+                  id="arrowRed"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545" />
+                </marker>
+                <marker
+                  id="arrowBlue"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#007bff" />
+                </marker>
+              </defs>
+            </svg>
+          </div>
+
+          <div style="text-align: center; margin: 16px 0">
+            <svg
+              width="300"
+              height="300"
+              viewBox="0 0 300 300"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <style>
+                @keyframes spin {
+                  from {
+                    transform: rotate(0deg);
+                  }
+                  to {
+                    transform: rotate(360deg);
+                  }
+                }
+                .rotating {
+                  animation: spin 4s linear infinite;
+                  transform-origin: 150px 150px;
+                }
+              </style>
+
+              <!-- Оси координат -->
+              <line
+                x1="150"
+                y1="280"
+                x2="150"
+                y2="20"
+                stroke="#333"
+                stroke-width="1.5"
+              />
+              <line
+                x1="20"
+                y1="150"
+                x2="280"
+                y2="150"
+                stroke="#333"
+                stroke-width="1.5"
+              />
+
+              <text
+                x="275"
+                y="147"
+                font-size="12"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                x
+              </text>
+              <text
+                x="147"
+                y="25"
+                font-size="12"
+                fill="#333"
+                font-family="sans-serif"
+              >
+                y
+              </text>
+
+              <!-- Фиксированный красный вектор (вправо) -->
+              <line
+                x1="150"
+                y1="150"
+                x2="240"
+                y2="150"
+                stroke="#dc3545"
+                stroke-width="4"
+                marker-end="url(#arrowRed)"
+              />
+              <text
+                x="242"
+                y="145"
+                font-size="14"
+                fill="#dc3545"
+                font-family="sans-serif"
+                font-weight="bold"
+              >
+                a
+              </text>
+
+              <!-- Вращающийся синий вектор (вокруг начала координат) -->
+              <g class="rotating">
+                <line
+                  x1="150"
+                  y1="150"
+                  x2="150"
+                  y2="60"
+                  stroke="#007bff"
+                  stroke-width="3"
+                  marker-end="url(#arrowBlue)"
+                />
+                <text
+                  x="155"
+                  y="55"
+                  font-size="14"
+                  fill="#007bff"
+                  font-family="sans-serif"
+                  font-weight="bold"
+                >
+                  b
+                </text>
+              </g>
+
+              <text
+                x="150"
+                y="285"
+                font-size="11"
+                fill="#6c757d"
+                font-family="sans-serif"
+                text-anchor="middle"
+              >
+                Синий вектор вращается, красный фиксирован
+              </text>
+
+              <defs>
+                <marker
+                  id="arrowRed"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545" />
+                </marker>
+                <marker
+                  id="arrowBlue"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#007bff" />
+                </marker>
+              </defs>
+            </svg>
+          </div>
+
+          <div style="text-align: center; margin: 16px 0">
+            <svg
+              width="100%"
+              height="240"
+              viewBox="0 0 900 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(30, 10)">
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="10"
+                  y2="20"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="180"
+                  y2="170"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="120"
+                  y2="170"
+                  stroke="#dc3545"
+                  stroke-width="3"
+                  marker-end="url(#arrowRed)"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="120"
+                  y2="170"
+                  stroke="#007bff"
+                  stroke-width="3"
+                  marker-end="url(#arrowBlue)"
+                />
+
+                <text
+                  x="65"
+                  y="195"
+                  font-size="12"
+                  fill="#28a745"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  θ = 0°
+                </text>
+                <text
+                  x="65"
+                  y="210"
+                  font-size="12"
+                  fill="#dc3545"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  cos θ = 1
+                </text>
+              </g>
+
+              <g transform="translate(330, 10)">
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="10"
+                  y2="20"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="180"
+                  y2="170"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="120"
+                  y2="170"
+                  stroke="#dc3545"
+                  stroke-width="3"
+                  marker-end="url(#arrowRed)"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="10"
+                  y2="90"
+                  stroke="#007bff"
+                  stroke-width="3"
+                  marker-end="url(#arrowBlue)"
+                />
+
+                <text
+                  x="65"
+                  y="195"
+                  font-size="12"
+                  fill="#28a745"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  θ = 90°
+                </text>
+                <text
+                  x="65"
+                  y="210"
+                  font-size="12"
+                  fill="#dc3545"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  cos θ = 0
+                </text>
+              </g>
+
+              <g transform="translate(630, 10)">
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="10"
+                  y2="20"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="180"
+                  y2="170"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="120"
+                  y2="170"
+                  stroke="#dc3545"
+                  stroke-width="3"
+                  marker-end="url(#arrowRed)"
+                />
+                <line
+                  x1="10"
+                  y1="170"
+                  x2="-80"
+                  y2="170"
+                  stroke="#007bff"
+                  stroke-width="3"
+                  marker-end="url(#arrowBlue)"
+                />
+
+                <text
+                  x="65"
+                  y="195"
+                  font-size="12"
+                  fill="#28a745"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  θ = 180°
+                </text>
+                <text
+                  x="65"
+                  y="210"
+                  font-size="12"
+                  fill="#dc3545"
+                  font-family="sans-serif"
+                  text-anchor="middle"
+                >
+                  cos θ = -1
+                </text>
+              </g>
+
+              <defs>
+                <marker
+                  id="arrowRed"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545" />
+                </marker>
+                <marker
+                  id="arrowBlue"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#007bff" />
+                </marker>
+              </defs>
+            </svg>
+          </div>
+
+          <p class="card-text">
+            Чтобы найти похожие документы, нужно уметь измерять расстояние между
+            векторами. Главный инструмент — косинусное сходство.
+          </p>
+
+          <div>
+            <span class="sql-keyword"
+              ># Косинусное сходство (cosine similarity):</span
+            ><br />
+            cos(θ) = (A·B) / (|A| × |B|)<br />
+            результат: от 0 (не похожи) до 1 (очень похожи)<br /><br />
+            <span class="sql-keyword"># Пример:</span><br />
+            «кот спит» и «кошка отдыхает» → сходство 0.95<br />
+            «кот спит» и «я люблю пиццу» → сходство 0.12
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Косинусное сходство:</strong></p>
+              <ul>
+                <li>Игнорирует длину вектора (важен только угол)</li>
+                <li>Стандарт для текстовых эмбеддингов</li>
+                <li>1 = одинаковый смысл, 0 = никакой связи</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Другие меры:</strong></p>
+              <ul>
+                <li>
+                  <strong>Евклидово расстояние:</strong> прямое расстояние между
+                  точками
+                </li>
+                <li>
+                  <strong>Манхэттенское расстояние:</strong> сумма модулей
+                  разниц
+                </li>
+                <li><strong>Для текстов:</strong> косинусное — лучший выбор</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <h5>Как текст становится вектором (эмбеддингом):</h5>
+            <ul>
+              <li>
+                <strong>Токенизация:</strong> текст разбивается на токены
+                (слова, части слов).
+              </li>
+              <li>
+                <strong>Преобразование в числа:</strong> нейросеть-энкодер
+                переводит токены в набор чисел.
+              </li>
+              <li>
+                <strong>Результат:</strong> эмбеддинг — вектор фиксированной
+                размерности (например, 384, 768 или 1536 чисел).
+              </li>
+            </ul>
+          </div>
+
+          <h5>Почему размерность важна:</h5>
+          <ul>
+            <li>
+              <strong>Маленькая размерность (64–128):</strong> быстро, но
+              теряется много смысла.
+            </li>
+            <li>
+              <strong>Большая размерность (768–1536):</strong> точнее передаёт
+              смысл, но требует больше памяти и вычислений.
+            </li>
+          </ul>
+
+          <div class="alert alert-success mt-2">
+            <small
+              ><strong>Пример для ИТ-студента:</strong> Эмбеддинг предложения
+              «кот спит на диване» — это массив чисел типа float32 размером 768.
+              Два семантически близких предложения будут иметь почти одинаковые
+              векторы.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 3. RAG — как заставить AI отвечать по вашим документам
+          </h3>
+
+          <p class="card-text">
+            RAG (Retrieval-Augmented Generation) — подход, при котором AI
+            сначала ищет ответ в вашей базе знаний, а потом отвечает, опираясь
+            на найденные факты. Это как «открытая книжка на экзамене».
+          </p>
+
+          <div class="alert alert-primary" role="alert">
+            1. Поиск (Retrieval): вопрос → эмбеддинг → поиск похожих чанков<br />
+            2. Контекст: найденные чанки добавляются в промпт<br />
+            3. Генерация: LLM отвечает ТОЛЬКО по контексту
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Зачем нужен RAG:</strong></p>
+              <ul>
+                <li>
+                  LLM знает только то, на чём обучена (данные до 2023–2024)
+                </li>
+                <li>
+                  Ваши документы (законы, инструкции) — свежие и специфичные
+                </li>
+                <li>RAG добавляет актуальные факты в контекст</li>
+                <li>Снижает галлюцинации (выдумки)</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Ключевые понятия RAG:</strong></p>
+              <ul>
+                <li><strong>Чанкинг:</strong> нарезка документов на кусочки</li>
+                <li><strong>Векторная БД:</strong> хранилище эмбеддингов</li>
+                <li>
+                  <strong>Контекстное окно:</strong> сколько токенов помещается
+                </li>
+                <li><strong>Галлюцинация:</strong> когда AI уверенно врёт</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title17.jpg"
+            alt="Матрицы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 4. Матрицы: как хранить много векторов
+          </h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Матрица — это просто таблица чисел, где
+            каждая строка или столбец может быть отдельным вектором. В векторных
+            базах данных тысячи и миллионы векторов хранятся именно в матрицах.
+          </div>
+
+          <h5>Определение матрицы:</h5>
+          <p>
+            Матрица размером m × n — это прямоугольная таблица, содержащая m
+            строк и n столбцов. Каждая строка матрицы — это отдельный вектор
+            размерности n.
+          </p>
+          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
+# Матрица 3 × 4 (3 вектора размерности 4)
+         [[0.1, 0.2, 0.3, 0.4],   # вектор 1
+          [0.5, 0.6, 0.7, 0.8],   # вектор 2
+          [0.9, 1.0, 1.1, 1.2]]   # вектор 3</pre
+          >
+
+          <h5>Как матрицы используются в RAG:</h5>
+          <ul>
+            <li>
+              <strong>Хранение эмбеддингов:</strong> Все чанки документов
+              превращаются в векторы и образуют матрицу.
+            </li>
+            <li>
+              <strong>Пакетные операции:</strong> За один раз можно вычислить
+              сходство между запросом и тысячами векторов.
+            </li>
+            <li>
+              <strong>Снижение размерности:</strong> Матрицы позволяют применять
+              PCA (метод главных компонент) для визуализации векторов на
+              плоскости.
+            </li>
+          </ul>
+
+          <h5>Пример из реальной задачи:</h5>
+          <p>
+            База знаний госоргана содержит 10 000 документов. Каждый документ
+            превращён в эмбеддинг размерности 384. Итоговая матрица имеет размер
+            10 000 × 384 чисел. При поиске запрос (вектор 1 × 384) умножается на
+            эту матрицу для получения косинусного сходства.
+          </p>
+
+          <div class="alert alert-success mt-2">
+            <small
+              ><strong>Формула для ИТ-студента:</strong> Матрица эмбеддингов E
+              размера N × d, где N — количество документов, d — размерность
+              эмбеддинга.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Косинусное сходство"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 5. Косинусное сходство: как сравнивать векторы
+          </h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Косинусное сходство измеряет угол между
+            двумя векторами. Чем меньше угол, тем более похожи тексты по смыслу.
+          </div>
+
+          <h5>Формула косинусного сходства:</h5>
+          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
+cos(θ) = (a · b) / (||a|| × ||b||)
+
+где a · b — скалярное произведение векторов,
+||a|| — длина (норма) вектора a</pre
+          >
+
+          <h5>Как это работает на практике:</h5>
+          <ul>
+            <li>
+              Результат косинусного сходства лежит в диапазоне от 0 до 1 (если
+              векторы неотрицательные).
+            </li>
+            <li>cos = 1: векторы сонаправлены — текст про одно и то же.</li>
+            <li>
+              cos = 0: векторы перпендикулярны — смыслы совершенно разные.
+            </li>
+            <li>
+              cos = -1: векторы противоположны — тексты антагонистичны (редко
+              для эмбеддингов).
+            </li>
+          </ul>
+
+          <h5>Пример из жизни:</h5>
+          <p>
+            Эмбеддинг «кот спит на диване» и «кошка отдыхает на софе» дадут
+            косинусное сходство ≈ 0.95 — почти одинаковый смысл. Эмбеддинг «кот
+            спит» и «я люблю программировать» даст сходство ≈ 0.1.
+          </p>
+
+          <h5>Почему косинусное, а не евклидово расстояние:</h5>
+          <ul>
+            <li>Евклидово расстояние зависит от длины вектора.</li>
+            <li>
+              Косинусное сходство учитывает только направление, что важно для
+              текстов: короткий текст может быть очень похож на длинный по
+              смыслу.
+            </li>
+          </ul>
+
+          <div class="alert alert-success mt-2">
+            <small
+              ><strong>Математическая формулировка:</strong> Косинусное сходство
+              — это нормализованное скалярное произведение.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title4.jpg"
+            alt="Линейная алгебра в RAG"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 6. Линейная алгебра в RAG: матричное умножение
+          </h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Поиск ближайших соседей — это умножение
+            матрицы эмбеддингов на вектор запроса. Линейная алгебра лежит в
+            основе любой векторной базы данных.
+          </div>
+
+          <h5>Поиск через скалярное произведение:</h5>
+          <p>
+            Если эмбеддинги нормализованы (имеют длину 1), то косинусное
+            сходство превращается в скалярное произведение. Поиск — это
+            умножение матрицы E на вектор q.
+          </p>
+          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
+# E — матрица эмбеддингов (N × d)
+# q — вектор запроса (1 × d)
+# Результат scores = E × q^T  — вектор длиной N (сходство с каждым документом)</pre
+          >
+
+          <h5>Проблема масштабирования (почему нужен FAISS):</h5>
+          <ul>
+            <li>
+              <strong>Наивный поиск:</strong> для каждого запроса нужно
+              вычислить сходство со всеми N векторами. Сложность O(N × d).
+            </li>
+            <li>
+              <strong>N = 1 млн, d = 768:</strong> нужно 768 млн операций на
+              запрос. Это медленно.
+            </li>
+            <li>
+              <strong>Решение — ANN (приближённый поиск):</strong> алгоритмы
+              вроде HNSW строят графы и ищут не по всей матрице, а по
+              «подозрительным» соседям. Сложность падает до O(log N).
+            </li>
+          </ul>
+
+          <h5>Что изучать дальше из линейной алгебры:</h5>
+          <ul>
+            <li>
+              <strong>SVD (сингулярное разложение):</strong> лежит в основе LSA
+              (латентно-семантического анализа).
+            </li>
+            <li>
+              <strong>PCA (метод главных компонент):</strong> снижение
+              размерности для визуализации и ускорения.
+            </li>
+            <li>
+              <strong>QR-разложение:</strong> используется в некоторых
+              ANN-алгоритмах.
+            </li>
+          </ul>
+
+          <div class="alert alert-success mt-2">
+            <small
+              ><strong>Связь с курсом математики:</strong> Операции с матрицами
+              и векторами, которые вы изучаете на линейной алгебре, — это именно
+              то, что выполняется миллиарды раз при работе RAG-систем.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title5.jpg"
+            alt="Векторные базы данных"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 7. Векторные базы данных: мост между матрицами и поиском
+          </h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong> Векторная база данных — это
+            специализированное хранилище, которое внутри использует матрицы и
+            алгоритмы линейной алгебры для быстрого поиска похожих векторов.
+          </div>
+
+          <h5>Как устроена векторная БД изнутри:</h5>
+          <ul>
+            <li>Матрица эмбеддингов хранится в памяти или на диске.</li>
+            <li>
+              Для ускорения поиска строятся индексы (HNSW, IVF, PQ) —
+              дополнительные структуры данных, основанные на графах или
+              кластеризации.
+            </li>
+            <li>
+              При запросе индекс быстро находит кандидатов, затем вычисляются
+              точные расстояния.
+            </li>
+          </ul>
+
+          <h5>Пример: индекс IVF (Inverted File Index)</h5>
+          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
+1. Все N векторов разбиваются на K кластеров (k-means).
+2. При запросе определяются ближайшие кластеры.
+3. Поиск выполняется только внутри этих кластеров.</pre
+          >
+
+          <h5>Сравнение с классическими базами данных:</h5>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <strong>SQL / Реляционная БД:</strong>
+              <ul class="small">
+                <li>Ищет точные совпадения (WHERE name = "Иванов")</li>
+                <li>Индексы — B-tree, хеш-таблицы</li>
+                <li>Не умеет искать «похожее»</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <strong>Векторная БД (Chroma, FAISS, Qdrant):</strong>
+              <ul class="small">
+                <li>Ищет по смыслу (косинусное сходство)</li>
+                <li>Индексы — HNSW, IVF, PQ</li>
+                <li>Оптимизирована для многомерных данных</li>
+              </ul>
+            </div>
+          </div>
+
+          <h5>Почему нельзя использовать обычную SQL-БД:</h5>
+          <ul>
+            <li>
+              Индексы B-tree работают хорошо только для одномерных данных.
+            </li>
+            <li>
+              Для 768-мерных векторов полный перебор занимает секунды на миллион
+              записей, а индекс HNSW — миллисекунды.
+            </li>
+          </ul>
+
+          <div class="alert alert-success mt-2">
+            <small
+              ><strong>Итог для студента:</strong> Понимание матриц и векторов —
+              это фундамент. Векторная БД — это надстройка, которая делает
+              возможным поиск по смыслу среди миллионов документов за доли
+              секунды.</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 8. Чанкинг и контекстное окно — как уместить всё в память
+          </h3>
+
+          <p class="card-text">
+            У LLM есть ограничение на количество токенов за один вызов — это
+            контекстное окно. Чтобы загрузить в него большой документ, его нужно
+            нарезать на чанки.
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+              font-family: monospace;
+            "
+          >
+            <span class="sql-keyword"># Пример чанкинга:</span><br />
+            Документ (10 000 токенов) → чанки по 500 токенов + перекрытие 50<br />
+            Чанк 1: [0...500]<br />
+            Чанк 2: [450...950] ← перекрытие сохраняет контекст на границе<br />
+            Чанк 3: [900...1400]<br />
+            ...
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Рекомендации по чанкингу:</strong></p>
+              <ul>
+                <li>500–1500 токенов на чанк</li>
+                <li>Перекрытие (overlap) 10–20%</li>
+                <li>Резать по границам абзацев/предложений</li>
+                <li>Семантический чанкинг (по смыслу) — лучше, но сложнее</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>📌 Контекстное окно моделей:</strong></p>
+              <ul>
+                <li>GPT-3.5: 4K–16K токенов</li>
+                <li>GPT-4 Turbo: 128K токенов</li>
+                <li>Gemini 1.5 Pro: 2M токенов (целые книги!)</li>
+                <li>DeepSeek-V3: 128K–1M токенов</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 9. Векторные БД и поиск — как найти нужное среди миллионов
+          </h3>
+
+          <p class="card-text">
+            Обычные SQL-базы данных ищут точные совпадения. Векторные БД ищут
+            похожие по смыслу — среди миллиардов векторов за доли секунды.
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+              font-family: monospace;
+            "
+          >
+            <span class="sql-keyword"># Как работает векторный поиск:</span
+            ><br />
+            Запрос «налоги для ИП» → эмбеддинг запроса<br />
+            ↓<br />
+            Векторная БД ищет ближайшие векторы (косинусное сходство)<br />
+            ↓<br />
+            Возвращает: «налоговая база ИП», «страховые взносы ИП», «УСН для ИП»
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Популярные векторные БД:</strong></p>
+              <ul>
+                <li><strong>FAISS</strong> (Facebook) — для больших объёмов</li>
+                <li><strong>Chroma</strong> — простая, для прототипов</li>
+                <li><strong>Qdrant</strong> — с фильтрацией и API</li>
+                <li><strong>Milvus</strong> — enterprise-решение</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Ключевая технология — ANN:</strong></p>
+              <ul>
+                <li>ANN (Approximate Nearest Neighbor)</li>
+                <li>Не точный, а «приближённый» поиск</li>
+                <li>Жертвует точностью ради скорости (x100–x1000)</li>
+                <li>Для RAG этого достаточно</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 10. LLM и галлюцинации — когда AI уверенно врёт
+          </h3>
+
+          <p class="card-text">
+            LLM (Large Language Model) — большая языковая модель. Она обучена
+            предсказывать следующее слово, а не проверять факты. Отсюда
+            галлюцинации.
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+              font-family: monospace;
+            "
+          >
+            <span class="sql-keyword"># Пример галлюцинации:</span><br />
+            Вопрос: «Какой документ нужен для вычета на ребёнка?»<br />
+            Ответ LLM (без RAG): «Форма КНД-1151080»<br />
+            Реальность: такой формы НЕ СУЩЕСТВУЕТ!<br /><br />
+            <span class="sql-keyword"># Как бороться:</span><br />
+            Промт: «Отвечай ТОЛЬКО по контексту. Если не знаешь — скажи "не
+            знаю"»
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Почему LLM галлюцинирует:</strong></p>
+              <ul>
+                <li>Цель LLM — правдоподобный текст, а не истина</li>
+                <li>Если модель не знает ответа — она «додумывает»</li>
+                <li>Отсутствие контекста или плохой промпт</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Как снизить галлюцинации:</strong></p>
+              <ul>
+                <li>✅ RAG (дать факты из надёжного источника)</li>
+                <li>✅ Запретить отвечать без контекста</li>
+                <li>✅ Низкая температура (0.0–0.2) для фактов</li>
+                <li>✅ Попросить указать источник (цитату из документа)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title3.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 11. Гибридный поиск и переранжирование — как улучшить качество
+            поиска
+          </h3>
+
+          <p class="card-text">
+            Векторный поиск хорош по смыслу, но плох с точными терминами.
+            Гибридный поиск объединяет его с полнотекстовым. А переранжирование
+            — финальная «шлифовка» результатов.
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+              font-family: monospace;
+            "
+          >
+            <span class="sql-keyword"># Гибридный поиск:</span><br />
+            Векторный поиск (по смыслу) + Полнотекстовый (BM25 по ключевым
+            словам)<br />
+            ↓ объединение через RRF<br />
+            Результат: и «синонимы», и «точный термин»<br /><br />
+            <span class="sql-keyword"># Переранжирование (Reranking):</span
+            ><br />
+            Быстрый поиск (50 кандидатов) → Reranker (медленный, точный) → Топ-5
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Гибридный поиск — когда нужен:</strong></p>
+              <ul>
+                <li>Пользователь ищет точный номер закона («ст. 137 УК РФ»)</li>
+                <li>В тексте есть редкие термины (ИНН, ОГРН, SNILS)</li>
+                <li>Важна и смысловая близость, и точное совпадение</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Переранжирование — зачем:</strong></p>
+              <ul>
+                <li>Первичный поиск быстрый, но не очень точный (ANN)</li>
+                <li>Reranker (кросс-энкодер) оценивает точнее</li>
+                <li>
+                  Пример:
+                  <code>reranker = CrossEncoder('intfloat/e5-mistral-7b')</code>
+                </li>
+                <li>Повышает качество топа-5 на 20–30%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 8: Основные метрики качества RAG -->
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title9.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 12. Метрики качества RAG — как измерить, работает ли система
+          </h3>
+
+          <p class="card-text">
+            RAG можно улучшать только если его измерять. Основные метрики
+            делятся на поиск (retrieval) и генерацию (generation).
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+              font-family: monospace;
+            "
+          >
+            <span class="sql-keyword"># Метрики поиска:</span><br />
+            - Precision@k: сколько из k найденных — релевантны<br />
+            - Recall@k: сколько релевантных найдено из всех<br />
+            - MRR: насколько высоко первый релевантный результат<br /><br />
+            <span class="sql-keyword"># Метрики генерации:</span><br />
+            - Faithfulness: ответ верен контексту?<br />
+            - Ответ по эталону: ROUGE, BERTScore, LLM-as-a-judge
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Для поиска (retrieval):</strong></p>
+              <ul>
+                <li>
+                  <strong>Recall@5:</strong> есть ли ответ в топ-5 чанках?
+                </li>
+                <li>
+                  <strong>Precision@3:</strong> сколько из топ-3 — нужные?
+                </li>
+                <li><strong>MRR:</strong> важен порядок результатов</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Для генерации (generation):</strong></p>
+              <ul>
+                <li><strong>Faithfulness:</strong> AI не придумал лишнего?</li>
+                <li><strong>Ответ по эталону:</strong> совпадает с идеалом?</li>
+                <li>
+                  <strong>LLM-as-a-judge:</strong> GPT оценивает ответ (от 1 до
+                  5)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title9.jpg"
+            alt="Матрицы и векторы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            Тема 13. Python-библиотеки для RAG, векторов и LLM
+          </h3>
+
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center mb-4">Работа с данными в Jupyter Lite</h1>
+              <p class="lead text-center">
+                Обзор совместимых и альтернативных инструментов
+              </p>
+
+              <!-- Блок с целями обучения -->
+              <div class="alert alert-primary">
+                <h4>Цели занятия:</h4>
+                <ul>
+                  <li>
+                    Понять, какие библиотеки работают в JupyterLite (Pyodide), а
+                    какие — нет
+                  </li>
+                  <li>
+                    Научиться реализовывать базовые операции RAG на чистом
+                    Python + NumPy
+                  </li>
+                  <li>
+                    Освоить косинусное сходство, поиск ближайших соседей (kNN) и
+                    визуализацию векторов
+                  </li>
+                  <li>
+                    Среда выполнения:
+                    <a
+                      href="https://econolabspython.github.io/jupyterlite/lab/index.html"
+                      target="_blank"
+                      >Jupyter Lite</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Таблица библиотек -->
+              <h4 class="mt-4">✅ Работают в JupyterLite (чистый Python)</h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Назначение</th>
+                    <th>Пример кода</th>
+                    <th>Зачем для RAG/векторов</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>NumPy</strong></td>
+                    <td>Массивы и линейная алгебра</td>
+                    <td><code>np.dot(v1,v2)</code></td>
+                    <td>
+                      Хранение эмбеддингов, косинусное сходство, нормализация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pandas</strong></td>
+                    <td>Таблицы и метаданные</td>
+                    <td><code>df['embedding'].iloc[0]</code></td>
+                    <td>
+                      Хранение текстов + векторов в одной таблице, фильтрация
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scikit-learn</strong></td>
+                    <td>Метрики и ML</td>
+                    <td><code>cosine_similarity()</code></td>
+                    <td>
+                      Готовые метрики сходства, PCA для визуализации, TF‑IDF как
+                      baseline
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Matplotlib</strong></td>
+                    <td>Визуализация</td>
+                    <td><code>plt.scatter(x, y)</code></td>
+                    <td>
+                      2D‑проекция векторов (через PCA) — наглядно показать
+                      кластеры
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Plotly</strong></td>
+                    <td>Интерактивная визуализация</td>
+                    <td><code>px.scatter_3d()</code></td>
+                    <td>3D‑графики эмбеддингов, zoom, hover</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                ⚠️ НЕ работают (C‑расширения / тяжелые фреймворки)
+              </h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Библиотека</th>
+                    <th>Причина</th>
+                    <th>Обходной путь (учебный)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>Тянет PyTorch (C++)</td>
+                    <td>
+                      Заранее сгенерировать CSV с эмбеддингами на своём
+                      компьютере → загрузить в JupyterLite .
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Написан на C++</td>
+                    <td>
+                      Реализовать наивный kNN через NumPy (5‑10 строк кода). Для
+                      небольших данных (до 1000 векторов) — идеально для
+                      обучения.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Transformers (HuggingFace)</strong></td>
+                    <td>Тянет PyTorch/TensorFlow</td>
+                    <td>
+                      Использовать готовые эмбеддинги из CSV или вызвать API (но
+                      в JupyterLite могут быть CORS-ограничения).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain / LlamaIndex</strong></td>
+                    <td>Тянут тяжёлые зависимости</td>
+                    <td>
+                      Написать свой простой RAG-пайплайн из 20–30 строк кода —
+                      лучше понимание концепций.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Milvus Lite</strong></td>
+                    <td>Может работать (экспериментально)</td>
+                    <td>
+                      Проверить <code>%pip install pymilvus</code>. Если не
+                      встанет — использовать Pandas + NumPy как «векторную БД»
+                      для учебных целей.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4 class="mt-4">
+                💡 Образовательные альтернативы (написать самим)
+              </h4>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Что заменяем</th>
+                    <th>Самодельная реализация (10–30 строк)</th>
+                    <th>Педагогическая ценность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>FAISS</strong></td>
+                    <td>Наивный kNN через <code>np.linalg.norm</code></td>
+                    <td>Понимание проблемы масштабирования O(N) → ANN</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sentence‑Transformers</strong></td>
+                    <td>CSV с готовыми эмбеддингами</td>
+                    <td>
+                      Разделение «дорогого вычисления» и «быстрого поиска»
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>LangChain</strong></td>
+                    <td>Конвейер: эмбеддинг → поиск → промпт → генерация</td>
+                    <td>Понимание каждого шага RAG в отдельности</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Векторная БД</strong></td>
+                    <td>Pandas + сортировка по косинусному сходству</td>
+                    <td>Принцип работы индексации и поиска</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Пример кода -->
+              <h4 class="mt-4">
+                📝 Учебный мини‑RAG на NumPy (работает в JupyterLite)
+              </h4>
+              <pre
+                style="
+                  background: #f4f4f4;
+                  padding: 12px;
+                  border-radius: 8px;
+                  overflow-x: auto;
+                "
+              >
+import numpy as np
+import pandas as pd
+
+# 1. Загружаем готовые эмбеддинги (заранее сгенерированы)
+df = pd.read_csv('embeddings.csv')  # колонки: text, emb_0, emb_1, ..., emb_383
+texts = df['text'].tolist()
+vectors = df.iloc[:, 1:].values.astype(np.float32)
+
+# 2. Функция косинусного сходства
+def cosine_sim(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+# 3. Поиск k ближайших соседей (наивный kNN)
+def knn(query_vec, vectors, k=3):
+    sims = [cosine_sim(query_vec, v) for v in vectors]
+    best_idx = np.argsort(sims)[-k:][::-1]
+    return best_idx, [sims[i] for i in best_idx]
+
+# 4. Пример использования
+query = "как оформить загранпаспорт"
+# query_vec — эмбеддинг запроса (тоже из CSV или внешнего API)
+idx, scores = knn(query_vec, vectors, k=3)
+for i, score in zip(idx, scores):
+    print(f"{score:.3f} — {texts[i]}")</pre
+              >
+
+              <div class="alert alert-success small mt-3">
+                💡 <strong>Вывод для студентов:</strong> Ограничения JupyterLite
+                — не проблема. Вы научитесь реализовывать ключевые идеи RAG
+                «руками», что даст глубокое понимание того, как работают
+                «тяжёлые» библиотеки под капотом.
+              </div>
+
+              <div class="text-muted-small mt-3">
+                🔗 <strong>Ссылка на среду:</strong>
+                <a
+                  href="https://econolabspython.github.io/jupyterlite/lab/index.html"
+                  target="_blank"
+                  >Jupyter Lite</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title2.jpg"
+            alt="NumPy"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">Тема 14. NumPy</h3>
+
+          <div class="alert alert-secondary mb-3">
+            <strong>Важно:</strong>
+            NumPy встроенная библиотека
+          </div>
+
+          <div class="code-block">
+            <span class="sql-comment"># Импорт библиотеки NumPy</span><br />
+            <span class="sql-keyword">import</span> numpy
+            <span class="sql-keyword">as</span> np<br />
+            <br />
+            <span class="sql-comment"># Два вектора эмбеддингов</span><br />
+            vec1 = np.array([<span class="sql-keyword">0.1</span>,
+            <span class="sql-keyword">0.2</span>,
+            <span class="sql-keyword">0.3</span>])<br />
+            vec2 = np.array([<span class="sql-keyword">0.15</span>,
+            <span class="sql-keyword">0.25</span>,
+            <span class="sql-keyword">0.35</span>])<br />
+            <br />
+            <span class="sql-comment"># Косинусное сходство</span><br />
+            cosine_sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) *
+            np.linalg.norm(vec2))<br />
+            <br />
+            print(<span class="sql-keyword">f"Сходство: {cosine_sim:.4f}"</span
+            >)<br />
+          </div>
+
+          <div class="text-muted-small mt-2">
+            💡 <strong>Учебная задача:</strong> Реализовать поиск ближайшего
+            соседа (kNN) для 10 векторов вручную — отличное понимание ANN.
+          </div>
+
+          <!-- Карточка 1: Генерация данных -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Генерация 10 случайных векторов (эмбеддингов)</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+    <br>
+    <span class="sql-comment"># Устанавливаем seed для воспроизводимости результатов</span><br>
+    np.random.seed(<span class="sql-keyword">42</span>)<br>
+    <br>
+    <span class="sql-comment"># Параметры: 10 векторов, размерность 5</span><br>
+    n_vectors = <span class="sql-keyword">10</span><br>
+    dimension = <span class="sql-keyword">5</span><br>
+    <br>
+    <span class="sql-comment"># Генерируем случайные векторы</span><br>
+    vectors = np.random.randn(n_vectors, dimension)<br>
+    <br>
+    <span class="sql-comment"># Создаем DataFrame для удобного просмотра</span><br>
+    df = pd.DataFrame(vectors, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'dim_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(dimension)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)])<br>
+    <br>
+    print(<span class="sql-keyword">"Сгенерированные векторы:"</span>)<br>
+    print(df)<br>
+    print(<span class="sql-keyword">f"Форма: {vectors.shape}"</span>)<br>
+</div>
+
+<!-- Карточка 2: Реализация функции kNN -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Реализация функции поиска ближайших соседей вручную</span><br>
+    <span class="sql-keyword">from</span> scipy.spatial.distance <span class="sql-keyword">import</span> euclidean, cosine<br>
+    <br>
+    <span class="sql-keyword">def</span> <span class="sql-function">find_k_nearest_neighbors</span>(query_vector, vectors, k=<span class="sql-keyword">3</span>, metric=<span class="sql-keyword">'euclidean'</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    Находит k ближайших соседей для query вектора</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    """</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;distances = []<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, vec <span class="sql-keyword">in</span> enumerate(vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> metric == <span class="sql-keyword">'euclidean'</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = euclidean(query_vector, vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">elif</span> metric == <span class="sql-keyword">'cosine'</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = cosine(query_vector, vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = np.linalg.norm(query_vector - vec)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distances.append((i, dist))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Сортируем по расстоянию</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;distances.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">1</span>])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;nearest_indices = [idx <span class="sql-keyword">for</span> idx, dist <span class="sql-keyword">in</span> distances[:k]]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;nearest_distances = [dist <span class="sql-keyword">for</span> idx, dist <span class="sql-keyword">in</span> distances[:k]]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> nearest_indices, nearest_distances<br>
+</div>
+
+<!-- Карточка 3: Выбор query вектора и поиск соседей -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Выбираем query вектор (например, 3-й вектор) и ищем соседей</span><br>
+    query_idx = <span class="sql-keyword">2</span>  <span class="sql-comment"># vec_3</span><br>
+    query_vector = vectors[query_idx]<br>
+    k = <span class="sql-keyword">3</span><br>
+    <br>
+    print(<span class="sql-keyword">f"Query вектор (vec_{query_idx+1}):"</span>)<br>
+    print(query_vector)<br>
+    print(<span class="sql-keyword">"-"</span> * <span class="sql-keyword">50</span>)<br>
+    <br>
+    <span class="sql-comment"># Поиск с евклидовой метрикой</span><br>
+    nearest_idx, nearest_dist = find_k_nearest_neighbors(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;query_vector, vectors, k=k, metric=<span class="sql-keyword">'euclidean'</span>)<br>
+    <br>
+    print(<span class="sql-keyword">f"🔍 {k} ближайших соседей (евклидово расстояние):"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx, dist) <span class="sql-keyword">in</span> enumerate(zip(nearest_idx, nearest_dist), <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> idx == query_idx:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx+1} (САМ ВЕКТОР) - расстояние: {dist:.4f}"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx+1} - расстояние: {dist:.4f}"</span>)<br>
+</div>
+
+<!-- Карточка 4: Матрица расстояний -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Построение полной матрицы расстояний</span><br>
+    distance_matrix = np.zeros((n_vectors, n_vectors))<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distance_matrix[i, j] = euclidean(vectors[i], vectors[j])<br>
+    <br>
+    <span class="sql-comment"># Визуализация матрицы расстояний</span><br>
+    dist_df = pd.DataFrame(distance_matrix,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)])<br>
+    <br>
+    print(<span class="sql-keyword">"📊 МАТРИЦА РАССТОЯНИЙ (евклидово):"</span>)<br>
+    print(dist_df.round(<span class="sql-keyword">4</span>))<br>
+</div>
+
+<!-- Карточка 5: Визуализация через PCA -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Визуализация векторов в 2D с помощью PCA</span><br>
+    <span class="sql-keyword">from</span> sklearn.decomposition <span class="sql-keyword">import</span> PCA<br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <br>
+    <span class="sql-comment"># Снижаем размерность до 2 для визуализации</span><br>
+    pca = PCA(n_components=<span class="sql-keyword">2</span>)<br>
+    vectors_2d = pca.fit_transform(vectors)<br>
+    <br>
+    plt.figure(figsize=(<span class="sql-keyword">10</span>, <span class="sql-keyword">8</span>))<br>
+    <br>
+    <span class="sql-comment"># Рисуем все точки</span><br>
+    plt.scatter(vectors_2d[:, <span class="sql-keyword">0</span>], vectors_2d[:, <span class="sql-keyword">1</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;s=<span class="sql-keyword">100</span>, c=<span class="sql-keyword">'lightblue'</span>, edgecolors=<span class="sql-keyword">'black'</span>, zorder=<span class="sql-keyword">2</span>)<br>
+    <br>
+    <span class="sql-comment"># Выделяем query вектор</span><br>
+    plt.scatter(vectors_2d[query_idx, <span class="sql-keyword">0</span>], vectors_2d[query_idx, <span class="sql-keyword">1</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;s=<span class="sql-keyword">200</span>, c=<span class="sql-keyword">'red'</span>, edgecolors=<span class="sql-keyword">'black'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;zorder=<span class="sql-keyword">3</span>, marker=<span class="sql-keyword">'*'</span>, label=<span class="sql-keyword">f'Query (vec_{query_idx+1})'</span>)<br>
+    <br>
+    <span class="sql-comment"># Подписываем точки</span><br>
+    <span class="sql-keyword">for</span> i, (x, y) <span class="sql-keyword">in</span> enumerate(vectors_2d):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;plt.annotate(<span class="sql-keyword">f'vec_{i+1}'</span>, (x, y),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xytext=(<span class="sql-keyword">5</span>, <span class="sql-keyword">5</span>), textcoords=<span class="sql-keyword">'offset points'</span>, fontsize=<span class="sql-keyword">9</span>)<br>
+    <br>
+    plt.title(<span class="sql-keyword">'Визуализация векторов (PCA) с выделением query вектора'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.xlabel(<span class="sql-keyword">'PC1'</span>)<br>
+    plt.ylabel(<span class="sql-keyword">'PC2'</span>)<br>
+    plt.legend()<br>
+    plt.grid(<span class="sql-keyword">True</span>, alpha=<span class="sql-keyword">0.3</span>)<br>
+    plt.show()<br>
+</div>
+
+<!-- Карточка 6: Анализ самых похожих и разных пар -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 6: Поиск самых похожих и самых разных пар векторов</span><br>
+    pairs = []<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(i+<span class="sql-keyword">1</span>, n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist = euclidean(vectors[i], vectors[j])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pairs.append((i, j, dist))<br>
+    <br>
+    <span class="sql-comment"># Сортируем по расстоянию</span><br>
+    pairs.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">2</span>])<br>
+    <br>
+    print(<span class="sql-keyword">"🔝 ТОП-3 САМЫХ ПОХОЖИХ ПАРЫ векторов:"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx1, idx2, dist) <span class="sql-keyword">in</span> enumerate(pairs[:<span class="sql-keyword">3</span>], <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx1+1} ↔ vec_{idx2+1}: расстояние = {dist:.4f}"</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"\n🔻 ТОП-3 САМЫХ РАЗНЫХ ПАРЫ векторов:"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx1, idx2, dist) <span class="sql-keyword">in</span> enumerate(pairs[-<span class="sql-keyword">3</span>:], <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. vec_{idx1+1} ↔ vec_{idx2+1}: расстояние = {dist:.4f}"</span>)<br>
+</div>
+
+<!-- Карточка 7: Сравнение метрик расстояния -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 7: Сравнение разных метрик расстояния</span><br>
+    print(<span class="sql-keyword">"\n📏 СРАВНЕНИЕ МЕТРИК ДЛЯ QUERY ВЕКТОРА:"</span>)<br>
+    print(<span class="sql-keyword">f"{'Сосед':&lt;10} {'Евклидово':&lt;12} {'Косинусное':&lt;12} {'Манхэттен':&lt;12}"</span>)<br>
+    print(<span class="sql-keyword">"-"</span> * <span class="sql-keyword">46</span>)<br>
+    <br>
+    <span class="sql-keyword">from</span> scipy.spatial.distance <span class="sql-keyword">import</span> cityblock<br>
+    <br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> i == query_idx:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">continue</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;eucl_dist = euclidean(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cos_dist = cosine(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;man_dist = cityblock(query_vector, vectors[i])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"vec_{i+1:&lt;4} {eucl_dist:&lt;12.4f} {cos_dist:&lt;12.4f} {man_dist:&lt;12.4f}"</span>)<br>
+</div>
+
+<!-- Карточка 8: Итоговый отчет -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 8: Формирование итоговой таблицы результатов</span><br>
+    results_df = pd.DataFrame({<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Вектор'</span>: [<span class="sql-keyword">f'vec_{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Евклидово_расстояние'</span>: [euclidean(query_vector, vectors[i]) <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Косинусное_расстояние'</span>: [cosine(query_vector, vectors[i]) <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Ближайший_сосед'</span>: [<span class="sql-keyword">'✅'</span> <span class="sql-keyword">if</span> i <span class="sql-keyword">in</span> nearest_idx[:<span class="sql-keyword">1</span>] <span class="sql-keyword">else</span> <span class="sql-keyword">''</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(n_vectors)]<br>
+    })<br>
+    <br>
+    print(<span class="sql-keyword">"\n📋 ИТОГОВАЯ ТАБЛИЦА РАССТОЯНИЙ ОТ QUERY ВЕКТОРА:"</span>)<br>
+    print(results_df.round(<span class="sql-keyword">4</span>).to_string(index=<span class="sql-keyword">False</span>))<br>
+    <br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">"💡 ВЫВОДЫ:"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">f"✓ Query вектор (vec_{query_idx+1}) наиболее близок к векторам:"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;  [<span class="sql-keyword">f'vec_{idx+1}'</span> <span class="sql-keyword">for</span> idx <span class="sql-keyword">in</span> nearest_idx[:<span class="sql-keyword">3</span>]])<br>
+    print(<span class="sql-keyword">"✓ Косинусное расстояние игнорирует длину вектора, что важно для текстовых эмбеддингов"</span>)<br>
+    print(<span class="sql-keyword">"✓ Для анализа ANN (Approximate Nearest Neighbors) полезно понимать распределение расстояний"</span>)<br>
+</div>
+        </div>
+      </div>
+
+         <div class="card my-3" style="max-width: 800px">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="../h1title54.jpg"
+            alt="Scikit-learn"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            📊 Scikit-learn — классический ML и метрики
+          </h3>
+          <p><strong>Что дает для RAG:</strong></p>
+          <ul>
+            <li>
+              <code>sklearn.metrics.pairwise.cosine_similarity</code> — готовая
+              косинусная близость [citation:4];
+            </li>
+            <li>
+              <code>sklearn.feature_extraction.text.TfidfVectorizer</code> —
+              классические «векторы» слов (baseline для сравнения с
+              эмбеддингами);
+            </li>
+            <li>
+              <code>sklearn.decomposition.PCA</code> — снижение размерности для
+              визуализации векторов (сотни измерений → 2D/3D).
+            </li>
+          </ul>
+          <p>
+            <strong>Статус в JupyterLite:</strong> ✅
+            <strong>Предустановлен</strong> [citation:1].
+          </p>
+      <!-- Карточка 1: Импорт библиотек и подготовка данных -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Импорт библиотек и подготовка эмбеддингов</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">from</span> sklearn.metrics.pairwise <span class="sql-keyword">import</span> cosine_similarity<br>
+    <br>
+    <span class="sql-comment"># Два текста в виде условных эмбеддингов (2-мерные векторы)</span><br>
+    <span class="sql-comment"># Текст 1: "привет мир"</span><br>
+    <span class="sql-comment"># Текст 2: "hello world"</span><br>
+    embeddings = np.array([<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql-keyword">0.1</span>, <span class="sql-keyword">0.2</span>],  <span class="sql-comment"># эмбеддинг первого текста</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql-keyword">0.15</span>, <span class="sql-keyword">0.25</span>]  <span class="sql-comment"># эмбеддинг второго текста</span><br>
+    ])<br>
+    <br>
+    print(<span class="sql-keyword">"Эмбеддинги текстов:"</span>)<br>
+    print(<span class="sql-keyword">f"Текст 1: {embeddings[0]}"</span>)<br>
+    print(<span class="sql-keyword">f"Текст 2: {embeddings[1]}"</span>)<br>
+    print(<span class="sql-keyword">f"Форма матрицы эмбеддингов: {embeddings.shape}"</span>)<br>
+</div>
+
+<!-- Карточка 2: Вычисление косинусного сходства -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Вычисление матрицы косинусного сходства</span><br>
+    <span class="sql-comment"># cosine_similarity попарно сравнивает все векторы</span><br>
+    sim = cosine_similarity(embeddings)<br>
+    <br>
+    print(<span class="sql-keyword">"Матрица косинусного сходства:"</span>)<br>
+    print(sim)<br>
+    print(<span class="sql-keyword">f"\nРазмер матрицы: {sim.shape}"</span>)<br>
+</div>
+
+<!-- Карточка 3: Интерпретация результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Интерпретация результатов</span><br>
+    <span class="sql-comment"># На диагонали - сходство текста с самим собой (всегда 1.0)</span><br>
+    <span class="sql-comment"># Вне диагонали - сходство между разными текстами</span><br>
+    <br>
+    similarity_score = sim[<span class="sql-keyword">0</span>][<span class="sql-keyword">1</span>]<br>
+    print(<span class="sql-keyword">f"Сходство между текстом 1 и текстом 2: {similarity_score:.4f}"</span>)<br>
+    <br>
+    <span class="sql-keyword">if</span> similarity_score > <span class="sql-keyword">0.8</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"✓ Тексты очень похожи (высокое косинусное сходство)"</span>)<br>
+    <span class="sql-keyword">elif</span> similarity_score > <span class="sql-keyword">0.5</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"✓ Тексты умеренно похожи"</span>)<br>
+    <span class="sql-keyword">else</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"✗ Тексты различны по смыслу"</span>)<br>
+</div>
+
+<!-- Карточка 4: Ручной расчет для проверки -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Ручной расчет косинусного сходства (для проверки)</span><br>
+    <span class="sql-keyword">def</span> <span class="sql-function">manual_cosine_similarity</span>(a, b):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""Вычисляет косинусное сходство между двумя векторами вручную"""</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;dot_product = np.dot(a, b)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;norm_a = np.linalg.norm(a)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;norm_b = np.linalg.norm(b)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> dot_product / (norm_a * norm_b)<br>
+    <br>
+    vec1 = embeddings[<span class="sql-keyword">0</span>]<br>
+    vec2 = embeddings[<span class="sql-keyword">1</span>]<br>
+    manual_sim = manual_cosine_similarity(vec1, vec2)<br>
+    <br>
+    print(<span class="sql-keyword">"Ручной расчет:"</span>)<br>
+    print(<span class="sql-keyword">f"  Скалярное произведение: {np.dot(vec1, vec2):.4f}"</span>)<br>
+    print(<span class="sql-keyword">f"  Норма vec1: {np.linalg.norm(vec1):.4f}"</span>)<br>
+    print(<span class="sql-keyword">f"  Норма vec2: {np.linalg.norm(vec2):.4f}"</span>)<br>
+    print(<span class="sql-keyword">f"  Результат: {manual_sim:.4f}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Проверка совпадения с библиотечной функцией</span><br>
+    library_sim = sim[<span class="sql-keyword">0</span>][<span class="sql-keyword">1</span>]<br>
+    print(<span class="sql-keyword">f"\nСовпадение с cosine_similarity(): {np.isclose(manual_sim, library_sim)}"</span>)<br>
+</div>
+
+<!-- Карточка 5: Визуализация векторов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Визуализация векторов и угла между ними</span><br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <br>
+    plt.figure(figsize=(<span class="sql-keyword">8</span>, <span class="sql-keyword">6</span>))<br>
+    <br>
+    <span class="sql-comment"># Рисуем векторы из начала координат</span><br>
+    plt.quiver(<span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, vec1[<span class="sql-keyword">0</span>], vec1[<span class="sql-keyword">1</span>], <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;angles=<span class="sql-keyword">'xy'</span>, scale_units=<span class="sql-keyword">'xy'</span>, scale=<span class="sql-keyword">1</span>, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;color=<span class="sql-keyword">'blue'</span>, width=<span class="sql-keyword">0.02</span>, label=<span class="sql-keyword">'Текст 1'</span>)<br>
+    <br>
+    plt.quiver(<span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, vec2[<span class="sql-keyword">0</span>], vec2[<span class="sql-keyword">1</span>], <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;angles=<span class="sql-keyword">'xy'</span>, scale_units=<span class="sql-keyword">'xy'</span>, scale=<span class="sql-keyword">1</span>, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;color=<span class="sql-keyword">'red'</span>, width=<span class="sql-keyword">0.02</span>, label=<span class="sql-keyword">'Текст 2'</span>)<br>
+    <br>
+    <span class="sql-comment"># Настройка графика</span><br>
+    plt.xlim(<span class="sql-keyword">0</span>, <span class="sql-keyword">0.3</span>)<br>
+    plt.ylim(<span class="sql-keyword">0</span>, <span class="sql-keyword">0.3</span>)<br>
+    plt.xlabel(<span class="sql-keyword">'Измерение 1'</span>)<br>
+    plt.ylabel(<span class="sql-keyword">'Измерение 2'</span>)<br>
+    plt.title(<span class="sql-keyword">'Визуализация эмбеддингов двух текстов (маленький угол → высокое сходство)'</span>)<br>
+    plt.legend()<br>
+    plt.grid(<span class="sql-keyword">True</span>, alpha=<span class="sql-keyword">0.3</span>)<br>
+    plt.axhline(y=<span class="sql-keyword">0</span>, color=<span class="sql-keyword">'k'</span>, linewidth=<span class="sql-keyword">0.5</span>)<br>
+    plt.axvline(x=<span class="sql-keyword">0</span>, color=<span class="sql-keyword">'k'</span>, linewidth=<span class="sql-keyword">0.5</span>)<br>
+    plt.show()<br>
+</div>
+
+<!-- Карточка 6: Работа с реальными текстами (пример) -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 6: Пример с реальными текстами (используем простую векторизацию)</span><br>
+    <span class="sql-keyword">from</span> sklearn.feature_extraction.text <span class="sql-keyword">import</span> CountVectorizer<br>
+    <br>
+    <span class="sql-comment"># Реальные тексты на русском</span><br>
+    texts = [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"кот играет с мячом"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"кошка любит игрушки"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"сегодня хорошая погода"</span><br>
+    ]<br>
+    <br>
+    <span class="sql-comment"># Преобразуем тексты в векторы (Bag of Words)</span><br>
+    vectorizer = CountVectorizer()<br>
+    text_embeddings = vectorizer.fit_transform(texts).toarray()<br>
+    <br>
+    print(<span class="sql-keyword">"Тексты для сравнения:"</span>)<br>
+    <span class="sql-keyword">for</span> i, text <span class="sql-keyword">in</span> enumerate(texts, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. {text}"</span>)<br>
+    <br>
+    print(<span class="sql-keyword">f"\nРазмерность векторов: {text_embeddings.shape[1]}"</span>)<br>
+    print(<span class="sql-keyword">"Векторы довольно разреженные (много нулей)"</span>)<br>
+</div>
+
+<!-- Карточка 7: Сравнение всех текстов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 7: Вычисление матрицы сходства для реальных текстов</span><br>
+    text_sim = cosine_similarity(text_embeddings)<br>
+    <br>
+    <span class="sql-comment"># Создаем DataFrame для удобного просмотра</span><br>
+    sim_df = pd.DataFrame(text_sim,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'Текст {i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(texts))],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'Текст {i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(texts))])<br>
+    <br>
+    print(<span class="sql-keyword">"\nМатрица косинусного сходства для реальных текстов:"</span>)<br>
+    print(sim_df.round(<span class="sql-keyword">4</span>))<br>
+    <br>
+    <span class="sql-comment"># Анализ результатов</span><br>
+    print(<span class="sql-keyword">"\n📊 Анализ:"</span>)<br>
+    print(<span class="sql-keyword">f"  Сходство Текст1 ↔ Текст2: {text_sim[0][1]:.4f} (темы о животных)"</span>)<br>
+    print(<span class="sql-keyword">f"  Сходство Текст1 ↔ Текст3: {text_sim[0][2]:.4f} (разные темы)"</span>)<br>
+    print(<span class="sql-keyword">f"  Сходство Текст2 ↔ Текст3: {text_sim[1][2]:.4f} (разные темы)"</span>)<br>
+</div>
+
+<!-- Карточка 8: Итоговые выводы -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 8: Практические выводы</span><br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">"💡 ПРАКТИЧЕСКИЕ ВЫВОДЫ ПО ИСПОЛЬЗОВАНИЮ COSINE_SIMILARITY"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">""" 
+✅ cosine_similarity() автоматически нормализует векторы
+✅ Возвращает матрицу, где элемент [i][j] — сходство между i и j
+✅ Значения от -1 до 1:
+   • 1.0  → векторы идентичны (одинаковое направление)
+   • 0    → ортогональны (независимы)
+   • -1.0 → противоположны
+
+📌 Применение:
+   • Поиск похожих документов
+   • Кластеризация текстов
+   • Рекомендательные системы
+   • Семантический поиск
+    """</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"🔑 КЛЮЧЕВЫЕ ОСОБЕННОСТИ:"</span>)<br>
+    print(<span class="sql-keyword">"   • Не зависит от длины векторов (масштабирование не влияет)"</span>)<br>
+    print(<span class="sql-keyword">"   • Учитывает только угол между векторами"</span>)<br>
+    print(<span class="sql-keyword">"   • Идеален для текстовых эмбеддингов (word2vec, BERT)"</span>)<br>
+</div>
+          <div class="text-muted-small mt-2">
+            🎯 <strong>Задача студентам:</strong> Сравнить TF-IDF и эмбеддинги
+            (если подключить API) для поиска похожих текстов.
+          </div>
+
+          <!-- Карточка 1: Импорт библиотек и подготовка данных -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Импорт необходимых библиотек</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd<br>
+    <span class="sql-keyword">from</span> sklearn.feature_extraction.text <span class="sql-keyword">import</span> TfidfVectorizer<br>
+    <span class="sql-keyword">from</span> sklearn.metrics.pairwise <span class="sql-keyword">import</span> cosine_similarity<br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <br>
+    <span class="sql-comment"># Подготовка корпуса текстов (разные темы)</span><br>
+    documents = [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Кот ловит мышку во дворе"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Кошка играет с клубком ниток"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Собака гавкает на прохожих"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Программист пишет код на Python"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Разработчик создает веб-приложение"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"Сегодня отличная погода для прогулки"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">"На улице солнечно и тепло"</span><br>
+    ]<br>
+    <br>
+    print(<span class="sql-keyword">"📚 КОРПУС ТЕКСТОВ ДЛЯ АНАЛИЗА:"</span>)<br>
+    <span class="sql-keyword">for</span> i, doc <span class="sql-keyword">in</span> enumerate(documents, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. {doc}"</span>)<br>
+    print(<span class="sql-keyword">f"\nВсего документов: {len(documents)}"</span>)<br>
+</div>
+
+<!-- Карточка 2: Реализация TF-IDF метода -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Создание TF-IDF векторов и вычисление сходства</span><br>
+    <br>
+    <span class="sql-comment"># Создаем TF-IDF векторизатор (русский язык)</span><br>
+    vectorizer_tfidf = TfidfVectorizer(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;analyzer=<span class="sql-keyword">'word'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ngram_range=(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;max_features=<span class="sql-keyword">100</span><br>
+    )<br>
+    <br>
+    <span class="sql-comment"># Преобразуем тексты в TF-IDF векторы</span><br>
+    tfidf_matrix = vectorizer_tfidf.fit_transform(documents)<br>
+    <br>
+    print(<span class="sql-keyword">"🔍 TF-IDF МЕТОД:"</span>)<br>
+    print(<span class="sql-keyword">f"  Форма TF-IDF матрицы: {tfidf_matrix.shape}"</span>)<br>
+    print(<span class="sql-keyword">f"  Количество уникальных слов: {len(vectorizer_tfidf.get_feature_names_out())}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Вычисляем матрицу сходства для TF-IDF</span><br>
+    tfidf_similarity = cosine_similarity(tfidf_matrix)<br>
+    <br>
+    <span class="sql-comment"># Создаем DataFrame для наглядности</span><br>
+    tfidf_df = pd.DataFrame(tfidf_similarity,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'Док{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'Док{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    <br>
+    print(<span class="sql-keyword">"\nМатрица косинусного сходства (TF-IDF):"</span>)<br>
+    print(tfidf_df.round(<span class="sql-keyword">3</span>))<br>
+</div>
+
+<!-- Карточка 3: Реализация эмбеддингов (без API - упрощенная версия) -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Создание упрощенных эмбеддингов (имитация)</span><br>
+    <span class="sql-comment"># В реальном проекте: from sentence_transformers import SentenceTransformer</span><br>
+    <span class="sql-comment"># model = SentenceTransformer('distiluse-base-multilingual-cased-v2')</span><br>
+    <br>
+    <span class="sql-comment"># Для демонстрации создадим имитацию эмбеддингов через TF-IDF с уменьшением размерности</span><br>
+    <span class="sql-keyword">from</span> sklearn.decomposition <span class="sql-keyword">import</span> TruncatedSVD<br>
+    <br>
+    <span class="sql-comment"># Снижаем размерность для имитации dense-эмбеддингов</span><br>
+    svd = TruncatedSVD(n_components=<span class="sql-keyword">10</span>, random_state=<span class="sql-keyword">42</span>)<br>
+    embedding_matrix = svd.fit_transform(tfidf_matrix)<br>
+    <br>
+    print(<span class="sql-keyword">"🧠 ЭМБЕДДИНГИ (имитация dense-векторов):"</span>)<br>
+    print(<span class="sql-keyword">f"  Форма матрицы эмбеддингов: {embedding_matrix.shape}"</span>)<br>
+    print(<span class="sql-keyword">f"  Размерность каждого вектора: {embedding_matrix.shape[1]}"</span>)<br>
+    print(<span class="sql-keyword">"\nПервые 3 документа (первые 5 признаков):"</span>)<br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(min(<span class="sql-keyword">3</span>, len(documents))):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  Док{i+1}: {embedding_matrix[i][:5].round(3)}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Вычисляем сходство для эмбеддингов</span><br>
+    embedding_similarity = cosine_similarity(embedding_matrix)<br>
+    embedding_df = pd.DataFrame(embedding_similarity,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;index=[<span class="sql-keyword">f'Док{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;columns=[<span class="sql-keyword">f'Док{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    <br>
+    print(<span class="sql-keyword">"\nМатрица косинусного сходства (Эмбеддинги):"</span>)<br>
+    print(embedding_df.round(<span class="sql-keyword">3</span>))<br>
+</div>
+
+<!-- Карточка 4: Сравнение двух методов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Сравнение результатов TF-IDF и эмбеддингов</span><br>
+    <br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">"📊 СРАВНЕНИЕ МЕТОДОВ ПОИСКА ПОХОЖИХ ТЕКСТОВ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    <br>
+    <span class="sql-comment"># Функция поиска топ-N похожих документов</span><br>
+    <span class="sql-keyword">def</span> <span class="sql-function">find_top_similar</span>(doc_idx, similarity_matrix, method_name, top_n=<span class="sql-keyword">3</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;similarities = similarity_matrix[doc_idx]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;similar_pairs = [(i, sim) <span class="sql-keyword">for</span> i, sim <span class="sql-keyword">in</span> enumerate(similarities) <span class="sql-keyword">if</span> i != doc_idx]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;similar_pairs.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">1</span>], reverse=<span class="sql-keyword">True</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> similar_pairs[:top_n]<br>
+    <br>
+    <span class="sql-comment"># Анализируем для каждого документа</span><br>
+    <span class="sql-keyword">for</span> doc_idx <span class="sql-keyword">in</span> range(min(<span class="sql-keyword">3</span>, len(documents))):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"\n📄 Документ {doc_idx+1}: '{documents[doc_idx]}'"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"-"</span> * <span class="sql-keyword">50</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># TF-IDF результаты</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;tfidf_similar = find_top_similar(doc_idx, tfidf_similarity, <span class="sql-keyword">'TF-IDF'</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"  🔹 TF-IDF рекомендует:"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> rank, (idx, score) <span class="sql-keyword">in</span> enumerate(tfidf_similar, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"      {rank}. {documents[idx]} (сходство: {score:.3f})"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Эмбеддинг результаты</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;emb_similar = find_top_similar(doc_idx, embedding_similarity, <span class="sql-keyword">'Эмбеддинги'</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"  🔸 Эмбеддинги рекомендуют:"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> rank, (idx, score) <span class="sql-keyword">in</span> enumerate(emb_similar, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"      {rank}. {documents[idx]} (сходство: {score:.3f})"</span>)<br>
+</div>
+
+<!-- Карточка 5: Анализ различий и преимуществ -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Вычисление различий между методами</span><br>
+    <br>
+    <span class="sql-comment"># Находим где методы дают разные результаты</span><br>
+    differences = np.abs(tfidf_similarity - embedding_similarity)<br>
+    <br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">"🔍 АНАЛИЗ РАЗЛИЧИЙ МЕЖДУ МЕТОДАМИ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    <br>
+    <span class="sql-comment"># Находим максимальные расхождения</span><br>
+    max_diff_pairs = []<br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(i+<span class="sql-keyword">1</span>, len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;diff = abs(tfidf_similarity[i][j] - embedding_similarity[i][j])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_diff_pairs.append((i, j, diff))<br>
+    <br>
+    max_diff_pairs.sort(key=<span class="sql-keyword">lambda</span> x: x[<span class="sql-keyword">2</span>], reverse=<span class="sql-keyword">True</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"\nПара документов с максимальным расхождением в оценке:"</span>)<br>
+    <span class="sql-keyword">for</span> i, (idx1, idx2, diff) <span class="sql-keyword">in</span> enumerate(max_diff_pairs[:<span class="sql-keyword">3</span>], <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {i}. '{documents[idx1]}' ↔ '{documents[idx2]}'"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"     TF-IDF: {tfidf_similarity[idx1][idx2]:.3f} | Эмбеддинги: {embedding_similarity[idx1][idx2]:.3f}"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"     Разница: {diff:.3f}"</span>)<br>
+</div>
+
+<!-- Карточка 6: Визуализация результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 6: Визуальное сравнение методов</span><br>
+    <br>
+    fig, axes = plt.subplots(<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, figsize=(<span class="sql-keyword">14</span>, <span class="sql-keyword">6</span>))<br>
+    <br>
+    <span class="sql-comment"># Тепловая карта для TF-IDF</span><br>
+    im1 = axes[<span class="sql-keyword">0</span>].imshow(tfidf_similarity, cmap=<span class="sql-keyword">'coolwarm'</span>, vmin=<span class="sql-keyword">0</span>, vmax=<span class="sql-keyword">1</span>)<br>
+    axes[<span class="sql-keyword">0</span>].set_title(<span class="sql-keyword">'TF-IDF: Матрица сходства'</span>, fontsize=<span class="sql-keyword">12</span>, fontweight=<span class="sql-keyword">'bold'</span>)<br>
+    axes[<span class="sql-keyword">0</span>].set_xlabel(<span class="sql-keyword">'Документы'</span>)<br>
+    axes[<span class="sql-keyword">0</span>].set_ylabel(<span class="sql-keyword">'Документы'</span>)<br>
+    axes[<span class="sql-keyword">0</span>].set_xticks(range(len(documents)))<br>
+    axes[<span class="sql-keyword">0</span>].set_yticks(range(len(documents)))<br>
+    axes[<span class="sql-keyword">0</span>].set_xticklabels([<span class="sql-keyword">f'Д{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    axes[<span class="sql-keyword">0</span>].set_yticklabels([<span class="sql-keyword">f'Д{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    <br>
+    <span class="sql-comment"># Добавляем значения в ячейки для TF-IDF</span><br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes[<span class="sql-keyword">0</span>].text(j, i, <span class="sql-keyword">f'{tfidf_similarity[i][j]:.2f}'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ha=<span class="sql-keyword">'center'</span>, va=<span class="sql-keyword">'center'</span>, fontsize=<span class="sql-keyword">9</span>)<br>
+    <br>
+    <span class="sql-comment"># Тепловая карта для эмбеддингов</span><br>
+    im2 = axes[<span class="sql-keyword">1</span>].imshow(embedding_similarity, cmap=<span class="sql-keyword">'coolwarm'</span>, vmin=<span class="sql-keyword">0</span>, vmax=<span class="sql-keyword">1</span>)<br>
+    axes[<span class="sql-keyword">1</span>].set_title(<span class="sql-keyword">'Эмбеддинги: Матрица сходства'</span>, fontsize=<span class="sql-keyword">12</span>, fontweight=<span class="sql-keyword">'bold'</span>)<br>
+    axes[<span class="sql-keyword">1</span>].set_xlabel(<span class="sql-keyword">'Документы'</span>)<br>
+    axes[<span class="sql-keyword">1</span>].set_ylabel(<span class="sql-keyword">'Документы'</span>)<br>
+    axes[<span class="sql-keyword">1</span>].set_xticks(range(len(documents)))<br>
+    axes[<span class="sql-keyword">1</span>].set_yticks(range(len(documents)))<br>
+    axes[<span class="sql-keyword">1</span>].set_xticklabels([<span class="sql-keyword">f'Д{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    axes[<span class="sql-keyword">1</span>].set_yticklabels([<span class="sql-keyword">f'Д{i+1}'</span> <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents))])<br>
+    <br>
+    <span class="sql-comment"># Добавляем значения в ячейки для эмбеддингов</span><br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j <span class="sql-keyword">in</span> range(len(documents)):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes[<span class="sql-keyword">1</span>].text(j, i, <span class="sql-keyword">f'{embedding_similarity[i][j]:.2f}'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ha=<span class="sql-keyword">'center'</span>, va=<span class="sql-keyword">'center'</span>, fontsize=<span class="sql-keyword">9</span>)<br>
+    <br>
+    plt.colorbar(im1, ax=axes[<span class="sql-keyword">0</span>], shrink=<span class="sql-keyword">0.8</span>)<br>
+    plt.colorbar(im2, ax=axes[<span class="sql-keyword">1</span>], shrink=<span class="sql-keyword">0.8</span>)<br>
+    plt.tight_layout()<br>
+    plt.show()<br>
+</div>
+
+<!-- Карточка 7: Интерактивный поиск похожих текстов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 7: Функция для поиска похожих текстов (оба метода)</span><br>
+    <br>
+    <span class="sql-keyword">def</span> <span class="sql-function">search_similar_texts</span>(query_text, method=<span class="sql-keyword">'both'</span>, top_n=<span class="sql-keyword">3</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">"""</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    Ищет похожие тексты используя TF-IDF или эмбеддинги</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">    """</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># TF-IDF поиск</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;query_tfidf = vectorizer_tfidf.transform([query_text])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;tfidf_scores = cosine_similarity(query_tfidf, tfidf_matrix).flatten()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Эмбеддинг поиск</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;query_embedding = svd.transform(query_tfidf)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;embedding_scores = cosine_similarity(query_embedding, embedding_matrix).flatten()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"\n🔎 Поиск по запросу: '{query_text}'"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> method <span class="sql-keyword">in</span> [<span class="sql-keyword">'tfidf'</span>, <span class="sql-keyword">'both'</span>]:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"\n📊 TF-IDF результаты:"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best_indices = np.argsort(tfidf_scores)[::-1][:top_n]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, idx <span class="sql-keyword">in</span> enumerate(best_indices, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"    {i}. {documents[idx]} (сходство: {tfidf_scores[idx]:.3f})"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> method <span class="sql-keyword">in</span> [<span class="sql-keyword">'embedding'</span>, <span class="sql-keyword">'both'</span>]:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"\n🧠 Эмбеддинг результаты:"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best_indices = np.argsort(embedding_scores)[::-1][:top_n]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, idx <span class="sql-keyword">in</span> enumerate(best_indices, <span class="sql-keyword">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"    {i}. {documents[idx]} (сходство: {embedding_scores[idx]:.3f})"</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> tfidf_scores, embedding_scores<br>
+    <br>
+    <span class="sql-comment"># Примеры поиска</span><br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">"🎯 ПРИМЕРЫ ПОИСКА ПОХОЖИХ ТЕКСТОВ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    <br>
+    search_similar_texts(<span class="sql-keyword">"животные и питомцы"</span>, method=<span class="sql-keyword">'both'</span>)<br>
+    search_similar_texts(<span class="sql-keyword">"программирование и код"</span>, method=<span class="sql-keyword">'both'</span>)<br>
+    search_similar_texts(<span class="sql-keyword">"погода на улице"</span>, method=<span class="sql-keyword">'both'</span>)<br>
+</div>
+
+<!-- Карточка 8: Итоговые выводы и рекомендации -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 8: Сравнительный анализ и рекомендации</span><br>
+    <br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    print(<span class="sql-keyword">"💡 СРАВНИТЕЛЬНЫЙ АНАЛИЗ TF-IDF vs ЭМБЕДДИНГИ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">60</span>)<br>
+    <br>
+    comparison_data = {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Критерий'</span>: [<span class="sql-keyword">'Понимание семантики'</span>, <span class="sql-keyword">'Работа с синонимами'</span>, <span class="sql-keyword">'Требования к данным'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Вычислительная сложность'</span>, <span class="sql-keyword">'Интерпретируемость'</span>, <span class="sql-keyword">'Мультиязычность'</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'TF-IDF'</span>: [<span class="sql-keyword">'⭐ Низкое'</span>, <span class="sql-keyword">'❌ Не работает'</span>, <span class="sql-keyword">'✅ Не требует обучения'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'✅ Быстрый'</span>, <span class="sql-keyword">'✅ Высокая'</span>, <span class="sql-keyword">'⚠️ Требуется настройка'</span>],<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'Эмбеддинги'</span>: [<span class="sql-keyword">'⭐⭐⭐ Высокое'</span>, <span class="sql-keyword">'✅ Улавливает'</span>, <span class="sql-keyword">'⚠️ Нужны большие данные'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">'⚠️ Требует ресурсов'</span>, <span class="sql-keyword">'❌ Низкая'</span>, <span class="sql-keyword">'✅ Встроенная поддержка'</span>]<br>
+    }<br>
+    <br>
+    comparison_df = pd.DataFrame(comparison_data)<br>
+    print(<span class="sql-keyword">"\nТаблица сравнения:"</span>)<br>
+    print(comparison_df.to_string(index=<span class="sql-keyword">False</span>))<br>
+    <br>
+    print(<span class="sql-keyword">"\n📌 РЕКОМЕНДАЦИИ ПО ВЫБОРУ МЕТОДА:"</span>)<br>
+    print(<span class="sql-keyword">"""  
+    ✅ TF-IDF лучше использовать когда:
+       • Малый корпус текстов (до 1000 документов)
+       • Важна интерпретируемость результатов
+       • Нужно найти точные совпадения ключевых слов
+       • Ограниченные вычислительные ресурсы
+    
+    ✅ Эмбеддинги (через API) предпочтительнее когда:
+       • Нужен семантический поиск (синонимы, контекст)
+       • Работа с разными языками
+       • Большой корпус текстов
+       • Доступны предобученные модели (BERT, Sentence Transformers)
+    
+    🔄 Гибридный подход:
+       • Использовать TF-IDF для первичной фильтрации
+       • Эмбеддинги для точного ранжирования
+    """</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"\n🚀 ДЛЯ ПОДКЛЮЧЕНИЯ РЕАЛЬНОГО API эмбеддингов:"</span>)<br>
+    print(<span class="sql-keyword">"""  
+    # Установка: pip install sentence-transformers
+    from sentence_transformers import SentenceTransformer
+    model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+    embeddings = model.encode(documents)
+    """</span>)<br>
+</div>
+
+        </div>
+      </div>
+
+
+  <div class="card my-3" style="max-width: 800px">               
+                <div class="card-body">
+<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика 2</h1></div></div>
+                </div>
+                </div>
+
+
+          <!-- Карточка 1: Трансформеры прямо в браузере -->
+      <div class="card my-3" style="max-width: 800px">
+        <img
+          loading="lazy"
+          class="card-img-top"
+          src="../h1title12.jpg"
+          alt="Нейросеть в браузере"
+          style="filter: grayscale(1)"
+        />
+        <div class="card-body">
+          <h3 class="card-title">
+            🧠 1. Трансформеры прямо в браузере — анализ тональности текста
+          </h3>
+          <div class="badge-ai">🤗 transformers.js</div>
+          <p>
+            Загружаем настоящую ИИ-модель (DistilBERT) и анализируем эмоции в
+            тексте — всё локально, без сервера.
+          </p>
+         <div class="code-block">
+    <span class="sql-comment"># Импорт и установка библиотеки transformers_js_py для работы в Jupyter Lite</span><br>
+    <span class="sql-keyword">import</span> piplite<br>
+    <br>
+    <span class="sql-comment"># Установка пакета для работы с трансформерами в браузере</span><br>
+    await piplite.install(<span class="sql-keyword">"transformers_js_py"</span>)<br>
+    <span class="sql-keyword">from</span> transformers_js_py <span class="sql-keyword">import</span> import_transformers_js<br>
+    <br>
+    <span class="sql-comment"># Загрузка модели трансформера (выполняется асинхронно)</span><br>
+    transformers = await import_transformers_js()<br>
+    <br>
+    <span class="sql-comment"># Создание пайплайна для анализа тональности (sentiment analysis)</span><br>
+    pipe = await transformers.pipeline(<span class="sql-keyword">'sentiment-analysis'</span>)<br>
+    <br>
+    <span class="sql-comment"># Анализ тональности текста</span><br>
+    result = await pipe(<span class="sql-keyword">'I love learning about artificial intelligence!'</span>)<br>
+    print(<span class="sql-keyword">f"Результат: {result}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Попробуйте изменить текст!</span><br>
+    <span class="sql-comment"># result = await pipe('This is terrible, I hate it.')</span><br>
+    <span class="sql-comment"># print(result)</span><br>
+</div>
+          <div class="text-muted-small">
+            🔬 Что происходит: загружается модель DistilBERT, которая определяет
+            позитив/негатив текста. Работает прямо в вашем браузере через
+            WebAssembly.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">🎯 ЧТО ДЕЛАЕТ ЭТА БИБЛИОТЕКА?</span><br><br>
+
+    <span class="sql-comment">transformers_js_py — это Python-обертка над JavaScript-версией библиотеки Transformers.</span><br>
+    <span class="sql-comment">Позволяет запускать SLM-модели ПРЯМО В БРАУЗЕРЕ, без сервера!</span><br><br>
+
+    <span class="sql-comment">✨ КЛЮЧЕВЫЕ ОСОБЕННОСТИ:</span><br>
+    <span class="sql-comment">   ✅ Работает в JupyterLite, Pyodide, браузерных средах</span><br>
+    <span class="sql-comment">   ✅ Данные НЕ покидают компьютер пользователя</span><br>
+    <span class="sql-comment">   ✅ После загрузки работает офлайн</span><br>
+    <span class="sql-comment">   ✅ Не требует мощного сервера или GPU</span><br><br>
+
+    <span class="sql-comment">⚠️ ОГРАНИЧЕНИЯ:</span><br>
+    <span class="sql-comment">   • Только компактные SLM (до ~1B параметров)</span><br>
+    <span class="sql-comment">   • Медленнее серверного GPU</span><br>
+    <span class="sql-comment">   • Первый запуск требует загрузки модели</span><br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">📖 РАЗБОР КОДА: ПОСТРОЧНО</span><br><br>
+
+    <span class="sql-keyword">import</span> piplite<br>
+    <span class="sql-comment"># ↑ Библиотека для установки Python-пакетов в браузере</span><br><br>
+
+    <span class="sql-comment"># Установка пакета для работы с трансформерами в браузере</span><br>
+    <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"transformers_js_py"</span>)<br>
+    <span class="sql-comment"># ↑ Аналог pip install, но асинхронный (ждем загрузки)</span><br>
+    <span class="sql-keyword">from</span> transformers_js_py <span class="sql-keyword">import</span> import_transformers_js<br>
+    <span class="sql-comment"># ↑ Импортируем функцию для загрузки JS-движка</span><br><br>
+
+    <span class="sql-comment"># Загрузка модели трансформера (выполняется асинхронно)</span><br>
+    transformers = <span class="sql-keyword">await</span> import_transformers_js()<br>
+    <span class="sql-comment"># ↑ Загружает весь движок Transformers в память браузера</span><br><br>
+
+    <span class="sql-comment"># Создание пайплайна для анализа тональности</span><br>
+    pipe = <span class="sql-keyword">await</span> transformers.pipeline(<span class="sql-string">'sentiment-analysis'</span>)<br>
+    <span class="sql-comment"># ↑ Скачивает и загружает модель DistilBERT для тональности</span><br><br>
+
+    <span class="sql-comment"># Анализ тональности текста</span><br>
+    result = <span class="sql-keyword">await</span> pipe(<span class="sql-string">'I love learning about AI!'</span>)<br>
+    <span class="sql-comment"># ↑ Асинхронно анализирует текст, возвращает результат</span><br>
+    <span class="sql-keyword">print</span>(result)  <span class="sql-comment"># [{'label': 'POSITIVE', 'score': 0.99987}]</span><br>
+</div>
+
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">⚖️ СРАВНЕНИЕ: Обычный vs Браузерный Python</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">🐍 ОБЫЧНЫЙ PYTHON (transformers)</span><br>
+    <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+    pipe = pipeline(<span class="sql-string">'sentiment-analysis'</span>)  <span class="sql-comment"># Блокирует выполнение</span><br>
+    result = pipe(<span class="sql-string">'I love AI!'</span>)<br><br>
+
+    <span class="sql-comment">📌 ХАРАКТЕРИСТИКИ:</span><br>
+    <span class="sql-comment">   • Выполняется на СЕРВЕРЕ</span><br>
+    <span class="sql-comment">   • Нужен GPU/мощный CPU</span><br>
+    <span class="sql-comment">   • Данные уходят на сервер</span><br>
+    <span class="sql-comment">   • Синхронный код (без await)</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">🌐 БРАУЗЕРНЫЙ PYTHON (transformers_js_py)</span><br>
+    <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">"transformers_js_py"</span>)<br>
+    transformers = <span class="sql-keyword">await</span> import_transformers_js()<br>
+    pipe = <span class="sql-keyword">await</span> transformers.pipeline(<span class="sql-string">'sentiment-analysis'</span>)<br>
+    result = <span class="sql-keyword">await</span> pipe(<span class="sql-string">'I love AI!'</span>)<br><br>
+
+    <span class="sql-comment">📌 ХАРАКТЕРИСТИКИ:</span><br>
+    <span class="sql-comment">   • Выполняется в БРАУЗЕРЕ</span><br>
+    <span class="sql-comment">   • Использует ресурсы пользователя</span><br>
+    <span class="sql-comment">   • Данные остаются ЛОКАЛЬНО (приватно!)</span><br>
+    <span class="sql-comment">   • Асинхронный код (обязательно await)</span><br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">🌍 ГДЕ ИСПОЛЬЗУЕТСЯ transformers_js_py?</span><br><br>
+
+    <span class="sql-comment">🎓 1. ОБРАЗОВАНИЕ</span><br>
+    <span class="sql-comment">   • JupyterLite (без серверная версия)</span><br>
+    <span class="sql-comment">   • Онлайн-курсы по ML</span><br>
+    <span class="sql-comment">   • Учебные проекты студентов</span><br><br>
+
+    <span class="sql-comment">🔒 2. ПРИВАТНЫЙ АНАЛИЗ</span><br>
+    <span class="sql-comment">   • Медицинские данные (нельзя отправлять на сервер)</span><br>
+    <span class="sql-comment">   • Финансовая информация</span><br>
+    <span class="sql-comment">   • Персональные данные</span><br><br>
+
+    <span class="sql-comment">🚀 3. ДЕМОНСТРАЦИИ И ПРОТОТИПЫ</span><br>
+    <span class="sql-comment">   • Быстрый показ работы AI без бэкенда</span><br>
+    <span class="sql-comment">   • Портфолио проектов</span><br><br>
+
+    <span class="sql-comment">📱 4. OFFLINE-ПРИЛОЖЕНИЯ</span><br>
+    <span class="sql-comment">   • После загрузки работает без интернета</span><br>
+    <span class="sql-comment">   • PWA (Progressive Web Apps) с AI</span><br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">⚙️ КАК ЭТО РАБОТАЕТ ПОД КАПОТОМ?</span><br><br>
+
+    <span class="sql-comment">┌─────────────────────────────────────────────────────────┐</span><br>
+    <span class="sql-comment">│  1. Браузер загружает WebAssembly (WASM) движок         │</span><br>
+    <span class="sql-comment">│     ↓                                                    │</span><br>
+    <span class="sql-comment">│  2. Модель скачивается из Hugging Face                  │</span><br>
+    <span class="sql-comment">│     ↓                                                    │</span><br>
+    <span class="sql-comment">│  3. Модель сохраняется в IndexedDB (хранилище браузера)  │</span><br>
+    <span class="sql-comment">│     ↓                                                    │</span><br>
+    <span class="sql-comment">│  4. Все вычисления через WebGPU/WebAssembly              │</span><br>
+    <span class="sql-comment">│     ↓                                                    │</span><br>
+    <span class="sql-comment">│  5. Результат возвращается в Python через Pyodide        │</span><br>
+    <span class="sql-comment">└─────────────────────────────────────────────────────────┘</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">💡 КЛЮЧЕВЫЕ ТЕХНОЛОГИИ:</span><br>
+    <span class="sql-comment">   • WebAssembly (WASM) — запуск C++/Rust кода в браузере</span><br>
+    <span class="sql-comment">   • WebGPU — аппаратное ускорение нейросетей</span><br>
+    <span class="sql-comment">   • Pyodide — Python в браузере</span><br>
+    <span class="sql-comment">   • IndexedDB — локальное хранилище для моделей</span><br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">🔧 ДРУГИЕ ЗАДАЧИ С transformers_js_py</span><br><br>
+
+    <span class="sql-comment"># Генерация текста (как ChatGPT, но маленькая модель)</span><br>
+    generator = <span class="sql-keyword">await</span> pipeline(<span class="sql-string">'text-generation'</span>, model=<span class="sql-string">'gpt2'</span>)<br>
+    result = <span class="sql-keyword">await</span> generator(<span class="sql-string">'Once upon a time'</span>, max_length=50)<br><br>
+
+    <span class="sql-comment"># Ответы на вопросы (Question Answering)</span><br>
+    qa = <span class="sql-keyword">await</span> pipeline(<span class="sql-string">'question-answering'</span>)<br>
+    result = <span class="sql-keyword">await</span> qa({<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'question'</span>: <span class="sql-string">'What is AI?'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">'context'</span>: <span class="sql-string">'AI stands for Artificial Intelligence'</span><br>
+    })<br><br>
+
+    <span class="sql-comment"># Распознавание именованных сущностей (NER)</span><br>
+    ner = <span class="sql-keyword">await</span> pipeline(<span class="sql-string">'ner'</span>)<br>
+    result = <span class="sql-keyword">await</span> ner(<span class="sql-string">'Elon Musk founded SpaceX in California'</span>)<br><br>
+
+    <span class="sql-comment"># Перевод с английского на русский</span><br>
+    translator = <span class="sql-keyword">await</span> pipeline(<span class="sql-string">'translation_en_to_ru'</span>)<br>
+    result = <span class="sql-keyword">await</span> translator(<span class="sql-string">'Hello, how are you?'</span>)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">📌 ШПАРГАЛКА ПО АСИНХРОННОМУ PYTHON</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">🎯 ГЛАВНОЕ ПРАВИЛО:</span><br>
+    <span class="sql-comment">   В браузерной среде ВСЕ операции с моделями — АСИНХРОННЫЕ!</span><br>
+    <span class="sql-comment">   Всегда используйте ключевое слово await перед вызовом.</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">✅ ПРАВИЛЬНО:</span><br>
+    result = <span class="sql-keyword">await</span> pipe(<span class="sql-string">'text'</span>)<br>
+    model = <span class="sql-keyword">await</span> transformers.pipeline(<span class="sql-string">'task'</span>)<br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">❌ НЕПРАВИЛЬНО:</span><br>
+    result = pipe(<span class="sql-string">'text'</span>)          <span class="sql-comment"># Ошибка!</span><br>
+    model = transformers.pipeline(<span class="sql-string">'task'</span>)  <span class="sql-comment"># Ошибка!</span><br><br>
+
+    <span class="sql-comment" style="font-weight: bold;">💡 ПОЧЕМУ?</span><br>
+    <span class="sql-comment">   Браузер не должен "зависать" во время вычислений.</span><br>
+    <span class="sql-comment">   await позволяет браузеру оставаться отзывчивым.</span><br>
+</div>
+
+<div class="code-block">
+    <span class="sql-comment" style="color: #3498db; font-weight: bold;">📊 ФОРМАТ ВЫВОДА МОДЕЛИ</span><br><br>
+
+    <span class="sql-comment"># Анализ тональности (sentiment-analysis)</span><br>
+    [{'label': <span class="sql-string">'POSITIVE'</span>, 'score': 0.99987}]<br>
+    <span class="sql-comment">   • label: 'POSITIVE' или 'NEGATIVE'</span><br>
+    <span class="sql-comment">   • score: уверенность (0.0 — 1.0)</span><br><br>
+
+    <span class="sql-comment"># Генерация текста (text-generation)</span><br>
+    [{'generated_text': 'Once upon a time there was a...'}]<br><br>
+
+    <span class="sql-comment"># Ответы на вопросы (question-answering)</span><br>
+    {'score': 0.97, 'start': 34, 'end': 45, 'answer': 'Artificial Intelligence'}<br><br>
+
+    <span class="sql-comment"># Распознавание сущностей (ner)</span><br>
+    [{'entity': 'B-PER', 'score': 0.99, 'word': 'Elon'},<br>
+     {'entity': 'B-ORG', 'score': 0.98, 'word': 'SpaceX'}]<br>
+</div>
+
+
+
+
+         <div class="card my-3" style="max-width: 800px">
+        <img
+          loading="lazy"
+          class="card-img-top"
+          src="../h1title14.jpg"
+          alt="Нейросеть в браузере"
+          style="filter: grayscale(1)"
+        />
+        <div class="card-body">
+          <h3 class="card-title">
+            🧠 Кластеризация данных — как Netflix рекомендует фильмы
+          </h3>
+
+     
+          <div class="badge-ai">📊 scikit-learn</div>
+          <p>
+            Алгоритм K-Means группирует пользователей по интересам — основа
+            рекомендательных систем.
+          </p>
+
+          <!-- Карточка 1: Импорт библиотек -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Импорт необходимых библиотек</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <span class="sql-keyword">from</span> sklearn.cluster <span class="sql-keyword">import</span> KMeans<br>
+    <span class="sql-keyword">from</span> sklearn.datasets <span class="sql-keyword">import</span> make_blobs<br>
+</div>
+
+<!-- Карточка 2: Генерация синтетических данных -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Генерация данных "зрителей" и "жанров"</span><br>
+    <span class="sql-comment"># Создаем 300 точек, разделенных на 4 кластера (жанра)</span><br>
+    X, y_true = make_blobs(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;n_samples=<span class="sql-keyword">300</span>,      <span class="sql-comment"># количество зрителей</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;centers=<span class="sql-keyword">4</span>,         <span class="sql-comment"># количество жанров (кластеров)</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cluster_std=<span class="sql-keyword">0.60</span>,  <span class="sql-comment"># разброс внутри группы</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;random_state=<span class="sql-keyword">42</span>    <span class="sql-comment"># фиксируем случайность для воспроизводимости</span><br>
+    )<br>
+    <br>
+    print(<span class="sql-keyword">f"Сгенерировано {X.shape[0]} зрителей с {len(np.unique(y_true))} жанрами"</span>)<br>
+</div>
+
+<!-- Карточка 3: Обучение модели K-Means -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Обучение алгоритма K-Means</span><br>
+    <span class="sql-comment"># Указываем, что хотим найти 4 кластера (жанра)</span><br>
+    kmeans = KMeans(n_clusters=<span class="sql-keyword">4</span>, random_state=<span class="sql-keyword">42</span>)<br>
+    <br>
+    <span class="sql-comment"># Обучаем модель и предсказываем кластеры для каждого зрителя</span><br>
+    y_kmeans = kmeans.fit_predict(X)<br>
+    <br>
+    print(<span class="sql-keyword">f"Модель обучена. Найдено {len(np.unique(y_kmeans))} кластеров"</span>)<br>
+</div>
+
+<!-- Карточка 4: Визуализация результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Визуализация кластеров и центров</span><br>
+    plt.figure(figsize=(<span class="sql-keyword">10</span>, <span class="sql-keyword">6</span>))<br>
+    <br>
+    <span class="sql-comment"># Рисуем точки (зрителей), раскрашивая их по кластерам</span><br>
+    plt.scatter(X[:, <span class="sql-keyword">0</span>], X[:, <span class="sql-keyword">1</span>], <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;c=y_kmeans, s=<span class="sql-keyword">50</span>, cmap=<span class="sql-keyword">'viridis'</span>, alpha=<span class="sql-keyword">0.7</span>)<br>
+    <br>
+    <span class="sql-comment"># Отмечаем центры кластеров (условные "жанры")</span><br>
+    plt.scatter(kmeans.cluster_centers_[:, <span class="sql-keyword">0</span>], kmeans.cluster_centers_[:, <span class="sql-keyword">1</span>], <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;marker=<span class="sql-keyword">'x'</span>, s=<span class="sql-keyword">200</span>, linewidths=<span class="sql-keyword">3</span>, color=<span class="sql-keyword">'red'</span>, label=<span class="sql-keyword">'Центры кластеров'</span>)<br>
+    <br>
+    plt.title(<span class="sql-keyword">'Кластеризация пользователей по предпочтениям (K-Means)'</span>, fontsize=<span class="sql-keyword">14</span>)<br>
+    plt.xlabel(<span class="sql-keyword">'Признак 1'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.ylabel(<span class="sql-keyword">'Признак 2'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.legend()<br>
+    plt.grid(<span class="sql-keyword">True</span>, alpha=<span class="sql-keyword">0.3</span>)<br>
+    plt.show()<br>
+</div>
+
+<!-- Карточка 5: Анализ результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Интерпретация результатов</span><br>
+    print(<span class="sql-keyword">"🔍 АНАЛИЗ РЕЗУЛЬТАТОВ КЛАСТЕРИЗАЦИИ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">"""</span><br>
+<span class="sql-keyword">📌 Красные крестики</span> — центры кластеров (условные "жанры")<br>
+<span class="sql-keyword">🎨 Каждый цвет</span> — группа людей со схожими интересами<br>
+<span class="sql-keyword">📊 Смысл осей</span> — абстрактные признаки предпочтений<br>
+    """</span>)<br>
+    <br>
+    <span class="sql-comment"># Дополнительная информация</span><br>
+    <span class="sql-keyword">for</span> i <span class="sql-keyword">in</span> range(<span class="sql-keyword">4</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cluster_size = np.sum(y_kmeans == i)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"📊 Кластер {i+1}: {cluster_size} зрителей"</span>)<br>
+</div>
+
+<div class="text-muted-small">
+            📌 K-Means — один из самых популярных алгоритмов неконтролируемого
+            обучения. Netflix, Spotify и Amazon используют его для группировки
+            пользователей.
+          </div>
+
+        </div>
+      </div>
+
+
+          <div class="card my-3" style="max-width: 800px">
+        <img
+          loading="lazy"
+          class="card-img-top"
+          src="../h1title14.jpg"
+          alt="Нейросеть в браузере"
+          style="filter: grayscale(1)"
+        />
+        <div class="card-body">
+          <h3 class="card-title">
+           Линейная регрессия — предсказываем успеваемость студентов
+          </h3>
+
+         
+          <div class="badge-ai">📉 scikit-learn</div>
+          <p>
+            Модель машинного обучения, которая предсказывает числовые значения
+            на основе исторических данных.
+          </p>
+          <!-- Карточка 1: Установка и импорт библиотек -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Установка и импорт необходимых библиотек</span><br>
+    %pip install scikit-learn numpy matplotlib pandas<br>
+    <br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <span class="sql-keyword">import</span> matplotlib.pyplot <span class="sql-keyword">as</span> plt<br>
+    <span class="sql-keyword">from</span> sklearn.linear_model <span class="sql-keyword">import</span> LinearRegression<br>
+    <span class="sql-keyword">from</span> sklearn.metrics <span class="sql-keyword">import</span> mean_squared_error, r2_score<br>
+</div>
+
+<!-- Карточка 2: Подготовка данных -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Подготовка данных</span><br>
+    <span class="sql-comment"># Часы подготовки (независимая переменная X)</span><br>
+    hours = np.array([<span class="sql-keyword">1</span>, <span class="sql-keyword">2</span>, <span class="sql-keyword">3</span>, <span class="sql-keyword">4</span>, <span class="sql-keyword">5</span>, <span class="sql-keyword">6</span>, <span class="sql-keyword">7</span>, <span class="sql-keyword">8</span>, <span class="sql-keyword">9</span>, <span class="sql-keyword">10</span>]).reshape(-<span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>)<br>
+    <br>
+    <span class="sql-comment"># Итоговые оценки (зависимая переменная y)</span><br>
+    scores = np.array([<span class="sql-keyword">45</span>, <span class="sql-keyword">50</span>, <span class="sql-keyword">55</span>, <span class="sql-keyword">60</span>, <span class="sql-keyword">65</span>, <span class="sql-keyword">70</span>, <span class="sql-keyword">75</span>, <span class="sql-keyword">85</span>, <span class="sql-keyword">90</span>, <span class="sql-keyword">95</span>])<br>
+    <br>
+    print(<span class="sql-keyword">f"📊 Данных: {len(hours)} студентов"</span>)<br>
+    print(<span class="sql-keyword">f"📈 Диапазон часов: {hours.min()} - {hours.max()}"</span>)<br>
+    print(<span class="sql-keyword">f"🎯 Диапазон оценок: {scores.min()} - {scores.max()}"</span>)<br>
+</div>
+
+<!-- Карточка 3: Обучение модели линейной регрессии -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Создание и обучение модели</span><br>
+    model = LinearRegression()<br>
+    model.fit(hours, scores)<br>
+    <br>
+    print(<span class="sql-keyword">f"📐 Уравнение регрессии: оценка = {model.coef_[0]:.2f} × часы + {model.intercept_:.2f}"</span>)<br>
+</div>
+
+<!-- Карточка 4: Предсказание новых значений -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Предсказание для новых данных</span><br>
+    hours_pred = np.array([<span class="sql-keyword">11</span>, <span class="sql-keyword">12</span>]).reshape(-<span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>)<br>
+    scores_pred = model.predict(hours_pred)<br>
+    <br>
+    <span class="sql-keyword">for</span> h, s <span class="sql-keyword">in</span> zip(hours_pred.flatten(), scores_pred):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"🔮 При {h} часах подготовки прогнозируется {s:.1f} баллов"</span>)<br>
+</div>
+
+<!-- Карточка 5: Визуализация результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: Визуализация модели</span><br>
+    plt.figure(figsize=(<span class="sql-keyword">10</span>, <span class="sql-keyword">6</span>))<br>
+    <br>
+    <span class="sql-comment"># Реальные данные</span><br>
+    plt.scatter(hours, scores, color=<span class="sql-keyword">'blue'</span>, s=<span class="sql-keyword">80</span>, alpha=<span class="sql-keyword">0.7</span>, label=<span class="sql-keyword">'Реальные данные'</span>)<br>
+    <br>
+    <span class="sql-comment"># Линия регрессии</span><br>
+    plt.plot(hours, model.predict(hours), color=<span class="sql-keyword">'red'</span>, linewidth=<span class="sql-keyword">2</span>, label=<span class="sql-keyword">'Линия регрессии'</span>)<br>
+    <br>
+    <span class="sql-comment"># Предсказанные точки</span><br>
+    plt.scatter(hours_pred, scores_pred, color=<span class="sql-keyword">'green'</span>, s=<span class="sql-keyword">150</span>, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;marker=<span class="sql-keyword">'s'</span>, alpha=<span class="sql-keyword">0.8</span>, label=<span class="sql-keyword">'Предсказание'</span>)<br>
+    <br>
+    plt.xlabel(<span class="sql-keyword">'Часы подготовки'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.ylabel(<span class="sql-keyword">'Итоговая оценка'</span>, fontsize=<span class="sql-keyword">12</span>)<br>
+    plt.title(<span class="sql-keyword">'📚 Предсказание оценки по часам занятий'</span>, fontsize=<span class="sql-keyword">14</span>)<br>
+    plt.legend()<br>
+    plt.grid(<span class="sql-keyword">True</span>, alpha=<span class="sql-keyword">0.3</span>)<br>
+    plt.tight_layout()<br>
+    plt.show()<br>
+</div>
+
+<!-- Карточка 6: Оценка качества модели -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 6: Метрики качества модели</span><br>
+    y_pred = model.predict(hours)<br>
+    mse = mean_squared_error(scores, y_pred)<br>
+    r2 = r2_score(scores, y_pred)<br>
+    <br>
+    print(<span class="sql-keyword">"📊 МЕТРИКИ КАЧЕСТВА МОДЕЛИ"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">40</span>)<br>
+    print(<span class="sql-keyword">f"📐 Коэффициент (наклон): {model.coef_[0]:.2f}"</span>)<br>
+    print(<span class="sql-keyword">f"📍 Свободный член: {model.intercept_:.2f}"</span>)<br>
+    print(<span class="sql-keyword">f"📈 MSE (среднеквадратичная ошибка): {mse:.2f}"</span>)<br>
+    print(<span class="sql-keyword">f"⭐ R² (качество модели): {r2:.3f}"</span>)<br>
+    <br>
+    <span class="sql-keyword">if</span> r2 > <span class="sql-keyword">0.9</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">"✅ Отличное качество модели! Более 90% вариации оценок объясняется часами занятий."</span>)<br>
+</div>
+          <div class="text-muted-small">
+            🧮 Линейная регрессия — основа прогнозирования цен на жильё, продаж,
+            нагрузки и многого другого.
+          </div>
+        </div>
+      </div>
+
+
+          <div class="card my-3" style="max-width: 800px">
+        <img
+          loading="lazy"
+          class="card-img-top"
+          src="../h1title14.jpg"
+          alt="Нейросеть в браузере"
+          style="filter: grayscale(1)"
+        />
+        <div class="card-body">
+          <h3 class="card-title">
+           Нейросеть с нуля — один нейрон, который обучается
+          </h3>
+
+             <div class="badge-ai">🧠 numpy</div>
+          <p>
+            Реализуем простейший перцептрон и обучим его на логическом ИЛИ —
+            поймём, как работают нейросети внутри.
+          </p>
+<!-- Карточка 1: Импорт библиотек и активационная функция -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 1: Импорт библиотек и определение активационной функции</span><br>
+    <span class="sql-keyword">import</span> numpy <span class="sql-keyword">as</span> np<br>
+    <br>
+    <span class="sql-comment"># Активационная функция (ступенька)</span><br>
+    <span class="sql-comment"># Возвращает 1, если сумма >= 0, иначе 0</span><br>
+    <span class="sql-keyword">def</span> <span class="sql-function">step_function</span>(x):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-keyword">1</span> <span class="sql-keyword">if</span> x >= <span class="sql-keyword">0</span> <span class="sql-keyword">else</span> <span class="sql-keyword">0</span><br>
+</div>
+
+<!-- Карточка 2: Реализация класса Перцептрон -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 2: Реализация класса Perceptron</span><br>
+    <span class="sql-keyword">class</span> <span class="sql-function">Perceptron</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">__init__</span>(self, n_inputs, learning_rate=<span class="sql-keyword">0.1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Инициализация весов и смещения случайными числами</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.weights = np.random.randn(n_inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.bias = np.random.randn()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lr = learning_rate&nbsp;&nbsp;<span class="sql-comment"># Скорость обучения</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">predict</span>(self, inputs):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Вычисляем взвешенную сумму</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linear = np.dot(inputs, self.weights) + self.bias<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> step_function(linear)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">def</span> <span class="sql-function">train</span>(self, X, y, epochs=<span class="sql-keyword">20</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Обучение перцептрона</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> epoch <span class="sql-keyword">in</span> range(epochs):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errors = <span class="sql-keyword">0</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> inputs, target <span class="sql-keyword">in</span> zip(X, y):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction = self.predict(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error = target - prediction<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> error != <span class="sql-keyword">0</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Правило Хебба: корректируем веса</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.weights += self.lr * error * np.array(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.bias += self.lr * error<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errors += <span class="sql-keyword">1</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> epoch % <span class="sql-keyword">5</span> == <span class="sql-keyword">0</span>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"Эпоха {epoch}: ошибок {errors}"</span>)<br>
+</div>
+
+<!-- Карточка 3: Обучение перцептрона (логическое ИЛИ) -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 3: Обучение перцептрона для задачи логического ИЛИ</span><br>
+    <span class="sql-comment"># Таблица истинности для ИЛИ:</span><br>
+    <span class="sql-comment"># 0 OR 0 = 0</span><br>
+    <span class="sql-comment"># 0 OR 1 = 1</span><br>
+    <span class="sql-comment"># 1 OR 0 = 1</span><br>
+    <span class="sql-comment"># 1 OR 1 = 1</span><br>
+    <br>
+    X_train = [[<span class="sql-keyword">0</span>,<span class="sql-keyword">0</span>], [<span class="sql-keyword">0</span>,<span class="sql-keyword">1</span>], [<span class="sql-keyword">1</span>,<span class="sql-keyword">0</span>], [<span class="sql-keyword">1</span>,<span class="sql-keyword">1</span>]]<br>
+    y_train = [<span class="sql-keyword">0</span>, <span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>, <span class="sql-keyword">1</span>]<br>
+    <br>
+    p = Perceptron(n_inputs=<span class="sql-keyword">2</span>, learning_rate=<span class="sql-keyword">0.1</span>)<br>
+    p.train(X_train, y_train, epochs=<span class="sql-keyword">20</span>)<br>
+</div>
+
+<!-- Карточка 4: Проверка результатов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 4: Проверка обученного перцептрона</span><br>
+    print(<span class="sql-keyword">"\n🔍 ПРОВЕРКА ОБУЧЕННОГО ПЕРЦЕПТРОНА (ЛОГИЧЕСКОЕ ИЛИ):"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">45</span>)<br>
+    <br>
+    <span class="sql-keyword">for</span> inputs <span class="sql-keyword">in</span> X_train:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;result = p.predict(inputs)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="sql-keyword">f"  {inputs[0]} OR {inputs[1]} = {result}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Вывод весов обученной модели</span><br>
+    print(<span class="sql-keyword">f"\n📊 Веса модели: {p.weights.round(3)}"</span>)<br>
+    print(<span class="sql-keyword">f"📊 Смещение (bias): {p.bias:.3f}"</span>)<br>
+</div>
+
+<!-- Карточка 5: Задание для студентов -->
+<div class="code-block">
+    <span class="sql-comment"># ЭТАП 5: ЗАДАНИЕ ДЛЯ СТУДЕНТОВ</span><br>
+    print(<span class="sql-keyword">"\n"</span> + <span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    print(<span class="sql-keyword">"💡 ЗАДАНИЕ: ПОПРОБУЙТЕ ОБУЧИТЬ ПЕРЦЕПТРОН НА ЛОГИЧЕСКОЕ 'И'"</span>)<br>
+    print(<span class="sql-keyword">"="</span>*<span class="sql-keyword">50</span>)<br>
+    <br>
+    print(<span class="sql-keyword">"""</span><br>
+<span class="sql-keyword">📝 Таблица истинности для логического 'И' (AND):</span><br>
+    <span class="sql-keyword">0 AND 0 = 0</span><br>
+    <span class="sql-keyword">0 AND 1 = 0</span><br>
+    <span class="sql-keyword">1 AND 0 = 0</span><br>
+    <span class="sql-keyword">1 AND 1 = 1</span><br>
+    <br>
+<span class="sql-keyword">🔧 Замените y_train на:</span><br>
+    y_train = [<span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, <span class="sql-keyword">0</span>, <span class="sql-keyword">1</span>]<br>
+    <br>
+<span class="sql-keyword">❓ Вопросы для исследования:</span><br>
+    1. Сможет ли перцептрон обучиться логическому 'И'?<br>
+    2. Сколько эпох потребовалось?<br>
+    3. Попробуйте обучить на логическое 'ИСКЛЮЧАЮЩЕЕ ИЛИ' (XOR):<br>
+       y_train = [0, 1, 1, 0]<br>
+       Обучится ли? Почему?<br>
+    """</span>)<br>
+</div>
+         </div>
+         </div>
+
+
+
+
 
 <div class="card my-3" style="max-width: 800px">
   <p>
@@ -13158,7 +16329,7 @@
                 <li><strong>Напишите промт</strong> (пусть неидеальный)</li>
                 <li><strong>Получите ответ</strong> от AI</li>
                 <li><strong>Поправьте промт</strong> (добавьте детали, уточните формат, исправьте недопонимание)</li>
-                <li><strong>Повторите</strong> 2–3 раза до满意</li>
+                <li><strong>Повторите</strong> 2–3 раза до</li>
             </ol>
             
             <p><strong>Фразы для уточнения:</strong></p>

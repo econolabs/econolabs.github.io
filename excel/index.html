@@ -12,12 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <script src="./quizesSets.js"></script>
 
-    <link rel="stylesheet" href="../dist/katex.min.css" />
-    <script src="../dist/katex.min.js"></script>
+    <!-- <link rel="stylesheet" href="../dist/katex.min.css" />
+    <script src="../dist/katex.min.js"></script> -->
 
     <script src="../dist/redux-toolkit.umd.min.js"></script>
     <script src="../dist/rtk-query.umd.min.js"></script>
 
+     <!-- <link rel="stylesheet" href="../dist/jsxgraph.css" />
+    <script src="../dist/jsxgraphcore.js"></script> -->
 
     <style>
       .fade-in-div {
@@ -1476,6 +1478,7 @@ Z-оценка для значения 75:
                         <div class="card-body">
                             <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
                             <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
                             <form id="quizform">
                                 <div id="quizChecks" class="m-1 p-1"></div>
                                 <div id="quizHint" class="m-1 p-1"></div>
@@ -1514,6 +1517,7 @@ Z-оценка для значения 75:
 
       <script src="../dist/basicfirebasecrudauthservices.js"></script>
       <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
     <script src="./bundle.js"></script>
 
   </body>
