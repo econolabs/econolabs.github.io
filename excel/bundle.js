@@ -9,7 +9,7 @@ const store = createApplicationStore();
 function doSaveQuiz() {
     let { pageIndex, randomNumber, answer = null } = store.getState().application;
 
-    let { title, theme, text, hint = "", dataArray = [],  answers, type } =
+    let { title, theme, text, hint = "", dataArray = [], answers, type } =
         window.quizesSets[pageIndex];
 
 
@@ -48,12 +48,12 @@ function doSaveQuiz() {
                         quizString: text, //"this {={var1-10}+1} some {=2+{var1-10}} that can be {=3+{var1-10}} with a {=4+{var1-10}} function",
                         answer: answer,
                         randomNumber: randomNumber
-                    }).quizString;                    
+                    }).quizString;
             }
 
             let answerTextInLine = Array.isArray(answers) && answers.length > 0
                 ? answers.map(item => item).join("<br>") : "";
-                console.log(answerTextInLine)
+            console.log(answerTextInLine)
 
 
             let postObject = {
@@ -63,7 +63,7 @@ function doSaveQuiz() {
                 comment: title + " (" + theme + ")",
                 type: quiztype,
                 answer: answerTextInLine,
-          //      content: {A1: ""},
+                //      content: {A1: ""},
                 quizString: quizString,
                 deleted: false,
                 email: userEmail,
@@ -88,9 +88,9 @@ function doSaveQuiz() {
             updates[
                 "currentDay/" + currentDay + "/posts/" + idPost
             ] = currentDayObject;
-            
+
             updateFirebaseNode(updates)
-            .then(()=>console.log(updates))
+                .then(() => console.log(updates))
 
 
         });
@@ -125,7 +125,7 @@ function doSaveQuiz() {
 
 
 function getCheckedIds(name) {
-   
+
     const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
 
     if (checked.length === 0) return null;
@@ -136,7 +136,7 @@ function getCheckedIds(name) {
 
 function handleCheckQuiz(e) {
     e.preventDefault();
-    let {  answer, randomNumber, pageIndex } = store.getState().application;
+    let { answer, randomNumber, pageIndex } = store.getState().application;
     let { hint, answers } =
         window.quizesSets[pageIndex];
 
@@ -150,21 +150,21 @@ function handleCheckQuiz(e) {
 
     if (Array.isArray(answers)) {
 
-         getHashesArray(answers).then(res => {
+        getHashesArray(answers).then(res => {
             if (
-            areArraysEqual(
-                getCheckedIds("quizselection"),
-                res
-            )
-        ) {
-            $("#answerButton").classList = "btn  btn-outline-success"; doSaveQuiz();
-        }
-        else {
-            $("#answerButton").classList = "btn btn-outline-danger";
-        } 
-         })
+                areArraysEqual(
+                    getCheckedIds("quizselection"),
+                    res
+                )
+            ) {
+                $("#answerButton").classList = "btn  btn-outline-success"; doSaveQuiz();
+            }
+            else {
+                $("#answerButton").classList = "btn btn-outline-danger";
+            }
+        })
 
-        
+
 
         if (!document.body.dataset?.exam) {
             setMathInnerHTML($("#quizHint"),
@@ -205,6 +205,8 @@ function handleCheckQuiz(e) {
     }
 }
 
+
+
 function updateQuiz(activePage) {
     let quiz = window?.quizesSets[activePage];
     console.log(quiz);
@@ -215,7 +217,7 @@ function updateQuiz(activePage) {
         Math.floor((Math.random() * 9 + 1) * 1000) / 1000;
 
 
-
+    $("#box").style.display = "none";
     $("#quizformdataarray").style.display = "none";
     $("#usercalculations").style.display = "none";
     $("#inputFormula").value = "";
@@ -230,6 +232,11 @@ function updateQuiz(activePage) {
     $("#answerButton").style.display = "block";
 
     $("#quizHint").innerHTML = "";
+
+    if (!!quiz?.JSXGraphType) {
+        window.jsxtemplatefunctions[quiz.JSXGraphType]("box");
+    }
+
 
     setMathInnerHTML($("#quizString"),
         processquizwithrandomnumber({
