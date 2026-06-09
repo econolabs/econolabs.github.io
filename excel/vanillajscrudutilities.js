@@ -27,13 +27,13 @@ const applicationSlice = createSlice({
             const { arrayName, index } = action.payload;
             state[arrayName].splice(index, 1);
         },
-        
+
         // Delete item from array by ID (or unique property)
         deleteItemFromArrayById: (state, action) => {
             const { arrayName, id, idField = 'id' } = action.payload;
             state[arrayName] = state[arrayName].filter(item => item[idField] !== id);
         },
-        
+
         // Update item in array by index
         updateItemInArrayByIndex: (state, action) => {
             const { arrayName, index, updatedItem } = action.payload;
@@ -41,7 +41,7 @@ const applicationSlice = createSlice({
                 state[arrayName][index] = { ...state[arrayName][index], ...updatedItem };
             }
         },
-        
+
         // Update item in array by ID
         updateItemInArrayById: (state, action) => {
             const { arrayName, id, updatedItem, idField = 'id' } = action.payload;
@@ -50,7 +50,7 @@ const applicationSlice = createSlice({
                 state[arrayName][index] = { ...state[arrayName][index], ...updatedItem };
             }
         },
-        
+
         // Replace entire item in array by ID
         replaceItemInArrayById: (state, action) => {
             const { arrayName, id, newItem, idField = 'id' } = action.payload;
@@ -59,36 +59,36 @@ const applicationSlice = createSlice({
                 state[arrayName][index] = newItem;
             }
         },
-        
+
         // Clear entire array
         clearArray: (state, action) => {
             const { arrayName } = action.payload;
             state[arrayName] = [];
         },
-        
+
         // Remove multiple items by IDs
         deleteMultipleItemsFromArray: (state, action) => {
             const { arrayName, ids, idField = 'id' } = action.payload;
             state[arrayName] = state[arrayName].filter(item => !ids.includes(item[idField]));
         },
-        
+
         // Add item at specific position
         addItemToArrayAtIndex: (state, action) => {
             const { arrayName, index, item } = action.payload;
             state[arrayName].splice(index, 0, item);
         },
-        
+
         // Move item within array
         moveItemInArray: (state, action) => {
             const { arrayName, fromIndex, toIndex } = action.payload;
             const [movedItem] = state[arrayName].splice(fromIndex, 1);
             state[arrayName].splice(toIndex, 0, movedItem);
         },
-        
+
         // Update multiple items by condition
         updateItemsInArray: (state, action) => {
             const { arrayName, predicate, updates } = action.payload;
-            state[arrayName] = state[arrayName].map(item => 
+            state[arrayName] = state[arrayName].map(item =>
                 predicate(item) ? { ...item, ...updates } : item
             );
         },
@@ -97,7 +97,7 @@ const applicationSlice = createSlice({
 
 let { seedState, addItemToArray, updateItemInArrayByIndex,
     updateItemInArrayById, deleteItemFromArrayById,
-     deleteItemFromArrayByIndex } = applicationSlice.actions;
+    deleteItemFromArrayByIndex } = applicationSlice.actions;
 
 function createApplicationStore() {
     return configureStore({
@@ -477,8 +477,8 @@ let vanillajscrudutilities = Object.assign({},
         getHashesArray: getHashesArray,
         areArraysEqual: areArraysEqual,
         updateItemInArrayByIndex,
-    updateItemInArrayById, deleteItemFromArrayById,
-     deleteItemFromArrayByIndex
+        updateItemInArrayById, deleteItemFromArrayById,
+        deleteItemFromArrayByIndex
     })
 
 window.vanillajscrudutilities = vanillajscrudutilities

@@ -52,13 +52,13 @@
   }
   let defaultProjectData = {
     id: openquizid,
-    title: "Бухг. учет пр-ва и реал. продукции",
+    title: "Бухг. учет пр-ва и реал. продукции 2",
     // Задание от " + new Intl.DateTimeFormat("ru", {
     //     year: "numeric",
     //     month: "short",
     //     day: "numeric"
     // }).format(new Date()),
-    theme: "Бухг. учет пр-ва и реал. продукции",
+    theme: "Бухг. учет пр-ва и реал. продукции 2",
     answer: "Операции и отчетность",
     comment: "Операции и отчетность",
     type: "accountingwithprofitscash",
