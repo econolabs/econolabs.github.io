@@ -961,7 +961,67 @@
                                 <ul>
                                    <li>https://econolabspython.github.io/jupyterlite/lab/index.html</li>
                                 </ul>
-                            </div>
+                            </div>    
+
+
+                            <div class="alert alert-secondary">
+
+                            <strong class="m-2">В дальнейшем примеры можно запустить в Windows </strong>
+
+                                 <ul>
+                                  <li>https://www.python.org/downloads/windows/</li>
+                                   <li>python -v</li>
+                                   <li>pip install (названия библиотек)</li>
+                                   <li>Перенести код в Блокнот. При сохранении Все файлы. Расширение .py</li>
+                                   <li>python myscrypt.py</li>
+                                </ul>
+
+                                <div class="code-section">
+    <h3>Установка зависимостей</h3>
+
+ <div class="code-block">
+        <pre><code>pip install markitdown[all]
+winget install exiftool
+winget install ffmpeg
+pip install openai
+pip install NumPy Pandas Matplotlib Seaborn Scikit-learn random
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install transformers
+pip install datasets evaluate accelerate timm</code></pre>
+    </div>
+
+
+    
+    <h3>Проверка установки</h3>
+    
+    <div class="code-block">
+        <pre><code>python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('hugging face is the best'))"</code></pre>
+    </div>
+
+    <div class="response-block">
+        <strong>Ответ системы через пару МИНУТ</strong><br>
+        <code>[{'label': 'POSITIVE', 'score': 0.9998704791069031}]</code>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="optional-section">
+        <p><strong>ДАЛЕЕ НЕОБЯЗАТЕЛЬНО (ОБЪЕМ БОЛЬШЕ 1 Гб), НО ЖЕЛАТЕЛЬНО ПОПРОБОВАТЬ!</strong></p>
+        
+        <div class="code-block">
+            <pre><code>pip install langchain_ollama
+winget install Ollama.Ollama
+ollama serve
+ollama pull llama3.2</code></pre>
+        </div>
+    </div>
+
+
+ </div>
+    
+   
+
+</div>
                         </div>
                     </div>
                 </div>
@@ -1120,8 +1180,7 @@
     <span class="sql-keyword">import</span> csv<br>
     <span class="sql-keyword">import</span> json<br>
     <span class="sql-keyword">import</span> sqlite3<br>
-    <br><br>
-</div>
+   </div>
 
 <div class="code-block">
     <span class="sql-comment"># Функция генерации данных студентов</span><br>
@@ -1367,6 +1426,53 @@
 </div>
 
 
+<div class="code-block">
+    <span class="sql-comment"># Установка необходимых библиотек для Jupyter Lite</span><br>
+    <span class="sql-keyword">import</span> piplite<br>
+    <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">'pandas'</span>)<br>
+    <span class="sql-keyword">await</span> piplite.install(<span class="sql-string">'beautifulsoup4'</span>)<br>
+    <br>
+  
+    <span class="sql-keyword">from</span> bs4 <span class="sql-keyword">import</span> BeautifulSoup<br>
+    <br>
+    <span class="sql-comment"># Пример HTML-кода</span><br>
+    html_doc = <span class="sql-string">"""</span><br>
+    <span class="sql-string">&lt;html&gt;</span><br>
+    <span class="sql-string">&lt;head&gt;</span><br>
+    <span class="sql-string">    &lt;title&gt;Моя первая страница&lt;/title&gt;</span><br>
+    <span class="sql-string">&lt;/head&gt;</span><br>
+    <span class="sql-string">&lt;body&gt;</span><br>
+    <span class="sql-string">    &lt;h1&gt;Привет, мир!&lt;/h1&gt;</span><br>
+    <span class="sql-string">    &lt;p class="text"&gt;Это пример параграфа.&lt;/p&gt;</span><br>
+    <span class="sql-string">    &lt;p class="text"&gt;Еще один параграф.&lt;/p&gt;</span><br>
+    <span class="sql-string">    &lt;div id="content"&gt;</span><br>
+    <span class="sql-string">        &lt;ul&gt;</span><br>
+    <span class="sql-string">            &lt;li&gt;Пункт 1&lt;/li&gt;</span><br>
+    <span class="sql-string">            &lt;li&gt;Пункт 2&lt;/li&gt;</span><br>
+    <span class="sql-string">            &lt;li&gt;Пункт 3&lt;/li&gt;</span><br>
+    <span class="sql-string">        &lt;/ul&gt;</span><br>
+    <span class="sql-string">    &lt;/div&gt;</span><br>
+    <span class="sql-string">&lt;/body&gt;</span><br>
+    <span class="sql-string">&lt;/html&gt;</span><br>
+    <span class="sql-string">"""</span><br>
+    <br>
+    <span class="sql-comment"># Создаем объект BeautifulSoup</span><br>
+    soup = BeautifulSoup(html_doc, <span class="sql-string">'html.parser'</span>)<br>
+    <br>
+    <span class="sql-comment"># Поиск элементов</span><br>
+    <span class="sql-keyword">print</span>(soup.title.string)  <span class="sql-comment"># Выводит: Моя первая страница</span><br>
+    <span class="sql-keyword">print</span>(soup.h1.text)        <span class="sql-comment"># Выводит: Привет, мир!</span><br>
+    <br>
+    <span class="sql-comment"># Поиск по классу</span><br>
+    paragraphs = soup.find_all(<span class="sql-string">'p'</span>, class_=<span class="sql-string">'text'</span>)<br>
+    <span class="sql-keyword">for</span> p <span class="sql-keyword">in</span> paragraphs:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(p.text)<br>
+    <br>
+    <span class="sql-comment"># Поиск по id</span><br>
+    content = soup.find(id=<span class="sql-string">'content'</span>)<br>
+    <span class="sql-keyword">print</span>(content.text.strip())<br>
+</div>
+
                 <div class="code-block">
     <span class="sql-comment"># Установка необходимых библиотек для Jupyter Lite</span><br>
     <span class="sql-keyword">import</span> piplite<br>
@@ -1500,6 +1606,42 @@
     <span class="sql-string">    </span><br>
     <span class="sql-string">3. Скачайте CSV файл по появившейся ссылке</span><br>
     <span class="sql-string">"""</span>)<br>
+</div>
+
+
+
+<div class="code-block">
+    <span class="sql-comment"># Только для компьютера с предустановленными библиотеками!</span><br>
+    <span class="sql-keyword">import</span> requests<br>
+    <span class="sql-keyword">from</span> bs4 <span class="sql-keyword">import</span> BeautifulSoup<br>
+    <br>
+    <span class="sql-comment"># URL для парсинга</span><br>
+    url = <span class="sql-string">"https://yandex.ru"</span><br>
+    <br>
+    <span class="sql-comment"># Получаем HTML-код страницы</span><br>
+    response = requests.get(url)<br>
+    response.encoding = <span class="sql-string">'utf-8'</span><br>
+    <br>
+    <span class="sql-comment"># Создаем объект BeautifulSoup</span><br>
+    soup = BeautifulSoup(response.text, <span class="sql-string">'html.parser'</span>)<br>
+    <br>
+    <span class="sql-comment"># Находим заголовок страницы</span><br>
+    title = soup.find(<span class="sql-string">'title'</span>)<br>
+    <span class="sql-keyword">print</span>(f<span class="sql-string">"Заголовок страницы: {title.text if title else 'Не найден'}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Находим все заголовки h1</span><br>
+    h1_tags = soup.find_all(<span class="sql-string">'h1'</span>)<br>
+    <span class="sql-keyword">print</span>(f<span class="sql-string">"\nНайдено h1 заголовков: {len(h1_tags)}"</span>)<br>
+    <span class="sql-keyword">for</span> i, h1 <span class="sql-keyword">in</span> <span class="sql-function">enumerate</span>(h1_tags, <span class="sql-number">1</span>):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(f<span class="sql-string">"{i}. {h1.text}"</span>)<br>
+    <br>
+    <span class="sql-comment"># Находим все ссылки</span><br>
+    links = soup.find_all(<span class="sql-string">'a'</span>)<br>
+    <span class="sql-keyword">print</span>(f<span class="sql-string">"\nНайдено ссылок: {len(links)}"</span>)<br>
+    <span class="sql-keyword">for</span> link <span class="sql-keyword">in</span> links[:<span class="sql-number">5</span>]:  <span class="sql-comment"># Показываем первые 5 ссылок</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;href = link.get(<span class="sql-string">'href'</span>)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;text = link.text.strip()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(f<span class="sql-string">"Текст: {text[:30] if text else 'Нет текста'} -&gt; Ссылка: {href}"</span>)<br>
 </div>
 
                 </div>
@@ -1820,6 +1962,1026 @@
       2.	Работа с текстовыми нейросетями
     </h1>
 
+    
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Доступные нейросети в России"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 2.2. Регистрация в текстовых нейросетях и знакомство с интерфейсом
+    </h3>
+    <div>
+      <p>
+        <strong>Актуальные текстовые нейросети, работающие в РФ без VPN (2025–2026):</strong>
+        российские пользователи имеют доступ к широкому спектру ИИ-сервисов —
+        как отечественных, так и зарубежных, которые не блокируют российские
+        IP-адреса .
+      </p>
+
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr>
+            <th>Нейросеть</th>
+            <th>Разработчик</th>
+            <th>Доступ в РФ без VPN</th>
+            <th>Бесплатный тариф</th>
+            <th>Особенности</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>✅ GigaChat</strong></strong></td>
+            <td>Сбер</strong></td>
+            <td>✅ Полная</strong> <br />(российская инфраструктура)
+            </td>
+            <td>✅ Да</strong> <br />(безлимит)
+            </td>
+            <td>Мультимодальная, тексты + картинки, голосовой ввод</strong> 
+            </td>
+          </tr>
+          <tr>
+            <td><strong>✅ YandexGPT</strong></strong></td>
+            <td>Яндекс</strong></td>
+            <td>✅ Полная</strong> <br />(через Алису)
+            </td>
+            <td>✅ Да</strong> <br />(Pro версия — 100₽/мес)
+            </td>
+            <td>Глубокая интеграция с экосистемой Яндекса</strong> 
+            </td>
+          </tr>
+          <tr>
+            <td><strong>✅ DeepSeek</strong></strong></td>
+            <td>DeepSeek (Китай)</strong></td>
+            <td>✅ Полная</strong> <br />(chat.deepseek.com)
+            </td>
+            <td>✅ Да</strong> <br />(безлимит, 128k контекст)
+            </td>
+            <td>Одна из лучших бесплатных моделей, сильна в аналитике</strong> 
+            </td>
+          </tr>
+          <tr>
+            <td><strong>✅ Le Chat (Mistral)</strong></strong></td>
+            <td>Mistral AI (Франция)</strong></td>
+            <td>✅ Полная</strong> <br />(chat.mistral.ai)
+            </td>
+            <td>✅ Да</strong> <br />(без регистрации!)
+            </td>
+            <td>Поиск в вебе, генерация картинок, режим рассуждения</strong> 
+            </td>
+          </tr>
+          <tr>
+            <td><strong>✅ Qwen</strong></strong></td>
+            <td>Alibaba (Китай)</strong></td>
+            <td>✅ Полная</strong> <br />(chat.qwen.ai)
+            </td>
+            <td>✅ Да</strong> <br />(мультимодальная)
+            </td>
+            <td>Понимает текст, изображения, видео</strong> 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>🌟 Важно:</strong> сервисы, отмеченные ✅, работают в России
+        <strong>без VPN</strong> и принимают российские номера телефонов/карты
+        (для отечественных сервисов) или не требуют регистрации вовсе.
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Примечание: ChatGPT, Claude и Grok официально заблокированы для
+        российских IP. Доступ к ним возможен только через VPN, российские
+        агрегаторы (GoGPT, AITUNNEL) или покупку аккаунтов .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="GigaChat регистрация"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Регистрация в GigaChat — нейросеть Сбера (доступна без VPN)
+    </h3>
+    <div>
+      <p>
+        <strong>GigaChat</strong> — российская мультимодальная нейросеть от
+        Сбера, построенная на архитектуре NeONKA. Работает полностью на
+        российской инфраструктуре, данные не покидают РФ .
+      </p>
+
+      <p><strong>✅ Где доступен GigaChat:</strong></p>
+      <ul>
+        <li><strong>Веб-сайт:</strong> giga.chat</li>
+        <li><strong>Telegram-бот:</strong> @GigaChatBot</li>
+        <li><strong>VK-бот:</strong> официальный бот ВКонтакте</li>
+        <li><strong>Мобильные приложения:</strong> iOS и Android (Google Play, RuStore)</li>
+        <li><strong>Программа MAX от VK</strong> (Windows, MacOS)</li>
+        <li><strong>Умные колонки SberBoom</strong> (голосовая активация: «Включи GigaChat»)</li>
+      </ul>
+
+      <p><strong>📝 Пошаговая регистрация (через веб-сайт или приложение):</strong></p>
+      <ol>
+        <li>Перейдите на <strong>giga.chat</strong> или скачайте приложение;</li>
+        <li>Нажмите кнопку <strong>«Войти»</strong> → <strong>«Зарегистрироваться»</strong>;</li>
+        <li>Введите <strong>номер телефона</strong> (российский) → получите SMS с кодом;</li>
+        <li>Подтвердите код → создайте пароль (или войдите через <strong>Сбер ID</strong>);</li>
+        <li>После входа откроется чат — можно задавать вопросы, загружать файлы (DOCX, PDF, TXT);</li>
+        <li>Для генерации изображений просто напишите запрос: <br />
+          <code>«нарисуй закат над горами в стиле импрессионизма»</code>.</li>
+      </ol>
+
+      <p><strong>🎁 Бесплатные возможности GigaChat:</strong></p>
+      <ul>
+        <li>Текстовая генерация без ограничений;</li>
+        <li>Генерация изображений (несколько десятков в сутки);</li>
+        <li>Загрузка и анализ файлов (PDF, DOCX, TXT);</li>
+        <li>Голосовой ввод (в приложении);</li>
+        <li>Поиск в интернете (Deep Research);</li>
+        <li>Анализ изображений (распознаёт объекты, текст, графики).</li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Клиентом Сбера быть не обязательно — регистрация проходит по номеру
+        телефона. Для бизнеса доступен GigaChat API с платными тарифами .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="DeepSeek и YandexGPT регистрация"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Регистрация в DeepSeek и YandexGPT — без VPN, безлимит
+    </h3>
+    <div>
+      <p>
+        <strong>DeepSeek</strong> — китайская языковая модель от DeepSeek,
+        признанная одной из лучших бесплатных LLM. <strong>YandexGPT</strong> —
+        российская нейросеть от Яндекса, интегрированная с Алисой .
+      </p>
+
+      <hr />
+
+      <p><strong>🔵 DeepSeek — пошаговая регистрация:</strong></p>
+      <ul>
+        <li>Перейдите на <strong>chat.deepseek.com</strong> или скачайте приложение (Google Play / iOS App Store);</li>
+        <li>Нажмите <strong>«Sign up»</strong> → введите email или используйте аккаунт Google;</li>
+        <li>Подтвердите email через письмо с кодом (или войдите через Google);</li>
+        <li>Готово! Вы в чате.</li>
+      </ul>
+
+      <p><strong>🎁 Возможности DeepSeek (все бесплатно):</strong></p>
+      <ul>
+        <li><strong>Нет лимита сообщений</strong> — пишите сколько угодно ;</li>
+        <li><strong>Поиск в интернете</strong> — кнопка поиска включает режим реального времени;</li>
+        <li><strong>Режим глубокого мышления (R1)</strong> — рассуждение шаг за шагом (математика, код, логика);</li>
+        <li><strong>Загрузка файлов</strong> — PDF, Word, Excel, изображения (до 128k токенов контекста);</li>
+        <li><strong>Веб-версия и приложение</strong> — история синхронизируется.</li>
+      </ul>
+
+      <hr />
+
+      <p><strong>🟢 YandexGPT — как начать использовать:</strong></p>
+      <ul>
+        <li>Скачайте приложение <strong>«Яндекс — с Алисой»</strong> или откройте <strong>yandex.ru</strong> в браузере;</li>
+        <li>Нажмите на иконку <strong>Алисы</strong> (круглый значок с синим фоном);</li>
+        <li>Для расширенного доступа войдите в <strong>Яндекс ID</strong> (email или номер телефона);</li>
+        <li>Напишите запрос в чат — Алиса ответит, используя YandexGPT;</li>
+        <li><strong>YandexGPT Pro</strong> — подписка 100₽/мес (приоритетная обработка, бессрочное хранение чатов).</li>
+      </ul>
+
+      <p><strong>🎁 Бесплатный функционал YandexGPT:</strong></p>
+      <ul>
+        <li>Текстовая генерация (статьи, письма, код);</li>
+        <li>Анализ файлов (через интерфейс Алисы);</li>
+        <li>Голосовое общение с Алисой;</li>
+        <li>Поиск в интернете;</li>
+        <li>Генерация изображений (YandexART, доступна в приложении).</li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: DeepSeek иногда перегружен в часы пик (ошибка «Server Busy»).
+        В таких случаях используйте Qwen или Le Chat как альтернативу .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Le Chat и Qwen"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Le Chat (Mistral) и Qwen (Alibaba) — без регистрации и без VPN
+    </h3>
+    <div>
+      <p>
+        Две зарубежные нейросети, которые <strong>не требуют регистрации</strong>
+        для базового использования и работают в России без VPN .
+      </p>
+
+      <hr />
+
+      <p><strong>🐱 Le Chat (Mistral AI, Франция) — без регистрации:</strong></p>
+      <ul>
+        <li>Перейдите на <strong>chat.mistral.ai</strong> (без VPN!) → сразу пишите запрос;</li>
+        <li><strong>Не требует email, номера телефона или аккаунта</strong> — история сессии не сохраняется;</li>
+        <li>Для сохранения переписки — зарегистрируйтесь по email или Google (бесплатно);</li>
+      </ul>
+
+      <p><strong>🎁 Возможности Le Chat:</strong></p>
+      <ul>
+        <li><strong>Поиск в вебе</strong> — ищет актуальные данные в интернете прямо в чате;</li>
+        <li><strong>Режим рассуждения</strong> — иллюстрирует ход мыслей (как DeepSeek R1);</li>
+        <li><strong>Генерация картинок</strong> — через интеграцию с Black Forest Labs;</li>
+        <li><strong>Загрузка файлов</strong> — документы, Google Drive, Stripe;</li>
+        <li><strong>Память</strong> — запоминает ваши предпочтения между сессиями.</li>
+      </ul>
+      <p class="text-muted">⚠️ Бесплатный тариф имеет дневные ограничения при интенсивном использовании. Pro — $15.99/мес.</p>
+
+      <hr />
+
+      <p><strong>🐉 Qwen (Alibaba, Китай) — мультимодальная без регистрации:</strong></p>
+      <ul>
+        <li>Перейдите на <strong>chat.qwen.ai</strong> (без VPN!) или скачайте приложение Qwen Chat;</li>
+        <li><strong>Работает без регистрации</strong> (как Le Chat);</li>
+        <li>Для сохранения чатов и синхронизации — войдите через email или Google;</li>
+      </ul>
+
+      <p><strong>🎁 Возможности Qwen:</strong></p>
+      <ul>
+        <li><strong>Мультимодальный ввод</strong> — понимает текст, изображения и видео в рамках одного разговора;</li>
+        <li><strong>Выбор модели</strong> — быстрые и мощные версии в интерфейсе;</li>
+        <li><strong>Генерация картинок</strong> — в отдельном режиме;</li>
+        <li><strong>Отличное понимание русского языка</strong> — отвечает без заметных задержек;</li>
+        <li><strong>Синхронизация</strong> — история сохраняется между браузером и приложением.</li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: Qwen — отличная альтернатива, когда DeepSeek перегружен («Server Busy») .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Агрегаторы нейросетей"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Альтернативные способы: российские агрегаторы и API-доступ
+    </h3>
+    <div>
+      <p>
+        Если нужен доступ к <strong>ChatGPT, Claude или Midjourney</strong>
+        без VPN и зарубежных карт — используйте российские агрегаторы и
+        API-провайдеры .
+      </p>
+
+      <p><strong>🇷🇺 Российские агрегаторы (доступ без VPN, оплата в рублях):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Сервис</th><th>Что даёт доступ</th><th>Особенности</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GoGPT</strong></strong>
+            <td>ChatGPT, Claude, Midjourney, и др.</strong>
+            <td>Единый интерфейс, оплата рублями, без VPN </strong>
+          </tr>
+          <tr>
+            <td><strong>AITUNNEL</strong></strong>
+            <td>OpenAI, Google, DeepSeek</strong>
+            <td>API для разработчиков, стабильный доступ, рубли </strong>
+          </tr>
+          <tr>
+            <td><strong>SmartBuddy</strong></strong>
+            <td>Генерация диаграмм, работа с документами</strong>
+            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
+          </tr>
+          <tr>
+            <td><strong>Syntx AI</strong></strong>
+            <td>Десятки нейросетей в одном окне</strong>
+            <td>Генерация текстов, изображений, видео </strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <p><strong>🔌 API-доступ для разработчиков (бесплатные квоты):</strong></p>
+      <ul>
+        <li>
+          <strong>Yandex Cloud (YandexGPT API):</strong> грант 4000–10000₽
+          новым пользователям на 60 дней. Этого хватает на сотни статей и
+          тысяч картинок через YandexART ;
+        </li>
+        <li>
+          <strong>GigaChat API:</strong> Freemium-тариф с ежегодной квотой токенов
+          (~900k токенов в год на Lite-тарифе). Не сгорает через 2 месяца,
+          оплата российскими картами ;
+        </li>
+        <li>
+          <strong>DeepSeek API:</strong> копеечные тарифы ($0.27 / $0.40 за 1M токенов),
+          доступен из России через официальный API .
+        </li>
+      </ul>
+
+      <p><strong>📊 Сравнение бесплатных квот (2025–2026):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Сервис</th><th>Бесплатный лимит</th><th>Срок действия</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>YandexGPT API</strong>
+            <td>4000–10000₽ грант</strong>
+            <td>60 дней</strong>
+          </tr>
+          <tr>
+            <td>GigaChat API (Lite)</strong>
+            <td>~900k токенов/год</strong>
+            <td>1 год</strong>
+          </tr>
+          <tr>
+            <td>DeepSeek (чат)</strong>
+            <td>Безлимит</strong>
+            <td>Бессрочно</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Вывод: для рядовых задач достаточно бесплатных чатов (DeepSeek, GigaChat,
+        YandexGPT). Для интеграции с WordPress или автоматизации — используйте
+        API с бесплатными квотами Яндекса и Сбера .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Агрегаторы нейросетей"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Альтернативные способы: российские агрегаторы и API-доступ
+    </h3>
+    <div>
+      <p>
+        Если нужен доступ к <strong>ChatGPT, Claude или Midjourney</strong>
+        без VPN и зарубежных карт — используйте российские агрегаторы и
+        API-провайдеры .
+      </p>
+
+      <p><strong>🇷🇺 Российские агрегаторы (доступ без VPN, оплата в рублях):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Сервис</th><th>Что даёт доступ</th><th>Особенности</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GoGPT</strong></strong>
+            <td>ChatGPT, Claude, Midjourney, и др.</strong>
+            <td>Единый интерфейс, оплата рублями, без VPN </strong>
+          </tr>
+          <tr>
+            <td><strong>AITUNNEL</strong></strong>
+            <td>OpenAI, Google, DeepSeek</strong>
+            <td>API для разработчиков, стабильный доступ, рубли </strong>
+          </tr>
+          <tr>
+            <td><strong>SmartBuddy</strong></strong>
+            <td>Генерация диаграмм, работа с документами</strong>
+            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
+          </tr>
+          <tr>
+            <td><strong>Syntx AI</strong></strong>
+            <td>Десятки нейросетей в одном окне</strong>
+            <td>Генерация текстов, изображений, видео </strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <p><strong>🔌 API-доступ для разработчиков (бесплатные квоты):</strong></p>
+      <ul>
+        <li>
+          <strong>Yandex Cloud (YandexGPT API):</strong> грант 4000–10000₽
+          новым пользователям на 60 дней. Этого хватает на сотни статей и
+          тысяч картинок через YandexART ;
+        </li>
+        <li>
+          <strong>GigaChat API:</strong> Freemium-тариф с ежегодной квотой токенов
+          (~900k токенов в год на Lite-тарифе). Не сгорает через 2 месяца,
+          оплата российскими картами ;
+        </li>
+        <li>
+          <strong>DeepSeek API:</strong> копеечные тарифы ($0.27 / $0.40 за 1M токенов),
+          доступен из России через официальный API .
+        </li>
+      </ul>
+
+      <p><strong>📊 Сравнение бесплатных квот (2025–2026):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Сервис</th><th>Бесплатный лимит</th><th>Срок действия</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>YandexGPT API</strong>
+            <td>4000–10000₽ грант</strong>
+            <td>60 дней</strong>
+          </tr>
+          <tr>
+            <td>GigaChat API (Lite)</strong>
+            <td>~900k токенов/год</strong>
+            <td>1 год</strong>
+          </tr>
+          <tr>
+            <td>DeepSeek (чат)</strong>
+            <td>Безлимит</strong>
+            <td>Бессрочно</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Вывод: для рядовых задач достаточно бесплатных чатов (DeepSeek, GigaChat,
+        YandexGPT). Для интеграции с WordPress или автоматизации — используйте
+        API с бесплатными квотами Яндекса и Сбера .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Промпт инжиниринг"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 2.3. Формирование правильных запросов и создание контента. Преимущества, недостатки и ограничения текстовых нейросетей
+    </h3>
+    <div>
+      <p>
+        <strong>Промпт (prompt)</strong> — это текстовый запрос или инструкция,
+        которую пользователь отправляет нейросети для получения желаемого
+        результата. Качество ответа <strong>напрямую зависит от качества
+        запроса</strong>.
+      </p>
+
+      <p><strong>Почему промпт так важен:</strong></p>
+      <ul>
+        <li>
+          <strong>Нейросеть не читает мысли:</strong> она интерпретирует только
+          то, что вы написали. Неоднозначный запрос → неоднозначный ответ;
+        </li>
+        <li>
+          <strong>Одинаковый запрос → разные результаты:</strong> даже на одной
+          модели ответы могут различаться из-за стохастичности (элемента
+          случайности);
+        </li>
+        <li>
+          <strong>Спецификация задачи:</strong> чем точнее вы опишете, что нужно,
+          тем выше шанс получить качественный результат;
+        </li>
+        <li>
+          <strong>Экономия времени:</strong> хороший промпт с первого раза
+          избавляет от 5–10 итераций уточнений.
+        </li>
+      </ul>
+
+      <p><strong>Плохой vs хороший промпт — пример:</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Тип</th><th>Пример запроса</th><th>Почему это проблема</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>❌ Плохой</strong></strong></td>
+            <td>«Напиши статью про ИИ»</strong>
+            <td>Слишком широко: непонятно, для кого, какой объём, какой стиль</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ Хороший</strong></strong>
+            <td>
+              «Напиши короткую статью (300–400 слов) для начинающих менеджеров
+              о том, как ИИ помогает в продажах. Используй простой язык, добавь
+              2 примера из реального бизнеса»
+             </strong>
+            <td>Чёткие рамки: аудитория, объём, цель, примеры</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>📌 Золотое правило:</strong> относитесь к нейросети как к стажёру,
+        который очень умён, но совершенно не знает контекста вашей задачи.
+        <strong>Чёткая инструкция → чёткий результат.</strong>
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Примечание: раздел работы с промптами называется <strong>промпт-инжиниринг (prompt engineering)</strong> и считается отдельным навыком в 2025 году. Хороший промпт-инженер получает зарплату не ниже ML-специалиста.</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Техники промптов"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Правила и техники формирования эффективных промптов
+    </h3>
+    <div>
+      <p>
+        <strong>Промпт-инжиниринг</strong> — это набор приёмов, позволяющих
+        получить от нейросети максимально релевантный и качественный ответ.
+      </p>
+
+      <p><strong>Базовые правила хорошего промпта:</strong></p>
+      <ul>
+        <li>
+          <strong>1. Будьте конкретны:</strong> вместо «напиши письмо» → «напиши
+          деловое письмо клиенту о задержке поставки на 3 дня»;
+        </li>
+        <li>
+          <strong>2. Укажите формат и объём:</strong> «список из 5 пунктов»,
+          «таблица 3×4», «пост в Telegram на 100 слов», «код на Python»;
+        </li>
+        <li>
+          <strong>3. Задайте стиль и тон:</strong> «дружеский», «официальный»,
+          «научный», «с юмором», «как эксперт в области»;
+        </li>
+        <li>
+          <strong>4. Укажите роль или персону:</strong> «ты — опытный маркетолог»,
+          «ты — учитель математики для 7 класса»;
+        </li>
+        <li>
+          <strong>5. Добавьте контекст и примеры:</strong> «вот пример хорошего
+          ответа: … сделай по аналогии».
+        </li>
+      </ul>
+
+      <p><strong>Продвинутые техники (2024–2025):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Техника</th><th>Суть</th><th>Пример использования</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zero-shot</strong></strong>
+            <td>Простой запрос без примеров</strong>
+            <td>«Переведи "Hello" на русский»</strong>
+          </tr>
+          <tr>
+            <td><strong>Few-shot</strong></strong>
+            <td>Приводим 2–3 примера до основного запроса</strong>
+            <td>«Пример: "A→1", "B→2". Теперь "C→?"»</strong>
+          </tr>
+          <tr>
+            <td><strong>Chain-of-Thought (CoT)</strong></strong>
+            <td>Просим объяснить ход рассуждений</strong>
+            <td>«Реши задачу: у Маши 3 яблока, отдала 1 → сколько осталось? Объясни шаги»</strong>
+          </tr>
+          <tr>
+            <td><strong>Tree-of-Thoughts (ToT)</strong></strong>
+            <td>Модель перебирает несколько вариантов решений</strong>
+            <td>«Перебери 3 возможных сценария развития рынка на 2026 год и выбери лучший»</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Шаблон универсального промпта:</strong></p>
+      <div class="border p-2 bg-light" style="font-family: monospace; font-size: 0.9em">
+        [Роль] + [Задача] + [Контекст] + [Формат] + [Тон] + [Ограничения]
+        <br /><br />
+        <strong>Пример:</strong><br />
+        «Ты — опытный HR-специалист. Составь список из 5 вопросов для собеседования
+        на позицию Junior Python-разработчика. Вопросы должны проверять знание основ
+        и умение гуглить. Ответ дай в виде маркированного списка. Тон — нейтральный,
+        профессиональный.»
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: начните с короткого запроса, а затем уточняйте («добавь примеры»,
+        «сделай короче», «напиши в другом стиле»). Диалог с нейросетью часто
+        эффективнее идеального промпта с первого раза.</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Создание контента"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Что можно создавать с помощью текстовых нейросетей — типы контента
+    </h3>
+    <div>
+      <p>
+        Современные LLM и SLM способны генерировать десятки видов текстового
+        контента с качеством, близким к человеческому.
+      </p>
+
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr>
+            <th>Категория</th>
+            <th>Что можно создавать</th>
+            <th>Примеры использования</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Маркетинг и копирайтинг</strong></strong>
+            <td>
+              Рекламные посты, слоганы, описания товаров, письма, сценарии
+              для видео, триггеры для рассылок
+             </strong>
+            <td>
+              Wildberries/Ozon SEO-описания, Email-рассылки, посты в Telegram/ВК
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Бизнес и деловая переписка</strong></strong>
+            <td>
+              Письма клиентам, коммерческие предложения, протоколы встреч,
+              презентации, должностные инструкции
+             </strong>
+            <td>
+              Ответ на рекламацию, коммерческое предложение, структура бизнес-плана
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Образование и наука</strong></strong>
+            <td>
+              Планы уроков, тесты, объяснения сложных тем, аннотации к статьям,
+              рефераты (осторожно!), учебные примеры
+             </strong>
+            <td>
+              Конспект лекции, 5 тестовых вопросов для студентов, «объясни градиентный спуск как для 12-летнего»
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Программирование и IT</strong></strong>
+            <td>
+              Код на Python/JS/Java, SQL-запросы, регулярные выражения,
+              документация, комментарии, рефакторинг
+             </strong>
+            <td>
+              «Напиши функцию для загрузки файла», «объясни этот код», «напиши тесты для API»
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Креативное письмо</strong></strong>
+            <td>
+              Рассказы, стихи, сценарии, диалоги, шутки, поздравления,
+              тосты, биографии персонажей
+             </strong>
+            <td>
+              Сценарий для ролика в TikTok, поздравление с днём рождения,
+              стихотворение в заданном стиле
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Аналитика и резюмирование</strong></strong>
+            <td>
+              Краткое содержание длинных текстов, извлечение ключевых пунктов,
+              сравнение документов, перевод с пояснениями
+             </strong>
+            <td>
+              «Перескажи эту статью на 3 абзаца», «выпиши риски из договора»
+             </strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Практические примеры запросов для разных типов контента:</strong></p>
+      <ul>
+        <li><strong>Пост в Telegram:</strong> «Напиши пост на 150 слов о нашем новом курсе по ИИ. Тон — дружеский, добавь эмодзи и хештеги»;</li>
+        <li><strong>SQL-запрос:</strong> «Таблица users (id, name, created_at). Напиши запрос, который выведет количество регистраций по месяцам за 2024 год»;</li>
+        <li><strong>Аннотация:</strong> «Ниже текст на 5000 символов. Сделай аннотацию на 3–4 предложения, выделив главную мысль».</li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Примечание: нейросети отлично справляются с рутинным созданием черновиков.
+        Финальная проверка и редактура всё равно нужны — особенно для юридических,
+        медицинских и финансовых текстов.</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Преимущества нейросетей"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Преимущества использования текстовых нейросетей
+    </h3>
+    <div>
+      <p>
+        Текстовые нейросети (LLM/SLM) стали неотъемлемым инструментом работы в
+        многих профессиях. Вот ключевые преимущества, которые объясняют их
+        популярность .
+      </p>
+
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr>
+            <th>Преимущество</th>
+            <th>Что это даёт на практике</th>
+            <th>Измеряемый эффект</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🚀 Скорость создания контента</strong></strong>
+            <td>
+              Генерация черновиков, писем, постов, кода в секунды вместо часов
+             </strong>
+            <td>Рост продуктивности в 3–10 раз</strong>
+          </tr>
+          <tr>
+            <td><strong>💰 Снижение затрат</strong></strong>
+            <td>
+              Замена части работы копирайтеров, переводчиков, аналитиков, снижение времени рутины
+             </strong>
+            <td>Экономия бюджета до 50–80% на рутинных задачах</strong>
+          </tr>
+          <tr>
+            <td><strong>🌍 Круглосуточная доступность</strong></strong>
+            <td>Работает 24/7 без перерывов, выходных, отпусков</strong>
+            <td>Никогда не болеет и не выгорает</strong>
+          </tr>
+          <tr>
+            <td><strong>📊 Обработка больших объёмов</strong></strong>
+            <td>
+              Может прочитать и резюмировать 100 страниц за 10–20 секунд
+             </strong>
+            <td>Сотрудник физически не способен на это</strong>
+          </tr>
+          <tr>
+            <td><strong>🎯 Снижение порога входа</strong></strong>
+            <td>
+              Новичок с нейросетью может написать код или текст на уровне младшего специалиста
+             </strong>
+            <td>Ускорение обучения новых сотрудников</strong>
+          </tr>
+          <tr>
+            <td><strong>🌐 Мультиязычность</strong></strong>
+            <td>
+              Перевод с 50+ языков на лету, объяснение на иностранном, адаптация под аудиторию
+             </strong>
+            <td>Уход от языкового барьера в работе</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Реальные кейсы экономии времени (2025):</strong></p>
+      <ul>
+        <li>
+          <strong>Аналитик данных:</strong> 80% времени уходило на написание
+          SQL-запросов и объяснительных записок. С LLM — 30% времени (на
+          проверку и уточнения);
+        </li>
+        <li>
+          <strong>HR-менеджер:</strong> составление JD (описаний вакансий) и
+          вопросов для собеседования с 3 часов → 15 минут;
+        </li>
+        <li>
+          <strong>Маркетолог:</strong> генерация 20 вариантов постов для
+          соцсетей за 10 минут вместо 2 часов.
+        </li>
+      </ul>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>📈 Статистика (McKinsey / Gartner 2024–2025):</strong> компании,
+        системно внедрившие LLM в рутинные бизнес-процессы, отмечают рост
+        производительности сотрудников на 30–60%.
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Важно: преимущества полностью раскрываются при правильном использовании.
+        Нейросеть — это инструмент, который усиливает человека, а не заменяет его
+        целиком. Самые высокие результаты — у тандема «человек + ИИ» .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Недостатки и ограничения"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Недостатки и ограничения текстовых нейросетей (критически важно!)
+    </h3>
+    <div>
+      <p>
+        <strong>Текстовые нейросети — не магия, а статистические модели.</strong>
+        У них есть фундаментальные и практические ограничения, о которых нужно
+        знать каждому пользователю.
+      </p>
+
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr>
+            <th>Ограничение</th>
+            <th>Суть проблемы</th>
+            <th>Пример</th>
+            <th>Что делать</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>❌ Галлюцинации (hallucinations)</strong></strong>
+            <td>
+              Модель уверенно генерирует ложные факты, которых нет в обучающих данных
+             </strong>
+            <td>
+              «Согласно указу президента №1234 от 2027 года, ...» (указа не существует)
+             </strong>
+            <td>
+              Перепроверять факты! Особенно даты, законы, имена
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>❌ Не актуальные знания</strong></strong>
+            <td>
+              Модель знает мир на дату среза данных (например, DeepSeek — май 2025, GigaChat — 2024)
+             </strong>
+            <td>
+              «Кто победил на последних выборах президента в США в 2024?» (если срез до выборов)
+             </strong>
+            <td>
+              Включить поиск в интернете (если есть), проверить вручную
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>❌ Отсутствие причинности (нет понимания)</strong></strong>
+            <td>
+              Модель не понимает физику мира — только статистические паттерны
+             </strong>
+            <td>
+              Может сказать, что «если смешать бензин и апельсиновый сок, получится ракетное топливо» (звучит похоже на правду)
+             </strong>
+            <td>
+              Использовать для творчества, но не для принятия критических решений без проверки
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>❌ Предвзятость (bias)</strong></strong>
+            <td>
+              Наследует стереотипы и предрассудки из обучающих данных (интернета)
+             </strong>
+            <td>
+              Может связывать профессии с полом («медсестра → она», «программист → он»)
+             </strong>
+            <td>
+              Явно указывать в промпте «без стереотипов», корректировать ответы
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>❌ Ограниченный контекст</strong></strong>
+            <td>
+              Модель «забывает» начало разговора, если диалог слишком длинный
+             </strong>
+            <td>
+              После 100 страниц обсуждения может потерять важную информацию из первого сообщения
+             </strong>
+            <td>
+              Кратко пересказывать суть в каждом новом запросе, делить на подзадачи
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>❌ Безопасность и конфиденциальность</strong></strong>
+            <td>
+              Через облачные сервисы ваши данные могут использоваться для дообучения (если не отключить)
+             </strong>
+            <td>
+              Вы загрузили коммерческую тайну в ChatGPT → она могла «уйти» в модель
+             </strong>
+            <td>
+              Использовать локальные SLM, off-premise версии, читать политику конфиденциальности
+             </strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Красные флаги (когда НЕЛЬЗЯ полагаться на LLM без проверки):</strong></p>
+      <ul>
+        <li>Юридические документы (договоры, иски, доверенности);</li>
+        <li>Медицинские диагнозы и рекомендации по лечению;</li>
+        <li>Финансовые консультации (инвестиции, налоги, страховки);</li>
+        <li>Безопасность (оценка угроз, инструкции по ЧС);</li>
+        <li>Любая ситуация, где ложный ответ навредит здоровью или кошельку.</li>
+      </ul>
+
+      <div class="alert alert-danger border mt-2 p-2" style="background: #fff5f5">
+        <strong>⚠️ Золотое правило безопасности:</strong> Нейросеть не несёт
+        ответственности за свои ошибки. <strong>Ответственность всегда на человеке</strong>,
+        который использовал её ответ. Для важных решений — двойная проверка
+        из независимых источников.
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Резюме: LLM/SLM — мощный инструмент для черновиков, идей, рутины,
+        резюмирования и кода. Но они <strong>не заменяют эксперта</strong> в
+        вопросах, требующих актуальности, точности, понимания законов или
+        физики мира. Всегда проверяйте критически важные факты .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+
 <div class="card my-3" style="max-width: 800px">
   <p>
     <img
@@ -1922,11 +3084,14 @@
         </li>
       </ul>
 
-      <p><strong>Суть word2vec на примере:</strong></p>
-      <div class="border p-2 bg-light" style="font-family: monospace; font-size: 0.9em">
-        Вектор(«король») — Вектор(«мужчина») + Вектор(«женщина») ≈ Вектор(«королева»)
-      </div>
-      <br />
+      <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Суть word2vec на примере</h4>
+  <p class="mb-Э"> Вектор(«король») — Вектор(«мужчина») + Вектор(«женщина») ≈</p>
+  <hr>
+  <p>Вектор(«королева»)</p>
+</div>
+
+   
 
       <table class="table table-sm mt-2" style="font-size: 0.9em">
         <thead>
@@ -3227,15 +4392,24 @@ cos(θ) = (a · b) / (||a|| × ||b||)
 
           <h5>Поиск через скалярное произведение:</h5>
           <p>
-            Если эмбеддинги нормализованы (имеют длину 1), то косинусное
-            сходство превращается в скалярное произведение. Поиск — это
-            умножение матрицы E на вектор q.
+            
           </p>
-          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
-# E — матрица эмбеддингов (N × d)
-# q — вектор запроса (1 × d)
-# Результат scores = E × q^T  — вектор длиной N (сходство с каждым документом)</pre
-          >
+
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Если эмбеддинги нормализованы (имеют длину 1), то косинусное
+            сходство превращается в скалярное произведение.<br>
+            Поиск — это умножение матрицы E на вектор q.!</h4>
+  <p>E — матрица эмбеддингов (N × d)</p>
+  <hr>
+
+  <p>q — вектор запроса (1 × d)</p>
+  
+  <p>Результат scores = E × q^T  — вектор длиной N (сходство с каждым документом)</p>
+
+ 
+</div>
+
+
 
           <h5>Проблема масштабирования (почему нужен FAISS):</h5>
           <ul>
@@ -3254,7 +4428,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             </li>
           </ul>
 
-          <h5>Что изучать дальше из линейной алгебры:</h5>
+          <h5>Более сложные вопросы</h5>
           <ul>
             <li>
               <strong>SVD (сингулярное разложение):</strong> лежит в основе LSA
@@ -3315,12 +4489,16 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             </li>
           </ul>
 
-          <h5>Пример: индекс IVF (Inverted File Index)</h5>
-          <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px">
-1. Все N векторов разбиваются на K кластеров (k-means).
-2. При запросе определяются ближайшие кластеры.
-3. Поиск выполняется только внутри этих кластеров.</pre
-          >
+
+          <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Пример: индекс IVF (Inverted File Index)</h4>
+  <p>1. Все N векторов разбиваются на K кластеров (k-means).</p>
+  <hr>
+  <p>2. При запросе определяются ближайшие кластеры.</p>
+  <p>3. Поиск выполняется только внутри этих кластеров.</p>
+</div>
+
+         
 
           <h5>Сравнение с классическими базами данных:</h5>
           <div class="row mb-3">
@@ -3385,22 +4563,17 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             нарезать на чанки.
           </p>
 
-          <div
-            class="code-block"
-            style="
-              background: #f4f4f4;
-              padding: 10px;
-              border-radius: 5px;
-              font-family: monospace;
-            "
-          >
-            <span class="sql-keyword"># Пример чанкинга:</span><br />
-            Документ (10 000 токенов) → чанки по 500 токенов + перекрытие 50<br />
-            Чанк 1: [0...500]<br />
-            Чанк 2: [450...950] ← перекрытие сохраняет контекст на границе<br />
-            Чанк 3: [900...1400]<br />
-            ...
-          </div>
+      <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Пример чанкинга</h4>
+  <p>Документ (10 000 токенов) → чанки по 500 токенов + перекрытие 50</p>
+  <hr>
+  <p class="mb-0">
+    Чанк 1: [0...500]<br>
+    Чанк 2: [450...950] ← перекрытие сохраняет контекст на границе<br>
+    Чанк 3: [900...1400]<br>
+    ...
+  </p>
+</div>
 
           <div class="row">
             <div class="col-md-6">
@@ -3445,23 +4618,16 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             похожие по смыслу — среди миллиардов векторов за доли секунды.
           </p>
 
-          <div
-            class="code-block"
-            style="
-              background: #f4f4f4;
-              padding: 10px;
-              border-radius: 5px;
-              font-family: monospace;
-            "
-          >
-            <span class="sql-keyword"># Как работает векторный поиск:</span
-            ><br />
-            Запрос «налоги для ИП» → эмбеддинг запроса<br />
-            ↓<br />
-            Векторная БД ищет ближайшие векторы (косинусное сходство)<br />
-            ↓<br />
-            Возвращает: «налоговая база ИП», «страховые взносы ИП», «УСН для ИП»
-          </div>
+        
+        <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Как работает векторный поиск:</h4>
+  <p>Запрос «налоги для ИП» → эмбеддинг запроса</p>
+  <hr>
+  <p>Векторная БД ищет ближайшие векторы (косинусное сходство)</p>
+  <p>Возвращает: «налоговая база ИП», «страховые взносы ИП», «УСН для ИП»</p>
+</div>
+
+       
 
           <div class="row">
             <div class="col-md-6">
@@ -3507,23 +4673,15 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             галлюцинации.
           </p>
 
-          <div
-            class="code-block"
-            style="
-              background: #f4f4f4;
-              padding: 10px;
-              border-radius: 5px;
-              font-family: monospace;
-            "
-          >
-            <span class="sql-keyword"># Пример галлюцинации:</span><br />
-            Вопрос: «Какой документ нужен для вычета на ребёнка?»<br />
-            Ответ LLM (без RAG): «Форма КНД-1151080»<br />
-            Реальность: такой формы НЕ СУЩЕСТВУЕТ!<br /><br />
-            <span class="sql-keyword"># Как бороться:</span><br />
-            Промт: «Отвечай ТОЛЬКО по контексту. Если не знаешь — скажи "не
-            знаю"»
-          </div>
+          <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Пример галлюцинации</h4>
+  <p><strong>Вопрос:</strong> «Какой документ нужен для вычета на ребёнка?»<br>
+  <strong>Ответ LLM (без RAG):</strong> «Форма КНД-1151080»<br>
+  <strong>Реальность:</strong> такой формы НЕ СУЩЕСТВУЕТ!</p>
+  <hr>
+  <h4 class="alert-heading">Как бороться:</h4>
+  <p class="mb-0">Промт: «Отвечай ТОЛЬКО по контексту. Если не знаешь — скажи "не знаю"»</p>
+</div>
 
           <div class="row">
             <div class="col-md-6">
@@ -3569,24 +4727,18 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             — финальная «шлифовка» результатов.
           </p>
 
-          <div
-            class="code-block"
-            style="
-              background: #f4f4f4;
-              padding: 10px;
-              border-radius: 5px;
-              font-family: monospace;
-            "
-          >
-            <span class="sql-keyword"># Гибридный поиск:</span><br />
-            Векторный поиск (по смыслу) + Полнотекстовый (BM25 по ключевым
-            словам)<br />
-            ↓ объединение через RRF<br />
-            Результат: и «синонимы», и «точный термин»<br /><br />
-            <span class="sql-keyword"># Переранжирование (Reranking):</span
-            ><br />
-            Быстрый поиск (50 кандидатов) → Reranker (медленный, точный) → Топ-5
-          </div>
+         <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Гибридный поиск</h4>
+  <p>Векторный поиск (по смыслу) + Полнотекстовый (BM25 по ключевым словам)
+    <br>
+  ↓
+  <br>
+   объединение через RRF<br>
+  Результат: и «синонимы», и «точный термин»</p>
+  <hr>
+  <h4 class="alert-heading">Переранжирование (Reranking)</h4>
+  <p class="mb-0">Быстрый поиск (50 кандидатов) → Reranker (медленный, точный) → Топ-5</p>
+</div>
 
           <div class="row">
             <div class="col-md-6">
@@ -3635,23 +4787,20 @@ cos(θ) = (a · b) / (||a|| × ||b||)
             делятся на поиск (retrieval) и генерацию (generation).
           </p>
 
-          <div
-            class="code-block"
-            style="
-              background: #f4f4f4;
-              padding: 10px;
-              border-radius: 5px;
-              font-family: monospace;
-            "
-          >
-            <span class="sql-keyword"># Метрики поиска:</span><br />
-            - Precision@k: сколько из k найденных — релевантны<br />
-            - Recall@k: сколько релевантных найдено из всех<br />
-            - MRR: насколько высоко первый релевантный результат<br /><br />
-            <span class="sql-keyword"># Метрики генерации:</span><br />
-            - Faithfulness: ответ верен контексту?<br />
-            - Ответ по эталону: ROUGE, BERTScore, LLM-as-a-judge
-          </div>
+         <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Метрики поиска</h4>
+  <p>
+    - Precision@k: сколько из k найденных — релевантны<br>
+    - Recall@k: сколько релевантных найдено из всех<br>
+    - MRR: насколько высоко первый релевантный результат
+  </p>
+  <hr>
+  <h4 class="alert-heading">Метрики генерации</h4>
+  <p class="mb-0">
+    - Faithfulness: ответ верен контексту?<br>
+    - Ответ по эталону: ROUGE, BERTScore, LLM-as-a-judge
+  </p>
+</div>
 
           <div class="row">
             <div class="col-md-6">
@@ -3693,7 +4842,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
         </p>
         <div class="card-body">
           <h3 class="card-title">
-            Тема 2.1. Python-библиотеки для RAG, векторов и LLM
+            Тема 2.1. Визуализации для RAG, векторов и LLM
           </h3>
 
           <div class="row">
@@ -3925,7 +5074,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
           />
         </p>
         <div class="card-body">
-          <h3 class="card-title">Тема 14. NumPy</h3>
+          <h3 class="card-title">Тема 2.1. NumPy</h3>
 
           <div class="alert alert-secondary mb-3">
             <strong>Важно:</strong>
@@ -4168,7 +5317,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
         </div>
       </div>
 
-         <div class="card my-3" style="max-width: 800px">
+         <!-- <div class="card my-3" style="max-width: 800px">
         <p>
           <img
             loading="lazy"
@@ -4186,7 +5335,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
           <ul>
             <li>
               <code>sklearn.metrics.pairwise.cosine_similarity</code> — готовая
-              косинусная близость [citation:4];
+              косинусная близость ;
             </li>
             <li>
               <code>sklearn.feature_extraction.text.TfidfVectorizer</code> —
@@ -4200,7 +5349,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
           </ul>
           <p>
             <strong>Статус в JupyterLite:</strong> ✅
-            <strong>Предустановлен</strong> [citation:1].
+            <strong>Предустановлен</strong> .
           </p>
       <!-- Карточка 1: Импорт библиотек и подготовка данных -->
 <div class="code-block">
@@ -4663,7 +5812,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
 </div>
 
         </div>
-      </div>
+      </div> -->
 
 
 
@@ -4896,6 +6045,36 @@ cos(θ) = (a · b) / (||a|| × ||b||)
      {'entity': 'B-ORG', 'score': 0.98, 'word': 'SpaceX'}]<br>
 </div>
 
+
+<div class="code-block">
+    <span class="sql-keyword">from</span> markitdown <span class="sql-keyword">import</span> MarkItDown<br>
+    <span class="sql-keyword">from</span> openai <span class="sql-keyword">import</span> OpenAI<br>
+    <br>
+    <span class="sql-comment"># DeepSeek использует полностью совместимый с OpenAI API</span><br>
+    client = OpenAI(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;api_key=<span class="sql-string">"sk-ваш-ключ-deepseek"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;base_url=<span class="sql-string">"https://api.deepseek.com"</span><br>
+    )<br>
+    <br>
+    md = MarkItDown(llm_client=client, llm_model=<span class="sql-string">"deepseek-chat"</span>)<br>
+    result = md.convert(<span class="sql-string">"presentation.pptx"</span>)<br>
+    <span class="sql-keyword">print</span>(result.text_content)<br>
+</div>
+
+<div class="code-block">
+    <span class="sql-keyword">from</span> markitdown <span class="sql-keyword">import</span> MarkItDown<br>
+    <span class="sql-keyword">from</span> openai <span class="sql-keyword">import</span> OpenAI<br>
+    <br>
+    <span class="sql-comment"># GigaChat также предоставляет OpenAI-совместимый API</span><br>
+    client = OpenAI(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;api_key=<span class="sql-string">"ваш-ключ-gigachat"</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;base_url=<span class="sql-string">"https://gigachat.devices.sberbank.ru/api/v1"</span><br>
+    )<br>
+    <br>
+    md = MarkItDown(llm_client=client, llm_model=<span class="sql-string">"GigaChat"</span>)<br>
+    result = md.convert(<span class="sql-string">"presentation.pptx"</span>)<br>
+    <span class="sql-keyword">print</span>(result.text_content)<br>
+</div>
 
 
 
@@ -5236,1024 +6415,6 @@ cos(θ) = (a · b) / (||a|| × ||b||)
 
 
 
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Доступные нейросети в России"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Тема 2.2. Регистрация в текстовых нейросетях и знакомство с интерфейсом
-    </h3>
-    <div>
-      <p>
-        <strong>Актуальные текстовые нейросети, работающие в РФ без VPN (2025–2026):</strong>
-        российские пользователи имеют доступ к широкому спектру ИИ-сервисов —
-        как отечественных, так и зарубежных, которые не блокируют российские
-        IP-адреса .
-      </p>
-
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr>
-            <th>Нейросеть</th>
-            <th>Разработчик</th>
-            <th>Доступ в РФ без VPN</th>
-            <th>Бесплатный тариф</th>
-            <th>Особенности</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>✅ GigaChat</strong></strong></td>
-            <td>Сбер</strong></td>
-            <td>✅ Полная</strong> <br />(российская инфраструктура)
-            </td>
-            <td>✅ Да</strong> <br />(безлимит)
-            </td>
-            <td>Мультимодальная, тексты + картинки, голосовой ввод</strong> 
-            </td>
-          </tr>
-          <tr>
-            <td><strong>✅ YandexGPT</strong></strong></td>
-            <td>Яндекс</strong></td>
-            <td>✅ Полная</strong> <br />(через Алису)
-            </td>
-            <td>✅ Да</strong> <br />(Pro версия — 100₽/мес)
-            </td>
-            <td>Глубокая интеграция с экосистемой Яндекса</strong> 
-            </td>
-          </tr>
-          <tr>
-            <td><strong>✅ DeepSeek</strong></strong></td>
-            <td>DeepSeek (Китай)</strong></td>
-            <td>✅ Полная</strong> <br />(chat.deepseek.com)
-            </td>
-            <td>✅ Да</strong> <br />(безлимит, 128k контекст)
-            </td>
-            <td>Одна из лучших бесплатных моделей, сильна в аналитике</strong> 
-            </td>
-          </tr>
-          <tr>
-            <td><strong>✅ Le Chat (Mistral)</strong></strong></td>
-            <td>Mistral AI (Франция)</strong></td>
-            <td>✅ Полная</strong> <br />(chat.mistral.ai)
-            </td>
-            <td>✅ Да</strong> <br />(без регистрации!)
-            </td>
-            <td>Поиск в вебе, генерация картинок, режим рассуждения</strong> 
-            </td>
-          </tr>
-          <tr>
-            <td><strong>✅ Qwen</strong></strong></td>
-            <td>Alibaba (Китай)</strong></td>
-            <td>✅ Полная</strong> <br />(chat.qwen.ai)
-            </td>
-            <td>✅ Да</strong> <br />(мультимодальная)
-            </td>
-            <td>Понимает текст, изображения, видео</strong> 
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
-        <strong>🌟 Важно:</strong> сервисы, отмеченные ✅, работают в России
-        <strong>без VPN</strong> и принимают российские номера телефонов/карты
-        (для отечественных сервисов) или не требуют регистрации вовсе.
-      </div>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Примечание: ChatGPT, Claude и Grok официально заблокированы для
-        российских IP. Доступ к ним возможен только через VPN, российские
-        агрегаторы (GoGPT, AITUNNEL) или покупку аккаунтов .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="GigaChat регистрация"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Регистрация в GigaChat — нейросеть Сбера (доступна без VPN)
-    </h3>
-    <div>
-      <p>
-        <strong>GigaChat</strong> — российская мультимодальная нейросеть от
-        Сбера, построенная на архитектуре NeONKA. Работает полностью на
-        российской инфраструктуре, данные не покидают РФ .
-      </p>
-
-      <p><strong>✅ Где доступен GigaChat:</strong></p>
-      <ul>
-        <li><strong>Веб-сайт:</strong> giga.chat</li>
-        <li><strong>Telegram-бот:</strong> @GigaChatBot</li>
-        <li><strong>VK-бот:</strong> официальный бот ВКонтакте</li>
-        <li><strong>Мобильные приложения:</strong> iOS и Android (Google Play, RuStore)</li>
-        <li><strong>Программа MAX от VK</strong> (Windows, MacOS)</li>
-        <li><strong>Умные колонки SberBoom</strong> (голосовая активация: «Включи GigaChat»)</li>
-      </ul>
-
-      <p><strong>📝 Пошаговая регистрация (через веб-сайт или приложение):</strong></p>
-      <ol>
-        <li>Перейдите на <strong>giga.chat</strong> или скачайте приложение;</li>
-        <li>Нажмите кнопку <strong>«Войти»</strong> → <strong>«Зарегистрироваться»</strong>;</li>
-        <li>Введите <strong>номер телефона</strong> (российский) → получите SMS с кодом;</li>
-        <li>Подтвердите код → создайте пароль (или войдите через <strong>Сбер ID</strong>);</li>
-        <li>После входа откроется чат — можно задавать вопросы, загружать файлы (DOCX, PDF, TXT);</li>
-        <li>Для генерации изображений просто напишите запрос: <br />
-          <code>«нарисуй закат над горами в стиле импрессионизма»</code>.</li>
-      </ol>
-
-      <p><strong>🎁 Бесплатные возможности GigaChat:</strong></p>
-      <ul>
-        <li>Текстовая генерация без ограничений;</li>
-        <li>Генерация изображений (несколько десятков в сутки);</li>
-        <li>Загрузка и анализ файлов (PDF, DOCX, TXT);</li>
-        <li>Голосовой ввод (в приложении);</li>
-        <li>Поиск в интернете (Deep Research);</li>
-        <li>Анализ изображений (распознаёт объекты, текст, графики).</li>
-      </ul>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Клиентом Сбера быть не обязательно — регистрация проходит по номеру
-        телефона. Для бизнеса доступен GigaChat API с платными тарифами .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="DeepSeek и YandexGPT регистрация"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Регистрация в DeepSeek и YandexGPT — без VPN, безлимит
-    </h3>
-    <div>
-      <p>
-        <strong>DeepSeek</strong> — китайская языковая модель от DeepSeek,
-        признанная одной из лучших бесплатных LLM. <strong>YandexGPT</strong> —
-        российская нейросеть от Яндекса, интегрированная с Алисой .
-      </p>
-
-      <hr />
-
-      <p><strong>🔵 DeepSeek — пошаговая регистрация:</strong></p>
-      <ul>
-        <li>Перейдите на <strong>chat.deepseek.com</strong> или скачайте приложение (Google Play / iOS App Store);</li>
-        <li>Нажмите <strong>«Sign up»</strong> → введите email или используйте аккаунт Google;</li>
-        <li>Подтвердите email через письмо с кодом (или войдите через Google);</li>
-        <li>Готово! Вы в чате.</li>
-      </ul>
-
-      <p><strong>🎁 Возможности DeepSeek (все бесплатно):</strong></p>
-      <ul>
-        <li><strong>Нет лимита сообщений</strong> — пишите сколько угодно ;</li>
-        <li><strong>Поиск в интернете</strong> — кнопка поиска включает режим реального времени;</li>
-        <li><strong>Режим глубокого мышления (R1)</strong> — рассуждение шаг за шагом (математика, код, логика);</li>
-        <li><strong>Загрузка файлов</strong> — PDF, Word, Excel, изображения (до 128k токенов контекста);</li>
-        <li><strong>Веб-версия и приложение</strong> — история синхронизируется.</li>
-      </ul>
-
-      <hr />
-
-      <p><strong>🟢 YandexGPT — как начать использовать:</strong></p>
-      <ul>
-        <li>Скачайте приложение <strong>«Яндекс — с Алисой»</strong> или откройте <strong>yandex.ru</strong> в браузере;</li>
-        <li>Нажмите на иконку <strong>Алисы</strong> (круглый значок с синим фоном);</li>
-        <li>Для расширенного доступа войдите в <strong>Яндекс ID</strong> (email или номер телефона);</li>
-        <li>Напишите запрос в чат — Алиса ответит, используя YandexGPT;</li>
-        <li><strong>YandexGPT Pro</strong> — подписка 100₽/мес (приоритетная обработка, бессрочное хранение чатов).</li>
-      </ul>
-
-      <p><strong>🎁 Бесплатный функционал YandexGPT:</strong></p>
-      <ul>
-        <li>Текстовая генерация (статьи, письма, код);</li>
-        <li>Анализ файлов (через интерфейс Алисы);</li>
-        <li>Голосовое общение с Алисой;</li>
-        <li>Поиск в интернете;</li>
-        <li>Генерация изображений (YandexART, доступна в приложении).</li>
-      </ul>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Совет: DeepSeek иногда перегружен в часы пик (ошибка «Server Busy»).
-        В таких случаях используйте Qwen или Le Chat как альтернативу .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Le Chat и Qwen"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Le Chat (Mistral) и Qwen (Alibaba) — без регистрации и без VPN
-    </h3>
-    <div>
-      <p>
-        Две зарубежные нейросети, которые <strong>не требуют регистрации</strong>
-        для базового использования и работают в России без VPN .
-      </p>
-
-      <hr />
-
-      <p><strong>🐱 Le Chat (Mistral AI, Франция) — без регистрации:</strong></p>
-      <ul>
-        <li>Перейдите на <strong>chat.mistral.ai</strong> (без VPN!) → сразу пишите запрос;</li>
-        <li><strong>Не требует email, номера телефона или аккаунта</strong> — история сессии не сохраняется;</li>
-        <li>Для сохранения переписки — зарегистрируйтесь по email или Google (бесплатно);</li>
-      </ul>
-
-      <p><strong>🎁 Возможности Le Chat:</strong></p>
-      <ul>
-        <li><strong>Поиск в вебе</strong> — ищет актуальные данные в интернете прямо в чате;</li>
-        <li><strong>Режим рассуждения</strong> — иллюстрирует ход мыслей (как DeepSeek R1);</li>
-        <li><strong>Генерация картинок</strong> — через интеграцию с Black Forest Labs;</li>
-        <li><strong>Загрузка файлов</strong> — документы, Google Drive, Stripe;</li>
-        <li><strong>Память</strong> — запоминает ваши предпочтения между сессиями.</li>
-      </ul>
-      <p class="text-muted">⚠️ Бесплатный тариф имеет дневные ограничения при интенсивном использовании. Pro — $15.99/мес.</p>
-
-      <hr />
-
-      <p><strong>🐉 Qwen (Alibaba, Китай) — мультимодальная без регистрации:</strong></p>
-      <ul>
-        <li>Перейдите на <strong>chat.qwen.ai</strong> (без VPN!) или скачайте приложение Qwen Chat;</li>
-        <li><strong>Работает без регистрации</strong> (как Le Chat);</li>
-        <li>Для сохранения чатов и синхронизации — войдите через email или Google;</li>
-      </ul>
-
-      <p><strong>🎁 Возможности Qwen:</strong></p>
-      <ul>
-        <li><strong>Мультимодальный ввод</strong> — понимает текст, изображения и видео в рамках одного разговора;</li>
-        <li><strong>Выбор модели</strong> — быстрые и мощные версии в интерфейсе;</li>
-        <li><strong>Генерация картинок</strong> — в отдельном режиме;</li>
-        <li><strong>Отличное понимание русского языка</strong> — отвечает без заметных задержек;</li>
-        <li><strong>Синхронизация</strong> — история сохраняется между браузером и приложением.</li>
-      </ul>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Совет: Qwen — отличная альтернатива, когда DeepSeek перегружен («Server Busy») .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Агрегаторы нейросетей"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Альтернативные способы: российские агрегаторы и API-доступ
-    </h3>
-    <div>
-      <p>
-        Если нужен доступ к <strong>ChatGPT, Claude или Midjourney</strong>
-        без VPN и зарубежных карт — используйте российские агрегаторы и
-        API-провайдеры .
-      </p>
-
-      <p><strong>🇷🇺 Российские агрегаторы (доступ без VPN, оплата в рублях):</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Сервис</th><th>Что даёт доступ</th><th>Особенности</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>GoGPT</strong></strong>
-            <td>ChatGPT, Claude, Midjourney, и др.</strong>
-            <td>Единый интерфейс, оплата рублями, без VPN </strong>
-          </tr>
-          <tr>
-            <td><strong>AITUNNEL</strong></strong>
-            <td>OpenAI, Google, DeepSeek</strong>
-            <td>API для разработчиков, стабильный доступ, рубли </strong>
-          </tr>
-          <tr>
-            <td><strong>SmartBuddy</strong></strong>
-            <td>Генерация диаграмм, работа с документами</strong>
-            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
-          </tr>
-          <tr>
-            <td><strong>Syntx AI</strong></strong>
-            <td>Десятки нейросетей в одном окне</strong>
-            <td>Генерация текстов, изображений, видео </strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <hr />
-
-      <p><strong>🔌 API-доступ для разработчиков (бесплатные квоты):</strong></p>
-      <ul>
-        <li>
-          <strong>Yandex Cloud (YandexGPT API):</strong> грант 4000–10000₽
-          новым пользователям на 60 дней. Этого хватает на сотни статей и
-          тысяч картинок через YandexART ;
-        </li>
-        <li>
-          <strong>GigaChat API:</strong> Freemium-тариф с ежегодной квотой токенов
-          (~900k токенов в год на Lite-тарифе). Не сгорает через 2 месяца,
-          оплата российскими картами ;
-        </li>
-        <li>
-          <strong>DeepSeek API:</strong> копеечные тарифы ($0.27 / $0.40 за 1M токенов),
-          доступен из России через официальный API .
-        </li>
-      </ul>
-
-      <p><strong>📊 Сравнение бесплатных квот (2025–2026):</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Сервис</th><th>Бесплатный лимит</th><th>Срок действия</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>YandexGPT API</strong>
-            <td>4000–10000₽ грант</strong>
-            <td>60 дней</strong>
-          </tr>
-          <tr>
-            <td>GigaChat API (Lite)</strong>
-            <td>~900k токенов/год</strong>
-            <td>1 год</strong>
-          </tr>
-          <tr>
-            <td>DeepSeek (чат)</strong>
-            <td>Безлимит</strong>
-            <td>Бессрочно</strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Вывод: для рядовых задач достаточно бесплатных чатов (DeepSeek, GigaChat,
-        YandexGPT). Для интеграции с WordPress или автоматизации — используйте
-        API с бесплатными квотами Яндекса и Сбера .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Агрегаторы нейросетей"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Альтернативные способы: российские агрегаторы и API-доступ
-    </h3>
-    <div>
-      <p>
-        Если нужен доступ к <strong>ChatGPT, Claude или Midjourney</strong>
-        без VPN и зарубежных карт — используйте российские агрегаторы и
-        API-провайдеры .
-      </p>
-
-      <p><strong>🇷🇺 Российские агрегаторы (доступ без VPN, оплата в рублях):</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Сервис</th><th>Что даёт доступ</th><th>Особенности</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>GoGPT</strong></strong>
-            <td>ChatGPT, Claude, Midjourney, и др.</strong>
-            <td>Единый интерфейс, оплата рублями, без VPN </strong>
-          </tr>
-          <tr>
-            <td><strong>AITUNNEL</strong></strong>
-            <td>OpenAI, Google, DeepSeek</strong>
-            <td>API для разработчиков, стабильный доступ, рубли </strong>
-          </tr>
-          <tr>
-            <td><strong>SmartBuddy</strong></strong>
-            <td>Генерация диаграмм, работа с документами</strong>
-            <td>Создание UML, блок-схем, майнд-карт по тексту </strong>
-          </tr>
-          <tr>
-            <td><strong>Syntx AI</strong></strong>
-            <td>Десятки нейросетей в одном окне</strong>
-            <td>Генерация текстов, изображений, видео </strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <hr />
-
-      <p><strong>🔌 API-доступ для разработчиков (бесплатные квоты):</strong></p>
-      <ul>
-        <li>
-          <strong>Yandex Cloud (YandexGPT API):</strong> грант 4000–10000₽
-          новым пользователям на 60 дней. Этого хватает на сотни статей и
-          тысяч картинок через YandexART ;
-        </li>
-        <li>
-          <strong>GigaChat API:</strong> Freemium-тариф с ежегодной квотой токенов
-          (~900k токенов в год на Lite-тарифе). Не сгорает через 2 месяца,
-          оплата российскими картами ;
-        </li>
-        <li>
-          <strong>DeepSeek API:</strong> копеечные тарифы ($0.27 / $0.40 за 1M токенов),
-          доступен из России через официальный API .
-        </li>
-      </ul>
-
-      <p><strong>📊 Сравнение бесплатных квот (2025–2026):</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Сервис</th><th>Бесплатный лимит</th><th>Срок действия</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>YandexGPT API</strong>
-            <td>4000–10000₽ грант</strong>
-            <td>60 дней</strong>
-          </tr>
-          <tr>
-            <td>GigaChat API (Lite)</strong>
-            <td>~900k токенов/год</strong>
-            <td>1 год</strong>
-          </tr>
-          <tr>
-            <td>DeepSeek (чат)</strong>
-            <td>Безлимит</strong>
-            <td>Бессрочно</strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Вывод: для рядовых задач достаточно бесплатных чатов (DeepSeek, GigaChat,
-        YandexGPT). Для интеграции с WordPress или автоматизации — используйте
-        API с бесплатными квотами Яндекса и Сбера .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Промпт инжиниринг"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Тема 2.3. Формирование правильных запросов и создание контента. Преимущества, недостатки и ограничения текстовых нейросетей
-    </h3>
-    <div>
-      <p>
-        <strong>Промпт (prompt)</strong> — это текстовый запрос или инструкция,
-        которую пользователь отправляет нейросети для получения желаемого
-        результата. Качество ответа <strong>напрямую зависит от качества
-        запроса</strong>.
-      </p>
-
-      <p><strong>Почему промпт так важен:</strong></p>
-      <ul>
-        <li>
-          <strong>Нейросеть не читает мысли:</strong> она интерпретирует только
-          то, что вы написали. Неоднозначный запрос → неоднозначный ответ;
-        </li>
-        <li>
-          <strong>Одинаковый запрос → разные результаты:</strong> даже на одной
-          модели ответы могут различаться из-за стохастичности (элемента
-          случайности);
-        </li>
-        <li>
-          <strong>Спецификация задачи:</strong> чем точнее вы опишете, что нужно,
-          тем выше шанс получить качественный результат;
-        </li>
-        <li>
-          <strong>Экономия времени:</strong> хороший промпт с первого раза
-          избавляет от 5–10 итераций уточнений.
-        </li>
-      </ul>
-
-      <p><strong>Плохой vs хороший промпт — пример:</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Тип</th><th>Пример запроса</th><th>Почему это проблема</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>❌ Плохой</strong></strong></td>
-            <td>«Напиши статью про ИИ»</strong>
-            <td>Слишком широко: непонятно, для кого, какой объём, какой стиль</strong>
-          </tr>
-          <tr>
-            <td><strong>✅ Хороший</strong></strong>
-            <td>
-              «Напиши короткую статью (300–400 слов) для начинающих менеджеров
-              о том, как ИИ помогает в продажах. Используй простой язык, добавь
-              2 примера из реального бизнеса»
-             </strong>
-            <td>Чёткие рамки: аудитория, объём, цель, примеры</strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
-        <strong>📌 Золотое правило:</strong> относитесь к нейросети как к стажёру,
-        который очень умён, но совершенно не знает контекста вашей задачи.
-        <strong>Чёткая инструкция → чёткий результат.</strong>
-      </div>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Примечание: раздел работы с промптами называется <strong>промпт-инжиниринг (prompt engineering)</strong> и считается отдельным навыком в 2025 году. Хороший промпт-инженер получает зарплату не ниже ML-специалиста.</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Техники промптов"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Правила и техники формирования эффективных промптов
-    </h3>
-    <div>
-      <p>
-        <strong>Промпт-инжиниринг</strong> — это набор приёмов, позволяющих
-        получить от нейросети максимально релевантный и качественный ответ.
-      </p>
-
-      <p><strong>Базовые правила хорошего промпта:</strong></p>
-      <ul>
-        <li>
-          <strong>1. Будьте конкретны:</strong> вместо «напиши письмо» → «напиши
-          деловое письмо клиенту о задержке поставки на 3 дня»;
-        </li>
-        <li>
-          <strong>2. Укажите формат и объём:</strong> «список из 5 пунктов»,
-          «таблица 3×4», «пост в Telegram на 100 слов», «код на Python»;
-        </li>
-        <li>
-          <strong>3. Задайте стиль и тон:</strong> «дружеский», «официальный»,
-          «научный», «с юмором», «как эксперт в области»;
-        </li>
-        <li>
-          <strong>4. Укажите роль или персону:</strong> «ты — опытный маркетолог»,
-          «ты — учитель математики для 7 класса»;
-        </li>
-        <li>
-          <strong>5. Добавьте контекст и примеры:</strong> «вот пример хорошего
-          ответа: … сделай по аналогии».
-        </li>
-      </ul>
-
-      <p><strong>Продвинутые техники (2024–2025):</strong></p>
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr><th>Техника</th><th>Суть</th><th>Пример использования</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Zero-shot</strong></strong>
-            <td>Простой запрос без примеров</strong>
-            <td>«Переведи "Hello" на русский»</strong>
-          </tr>
-          <tr>
-            <td><strong>Few-shot</strong></strong>
-            <td>Приводим 2–3 примера до основного запроса</strong>
-            <td>«Пример: "A→1", "B→2". Теперь "C→?"»</strong>
-          </tr>
-          <tr>
-            <td><strong>Chain-of-Thought (CoT)</strong></strong>
-            <td>Просим объяснить ход рассуждений</strong>
-            <td>«Реши задачу: у Маши 3 яблока, отдала 1 → сколько осталось? Объясни шаги»</strong>
-          </tr>
-          <tr>
-            <td><strong>Tree-of-Thoughts (ToT)</strong></strong>
-            <td>Модель перебирает несколько вариантов решений</strong>
-            <td>«Перебери 3 возможных сценария развития рынка на 2026 год и выбери лучший»</strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><strong>Шаблон универсального промпта:</strong></p>
-      <div class="border p-2 bg-light" style="font-family: monospace; font-size: 0.9em">
-        [Роль] + [Задача] + [Контекст] + [Формат] + [Тон] + [Ограничения]
-        <br /><br />
-        <strong>Пример:</strong><br />
-        «Ты — опытный HR-специалист. Составь список из 5 вопросов для собеседования
-        на позицию Junior Python-разработчика. Вопросы должны проверять знание основ
-        и умение гуглить. Ответ дай в виде маркированного списка. Тон — нейтральный,
-        профессиональный.»
-      </div>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Совет: начните с короткого запроса, а затем уточняйте («добавь примеры»,
-        «сделай короче», «напиши в другом стиле»). Диалог с нейросетью часто
-        эффективнее идеального промпта с первого раза.</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Создание контента"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Что можно создавать с помощью текстовых нейросетей — типы контента
-    </h3>
-    <div>
-      <p>
-        Современные LLM и SLM способны генерировать десятки видов текстового
-        контента с качеством, близким к человеческому.
-      </p>
-
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr>
-            <th>Категория</th>
-            <th>Что можно создавать</th>
-            <th>Примеры использования</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Маркетинг и копирайтинг</strong></strong>
-            <td>
-              Рекламные посты, слоганы, описания товаров, письма, сценарии
-              для видео, триггеры для рассылок
-             </strong>
-            <td>
-              Wildberries/Ozon SEO-описания, Email-рассылки, посты в Telegram/ВК
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>Бизнес и деловая переписка</strong></strong>
-            <td>
-              Письма клиентам, коммерческие предложения, протоколы встреч,
-              презентации, должностные инструкции
-             </strong>
-            <td>
-              Ответ на рекламацию, коммерческое предложение, структура бизнес-плана
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>Образование и наука</strong></strong>
-            <td>
-              Планы уроков, тесты, объяснения сложных тем, аннотации к статьям,
-              рефераты (осторожно!), учебные примеры
-             </strong>
-            <td>
-              Конспект лекции, 5 тестовых вопросов для студентов, «объясни градиентный спуск как для 12-летнего»
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>Программирование и IT</strong></strong>
-            <td>
-              Код на Python/JS/Java, SQL-запросы, регулярные выражения,
-              документация, комментарии, рефакторинг
-             </strong>
-            <td>
-              «Напиши функцию для загрузки файла», «объясни этот код», «напиши тесты для API»
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>Креативное письмо</strong></strong>
-            <td>
-              Рассказы, стихи, сценарии, диалоги, шутки, поздравления,
-              тосты, биографии персонажей
-             </strong>
-            <td>
-              Сценарий для ролика в TikTok, поздравление с днём рождения,
-              стихотворение в заданном стиле
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>Аналитика и резюмирование</strong></strong>
-            <td>
-              Краткое содержание длинных текстов, извлечение ключевых пунктов,
-              сравнение документов, перевод с пояснениями
-             </strong>
-            <td>
-              «Перескажи эту статью на 3 абзаца», «выпиши риски из договора»
-             </strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><strong>Практические примеры запросов для разных типов контента:</strong></p>
-      <ul>
-        <li><strong>Пост в Telegram:</strong> «Напиши пост на 150 слов о нашем новом курсе по ИИ. Тон — дружеский, добавь эмодзи и хештеги»;</li>
-        <li><strong>SQL-запрос:</strong> «Таблица users (id, name, created_at). Напиши запрос, который выведет количество регистраций по месяцам за 2024 год»;</li>
-        <li><strong>Аннотация:</strong> «Ниже текст на 5000 символов. Сделай аннотацию на 3–4 предложения, выделив главную мысль».</li>
-      </ul>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Примечание: нейросети отлично справляются с рутинным созданием черновиков.
-        Финальная проверка и редактура всё равно нужны — особенно для юридических,
-        медицинских и финансовых текстов.</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Преимущества нейросетей"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Преимущества использования текстовых нейросетей
-    </h3>
-    <div>
-      <p>
-        Текстовые нейросети (LLM/SLM) стали неотъемлемым инструментом работы в
-        многих профессиях. Вот ключевые преимущества, которые объясняют их
-        популярность .
-      </p>
-
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr>
-            <th>Преимущество</th>
-            <th>Что это даёт на практике</th>
-            <th>Измеряемый эффект</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>🚀 Скорость создания контента</strong></strong>
-            <td>
-              Генерация черновиков, писем, постов, кода в секунды вместо часов
-             </strong>
-            <td>Рост продуктивности в 3–10 раз</strong>
-          </tr>
-          <tr>
-            <td><strong>💰 Снижение затрат</strong></strong>
-            <td>
-              Замена части работы копирайтеров, переводчиков, аналитиков, снижение времени рутины
-             </strong>
-            <td>Экономия бюджета до 50–80% на рутинных задачах</strong>
-          </tr>
-          <tr>
-            <td><strong>🌍 Круглосуточная доступность</strong></strong>
-            <td>Работает 24/7 без перерывов, выходных, отпусков</strong>
-            <td>Никогда не болеет и не выгорает</strong>
-          </tr>
-          <tr>
-            <td><strong>📊 Обработка больших объёмов</strong></strong>
-            <td>
-              Может прочитать и резюмировать 100 страниц за 10–20 секунд
-             </strong>
-            <td>Сотрудник физически не способен на это</strong>
-          </tr>
-          <tr>
-            <td><strong>🎯 Снижение порога входа</strong></strong>
-            <td>
-              Новичок с нейросетью может написать код или текст на уровне младшего специалиста
-             </strong>
-            <td>Ускорение обучения новых сотрудников</strong>
-          </tr>
-          <tr>
-            <td><strong>🌐 Мультиязычность</strong></strong>
-            <td>
-              Перевод с 50+ языков на лету, объяснение на иностранном, адаптация под аудиторию
-             </strong>
-            <td>Уход от языкового барьера в работе</strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><strong>Реальные кейсы экономии времени (2025):</strong></p>
-      <ul>
-        <li>
-          <strong>Аналитик данных:</strong> 80% времени уходило на написание
-          SQL-запросов и объяснительных записок. С LLM — 30% времени (на
-          проверку и уточнения);
-        </li>
-        <li>
-          <strong>HR-менеджер:</strong> составление JD (описаний вакансий) и
-          вопросов для собеседования с 3 часов → 15 минут;
-        </li>
-        <li>
-          <strong>Маркетолог:</strong> генерация 20 вариантов постов для
-          соцсетей за 10 минут вместо 2 часов.
-        </li>
-      </ul>
-
-      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
-        <strong>📈 Статистика (McKinsey / Gartner 2024–2025):</strong> компании,
-        системно внедрившие LLM в рутинные бизнес-процессы, отмечают рост
-        производительности сотрудников на 30–60%.
-      </div>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Важно: преимущества полностью раскрываются при правильном использовании.
-        Нейросеть — это инструмент, который усиливает человека, а не заменяет его
-        целиком. Самые высокие результаты — у тандема «человек + ИИ» .</em>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="card my-3" style="max-width: 800px">
-  <p>
-    <img
-      loading="lazy"
-      class="card-img-top"
-      src="../h1title.jpg"
-      alt="Недостатки и ограничения"
-      style="filter: grayscale(1)"
-    />
-  </p>
-  <div class="card-body">
-    <h3 class="card-title">
-      Недостатки и ограничения текстовых нейросетей (критически важно!)
-    </h3>
-    <div>
-      <p>
-        <strong>Текстовые нейросети — не магия, а статистические модели.</strong>
-        У них есть фундаментальные и практические ограничения, о которых нужно
-        знать каждому пользователю.
-      </p>
-
-      <table class="table table-sm mt-2" style="font-size: 0.9em">
-        <thead>
-          <tr>
-            <th>Ограничение</th>
-            <th>Суть проблемы</th>
-            <th>Пример</th>
-            <th>Что делать</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>❌ Галлюцинации (hallucinations)</strong></strong>
-            <td>
-              Модель уверенно генерирует ложные факты, которых нет в обучающих данных
-             </strong>
-            <td>
-              «Согласно указу президента №1234 от 2027 года, ...» (указа не существует)
-             </strong>
-            <td>
-              Перепроверять факты! Особенно даты, законы, имена
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>❌ Не актуальные знания</strong></strong>
-            <td>
-              Модель знает мир на дату среза данных (например, DeepSeek — май 2025, GigaChat — 2024)
-             </strong>
-            <td>
-              «Кто победил на последних выборах президента в США в 2024?» (если срез до выборов)
-             </strong>
-            <td>
-              Включить поиск в интернете (если есть), проверить вручную
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>❌ Отсутствие причинности (нет понимания)</strong></strong>
-            <td>
-              Модель не понимает физику мира — только статистические паттерны
-             </strong>
-            <td>
-              Может сказать, что «если смешать бензин и апельсиновый сок, получится ракетное топливо» (звучит похоже на правду)
-             </strong>
-            <td>
-              Использовать для творчества, но не для принятия критических решений без проверки
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>❌ Предвзятость (bias)</strong></strong>
-            <td>
-              Наследует стереотипы и предрассудки из обучающих данных (интернета)
-             </strong>
-            <td>
-              Может связывать профессии с полом («медсестра → она», «программист → он»)
-             </strong>
-            <td>
-              Явно указывать в промпте «без стереотипов», корректировать ответы
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>❌ Ограниченный контекст</strong></strong>
-            <td>
-              Модель «забывает» начало разговора, если диалог слишком длинный
-             </strong>
-            <td>
-              После 100 страниц обсуждения может потерять важную информацию из первого сообщения
-             </strong>
-            <td>
-              Кратко пересказывать суть в каждом новом запросе, делить на подзадачи
-             </strong>
-          </tr>
-          <tr>
-            <td><strong>❌ Безопасность и конфиденциальность</strong></strong>
-            <td>
-              Через облачные сервисы ваши данные могут использоваться для дообучения (если не отключить)
-             </strong>
-            <td>
-              Вы загрузили коммерческую тайну в ChatGPT → она могла «уйти» в модель
-             </strong>
-            <td>
-              Использовать локальные SLM, off-premise версии, читать политику конфиденциальности
-             </strong>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><strong>Красные флаги (когда НЕЛЬЗЯ полагаться на LLM без проверки):</strong></p>
-      <ul>
-        <li>Юридические документы (договоры, иски, доверенности);</li>
-        <li>Медицинские диагнозы и рекомендации по лечению;</li>
-        <li>Финансовые консультации (инвестиции, налоги, страховки);</li>
-        <li>Безопасность (оценка угроз, инструкции по ЧС);</li>
-        <li>Любая ситуация, где ложный ответ навредит здоровью или кошельку.</li>
-      </ul>
-
-      <div class="alert alert-danger border mt-2 p-2" style="background: #fff5f5">
-        <strong>⚠️ Золотое правило безопасности:</strong> Нейросеть не несёт
-        ответственности за свои ошибки. <strong>Ответственность всегда на человеке</strong>,
-        который использовал её ответ. Для важных решений — двойная проверка
-        из независимых источников.
-      </div>
-
-      <p class="text-muted mt-2" style="font-size: 0.85em">
-        <em>Резюме: LLM/SLM — мощный инструмент для черновиков, идей, рутины,
-        резюмирования и кода. Но они <strong>не заменяют эксперта</strong> в
-        вопросах, требующих актуальности, точности, понимания законов или
-        физики мира. Всегда проверяйте критически важные факты .</em>
-      </p>
-    </div>
-  </div>
-</div>
 
 <div class="card my-3" style="max-width: 800px">
         <p>
@@ -11300,7 +11461,7 @@ cos(θ) = (a · b) / (||a|| × ||b||)
           style="filter: grayscale(1)" />
       </p>
       <div class="card-body">
-        <h3 class="card-title">Тема 14. Галлюцинации (Hallucinations)</h3>
+        <h3 class="card-title">Тема 2.1 Галлюцинации (Hallucinations)</h3>
         <h6 class="card-subtitle mb-2 text-muted">
           Когда модель уверенно врёт
         </h6>
