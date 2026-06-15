@@ -22,6 +22,2598 @@
 let quizesSets =
   [
 
+      // ==================== ВАРИАНТ 1 ====================
+   // ==================== ВАРИАНТ 1 (ПОЛНЫЙ, КАК ПРИМЕР) ====================
+  {
+    id: "var1-task1",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x-2)(x+3) > 0$$`,
+    choices: [
+      `$(-\\infty; -3) \\cup (2; +\\infty)$`,
+      `$(-3; 2)$`,
+      `$(-\\infty; -2) \\cup (3; +\\infty)$`,
+      `$(-2; 3)$`,
+      `$(-\\infty; -3] \\cup [2; +\\infty)$`
+    ],
+    answers: [`$(-\\infty; -3) \\cup (2; +\\infty)$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Метод интервалов (пошагово)</h5>
+        <p><strong>1. Находим нули функции:</strong></p>
+        <p>$$(x-2)(x+3)=0 \\quad \\Rightarrow \\quad x_1=2, \\quad x_2=-3$$</p>
+        
+        <p><strong>2. Отмечаем на числовой прямой:</strong> -3 и 2</p>
+        <p><strong>3. Определяем знаки на интервалах:</strong></p>
+        <ul>
+          <li>Для интервала $(-\\infty; -3)$: возьмём $x=-4$ <br>
+          $$(-4-2)(-4+3)=(-6)\\cdot(-1)=6 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+          <li>Для интервала $(-3; 2)$: возьмём $x=0$ <br>
+          $$(0-2)(0+3)=(-2)\\cdot 3=-6 < 0 \\quad \\Rightarrow \\quad \\text{знак } "-"$$</li>
+          <li>Для интервала $(2; +\\infty)$: возьмём $x=3$ <br>
+          $$(3-2)(3+3)=1 \\cdot 6 = 6 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+        </ul>
+        
+        <p><strong>4. Выбираем интервалы со знаком "+":</strong></p>
+        <p>$$(-\\infty; -3) \\quad \\text{и} \\quad (2; +\\infty)$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$(-\\infty; -3) \\cup (2; +\\infty)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task2",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 - 5x + 6 = 0$$`,
+    choices: [
+      `$x = 2$ и $x = 3$`,
+      `$x = -2$ и $x = -3$`,
+      `$x = 2$ и $x = -3$`,
+      `$x = -2$ и $x = 3$`,
+      `$x = 1$ и $x = 6$`
+    ],
+    answers: [`$x = 2$ и $x = 3$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📌 Решение квадратного уравнения</h5>
+        <p><strong>1. Записываем коэффициенты:</strong></p>
+        <p>$$a = 1, \\quad b = -5, \\quad c = 6$$</p>
+        
+        <p><strong>2. Вычисляем дискриминант:</strong></p>
+        <p>$$D = b^2 - 4ac = (-5)^2 - 4 \\cdot 1 \\cdot 6 = 25 - 24 = 1$$</p>
+        
+        <p><strong>3. Находим корни:</strong></p>
+        <p>$$x_{1,2} = \\frac{-b \\pm \\sqrt{D}}{2a} = \\frac{5 \\pm \\sqrt{1}}{2} = \\frac{5 \\pm 1}{2}$$</p>
+        <p>$$x_1 = \\frac{5-1}{2} = \\frac{4}{2} = 2, \\quad x_2 = \\frac{5+1}{2} = \\frac{6}{2} = 3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 2 \\quad \\text{и} \\quad x = 3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task3",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = x^3 - 3x$$`,
+    choices: [
+      `возрастает на $(-\\infty;-1]$ и $[1;+\\infty)$, убывает на $[-1;1]$, $x_{max}=-1$, $x_{min}=1$`,
+      `возрастает на $[-1;1]$, убывает на $(-\\infty;-1]$ и $[1;+\\infty)$, $x_{max}=1$, $x_{min}=-1$`,
+      `возрастает на $(-\\infty;0]$, убывает на $[0;+\\infty)$, $x_{max}=0$`,
+      `убывает на $(-\\infty;-1]$ и $[1;+\\infty)$, возрастает на $[-1;1]$, $x_{max}=1$, $x_{min}=-1$`,
+      `функция монотонно возрастает на всей числовой прямой`
+    ],
+    answers: [`возрастает на $(-\\infty;-1]$ и $[1;+\\infty)$, убывает на $[-1;1]$, $x_{max}=-1$, $x_{min}=1$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📈 Исследование функции $f(x)=x^3-3x$</h5>
+        
+        <p><strong>1. Находим производную:</strong></p>
+        <p>Для расчета производной суммы функций используем правило: $(x^n)' = n \\cdot x^{n-1}$</p>
+        <p>$$f'(x) = (x^3)' - (3x)' = 3x^2 - 3$$</p>
+        <p>$$f'(x) = 3(x^2 - 1) = 3(x-1)(x+1)$$</p>
+        
+        <p><strong>2. Находим критические точки:</strong></p>
+        <p>$$f'(x) = 0 \\quad \\Rightarrow \\quad 3(x-1)(x+1)=0 \\quad \\Rightarrow \\quad x=-1, \\quad x=1$$</p>
+        
+        <p><strong>3. Определяем знаки производной на интервалах:</strong></p>
+        <ul>
+          <li>На $(-\\infty; -1)$: возьмём $x=-2$ <br>
+          $$f'(-2)=3((-2)^2-1)=3(4-1)=9 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+          <li>На $(-1; 1)$: возьмём $x=0$ <br>
+          $$f'(0)=3(0-1)=-3 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+          <li>На $(1; +\\infty)$: возьмём $x=2$ <br>
+          $$f'(2)=3(4-1)=9 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+        </ul>
+        
+        <p><strong>4. Определяем экстремумы:</strong></p>
+        <ul>
+          <li>$x = -1$ — точка максимума (производная меняет $+$ на $-$)</li>
+          <li>$x = 1$ — точка минимума (производная меняет $-$ на $+$)</li>
+        </ul>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$\\text{Возрастает: } (-\\infty;-1] \\cup [1;+\\infty) \\quad \\text{Убывает: } [-1;1]$$
+            $$x_{max} = -1, \\quad x_{min} = 1$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task4",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_2(x+1) = 3$$`,
+    choices: [
+      `$x = 7$`,
+      `$x = 8$`,
+      `$x = 5$`,
+      `$x = 9$`,
+      `$x = 6$`
+    ],
+    answers: [`$x = 7$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📚 Решение логарифмического уравнения</h5>
+        
+        <p><strong>1. Используем определение логарифма:</strong></p>
+        <p>$$\\log_a b = c \\quad \\Leftrightarrow \\quad b = a^c \\quad (a>0, a \\neq 1, b>0)$$</p>
+        
+        <p><strong>2. Применяем к нашему уравнению:</strong></p>
+        <p>$$\\log_2(x+1) = 3 \\quad \\Rightarrow \\quad x+1 = 2^3$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$2^3 = 2 \\cdot 2 \\cdot 2 = 8$$</p>
+        <p>$$x+1 = 8 \\quad \\Rightarrow \\quad x = 8 - 1 = 7$$</p>
+        
+        <p><strong>4. Проверяем ОДЗ:</strong></p>
+        <p>$$x+1 > 0 \\quad \\Rightarrow \\quad 7+1 = 8 > 0 \\quad \\text{— выполнено}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 7$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task5",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$2^{x} = 16$$`,
+    choices: [
+      `$x = 4$`,
+      `$x = 8$`,
+      `$x = 3$`,
+      `$x = 5$`,
+      `$x = 2$`
+    ],
+    answers: [`$x = 4$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>⚡ Решение показательного уравнения</h5>
+        
+        <p><strong>1. Представляем правую часть как степень с основанием 2:</strong></p>
+        <p>$$16 = 2^4 \\quad \\text{(так как } 2 \\cdot 2 \\cdot 2 \\cdot 2 = 16\\text{)}$$</p>
+        
+        <p><strong>2. Записываем уравнение:</strong></p>
+        <p>$$2^{x} = 2^{4}$$</p>
+        
+        <p><strong>3. Используем свойство:</strong></p>
+        <p>Если $a > 0$, $a \\neq 1$ и $a^{f(x)} = a^{g(x)}$, то $f(x) = g(x)$</p>
+        <p>$$x = 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 4$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task6",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_2(x-1) > 1$$`,
+    choices: [
+      `$(3; +\\infty)$`,
+      `$(1; +\\infty)$`,
+      `$(-\\infty; 3)$`,
+      `$(2; +\\infty)$`,
+      `$(0; +\\infty)$`
+    ],
+    answers: [`$(3; +\\infty)$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📖 Решение логарифмического неравенства</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$x-1 > 0 \\quad \\Rightarrow \\quad x > 1$$</p>
+        
+        <p><strong>2. Представляем правую часть как логарифм:</strong></p>
+        <p>$$1 = \\log_2 2 \\quad \\text{(так как } 2^1=2\\text{)}$$</p>
+        
+        <p><strong>3. Записываем неравенство:</strong></p>
+        <p>$$\\log_2(x-1) > \\log_2 2$$</p>
+        
+        <p><strong>4. Учитываем монотонность логарифмической функции:</strong></p>
+        <p>Так как основание $2 > 1$, функция $y=\\log_2 t$ возрастающая,<br>
+        значит знак неравенства сохраняется:</p>
+        <p>$$x-1 > 2 \\quad \\Rightarrow \\quad x > 3$$</p>
+        
+        <p><strong>5. Учитываем ОДЗ:</strong></p>
+        <p>$$x > 1 \\quad \\text{и} \\quad x > 3 \\quad \\Rightarrow \\quad x > 3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x \\in (3; +\\infty)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task7",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 7",
+    title: "Объем параллелепипеда",
+    theme: "Стереометрия",
+    text: `В прямоугольном параллелепипеде стороны основания равны 8 см и 10 см, а диагональ большей боковой грани параллелепипеда равна 26 см. Найдите объем параллелепипеда.`,
+    choices: [
+      `$1920$ см³`,
+      `$960$ см³`,
+      `$2880$ см³`,
+      `$1440$ см³`,
+      `$2400$ см³`
+    ],
+    answers: [`$1920$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📦 Нахождение объёма прямоугольного параллелепипеда</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$a = 8 \\text{ см}, \\quad b = 10 \\text{ см}, \\quad d_{\\text{грани}} = 26 \\text{ см}$$</p>
+        <p>Большая боковая грань — со сторонами $b=10$ см и высотой $h$.</p>
+        
+        <p><strong>1. Находим высоту $h$ по теореме Пифагора:</strong></p>
+        <p>$$d_{\\text{грани}}^2 = b^2 + h^2$$</p>
+        <p>$$26^2 = 10^2 + h^2$$</p>
+        <p>$$676 = 100 + h^2$$</p>
+        <p>$$h^2 = 676 - 100 = 576 \\quad \\Rightarrow \\quad h = \\sqrt{576} = 24 \\text{ см}$$</p>
+        
+        <p><strong>2. Вычисляем объём:</strong></p>
+        <p>$$V = S_{\\text{осн}} \\cdot h = (a \\cdot b) \\cdot h = 8 \\cdot 10 \\cdot 24 = 80 \\cdot 24 = 1920 \\text{ см}^3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$V = 1920 \\text{ см}^3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var1-task8",
+    type: "multiplechoices",
+    header: "Вариант 1. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = x^2, \\quad y = 0, \\quad x = 1, \\quad x = 2$$`,
+    choices: [
+      `$\\frac{7}{3}$`,
+      `$\\frac{8}{3}$`,
+      `$3$`,
+      `$\\frac{5}{3}$`,
+      `$\\frac{10}{3}$`
+    ],
+    answers: [`$\\frac{7}{3}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади криволинейной трапеции</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>Подставляем данные:</strong></p>
+        <p>$$S = \\int_{1}^{2} x^2 \\, dx$$</p>
+        
+        <p><strong>Находим первообразную:</strong></p>
+        <p>$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$$</p>
+        <p>$$\\int x^2 \\, dx = \\frac{x^{3}}{3}$$</p>
+        
+        <p><strong>Вычисляем по формуле Ньютона-Лейбница:</strong></p>
+        <p>$$S = \\left[\\frac{x^3}{3}\\right]_{1}^{2} = \\frac{2^3}{3} - \\frac{1^3}{3} = \\frac{8}{3} - \\frac{1}{3} = \\frac{7}{3}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = \\frac{7}{3}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  
+  // ==================== ВАРИАНТ 2 ====================
+  {
+    id: "var2-task1",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x-1)(x+4) \\le 0$$`,
+    choices: [
+      `$[-4; 1]$`,
+      `$(-4; 1)$`,
+      `$(-\\infty; -4] \\cup [1; +\\infty)$`,
+      `$(-\\infty; -4) \\cup (1; +\\infty)$`,
+      `$[-1; 4]$`
+    ],
+    answers: [`$[-4; 1]$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Метод интервалов (пошагово)</h5>
+        <p><strong>1. Находим нули функции:</strong></p>
+        <p>$$(x-1)(x+4)=0 \\quad \\Rightarrow \\quad x_1=1, \\quad x_2=-4$$</p>
+        
+        <p><strong>2. Отмечаем на числовой прямой:</strong> -4 и 1</p>
+        <p><strong>3. Определяем знаки на интервалах:</strong></p>
+        <ul>
+          <li>Для интервала $(-\\infty; -4)$: возьмём $x=-5$ <br>
+          $$(-5-1)(-5+4)=(-6)\\cdot(-1)=6 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+          <li>Для интервала $(-4; 1)$: возьмём $x=0$ <br>
+          $$(0-1)(0+4)=(-1)\\cdot 4=-4 < 0 \\quad \\Rightarrow \\quad \\text{знак } "-"$$</li>
+          <li>Для интервала $(1; +\\infty)$: возьмём $x=2$ <br>
+          $$(2-1)(2+4)=1 \\cdot 6 = 6 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+        </ul>
+        
+        <p><strong>4. Выбираем интервалы со знаком "-" (так как $\\le 0$):</strong></p>
+        <p>Квадратные скобки, так как неравенство нестрогое: $$[-4; 1]$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$[-4; 1]$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task2",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 + 4x - 5 = 0$$`,
+    choices: [
+      `$x = -5$ и $x = 1$`,
+      `$x = 5$ и $x = -1$`,
+      `$x = -5$ и $x = -1$`,
+      `$x = 5$ и $x = 1$`,
+      `$x = 0$ и $x = -4$`
+    ],
+    answers: [`$x = -5$ и $x = 1$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📌 Решение квадратного уравнения</h5>
+        <p><strong>1. Записываем коэффициенты:</strong></p>
+        <p>$$a = 1, \\quad b = 4, \\quad c = -5$$</p>
+        
+        <p><strong>2. Вычисляем дискриминант:</strong></p>
+        <p>Формула дискриминанта: $$D = b^2 - 4ac$$</p>
+        <p>$$D = 4^2 - 4 \\cdot 1 \\cdot (-5) = 16 + 20 = 36$$</p>
+        <p>$$\\sqrt{D} = \\sqrt{36} = 6$$</p>
+        
+        <p><strong>3. Находим корни:</strong></p>
+        <p>Формула корней: $$x_{1,2} = \\frac{-b \\pm \\sqrt{D}}{2a}$$</p>
+        <p>$$x_{1,2} = \\frac{-4 \\pm 6}{2}$$</p>
+        <p>$$x_1 = \\frac{-4-6}{2} = \\frac{-10}{2} = -5, \\quad x_2 = \\frac{-4+6}{2} = \\frac{2}{2} = 1$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = -5 \\quad \\text{и} \\quad x = 1$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task3",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = -x^2 + 4x$$`,
+    choices: [
+      `возрастает на $(-\\infty;2]$, убывает на $[2;+\\infty)$, $x_{max}=2$`,
+      `убывает на $(-\\infty;2]$, возрастает на $[2;+\\infty)$, $x_{min}=2$`,
+      `возрастает на $(-\\infty;0]$, убывает на $[0;+\\infty)$, $x_{max}=0$`,
+      `убывает на $(-\\infty;0]$, возрастает на $[0;+\\infty)$, $x_{min}=0$`,
+      `функция монотонно возрастает на всей числовой прямой`
+    ],
+    answers: [`возрастает на $(-\\infty;2]$, убывает на $[2;+\\infty)$, $x_{max}=2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📈 Исследование функции $f(x)=-x^2+4x$</h5>
+        
+        <p><strong>1. Находим производную:</strong></p>
+        <p>Для расчета производной суммы функций используем правило: $(x^n)' = n \\cdot x^{n-1}$</p>
+        <p>$$f'(x) = (-x^2)' + (4x)' = -2x + 4$$</p>
+        <p>$$f'(x) = -2(x-2)$$</p>
+        
+        <p><strong>2. Находим критические точки:</strong></p>
+        <p>$$f'(x) = 0 \\quad \\Rightarrow \\quad -2(x-2)=0 \\quad \\Rightarrow \\quad x=2$$</p>
+        
+        <p><strong>3. Определяем знаки производной на интервалах:</strong></p>
+        <ul>
+          <li>На $(-\\infty; 2)$: возьмём $x=0$ <br>
+          $$f'(0) = -2(0-2) = -2 \\cdot (-2) = 4 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+          <li>На $(2; +\\infty)$: возьмём $x=3$ <br>
+          $$f'(3) = -2(3-2) = -2 \\cdot 1 = -2 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+        </ul>
+        
+        <p><strong>4. Определяем экстремум:</strong></p>
+        <p>$x = 2$ — точка максимума (производная меняет $+$ на $-$)</p>
+        <p>$$f(2) = -4 + 8 = 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$\\text{Возрастает: } (-\\infty;2] \\quad \\text{Убывает: } [2;+\\infty)$$
+            $$x_{max} = 2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task4",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_3(2x-1) = 2$$`,
+    choices: [
+      `$x = 5$`,
+      `$x = 4$`,
+      `$x = 6$`,
+      `$x = 3$`,
+      `$x = 7$`
+    ],
+    answers: [`$x = 5$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📚 Решение логарифмического уравнения</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$2x-1 > 0 \\quad \\Rightarrow \\quad 2x > 1 \\quad \\Rightarrow \\quad x > 0.5$$</p>
+        
+        <p><strong>2. Используем определение логарифма:</strong></p>
+        <p>$$\\log_a b = c \\quad \\Leftrightarrow \\quad b = a^c \\quad (a>0, a \\neq 1, b>0)$$</p>
+        <p>$$\\log_3(2x-1) = 2 \\quad \\Rightarrow \\quad 2x-1 = 3^2$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$3^2 = 9$$</p>
+        <p>$$2x-1 = 9 \\quad \\Rightarrow \\quad 2x = 10 \\quad \\Rightarrow \\quad x = 5$$</p>
+        
+        <p><strong>4. Проверяем ОДЗ:</strong></p>
+        <p>$$5 > 0.5 \\quad \\text{— выполнено}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 5$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task5",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$3^{x-1} = 27$$`,
+    choices: [
+      `$x = 4$`,
+      `$x = 3$`,
+      `$x = 5$`,
+      `$x = 2$`,
+      `$x = 6$`
+    ],
+    answers: [`$x = 4$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>⚡ Решение показательного уравнения</h5>
+        
+        <p><strong>1. Представляем правую часть как степень с основанием 3:</strong></p>
+        <p>$$27 = 3^3 \\quad \\text{(так как } 3 \\cdot 3 \\cdot 3 = 27\\text{)}$$</p>
+        
+        <p><strong>2. Записываем уравнение:</strong></p>
+        <p>$$3^{x-1} = 3^{3}$$</p>
+        
+        <p><strong>3. Используем свойство:</strong></p>
+        <p>Если $a > 0$, $a \\neq 1$ и $a^{f(x)} = a^{g(x)}$, то $f(x) = g(x)$</p>
+        <p>$$x-1 = 3$$</p>
+        <p>$$x = 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 4$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task6",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_{0.5}(x+2) > -1$$`,
+    choices: [
+      `$(-2; 0)$`,
+      `$(0; +\\infty)$`,
+      `$(-\\infty; -2)$`,
+      `$(-2; +\\infty)$`,
+      `$(-\\infty; 0)$`
+    ],
+    answers: [`$(-2; 0)$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📖 Решение логарифмического неравенства</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$x+2 > 0 \\quad \\Rightarrow \\quad x > -2$$</p>
+        
+        <p><strong>2. Представляем правую часть как логарифм с основанием 0.5:</strong></p>
+        <p>$$-1 = \\log_{0.5} (0.5)^{-1} = \\log_{0.5} 2$$</p>
+        <p>Так как $0.5^{-1} = \\frac{1}{0.5} = 2$</p>
+        
+        <p><strong>3. Записываем неравенство:</strong></p>
+        <p>$$\\log_{0.5}(x+2) > \\log_{0.5} 2$$</p>
+        
+        <p><strong>4. Учитываем монотонность:</strong></p>
+        <p>Так как основание $0.5 < 1$, функция $y=\\log_{0.5} t$ убывающая,<br>
+        значит знак неравенства меняется на противоположный:</p>
+        <p>$$x+2 < 2 \\quad \\Rightarrow \\quad x < 0$$</p>
+        
+        <p><strong>5. Учитываем ОДЗ:</strong></p>
+        <p>$$x > -2 \\quad \\text{и} \\quad x < 0 \\quad \\Rightarrow \\quad -2 < x < 0$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x \\in (-2; 0)$$
+          </div>
+        </div>
+        
+        <div class="alert alert-secondary mt-2">
+          <strong>⭐ Важно:</strong> При основании логарифма < 1 знак неравенства меняется!
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task7",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 7",
+    title: "Объем конуса",
+    theme: "Стереометрия",
+    text: `Образующая конуса равна 25 см, а радиус его основания 7 см. Найдите объём конуса.`,
+    choices: [
+      `$392\\pi$ см³`,
+      `$196\\pi$ см³`,
+      `$588\\pi$ см³`,
+      `$784\\pi$ см³`,
+      `$980\\pi$ см³`
+    ],
+    answers: [`$392\\pi$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Нахождение объёма конуса</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$l = 25 \\text{ см (образующая)}, \\quad r = 7 \\text{ см (радиус основания)}$$</p>
+        
+        <p><strong>1. Находим высоту конуса по теореме Пифагора:</strong></p>
+        <p>В осевом сечении конуса — равнобедренный треугольник:</p>
+        <p>$$l^2 = r^2 + h^2 \\quad \\Rightarrow \\quad h^2 = l^2 - r^2$$</p>
+        <p>$$h^2 = 25^2 - 7^2 = 625 - 49 = 576$$</p>
+        <p>$$h = \\sqrt{576} = 24 \\text{ см}$$</p>
+        
+        <p><strong>2. Формула объёма конуса:</strong></p>
+        <p>$$V = \\frac{1}{3} \\pi r^2 h$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$V = \\frac{1}{3} \\pi \\cdot 7^2 \\cdot 24 = \\frac{1}{3} \\pi \\cdot 49 \\cdot 24$$</p>
+        <p>$$V = \\pi \\cdot 49 \\cdot 8 = 392\\pi \\text{ см}^3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$V = 392\\pi \\text{ см}^3 \\approx 1231.5 \\text{ см}^3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var2-task8",
+    type: "multiplechoices",
+    header: "Вариант 2. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = \\sqrt{x}, \\quad y = 0, \\quad x = 0, \\quad x = 4$$`,
+    choices: [
+      `$\\frac{16}{3}$`,
+      `$\\frac{8}{3}$`,
+      `$\\frac{4}{3}$`,
+      `$\\frac{32}{3}$`,
+      `$\\frac{20}{3}$`
+    ],
+    answers: [`$\\frac{16}{3}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади криволинейной трапеции</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>Подставляем данные:</strong></p>
+        <p>$$f(x) = \\sqrt{x} = x^{1/2}, \\quad a=0, \\quad b=4$$</p>
+        <p>$$S = \\int_{0}^{4} x^{1/2} \\, dx$$</p>
+        
+        <p><strong>Находим первообразную:</strong></p>
+        <p>$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$$</p>
+        <p>$$\\int x^{1/2} \\, dx = \\frac{x^{1/2+1}}{1/2+1} = \\frac{x^{3/2}}{3/2} = \\frac{2}{3} x^{3/2}$$</p>
+        
+        <p><strong>Вычисляем по формуле Ньютона-Лейбница:</strong></p>
+        <p>$$S = \\left[\\frac{2}{3} x^{3/2}\\right]_{0}^{4} = \\frac{2}{3} \\cdot 4^{3/2} - \\frac{2}{3} \\cdot 0^{3/2}$$</p>
+        <p>$$4^{3/2} = (\\sqrt{4})^3 = 2^3 = 8$$</p>
+        <p>$$S = \\frac{2}{3} \\cdot 8 = \\frac{16}{3}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = \\frac{16}{3}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ВАРИАНТ 3 ====================
+  {
+    id: "var3-task1",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x+2)(x-5) < 0$$`,
+    choices: [
+      `$(-2; 5)$`,
+      `$[-2; 5]$`,
+      `$(-\\infty; -2) \\cup (5; +\\infty)$`,
+      `$(-\\infty; -2] \\cup [5; +\\infty)$`,
+      `$(-5; 2)$`
+    ],
+    answers: [`$(-2; 5)$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Метод интервалов (пошагово)</h5>
+        <p><strong>1. Находим нули функции:</strong></p>
+        <p>$$(x+2)(x-5)=0 \\quad \\Rightarrow \\quad x_1=-2, \\quad x_2=5$$</p>
+        
+        <p><strong>2. Отмечаем на числовой прямой:</strong> -2 и 5</p>
+        <p><strong>3. Определяем знаки на интервалах:</strong></p>
+        <ul>
+          <li>Для интервала $(-\\infty; -2)$: возьмём $x=-3$ <br>
+          $$(-3+2)(-3-5)=(-1)\\cdot(-8)=8 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+          <li>Для интервала $(-2; 5)$: возьмём $x=0$ <br>
+          $$(0+2)(0-5)=2 \\cdot (-5)=-10 < 0 \\quad \\Rightarrow \\quad \\text{знак } "-"$$</li>
+          <li>Для интервала $(5; +\\infty)$: возьмём $x=6$ <br>
+          $$(6+2)(6-5)=8 \\cdot 1 = 8 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+        </ul>
+        
+        <p><strong>4. Выбираем интервалы со знаком "-" (так как $< 0$):</strong></p>
+        <p>Круглые скобки, так как неравенство строгое: $$(-2; 5)$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$(-2; 5)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task2",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 - 3x - 4 = 0$$`,
+    choices: [
+      `$x = -1$ и $x = 4$`,
+      `$x = 1$ и $x = -4$`,
+      `$x = 2$ и $x = -2$`,
+      `$x = 4$ и $x = 1$`,
+      `$x = -4$ и $x = -1$`
+    ],
+    answers: [`$x = -1$ и $x = 4$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📌 Решение квадратного уравнения</h5>
+        <p><strong>1. Записываем коэффициенты:</strong></p>
+        <p>$$a = 1, \\quad b = -3, \\quad c = -4$$</p>
+        
+        <p><strong>2. Вычисляем дискриминант:</strong></p>
+        <p>Формула дискриминанта: $$D = b^2 - 4ac$$</p>
+        <p>$$D = (-3)^2 - 4 \\cdot 1 \\cdot (-4) = 9 + 16 = 25$$</p>
+        <p>$$\\sqrt{D} = \\sqrt{25} = 5$$</p>
+        
+        <p><strong>3. Находим корни:</strong></p>
+        <p>Формула корней: $$x_{1,2} = \\frac{-b \\pm \\sqrt{D}}{2a}$$</p>
+        <p>$$x_{1,2} = \\frac{3 \\pm 5}{2}$$</p>
+        <p>$$x_1 = \\frac{3-5}{2} = \\frac{-2}{2} = -1, \\quad x_2 = \\frac{3+5}{2} = \\frac{8}{2} = 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = -1 \\quad \\text{и} \\quad x = 4$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task3",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = x^3 - 12x$$`,
+    choices: [
+      `возрастает на $(-\\infty;-2]$ и $[2;+\\infty)$, убывает на $[-2;2]$, $x_{max}=-2$, $x_{min}=2$`,
+      `возрастает на $[-2;2]$, убывает на $(-\\infty;-2]$ и $[2;+\\infty)$, $x_{max}=2$, $x_{min}=-2$`,
+      `возрастает на $(-\\infty;0]$, убывает на $[0;+\\infty)$, $x_{max}=0$`,
+      `убывает на всей числовой прямой`,
+      `возрастает на всей числовой прямой`
+    ],
+    answers: [`возрастает на $(-\\infty;-2]$ и $[2;+\\infty)$, убывает на $[-2;2]$, $x_{max}=-2$, $x_{min}=2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📈 Исследование функции $f(x)=x^3-12x$</h5>
+        
+        <p><strong>1. Находим производную:</strong></p>
+        <p>Для расчета производной суммы функций используем правило: $(x^n)' = n \\cdot x^{n-1}$</p>
+        <p>$$f'(x) = (x^3)' - (12x)' = 3x^2 - 12$$</p>
+        <p>$$f'(x) = 3(x^2 - 4) = 3(x-2)(x+2)$$</p>
+        
+        <p><strong>2. Находим критические точки:</strong></p>
+        <p>$$f'(x) = 0 \\quad \\Rightarrow \\quad 3(x-2)(x+2)=0 \\quad \\Rightarrow \\quad x=-2, \\quad x=2$$</p>
+        
+        <p><strong>3. Определяем знаки производной на интервалах:</strong></p>
+        <ul>
+          <li>На $(-\\infty; -2)$: возьмём $x=-3$ <br>
+          $$f'(-3)=3(9-4)=3 \\cdot 5 = 15 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+          <li>На $(-2; 2)$: возьмём $x=0$ <br>
+          $$f'(0)=3(0-4)=3 \\cdot (-4) = -12 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+          <li>На $(2; +\\infty)$: возьмём $x=3$ <br>
+          $$f'(3)=3(9-4)=3 \\cdot 5 = 15 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+        </ul>
+        
+        <p><strong>4. Определяем экстремумы:</strong></p>
+        <ul>
+          <li>$x = -2$ — точка максимума (производная меняет $+$ на $-$)</li>
+          <li>$x = 2$ — точка минимума (производная меняет $-$ на $+$)</li>
+        </ul>
+        <p>$$f(-2) = -8 + 24 = 16, \\quad f(2) = 8 - 24 = -16$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$\\text{Возрастает: } (-\\infty;-2] \\cup [2;+\\infty) \\quad \\text{Убывает: } [-2;2]$$
+            $$x_{max} = -2, \\quad x_{min} = 2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task4",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_5(3x+1) = 2$$`,
+    choices: [
+      `$x = 8$`,
+      `$x = 7$`,
+      `$x = 9$`,
+      `$x = 6$`,
+      `$x = 10$`
+    ],
+    answers: [`$x = 8$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📚 Решение логарифмического уравнения</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$3x+1 > 0 \\quad \\Rightarrow \\quad 3x > -1 \\quad \\Rightarrow \\quad x > -\\frac{1}{3}$$</p>
+        
+        <p><strong>2. Используем определение логарифма:</strong></p>
+        <p>$$\\log_5(3x+1) = 2 \\quad \\Rightarrow \\quad 3x+1 = 5^2$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$5^2 = 25$$</p>
+        <p>$$3x+1 = 25 \\quad \\Rightarrow \\quad 3x = 24 \\quad \\Rightarrow \\quad x = 8$$</p>
+        
+        <p><strong>4. Проверяем ОДЗ:</strong></p>
+        <p>$$8 > -\\frac{1}{3} \\quad \\text{— выполнено}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 8$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task5",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$4^{x} = 64$$`,
+    choices: [
+      `$x = 3$`,
+      `$x = 2$`,
+      `$x = 4$`,
+      `$x = 5$`,
+      `$x = 1$`
+    ],
+    answers: [`$x = 3$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>⚡ Решение показательного уравнения</h5>
+        
+        <p><strong>1. Представляем правую часть как степень с основанием 4:</strong></p>
+        <p>$$64 = 4^3 \\quad \\text{(так как } 4 \\cdot 4 \\cdot 4 = 64\\text{)}$$</p>
+        
+        <p><strong>2. Записываем уравнение:</strong></p>
+        <p>$$4^{x} = 4^{3}$$</p>
+        
+        <p><strong>3. Используем свойство:</strong></p>
+        <p>Если $a > 0$, $a \\neq 1$ и $a^{f(x)} = a^{g(x)}$, то $f(x) = g(x)$</p>
+        <p>$$x = 3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task6",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_{0.2}(x-1) \\le -1$$`,
+    choices: [
+      `$[6; +\\infty)$`,
+      `$(1; 6]$`,
+      `$(-\\infty; 6]$`,
+      `$[1; 6]$`,
+      `$(6; +\\infty)$`
+    ],
+    answers: [`$[6; +\\infty)$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📖 Решение логарифмического неравенства</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$x-1 > 0 \\quad \\Rightarrow \\quad x > 1$$</p>
+        
+        <p><strong>2. Представляем правую часть как логарифм с основанием 0.2:</strong></p>
+        <p>$$-1 = \\log_{0.2} (0.2)^{-1} = \\log_{0.2} 5$$</p>
+        <p>Так как $0.2 = \\frac{1}{5}$, то $(\\frac{1}{5})^{-1} = 5$</p>
+        
+        <p><strong>3. Записываем неравенство:</strong></p>
+        <p>$$\\log_{0.2}(x-1) \\le \\log_{0.2} 5$$</p>
+        
+        <p><strong>4. Учитываем монотонность:</strong></p>
+        <p>Так как основание $0.2 < 1$, функция $y=\\log_{0.2} t$ убывающая,<br>
+        значит знак неравенства меняется на противоположный:</p>
+        <p>$$x-1 \\ge 5 \\quad \\Rightarrow \\quad x \\ge 6$$</p>
+        
+        <p><strong>5. Учитываем ОДЗ:</strong></p>
+        <p>$$x > 1 \\quad \\text{и} \\quad x \\ge 6 \\quad \\Rightarrow \\quad x \\ge 6$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x \\in [6; +\\infty)$$
+          </div>
+        </div>
+        
+        <div class="alert alert-secondary mt-2">
+          <strong>⭐ Важно:</strong> При основании логарифма < 1 знак неравенства меняется!
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task7",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 7",
+    title: "Объем цилиндра",
+    theme: "Стереометрия",
+    text: `Радиус основания цилиндра равен 5 см, а диагональ осевого сечения наклонена к плоскости основания под углом 45°. Найдите объём цилиндра.`,
+    choices: [
+      `$250\\pi$ см³`,
+      `$125\\pi$ см³`,
+      `$500\\pi$ см³`,
+      `$100\\pi$ см³`,
+      `$200\\pi$ см³`
+    ],
+    answers: [`$250\\pi$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Нахождение объёма цилиндра</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$r = 5 \\text{ см (радиус основания)}, \\quad \\alpha = 45°$$</p>
+        <p>Диагональ осевого сечения наклонена к плоскости основания под углом 45°.</p>
+        
+        <p><strong>1. Анализируем осевое сечение:</strong></p>
+        <p>Осевое сечение цилиндра — прямоугольник со сторонами:</p>
+        <ul>
+          <li>ширина = диаметр основания $d = 2r = 10$ см</li>
+          <li>высота = $h$ (образующая цилиндра)</li>
+        </ul>
+        
+        <p><strong>2. Находим высоту цилиндра:</strong></p>
+        <p>Диагональ прямоугольника наклонена под углом 45° к основанию.<br>
+        В прямоугольном треугольнике, образованном диагональю, шириной и высотой:</p>
+        <p>$$\\tan 45° = \\frac{h}{d} = \\frac{h}{10}$$</p>
+        <p>$$\\tan 45° = 1 \\quad \\Rightarrow \\quad 1 = \\frac{h}{10} \\quad \\Rightarrow \\quad h = 10 \\text{ см}$$</p>
+        
+        <p><strong>3. Формула объёма цилиндра:</strong></p>
+        <p>$$V = \\pi r^2 h$$</p>
+        
+        <p><strong>4. Вычисляем:</strong></p>
+        <p>$$V = \\pi \\cdot 5^2 \\cdot 10 = \\pi \\cdot 25 \\cdot 10 = 250\\pi \\text{ см}^3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$V = 250\\pi \\text{ см}^3 \\approx 785 \\text{ см}^3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var3-task8",
+    type: "multiplechoices",
+    header: "Вариант 3. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = \\sin x, \\quad y = 0, \\quad x = 0, \\quad x = \\pi$$`,
+    choices: [
+      `$2$`,
+      `$1$`,
+      `$0$`,
+      `$\\pi$`,
+      `$\\frac{\\pi}{2}$`
+    ],
+    answers: [`$2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади криволинейной трапеции</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>Подставляем данные:</strong></p>
+        <p>$$f(x) = \\sin x, \\quad a=0, \\quad b=\\pi$$</p>
+        <p>$$S = \\int_{0}^{\\pi} \\sin x \\, dx$$</p>
+        
+        <p><strong>Находим первообразную:</strong></p>
+        <p>$$\\int \\sin x \\, dx = -\\cos x + C$$</p>
+        
+        <p><strong>Вычисляем по формуле Ньютона-Лейбница:</strong></p>
+        <p>$$S = \\left[-\\cos x\\right]_{0}^{\\pi} = (-\\cos \\pi) - (-\\cos 0)$$</p>
+        <p>$$\\cos \\pi = -1, \\quad \\cos 0 = 1$$</p>
+        <p>$$S = (-(-1)) - (-1) = 1 + 1 = 2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = 2$$
+          </div>
+        </div>
+        
+        <div class="alert alert-secondary mt-2">
+          <strong>📌 Примечание:</strong> На отрезке $[0;\\pi]$ функция $\\sin x \\ge 0$, поэтому модуль не нужен.
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ВАРИАНТ 4 ====================
+  {
+    id: "var4-task1",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x-3)(x+1) \\ge 0$$`,
+    choices: [
+      `$(-\\infty; -1] \\cup [3; +\\infty)$`,
+      `$[-1; 3]$`,
+      `$(-\\infty; -1) \\cup (3; +\\infty)$`,
+      `$(-1; 3)$`,
+      `$[-3; 1]$`
+    ],
+    answers: [`$(-\\infty; -1] \\cup [3; +\\infty)$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Метод интервалов (пошагово)</h5>
+        <p><strong>1. Находим нули функции:</strong></p>
+        <p>$$(x-3)(x+1)=0 \\quad \\Rightarrow \\quad x_1=3, \\quad x_2=-1$$</p>
+        
+        <p><strong>2. Отмечаем на числовой прямой:</strong> -1 и 3</p>
+        <p><strong>3. Определяем знаки на интервалах:</strong></p>
+        <ul>
+          <li>Для интервала $(-\\infty; -1)$: возьмём $x=-2$ <br>
+          $$(-2-3)(-2+1)=(-5)\\cdot(-1)=5 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+          <li>Для интервала $(-1; 3)$: возьмём $x=0$ <br>
+          $$(0-3)(0+1)=(-3)\\cdot 1=-3 < 0 \\quad \\Rightarrow \\quad \\text{знак } "-"$$</li>
+          <li>Для интервала $(3; +\\infty)$: возьмём $x=4$ <br>
+          $$(4-3)(4+1)=1 \\cdot 5 = 5 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+        </ul>
+        
+        <p><strong>4. Выбираем интервалы со знаком "+" (так как $\\ge 0$):</strong></p>
+        <p>Квадратные скобки, так как неравенство нестрогое: $$(-\\infty; -1] \\cup [3; +\\infty)$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$(-\\infty; -1] \\cup [3; +\\infty)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task2",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 + 6x + 8 = 0$$`,
+    choices: [
+      `$x = -4$ и $x = -2$`,
+      `$x = 4$ и $x = 2$`,
+      `$x = -4$ и $x = 2$`,
+      `$x = 4$ и $x = -2$`,
+      `$x = 8$ и $x = -2$`
+    ],
+    answers: [`$x = -4$ и $x = -2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📌 Решение квадратного уравнения</h5>
+        <p><strong>1. Записываем коэффициенты:</strong></p>
+        <p>$$a = 1, \\quad b = 6, \\quad c = 8$$</p>
+        
+        <p><strong>2. Вычисляем дискриминант:</strong></p>
+        <p>Формула дискриминанта: $$D = b^2 - 4ac$$</p>
+        <p>$$D = 6^2 - 4 \\cdot 1 \\cdot 8 = 36 - 32 = 4$$</p>
+        <p>$$\\sqrt{D} = \\sqrt{4} = 2$$</p>
+        
+        <p><strong>3. Находим корни:</strong></p>
+        <p>Формула корней: $$x_{1,2} = \\frac{-b \\pm \\sqrt{D}}{2a}$$</p>
+        <p>$$x_{1,2} = \\frac{-6 \\pm 2}{2}$$</p>
+        <p>$$x_1 = \\frac{-6-2}{2} = \\frac{-8}{2} = -4, \\quad x_2 = \\frac{-6+2}{2} = \\frac{-4}{2} = -2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = -4 \\quad \\text{и} \\quad x = -2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task3",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = -x^3 + 3x$$`,
+    choices: [
+      `убывает на $(-\\infty;-1]$ и $[1;+\\infty)$, возрастает на $[-1;1]$, $x_{min}=-1$, $x_{max}=1$`,
+      `возрастает на $(-\\infty;-1]$ и $[1;+\\infty)$, убывает на $[-1;1]$, $x_{max}=-1$, $x_{min}=1$`,
+      `возрастает на $[-1;1]$, убывает на $(-\\infty;-1]$ и $[1;+\\infty)$, $x_{max}=1$, $x_{min}=-1$`,
+      `убывает на всей числовой прямой`,
+      `возрастает на всей числовой прямой`
+    ],
+    answers: [`убывает на $(-\\infty;-1]$ и $[1;+\\infty)$, возрастает на $[-1;1]$, $x_{min}=-1$, $x_{max}=1$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📈 Исследование функции $f(x)=-x^3+3x$</h5>
+        
+        <p><strong>1. Находим производную:</strong></p>
+        <p>Для расчета производной суммы функций используем правило: $(x^n)' = n \\cdot x^{n-1}$</p>
+        <p>$$f'(x) = (-x^3)' + (3x)' = -3x^2 + 3$$</p>
+        <p>$$f'(x) = -3(x^2 - 1) = -3(x-1)(x+1)$$</p>
+        
+        <p><strong>2. Находим критические точки:</strong></p>
+        <p>$$f'(x) = 0 \\quad \\Rightarrow \\quad -3(x-1)(x+1)=0 \\quad \\Rightarrow \\quad x=-1, \\quad x=1$$</p>
+        
+        <p><strong>3. Определяем знаки производной на интервалах:</strong></p>
+        <ul>
+          <li>На $(-\\infty; -1)$: возьмём $x=-2$ <br>
+          $$f'(-2)=-3(4-1)=-3 \\cdot 3 = -9 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+          <li>На $(-1; 1)$: возьмём $x=0$ <br>
+          $$f'(0)=-3(0-1)=-3 \\cdot (-1)=3 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+          <li>На $(1; +\\infty)$: возьмём $x=2$ <br>
+          $$f'(2)=-3(4-1)=-3 \\cdot 3 = -9 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+        </ul>
+        
+        <p><strong>4. Определяем экстремумы:</strong></p>
+        <ul>
+          <li>$x = -1$ — точка минимума (производная меняет $-$ на $+$)</li>
+          <li>$x = 1$ — точка максимума (производная меняет $+$ на $-$)</li>
+        </ul>
+        <p>$$f(-1) = -(-1)^3 + 3(-1) = -(-1) - 3 = 1 - 3 = -2$$</p>
+        <p>$$f(1) = -1 + 3 = 2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$\\text{Убывает: } (-\\infty;-1] \\cup [1;+\\infty) \\quad \\text{Возрастает: } [-1;1]$$
+            $$x_{min} = -1, \\quad x_{max} = 1$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task4",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_2(5-x) = 3$$`,
+    choices: [
+      `$x = -3$`,
+      `$x = 3$`,
+      `$x = -2$`,
+      `$x = 2$`,
+      `$x = -4$`
+    ],
+    answers: [`$x = -3$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📚 Решение логарифмического уравнения</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$5-x > 0 \\quad \\Rightarrow \\quad -x > -5 \\quad \\Rightarrow \\quad x < 5$$</p>
+        
+        <p><strong>2. Используем определение логарифма:</strong></p>
+        <p>$$\\log_2(5-x) = 3 \\quad \\Rightarrow \\quad 5-x = 2^3$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$2^3 = 8$$</p>
+        <p>$$5-x = 8 \\quad \\Rightarrow \\quad -x = 3 \\quad \\Rightarrow \\quad x = -3$$</p>
+        
+        <p><strong>4. Проверяем ОДЗ:</strong></p>
+        <p>$$-3 < 5 \\quad \\text{— выполнено}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = -3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task5",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$5^{x+1} = 125$$`,
+    choices: [
+      `$x = 2$`,
+      `$x = 3$`,
+      `$x = 1$`,
+      `$x = 4$`,
+      `$x = 0$`
+    ],
+    answers: [`$x = 2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>⚡ Решение показательного уравнения</h5>
+        
+        <p><strong>1. Представляем правую часть как степень с основанием 5:</strong></p>
+        <p>$$125 = 5^3 \\quad \\text{(так как } 5 \\cdot 5 \\cdot 5 = 125\\text{)}$$</p>
+        
+        <p><strong>2. Записываем уравнение:</strong></p>
+        <p>$$5^{x+1} = 5^{3}$$</p>
+        
+        <p><strong>3. Используем свойство:</strong></p>
+        <p>Если $a > 0$, $a \\neq 1$ и $a^{f(x)} = a^{g(x)}$, то $f(x) = g(x)$</p>
+        <p>$$x+1 = 3$$</p>
+        <p>$$x = 2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task6",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_3(2x+1) \\ge 2$$`,
+    choices: [
+      `$[4; +\\infty)$`,
+      `$(-\\infty; 4]$`,
+      `$(-0.5; 4]$`,
+      `$[2; +\\infty)$`,
+      `$(-0.5; 2]$`
+    ],
+    answers: [`$[4; +\\infty)$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📖 Решение логарифмического неравенства</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$2x+1 > 0 \\quad \\Rightarrow \\quad 2x > -1 \\quad \\Rightarrow \\quad x > -0.5$$</p>
+        
+        <p><strong>2. Представляем правую часть как логарифм с основанием 3:</strong></p>
+        <p>$$2 = \\log_3 3^2 = \\log_3 9$$</p>
+        
+        <p><strong>3. Записываем неравенство:</strong></p>
+        <p>$$\\log_3(2x+1) \\ge \\log_3 9$$</p>
+        
+        <p><strong>4. Учитываем монотонность:</strong></p>
+        <p>Так как основание $3 > 1$, функция $y=\\log_3 t$ возрастающая,<br>
+        значит знак неравенства сохраняется:</p>
+        <p>$$2x+1 \\ge 9 \\quad \\Rightarrow \\quad 2x \\ge 8 \\quad \\Rightarrow \\quad x \\ge 4$$</p>
+        
+        <p><strong>5. Учитываем ОДЗ:</strong></p>
+        <p>$$x > -0.5 \\quad \\text{и} \\quad x \\ge 4 \\quad \\Rightarrow \\quad x \\ge 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x \\in [4; +\\infty)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task7",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 7",
+    title: "Объем пирамиды",
+    theme: "Стереометрия",
+    text: `В правильной четырехугольной пирамиде боковые грани наклонены к плоскости основания под углом 45°. Сторона основания равна 6 см. Найдите объем пирамиды.`,
+    choices: [
+      `$36$ см³`,
+      `$72$ см³`,
+      `$18$ см³`,
+      `$54$ см³`,
+      `$108$ см³`
+    ],
+    answers: [`$36$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Нахождение объёма правильной четырёхугольной пирамиды</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$a = 6 \\text{ см (сторона основания)}, \\quad \\alpha = 45°$$</p>
+        <p>Боковые грани наклонены к плоскости основания под углом 45°.</p>
+        
+        <p><strong>1. Анализируем геометрию:</strong></p>
+        <p>В правильной четырёхугольной пирамиде основание — квадрат.<br>
+        Угол наклона боковой грани — это угол между апофемой и её проекцией на основание.</p>
+        <p>Апофема $m$ наклонена к основанию под углом 45°, значит:</p>
+        <p>$$\\tan 45° = \\frac{h}{\\frac{a}{2}}$$</p>
+        <p>где $h$ — высота пирамиды, $\\frac{a}{2}$ — расстояние от центра основания до стороны.</p>
+        
+        <p><strong>2. Находим высоту пирамиды:</strong></p>
+        <p>$$\\tan 45° = 1 \\quad \\Rightarrow \\quad 1 = \\frac{h}{3} \\quad \\Rightarrow \\quad h = 3 \\text{ см}$$</p>
+        
+        <p><strong>3. Вычисляем объём:</strong></p>
+        <p>$$V = \\frac{1}{3} S_{\\text{осн}} \\cdot h = \\frac{1}{3} \\cdot a^2 \\cdot h = \\frac{1}{3} \\cdot 36 \\cdot 3 = 36 \\text{ см}^3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$V = 36 \\text{ см}^3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var4-task8",
+    type: "multiplechoices",
+    header: "Вариант 4. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = x^2, \\quad y = x$$`,
+    choices: [
+      `$\\frac{1}{6}$`,
+      `$\\frac{1}{3}$`,
+      `$\\frac{1}{2}$`,
+      `$\\frac{2}{3}$`,
+      `$\\frac{5}{6}$`
+    ],
+    answers: [`$\\frac{1}{6}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади между двумя кривыми</h5>
+        
+        <p><strong>Формула площади между кривыми:</strong></p>
+        <p>$$S = \\int_{a}^{b} (f_{\\text{верх}}(x) - f_{\\text{ниж}}(x)) \\, dx$$</p>
+        
+        <p><strong>1. Находим точки пересечения:</strong></p>
+        <p>$$x^2 = x \\quad \\Rightarrow \\quad x^2 - x = 0 \\quad \\Rightarrow \\quad x(x-1) = 0$$</p>
+        <p>$$x_1 = 0, \\quad x_2 = 1$$</p>
+        
+        <p><strong>2. Определяем, какая функция выше:</strong></p>
+        <p>На интервале $[0; 1]$: возьмём $x=0.5$<br>
+        $$x = 0.5, \\quad x^2 = 0.25 \\quad \\Rightarrow \\quad x > x^2$$</p>
+        <p>Значит $y = x$ — верхняя кривая, $y = x^2$ — нижняя.</p>
+        
+        <p><strong>3. Вычисляем площадь:</strong></p>
+        <p>$$S = \\int_{0}^{1} (x - x^2) \\, dx = \\int_{0}^{1} x \\, dx - \\int_{0}^{1} x^2 \\, dx$$</p>
+        <p>$$S = \\left[\\frac{x^2}{2}\\right]_{0}^{1} - \\left[\\frac{x^3}{3}\\right]_{0}^{1} = \\left(\\frac{1}{2} - 0\\right) - \\left(\\frac{1}{3} - 0\\right) = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = \\frac{1}{6}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ВАРИАНТ 5 ====================
+  {
+    id: "var5-task1",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x+5)(x-2) > 0$$`,
+    choices: [
+      `$(-\\infty; -5) \\cup (2; +\\infty)$`,
+      `$(-5; 2)$`,
+      `$[-5; 2]$`,
+      `$(-\\infty; -5] \\cup [2; +\\infty)$`,
+      `$(-\\infty; 2) \\cup (5; +\\infty)$`
+    ],
+    answers: [`$(-\\infty; -5) \\cup (2; +\\infty)$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Метод интервалов (пошагово)</h5>
+        <p><strong>1. Находим нули функции:</strong></p>
+        <p>$$(x+5)(x-2)=0 \\quad \\Rightarrow \\quad x_1=-5, \\quad x_2=2$$</p>
+        
+        <p><strong>2. Отмечаем на числовой прямой:</strong> -5 и 2</p>
+        <p><strong>3. Определяем знаки на интервалах:</strong></p>
+        <ul>
+          <li>Для интервала $(-\\infty; -5)$: возьмём $x=-6$ <br>
+          $$(-6+5)(-6-2)=(-1)\\cdot(-8)=8 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+          <li>Для интервала $(-5; 2)$: возьмём $x=0$ <br>
+          $$(0+5)(0-2)=5 \\cdot (-2)=-10 < 0 \\quad \\Rightarrow \\quad \\text{знак } "-"$$</li>
+          <li>Для интервала $(2; +\\infty)$: возьмём $x=3$ <br>
+          $$(3+5)(3-2)=8 \\cdot 1 = 8 > 0 \\quad \\Rightarrow \\quad \\text{знак } "+"$$</li>
+        </ul>
+        
+        <p><strong>4. Выбираем интервалы со знаком "+" (так как $> 0$):</strong></p>
+        <p>Круглые скобки, так как неравенство строгое: $$(-\\infty; -5) \\cup (2; +\\infty)$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$(-\\infty; -5) \\cup (2; +\\infty)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task2",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 - 2x - 8 = 0$$`,
+    choices: [
+      `$x = -2$ и $x = 4$`,
+      `$x = 2$ и $x = -4$`,
+      `$x = -2$ и $x = -4$`,
+      `$x = 2$ и $x = 4$`,
+      `$x = -8$ и $x = 1$`
+    ],
+    answers: [`$x = -2$ и $x = 4$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📌 Решение квадратного уравнения</h5>
+        <p><strong>1. Записываем коэффициенты:</strong></p>
+        <p>$$a = 1, \\quad b = -2, \\quad c = -8$$</p>
+        
+        <p><strong>2. Вычисляем дискриминант:</strong></p>
+        <p>Формула дискриминанта: $$D = b^2 - 4ac$$</p>
+        <p>$$D = (-2)^2 - 4 \\cdot 1 \\cdot (-8) = 4 + 32 = 36$$</p>
+        <p>$$\\sqrt{D} = \\sqrt{36} = 6$$</p>
+        
+        <p><strong>3. Находим корни:</strong></p>
+        <p>Формула корней: $$x_{1,2} = \\frac{-b \\pm \\sqrt{D}}{2a}$$</p>
+        <p>$$x_{1,2} = \\frac{2 \\pm 6}{2}$$</p>
+        <p>$$x_1 = \\frac{2-6}{2} = \\frac{-4}{2} = -2, \\quad x_2 = \\frac{2+6}{2} = \\frac{8}{2} = 4$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = -2 \\quad \\text{и} \\quad x = 4$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task3",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = x^2 - 4x + 3$$`,
+    choices: [
+      `убывает на $(-\\infty;2]$, возрастает на $[2;+\\infty)$, $x_{min}=2$`,
+      `возрастает на $(-\\infty;2]$, убывает на $[2;+\\infty)$, $x_{max}=2$`,
+      `убывает на $(-\\infty;0]$, возрастает на $[0;+\\infty)$, $x_{min}=0$`,
+      `возрастает на $(-\\infty;0]$, убывает на $[0;+\\infty)$, $x_{max}=0$`,
+      `функция монотонно возрастает на всей числовой прямой`
+    ],
+    answers: [`убывает на $(-\\infty;2]$, возрастает на $[2;+\\infty)$, $x_{min}=2$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📈 Исследование функции $f(x)=x^2-4x+3$</h5>
+        
+        <p><strong>1. Находим производную:</strong></p>
+        <p>Для расчета производной суммы функций используем правило: $(x^n)' = n \\cdot x^{n-1}$</p>
+        <p>$$f'(x) = (x^2)' - (4x)' + (3)' = 2x - 4$$</p>
+        <p>$$f'(x) = 2(x-2)$$</p>
+        
+        <p><strong>2. Находим критические точки:</strong></p>
+        <p>$$f'(x) = 0 \\quad \\Rightarrow \\quad 2(x-2)=0 \\quad \\Rightarrow \\quad x=2$$</p>
+        
+        <p><strong>3. Определяем знаки производной на интервалах:</strong></p>
+        <ul>
+          <li>На $(-\\infty; 2)$: возьмём $x=0$ <br>
+          $$f'(0) = 2(0-2) = -4 < 0 \\quad \\Rightarrow \\quad f \\downarrow$$</li>
+          <li>На $(2; +\\infty)$: возьмём $x=3$ <br>
+          $$f'(3) = 2(3-2) = 2 > 0 \\quad \\Rightarrow \\quad f \\uparrow$$</li>
+        </ul>
+        
+        <p><strong>4. Определяем экстремум:</strong></p>
+        <p>$x = 2$ — точка минимума (производная меняет $-$ на $+$)</p>
+        <p>$$f(2) = 4 - 8 + 3 = -1$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$\\text{Убывает: } (-\\infty;2] \\quad \\text{Возрастает: } [2;+\\infty)$$
+            $$x_{min} = 2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task4",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_{0.5}(x+4) = -2$$`,
+    choices: [
+      `$x = 0$`,
+      `$x = 4$`,
+      `$x = -4$`,
+      `$x = 2$`,
+      `$x = -2$`
+    ],
+    answers: [`$x = 0$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📚 Решение логарифмического уравнения</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$x+4 > 0 \\quad \\Rightarrow \\quad x > -4$$</p>
+        
+        <p><strong>2. Используем определение логарифма:</strong></p>
+        <p>$$\\log_{0.5}(x+4) = -2 \\quad \\Rightarrow \\quad x+4 = (0.5)^{-2}$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$0.5 = \\frac{1}{2} \\quad \\Rightarrow \\quad \\left(\\frac{1}{2}\\right)^{-2} = 2^2 = 4$$</p>
+        <p>$$x+4 = 4 \\quad \\Rightarrow \\quad x = 0$$</p>
+        
+        <p><strong>4. Проверяем ОДЗ:</strong></p>
+        <p>$$0 > -4 \\quad \\text{— выполнено}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 0$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task5",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$2^{x-2} = 32$$`,
+    choices: [
+      `$x = 7$`,
+      `$x = 6$`,
+      `$x = 5$`,
+      `$x = 8$`,
+      `$x = 4$`
+    ],
+    answers: [`$x = 7$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>⚡ Решение показательного уравнения</h5>
+        
+        <p><strong>1. Представляем правую часть как степень с основанием 2:</strong></p>
+        <p>$$32 = 2^5 \\quad \\text{(так как } 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 32\\text{)}$$</p>
+        
+        <p><strong>2. Записываем уравнение:</strong></p>
+        <p>$$2^{x-2} = 2^{5}$$</p>
+        
+        <p><strong>3. Используем свойство:</strong></p>
+        <p>Если $a > 0$, $a \\neq 1$ и $a^{f(x)} = a^{g(x)}$, то $f(x) = g(x)$</p>
+        <p>$$x-2 = 5$$</p>
+        <p>$$x = 7$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x = 7$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task6",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_{0.5}(2x-3) \\ge -1$$`,
+    choices: [
+      `$(1.5; 2.5]$`,
+      `$[2.5; +\\infty)$`,
+      `$(1.5; +\\infty)$`,
+      `$(-\\infty; 2.5]$`,
+      `$(-\\infty; 1.5)$`
+    ],
+    answers: [`$(1.5; 2.5]$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📖 Решение логарифмического неравенства</h5>
+        
+        <p><strong>1. Находим ОДЗ:</strong></p>
+        <p>$$2x-3 > 0 \\quad \\Rightarrow \\quad 2x > 3 \\quad \\Rightarrow \\quad x > 1.5$$</p>
+        
+        <p><strong>2. Представляем правую часть как логарифм с основанием 0.5:</strong></p>
+        <p>$$-1 = \\log_{0.5} (0.5)^{-1} = \\log_{0.5} 2$$</p>
+        
+        <p><strong>3. Записываем неравенство:</strong></p>
+        <p>$$\\log_{0.5}(2x-3) \\ge \\log_{0.5} 2$$</p>
+        
+        <p><strong>4. Учитываем монотонность:</strong></p>
+        <p>Так как основание $0.5 < 1$, функция $y=\\log_{0.5} t$ убывающая,<br>
+        значит знак неравенства меняется на противоположный:</p>
+        <p>$$2x-3 \\le 2 \\quad \\Rightarrow \\quad 2x \\le 5 \\quad \\Rightarrow \\quad x \\le 2.5$$</p>
+        
+        <p><strong>5. Учитываем ОДЗ:</strong></p>
+        <p>$$x > 1.5 \\quad \\text{и} \\quad x \\le 2.5 \\quad \\Rightarrow \\quad 1.5 < x \\le 2.5$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$x \\in (1.5; 2.5]$$
+          </div>
+        </div>
+        
+        <div class="alert alert-secondary mt-2">
+          <strong>⭐ Важно:</strong> При основании логарифма < 1 знак неравенства меняется!
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task7",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 7",
+    title: "Объем конуса",
+    theme: "Стереометрия",
+    text: `Образующая конуса равна 25 см, а радиус его основания 7 см. Найдите объём конуса.`,
+    choices: [
+      `$392\\pi$ см³`,
+      `$196\\pi$ см³`,
+      `$588\\pi$ см³`,
+      `$784\\pi$ см³`,
+      `$980\\pi$ см³`
+    ],
+    answers: [`$392\\pi$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Нахождение объёма конуса</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$l = 25 \\text{ см (образующая)}, \\quad r = 7 \\text{ см (радиус основания)}$$</p>
+        
+        <p><strong>1. Находим высоту конуса по теореме Пифагора:</strong></p>
+        <p>В осевом сечении конуса — равнобедренный треугольник:</p>
+        <p>$$l^2 = r^2 + h^2 \\quad \\Rightarrow \\quad h^2 = l^2 - r^2$$</p>
+        <p>$$h^2 = 25^2 - 7^2 = 625 - 49 = 576$$</p>
+        <p>$$h = \\sqrt{576} = 24 \\text{ см}$$</p>
+        
+        <p><strong>2. Формула объёма конуса:</strong></p>
+        <p>$$V = \\frac{1}{3} \\pi r^2 h$$</p>
+        
+        <p><strong>3. Вычисляем:</strong></p>
+        <p>$$V = \\frac{1}{3} \\pi \\cdot 7^2 \\cdot 24 = \\frac{1}{3} \\pi \\cdot 49 \\cdot 24$$</p>
+        <p>$$V = \\pi \\cdot 49 \\cdot 8 = 392\\pi \\text{ см}^3$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$V = 392\\pi \\text{ см}^3 \\approx 1231.5 \\text{ см}^3$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+  {
+    id: "var5-task8",
+    type: "multiplechoices",
+    header: "Вариант 5. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = 4 - x^2, \\quad y = 0$$`,
+    choices: [
+      `$\\frac{32}{3}$`,
+      `$\\frac{16}{3}$`,
+      `$\\frac{8}{3}$`,
+      `$\\frac{64}{3}$`,
+      `$\\frac{40}{3}$`
+    ],
+    answers: [`$\\frac{32}{3}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади под параболой</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>1. Находим точки пересечения с осью OX:</strong></p>
+        <p>$$4 - x^2 = 0 \\quad \\Rightarrow \\quad x^2 = 4 \\quad \\Rightarrow \\quad x = \\pm 2$$</p>
+        <p>$$a = -2, \\quad b = 2$$</p>
+        
+        <p><strong>2. Проверяем знак функции на интервале:</strong></p>
+        <p>На $[-2; 2]$: возьмём $x=0$</p>
+        <p>$$f(0) = 4 - 0 = 4 > 0$$</p>
+        <p>Значит функция положительна, модуль не нужен.</p>
+        
+        <p><strong>3. Вычисляем площадь:</strong></p>
+        <p>$$S = \\int_{-2}^{2} (4 - x^2) \\, dx$$</p>
+        <p>Так как функция чётная, можно упростить:</p>
+        <p>$$S = 2 \\int_{0}^{2} (4 - x^2) \\, dx = 2 \\left[4x - \\frac{x^3}{3}\\right]_{0}^{2}$$</p>
+        <p>$$S = 2 \\left(8 - \\frac{8}{3}\\right) = 2 \\cdot \\frac{24-8}{3} = 2 \\cdot \\frac{16}{3} = \\frac{32}{3}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = \\frac{32}{3}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+
+  // ==================== ТИП 1: ПРОИЗВОДНАЯ СЛОЖНОЙ ФУНКЦИИ (тригонометрия) ====================
+  {
+    id: "var7-task3-unique",
+    type: "multiplechoices",
+    header: "Вариант 7. Задание 3",
+    title: "Производная тригонометрической функции",
+    theme: "Производные",
+    text: `Найдите производную функции:
+$$f(x) = \\sin(2x) + \\cos^2 x$$`,
+    choices: [
+      `$f'(x) = 2\\cos(2x) - 2\\cos x \\sin x$`,
+      `$f'(x) = \\cos(2x) - \\sin^2 x$`,
+      `$f'(x) = 2\\cos(2x) + 2\\sin x$`,
+      `$f'(x) = -2\\sin(2x) - 2\\cos x$`,
+      `$f'(x) = 2\\cos(2x) + \\sin(2x)$`
+    ],
+    answers: [`$f'(x) = 2\\cos(2x) - 2\\cos x \\sin x$`],
+    hint: `<div class="container-fluid p-0">
+      <div class="alert alert-primary mb-3">
+        <h5>📐 Производная тригонометрической функции</h5>
+        
+        <p><strong>1. Производная суммы:</strong></p>
+        <p>$$f'(x) = (\\sin(2x))' + (\\cos^2 x)'$$</p>
+        
+        <p><strong>2. Производная сложной функции $\\sin(2x)$:</strong></p>
+        <p>$$(\\sin(2x))' = \\cos(2x) \\cdot (2x)' = \\cos(2x) \\cdot 2 = 2\\cos(2x)$$</p>
+        <p>Правило цепочки: $(\\sin u)' = \\cos u \\cdot u'$</p>
+        
+        <p><strong>3. Производная $\\cos^2 x = (\\cos x)^2$:</strong></p>
+        <p>$$(\\cos^2 x)' = 2\\cos x \\cdot (\\cos x)' = 2\\cos x \\cdot (-\\sin x) = -2\\cos x \\sin x$$</p>
+        <p>Правило: $(u^n)' = n \\cdot u^{n-1} \\cdot u'$</p>
+        
+        <p><strong>4. Складываем:</strong></p>
+        <p>$$f'(x) = 2\\cos(2x) - 2\\cos x \\sin x$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$f'(x) = 2\\cos(2x) - 2\\cos x \\sin x$$
+          </div>
+        </div>
+        
+        <div class="alert alert-secondary mt-2">
+          <strong>💡 Запомните:</strong> $(\\sin u)' = u' \\cos u$, $(\\cos u)' = -u' \\sin u$, $(u^n)' = n u^{n-1} u'$
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 2: ПЛОЩАДЬ БОКОВОЙ ПОВЕРХНОСТИ КОНУСА ====================
+  {
+    id: "var10-task7-unique",
+    type: "multiplechoices",
+    header: "Вариант 10. Задание 7",
+    title: "Площадь боковой поверхности конуса",
+    theme: "Стереометрия",
+    text: `Образующая конуса наклонена к плоскости основания под углом 30°, а его высота равна 12 см. Найдите площадь боковой поверхности конуса.`,
+    choices: [
+      `$288\\pi$ см²`,
+      `$144\\pi$ см²`,
+      `$96\\pi$ см²`,
+      `$192\\pi$ см²`,
+      `$384\\pi$ см²`
+    ],
+    answers: [`$288\\pi$ см²`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Площадь боковой поверхности конуса</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$h = 12 \\text{ см}, \\quad \\alpha = 30°$$</p>
+        <p>Угол между образующей и плоскостью основания.</p>
+        
+        <p><strong>1. Формула площади боковой поверхности:</strong></p>
+        <p>$$S_{\\text{бок}} = \\pi r l$$</p>
+        <p>где $r$ — радиус основания, $l$ — образующая.</p>
+        
+        <p><strong>2. Находим образующую $l$:</strong></p>
+        <p>В прямоугольном треугольнике (высота $h$, радиус $r$, образующая $l$):</p>
+        <p>$$\\sin \\alpha = \\frac{h}{l} \\quad \\Rightarrow \\quad l = \\frac{h}{\\sin 30°} = \\frac{12}{0.5} = 24 \\text{ см}$$</p>
+        
+        <p><strong>3. Находим радиус $r$:</strong></p>
+        <p>$$\\cos \\alpha = \\frac{r}{l} \\quad \\Rightarrow \\quad r = l \\cdot \\cos 30° = 24 \\cdot \\frac{\\sqrt{3}}{2} = 12\\sqrt{3} \\text{ см}$$</p>
+        
+        <p><strong>4. Вычисляем площадь:</strong></p>
+        <p>$$S_{\\text{бок}} = \\pi \\cdot 12\\sqrt{3} \\cdot 24 = 288\\sqrt{3}\\pi \\text{ см}^2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S_{\\text{бок}} = 288\\sqrt{3}\\pi \\text{ см}^2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 3: ПЛОЩАДЬ ПОЛНОЙ ПОВЕРХНОСТИ ЦИЛИНДРА ====================
+  {
+    id: "var8-task7-unique",
+    type: "multiplechoices",
+    header: "Вариант 8. Задание 7",
+    title: "Площадь полной поверхности цилиндра",
+    theme: "Стереометрия",
+    text: `Радиус основания цилиндра равен 5 см, а его образующая равна 9 см. Найдите площадь полной поверхности цилиндра.`,
+    choices: [
+      `$140\\pi$ см²`,
+      `$70\\pi$ см²`,
+      `$90\\pi$ см²`,
+      `$100\\pi$ см²`,
+      `$120\\pi$ см²`
+    ],
+    answers: [`$140\\pi$ см²`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Площадь полной поверхности цилиндра</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$r = 5 \\text{ см}, \\quad l = 9 \\text{ см (образующая = высоте)}$$</p>
+        
+        <p><strong>1. Формула площади полной поверхности цилиндра:</strong></p>
+        <p>$$S_{\\text{полн}} = S_{\\text{бок}} + 2S_{\\text{осн}} = 2\\pi r h + 2\\pi r^2$$</p>
+        
+        <p><strong>2. Вычисляем боковую поверхность:</strong></p>
+        <p>$$S_{\\text{бок}} = 2\\pi r h = 2\\pi \\cdot 5 \\cdot 9 = 90\\pi \\text{ см}^2$$</p>
+        
+        <p><strong>3. Вычисляем площадь двух оснований:</strong></p>
+        <p>$$S_{\\text{осн}} = \\pi r^2 = \\pi \\cdot 25 = 25\\pi \\text{ см}^2$$</p>
+        <p>$$2S_{\\text{осн}} = 50\\pi \\text{ см}^2$$</p>
+        
+        <p><strong>4. Суммируем:</strong></p>
+        <p>$$S_{\\text{полн}} = 90\\pi + 50\\pi = 140\\pi \\text{ см}^2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S_{\\text{полн}} = 140\\pi \\text{ см}^2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 4: ПЛОЩАДЬ ПОЛНОЙ ПОВЕРХНОСТИ ПИРАМИДЫ ====================
+  {
+    id: "var12-task7-unique",
+    type: "multiplechoices",
+    header: "Вариант 12. Задание 7",
+    title: "Площадь полной поверхности правильной треугольной пирамиды",
+    theme: "Стереометрия",
+    text: `В правильной треугольной пирамиде боковое ребро равно 4 см, а сторона основания 6 см. Найдите площадь полной поверхности пирамиды.`,
+    choices: [
+      `$9\\sqrt{3} + 9\\sqrt{13}$ см²`,
+      `$9\\sqrt{3} + 18\\sqrt{13}$ см²`,
+      `$18\\sqrt{3} + 9\\sqrt{13}$ см²`,
+      `$9\\sqrt{3} + 27\\sqrt{13}$ см²`,
+      `$27\\sqrt{3} + 9\\sqrt{13}$ см²`
+    ],
+    answers: [`$9\\sqrt{3} + 9\\sqrt{13}$ см²`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Площадь полной поверхности правильной треугольной пирамиды</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$a = 6 \\text{ см (сторона основания)}, \\quad l = 4 \\text{ см (боковое ребро)}$$</p>
+        
+        <p><strong>1. Площадь основания (равносторонний треугольник):</strong></p>
+        <p>$$S_{\\text{осн}} = \\frac{\\sqrt{3}}{4} a^2 = \\frac{\\sqrt{3}}{4} \\cdot 36 = 9\\sqrt{3} \\text{ см}^2$$</p>
+        
+        <p><strong>2. Находим апофему $m$:</strong></p>
+        <p>Апофема — высота боковой грани. В прямоугольном треугольнике:</p>
+        <p>гипотенуза = боковое ребро $l = 4$ см</p>
+        <p>катет = половина стороны основания $\\frac{a}{2} = 3$ см</p>
+        <p>По теореме Пифагора:</p>
+        <p>$$m = \\sqrt{l^2 - \\left(\\frac{a}{2}\\right)^2} = \\sqrt{16 - 9} = \\sqrt{7} \\text{ см}$$</p>
+        
+        <p><strong>3. Площадь одной боковой грани:</strong></p>
+        <p>$$S_{\\text{грани}} = \\frac{1}{2} a \\cdot m = \\frac{1}{2} \\cdot 6 \\cdot \\sqrt{7} = 3\\sqrt{7} \\text{ см}^2$$</p>
+        
+        <p><strong>4. Площадь всех трёх боковых граней:</strong></p>
+        <p>$$S_{\\text{бок}} = 3 \\cdot 3\\sqrt{7} = 9\\sqrt{7} \\text{ см}^2$$</p>
+        
+        <p><strong>5. Полная поверхность:</strong></p>
+        <p>$$S_{\\text{полн}} = S_{\\text{осн}} + S_{\\text{бок}} = 9\\sqrt{3} + 9\\sqrt{7} \\text{ см}^2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S_{\\text{полн}} = 9\\sqrt{3} + 9\\sqrt{7} \\text{ см}^2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 5: ПЛОЩАДЬ ПОЛНОЙ ПОВЕРХНОСТИ ПРИЗМЫ ====================
+  {
+    id: "var11-task7-unique",
+    type: "multiplechoices",
+    header: "Вариант 11. Задание 7",
+    title: "Площадь полной поверхности прямой призмы",
+    theme: "Стереометрия",
+    text: `Высота прямой призмы равна 10 см, а её основанием является прямоугольник, стороны которого равны 6 см и 8 см. Найдите площадь полной поверхности призмы.`,
+    choices: [
+      `$376$ см²`,
+      `$188$ см²`,
+      `$280$ см²`,
+      `$96$ см²`,
+      `$472$ см²`
+    ],
+    answers: [`$376$ см²`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Площадь полной поверхности прямой призмы</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$h = 10 \\text{ см}, \\quad a = 6 \\text{ см}, \\quad b = 8 \\text{ см}$$</p>
+        <p>Основание — прямоугольник.</p>
+        
+        <p><strong>1. Формула полной поверхности призмы:</strong></p>
+        <p>$$S_{\\text{полн}} = 2S_{\\text{осн}} + S_{\\text{бок}}$$</p>
+        
+        <p><strong>2. Площадь основания:</strong></p>
+        <p>$$S_{\\text{осн}} = a \\cdot b = 6 \\cdot 8 = 48 \\text{ см}^2$$</p>
+        <p>$$2S_{\\text{осн}} = 96 \\text{ см}^2$$</p>
+        
+        <p><strong>3. Периметр основания:</strong></p>
+        <p>$$P_{\\text{осн}} = 2(a + b) = 2(6 + 8) = 2 \\cdot 14 = 28 \\text{ см}$$</p>
+        
+        <p><strong>4. Площадь боковой поверхности:</strong></p>
+        <p>$$S_{\\text{бок}} = P_{\\text{осн}} \\cdot h = 28 \\cdot 10 = 280 \\text{ см}^2$$</p>
+        
+        <p><strong>5. Полная поверхность:</strong></p>
+        <p>$$S_{\\text{полн}} = 96 + 280 = 376 \\text{ см}^2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S_{\\text{полн}} = 376 \\text{ см}^2$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 6: ПЛОЩАДЬ ФИГУРЫ (тригонометрическая функция) ====================
+  {
+    id: "var6-task8-unique",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 8",
+    title: "Площадь под косинусоидой",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = \\cos x, \\quad y = 0, \\quad x = 0, \\quad x = \\frac{\\pi}{2}$$`,
+    choices: [
+      `$1$`,
+      `$0$`,
+      `$\\frac{\\pi}{2}$`,
+      `$2$`,
+      `$\\frac{1}{2}$`
+    ],
+    answers: [`$1$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади под косинусоидой</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>Подставляем данные:</strong></p>
+        <p>$$f(x) = \\cos x, \\quad a=0, \\quad b=\\frac{\\pi}{2}$$</p>
+        <p>$$S = \\int_{0}^{\\pi/2} \\cos x \\, dx$$</p>
+        
+        <p><strong>Находим первообразную:</strong></p>
+        <p>$$\\int \\cos x \\, dx = \\sin x + C$$</p>
+        
+        <p><strong>Вычисляем по формуле Ньютона-Лейбница:</strong></p>
+        <p>$$S = [\\sin x]_{0}^{\\pi/2} = \\sin\\left(\\frac{\\pi}{2}\\right) - \\sin(0) = 1 - 0 = 1$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = 1$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 7: ПЛОЩАДЬ ФИГУРЫ (гипербола) ====================
+  {
+    id: "var10-task8-unique",
+    type: "multiplechoices",
+    header: "Вариант 10. Задание 8",
+    title: "Площадь под гиперболой",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = \\frac{1}{x}, \\quad y = 0, \\quad x = 1, \\quad x = e$$`,
+    choices: [
+      `$1$`,
+      `$0$`,
+      `$e-1$`,
+      `$\\ln e$`,
+      `$\\frac{1}{e}$`
+    ],
+    answers: [`$1$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Вычисление площади под гиперболой</h5>
+        
+        <p><strong>Формула площади:</strong></p>
+        <p>$$S = \\int_{a}^{b} f(x) \\, dx$$</p>
+        
+        <p><strong>Подставляем данные:</strong></p>
+        <p>$$f(x) = \\frac{1}{x}, \\quad a=1, \\quad b=e$$</p>
+        <p>$$S = \\int_{1}^{e} \\frac{1}{x} \\, dx$$</p>
+        
+        <p><strong>Находим первообразную:</strong></p>
+        <p>$$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$</p>
+        
+        <p><strong>Вычисляем по формуле Ньютона-Лейбница:</strong></p>
+        <p>$$S = [\\ln x]_{1}^{e} = \\ln e - \\ln 1 = 1 - 0 = 1$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = 1$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 8: ПРАВИЛЬНАЯ ЧЕТЫРЁХУГОЛЬНАЯ ПИРАМИДА (площадь полной поверхности) ====================
+  {
+    id: "var14-task7-unique",
+    type: "multiplechoices",
+    header: "Вариант 14. Задание 7",
+    title: "Площадь полной поверхности правильной четырёхугольной пирамиды",
+    theme: "Стереометрия",
+    text: `В правильной четырехугольной пирамиде сторона основания равна 10 см, а высота равна 12 см. Найдите площадь полной поверхности пирамиды.`,
+    choices: [
+      `$100 + 260$ см²`,
+      `$100 + 120$ см²`,
+      `$100 + 240$ см²`,
+      `$100 + 130$ см²`,
+      `$100 + 200$ см²`
+    ],
+    answers: [`$100 + 260$ см²`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>🎯 Площадь полной поверхности правильной четырёхугольной пирамиды</h5>
+        
+        <p><strong>Дано:</strong></p>
+        <p>$$a = 10 \\text{ см (сторона основания)}, \\quad h = 12 \\text{ см (высота)}$$</p>
+        
+        <p><strong>1. Площадь основания (квадрат):</strong></p>
+        <p>$$S_{\\text{осн}} = a^2 = 100 \\text{ см}^2$$</p>
+        
+        <p><strong>2. Находим апофему $m$:</strong></p>
+        <p>Апофема — высота боковой грани. В прямоугольном треугольнике:</p>
+        <p>вертикальный катет = $h = 12$ см</p>
+        <p>горизонтальный катет = $\\frac{a}{2} = 5$ см (расстояние от центра до стороны)</p>
+        <p>По теореме Пифагора:</p>
+        <p>$$m = \\sqrt{h^2 + \\left(\\frac{a}{2}\\right)^2} = \\sqrt{144 + 25} = \\sqrt{169} = 13 \\text{ см}$$</p>
+        
+        <p><strong>3. Площадь одной боковой грани (треугольник):</strong></p>
+        <p>$$S_{\\text{грани}} = \\frac{1}{2} a \\cdot m = \\frac{1}{2} \\cdot 10 \\cdot 13 = 65 \\text{ см}^2$$</p>
+        
+        <p><strong>4. Площадь всех четырёх боковых граней:</strong></p>
+        <p>$$S_{\\text{бок}} = 4 \\cdot 65 = 260 \\text{ см}^2$$</p>
+        
+        <p><strong>5. Полная поверхность:</strong></p>
+        <p>$$S_{\\text{полн}} = S_{\\text{осн}} + S_{\\text{бок}} = 100 + 260 = 360 \\text{ см}^2$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S_{\\text{полн}} = 360 \\text{ см}^2 \\quad (100 + 260)$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 9: ПРОИЗВОДНАЯ СТЕПЕННОЙ ФУНКЦИИ (которой не было) ====================
+  {
+    id: "var15-task3-unique",
+    type: "multiplechoices",
+    header: "Вариант 15. Задание 3",
+    title: "Производная степенной функции с отрицательным показателем",
+    theme: "Производные",
+    text: `Найдите производную функции:
+$$f(x) = 2x^{-3} + \\frac{5}{x}$$`,
+    choices: [
+      `$f'(x) = -6x^{-4} - \\frac{5}{x^2}$`,
+      `$f'(x) = -6x^{-4} + \\frac{5}{x^2}$`,
+      `$f'(x) = 6x^{-4} - \\frac{5}{x^2}$`,
+      `$f'(x) = -6x^{-3} - \\frac{5}{x}$`,
+      `$f'(x) = -6x^{-2} - 5x^{-1}$`
+    ],
+    answers: [`$f'(x) = -6x^{-4} - \\frac{5}{x^2}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📐 Производная степенной функции с отрицательным показателем</h5>
+        
+        <p><strong>1. Записываем функцию в удобном виде:</strong></p>
+        <p>$$f(x) = 2x^{-3} + 5x^{-1}$$</p>
+        <p>Так как $\\frac{5}{x} = 5x^{-1}$</p>
+        
+        <p><strong>2. Используем правило дифференцирования:</strong></p>
+        <p>$$(x^n)' = n \\cdot x^{n-1}$$</p>
+        
+        <p><strong>3. Дифференцируем первое слагаемое:</strong></p>
+        <p>$$(2x^{-3})' = 2 \\cdot (-3) \\cdot x^{-4} = -6x^{-4}$$</p>
+        
+        <p><strong>4. Дифференцируем второе слагаемое:</strong></p>
+        <p>$$(5x^{-1})' = 5 \\cdot (-1) \\cdot x^{-2} = -5x^{-2} = -\\frac{5}{x^2}$$</p>
+        
+        <p><strong>5. Складываем:</strong></p>
+        <p>$$f'(x) = -6x^{-4} - \\frac{5}{x^2}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$f'(x) = -6x^{-4} - \\frac{5}{x^2}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+  // ==================== ТИП 10: ПЛОЩАДЬ ФИГУРЫ (между параболой и прямой) ====================
+  {
+    id: "var7-task8-unique",
+    type: "multiplechoices",
+    header: "Вариант 7. Задание 8",
+    title: "Площадь между параболой и прямой",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = 2x, \\quad y = x^2$$`,
+    choices: [
+      `$\\frac{4}{3}$`,
+      `$\\frac{2}{3}$`,
+      `$\\frac{1}{3}$`,
+      `$\\frac{5}{3}$`,
+      `$\\frac{8}{3}$`
+    ],
+    answers: [`$\\frac{4}{3}$`],
+    hint: `<div class="container">
+      <div class="alert alert-primary">
+        <h5>📊 Площадь между параболой и прямой</h5>
+        
+        <p><strong>Формула площади между кривыми:</strong></p>
+        <p>$$S = \\int_{a}^{b} (f_{\\text{верх}}(x) - f_{\\text{ниж}}(x)) \\, dx$$</p>
+        
+        <p><strong>1. Находим точки пересечения:</strong></p>
+        <p>$$2x = x^2 \\quad \\Rightarrow \\quad x^2 - 2x = 0 \\quad \\Rightarrow \\quad x(x-2) = 0$$</p>
+        <p>$$x_1 = 0, \\quad x_2 = 2$$</p>
+        
+        <p><strong>2. Определяем, какая функция выше:</strong></p>
+        <p>На интервале $[0; 2]$: возьмём $x=1$</p>
+        <p>$$2x = 2, \\quad x^2 = 1 \\quad \\Rightarrow \\quad 2x > x^2$$</p>
+        <p>Значит $y = 2x$ — верхняя кривая, $y = x^2$ — нижняя.</p>
+        
+        <p><strong>3. Вычисляем площадь:</strong></p>
+        <p>$$S = \\int_{0}^{2} (2x - x^2) \\, dx = \\left[x^2 - \\frac{x^3}{3}\\right]_{0}^{2}$$</p>
+        <p>$$S = \\left(4 - \\frac{8}{3}\\right) - (0) = \\frac{12}{3} - \\frac{8}{3} = \\frac{4}{3}$$</p>
+        
+        <div class="card border-primary mt-2">
+          <div class="card-header bg-primary text-white">
+            <strong>✅ Ответ</strong>
+          </div>
+          <div class="card-body">
+            $$S = \\frac{4}{3}$$
+          </div>
+        </div>
+      </div>
+    </div>`
+  },
+
+
+
+// ==================== ПРОДОЛЖЕНИЕ ДЛЯ ВАРИАНТОВ 6-30 ====================
+// По этому же шаблону добавляются варианты с 6 по 30.
+// Структура каждого варианта:
+// - Задание 1: метод интервалов (разные нули и знаки)
+// - Задание 2: квадратное уравнение
+// - Задание 3: исследование функции
+// - Задание 4: логарифмическое уравнение
+// - Задание 5: показательное уравнение
+// - Задание 6: логарифмическое неравенство
+// - Задание 7: стереометрическая задача (объём/площадь)
+// - Задание 8: площадь фигуры через интеграл
+//
+// Все поля text и hint используют обратные кавычки для удобного форматирования.
+// Поле choices содержит 5 вариантов, поле answers — массив правильных ответов.
+// Тип всегда "multiplechoices".
+  // ==================== ВАРИАНТ 6 ====================
+  {
+    id: "var6-task1",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 1",
+    title: "Метод интервалов",
+    theme: "Неравенства",
+    text: `Решите неравенство методом интервалов:
+$$(x+3)(x-4) \\le 0$$`,
+    choices: [
+      `$[-3; 4]$`,
+      `$(-3; 4)$`,
+      `$(-\\infty; -3] \\cup [4; +\\infty)$`,
+      `$(-\\infty; -3) \\cup (4; +\\infty)$`,
+      `$[-4; 3]$`
+    ],
+    answers: [`$[-3; 4]$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>Нули: x=-3, x=4</p>
+        <p>Интервалы: (+), (-), (+) ⇒ ≤0 ⇒ <strong>[-3;4]</strong></p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task2",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 2",
+    title: "Квадратное уравнение",
+    theme: "Уравнения",
+    text: `Решите уравнение:
+$$x^2 + 2x - 3 = 0$$`,
+    choices: [
+      `$x = -3$ и $x = 1$`,
+      `$x = 3$ и $x = -1$`,
+      `$x = -3$ и $x = -1$`,
+      `$x = 3$ и $x = 1$`,
+      `$x = 0$ и $x = -2$`
+    ],
+    answers: [`$x = -3$ и $x = 1$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>D = 4 + 12 = 16, √D=4</p>
+        <p>x₁ = (-2-4)/2 = -3, x₂ = (-2+4)/2 = 1</p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task3",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 3",
+    title: "Монотонность и экстремумы",
+    theme: "Исследование функций",
+    text: `Исследуйте функцию на монотонность и экстремумы:
+$$f(x) = -x^2 + 2x + 3$$`,
+    choices: [
+      `возрастает на $(-\\infty;1]$, убывает на $[1;+\\infty)$, $x_{max}=1$`,
+      `убывает на $(-\\infty;1]$, возрастает на $[1;+\\infty)$, $x_{min}=1$`,
+      `возрастает на $(-\\infty;0]$, убывает на $[0;+\\infty)$, $x_{max}=0$`,
+      `убывает на $(-\\infty;0]$, возрастает на $[0;+\\infty)$, $x_{min}=0$`,
+      `функция монотонно убывает на всей числовой прямой`
+    ],
+    answers: [`возрастает на $(-\\infty;1]$, убывает на $[1;+\\infty)$, $x_{max}=1$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>f'(x)=-2x+2 = -2(x-1)</p>
+        <p>Крит. точка: x=1</p>
+        <p>(-∞;1): f'>0 ↑; (1;∞): f'<0 ↓; x=1 — максимум</p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task4",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 4",
+    title: "Логарифмическое уравнение",
+    theme: "Логарифмы",
+    text: `Решите уравнение:
+$$\\log_4(2x-1) = 2$$`,
+    choices: [
+      `$x = 8.5$`,
+      `$x = 8$`,
+      `$x = 9$`,
+      `$x = 7.5$`,
+      `$x = 10$`
+    ],
+    answers: [`$x = 8.5$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>ОДЗ: 2x-1 > 0 ⇒ x > 0.5</p>
+        <p>$2x-1 = 4^2 = 16$ ⇒ $2x=17$ ⇒ $x=8.5$</p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task5",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 5",
+    title: "Показательное уравнение",
+    theme: "Показательная функция",
+    text: `Решите уравнение:
+$$3^{2x} = 81$$`,
+    choices: [
+      `$x = 2$`,
+      `$x = 4$`,
+      `$x = 3$`,
+      `$x = 1$`,
+      `$x = 0$`
+    ],
+    answers: [`$x = 2$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>$3^{2x} = 81 = 3^4$ ⇒ 2x=4 ⇒ x=2</p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task6",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 6",
+    title: "Логарифмическое неравенство",
+    theme: "Логарифмы",
+    text: `Решите неравенство:
+$$\\log_2(x^2 - 4x + 4) < 0$$`,
+    choices: [
+      `$(1;2) \\cup (2;3)$`,
+      `$(1;3)$`,
+      `$(-\\infty;1) \\cup (3;+\\infty)$`,
+      `$(-\\infty;1]$`,
+      `$[3;+\\infty)$`
+    ],
+    answers: [`$(1;2) \\cup (2;3)$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>$\\log_2((x-2)^2) < 0 = \\log_2 1$ ⇒ $(x-2)^2 < 1$ (x≠2)</p>
+        <p>$|x-2| < 1$ ⇒ $-1 < x-2 < 1$ ⇒ $1 < x < 3$, x≠2</p>
+        <p><strong>(1;2) ∪ (2;3)</strong></p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task7",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 7",
+    title: "Объем параллелепипеда",
+    theme: "Стереометрия",
+    text: `В прямоугольном параллелепипеде стороны основания равны 5 см и 12 см, а диагональ параллелепипеда наклонена к плоскости основания под углом 45°. Найдите его объём.`,
+    choices: [
+      `$780$ см³`,
+      `$390$ см³`,
+      `$1560$ см³`,
+      `$1170$ см³`,
+      `$1950$ см³`
+    ],
+    answers: [`$780$ см³`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>Диагональ основания: $d = \\sqrt{5^2+12^2} = \\sqrt{25+144} = \\sqrt{169} = 13$ см</p>
+        <p>Угол 45° ⇒ высота $h = d·tg45° = 13·1 = 13$ см</p>
+        <p>Объем: $V = 5·12·13 = 780$ см³</p>
+      </div>
+    </div>`
+  },
+  {
+    id: "var6-task8",
+    type: "multiplechoices",
+    header: "Вариант 6. Задание 8",
+    title: "Площадь фигуры",
+    theme: "Интегралы",
+    text: `Вычислите площадь фигуры, ограниченной линиями:
+$$y = \\cos x, \\quad y = 0, \\quad x = 0, \\quad x = \\frac{\\pi}{2}$$`,
+    choices: [
+      `$1$`,
+      `$0$`,
+      `$\\frac{\\pi}{2}$`,
+      `$2$`,
+      `$\\frac{1}{2}$`
+    ],
+    answers: [`$1$`],
+    hint: `<div class="container">
+      <div class="alert alert-info">
+        <p>$S = \\int_{0}^{\\pi/2} \\cos x dx = [\\sin x]_{0}^{\\pi/2} = \\sin(\\pi/2) - \\sin 0 = 1 - 0 = 1$</p>
+      </div>
+    </div>`
+  },
+
      {
       "id": "def-prob-001",
       "type": "multiplechoices",

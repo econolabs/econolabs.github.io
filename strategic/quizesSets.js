@@ -16,7 +16,7 @@ let quizesSets = [
       "Штатное расписание и должностные инструкции"
     ],
     "answers": ["Долгосрочное качественно определенное направление развития организации"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>Стратегия</h5><p>Это генеральное направление развития, а не детальный план. Она определяет, куда двигаться, а не конкретные шаги.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>Стратегия</h5><p>Это генеральное направление развития, а не детальный план. Она определяет, куда двигаться, а не конкретные шаги.</p></div></div>"
   },
   {
     "id": "strat_002",
@@ -32,7 +32,7 @@ let quizesSets = [
       "Операционная стратегия"
     ],
     "answers": ["Корпоративная стратегия"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>Корпоративная стратегия</h5><p>Она отвечает за портфель бизнесов, распределение ресурсов между ними и выбор отраслей.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>Корпоративная стратегия</h5><p>Она отвечает за портфель бизнесов, распределение ресурсов между ними и выбор отраслей.</p></div></div>"
   },
   {
     "id": "strat_003",
@@ -48,7 +48,7 @@ let quizesSets = [
       "Набрать персонал"
     ],
     "answers": ["Выявить ключевые факторы успеха и обосновать стратегические выводы"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>Цель стратегического анализа</h5><p>Понять позицию компании и среды, чтобы предложить эффективную стратегию.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>Цель стратегического анализа</h5><p>Понять позицию компании и среды, чтобы предложить эффективную стратегию.</p></div></div>"
   },
   {
     "id": "strat_004",
@@ -64,7 +64,7 @@ let quizesSets = [
       "Снизить затраты на 100%"
     ],
     "answers": ["Уменьшить неопределенность и облегчить понимание ситуации"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Стратегический анализ не дает готовых ответов, но структурирует информацию.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегический анализ не дает готовых ответов, но структурирует информацию.</p></div></div>"
   },
   {
     "id": "strat_005",
@@ -80,7 +80,7 @@ let quizesSets = [
       "Перспектива (Perspective)"
     ],
     "answers": ["Принцип (Principle)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>5P Минцберга</h5><p>План, Прием (Ploy), Паттерн (Pattern), Позиция (Position), Перспектива (Perspective). Принцип не входит.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>5P Минцберга</h5><p>План, Прием (Ploy), Паттерн (Pattern), Позиция (Position), Перспектива (Perspective). Принцип не входит.</p></div></div>"
   },
   {
     "id": "strat_006",
@@ -96,7 +96,7 @@ let quizesSets = [
       "Отсутствием целей"
     ],
     "answers": ["Меньшей детализацией и долгосрочностью"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Стратегия — на годы вперед, оперативка — на день/неделю.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегия — на годы вперед, оперативка — на день/неделю.</p></div></div>"
   },
   {
     "id": "strat_007",
@@ -112,7 +112,7 @@ let quizesSets = [
       "Выявление конкурентных преимуществ"
     ],
     "answers": ["Ведение бухгалтерского учета"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Бухучет — это операционная деятельность, а не стратегический анализ.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Бухучет — это операционная деятельность, а не стратегический анализ.</p></div></div>"
   },
   {
     "id": "strat_008",
@@ -128,7 +128,7 @@ let quizesSets = [
       "Ликвидация компании"
     ],
     "answers": ["Реализация стратегии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Сначала анализ и план, потом выполнение.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сначала анализ и план, потом выполнение.</p></div></div>"
   },
   {
     "id": "strat_009",
@@ -144,7 +144,7 @@ let quizesSets = [
       "Должностная инструкция"
     ],
     "answers": ["Смысл существования, социальное предназначение"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Миссия отвечает на вопрос «Зачем мы существуем?».</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Миссия отвечает на вопрос «Зачем мы существуем?».</p></div></div>"
   },
   {
     "id": "strat_010",
@@ -160,7 +160,7 @@ let quizesSets = [
       "Техническое задание"
     ],
     "answers": ["Желаемый образ будущего"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Видение показывает, какой компания хочет стать через 5-10 лет.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Видение показывает, какой компания хочет стать через 5-10 лет.</p></div></div>"
   },
   {
     "id": "strat_011",
@@ -176,7 +176,7 @@ let quizesSets = [
       "Замена картриджа в принтере"
     ],
     "answers": ["Выход на новый зарубежный рынок"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Стратегические решения меняют судьбу компании (выход на рынок, M&A).</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегические решения меняют судьбу компании (выход на рынок, M&A).</p></div></div>"
   },
   {
     "id": "strat_012",
@@ -192,7 +192,7 @@ let quizesSets = [
       "Расчет амортизации"
     ],
     "answers": ["Сравнение желаемого состояния с текущим"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>GAP помогает понять, чего не хватает для достижения целей.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>GAP помогает понять, чего не хватает для достижения целей.</p></div></div>"
   },
   {
     "id": "strat_013",
@@ -208,7 +208,7 @@ let quizesSets = [
       "Фамилия директора"
     ],
     "answers": ["Переменные, дающие конкурентное преимущество"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>КФУ — это то, в чем компания должна быть сильна, чтобы побеждать.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>КФУ — это то, в чем компания должна быть сильна, чтобы побеждать.</p></div></div>"
   },
   {
     "id": "strat_014",
@@ -224,7 +224,7 @@ let quizesSets = [
       "Корпоративная культура"
     ],
     "answers": ["Технологии конкурентов"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Внешнее — это то, что вне компании (конкуренты, законы, технологии).</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Внешнее — это то, что вне компании (конкуренты, законы, технологии).</p></div></div>"
   },
   {
     "id": "strat_015",
@@ -240,7 +240,7 @@ let quizesSets = [
       "Система мотивации сотрудников"
     ],
     "answers": ["Система мотивации сотрудников"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Внутреннее — это активы, культура, процессы (то, что компания контролирует).</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Внутреннее — это активы, культура, процессы (то, что компания контролирует).</p></div></div>"
   },
 
   // ==================== ТЕМА 2: Анализ внешней среды (16-30) ====================
@@ -258,7 +258,7 @@ let quizesSets = [
       "Только внутренние"
     ],
     "answers": ["Политические, экономические, социальные, технологические, правовые, экологические"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>PESTLE</h5><p>Political, Economic, Social, Technological, Legal, Environmental.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>PESTLE</h5><p>Political, Economic, Social, Technological, Legal, Environmental.</p></div></div>"
   },
   {
     "id": "strat_017",
@@ -274,7 +274,7 @@ let quizesSets = [
       "Угроза товаров-заменителей"
     ],
     "answers": ["Власть профсоюзов"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><h5>5 сил Портера</h5><p>Угроза новичков, власть поставщиков, власть покупателей, угроза заменителей, внутриотраслевая конкуренция.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><h5>5 сил Портера</h5><p>Угроза новичков, власть поставщиков, власть покупателей, угроза заменителей, внутриотраслевая конкуренция.</p></div></div>"
   },
   {
     "id": "strat_018",
@@ -290,7 +290,7 @@ let quizesSets = [
       "Для оценки ликвидности"
     ],
     "answers": ["Для визуализации конкурентных позиций в отрасли"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Карта группирует конкурентов со схожими стратегиями.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Карта группирует конкурентов со схожими стратегиями.</p></div></div>"
   },
   {
     "id": "strat_019",
@@ -306,7 +306,7 @@ let quizesSets = [
       "Количества офисов"
     ],
     "answers": ["Возможностей"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>4 компонента: цели, предположения, стратегия, возможности.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>4 компонента: цели, предположения, стратегия, возможности.</p></div></div>"
   },
   {
     "id": "strat_020",
@@ -322,7 +322,7 @@ let quizesSets = [
       "Сокращение ассортимента"
     ],
     "answers": ["Деление потребителей на однородные группы"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Сегментирование позволяет точнее попадать в потребности.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сегментирование позволяет точнее попадать в потребности.</p></div></div>"
   },
   {
     "id": "strat_021",
@@ -338,7 +338,7 @@ let quizesSets = [
       "Плохая реклама"
     ],
     "answers": ["Патенты и лицензии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Барьеры защищают от новичков (эффект масштаба, патенты, доступ к каналам).</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Барьеры защищают от новичков (эффект масштаба, патенты, доступ к каналам).</p></div></div>"
   },
   {
     "id": "strat_022",
@@ -354,7 +354,7 @@ let quizesSets = [
       "Медленный рост рынка и однородность товаров"
     ],
     "answers": ["Медленный рост рынка и однородность товаров"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Когда рынок не растет, а товары одинаковы, конкуренты начинают «грызться» за долю.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Когда рынок не растет, а товары одинаковы, конкуренты начинают «грызться» за долю.</p></div></div>"
   },
   {
     "id": "strat_023",
@@ -370,7 +370,7 @@ let quizesSets = [
       "Покупатель не чувствителен к цене"
     ],
     "answers": ["Покупатель может легко переключиться на аналог"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Низкие переключающие издержки повышают власть клиента.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Низкие переключающие издержки повышают власть клиента.</p></div></div>"
   },
   {
     "id": "strat_024",
@@ -386,7 +386,7 @@ let quizesSets = [
       "Labour (трудовые ресурсы)"
     ],
     "answers": ["Legal (правовые факторы)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Legal — законы, налоги, регулирование.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Legal — законы, налоги, регулирование.</p></div></div>"
   },
   {
     "id": "strat_025",
@@ -402,7 +402,7 @@ let quizesSets = [
       "Выборы президента"
     ],
     "answers": ["Темп инфляции"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Инфляция, ставки, ВВП — это экономика.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Инфляция, ставки, ВВП — это экономика.</p></div></div>"
   },
   {
     "id": "strat_026",
@@ -418,7 +418,7 @@ let quizesSets = [
       "Искусственный интеллект"
     ],
     "answers": ["Демографическая структура населения"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Социум: возраст, доходы, культурные ценности.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Социум: возраст, доходы, культурные ценности.</p></div></div>"
   },
   {
     "id": "strat_027",
@@ -434,7 +434,7 @@ let quizesSets = [
       "Экологические нормы"
     ],
     "answers": ["Уровень роботизации в отрасли"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Технологии: автоматизация, R&D, новые материалы.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Технологии: автоматизация, R&D, новые материалы.</p></div></div>"
   },
   {
     "id": "strat_028",
@@ -450,7 +450,7 @@ let quizesSets = [
       "Уровень безработицы"
     ],
     "answers": ["Изменение климата и углеродный след"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Экология: погода, выбросы, отходы.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Экология: погода, выбросы, отходы.</p></div></div>"
   },
   {
     "id": "strat_029",
@@ -466,7 +466,7 @@ let quizesSets = [
       "Повышения цен"
     ],
     "answers": ["Фокусировки на том, что приносит победу в конкурентной борьбе"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>КФУ — это «правила игры» в отрасли.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>КФУ — это «правила игры» в отрасли.</p></div></div>"
   },
   {
     "id": "strat_030",
@@ -482,7 +482,7 @@ let quizesSets = [
       "Бракованные товары"
     ],
     "answers": ["Товары, удовлетворяющие ту же потребность, но иным способом"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Например, чай — заменитель кофе.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Например, чай — заменитель кофе.</p></div></div>"
   },
 
   // ==================== ТЕМА 3: Анализ внутренней среды (31-45) ====================
@@ -500,7 +500,7 @@ let quizesSets = [
       "Риск"
     ],
     "answers": ["Долю рынка относительно лидера"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>X — относительная доля рынка (низкая/высокая). Y — темп роста рынка.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>X — относительная доля рынка (низкая/высокая). Y — темп роста рынка.</p></div></div>"
   },
   {
     "id": "strat_032",
@@ -516,7 +516,7 @@ let quizesSets = [
       "Низкая доля / высокий рост"
     ],
     "answers": ["Высокая доля / низкий рост"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>«Коровы» приносят стабильную прибыль, их доят, а не инвестируют.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>«Коровы» приносят стабильную прибыль, их доят, а не инвестируют.</p></div></div>"
   },
   {
     "id": "strat_033",
@@ -532,7 +532,7 @@ let quizesSets = [
       "Продажи конкурентам"
     ],
     "answers": ["Инвестиций для поддержания роста"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>«Звезды» — лидеры растущего рынка, им нужно финансирование.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>«Звезды» — лидеры растущего рынка, им нужно финансирование.</p></div></div>"
   },
   {
     "id": "strat_034",
@@ -548,7 +548,7 @@ let quizesSets = [
       "Технологическое развитие"
     ],
     "answers": ["Логистика на входе (снабжение)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Первичные: логистика входа, операции, логистика выхода, маркетинг, сервис.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Первичные: логистика входа, операции, логистика выхода, маркетинг, сервис.</p></div></div>"
   },
   {
     "id": "strat_035",
@@ -564,7 +564,7 @@ let quizesSets = [
       "Сервисное обслуживание"
     ],
     "answers": ["Закупки (прокьюремент)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Поддерживающие: закупки, технологии, HR, инфраструктура.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Поддерживающие: закупки, технологии, HR, инфраструктура.</p></div></div>"
   },
   {
     "id": "strat_036",
@@ -580,7 +580,7 @@ let quizesSets = [
       "Оборотный капитал"
     ],
     "answers": ["Уникальный (редкий) ресурс"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Редкость ресурса — источник конкурентного преимущества.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Редкость ресурса — источник конкурентного преимущества.</p></div></div>"
   },
   {
     "id": "strat_037",
@@ -596,7 +596,7 @@ let quizesSets = [
       "Банковский кредит"
     ],
     "answers": ["Уникальная способность, создающая ценность для клиента и отличающая от конкурентов"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Компетенция — это то, что компания умеет делать лучше всех.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Компетенция — это то, что компания умеет делать лучше всех.</p></div></div>"
   },
   {
     "id": "strat_038",
@@ -612,7 +612,7 @@ let quizesSets = [
       "Доли рынка"
     ],
     "answers": ["Рентабельности собственного капитала (ROE)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>DuPont раскладывает ROE на три компонента: маржа, оборачиваемость, плечо.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>DuPont раскладывает ROE на три компонента: маржа, оборачиваемость, плечо.</p></div></div>"
   },
   {
     "id": "strat_039",
@@ -628,7 +628,7 @@ let quizesSets = [
       "Количество сотрудников"
     ],
     "answers": ["Эффективность использования активов для генерации выручки"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Оборачиваемость = Выручка / Активы.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Оборачиваемость = Выручка / Активы.</p></div></div>"
   },
   {
     "id": "strat_040",
@@ -644,7 +644,7 @@ let quizesSets = [
       "Основана на климате"
     ],
     "answers": ["Использует два комплексных показателя (привлекательность рынка и конкурентная позиция)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>BCG — простые оси (рост и доля), McKinsey — многомерные оценки.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>BCG — простые оси (рост и доля), McKinsey — многомерные оценки.</p></div></div>"
   },
   {
     "id": "strat_041",
@@ -660,7 +660,7 @@ let quizesSets = [
       "Налоговые льготы"
     ],
     "answers": ["То, что компания делает плохо или ей не хватает ресурсов"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Слабые стороны — это внутренние недостатки.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Слабые стороны — это внутренние недостатки.</p></div></div>"
   },
   {
     "id": "strat_042",
@@ -676,7 +676,7 @@ let quizesSets = [
       "Новые законы"
     ],
     "answers": ["Активы и навыки, дающие конкурентное преимущество"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Сильные стороны — это то, в чем компания превосходит других.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сильные стороны — это то, в чем компания превосходит других.</p></div></div>"
   },
   {
     "id": "strat_043",
@@ -692,7 +692,7 @@ let quizesSets = [
       "Материальность"
     ],
     "answers": ["Организационная поддержка"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>VRIO: Value, Rarity, Imitability, Organization.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>VRIO: Value, Rarity, Imitability, Organization.</p></div></div>"
   },
   {
     "id": "strat_044",
@@ -708,7 +708,7 @@ let quizesSets = [
       "Прогнозирование курса валют"
     ],
     "answers": ["Сравнение своих показателей с лучшими в отрасли"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Бенчмаркинг — поиск лучших практик.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Бенчмаркинг — поиск лучших практик.</p></div></div>"
   },
   {
     "id": "strat_045",
@@ -724,7 +724,7 @@ let quizesSets = [
       "Need (потребность)"
     ],
     "answers": ["Neutral (нейтральное состояние)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>SNW: Strong, Neutral, Weak.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>SNW: Strong, Neutral, Weak.</p></div></div>"
   },
 
   // ==================== ТЕМА 4: Обобщение и выводы (46-60) ====================
@@ -742,7 +742,7 @@ let quizesSets = [
       "System, Way, Objective, Task"
     ],
     "answers": ["Strengths, Weaknesses, Opportunities, Threats"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Силы, Слабости, Возможности, Угрозы.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Силы, Слабости, Возможности, Угрозы.</p></div></div>"
   },
   {
     "id": "strat_047",
@@ -758,7 +758,7 @@ let quizesSets = [
       "Уход с рынка"
     ],
     "answers": ["Наступательная (использование силы для захвата возможностей)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>S-O — «Макси-Макси», агрессивный рост.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>S-O — «Макси-Макси», агрессивный рост.</p></div></div>"
   },
   {
     "id": "strat_048",
@@ -774,7 +774,7 @@ let quizesSets = [
       "Качество воздуха"
     ],
     "answers": ["Позиционирование по четырем квадрантам: агрессивное, конкурентное, консервативное, оборонительное"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>SPACE рекомендует тип стратегии в зависимости от положения.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>SPACE рекомендует тип стратегии в зависимости от положения.</p></div></div>"
   },
   {
     "id": "strat_049",
@@ -790,7 +790,7 @@ let quizesSets = [
       "Количество конкурентов"
     ],
     "answers": ["Финансовую силу (FS) и стабильность среды (ES)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>FS и ES дают вертикальное измерение.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>FS и ES дают вертикальное измерение.</p></div></div>"
   },
   {
     "id": "strat_050",
@@ -806,7 +806,7 @@ let quizesSets = [
       "Консервацию"
     ],
     "answers": ["Рост, захват рынка, диверсификацию"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Агрессивное положение — силы высоки, среда стабильна, атакуем!</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Агрессивное положение — силы высоки, среда стабильна, атакуем!</p></div></div>"
   },
   {
     "id": "strat_051",
@@ -822,7 +822,7 @@ let quizesSets = [
       "Возраста компании"
     ],
     "answers": ["Конкурентной позиции и роста рынка"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Это более сложная версия BCG с 4 квадрантами.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Это более сложная версия BCG с 4 квадрантами.</p></div></div>"
   },
   {
     "id": "strat_052",
@@ -838,7 +838,7 @@ let quizesSets = [
       "Бухгалтерские проводки"
     ],
     "answers": ["Набор возможных вариантов стратегии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Альтернативы: рост, стабилизация, сокращение.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Альтернативы: рост, стабилизация, сокращение.</p></div></div>"
   },
   {
     "id": "strat_053",
@@ -854,7 +854,7 @@ let quizesSets = [
       "Для «Вопросительных знаков»"
     ],
     "answers": ["Для продуктов «Дойные коровы» с ограниченными перспективами"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>«Сбор урожая» — выжать максимум прибыли перед уходом.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>«Сбор урожая» — выжать максимум прибыли перед уходом.</p></div></div>"
   },
   {
     "id": "strat_054",
@@ -870,7 +870,7 @@ let quizesSets = [
       "Рекламы"
     ],
     "answers": ["Оценки выполнения стратегии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>KPI измеримы и связаны со стратегическими целями.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>KPI измеримы и связаны со стратегическими целями.</p></div></div>"
   },
   {
     "id": "strat_055",
@@ -886,7 +886,7 @@ let quizesSets = [
       "Только внутренние процессы"
     ],
     "answers": ["Финансы, клиенты, процессы, обучение и рост"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>BSC связывает стратегию с операционной деятельностью через 4 перспективы.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>BSC связывает стратегию с операционной деятельностью через 4 перспективы.</p></div></div>"
   },
   {
     "id": "strat_056",
@@ -902,7 +902,7 @@ let quizesSets = [
       "Схему метро"
     ],
     "answers": ["Причинно-следственные связи между целями"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Карта визуализирует гипотезу стратегии.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Карта визуализирует гипотезу стратегии.</p></div></div>"
   },
   {
     "id": "strat_057",
@@ -918,7 +918,7 @@ let quizesSets = [
       "Отсутствии конкурентов"
     ],
     "answers": ["Высокой неопределенности внешней среды"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Сценарии помогают быть готовым к разным вариантам будущего.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сценарии помогают быть готовым к разным вариантам будущего.</p></div></div>"
   },
   {
     "id": "strat_058",
@@ -934,7 +934,7 @@ let quizesSets = [
       "Контроль качества обедов"
     ],
     "answers": ["Отслеживание соответствия текущих действий стратегическим целям"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Контроль стратегии — это мониторинг «идем ли мы туда, куда нужно?».</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Контроль стратегии — это мониторинг «идем ли мы туда, куда нужно?».</p></div></div>"
   },
   {
     "id": "strat_059",
@@ -950,7 +950,7 @@ let quizesSets = [
       "Ни то, ни другое"
     ],
     "answers": ["И то, и другое критически важно, плохая реализация убивает хорошую стратегию"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>Без исполнения стратегия — просто документ.</p></div></div>"
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Без исполнения стратегия — просто документ.</p></div></div>"
   },
   {
     "id": "strat_060",
@@ -966,8 +966,10 @@ let quizesSets = [
       "Time-bound (ограниченная по времени)"
     ],
     "answers": ["Aggressive (агрессивная)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-info mb-3'><p>SMART: Specific, Measurable, Achievable, Relevant, Time-bound.</p></div></div>"
-  }
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>SMART: Specific, Measurable, Achievable, Relevant, Time-bound.</p></div></div>"
+  },
+
+  
 
 
 ]
