@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Web Page</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <style>
+    .q-card {
+      border-radius: 8px;
+      min-width: 127px;
+      box-shadow: 0 1px 2px #131d3129;
+      padding: auto;
+      background: #fff;
+      padding: 14px;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+
+// 3.1
+
+<div class="card q-card my-3" style="max-width: 800px" id="texts311"> 
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="История графических нейросетей"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.1. История появления и суть графических нейросетей
+    </h3>
+    <div>
+      <p>
+        <strong>Графические (визуальные) нейросети</strong> — это класс моделей
+        машинного обучения, предназначенных для обработки, анализа и генерации
+        изображений, видео и других визуальных данных. Их эволюция прошла путь
+        от простого распознавания рукописных цифр до фотореалистичной генерации.
+      </p>
+
+      <p><strong>Этап 1. Биологическая основа и первые эксперименты (1940–1980):</strong></p>
+      <ul>
+        <li>
+          <strong>1943 — Маккалок и Питтс:</strong> первая математическая модель
+          нейрона, заложившая теоретическую основу для всех нейросетей;
+        </li>
+        <li>
+          <strong>1959 — Хьюбел и Визель (Нобелевская премия):</strong> открытие,
+          что нейроны в зрительной коре кошек реагируют на простые визуальные
+          паттерны (края, линии, углы). Это открытие вдохновило архитектуру
+          свёрточных нейросетей;
+        </li>
+        <li>
+          <strong>1960-е — 1970-е:</strong> перцептрон Розенблатта пытался
+          распознавать простые формы, но мог решать только линейные задачи;
+        </li>
+        <li>
+          <strong>1980 — Фукушима, Neocognitron:</strong> первая свёрточная
+          нейросеть (прообраз современных CNN). Имела слои S (простой) и C
+          (сложный), но не обучалась обратным распространением ошибки.
+        </li>
+      </ul>
+
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Год</th><th>Открытие/Работа</th><th>Вклад в графические нейросети</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1943</strong></td><td>Маккалок–Питтс</strong></td><td>Математическая модель нейрона</strong></td></tr>
+          <tr><td>1959</strong></td><td>Хьюбел и Визель</strong></td><td class="fw-bold">Открытие иерархии визуальных признаков (края → формы)</strong></td></tr>
+          <tr><td>1980</strong></td><td>Neocognitron (Фукушима)</strong></td><td class="fw-bold text-success">Первая свёрточная архитектура</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Ключевая идея: мозг обрабатывает зрение иерархически — от простых
+        признаков (края) к сложным (объекты). Эта идея стала фундаментом для
+        свёрточных нейросетей.</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card q-card my-3" style="max-width: 800px" id="texts315">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="Генеративные нейросети"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.1 Генеративные графические нейросети: GAN, Diffusers, VAEs (2014–2025)
+    </h3>
+    <div>
+      <p>
+        <strong>Классические CNN решают задачу «что на картинке?»
+        (классификация, детекция).</strong> Генеративные модели решают обратную
+        задачу: <strong>«создай картинку по описанию или шуму»</strong>.
+      </p>
+
+      <p><strong>Три поколения генеративных моделей:</strong></p>
+      
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Архитектура</th><th>Год</th><th>Принцип работы</th><th>Примеры</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GAN (Генеративно-состязательные сети)</strong></strong>
+            <td>2014</strong> (Гудфеллоу)</strong>
+            <td>
+              Две сети соревнуются: <strong>генератор</strong> создаёт фейки,
+              <strong>дискриминатор</strong> их распознаёт. Конкуренция улучшает
+              обе сети
+             </strong>
+            <td>
+              StyleGAN (лица), CycleGAN (изменение стиля, зима→лето)
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>VAE (Вариационные автоэнкодеры)</strong></strong>
+            <td>2013</strong>
+            <td>
+              Кодирует изображение в скрытое пространство (латентный вектор),
+              затем декодирует обратно. Может генерировать новые, интерполируя
+              между векторами
+             </strong>
+            <td>
+              Генерация лиц с промежуточными вариантами (очки + улыбка)
+             </strong>
+          </tr>
+          <tr>
+            <td><strong>Diffusion (диффузионные модели)</strong></strong>
+            <td>2020–2022</strong> (DALL-E 2, Stable Diffusion)</strong>
+            <td>
+              Шаг 1: постепенное добавление шума к картинке (400–1000 шагов)
+              → картинка превращается в белый шум. Шаг 2: сеть учится
+              <strong>обращать процесс</strong> — из шума восстанавливать
+              исходное изображение
+             </strong>
+            <td>
+              Stable Diffusion, Midjourney, DALL-E 3, Kandinsky
+             </strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Как работают диффузионные модели (современный стандарт 2025):</strong></p>
+      <div class="border p-2 bg-light" style="font-size: 0.9em">
+        <strong>Прямой процесс (обучение):</strong> Изображение (собака) → добавить
+        шум → ещё шум → ... → белый шум.<br />
+        <strong>Обратный процесс (генерация):</strong> Белый шум → убрать шум → 
+        убрать ещё → ... → изображение (собака, которой не существовало).
+      </div>
+
+      <p><strong>Мультимодальные модели (текст → изображение):</strong></p>
+      <ul>
+        <li>
+          <strong>Текстовый энкодер (CLIP, T5):</strong> превращает текстовое
+          описание («красная машина на закате») в вектор;
+        </li>
+        <li>
+          <strong>Диффузионная модель:</strong> создаёт изображение, «ориентируясь»
+          на этот текстовый вектор;
+        </li>
+        <li>
+          <strong>Примеры 2025:</strong> Midjourney v7, Stable Diffusion 3.5,
+          DALL-E 3, Kandinsky 3, YandexART (в Алисе).
+        </li>
+      </ul>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>🌟 Суть графических нейросетей одной фразой:</strong>
+        Обычная CNN отвечает на вопрос «кто это?», генеративная нейросеть —
+        «нарисуй мне того, кого я описываю».
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Примечание: в 2025 году диффузионные модели доминируют в генерации
+        изображений, полностью вытеснив GAN для фотореалистичных задач.
+        GAN остаются полезны для некоторых специфических задач (улучшение
+        разрешения, стилизация видео в реальном времени).</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+// 3.2
+
+
+<div class="card my-3" style="max-width: 800px" id="texts316">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="Графические нейросети доступные в РФ"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.2. Регистрация в графических нейросетях и знакомство с интерфейсом
+    </h3>
+    <div>
+      <p>
+        <strong>Графические (визуальные) нейросети</strong> — это модели для
+        генерации, редактирования и анализа изображений, видео и анимации.
+        В 2025–2026 годах российские пользователи имеют доступ к нескольким
+        десяткам сервисов без использования VPN .
+      </p>
+
+      <p><strong>✅ ТОП-5 графических нейросетей, работающих в РФ без VPN:</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr>
+            <th>Нейросеть</th>
+            <th>Разработчик</th>
+            <th>Доступ без VPN</th>
+            <th>Бесплатно</th>
+            <th>Что умеет</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>✅ Шедеврум</strong></strong>
+            <td>Яндекс</strong>
+            <td>✅ Полная</strong>
+            <td>✅ До 100 генераций/день</strong>
+            <td>Изображения, тексты, видео (в Про-версии)</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ GigaChat</strong></strong>
+            <td>Сбер</strong>
+            <td>✅ Полная</strong>
+            <td>✅ Несколько десятков/сутки</strong>
+            <td>Изображения + анализ загруженных фото</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ Kandinsky (Fusion Brain)</strong></strong>
+            <td>Сбер AI</strong>
+            <td>✅ Полная</strong>
+            <td>✅ 5–10 генераций/день</strong>
+            <td>Изображения + видео до 4 сек</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ Qwen</strong></strong>
+            <td>Alibaba (Китай)</strong>
+            <td>✅ Полная</strong>
+            <td>✅ (без регистрации)</strong>
+            <td>Мультимодальная: текст, изображения, видео</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ Copilot / Bing</strong></strong>
+            <td>Microsoft</strong>
+            <td>✅ Полная</strong>
+            <td>✅ Без жёстких лимитов</strong>
+            <td>Изображения (GPT-4o / DALL-E 3)</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>🌟 Важно:</strong> российские сервисы (Шедеврум, GigaChat, Kandinsky)
+        работают на отечественной инфраструктуре — ваши данные не покидают РФ.
+        Зарубежные аналоги (Qwen, Copilot) также доступны напрямую .
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Примечание: Midjourney, DALL-E 3 (оригинальный) и Adobe Firefly официально
+        недоступны из РФ без VPN или имеют проблемы с оплатой. Используйте российские
+        аналоги или агрегаторы .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="q-card card my-3" style="max-width: 800px" id="texts318">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="GigaChat и Kandinsky"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.2 GigaChat и Kandinsky (Fusion Brain) — нейросети Сбера
+    </h3>
+    <div>
+      <p>
+        <strong>Сбер</strong> развивает две основные графические нейросети:
+        <strong>GigaChat</strong> (мультимодальный чат с генерацией изображений)
+        и <strong>Kandinsky / Fusion Brain</strong> (специализированный редактор
+        для генерации изображений и видео) .
+      </p>
+
+      <hr />
+
+      <p><strong>🔵 GigaChat — чат с генерацией картинок:</strong></p>
+      <ul>
+        <li>
+          <strong>Где доступен:</strong> веб-сайт <strong>giga.chat</strong>,
+          мобильное приложение, Telegram-бот;
+        </li>
+        <li>
+          <strong>Регистрация:</strong> по номеру телефона (клиентом Сбера быть
+          не обязательно) → SMS с кодом → готово ;
+        </li>
+        <li>
+          <strong>Как рисовать:</strong> просто напишите в чат «нарисуй [описание]»
+          или «создай изображение…». Например: «нарисуй закат над горами в стиле
+          импрессионизма»;
+        </li>
+        <li>
+          <strong>Бесплатно:</strong> несколько десятков генераций в сутки;
+        </li>
+        <li>
+          <strong>Дополнительно:</strong> анализ загруженных фото (прочитает текст
+          с чека, договора, распознает объекты), голосовой ввод, поиск в интернете
+          ;
+        </li>
+        <li>
+          <strong>Модель:</strong> интеграция с Kandinsky 4.1 и новее .
+        </li>
+      </ul>
+
+      <hr />
+
+      <p><strong>🟠 Kandinsky (Fusion Brain) — профессиональный редактор:</strong></p>
+      <ul>
+        <li>
+          <strong>Сайт:</strong> <strong>fusionbrain.ai</strong> ;
+        </li>
+        <li>
+          <strong>Регистрация:</strong> через email или соцсети — подтверждение
+          по почте → вход в редактор ;
+        </li>
+        <li>
+          <strong>Интерфейс:</strong> рабочий стол Fusion Brain — можно выбирать
+          режим «Изображение» или «Видео»;
+        </li>
+        <li>
+          <strong>Генерация видео:</strong> до 4 секунд, бесплатно 5–10 роликов
+          в день ;
+        </li>
+        <li>
+          <strong>Kandinsky 4.1:</strong> работает на архитектуре диффузионного
+          трансформера — четырёхкратное ускорение, отличное понимание русского
+          культурного кода .
+        </li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: GigaChat удобен для быстрых картинок в диалоге, Kandinsky —
+        для серийной генерации и экспериментов со стилями (доступно много
+        предустановок: 3D-рендер, акварель, cyberpunk, аниме и др.).</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="q-card card my-3" style="max-width: 800px" id="texts317">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="Шедеврум интерфейс"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.2 Шедеврум — нейросеть Яндекса (работает на YandexART 2.5)
+    </h3>
+    <div>
+      <p>
+        <strong>Шедеврум</strong> — мобильное приложение от Яндекса, работающее
+        на модели <strong>YandexART 2.5</strong>, которая по результатам
+        краудсорсингового тестирования обошла мировых лидеров (Recraft V3,
+        Ideogram v3.0, Imagen 3.0) .
+      </p>
+
+      <p><strong>📱 Как установить и зарегистрироваться:</strong></p>
+      <ul>
+        <li>
+          <strong>Скачать:</strong> Google Play или App Store (только мобильное
+          приложение — веб-версия не генерирует!) ;
+        </li>
+        <li>
+          <strong>Авторизация:</strong> через аккаунт <strong>Яндекс ID</strong>
+          (можно создать по номеру телефона);
+        </li>
+        <li>
+          <strong>Бесплатные лимиты:</strong> новым пользователям ~100 генераций
+          в день (по 4 картинки за раз), затем ~50 ;
+        </li>
+        <li>
+          <strong>Шедеврум Про:</strong> платная подписка — генерация в 4K,
+          6 вариантов вместо 2, коммерческое использование, «оживление фото»
+          (видео до 4 секунд) .
+        </li>
+      </ul>
+
+      <p><strong>🎨 Интерфейс и возможности:</strong></p>
+      <ul>
+        <li>
+          <strong>Лента публикаций:</strong> напоминает соцсеть — можно смотреть
+          работы других пользователей, ставить лайки, комментировать ;
+        </li>
+        <li>
+          <strong>Создание изображения:</strong> кнопка «Создать» → введите промпт
+          на русском или английском → выберите стиль (опционально);
+        </li>
+        <li>
+          <strong>Фильтрумы:</strong> обработка загруженных фото в определённом
+          стиле (промпт добавить нельзя);
+        </li>
+        <li>
+          <strong>Оживление фото (Про):</strong> превращает картинку в короткое
+          анимированное видео по текстовому описанию .
+        </li>
+      </ul>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>⚠️ Важно:</strong> строгая модерация — запрещены политика,
+        насилие, NSFW. Нарушение может привести к бану .
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: YandexART 2.5 превосходно понимает российский культурный код
+        и сложные пространственные запросы. Пишите промпты на русском — это
+        преимущество перед зарубежными аналогами .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+// 3.3
+
+<div class="q-card card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="Промпты для изображений"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Основы промпт-инжиниринга для генерации изображений
+    </h3>
+    <div>
+      <p>
+        <strong>Промпт (запрос)</strong> для графической нейросети должен быть
+        максимально конкретным и детализированным. Чем точнее описание, тем
+        лучше результат .
+      </p>
+
+      <p><strong>Структура эффективного промпта:</strong></p>
+      <div class="border p-2 bg-light mb-2" style="font-family: monospace; font-size: 0.9em">
+        [Объект] + [Детали/характеристики] + [Действие] + [Стиль] + [Освещение] + [Композиция] + [Разрешение]
+      </div>
+
+      <p><strong>Ключевые элементы промпта :</strong></p>
+      <ul>
+        <li>
+          <strong>Объект и его свойства:</strong> что именно вы хотите увидеть?
+          «кота», «девушку», «город», «автомобиль». Добавьте цвет, размер,
+          характерные особенности — «пушистого рыжего кота в зимнем лесу» ;
+        </li>
+        <li>
+          <strong>Действие и настроение:</strong> что делает объект? «сидит»,
+          «бежит», «смотрит». Какое у него настроение? «задумчивый», «весёлый»,
+          «мрачный». Это сделает изображение живым ;
+        </li>
+        <li>
+          <strong>Стиль и художники:</strong> можно ссылаться на конкретного
+          художника («в стиле Ван Гога», «как у Врубеля») или направление:
+          «киберпанк», «аниме», «реализм», «масляная живопись», «пиксель-арт» ;
+        </li>
+        <li>
+          <strong>Освещение и цветовая гамма:</strong> «мягкий рассеянный свет»,
+          «золотой час», «неон», «пастельные тона», «высокий контраст» ;
+        </li>
+        <li>
+          <strong>Композиция и ракурс:</strong> «крупный план», «портрет»,
+          «вид сверху», «широкий угол», «макросъёмка» ;
+        </li>
+        <li>
+          <strong>Качество и технические параметры:</strong> «фотореализм»,
+          «высокое разрешение 8K», «HDR», «технологичный».
+        </li>
+      </ul>
+
+      <p><strong>Пример простого vs детального промпта:</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Тип</th><th>Пример</th><th>Результат</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>❌ Простой</strong></strong>
+            <td>«собака в парке»</strong>
+            <td>Средний, предсказуемый</strong>
+          </tr>
+          <tr>
+            <td><strong>✅ Детальный</strong></strong>
+            <td>«Золотистый ретривер бежит по осеннему парку, падающие кленовые листья, мягкий вечерний свет, золотистый час, фотореализм, высокое разрешение 8K»</strong>
+            <td>Уникальный, качественный</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: экспериментируйте с синонимами и порядком слов. Нейросети
+        могут по-разному интерпретировать, казалось бы, похожие запросы.
+        Используйте готовые промпт-конструкторы для поиска вдохновения .</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="q-card card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="../h1title.jpg"
+      alt="Советы и лимиты"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Практические советы, приёмы и лимиты сервисов для генерации изображений
+    </h3>
+    <div>
+      <p>
+        <strong>Как добиться наилучшего качества и не потерять результат?</strong>
+        Ниже — сводная информация по лимитам и рекомендации от экспертов.
+      </p>
+
+      <p><strong>📊 Лимиты бесплатных сервисов (2025–2026):</strong></p>
+      <table class="table table-sm mt-2" style="font-size: 0.9em">
+        <thead>
+          <tr><th>Сервис</th><th>Бесплатные генерации</th><th>Сброс лимитов</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Шедеврум</strong>
+            <td>~100/день (новым), ~50/день (постоянным)</strong>
+            <td>Ежедневно</strong>
+          </tr>
+          <tr>
+            <td>GigaChat</strong>
+            <td>~30–50/сутки</strong>
+            <td>Ежедневно</strong>
+          </tr>
+          <tr>
+            <td>Kandinsky (Fusion Brain)</strong>
+            <td>5–10/день (изображения + видео)</strong>
+            <td>Ежедневно</strong>
+          </tr>
+          <tr>
+            <td>Qwen (чат)</strong>
+            <td>Безлимит (без регистрации)</strong>
+            <td>—</strong>
+          </tr>
+          <tr>
+            <td>Le Chat (Mistral)</strong>
+            <td>Дневные лимиты (зависят от плана)</strong>
+            <td>Ежедневно</strong>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>💡 Практические советы по улучшению генерации :</strong></p>
+      <ul>
+        <li><strong>Используйте негативный промпт:</strong> перечисляйте, чего вы НЕ хотите видеть: «no blurry, no distorted, no low-res, without text» ;</li>
+        <li><strong>Указывайте технические параметры камеры:</strong> «объектив 50 мм, f/4.0, ISO 100, выдержка 1/125» для фотореализма ;</li>
+        <li><strong>Экспериментируйте с seed (если доступен):</strong> фиксируйте seed для повторяемости результатов ;</li>
+        <li><strong>Используйте вариации:</strong> генерируйте 4–8 вариантов, выбирайте лучший ;</li>
+        <li><strong>Дорабатывайте в графических редакторах:</strong> нейросеть даёт 80% результата, финальная полировка — дело рук человека ;</li>
+        <li><strong>Формулируйте запрос на английском:</strong> большинство моделей (кроме российских) обучались на английском корпусе, поэтому качество может быть выше .</li>
+      </ul>
+
+      <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+        <strong>⚡ Ключевые рекомендации:</strong>
+        <ul class="mb-0 mt-1">
+          <li>Начинайте с простого промпта → уточняйте в диалоге;</li>
+          <li>Сохраняйте хорошие шаблоны промптов в личную библиотеку;</li>
+          <li>Проверяйте лицензию — у бесплатных тарифов часто запрещено коммерческое использование;</li>
+          <li>Российские сервисы дают лучшие результаты на русском языке .</li>
+        </ul>
+      </div>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Резюме: комбинируйте сервисы под свои задачи. Шедеврум — для массовой
+        генерации, GigaChat — для быстрых картинок в чате, Qwen — для плакатов
+        с текстом и профессиональной инфографики.</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="q-card card my-3" style="max-width: 800px">
+  <p>
+    <img
+      loading="lazy"
+      class="card-img-top"
+      src="https://econolabs.github.io/h1title.jpg"
+      alt="Шедеврум и GigaChat"
+      style="filter: grayscale(1)"
+    />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема 3.3 Генерация в Шедеврум и GigaChat — практические примеры
+    </h3>
+    <div>
+      <p>
+        <strong>Шедеврум</strong> (Яндекс) и <strong>GigaChat</strong> (Сбер) —
+        главные российские сервисы для генерации изображений. Каждый имеет свои
+        особенности и сильные стороны .
+      </p>
+
+      <hr />
+
+      <p><strong>🎨 Работа с Шедеврум :</strong></p>
+      <ul>
+        <li>Скачайте приложение (iOS/Android) → войдите через Яндекс ID → готово;</li>
+        <li>Нажмите «Создать» → выберите соотношение сторон (1:1, 4:5, 16:9);</li>
+        <li>Введите промпт на русском или английском языке;</li>
+        <li>Получите 2–4 варианта изображения → выберите лучший → скачайте.</li>
+      </ul>
+
+      <p><strong>Примеры промптов для Шедеврум:</strong></p>
+      <ul>
+        <li>«<strong>Космонавт верхом на единороге в неоновом городе, киберпанк, яркие цвета, 4K</strong>»;</li>
+        <li>«<strong>Задумчивая девушка с книгой в старинной библиотеке, масляная живопись, тёплый свет свечей</strong>»;</li>
+        <li>«<strong>Современный офис с панорамными окнами и растениями, минимализм, высокое качество, 16:9</strong>».</li>
+      </ul>
+
+      <hr />
+
+      <p><strong>🎨 Работа с GigaChat :</strong></p>
+      <ul>
+        <li>Перейдите на giga.chat → зарегистрируйтесь по номеру телефона;</li>
+        <li>В чате напишите: «Нарисуй [описание]» или «Создай изображение…»;</li>
+        <li>Можно использовать конструктор: выбрать повод, получателя, стиль и настроение;</li>
+        <li>Доступные стили: цифровая живопись, аниме, 3D-рендер, Кандинский, Малевич, пиксель-арт, хохлома, Айвазовский и другие .</li>
+      </ul>
+
+      <p><strong>Примеры промптов для GigaChat:</strong></p>
+      <ul>
+        <li>«<strong>Нарисуй аватарку в стиле киберпанк</strong>» → яркое неоновое изображение с футуристическими элементами;</li>
+        <li>«<strong>Создай обложку для соцсетей с осенней тематикой</strong>» → осенний лес с тёплыми оттенками жёлтого и оранжевого;</li>
+        <li>«<strong>Иллюстрация кота в космосе</strong>» → кот в скафандре на фоне звёзд и планет .</li>
+      </ul>
+
+      <p class="text-muted mt-2" style="font-size: 0.85em">
+        <em>Совет: GigaChat пока не идеально вставляет текст в изображения
+        (может получиться «каша»). Для плакатов с надписями используйте Qwen .
+      </em></p>
+    </div>
+  </div>
+</div>
+
+// 3.3 Практика
+
+      <div class="card q-card my-3">
+        <p>
+          <img
+            class="card-img-top"
+            style="filter: grayscale(1)"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Машинное обучение"
+            loading="lazy"
+          />
+        </p>
+        <p>Тема 3.3. Генерация статичных изображений</p>
+        <div class="card-body">
+          <div>
+            <p class="about__text">
+              Гига-Арт — фестиваль ИИ-искусства, посвященный образу России.
+              Участникам предлагается создать изображения с помощью
+              ГигаЧата на темы, связанные с культурными кодами нашей
+              страны, природой, региональным многообразием и явлениями,
+              которые вдохновляют и формируют наше представление
+              о России.
+            </p>
+            <p class="about__text">
+              Участие открыто для всех желающих и не требует
+              специальных художественных навыков.
+            </p>
+
+            <p class="about__text">
+              Для подачи работы необходимо сгенерировать изображение
+              в ГигаЧате с 12 июня по 4 ноября
+              по одной из предложенных тем
+              или на собственный сюжет.
+            </p>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Сказки</h2>
+                <p class="ccard__content-subtitle">
+                  Знакомые с детства сюжеты можно рассказать по-новому.
+                  Переосмыслите героев и истории из сказок, легенд
+                  и мифов народов России. Представьте, как
+                  они могли бы выглядеть сегодня, в будущем или
+                  в совершенно другом мире.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Узоры</h2>
+                <p class="ccard__content-subtitle">
+                  У каждого региона России есть свой визуальный код —
+                  орнаменты, вышивка, роспись и традиционные узоры.
+                  Переосмыслите знакомые мотивы и найдите для них
+                  новое воплощение: в моде, городской среде, архитектуре
+                  или технологиях.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Сцена</h2>
+                <p class="ccard__content-subtitle">
+                  Балет, театр и опера стали частью культурного наследия
+                  России. Взгляните на сценическое искусство по-новому:
+                  объедините традиции и современные технологии, измените
+                  привычные формы и представьте, каким оно может стать
+                  в будущем.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">ПРИРОДА</h2>
+                <p class="ccard__content-subtitle">
+                  Природа России поражает своим разнообразием —
+                  от бескрайней тайги и степей до вулканов
+                  Камчатки и арктических льдов. Выберите место, которое
+                  вдохновляет вас, и покажите его через собственное
+                  воображение и творческий взгляд.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">ЛЮБОВЬ</h2>
+                <p class="ccard__content-subtitle">
+                  Любовь живёт в заботе, памяти, семейных историях
+                  и моментах, которые остаются с нами навсегда.
+                  Вспомните человека, место или событие, благодаря которым
+                  вы чувствуете тепло, поддержку и связь с тем,
+                  что для вас по-настоящему важно.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mainblock-bubbles">
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">01</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Перейдите в ГигаЧат</span
+                >
+                <hr />
+                <span class="bubble-subtitle"
+                  >Перейдите в специальное пространство Гига-Арт</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">02</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Опишите свою идею</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Создайте промпт и дорабатывайте его, экспериментируя
+                  с разными подходами, пока не получите яркий, точный
+                  и по-настоящему впечатляющий результат</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">03</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Зарегистрируйте свою работу</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Заполните форму подачи заявки, чтобы эксперты рассмотрели
+                  вашу работу</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">04</span>
+              <div class="bubble-bot">
+                <span class="bubble-title"
+                  >Следите за новостями на сайте</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Здесь может появиться ваша работа, а затем попасть
+                  на медиаэкраны по всей стране</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-xl q-btn"
+            href="https://giga.chat/?utm_source=site&amp;utm_medium=free&amp;utm_campaign=frk2_gigachat_gigart_june&amp;utm_term=theme"
+            target="_blank"
+          >
+            <a class="themes__container-mainblock-btn" rel="noopener noreferrer"
+              ><span class="themes__container-mainblock-btn-text"
+                >Создать работу в ГигаЧат</span
+              ><img
+                alt=""
+                class="themes__container-mainblock-btn-img"
+                src="https://sber.cdnvideo.ru/common/files/gigart/images/arrow-white.svg"
+            /></a>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

@@ -7493,7 +7493,7 @@ doc_type: налоговая_инструкция
     print(<span class="sql-keyword">f"Форма: {vectors.shape}"</span>)<br>
 </div>
 
-<div class="code-block">
+<!-- <div class="code-block">
     <span class="sql-comment"># ЭТАП 2: Реализация функции поиска ближайших соседей вручную</span><br>
     <span class="sql-keyword">from</span> scipy.spatial.distance <span class="sql-keyword">import</span> euclidean, cosine<br>
     <br>
@@ -7649,9 +7649,87 @@ doc_type: налоговая_инструкция
     &nbsp;&nbsp;&nbsp;&nbsp;  [<span class="sql-keyword">f'vec_{idx+1}'</span> <span class="sql-keyword">for</span> idx <span class="sql-keyword">in</span> nearest_idx[:<span class="sql-keyword">3</span>]])<br>
     print(<span class="sql-keyword">"✓ Косинусное расстояние игнорирует длину вектора, что важно для текстовых эмбеддингов"</span>)<br>
     print(<span class="sql-keyword">"✓ Для анализа ANN (Approximate Nearest Neighbors) полезно понимать распределение расстояний"</span>)<br>
+</div> -->
+
+<div class="q-card card my-3" style="max-width: 800px">
+  <p>
+    <img loading="lazy" class="card-img-top" src="https://gitverse.ru/home/og_splash.jpg" alt="GitVerse Pages: публикация статических сайтов"
+      style="filter: grayscale(1)" />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема. GitVerse Pages — сервис статических сайтов из репозитория
+    </h3>
+    <div>
+      <p>
+        <strong>GitVerse Pages</strong> – это сервис для публикации статических сайтов напрямую из репозиториев GitVerse. 
+        Он автоматически размещает сайт и обновляет его при изменениях в коде, избавляя от необходимости настраивать серверы 
+        и инфраструктуру. Поддерживается в тарифах <strong>Free, Pro и Enterprise</strong> (SaaS-версия GitVerse.ru).
+      </p>
+      <p>Основные сценарии использования:</p>
+      <ul>
+        <li>публикация документации проектов;</li>
+        <li>размещение блогов и технических заметок;</li>
+        <li>создание продуктовых и личных лендингов;</li>
+        <li>публикация статических сайтов компаний и команд;</li>
+        <li>размещение любого статического контента (HTML, CSS, JS).</li>
+      </ul>
+      <p>
+        <strong>Как это работает?</strong> Вы загружаете файлы сайта в репозиторий GitVerse, а сервис Pages автоматически 
+        публикует их по адресу <code>https://&lt;username&gt;.gitverse.site/&lt;repository&gt;</code>. 
+       
+       
+      </p>
+      <p>
+        <em>Пример использования:</em> команда разработчиков документации публикует руководство пользователя в виде статического 
+        сайта. При каждом обновлении маркдауна в репозитории GitVerse Pages автоматически пересобирает 
+        и выкладывает новую версию сайта по постоянной ссылке.
+      </p>
+    </div>
+  
+  </div>
 </div>
 
-
+<div class="q-card card my-3" style="max-width: 800px">
+  <p>
+    <img loading="lazy" class="card-img-top" src="https://gitverse.ru/home/og_splash.jpg" alt="Быстрый старт GitVerse Pages: создание сайта за 5 шагов"
+      style="filter: grayscale(1)" />
+  </p>
+  <div class="card-body">
+    <h3 class="card-title">
+      Тема. GitVerse Pages: быстрый старт — публикация статического сайта за 5 шагов
+    </h3>
+    <div>
+      <p>
+        <strong>GitVerse Pages</strong> — сервис для автоматической публикации статических сайтов из репозиториев. 
+        Чтобы запустить первый сайт, достаточно выполнить пять простых шагов, описанных в официальной документации.
+        Сервис подходит для публикации <strong>персональных сайтов, сайтов организаций и сайтов проектов</strong>.
+      </p>
+      <p>Пошаговый процесс публикации:</p>
+      <ul>
+        <li><strong>Шаг 1. Создайте репозиторий</strong> — можно с любым именем. Сайт будет доступен по адресу: <code>https://&lt;owner&gt;.gitverse.site/&lt;repo-name&gt;</code>.</li>
+        <li><strong>Шаг 2. Добавьте файлы сайта</strong> — достаточно <code>index.html</code>, <code>index.md</code> или <code>README.md</code> в корне публикуемой директории (есть приоритет: HTML → MD → README).</li>
+        <li><strong>Шаг 3. Подготовьте ветку</strong> — можно использовать <code>pages</code>, <code>master</code> или <code>main</code>, а также папки <code>/docs</code>, <code>/site</code>, <code>/public</code> или <code>/out</code>.</li>
+        <li><strong>Шаг 4. Включите Pages</strong> — в настройках репозитория выберите «Страницы», включите сервис, укажите ветку и папку, сохраните настройки.</li>
+        <li><strong>Шаг 5. Проверьте публикацию</strong> — после автоматической сборки сайт станет доступен по адресу проекта, а ссылка появится на главной странице репозитория.</li>
+      <li><strong>Шаг 6. Проверьте публикацию</strong> — Доведите публикацию до совершенства с помощью DeepSeek и дизайн системы css bootstrap либо другой специфичной для вашей организации<li>
+      
+      </ul>
+      <p>
+        <strong>Важные условия для корректной работы:</strong> репозиторий должен быть публичным, в нём включён CI/CD, 
+        имя аккаунта не должно содержать точек, а имя репозитория не должно начинаться с точки. 
+        На странице GitVerse Pages можно следить за статусом публикации, смотреть логи CI/CD, переопубликовать или снять сайт с публикации.
+              
+      </p>
+      <p>
+        <em>Пример из документации:</em> учитель (всопитатель) создаёт репозиторий <code>my-docs</code>, кладёт в корень <code>index.html</code>, 
+        в настройках выбирает ветку <code>main</code> и папку <code>/</code>, включает Pages — и через минуту его документация доступна 
+        по адресу <code>https://username.gitverse.site/my-docs</code>.
+      </p>
+    </div>
+   
+  </div>
+</div>
 
 <h1 class="text-primary">
     3.	Работа с графическими нейросетями. Общая подготовка
@@ -9016,13 +9094,7 @@ doc_type: налоговая_инструкция
       </div>
     </div>
 
-  <div class="card my-3" style="max-width: 800px">               
-                <div class="card-body">
-<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика 3</h1></div></div>
-                </div>
-                </div>
-
-                  <div class="card my-3" style="max-width: 800px">
+                 <div class="card my-3" style="max-width: 800px">
       <p>
         <img loading="lazy" class="card-img-top" src="./convolutional-neural-network.gif" alt="ИИ в госсекторе"
           style="filter: grayscale(1)" />
@@ -9069,6 +9141,209 @@ doc_type: налоговая_инструкция
         </div>
       </div>
     </div>
+
+  <div class="card my-3" style="max-width: 800px">               
+                <div class="card-body">
+<div class="excelstyle p-5"><div class="title"><h1 class="p-3">Практика 3</h1></div></div>
+                </div>
+                </div>
+
+                  <div class="card q-card my-3">
+        <p>
+          <img
+            class="card-img-top"
+            style="filter: grayscale(1)"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Машинное обучение"
+            loading="lazy"
+          />
+        </p>
+
+            <div class="card-body">
+
+         <h3 class="card-title">
+         Тема 3.3. Генерация статичных изображений
+        </h3>
+
+     
+    
+          <div>
+            <p class="about__text">
+              Гига-Арт — фестиваль ИИ-искусства, посвященный образу России.
+              Участникам предлагается создать изображения с помощью
+              ГигаЧата на темы, связанные с культурными кодами нашей
+              страны, природой, региональным многообразием и явлениями,
+              которые вдохновляют и формируют наше представление
+              о России.
+            </p>
+            <p class="about__text">
+              Участие открыто для всех желающих и не требует
+              специальных художественных навыков.
+            </p>
+
+            <p class="about__text">
+              Для подачи работы необходимо сгенерировать изображение
+              в ГигаЧате с 12 июня по 4 ноября
+              по одной из предложенных тем
+              или на собственный сюжет.
+            </p>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Сказки</h2>
+                <p class="ccard__content-subtitle">
+                  Знакомые с детства сюжеты можно рассказать по-новому.
+                  Переосмыслите героев и истории из сказок, легенд
+                  и мифов народов России. Представьте, как
+                  они могли бы выглядеть сегодня, в будущем или
+                  в совершенно другом мире.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Узоры</h2>
+                <p class="ccard__content-subtitle">
+                  У каждого региона России есть свой визуальный код —
+                  орнаменты, вышивка, роспись и традиционные узоры.
+                  Переосмыслите знакомые мотивы и найдите для них
+                  новое воплощение: в моде, городской среде, архитектуре
+                  или технологиях.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">Сцена</h2>
+                <p class="ccard__content-subtitle">
+                  Балет, театр и опера стали частью культурного наследия
+                  России. Взгляните на сценическое искусство по-новому:
+                  объедините традиции и современные технологии, измените
+                  привычные формы и представьте, каким оно может стать
+                  в будущем.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">ПРИРОДА</h2>
+                <p class="ccard__content-subtitle">
+                  Природа России поражает своим разнообразием —
+                  от бескрайней тайги и степей до вулканов
+                  Камчатки и арктических льдов. Выберите место, которое
+                  вдохновляет вас, и покажите его через собственное
+                  воображение и творческий взгляд.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+            <div class="ccard">
+              <div class="ccard__content">
+                <h2 class="ccard__content-title">ЛЮБОВЬ</h2>
+                <p class="ccard__content-subtitle">
+                  Любовь живёт в заботе, памяти, семейных историях
+                  и моментах, которые остаются с нами навсегда.
+                  Вспомните человека, место или событие, благодаря которым
+                  вы чувствуете тепло, поддержку и связь с тем,
+                  что для вас по-настоящему важно.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mainblock-bubbles">
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">01</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Перейдите в ГигаЧат</span
+                >
+                <hr />
+                <span class="bubble-subtitle"
+                  >Перейдите в специальное пространство Гига-Арт</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">02</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Опишите свою идею</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Создайте промпт и дорабатывайте его, экспериментируя
+                  с разными подходами, пока не получите яркий, точный
+                  и по-настоящему впечатляющий результат</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">03</span>
+              <div class="bubble-bot">
+                <span class="bubble-title">Зарегистрируйте свою работу</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Заполните форму подачи заявки, чтобы эксперты рассмотрели
+                  вашу работу</span
+                >
+              </div>
+            </div>
+            <div class="alert alert-success" role="alert">
+              <span class="bubble-number">04</span>
+              <div class="bubble-bot">
+                <span class="bubble-title"
+                  >Следите за новостями на сайте</span
+                >
+                  <hr />
+                <span class="bubble-subtitle"
+                  >Здесь может появиться ваша работа, а затем попасть
+                  на медиаэкраны по всей стране</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-primary" role="alert">
+  Создать работу в ГигаЧат
+  <a 
+  href="https://giga.chat/?utm_source=site&amp;utm_medium=free&amp;utm_campaign=frk2_gigachat_gigart_june&amp;utm_term=theme"
+   class="alert-link">Перейти</a>.
+  <img
+                alt=""
+                class="themes__container-mainblock-btn-img"
+                src="https://sber.cdnvideo.ru/common/files/gigart/images/arrow-white.svg"
+            />
+            </div>
+</div>
+
+          <button
+            class="btn btn-xl q-btn"
+            href="https://giga.chat/?utm_source=site&amp;utm_medium=free&amp;utm_campaign=frk2_gigachat_gigart_june&amp;utm_term=theme"
+            target="_blank"
+          >
+           
+          </button>
+
+
+
+        </div>
+      </div>
+      
+
+     
 
 
 <h1 class="text-primary">
