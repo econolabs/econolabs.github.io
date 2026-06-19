@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before AI • Semantic Search</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h1 class="h4 mb-0">🤖 Before AI • Semantic Search</h1>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Loading Warning -->
+                        <div class="alert alert-info border-0 shadow-sm mb-4" role="alert">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3">
+                                    <span class="badge bg-info fs-6 px-3 py-2">⏳</span>
+                                </div>
+                                <div>
+                                    <h5 class="alert-heading fw-bold mb-1">First-time Model Loading</h5>
+                                    <p class="mb-0 small">
+                                        <strong>Expected:</strong> 15–40 seconds • Model runs locally in your browser
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-muted mb-4">
+                            Type anything. The AI will find the most similar sentences from the list using <strong>embeddings</strong>.
+                        </p>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Your query</label>
+                            <input type="text" id="queryInput" class="form-control form-control-lg" placeholder="Type something here..." value="I love machine learning">
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button id="searchBtn" class="btn btn-dark btn-lg flex-grow-1">Find Similar Sentences</button>
+                            <button id="clearBtn" class="btn btn-outline-secondary btn-lg">Clear</button>
+                        </div>
+
+                        <div id="status" class="mt-3 text-info text-center"></div>
+
+                        <div id="outputCard" class="mt-4 card d-none border-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Most Relevant Results</h5>
+                                <div id="output" class="card-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Powered by Transformers.js • Real embeddings (no fake scores)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Transformers.js -->
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0';
+
+        // === "Before AI" dataset ===
+        const sentences = [
+            "I love machine learning and artificial intelligence",
+            "The weather is nice today for a walk",
+            "Python is my favorite programming language",
+            "Artificial intelligence will change the world",
+            "I need to buy milk, eggs and bread",
+            "Deep learning requires a lot of data",
+            "Transformers are revolutionizing NLP",
+            "Coffee helps me code better in the morning",
+            "Neural networks are inspired by the brain",
+            "I enjoy hiking in the mountains on weekends"
+        ];
+
+        let extractor = null;
+
+        async function loadExtractor() {
+            if (!extractor) {
+                document.getElementById('status').textContent = 'Loading embedding model... (first load may take 15-40s)';
+                extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+                document.getElementById('status').innerHTML = '<span class="text-success">Model ready ✓</span>';
+            }
+            return extractor;
+        }
+
+        function cosineSimilarity(vecA, vecB) {
+            let dot = 0, magA = 0, magB = 0;
+            for (let i = 0; i < vecA.length; i++) {
+                dot += vecA[i] * vecB[i];
+                magA += vecA[i] * vecA[i];
+                magB += vecB[i] * vecB[i];
+            }
+            return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', async () => {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) {
+                alert("Please enter a query");
+                return;
+            }
+
+            const statusEl = document.getElementById('status');
+            const outputCard = document.getElementById('outputCard');
+            const outputEl = document.getElementById('output');
+
+            outputCard.classList.add('d-none');
+            statusEl.textContent = 'Computing similarities...';
+
+            const pipe = await loadExtractor();
+
+            try {
+                // Get query embedding
+                const queryEmb = await pipe(query, { pooling: 'mean', normalize: true });
+
+                const results = [];
+
+                for (let sentence of sentences) {
+                    const sentEmb = await pipe(sentence, { pooling: 'mean', normalize: true });
+                    const score = cosineSimilarity(queryEmb.data, sentEmb.data);
+                    results.push({ text: sentence, score: score });
+                }
+
+                // Sort by score
+                results.sort((a, b) => b.score - a.score);
+
+                let html = '<div class="list-group">';
+                results.forEach(item => {
+                    const percentage = (item.score * 100).toFixed(1);
+                    html += `
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>${item.text}</div>
+                            <span class="badge bg-dark fs-6">${percentage}%</span>
+                        </div>`;
+                });
+                html += '</div>';
+
+                outputEl.innerHTML = html;
+                outputCard.classList.remove('d-none');
+                statusEl.textContent = '';
+            } catch (err) {
+                statusEl.innerHTML = `<span class="text-danger">Error: ${err.message}</span>`;
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            document.getElementById('queryInput').value = '';
+            document.getElementById('outputCard').classList.add('d-none');
+            document.getElementById('status').textContent = '';
+        });
+
+        // Optional: auto search on Enter
+        document.getElementById('queryInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('searchBtn').click();
+        });
+    </script>
+</body>
+</html>

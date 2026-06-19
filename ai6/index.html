@@ -1,0 +1,136 @@
+6.  Zero-Shot 
+
+ClassificationClassifies text into any custom categories you define (no training needed).
+	•  Supports multiple labels with percentages.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformers.js - Zero-Shot Classification</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h1 class="h4 mb-0">🏷️ Zero-Shot Classification</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-4">
+                            Classify text into any custom categories <strong>without training</strong>. Just provide labels.
+                        </p>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Text to classify</label>
+                            <textarea id="inputText" class="form-control" rows="5" placeholder="Enter text here...">
+I love the new design and the battery life is incredible. Shipping was fast too.
+                            </textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Candidate Labels (comma separated)</label>
+                            <input type="text" id="labelsInput" class="form-control form-control-lg" value="positive, negative, neutral, customer service, product quality, shipping" placeholder="label1, label2, label3">
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button id="classifyBtn" class="btn btn-warning btn-lg flex-grow-1 text-dark">Classify</button>
+                            <button id="clearBtn" class="btn btn-outline-secondary btn-lg">Clear</button>
+                        </div>
+
+                        <div id="status" class="mt-3 text-info"></div>
+
+                        <div id="outputCard" class="mt-4 card d-none border-warning">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning">Classification Results</h5>
+                                <div id="output" class="card-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Powered by <a href="https://huggingface.co/docs/transformers.js" target="_blank">@huggingface/transformers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Transformers.js -->
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0';
+
+        let classifier = null;
+
+        async function loadClassifier() {
+            if (!classifier) {
+                document.getElementById('status').textContent = 'Loading zero-shot classification model... (first load may take 10-30s)';
+                try {
+                    classifier = await pipeline('zero-shot-classification', 'Xenova/distilbart-mnli-12-1');
+                    document.getElementById('status').innerHTML = '<span class="text-success">Model ready ✓</span>';
+                } catch (e) {
+                    document.getElementById('status').innerHTML = `<span class="text-danger">Error: ${e.message}</span>`;
+                    console.error(e);
+                }
+            }
+            return classifier;
+        }
+
+        document.getElementById('classifyBtn').addEventListener('click', async () => {
+            const text = document.getElementById('inputText').value.trim();
+            const labelsStr = document.getElementById('labelsInput').value.trim();
+
+            if (!text || !labelsStr) {
+                alert("Please enter text and at least one label.");
+                return;
+            }
+
+            const labels = labelsStr.split(',').map(l => l.trim()).filter(l => l);
+
+            const statusEl = document.getElementById('status');
+            const outputCard = document.getElementById('outputCard');
+            const outputEl = document.getElementById('output');
+
+            outputCard.classList.add('d-none');
+            statusEl.textContent = 'Classifying...';
+
+            const pipe = await loadClassifier();
+            if (!pipe) return;
+
+            try {
+                const result = await pipe(text, labels, { multi_label: false });
+
+                let html = '<ul class="list-group">';
+                result.labels.forEach((label, i) => {
+                    const score = (result.scores[i] * 100).toFixed(1);
+                    html += `
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>${label}</strong>
+                            <span class="badge bg-warning text-dark">${score}%</span>
+                        </li>`;
+                });
+                html += '</ul>';
+
+                outputEl.innerHTML = html;
+                outputCard.classList.remove('d-none');
+                statusEl.textContent = '';
+            } catch (err) {
+                statusEl.innerHTML = `<span class="text-danger">Error: ${err.message}</span>`;
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputCard').classList.add('d-none');
+            document.getElementById('status').textContent = '';
+        });
+    </script>
+</body>
+</html>

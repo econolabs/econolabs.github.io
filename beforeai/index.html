@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relevance Lookup — before AI™</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    background: #f8f5ee;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .crt-card {
+    background: #fffdf7;
+    border: 2px solid #2b2b28;
+    box-shadow: 4px 4px 0 #2b2b28;
+    border-radius: 0;
+  }
+  .badge-amber {
+    background: #b5651d;
+    color: #fffdf7;
+  }
+  h1 small {
+    display: block;
+    font-size: .9rem;
+    color: #6b6b63;
+    letter-spacing: .15em;
+  }
+  .result-row {
+    border-bottom: 1px dashed #cfc9b8;
+    padding: .6rem 0;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .bar-track {
+    background: #e7e2d3;
+    height: 10px;
+    border-radius: 0;
+  }
+  .bar-fill {
+    background: #2b6e4f;
+    height: 10px;
+  }
+  .form-control {
+    border-radius: 0;
+    border: 2px solid #2b2b28;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #b5651d;
+  }
+  .footer-note {
+    font-size: .75rem;
+    color: #8a857a;
+  }
+</style>
+</head>
+<body>
+<div class="container py-5" style="max-width: 720px;">
+
+  <h1 class="mb-4">Relevance Lookup
+    <small>TF · COSINE SIMILARITY · NO NEURAL NETS INVOLVED</small>
+  </h1>
+
+  <div class="crt-card p-4 mb-4">
+    <label for="queryInput" class="form-label fw-bold">Type something:</label>
+    <input type="text" id="queryInput" class="form-control" placeholder="e.g. fast red sports car">
+    <div class="footer-note mt-2">Computed live with bag-of-words term frequency vectors. No API calls, no GPU, 1998 called and it wants its algorithm back.</div>
+  </div>
+
+  <div class="crt-card p-4">
+    <h2 class="h6 fw-bold mb-3">Relevance against corpus</h2>
+    <div id="results"></div>
+  </div>
+
+</div>
+
+<script>
+  // The corpus: a plain JS array of strings.
+  const corpus = [
+    "The quick brown fox jumps over the lazy dog",
+    "A fast red sports car speeds down the highway",
+    "Cats and dogs are common household pets",
+    "The stock market crashed after the announcement",
+    "She bought a bright red convertible last summer",
+    "Machine learning models require large datasets",
+    "The dog chased the cat around the garden",
+    "Highway traffic was heavy during the morning commute",
+    "Investors are worried about inflation and interest rates",
+    "He painted his old car a shiny new shade of red"
+  ];
+
+  function tokenize(text) {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter(Boolean);
+  }
+
+  function termFreq(tokens) {
+    const tf = {};
+    tokens.forEach(t => tf[t] = (tf[t] || 0) + 1);
+    return tf;
+  }
+
+  function cosineSimilarity(tfA, tfB) {
+    const keys = new Set([...Object.keys(tfA), ...Object.keys(tfB)]);
+    let dot = 0, magA = 0, magB = 0;
+    keys.forEach(k => {
+      const a = tfA[k] || 0;
+      const b = tfB[k] || 0;
+      dot += a * b;
+      magA += a * a;
+      magB += b * b;
+    });
+    if (magA === 0 || magB === 0) return 0;
+    return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+  }
+
+  const resultsEl = document.getElementById("results");
+  const inputEl = document.getElementById("queryInput");
+
+  function render(query) {
+    if (!query.trim()) {
+      resultsEl.innerHTML = '<p class="text-muted mb-0">Start typing above to score the corpus.</p>';
+      return;
+    }
+    const qTf = termFreq(tokenize(query));
+
+    const scored = corpus.map(sentence => {
+      const sTf = termFreq(tokenize(sentence));
+      const score = cosineSimilarity(qTf, sTf);
+      return { sentence, pct: Math.round(score * 100) };
+    }).sort((a, b) => b.pct - a.pct);
+
+    resultsEl.innerHTML = scored.map(item => `
+      <div class="result-row">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <span>${item.sentence}</span>
+          <span class="badge badge-amber">${item.pct}%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${item.pct}%"></div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  inputEl.addEventListener("input", e => render(e.target.value));
+  render("");
+</script>
+
+</body>
+</html>

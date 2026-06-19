@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformers.js - Summarization</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h1 class="h4 mb-0">📝 Text Summarization</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-4">
+                            Paste a long text and get a concise summary using Transformers.js (runs in browser).
+                        </p>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Input Text</label>
+                            <textarea id="inputText" class="form-control" rows="8" placeholder="Paste your article or long text here...">
+The Transformers library provides thousands of pretrained models to perform tasks on texts such as classification, information extraction, question answering, summarization, translation, text generation and more in over 100 languages. Its aim is to make state-of-the-art NLP easier to use for everyone.
+                            </textarea>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button id="summarizeBtn" class="btn btn-success btn-lg flex-grow-1">Summarize</button>
+                            <button id="clearBtn" class="btn btn-outline-secondary btn-lg">Clear</button>
+                        </div>
+
+                        <div id="status" class="mt-3 text-info"></div>
+
+                        <div id="outputCard" class="mt-4 card d-none border-success">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">Summary</h5>
+                                <div id="output" class="card-text bg-light p-3 rounded border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Powered by <a href="https://huggingface.co/docs/transformers.js" target="_blank">@huggingface/transformers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Transformers.js -->
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0';
+
+        let summarizer = null;
+
+        async function loadSummarizer() {
+            if (!summarizer) {
+                document.getElementById('status').textContent = 'Loading summarization model... (first load may take 15-40s)';
+                try {
+                    summarizer = await pipeline('summarization', 'Xenova/distilbart-cnn-12-6');
+                    document.getElementById('status').innerHTML = '<span class="text-success">Model ready!</span>';
+                } catch (e) {
+                    document.getElementById('status').innerHTML = `<span class="text-danger">Error: ${e.message}</span>`;
+                    console.error(e);
+                }
+            }
+            return summarizer;
+        }
+
+        document.getElementById('summarizeBtn').addEventListener('click', async () => {
+            const text = document.getElementById('inputText').value.trim();
+            if (!text) {
+                alert("Please enter some text to summarize.");
+                return;
+            }
+
+            const statusEl = document.getElementById('status');
+            const outputCard = document.getElementById('outputCard');
+            const outputEl = document.getElementById('output');
+
+            outputCard.classList.add('d-none');
+            statusEl.textContent = 'Generating summary...';
+
+            const pipe = await loadSummarizer();
+            if (!pipe) return;
+
+            try {
+                const result = await pipe(text, {
+                    max_new_tokens: 150,
+                    clean_up_tokenization_spaces: true
+                });
+
+                outputEl.textContent = result[0].summary_text;
+                outputCard.classList.remove('d-none');
+            } catch (err) {
+                statusEl.innerHTML = `<span class="text-danger">Error: ${err.message}</span>`;
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputCard').classList.add('d-none');
+            document.getElementById('status').textContent = '';
+        });
+    </script>
+</body>
+</html>
