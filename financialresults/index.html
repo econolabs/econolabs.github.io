@@ -1,0 +1,1646 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS (отключен, используется original.css) 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="../dist/original.css" />
+    <!-- Скрипты подключаются, но для данной страницы не критичны -->
+    <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+    <title>Бухгалтерский учет финансовых результатов</title>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1 class="text-secondary">Бухгалтерский учет финансовых результатов деятельности коммерческой организации</h1>
+
+        <!-- Карточка 1: Понятие и структура финансовых результатов -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Финансовые результаты" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 1. Понятие и структура финансовых результатов</h3>
+                <div>
+                    <p><strong>Финансовый результат</strong> – итог хозяйственной деятельности организации, выраженный в виде прибыли или убытка. Формируется на счетах 90 «Продажи», 91 «Прочие доходы и расходы» и 99 «Прибыли и убытки».</p>
+                    <p><strong>Структура финансового результата:</strong></p>
+                    <ul>
+                        <li><strong>Прибыль (убыток) от продаж</strong> – результат основной деятельности (счет 90).</li>
+                        <li><strong>Сальдо прочих доходов и расходов</strong> – результат от прочей деятельности (счет 91).</li>
+                        <li><strong>Чистая прибыль (убыток)</strong> – итоговый результат после налогообложения (счет 99).</li>
+                    </ul>
+                    <p>Основные нормативные документы: ФСБУ 5/2019 «Доходы», ФСБУ 6/2020 «Расходы», ПБУ 9/99 и 10/99 (в части, не противоречащей ФСБУ).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 2: Учет доходов и расходов по обычным видам деятельности -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Доходы и расходы" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 2. Учет доходов и расходов по обычным видам деятельности</h3>
+                <div>
+                    <p><strong>Доходы от обычных видов деятельности</strong> – выручка от продажи продукции, товаров, работ, услуг. Учитывается на счете 90 «Продажи», субсчет 90.1 «Выручка».</p>
+                    <p><strong>Расходы по обычным видам деятельности</strong> – себестоимость проданных товаров, работ, услуг, коммерческие и управленческие расходы. Отражаются на счете 90, субсчета 90.2 «Себестоимость продаж», 90.7 «Коммерческие расходы», 90.8 «Управленческие расходы».</p>
+                    <div class="table-responsive">
+                        <table class="table table-sm  ">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Хозяйственная операция</th>
+                                    <th>Дебет</th>
+                                    <th>Кредит</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Отражена выручка от продажи</td>
+                                    <td>62 «Расчеты с покупателями»</td>
+                                    <td>90.1 «Выручка»</td>
+                                </tr>
+                                <tr>
+                                    <td>Списана себестоимость проданной продукции</td>
+                                    <td>90.2 «Себестоимость продаж»</td>
+                                    <td>43 «Готовая продукция»</td>
+                                </tr>
+                                <tr>
+                                    <td>Списаны коммерческие расходы</td>
+                                    <td>90.7 «Коммерческие расходы»</td>
+                                    <td>44 «Расходы на продажу»</td>
+                                </tr>
+                                <tr>
+                                    <td>Списаны управленческие расходы</td>
+                                    <td>90.8 «Управленческие расходы»</td>
+                                    <td>26 «Общехозяйственные расходы»</td>
+                                </tr>
+                                <tr>
+                                    <td>Закрытие субсчетов 90 (прибыль от продаж)</td>
+                                    <td>90.9 «Прибыль/убыток от продаж»</td>
+                                    <td>99 «Прибыли и убытки»</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-secondary mt-2">
+                        <small><strong>Важно:</strong> Согласно ФСБУ 5/2019, выручка признается при выполнении условий: право на получение дохода, сумма дохода определена, экономические выгоды получены, расходы могут быть оценены.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 3: Учет прочих доходов и расходов -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Прочие доходы и расходы" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 3. Учет прочих доходов и расходов</h3>
+                <div>
+                    <p><strong>Прочие доходы</strong> – доходы от аренды, продажи ОС, проценты к получению, штрафы, пени, безвозмездные поступления и др. Учитываются на счете 91.1 «Прочие доходы».</p>
+                    <p><strong>Прочие расходы</strong> – расходы, связанные с выбытием ОС, оплата процентов, судебные издержки, штрафы, убытки прошлых лет и др. Учитываются на счете 91.2 «Прочие расходы».</p>
+                    <div class="table-responsive">
+                        <table class="table table-sm  ">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Хозяйственная операция</th>
+                                    <th>Дебет</th>
+                                    <th>Кредит</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Отражен доход от продажи ОС</td>
+                                    <td>62, 76</td>
+                                    <td>91.1 «Прочие доходы»</td>
+                                </tr>
+                                <tr>
+                                    <td>Списана остаточная стоимость ОС</td>
+                                    <td>91.2 «Прочие расходы»</td>
+                                    <td>01 «Основные средства»</td>
+                                </tr>
+                                <tr>
+                                    <td>Начислены проценты по кредитам</td>
+                                    <td>91.2 «Прочие расходы»</td>
+                                    <td>66, 67 «Кредиты»</td>
+                                </tr>
+                                <tr>
+                                    <td>Закрытие субсчетов 91 (сальдо)</td>
+                                    <td>91.9 «Сальдо прочих доходов/расходов»</td>
+                                    <td>99 «Прибыли и убытки»</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-secondary mt-2">
+                        <small><strong>Принцип:</strong> Сальдо прочих доходов и расходов в конце месяца списывается на счет 99 в корреспонденции со счетом 91.9.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 4: Формирование финансового результата на счете 99 -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Счет 99" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 4. Формирование финансового результата на счете 99 «Прибыли и убытки»</h3>
+                <p>Счет 99 активно-пассивный, предназначен для выявления итогового финансового результата (чистой прибыли или убытка) за отчетный период.</p>
+                <ul>
+                    <li><strong>По кредиту</strong> – отражаются прибыли: прибыль от продаж (счет 90.9), сальдо прочих доходов/расходов (счет 91.9), доходы от чрезвычайных ситуаций, сумма отложенных налоговых активов.</li>
+                    <li><strong>По дебету</strong> – отражаются убытки: убыток от продаж, сальдо прочих, налог на прибыль, штрафы налоговых органов.</li>
+                </ul>
+                <p><strong>Корреспонденция счетов (закрытие 99):</strong></p>
+                <div class="table-responsive">
+                    <table class="table table-sm  ">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Операция</th>
+                                <th>Дебет</th>
+                                <th>Кредит</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Начислен налог на прибыль</td>
+                                <td>99</td>
+                                <td>68 «Расчеты по налогам»</td>
+                            </tr>
+                            <tr>
+                                <td>Закрытие 99 (прибыль) – реформация баланса</td>
+                                <td>99</td>
+                                <td>84 «Нераспределенная прибыль»</td>
+                            </tr>
+                            <tr>
+                                <td>Закрытие 99 (убыток) – реформация баланса</td>
+                                <td>84 «Нераспределенная прибыль»</td>
+                                <td>99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-success mt-2">
+                    <small><strong>Реформация баланса:</strong> заключительная операция отчетного года, в результате которой нераспределенная прибыль (непокрытый убыток) отражается на счете 84, а счет 99 обнуляется.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 5: Учет налога на прибыль и применение ПБУ 18/02 -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Налог на прибыль" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 5. Учет налога на прибыль и ПБУ 18/02</h3>
+                <p><strong>ПБУ 18/02 «Учет расчетов по налогу на прибыль»</strong> (ФСБУ 18/02 с 2020 г.) устанавливает правила отражения разниц между бухгалтерской и налоговой прибылью.</p>
+                <ul>
+                    <li><strong>Постоянные разницы</strong> – возникают из-за различий в признании доходов/расходов в бухгалтерском и налоговом учете (ПНО, ПНА).</li>
+                    <li><strong>Временные разницы</strong> – возникают из-за сдвига во времени признания доходов/расходов (ОНА, ОНО).</li>
+                </ul>
+                <div class="table-responsive">
+                    <table class="table table-sm  ">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Операция</th>
+                                <th>Дебет</th>
+                                <th>Кредит</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Отражен отложенный налоговый актив (ОНА)</td>
+                                <td>09 «ОНА»</td>
+                                <td>68 «Расчеты по налогу»</td>
+                            </tr>
+                            <tr>
+                                <td>Отражено отложенное налоговое обязательство (ОНО)</td>
+                                <td>68 «Расчеты по налогу»</td>
+                                <td>77 «ОНО»</td>
+                            </tr>
+                            <tr>
+                                <td>Погашение ОНА</td>
+                                <td>68</td>
+                                <td>09</td>
+                            </tr>
+                            <tr>
+                                <td>Погашение ОНО</td>
+                                <td>77</td>
+                                <td>68</td>
+                            </tr>
+                            <tr>
+                                <td>Начислен текущий налог на прибыль</td>
+                                <td>99</td>
+                                <td>68</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary mt-2">
+                    <small><strong>Важно:</strong> Применение ПБУ 18/02 обязательно для всех организаций, кроме субъектов малого предпринимательства, имеющих право на упрощенные способы учета.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 6: Отчет о финансовых результатах (форма №2) -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="Отчет о финансовых результатах" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 6. Отчет о финансовых результатах (форма №2)</h3>
+                <p>Отчет о финансовых результатах раскрывает формирование чистой прибыли (убытка) за отчетный период. Основные показатели:</p>
+                <ul>
+                    <li><strong>Выручка</strong> – строка 2110 (за минусом НДС, акцизов).</li>
+                    <li><strong>Себестоимость продаж</strong> – строка 2120.</li>
+                    <li><strong>Валовая прибыль</strong> – строка 2100.</li>
+                    <li><strong>Коммерческие и управленческие расходы</strong> – строки 2210, 2220.</li>
+                    <li><strong>Прибыль (убыток) от продаж</strong> – строка 2200.</li>
+                    <li><strong>Прочие доходы и расходы</strong> – строки 2310, 2320, 2330, 2340, 2350.</li>
+                    <li><strong>Прибыль до налогообложения</strong> – строка 2300.</li>
+                    <li><strong>Текущий налог на прибыль</strong> – строка 2410.</li>
+                    <li><strong>Чистая прибыль (убыток)</strong> – строка 2400.</li>
+                </ul>
+                <div class="alert alert-success mt-2">
+                    <small><strong>Пример расчета:</strong> Выручка – Себестоимость = Валовая прибыль; Валовая прибыль – Коммерческие расходы – Управленческие расходы = Прибыль от продаж; Прибыль от продаж ± Прочие доходы/расходы = Прибыль до налогообложения; Прибыль до налогообложения – Текущий налог на прибыль (± изменения ОНА/ОНО) = Чистая прибыль.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 7: Распределение прибыли, дивиденды, резервный капитал -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Распределение прибыли" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 7. Распределение прибыли: дивиденды и резервный капитал</h3>
+                <p>После утверждения годовой отчетности чистая прибыль распределяется в соответствии с решением собрания акционеров (участников).</p>
+                <ul>
+                    <li><strong>Начисление дивидендов:</strong> Дт 84 «Нераспределенная прибыль» Кт 75 «Расчеты с учредителями» (или 70 «Расчеты с персоналом»).</li>
+                    <li><strong>Выплата дивидендов:</strong> Дт 75 (70) Кт 51 (50).</li>
+                    <li><strong>Отчисления в резервный капитал:</strong> Дт 84 Кт 82 «Резервный капитал» (в размере, предусмотренном уставом).</li>
+                    <li><strong>Покрытие убытков прошлых лет:</strong> Дт 84 субсчет «Непокрытый убыток» Кт 84 субсчет «Нераспределенная прибыль» (или наоборот).</li>
+                </ul>
+                <div class="alert alert-secondary mt-2">
+                    <small><strong>Примечание:</strong> Налог на прибыль с дивидендов удерживается организацией как налоговым агентом (Дт 75, 70 Кт 68).</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 8: Особенности формирования финансового результата в малом бизнесе -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Малый бизнес" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 8. Финансовый результат в субъектах малого предпринимательства</h3>
+                <p>Субъекты малого предпринимательства (СМП) вправе применять упрощенные способы ведения бухгалтерского учета, в том числе:</p>
+                <ul>
+                    <li><strong>Упрощенная система налогообложения (УСН)</strong> – доходы и расходы признаются кассовым методом.</li>
+                    <li><strong>Сокращенный план счетов</strong> – отсутствие счетов 90 и 91 (применяется счет 99).</li>
+                    <li><strong>Упрощенная отчетность</strong> – отчет о финансовых результатах по упрощенной форме (без детализации).</li>
+                    <li><strong>Освобождение от ПБУ 18/02</strong> – для СМП предоставлено право не применять ПБУ 18/02.</li>
+                </ul>
+                <div class="alert alert-success mt-2">
+                    <small><strong>Рекомендация:</strong> При формировании учетной политики СМП следует закрепить выбранные упрощенные способы учета финансовых результатов.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 9: Типичные ошибки при учете финансовых результатов -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Типичные ошибки" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 9. Типичные ошибки при учете финансовых результатов</h3>
+                <ul>
+                    <li><strong>Неправильное разграничение доходов:</strong> отнесение доходов от обычной деятельности к прочим доходам или наоборот.</li>
+                    <li><strong>Ошибки в признании выручки:</strong> признание выручки до перехода права собственности (нарушение условий ФСБУ 5/2019).</li>
+                    <li><strong>Некорректное закрытие счетов 90 и 91</strong> – неполное закрытие субсчетов, неправильный расчет сальдо.</li>
+                    <li><strong>Игнорирование ПБУ 18/02</strong> – неприменение при наличии временных разниц приводит к искажению налога на прибыль.</li>
+                    <li><strong>Ошибки при расчете налога на прибыль</strong> – неправильное применение ставок, неверный учет налоговых льгот.</li>
+                </ul>
+                <div class="alert alert-warning mt-2">
+                    <small><strong>Совет:</strong> Для минимизации ошибок рекомендуется регулярно проводить сверку оборотов по счетам 90, 91, 99 с данными налогового учета.</small>
+                </div>
+            </div>
+        </div>
+
+      
+        <!-- Карточка 11. Корреспонденция счетов 90 и 91 -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Корреспонденция счетов 90 и 91" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 11. Корреспонденция счетов 90 «Продажи» и 91 «Прочие доходы и расходы» по субсчетам</h3>
+
+                <div class="alert alert-secondary mb-3">
+                    <strong>Назначение:</strong> Систематизация типовых бухгалтерских записей по учету доходов и расходов организации согласно Инструкции по применению Плана счетов (Приказ Минфина № 94н).
+                </div>
+
+                <!-- Вкладки для переключения между счетами 90 и 91 -->
+                <ul class="nav nav-tabs" id="accountTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-90-tab" data-bs-toggle="tab" data-bs-target="#tab-90" type="button" role="tab" aria-controls="tab-90" aria-selected="true">Счет 90 «Продажи»</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-91-tab" data-bs-toggle="tab" data-bs-target="#tab-91" type="button" role="tab" aria-controls="tab-91" aria-selected="false">Счет 91 «Прочие доходы и расходы»</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content pt-3" id="accountTabsContent">
+                    <!-- Счет 90 -->
+                    <div class="tab-pane fade show active" id="tab-90" role="tabpanel" aria-labelledby="tab-90-tab">
+                        <div class="table-responsive">
+                            <table class="table   table-hover table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 5%">№</th>
+                                        <th style="width: 50%">Содержание операции</th>
+                                        <th style="width: 20%">Дебет</th>
+                                        <th style="width: 25%">Кредит</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 90-1 «Выручка»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Признана выручка от продажи товаров, продукции, работ, услуг</td>
+                                        <td>62</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Признана выручка от розничной продажи за наличный расчет</td>
+                                        <td>50</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Признана выручка от продаж по безналичному расчету</td>
+                                        <td>51</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Признана выручка от продаж с использованием спецсчетов</td>
+                                        <td>55</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Признана выручка по договору мены (товарообмен)</td>
+                                        <td>60</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Признана выручка по агентским договорам (принципал)</td>
+                                        <td>76</td>
+                                        <td>90-1</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 90-2 «Себестоимость продаж»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Списана себестоимость проданной готовой продукции</td>
+                                        <td>90-2</td>
+                                        <td>43</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Списана себестоимость проданных товаров</td>
+                                        <td>90-2</td>
+                                        <td>41</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Списана фактическая себестоимость выполненных работ, услуг</td>
+                                        <td>90-2</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Списана себестоимость услуг вспомогательных производств</td>
+                                        <td>90-2</td>
+                                        <td>23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Списана себестоимость продукции обслуживающих производств</td>
+                                        <td>90-2</td>
+                                        <td>29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Списана себестоимость отгруженной продукции (при использовании счета 45)</td>
+                                        <td>90-2</td>
+                                        <td>45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>Списаны отклонения в стоимости материалов (ТЗР)</td>
+                                        <td>90-2</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>Списаны потери от брака, включенные в себестоимость продаж</td>
+                                        <td>90-2</td>
+                                        <td>28</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 90-3 «Налог на добавленную стоимость»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>Начислен НДС с выручки от продаж (при отгрузке)</td>
+                                        <td>90-3</td>
+                                        <td>68-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>Начислен НДС с выручки по мере оплаты (при кассовом методе)</td>
+                                        <td>90-3</td>
+                                        <td>76-АВ</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчетам 90-4 «Акцизы» и 90-5 «Экспортные пошлины»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>Начислены акцизы по подакцизным товарам</td>
+                                        <td>90-4</td>
+                                        <td>68-3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>Начислены экспортные пошлины</td>
+                                        <td>90-5</td>
+                                        <td>68-4</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчетам 90-7 «Коммерческие расходы» и 90-8 «Управленческие расходы»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>Списаны расходы на продажу (полная себестоимость)</td>
+                                        <td>90-7</td>
+                                        <td>44</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>Списаны управленческие расходы (при учете по полной себестоимости)</td>
+                                        <td>90-8</td>
+                                        <td>26</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 90-9 «Прибыль/убыток от продаж» (закрытие счета)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>Закрытие субсчетов 90-1, 90-2, 90-3, 90-4, 90-5, 90-7, 90-8 в конце месяца</td>
+                                        <td>90-1</td>
+                                        <td>90-9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>Отражен финансовый результат (прибыль)</td>
+                                        <td>90-9</td>
+                                        <td>99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>Отражен финансовый результат (убыток)</td>
+                                        <td>99</td>
+                                        <td>90-9</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Счет 91 -->
+                    <div class="tab-pane fade" id="tab-91" role="tabpanel" aria-labelledby="tab-91-tab">
+                        <div class="table-responsive">
+                            <table class="table   table-hover table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 5%">№</th>
+                                        <th style="width: 50%">Содержание операции</th>
+                                        <th style="width: 20%">Дебет</th>
+                                        <th style="width: 25%">Кредит</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 91-1 «Прочие доходы»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Отражены доходы от продажи основных средств</td>
+                                        <td>62, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Отражены доходы от продажи нематериальных активов</td>
+                                        <td>62, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Отражены доходы от продажи материалов</td>
+                                        <td>62, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Отражена арендная плата (если не является основным видом деятельности)</td>
+                                        <td>62, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Отражены проценты к получению по предоставленным займам</td>
+                                        <td>76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Отражены дивиденды по акциям и другим финансовым вложениям</td>
+                                        <td>76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Отражены штрафы, пени, неустойки к получению</td>
+                                        <td>76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Отражена прибыль прошлых лет, выявленная в отчетном году</td>
+                                        <td>76, 51</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Отражено безвозмездное поступление активов</td>
+                                        <td>08, 10, 41</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Отражена положительная курсовая разница</td>
+                                        <td>50, 52, 60, 62</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Отражена положительная суммовая разница</td>
+                                        <td>60, 62</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Отражена дооценка имущества (в пределах предыдущей уценки)</td>
+                                        <td>01, 04</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>Отражен доход от списания кредиторской задолженности с истекшим сроком давности</td>
+                                        <td>60, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>Отражен доход от сдачи имущества в лизинг (если не основной вид)</td>
+                                        <td>62, 76</td>
+                                        <td>91-1</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 91-2 «Прочие расходы»</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>Списана остаточная стоимость проданных основных средств</td>
+                                        <td>91-2</td>
+                                        <td>01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>Списана остаточная стоимость проданных нематериальных активов</td>
+                                        <td>91-2</td>
+                                        <td>04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>Списана фактическая себестоимость проданных материалов</td>
+                                        <td>91-2</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>Списана стоимость переданных в аренду активов (если не основной вид)</td>
+                                        <td>91-2</td>
+                                        <td>01, 04, 10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>Отражены расходы на аренду (если не основной вид)</td>
+                                        <td>91-2</td>
+                                        <td>76, 60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>Отражены проценты по полученным кредитам и займам</td>
+                                        <td>91-2</td>
+                                        <td>66, 67</td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>Отражены расходы на услуги банков</td>
+                                        <td>91-2</td>
+                                        <td>76, 51</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>Отражены штрафы, пени, неустойки к уплате</td>
+                                        <td>91-2</td>
+                                        <td>76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>Отражена отрицательная курсовая разница</td>
+                                        <td>91-2</td>
+                                        <td>50, 52, 60, 62</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>Отражена отрицательная суммовая разница</td>
+                                        <td>91-2</td>
+                                        <td>60, 62</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>Отражена уценка имущества (в пределах предыдущей дооценки)</td>
+                                        <td>91-2</td>
+                                        <td>01, 04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>Отражена сумма создаваемого резерва под снижение стоимости материальных ценностей</td>
+                                        <td>91-2</td>
+                                        <td>14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>Отражена сумма создаваемого резерва под обесценение финансовых вложений</td>
+                                        <td>91-2</td>
+                                        <td>59</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>Отражены расходы по списанию дебиторской задолженности с истекшим сроком давности</td>
+                                        <td>91-2</td>
+                                        <td>62, 76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29</td>
+                                        <td>Отражен убыток прошлых лет, выявленный в отчетном году</td>
+                                        <td>91-2</td>
+                                        <td>76, 51</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30</td>
+                                        <td>Отражены судебные издержки, арбитражные расходы</td>
+                                        <td>91-2</td>
+                                        <td>76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>31</td>
+                                        <td>Отражены расходы, связанные с благотворительностью, социальными мероприятиями</td>
+                                        <td>91-2</td>
+                                        <td>76, 51, 10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>Списана остаточная стоимость выбывающих объектов ОС по иным причинам (ликвидация, недостача)</td>
+                                        <td>91-2</td>
+                                        <td>01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33</td>
+                                        <td>Списаны расходы по аннулированным производственным заказам</td>
+                                        <td>91-2</td>
+                                        <td>20, 23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>34</td>
+                                        <td>Отражены расходы на содержание законсервированных производственных мощностей</td>
+                                        <td>91-2</td>
+                                        <td>20, 23, 25, 26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>35</td>
+                                        <td>Отражены отчисления в оценочные резервы (по сомнительным долгам)</td>
+                                        <td>91-2</td>
+                                        <td>63</td>
+                                    </tr>
+                                    <tr class="table-secondary">
+                                        <td colspan="4"><strong>По субсчету 91-9 «Сальдо прочих доходов и расходов» (закрытие счета)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>36</td>
+                                        <td>Закрытие субсчетов 91-1, 91-2 в конце месяца</td>
+                                        <td>91-1</td>
+                                        <td>91-9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>37</td>
+                                        <td>Отражен финансовый результат (превышение доходов над расходами)</td>
+                                        <td>91-9</td>
+                                        <td>99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>38</td>
+                                        <td>Отражен финансовый результат (превышение расходов над доходами)</td>
+                                        <td>99</td>
+                                        <td>91-9</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success mt-3">
+                    <small><strong>Примечания по применению:</strong></small>
+                    <ul class="small mb-0">
+                        <li>Все субсчета счетов 90 и 91 закрываются в конце отчетного месяца на соответствующие субсчета 90-9 и 91-9, а затем списываются на счет 99 «Прибыли и убытки».</li>
+                        <li>Аналитический учет по счету 90 ведется по каждому виду проданной продукции, товаров, работ, услуг, а также по регионам продаж.</li>
+                        <li>Аналитический учет по счету 91 ведется по каждому виду прочих доходов и расходов.</li>
+                        <li>Для организаций, применяющих ПБУ 18/02, разницы между бухгалтерским и налоговым учетом отражаются в корреспонденции со счетами 09, 77, 99 (постоянные налоговые обязательства/активы).</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-secondary mt-2">
+                    <small><strong>Источник:</strong> Инструкция по применению Плана счетов бухгалтерского учета финансово-хозяйственной деятельности организаций (утв. Приказом Минфина РФ от 31.10.2000 № 94н, в актуальной редакции).</small>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Карточка 13. Пример учета амортизационной премии по налогу на прибыль с применением ПБУ 18/02 -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Амортизационная премия и ПБУ 18/02" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 13. Пример учета амортизационной премии по налогу на прибыль с применением ПБУ 18/02</h3>
+
+                <div class="alert alert-secondary mb-3">
+                    <strong>Условие примера:</strong> Организация в январе 2026 года приобрела объект основных средств за <strong>1 200 000 руб.</strong> (без НДС). Срок полезного использования — 5 лет (60 месяцев). В учетной политике для целей налогообложения закреплено право на амортизационную премию в размере <strong>30%</strong> от первоначальной стоимости. В бухгалтерском учете амортизация начисляется линейным способом.
+                </div>
+
+                <!-- Исходные данные -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <strong>Бухгалтерский учет</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Первоначальная стоимость:</strong> 1 200 000 руб.</p>
+                                <p class="mb-1"><strong>СПИ:</strong> 60 мес.</p>
+                                <p class="mb-1"><strong>Амортизация за месяц:</strong> 1 200 000 / 60 = <strong>20 000 руб.</strong></p>
+                                <p class="mb-0"><strong>Ежемесячная проводка:</strong> Дт 20 (26, 44) Кт 02 — <strong>20 000 руб.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <strong>Налоговый учет</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Первоначальная стоимость:</strong> 1 200 000 руб.</p>
+                                <p class="mb-1"><strong>Амортизационная премия (30%):</strong> 1 200 000 × 30% = <strong>360 000 руб.</strong></p>
+                                <p class="mb-1"><strong>Остаточная стоимость для амортизации:</strong> 1 200 000 − 360 000 = <strong>840 000 руб.</strong></p>
+                                <p class="mb-1"><strong>Амортизация за месяц:</strong> 840 000 / 60 = <strong>14 000 руб.</strong></p>
+                                <p class="mb-0"><strong>Ежемесячная проводка:</strong> Дт 20 (26, 44) Кт 02 — <strong>14 000 руб.</strong> (только в налоговом учете)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Расчет разниц по ПБУ 18/02 -->
+                <h5 class="mt-3">Расчет разниц по ПБУ 18/02</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 30%">Показатель</th>
+                                <th style="width: 20%">Бухгалтерский учет</th>
+                                <th style="width: 20%">Налоговый учет</th>
+                                <th style="width: 30%">Разница</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Первоначальная стоимость ОС</strong></td>
+                                <td>1 200 000</td>
+                                <td>1 200 000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Амортизационная премия (единовременно)</strong></td>
+                                <td>0</td>
+                                <td>360 000</td>
+                                <td>360 000 (налоговая база меньше)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Амортизация за январь</strong></td>
+                                <td>20 000</td>
+                                <td>14 000</td>
+                                <td>6 000 (в БУ расход больше)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Остаточная стоимость на 01.02.2026</strong></td>
+                                <td>1 180 000</td>
+                                <td>826 000</td>
+                                <td>354 000 (БУ > НУ)</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td><strong>Итого разница за январь</strong></td>
+                                <td colspan="2"></td>
+                                <td><strong>354 000 руб. (налогооблагаемая временная разница)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-light mt-2 mb-3">
+                    <small><strong>Пояснение:</strong> В январе в налоговом учете единовременно списано 360 000 руб. (амортизационная премия) + 14 000 руб. (амортизация) = <strong>374 000 руб.</strong> В бухгалтерском учете списано только <strong>20 000 руб.</strong> (амортизация). Разница за январь составляет <strong>354 000 руб.</strong> (374 000 − 20 000). Это налогооблагаемая временная разница (НВР), так как налоговая база в январе меньше бухгалтерской прибыли.</small>
+                </div>
+
+                <!-- Бухгалтерские проводки -->
+                <h5 class="mt-3">Бухгалтерские проводки за январь 2026 года</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 5%">№</th>
+                                <th style="width: 40%">Содержание операции</th>
+                                <th style="width: 20%">Дебет</th>
+                                <th style="width: 20%">Кредит</th>
+                                <th style="width: 15%">Сумма, руб.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Приобретен объект ОС</td>
+                                <td>08</td>
+                                <td>60</td>
+                                <td>1 200 000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Объект введен в эксплуатацию</td>
+                                <td>01</td>
+                                <td>08</td>
+                                <td>1 200 000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Начислена амортизация в бухгалтерском учете</td>
+                                <td>20 (26, 44)</td>
+                                <td>02</td>
+                                <td>20 000</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td colspan="5"><strong>Проводки по ПБУ 18/02</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Отражено отложенное налоговое обязательство (ОНО) на сумму амортизационной премии</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td>77</td>
+                                <td><strong>70 800</strong> <small>(354 000 × 20%)</small></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Ежемесячное погашение ОНО в части разницы по амортизации</td>
+                                <td>77</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td><strong>1 200</strong> <small>(6 000 × 20%)</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Расчет налога на прибыль -->
+                <h5 class="mt-3">Расчет налога на прибыль за январь 2026 года</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 50%">Показатель</th>
+                                <th style="width: 25%">Сумма, руб.</th>
+                                <th style="width: 25%">Расчет</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Бухгалтерская прибыль до налогообложения</strong> (условно)</td>
+                                <td>1 000 000</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Условный расход по налогу на прибыль</strong></td>
+                                <td>200 000</td>
+                                <td>1 000 000 × 20%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Налогооблагаемая временная разница (НВР)</strong></td>
+                                <td>354 000</td>
+                                <td>374 000 (налоговые расходы) − 20 000 (бухгалтерские расходы)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Отложенное налоговое обязательство (ОНО) — возникло</strong></td>
+                                <td>70 800</td>
+                                <td>354 000 × 20%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Погашение ОНО (в части амортизации за январь)</strong></td>
+                                <td>1 200</td>
+                                <td>6 000 × 20%</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td><strong>Текущий налог на прибыль</strong> (к уплате в бюджет)</td>
+                                <td><strong>131 600</strong></td>
+                                <td>200 000 − 70 800 + 1 200 + <em>постоянные разницы (0)</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Чистая прибыль</strong></td>
+                                <td><strong>868 400</strong></td>
+                                <td>1 000 000 − 131 600</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Движение по счетам 77 и 68 -->
+                <h5 class="mt-3">Движение по счету 77 «Отложенные налоговые обязательства»</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 15%">Период</th>
+                                <th style="width: 35%">Операция</th>
+                                <th style="width: 15%">Дебет</th>
+                                <th style="width: 15%">Кредит</th>
+                                <th style="width: 20%">Остаток на конец месяца</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Январь 2026</td>
+                                <td>Возникновение ОНО (амортизационная премия)</td>
+                                <td></td>
+                                <td>70 800</td>
+                                <td>70 800</td>
+                            </tr>
+                            <tr>
+                                <td>Январь 2026</td>
+                                <td>Погашение ОНО (разница по амортизации)</td>
+                                <td>1 200</td>
+                                <td></td>
+                                <td>69 600</td>
+                            </tr>
+                            <tr>
+                                <td>Февраль 2026</td>
+                                <td>Погашение ОНО (разница по амортизации)</td>
+                                <td>1 200</td>
+                                <td></td>
+                                <td>68 400</td>
+                            </tr>
+                            <tr>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td></td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>Май 2026 (5-й месяц)</td>
+                                <td>Погашение ОНО (разница по амортизации)</td>
+                                <td>1 200</td>
+                                <td></td>
+                                <td>64 800</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td><strong>Итого за 60 месяцев</strong></td>
+                                <td>Полное погашение ОНО</td>
+                                <td><strong>70 800</strong></td>
+                                <td><strong>70 800</strong></td>
+                                <td><strong>0</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-success mt-3">
+                    <small><strong>Ключевые выводы:</strong></small>
+                    <ul class="small mb-0">
+                        <li><strong>Амортизационная премия</strong> единовременно уменьшает налоговую базу, но в бухгалтерском учете стоимость ОС списывается через амортизацию равномерно.</li>
+                        <li>Возникает <strong>налогооблагаемая временная разница</strong> — в январе она составляет 354 000 руб.</li>
+                        <li>На сумму разницы формируется <strong>отложенное налоговое обязательство (ОНО)</strong> — 70 800 руб. (проводка Дт 68 Кт 77).</li>
+                        <li>В течение всего срока полезного использования ОНО <strong>ежемесячно погашается</strong> на сумму разницы по амортизации (1 200 руб. в месяц).</li>
+                        <li>По истечении 60 месяцев <strong>ОНО полностью погашается</strong> — остаток по счету 77 становится нулевым.</li>
+                        <li>Экономический смысл: организация получила налоговую экономию в январе (заплатила налог меньше на 70 800 руб.), но в последующие периоды будет доплачивать по 1 200 руб. в месяц.</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-secondary mt-2">
+                    <small><strong>Источник:</strong> ПБУ 18/02 «Учет расчетов по налогу на прибыль организаций», ст. 258 НК РФ (амортизационная премия). Ставка налога на прибыль — 20% (условно).</small>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Карточка 14. Пример учета убытков прошлых лет с применением счета 09 «Отложенные налоговые активы» -->
+        <div class="card my-3" style="max-width:800px;">
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title14.jpg" alt="Учет убытков прошлых лет и счет 09" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+                <h3 class="card-title">Тема 14. Пример учета убытков прошлых лет с применением счета 09 «Отложенные налоговые активы»</h3>
+
+                <div class="alert alert-secondary mb-3">
+                    <strong>Условие примера:</strong> Организация по итогам 2025 года получила <strong>убыток в размере 500 000 руб.</strong> В 2026 году организация получила прибыль <strong>600 000 руб.</strong> и приняла решение перенести убыток прошлых лет для уменьшения налоговой базы. Ставка налога на прибыль — <strong>20%</strong>.
+                </div>
+
+                <!-- Исходные данные -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <strong>2025 год (убыточный)</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Бухгалтерский убыток:</strong> 500 000 руб.</p>
+                                <p class="mb-1"><strong>Условный доход по налогу на прибыль:</strong> 500 000 × 20% = <strong>100 000 руб.</strong></p>
+                                <p class="mb-0"><strong>Возникновение ОНА:</strong> Дт 09 Кт 68 — <strong>100 000 руб.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <strong>2026 год (прибыльный)</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Бухгалтерская прибыль:</strong> 600 000 руб.</p>
+                                <p class="mb-1"><strong>Налоговая база с учетом переноса убытка:</strong> 600 000 − 500 000 = <strong>100 000 руб.</strong></p>
+                                <p class="mb-1"><strong>Текущий налог на прибыль:</strong> 100 000 × 20% = <strong>20 000 руб.</strong></p>
+                                <p class="mb-0"><strong>Погашение ОНА:</strong> Дт 68 Кт 09 — <strong>100 000 руб.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Бухгалтерские проводки за 2025 год -->
+                <h5 class="mt-3">Бухгалтерские проводки за 2025 год (год возникновения убытка)</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 5%">№</th>
+                                <th style="width: 45%">Содержание операции</th>
+                                <th style="width: 20%">Дебет</th>
+                                <th style="width: 20%">Кредит</th>
+                                <th style="width: 10%">Сумма, руб.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Отражен убыток по итогам года (заключительные обороты)</td>
+                                <td>99</td>
+                                <td>84</td>
+                                <td>500 000</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td colspan="5"><strong>Проводки по ПБУ 18/02</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Начислен условный доход по налогу на прибыль (убыток уменьшает налог в будущем)</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td>99</td>
+                                <td>100 000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Отражен отложенный налоговый актив (ОНА) на сумму убытка, переносимого на будущее</td>
+                                <td>09</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td><strong>100 000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-light mt-2 mb-3">
+                    <small><strong>Пояснение:</strong> В 2025 году организация не платит налог на прибыль, но признает ОНА, так как убыток уменьшит налогооблагаемую прибыль в будущих периодах. Сальдо по счету 09 на конец 2025 года составляет <strong>100 000 руб.</strong></small>
+                </div>
+
+                <!-- Бухгалтерские проводки за 2026 год -->
+                <h5 class="mt-3">Бухгалтерские проводки за 2026 год (год погашения убытка)</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 5%">№</th>
+                                <th style="width: 45%">Содержание операции</th>
+                                <th style="width: 20%">Дебет</th>
+                                <th style="width: 20%">Кредит</th>
+                                <th style="width: 10%">Сумма, руб.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Отражена прибыль по итогам года (заключительные обороты)</td>
+                                <td>84</td>
+                                <td>99</td>
+                                <td>600 000</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td colspan="5"><strong>Проводки по ПБУ 18/02</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Начислен условный расход по налогу на прибыль</td>
+                                <td>99</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td>120 000 <small>(600 000 × 20%)</small></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Погашен ОНА в части перенесенного убытка</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td>09</td>
+                                <td><strong>100 000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Начислен текущий налог на прибыль к уплате</td>
+                                <td>68 (субсчет "Налог на прибыль")</td>
+                                <td>51</td>
+                                <td><strong>20 000</strong> <small>(120 000 − 100 000)</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-light mt-2 mb-3">
+                    <small><strong>Пояснение:</strong> В 2026 году организация заработала прибыль 600 000 руб. Условный расход по налогу составляет 120 000 руб. За счет погашения ОНА (100 000 руб.) текущий налог к уплате составил только <strong>20 000 руб.</strong> Сальдо по счету 09 на конец 2026 года становится нулевым.</small>
+                </div>
+
+                <!-- Движение по счету 09 -->
+                <h5 class="mt-3">Движение по счету 09 «Отложенные налоговые активы»</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 15%">Период</th>
+                                <th style="width: 35%">Операция</th>
+                                <th style="width: 15%">Дебет</th>
+                                <th style="width: 15%">Кредит</th>
+                                <th style="width: 20%">Остаток на конец периода</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>31.12.2025</td>
+                                <td>Возникновение ОНА (убыток 500 000 руб.)</td>
+                                <td>100 000</td>
+                                <td></td>
+                                <td>100 000</td>
+                            </tr>
+                            <tr>
+                                <td>31.12.2026</td>
+                                <td>Погашение ОНА (прибыль 600 000 руб.)</td>
+                                <td></td>
+                                <td>100 000</td>
+                                <td><strong>0</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Сравнение налога на прибыль с ОНА и без -->
+                <h5 class="mt-3">Сравнение: налог на прибыль с применением ОНА и без него</h5>
+
+                <div class="table-responsive">
+                    <table class="table   table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 30%">Показатель</th>
+                                <th style="width: 25%">2025 год</th>
+                                <th style="width: 25%">2026 год</th>
+                                <th style="width: 20%">Итого за 2 года</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Прибыль (убыток) до налогообложения</strong></td>
+                                <td>(500 000)</td>
+                                <td>600 000</td>
+                                <td>100 000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Налог по ставке 20% (без учета ОНА)</strong></td>
+                                <td>0</td>
+                                <td>120 000</td>
+                                <td>120 000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Возникновение (погашение) ОНА</strong></td>
+                                <td>(100 000)</td>
+                                <td>+100 000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td><strong>Текущий налог на прибыль (с учетом ОНА)</strong></td>
+                                <td><strong>0</strong></td>
+                                <td><strong>20 000</strong></td>
+                                <td><strong>20 000</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Чистая прибыль (убыток)</strong></td>
+                                <td>(500 000)</td>
+                                <td>580 000</td>
+                                <td>80 000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-success mt-3">
+                    <small><strong>Ключевые выводы:</strong></small>
+                    <ul class="small mb-0">
+                        <li><strong>Убыток прошлых лет</strong> — это вычитаемая временная разница, которая приводит к возникновению <strong>отложенного налогового актива (ОНА)</strong>.</li>
+                        <li>В год возникновения убытка (2025) формируется ОНА: <strong>Дт 09 Кт 68</strong> на сумму <strong>100 000 руб.</strong> (500 000 × 20%).</li>
+                        <li>В год погашения убытка (2026) ОНА списывается: <strong>Дт 68 Кт 09</strong> на сумму <strong>100 000 руб.</strong>, что уменьшает текущий налог на прибыль.</li>
+                        <li>Экономический смысл: ОНА отражает <strong>будущую налоговую выгоду</strong> — организация сэкономит на налоге в прибыльные годы за счет убытков прошлых лет.</li>
+                        <li><strong>Важно:</strong> ОНА признается только при условии, что существует вероятность получения налогооблагаемой прибыли в будущем.</li>
+                        <li>Перенос убытка возможен в течение <strong>10 лет</strong> (с 2025 по 2035 год) согласно ст. 283 НК РФ.</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-secondary mt-2">
+                    <small><strong>Источник:</strong> ПБУ 18/02 «Учет расчетов по налогу на прибыль организаций», ст. 283 НК РФ (перенос убытков на будущее). Ставка налога на прибыль — 20%.</small>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width:800px;">
+    <p>
+        <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Отчет о финансовых результатах" style="filter: grayscale(1);">
+    </p>
+    <div class="card-body">
+        <h3 class="card-title">Отчет о финансовых результатах</h3>
+
+        <div class="alert alert-secondary mb-3">
+            <strong>Назначение:</strong> Отчет о финансовых результатах раскрывает формирование чистой прибыли (убытка) организации за отчетный период на основе данных синтетического учета.
+        </div>
+
+        <!-- Таблица оборотов по счетам -->
+        <h5 class="mt-3">Обороты по счетам за 2024 год</h5>
+
+        <div class="table-responsive">
+            <table class="table   table-hover table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 15%">Счет (субсчет)</th>
+                        <th style="width: 45%">Наименование</th>
+                        <th style="width: 20%">Оборот по дебету</th>
+                        <th style="width: 20%">Оборот по кредиту</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>09</strong></td>
+                        <td>Отложенные налоговые активы</td>
+                        <td>45 000</td>
+                        <td>40 000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>77</strong></td>
+                        <td>Отложенные налоговые обязательства</td>
+                        <td>110 000</td>
+                        <td>90 000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90.01</strong></td>
+                        <td>Выручка</td>
+                        <td>&nbsp;</td>
+                        <td>110 799 640</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90.02</strong></td>
+                        <td>Себестоимость продаж</td>
+                        <td>76 880 000</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90.03</strong></td>
+                        <td>НДС</td>
+                        <td>16 901 640</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90.08</strong></td>
+                        <td>Управленческие расходы</td>
+                        <td>5 865 000</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90.09</strong></td>
+                        <td>Прибыль/убыток от продаж</td>
+                        <td>11 153 000</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>91.02</strong></td>
+                        <td>Прочие расходы</td>
+                        <td>352 000</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>91.09</strong></td>
+                        <td>Сальдо прочих расходов</td>
+                        <td>&nbsp;</td>
+                        <td>352 000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>99.01</strong></td>
+                        <td>Прибыли и убытки (за исключением налога на прибыль)</td>
+                        <td>11 153 000</td>
+                        <td>352 000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>99.02</strong></td>
+                        <td>Налог на прибыль</td>
+                        <td>2 210 200</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>99.02.1</strong></td>
+                        <td>Условный расход по налогу на прибыль</td>
+                        <td>2 160 200</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>99.02.3</strong></td>
+                        <td>Постоянное налоговое обязательство</td>
+                        <td>50 000</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-light mt-2 mb-3">
+            <small><strong>Пояснение:</strong> На основе данных синтетического учета формируется отчет о финансовых результатах. Обороты по счетам 90, 91, 09, 77 и 99 позволяют рассчитать все показатели отчета.</small>
+        </div>
+
+        <!-- Отчет о финансовых результатах -->
+        <h5 class="mt-3">Отчет о финансовых результатах, тыс. руб.</h5>
+
+        <div class="table-responsive">
+            <table class="table   table-hover table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 50%">Наименование показателя</th>
+                        <th style="width: 10%">Код</th>
+                        <th style="width: 20%">За 2024 год</th>
+                        <th style="width: 20%">За 2023 год</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Выручка</strong></td>
+                        <td align="center">2110</td>
+                        <td align="center">93 898</td>
+                        <td align="center">88 365</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Себестоимость продаж</strong></td>
+                        <td align="center">2120</td>
+                        <td align="center">(76 880)</td>
+                        <td align="center">(75 993)</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Валовая прибыль (убыток)</strong></td>
+                        <td align="center">2100</td>
+                        <td align="center"><strong>17 018</strong></td>
+                        <td align="center"><strong>12 372</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Коммерческие расходы</strong></td>
+                        <td align="center">2210</td>
+                        <td align="center">(0)</td>
+                        <td align="center">(545)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Управленческие расходы</strong></td>
+                        <td align="center">2220</td>
+                        <td align="center">(5 865)</td>
+                        <td align="center">(3 682)</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Прибыль (убыток) от продаж</strong></td>
+                        <td align="center">2200</td>
+                        <td align="center"><strong>11 153</strong></td>
+                        <td align="center"><strong>8 145</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Доходы от участия в других организациях</strong></td>
+                        <td align="center">2310</td>
+                        <td align="center">0</td>
+                        <td align="center">23</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Проценты к получению</strong></td>
+                        <td align="center">2320</td>
+                        <td align="center">0</td>
+                        <td align="center">0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Проценты к уплате</strong></td>
+                        <td align="center">2330</td>
+                        <td align="center">(0)</td>
+                        <td align="center">(0)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Прочие доходы</strong></td>
+                        <td align="center">2340</td>
+                        <td align="center">0</td>
+                        <td align="center">0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Прочие расходы</strong></td>
+                        <td align="center">2350</td>
+                        <td align="center">(352)</td>
+                        <td align="center">(513)</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Прибыль (убыток) до налогообложения</strong></td>
+                        <td align="center">2300</td>
+                        <td align="center"><strong>10 801</strong></td>
+                        <td align="center"><strong>7 655</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Налог на прибыль</strong></td>
+                        <td align="center">2410</td>
+                        <td align="center">(2 235)</td>
+                        <td align="center">(1 894)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 20px;"><em>в т.ч. текущий налог на прибыль</em></td>
+                        <td align="center">2411</td>
+                        <td align="center">(2 260)</td>
+                        <td align="center">(1 894)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 20px;"><em>отложенный налог на прибыль</em></td>
+                        <td align="center">2412</td>
+                        <td align="center">25</td>
+                        <td align="center">0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Прочее</strong></td>
+                        <td align="center">2460</td>
+                        <td align="center">0</td>
+                        <td align="center">0</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td><strong>Чистая прибыль (убыток)</strong></td>
+                        <td align="center">2400</td>
+                        <td align="center"><strong>8 591</strong></td>
+                        <td align="center"><strong>5 761</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-success mt-3">
+            <small><strong>Ключевые показатели 2024 года:</strong></small>
+            <ul class="small mb-0">
+                <li><strong>Выручка</strong> — 93 898 тыс. руб.</li>
+                <li><strong>Прибыль от продаж</strong> — 11 153 тыс. руб.</li>
+                <li><strong>Прибыль до налогообложения</strong> — 10 801 тыс. руб.</li>
+                <li><strong>Чистая прибыль</strong> — 8 591 тыс. руб.</li>
+                <li><strong>Рост чистой прибыли</strong> по сравнению с 2023 годом составил <strong>+2 830 тыс. руб. (+49,1%)</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="alert alert-secondary mt-2">
+            <small><strong>Источник данных:</strong> Оборотно-сальдовая ведомость по счетам 90, 91, 99, 09, 77 за 2024 год. Отчет составлен в соответствии с ПБУ 4/99 и Приказом Минфина № 66н.</small>
+        </div>
+
+    </div>
+</div>
+
+
+            <div class="card my-3" >
+            <p>
+                <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="1" style="filter: grayscale(1);">
+            </p>
+            <div class="card-body">
+
+            <div id="simpleaccounting" class="container" data-openquizid="financialresultsaccounting"></div>
+
+
+                <h3 class="card-title">Самостоятельная работа (домашнее задание)</h3>
+
+                <div class="alert alert-primary m-3">
+                   <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
+                        бухгалтерского учета
+                        финансово-хозяйственной деятельности организаций Приказ Минфина России от 31.10.2000 № 94н</a><br>
+                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
+                    Всегда иметь с собой на занятиях <br>
+                    Знать близко к тексту<br>                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Подключение скриптов (аналогично оригиналу) -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./simpleaccounting.js"></script>
+
+</body>
+
+</html>
