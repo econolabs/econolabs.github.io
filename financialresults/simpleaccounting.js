@@ -52,13 +52,13 @@
   }
   let defaultProjectData = {
     id: openquizid,
-    title: "Бухг. учет финанс. результатов коммерч. орг.",
+    title: "Бухг. учет фин. рез. ком. орг.",
     // Задание от " + new Intl.DateTimeFormat("ru", {
     //     year: "numeric",
     //     month: "short",
     //     day: "numeric"
     // }).format(new Date()),
-    theme: "Бухг. учет финанс. результатов коммерч. орг.",
+    theme: "Бухг. учет фин. рез. ком. орг.",
     answer: "Операции и отчетность",
     comment: "Операции и отчетность",
     type: "accountingwithprofitscash",
