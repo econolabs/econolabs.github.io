@@ -847,6 +847,7 @@ let quizesSets = [
        //  quizesCasesId: "-NUmjzyKYuapM0DT9RMJ"
     },
     
+    
     {
         id: "profittax2026_2",
         header: "Типовая задача",
