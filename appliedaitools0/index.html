@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="../dist/original.css" />
+
+    <script src="./quizesSets.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+    <title>Прикладные инструменты искусственного интеллекта</title>
+
+    <style>
+      .fade-in-div {
+        animation: fadeIn 475;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .code-block {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border-left: 4px solid #007bff;
+        font-family: "Courier New", monospace;
+        margin: 1rem 0;
+        overflow-x: auto;
+        font-size: 0.9em;
+      }
+
+      .exercise {
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.25rem;
+      }
+
+      .sql-keyword {
+        color: #d73a49;
+        font-weight: bold;
+      }
+
+      .sql-comment {
+        color: #6a737d;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span class="sr-only"></span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="https://vk.com/dmglvn">
+            <img
+              loading="lazy"
+              src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+              alt=""
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              "
+            />
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 style="color: #217346">
+        Прикладные инструменты искусственного интеллекта 6
+      </h1>
+
+       <h1 class="text-primary">Дополнительный материал</h1>
+
+
+<!-- Карточка 1: Google Colab -->
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title2.jpg" class="card-img-top" alt="Google Colab облачная среда"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>1. Google Colab: облачная среда для разработки</h3>
+    <p class="card-text text-muted small">Бесплатная платформа для машинного обучения и анализа данных прямо в браузере</p>
+    
+    <p class="card-text">
+      <strong>📌 Что это?</strong><br>
+      Google Colab (Colaboratory) — это бесплатный облачный сервис на базе Jupyter Notebook, который не требует установки и настройки.
+    </p>
+    <p class="card-text">
+      <strong>🚀 Основные возможности:</strong><br>
+      • Бесплатный доступ к GPU и TPU — ускоряет обучение нейросетей<br>
+      • Интеграция с Google Диском — автоматическое сохранение и совместная работа<br>
+      • Встроенный AI-ассистент — помогает писать, отлаживать и объяснять код (на базе Gemini)<br>
+      • Поддержка Python и популярных библиотек — TensorFlow, PyTorch, Transformers и другие
+    </p>
+    <p class="card-text">
+      <strong>⚠️ Ограничения бесплатного тарифа:</strong><br>
+      • Оперативная память: около 12 ГБ<br>
+      • Суточная квота: примерно 6 часов использования GPU<br>
+      • Сессия: автоматически завершается после 30 минут бездействия<br>
+      • Древние версии библиотек: некоторые пакеты прибиты гвоздями к среде
+    </p>
+    <p class="card-text">
+      <strong>💡 Кому подходит:</strong><br>
+      ✅ Студентам и начинающим — не нужна настройка<br>
+      ✅ Исследователям — быстрые эксперименты на GPU<br>
+      ✅ Преподавателям — готовые шаблоны для обучения
+    </p>
+  </div>
+</div>
+
+<!-- Карточка 2: Альтернативы Google Colab -->
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title3.jpg" class="card-img-top" alt="Альтернативы Google Colab"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>2. Альтернативы Google Colab, доступные в РФ</h3>
+    <p class="card-text text-muted small">Чем заменить Colab при работе с российскими проектами и данными</p>
+    
+    <p class="card-text">
+      <strong>🔹 Локальные решения</strong>
+    </p>
+    <p class="card-text">
+      <strong>Jupyter Notebook / JupyterLab</strong><br>
+      • Полный контроль над окружением и версиями библиотек<br>
+      • Неограниченное время работы<br>
+      • Использует ваше собственное железо (CPU/GPU)<br>
+      • Минус: требует установки и настройки
+    </p>
+    <p class="card-text">
+      <strong>IDE со встроенными ноутбуками</strong><br>
+      • PyCharm Professional — поддержка Jupyter Notebook<br>
+      • VS Code — расширение для работы с .ipynb файлами
+    </p>
+    <p class="card-text">
+      <strong>🔹 Облачные аналоги</strong>
+    </p>
+    <p class="card-text">
+      <strong>More-Compute</strong><br>
+      • Локальный ноутбук с интерфейсом, похожим на Colab<br>
+      • Работает через браузер, поддерживает магические команды<br>
+      • Установка через pip: <code>pip install more-compute</code>
+    </p>
+    <p class="card-text">
+      <strong>🔹 Корпоративные решения</strong>
+    </p>
+    <p class="card-text">
+      <strong>Google Colab Enterprise</strong> (через Vertex AI)<br>
+      • Для бизнеса — централизованное управление, IAM-безопасность, региональное хранение
+    </p>
+    <p class="card-text">
+      <strong>💡 Рекомендация:</strong><br>
+      Для серьёзных проектов лучше поднять локальный Jupyter или использовать платные облака. Colab остаётся лучшим для быстрых экспериментов.
+    </p>
+  </div>
+</div>
+
+<!-- Карточка 3: Русскоязычные модели -->
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title4.jpg" class="card-img-top" alt="Русскоязычные модели в Colab"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>3. Русскоязычные модели в Google Colab: виды и требования</h3>
+    <p class="card-text text-muted small">Какие модели работают и сколько ресурсов им нужно</p>
+    
+    <p class="card-text">
+      <strong>🔹 Семейство ruGPT (от SberDevices)</strong><br>
+      • <strong>ruGPT3Small</strong> (~125M параметров) — базовый уровень, работает на любом GPU<br>
+      • <strong>ruGPT3Medium</strong> (~1.3B) — хороший баланс качества и скорости<br>
+      • <strong>ruGPT3Large</strong> (~1.3B) — более качественная версия<br>
+      • <strong>ruGPT3XL</strong> (~3.8B) — самая мощная, требует много памяти<br>
+      • <strong>ruGPT2Large</strong> — предшественник, 1024 токена контекста<br>
+      <span class="text-muted small">📌 Требования: достаточно 12–16 ГБ VRAM для Small/Medium, для Large/XL нужна квантизация</span>
+    </p>
+    
+    <p class="card-text">
+      <strong>🔹 Семейство Saiga (от Ilya Gusev)</strong><br>
+      • <strong>Saiga2 7B/13B</strong> — на базе LLaMA-2, дообучена на русских инструкциях<br>
+      • <strong>Saiga Mistral 7B</strong> — на базе Mistral, отличное качество<br>
+      • <strong>Saiga LLaMA3 8B</strong> — самая новая и мощная<br>
+      <span class="text-muted small">⚠️ Важно: Saiga2 не рекомендуется использовать на V100 в Colab — качество ухудшается<br>
+      📌 Требования: для 7B/8B нужна 4-битная квантизация, 13B — только на A100/H100</span>
+    </p>
+    
+    <p class="card-text">
+      <strong>🔹 Семейство ruT5 (от SberDevices и Ilya Gusev)</strong><br>
+      • <strong>ruT5-base</strong> — для суммаризации и задач с текстом<br>
+      • <strong>rut5_base_sum_gazeta</strong> — специально для реферирования новостей<br>
+      <span class="text-muted small">📌 Требования: очень скромные, 4–8 ГБ VRAM достаточно</span>
+    </p>
+    
+    <p class="card-text">
+      <strong>🔹 Другие модели</strong><br>
+      • <strong>FRED-T5 1.7B</strong> — от SberDevices, для генерации<br>
+      • <strong>Vikhr-7B-Instruct</strong> — русскоязычная инструкционная модель
+    </p>
+    
+    <p class="card-text">
+      <strong>⚡ Общие рекомендации для Colab:</strong><br>
+      • <strong>T4 GPU (16 ГБ VRAM):</strong> подходят ruGPT3Small/Medium, ruT5, а также 7B модели с 4-бит квантизацией<br>
+      • <strong>A100 (40+ ГБ):</strong> можно запускать ruGPT3Large/XL и 13B модели без квантизации<br>
+      • Всегда проверяйте: <code>torch.cuda.is_available()</code> и используйте <code>device_map="auto"</code>
+    </p>
+  </div>
+</div>
+
+      <div class="card my-3" style="max-width: 800px">
+      <div class="card-body">
+        <div class="excelstyle p-5">
+          <div class="title">
+            <h1 class="p-3">Практика 6</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Карточка: Доступные задачи и русскоязычные модели -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>Доступные задачи и русскоязычные модели</h3>
+    <p class="card-text text-muted small">Проверяем, какие задачи поддерживаются в вашей версии transformers</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torch sentencepiece<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">from</span> transformers.pipelines <span class="sql-keyword">import</span> get_task<br><br>
+
+      <span class="sql-comment"># 1. Список всех доступных задач</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"📋 ДОСТУПНЫЕ ЗАДАЧИ В ВАШЕЙ ВЕРСИИ TRANSFORMERS:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+      <br>
+      <span class="sql-comment"># Список стандартных задач (обновляется автоматически)</span><br>
+      supported_tasks = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"audio-classification"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"automatic-speech-recognition"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"depth-estimation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"document-question-answering"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"feature-extraction"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"fill-mask"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"image-classification"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"image-feature-extraction"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"image-segmentation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"ner"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"object-detection"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"sentiment-analysis"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"summarization"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"text-classification"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"text-generation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"token-classification"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"zero-shot-classification"</span><br>
+      ]<br><br>
+
+      <span class="sql-keyword">for</span> task <span class="sql-keyword">in</span> sorted(supported_tasks):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">try</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Проверяем, доступна ли задача</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pipe = pipeline(task, model=<span class="sql-string">"bert-base-uncased"</span>, device=<span class="sql-number">-1</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"✅ {task}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">except</span> <span class="sql-keyword">Exception</span> <span class="sql-keyword">as</span> e:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"❌ {task} - {str(e)[:50]}..."</span>)
+    </div>
+  </div>
+</div>
+
+
+<!-- Карточка: Рекомендации по русскоязычным моделям -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>Рекомендации по русскоязычным моделям</h3>
+    <p class="card-text text-muted small">Какие модели использовать для разных задач на русском языке</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torch sentencepiece<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 1. ЗАПОЛНЕНИЕ ПРОПУСКОВ (FILL-MASK)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 ЗАПОЛНЕНИЕ ПРОПУСКОВ (FILL-MASK)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: DeepPavlov/rubert-base-cased"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 178M"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   unmasker = pipeline("fill-mask", model="DeepPavlov/rubert-base-cased")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = unmasker("Искусственный интеллект [MASK] будущее.")'</span>)<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 2. АНАЛИЗ ТОНАЛЬНОСТИ (SENTIMENT-ANALYSIS)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 АНАЛИЗ ТОНАЛЬНОСТИ (SENTIMENT-ANALYSIS)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: DeepPavlov/bert-base-cased-conversational"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 178M"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Альтернатива: blanchefort/rubert-base-cased-sentiment"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   classifier = pipeline("sentiment-analysis", model="blanchefort/rubert-base-cased-sentiment")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = classifier("Мне очень понравился этот фильм!")'</span>)<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 3. ИЗВЛЕЧЕНИЕ СУЩНОСТЕЙ (NER)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 ИЗВЛЕЧЕНИЕ СУЩНОСТЕЙ (NER)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: DeepPavlov/bert-base-cased-sentence"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 178M"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   ner = pipeline("ner", model="DeepPavlov/bert-base-cased-sentence")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = ner("Стив Джобс основал Apple в Калифорнии.")'</span>)<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 4. ГЕНЕРАЦИЯ ТЕКСТА (TEXT-GENERATION)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 ГЕНЕРАЦИЯ ТЕКСТА (TEXT-GENERATION)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: ai-forever/rugpt3medium_based_on_gpt2"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 1.3B"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Альтернатива: IlyaGusev/saiga_llama3_8b (требует квантования)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   generator = pipeline("text-generation", model="ai-forever/rugpt3medium_based_on_gpt2")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = generator("Искусственный интеллект", max_new_tokens=50)'</span>)<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 5. РЕЗЮМИРОВАНИЕ (SUMMARIZATION)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 РЕЗЮМИРОВАНИЕ (SUMMARIZATION)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: IlyaGusev/mbart_ru_sum_gazeta"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 610M"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   summarizer = pipeline("summarization", model="IlyaGusev/mbart_ru_sum_gazeta")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = summarizer(text, max_length=100, min_length=30)'</span>)<br><br>
+
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># 6. ОТВЕТЫ НА ВОПРОСЫ (QUESTION-ANSWERING)</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔹 ОТВЕТЫ НА ВОПРОСЫ (QUESTION-ANSWERING)"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Модель: DeepPavlov/bert-base-cased-squad2"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Размер: 178M"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Использование:"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   qa = pipeline("question-answering", model="DeepPavlov/bert-base-cased-squad2")'</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">'   result = qa(question="Кто основал Apple?", context="Стив Джобс основал Apple.")'</span>)
+    </div>
+  </div>
+</div>
+
+
+<!-- Карточка: Тестирование русской модели -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>Тестирование русской модели</h3>
+    <p class="card-text text-muted small">Проверяем работу русскоязычной модели на примере</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torch sentencepiece<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># 1. Загружаем русскую модель для заполнения пропусков</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем русскую модель..."</span>)<br>
+      unmasker = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"fill-mask"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"DeepPavlov/rubert-base-cased"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;device=<span class="sql-number">-1</span>  <span class="sql-comment"># CPU</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Тестируем на русском предложении</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📝 Тестируем на русском:"</span>)<br>
+      sentence = <span class="sql-string">"Искусственный интеллект [MASK] будущее."</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"Предложение: {sentence}"</span>)<br><br>
+
+      results = unmasker(sentence)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📊 Результаты:"</span>)<br>
+      <span class="sql-keyword">for</span> i, result <span class="sql-keyword">in</span> enumerate(results[:<span class="sql-number">5</span>], <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"{i}. {result['token_str']} (вероятность: {result['score']:.2%})"</span>)
+    </div>
+  </div>
+</div>
+
+
+<!-- Карточка: Сводная таблица -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>Сводная таблица задач и моделей</h3>
+    <p class="card-text text-muted small">Какие задачи поддерживаются и какие модели для них использовать</p>
+
+    <div class="code-block">
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># ДОСТУПНЫЕ ЗАДАЧИ И МОДЕЛИ</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <br>
+      <span class="sql-comment"># ✅ fill-mask</span><br>
+      <span class="sql-comment">#    - bert-base-uncased (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/rubert-base-cased (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ sentiment-analysis</span><br>
+      <span class="sql-comment">#    - distilbert-base-uncased-finetuned-sst-2-english (английский)</span><br>
+      <span class="sql-comment">#    - blanchefort/rubert-base-cased-sentiment (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ ner</span><br>
+      <span class="sql-comment">#    - dslim/bert-base-NER (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/bert-base-cased-sentence (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ text-generation</span><br>
+      <span class="sql-comment">#    - gpt2 (английский)</span><br>
+      <span class="sql-comment">#    - ai-forever/rugpt3medium_based_on_gpt2 (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ summarization</span><br>
+      <span class="sql-comment">#    - facebook/bart-large-cnn (английский)</span><br>
+      <span class="sql-comment">#    - IlyaGusev/mbart_ru_sum_gazeta (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ question-answering</span><br>
+      <span class="sql-comment">#    - distilbert-base-cased-distilled-squad (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/bert-base-cased-squad2 (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ⚠️ translation - НЕ ДОСТУПНА (используйте AutoModelForSeq2SeqLM)</span><br>
+      <span class="sql-comment">#    - Helsinki-NLP/opus-mt-en-ru</span><br>
+      <span class="sql-comment">#    - Helsinki-NLP/opus-mt-ru-en</span><br>
+      <br>
+      <span class="sql-comment"># ⚠️ text2text-generation - НЕ ДОСТУПНА</span><br>
+      <span class="sql-comment">#    (используйте соответствующие задачи: summarization, translation через AutoModel)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Карточка: Сводная таблица -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>Сводная таблица задач и моделей</h3>
+    <p class="card-text text-muted small">Какие задачи поддерживаются и какие модели для них использовать</p>
+
+    <div class="code-block">
+      <span class="sql-comment"># ============================================</span><br>
+      <span class="sql-comment"># ДОСТУПНЫЕ ЗАДАЧИ И МОДЕЛИ</span><br>
+      <span class="sql-comment"># ============================================</span><br>
+      <br>
+      <span class="sql-comment"># ✅ fill-mask</span><br>
+      <span class="sql-comment">#    - bert-base-uncased (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/rubert-base-cased (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ sentiment-analysis</span><br>
+      <span class="sql-comment">#    - distilbert-base-uncased-finetuned-sst-2-english (английский)</span><br>
+      <span class="sql-comment">#    - blanchefort/rubert-base-cased-sentiment (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ ner</span><br>
+      <span class="sql-comment">#    - dslim/bert-base-NER (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/bert-base-cased-sentence (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ text-generation</span><br>
+      <span class="sql-comment">#    - gpt2 (английский)</span><br>
+      <span class="sql-comment">#    - ai-forever/rugpt3medium_based_on_gpt2 (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ summarization</span><br>
+      <span class="sql-comment">#    - facebook/bart-large-cnn (английский)</span><br>
+      <span class="sql-comment">#    - IlyaGusev/mbart_ru_sum_gazeta (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ✅ question-answering</span><br>
+      <span class="sql-comment">#    - distilbert-base-cased-distilled-squad (английский)</span><br>
+      <span class="sql-comment">#    - DeepPavlov/bert-base-cased-squad2 (русский)</span><br>
+      <br>
+      <span class="sql-comment"># ⚠️ translation - НЕ ДОСТУПНА (используйте AutoModelForSeq2SeqLM)</span><br>
+      <span class="sql-comment">#    - Helsinki-NLP/opus-mt-en-ru</span><br>
+      <span class="sql-comment">#    - Helsinki-NLP/opus-mt-ru-en</span><br>
+      <br>
+      <span class="sql-comment"># ⚠️ text2text-generation - НЕ ДОСТУПНА</span><br>
+      <span class="sql-comment">#    (используйте соответствующие задачи: summarization, translation через AutoModel)</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title11.jpg" class="card-img-top" alt="Простой RAG (Retrieval-Augmented Generation)"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>11. Простой RAG (Retrieval-Augmented Generation)</h3>
+    <p class="card-text text-muted small">Загружаем документы и отвечаем на вопросы с использованием знаний из них</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q langchain langchain-text-splitters langchain-huggingface langchain-community faiss-cpu transformers torch accelerate sentence-transformers<br><br>
+
+      <span class="sql-keyword">from</span> langchain_text_splitters <span class="sql-keyword">import</span> CharacterTextSplitter<br>
+      <span class="sql-keyword">from</span> langchain_huggingface <span class="sql-keyword">import</span> HuggingFaceEmbeddings<br>
+      <span class="sql-keyword">from</span> langchain_community.vectorstores <span class="sql-keyword">import</span> FAISS<br>
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">import</span> torch<br><br>
+
+      <span class="sql-comment"># 1. Создаём тестовые документы</span><br>
+      documents = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Искусственный интеллект — это область компьютерных наук, которая занимается созданием машин, способных выполнять задачи, требующие человеческого интеллекта."</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Google Colab — бесплатная облачная среда для работы с Jupyter Notebook, которая предоставляет GPU и TPU."</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"RAG (Retrieval-Augmented Generation) — это техника, при которой модель сначала ищет релевантную информацию, а потом генерирует ответ. RAG помогает улучшить качество ответов LLM."</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Для работы с RAG необходимо создать векторную базу данных, которая хранит эмбеддинги документов."</span><br>
+      ]<br><br>
+
+      <span class="sql-comment"># 2. Разбиваем текст на чанки</span><br>
+      text_splitter = CharacterTextSplitter(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_size=<span class="sql-number">300</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_overlap=<span class="sql-number">50</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;separator=<span class="sql-string">"."</span><br>
+      )<br>
+      docs = text_splitter.create_documents(documents)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"Created {len(docs)} document chunks"</span>)<br><br>
+
+      <span class="sql-comment"># 3. Создаём эмбеддинги и векторную базу</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Creating embeddings..."</span>)<br>
+      embeddings = HuggingFaceEmbeddings(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_name=<span class="sql-string">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_kwargs={<span class="sql-string">'device'</span>: <span class="sql-string">'cuda'</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> <span class="sql-string">'cpu'</span>}<br>
+      )<br>
+      vectorstore = FAISS.from_documents(docs, embeddings)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Vector store created!"</span>)<br><br>
+
+      <span class="sql-comment"># 4. Создаём retriever</span><br>
+      retriever = vectorstore.as_retriever(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;search_kwargs={<span class="sql-string">"k"</span>: <span class="sql-number">2</span>}<br>
+      )<br><br>
+
+      <span class="sql-comment"># 5. Создаём LLM</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"Loading model..."</span>)<br>
+      generator = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"text-generation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"google/flan-t5-small"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;max_new_tokens=<span class="sql-number">200</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;temperature=<span class="sql-number">0.7</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;device=<span class="sql-number">0</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> -<span class="sql-number">1</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Model loaded!"</span>)<br><br>
+
+      <span class="sql-comment"># 6. RAG функция</span><br>
+      <span class="sql-keyword">def</span> simple_rag(query):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"\n🔍 Searching for: '{query}'"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;retrieved_docs = retriever.invoke(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Found {len(retrieved_docs)} relevant documents:"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, doc <span class="sql-keyword">in</span> enumerate(retrieved_docs, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {i}. {doc.page_content[:100]}..."</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;context = <span class="sql-string">"\n"</span>.join([doc.page_content <span class="sql-keyword">for</span> doc <span class="sql-keyword">in</span> retrieved_docs])<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;prompt = <span class="sql-string">f"""Context: {context}</span><br><br>
+      <span class="sql-string">Question: {query}</span><br><br>
+      <span class="sql-string">Answer:"""</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;result = generator(prompt, max_new_tokens=<span class="sql-number">200</span>)[<span class="sql-number">0</span>][<span class="sql-string">'generated_text'</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> result.startswith(prompt):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result[len(prompt):].strip()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> answer, retrieved_docs<br><br>
+
+      <span class="sql-comment"># 7. Задаём вопросы</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"RAG SYSTEM TEST"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
+
+      test_queries = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое RAG?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое искусственный интеллект?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое Google Colab?"</span><br>
+      ]<br><br>
+
+      <span class="sql-keyword">for</span> query <span class="sql-keyword">in</span> test_queries:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;answer, sources = simple_rag(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"❓ QUESTION: {query}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"💡 ANSWER: {answer}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"📚 SOURCES:"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, doc <span class="sql-keyword">in</span> enumerate(sources, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {i}. {doc.page_content}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">60</span>)
+    </div>
+  </div>
+</div>
+
+
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title12.jpg" class="card-img-top" alt="RAG с загрузкой документа из интернета"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>12. RAG с загрузкой документа из интернета</h3>
+    <p class="card-text text-muted small">Загружаем большой русскоязычный документ из интернета и отвечаем на вопросы по его содержанию</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q langchain langchain-text-splitters langchain-huggingface langchain-community faiss-cpu transformers torch accelerate sentence-transformers requests beautifulsoup4<br><br>
+
+      <span class="sql-keyword">from</span> langchain_text_splitters <span class="sql-keyword">import</span> RecursiveCharacterTextSplitter<br>
+      <span class="sql-keyword">from</span> langchain_huggingface <span class="sql-keyword">import</span> HuggingFaceEmbeddings<br>
+      <span class="sql-keyword">from</span> langchain_community.vectorstores <span class="sql-keyword">import</span> FAISS<br>
+      <span class="sql-keyword">from</span> langchain_community.document_loaders <span class="sql-keyword">import</span> WebBaseLoader<br>
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">import</span> torch<br>
+      <span class="sql-keyword">import</span> requests<br>
+      <span class="sql-keyword">from</span> bs4 <span class="sql-keyword">import</span> BeautifulSoup<br><br>
+
+      <span class="sql-comment"># 1. Загружаем русскоязычный документ из интернета</span><br>
+      <span class="sql-comment"># Например, статью с Википедии о искусственном интеллекте</span><br>
+      url = <span class="sql-string">"https://ru.wikipedia.org/wiki/Искусственный_интеллект"</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📥 Загружаем документ: {url}"</span>)<br><br>
+
+      <span class="sql-comment"># Загрузка с помощью requests и BeautifulSoup</span><br>
+      response = requests.get(url, headers={<span class="sql-string">'User-Agent'</span>: <span class="sql-string">'Mozilla/5.0'</span>})<br>
+      soup = BeautifulSoup(response.content, <span class="sql-string">'html.parser'</span>)<br>
+      <br>
+      <span class="sql-comment"># Извлекаем текст из параграфов</span><br>
+      paragraphs = soup.find_all(<span class="sql-string">'p'</span>)<br>
+      text = <span class="sql-string">' '</span>.join([p.get_text() <span class="sql-keyword">for</span> p <span class="sql-keyword">in</span> paragraphs])<br>
+      <span class="sql-comment"># Очищаем от лишних пробелов</span><br>
+      text = <span class="sql-string">' '</span>.join(text.split())<br>
+      <br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Загружено символов: {len(text)}"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Первые 500 символов:\n{text[:500]}..."</span>)<br><br>
+
+      <span class="sql-comment"># 2. Создаём документ для LangChain</span><br>
+      <span class="sql-keyword">from</span> langchain_core.documents <span class="sql-keyword">import</span> Document<br>
+      document = Document(page_content=text, metadata={<span class="sql-string">"source"</span>: url})<br><br>
+
+      <span class="sql-comment"># 3. Разбиваем текст на чанки (используем RecursiveCharacterTextSplitter)</span><br>
+      text_splitter = RecursiveCharacterTextSplitter(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_size=<span class="sql-number">500</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_overlap=<span class="sql-number">100</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;separators=[<span class="sql-string">"\n\n"</span>, <span class="sql-string">"\n"</span>, <span class="sql-string">"."</span>, <span class="sql-string">" "</span>],<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;length_function=len<br>
+      )<br>
+      docs = text_splitter.split_documents([document])<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"✂️ Создано {len(docs)} чанков"</span>)<br><br>
+
+      <span class="sql-comment"># 4. Создаём эмбеддинги и векторную базу</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🔨 Создаём эмбеддинги..."</span>)<br>
+      embeddings = HuggingFaceEmbeddings(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_name=<span class="sql-string">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_kwargs={<span class="sql-string">'device'</span>: <span class="sql-string">'cuda'</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> <span class="sql-string">'cpu'</span>}<br>
+      )<br>
+      vectorstore = FAISS.from_documents(docs, embeddings)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Векторная база создана!"</span>)<br><br>
+
+      <span class="sql-comment"># 5. Создаём retriever</span><br>
+      retriever = vectorstore.as_retriever(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;search_kwargs={<span class="sql-string">"k"</span>: <span class="sql-number">3</span>}  # Возвращаем топ-3 релевантных чанка<br>
+      )<br><br>
+
+      <span class="sql-comment"># 6. Создаём LLM для генерации ответов</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем модель..."</span>)<br>
+      generator = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"text-generation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"google/flan-t5-large"</span>,  # Используем большую модель для лучших ответов<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;max_new_tokens=<span class="sql-number">250</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;temperature=<span class="sql-number">0.3</span>,  # Низкая температура для более точных ответов<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;device=<span class="sql-number">0</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> -<span class="sql-number">1</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 7. RAG функция</span><br>
+      <span class="sql-keyword">def</span> ask_question(query):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"\n🔍 Вопрос: '{query}'"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Поиск релевантных документов</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;retrieved_docs = retriever.invoke(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Найдено {len(retrieved_docs)} релевантных чанков"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, doc <span class="sql-keyword">in</span> enumerate(retrieved_docs, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {i}. {doc.page_content[:150]}..."</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Формируем контекст</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;context = <span class="sql-string">"\n\n"</span>.join([doc.page_content <span class="sql-keyword">for</span> doc <span class="sql-keyword">in</span> retrieved_docs])<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Создаём промпт</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;prompt = <span class="sql-string">f"""Ответь на вопрос на русском языке, используя только информацию из контекста.</span><br><br>
+      <span class="sql-string">Контекст:</span><br>
+      <span class="sql-string">{context}</span><br><br>
+      <span class="sql-string">Вопрос: {query}</span><br><br>
+      <span class="sql-string">Ответ:"""</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Генерация ответа</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;result = generator(prompt, max_new_tokens=<span class="sql-number">250</span>)[<span class="sql-number">0</span>][<span class="sql-string">'generated_text'</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Очистка ответа</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> result.startswith(prompt):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result[len(prompt):].strip()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> answer, retrieved_docs<br><br>
+
+      <span class="sql-comment"># 8. Задаём вопросы по документу</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"📖 RAG СИСТЕМА - ВОПРОСЫ ПО СТАТЬЕ"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br><br>
+
+      questions = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое искусственный интеллект?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Какие основные направления включает в себя искусственный интеллект?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое машинное обучение и как оно связано с ИИ?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Какие применения искусственного интеллекта существуют?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"В чем разница между слабым и сильным искусственным интеллектом?"</span><br>
+      ]<br><br>
+
+      <span class="sql-keyword">for</span> i, query <span class="sql-keyword">in</span> enumerate(questions, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;answer, sources = ask_question(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"❓ ВОПРОС {i}: {query}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"💡 ОТВЕТ: {answer}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"📚 ИСТОЧНИКИ:"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j, doc <span class="sql-keyword">in</span> enumerate(sources, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {j}. {doc.page_content[:200]}..."</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)
+    </div>
+  </div>
+</div>
+
+
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title12_alt.jpg" class="card-img-top" alt="RAG с загрузкой текстового файла"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>12. Альтернатива: RAG с загрузкой текстового файла</h3>
+    <p class="card-text text-muted small">Загружаем текстовый файл с GitHub или Google Drive и работаем с ним</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q langchain langchain-text-splitters langchain-huggingface langchain-community faiss-cpu transformers torch accelerate sentence-transformers requests<br><br>
+
+      <span class="sql-keyword">import</span> requests<br>
+      <span class="sql-keyword">from</span> langchain_text_splitters <span class="sql-keyword">import</span> RecursiveCharacterTextSplitter<br>
+      <span class="sql-keyword">from</span> langchain_huggingface <span class="sql-keyword">import</span> HuggingFaceEmbeddings<br>
+      <span class="sql-keyword">from</span> langchain_community.vectorstores <span class="sql-keyword">import</span> FAISS<br>
+      <span class="sql-keyword">from</span> langchain_core.documents <span class="sql-keyword">import</span> Document<br>
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">import</span> torch<br><br>
+
+      <span class="sql-comment"># 1. Загружаем текстовый файл с GitHub</span><br>
+      <span class="sql-comment"># Пример: книга "Война и мир" или другой русскоязычный текст</span><br>
+      url = <span class="sql-string">"https://raw.githubusercontent.com/username/repo/main/text.txt"</span><br>
+      <span class="sql-comment"># Или используем прямой URL с текстом</span><br>
+      <span class="sql-comment"># url = "https://example.com/document.txt"</span><br>
+      <br>
+      response = requests.get(url)<br>
+      text = response.text<br>
+      <br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Загружено символов: {len(text)}"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Первые 300 символов:\n{text[:300]}..."</span>)<br><br>
+
+      <span class="sql-comment"># 2. Создаём документ</span><br>
+      document = Document(page_content=text, metadata={<span class="sql-string">"source"</span>: url})<br><br>
+
+      <span class="sql-comment"># 3. Разбиваем на чанки</span><br>
+      text_splitter = RecursiveCharacterTextSplitter(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_size=<span class="sql-number">500</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_overlap=<span class="sql-number">100</span><br>
+      )<br>
+      docs = text_splitter.split_documents([document])<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"✂️ Создано {len(docs)} чанков"</span>)<br><br>
+
+      <span class="sql-comment"># 4-7. Далее как в предыдущем примере...</span>
+    </div>
+  </div>
+</div>
+
+<div class="card my-3" style="max-width: 800px">
+  <img src="../h1title12_colab.jpg" class="card-img-top" alt="RAG с созданием файла в Colab"
+  style="filter: grayscale(1)">
+  <div class="card-body">
+    <h3>12. RAG с созданием файла в Colab</h3>
+    <p class="card-text text-muted small">Создаём текстовый файл прямо в Colab и отвечаем на вопросы по его содержанию</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q langchain langchain-text-splitters langchain-huggingface langchain-community faiss-cpu transformers torch accelerate sentence-transformers<br><br>
+
+      <span class="sql-keyword">from</span> langchain_text_splitters <span class="sql-keyword">import</span> RecursiveCharacterTextSplitter<br>
+      <span class="sql-keyword">from</span> langchain_huggingface <span class="sql-keyword">import</span> HuggingFaceEmbeddings<br>
+      <span class="sql-keyword">from</span> langchain_community.vectorstores <span class="sql-keyword">import</span> FAISS<br>
+      <span class="sql-keyword">from</span> langchain_core.documents <span class="sql-keyword">import</span> Document<br>
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">import</span> torch<br><br>
+
+      <span class="sql-comment"># 1. Создаём файл прямо в Colab с большим русскоязычным текстом</span><br>
+      text = <span class="sql-string">"""Искусственный интеллект (ИИ) — это область компьютерных наук,</span><br>
+      <span class="sql-string">занимающаяся созданием систем, способных выполнять задачи,</span><br>
+      <span class="sql-string">требующие человеческого интеллекта. К таким задачам относятся</span><br>
+      <span class="sql-string">обучение, принятие решений, распознавание речи и образов,</span><br>
+      <span class="sql-string">понимание естественного языка и многое другое.</span><br>
+      <br>
+      <span class="sql-string">Современный ИИ развивается по нескольким ключевым направлениям:</span><br>
+      <span class="sql-string">1. Машинное обучение — создание алгоритмов, которые улучшаются</span><br>
+      <span class="sql-string">   с опытом и данными.</span><br>
+      <span class="sql-string">2. Глубокое обучение — использование многослойных нейронных сетей</span><br>
+      <span class="sql-string">   для обработки сложных данных.</span><br>
+      <span class="sql-string">3. Обработка естественного языка (NLP) — анализ и генерация текста.</span><br>
+      <span class="sql-string">4. Компьютерное зрение — интерпретация визуальной информации.</span><br>
+      <span class="sql-string">5. Робототехника — создание автономных физических систем.</span><br>
+      <br>
+      <span class="sql-string">RAG (Retrieval-Augmented Generation) — это современная техника,</span><br>
+      <span class="sql-string">которая сочетает поиск информации и генерацию текста.</span><br>
+      <span class="sql-string">Сначала система ищет релевантные документы в базе знаний,</span><br>
+      <span class="sql-string">а затем использует их для генерации ответа.</span><br>
+      <span class="sql-string">Это повышает точность и достоверность ответов LLM.</span><br>
+      <br>
+      <span class="sql-string">Google Colab — это бесплатная облачная среда для разработки</span><br>
+      <span class="sql-string">на Python с поддержкой GPU и TPU. Она позволяет запускать</span><br>
+      <span class="sql-string">код в браузере без необходимости установки ПО.</span><br>
+      <span class="sql-string">Colab активно используется для обучения нейронных сетей</span><br>
+      <span class="sql-string">и экспериментов с ИИ."""</span><br>
+      <br>
+      <span class="sql-comment"># Сохраняем текст в файл</span><br>
+      <span class="sql-keyword">with</span> open(<span class="sql-string">"my_text.txt"</span>, <span class="sql-string">"w"</span>, encoding=<span class="sql-string">"utf-8"</span>) <span class="sql-keyword">as</span> f:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;f.write(text)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Файл 'my_text.txt' создан!"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Читаем файл</span><br>
+      <span class="sql-keyword">with</span> open(<span class="sql-string">"my_text.txt"</span>, <span class="sql-string">"r"</span>, encoding=<span class="sql-string">"utf-8"</span>) <span class="sql-keyword">as</span> f:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;text = f.read()<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Загружено символов: {len(text)}"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Первые 200 символов:\n{text[:200]}..."</span>)<br><br>
+
+      <span class="sql-comment"># 3. Создаём документ для LangChain</span><br>
+      document = Document(page_content=text, metadata={<span class="sql-string">"source"</span>: <span class="sql-string">"my_text.txt"</span>})<br><br>
+
+      <span class="sql-comment"># 4. Разбиваем текст на чанки</span><br>
+      text_splitter = RecursiveCharacterTextSplitter(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_size=<span class="sql-number">300</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;chunk_overlap=<span class="sql-number">50</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;separators=[<span class="sql-string">"\n\n"</span>, <span class="sql-string">"\n"</span>, <span class="sql-string">"."</span>, <span class="sql-string">" "</span>],<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;length_function=len<br>
+      )<br>
+      docs = text_splitter.split_documents([document])<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"✂️ Создано {len(docs)} чанков"</span>)<br><br>
+
+      <span class="sql-comment"># 5. Создаём эмбеддинги и векторную базу</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🔨 Создаём эмбеддинги..."</span>)<br>
+      embeddings = HuggingFaceEmbeddings(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_name=<span class="sql-string">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model_kwargs={<span class="sql-string">'device'</span>: <span class="sql-string">'cuda'</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> <span class="sql-string">'cpu'</span>}<br>
+      )<br>
+      vectorstore = FAISS.from_documents(docs, embeddings)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Векторная база создана!"</span>)<br><br>
+
+      <span class="sql-comment"># 6. Создаём retriever</span><br>
+      retriever = vectorstore.as_retriever(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;search_kwargs={<span class="sql-string">"k"</span>: <span class="sql-number">2</span>}<br>
+      )<br><br>
+
+      <span class="sql-comment"># 7. Создаём LLM</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем модель..."</span>)<br>
+      generator = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"text-generation"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"google/flan-t5-small"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;max_new_tokens=<span class="sql-number">150</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;temperature=<span class="sql-number">0.3</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;device=<span class="sql-number">0</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> -<span class="sql-number">1</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 8. RAG функция</span><br>
+      <span class="sql-keyword">def</span> ask_question(query):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"\n🔍 Вопрос: '{query}'"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;retrieved_docs = retriever.invoke(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"📄 Найдено {len(retrieved_docs)} релевантных чанков"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;context = <span class="sql-string">"\n\n"</span>.join([doc.page_content <span class="sql-keyword">for</span> doc <span class="sql-keyword">in</span> retrieved_docs])<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;prompt = <span class="sql-string">f"""Ответь на вопрос на русском языке, используя только информацию из контекста.</span><br><br>
+      <span class="sql-string">Контекст:</span><br>
+      <span class="sql-string">{context}</span><br><br>
+      <span class="sql-string">Вопрос: {query}</span><br><br>
+      <span class="sql-string">Ответ:"""</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;result = generator(prompt, max_new_tokens=<span class="sql-number">150</span>)[<span class="sql-number">0</span>][<span class="sql-string">'generated_text'</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> result.startswith(prompt):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result[len(prompt):].strip()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer = result<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> answer, retrieved_docs<br><br>
+
+      <span class="sql-comment"># 9. Задаём вопросы</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"📖 RAG СИСТЕМА - ВОПРОСЫ ПО ТЕКСТУ"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br><br>
+
+      questions = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое искусственный интеллект?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Какие направления включает современный ИИ?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое RAG и для чего он используется?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Что такое Google Colab и какие возможности он предоставляет?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Чем машинное обучение отличается от глубокого обучения?"</span><br>
+      ]<br><br>
+
+      <span class="sql-keyword">for</span> i, query <span class="sql-keyword">in</span> enumerate(questions, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;answer, sources = ask_question(query)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"❓ ВОПРОС {i}: {query}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"💡 ОТВЕТ: {answer}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"📚 ИСТОЧНИКИ:"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> j, doc <span class="sql-keyword">in</span> enumerate(sources, <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {j}. {doc.page_content[:150]}..."</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"="</span>*<span class="sql-number">70</span>)
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 1: Анализ тональности -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>1. Анализ тональности (Sentiment Analysis)</h3>
+    <p class="card-text text-muted small">Определяет эмоциональную окраску текста: позитивная, негативная, нейтральная</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># Создаём пайплайн для анализа тональности</span><br>
+      classifier = pipeline(<span class="sql-string">"sentiment-analysis"</span>)<br><br>
+
+      <span class="sql-comment"># Анализируем текст</span><br>
+      result = classifier(<span class="sql-string">"Мне очень понравился этот фильм!"</span>)<br>
+      <span class="sql-keyword">print</span>(result)<br>
+      <span class="sql-comment"># [{'label': 'POSITIVE', 'score': 0.9998}]</span>
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 2: Классификация без обучения -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>2. Классификация без обучения (Zero-shot Classification)</h3>
+    <p class="card-text text-muted small">Классифицирует текст по вашим собственным категориям без дообучения модели</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># Создаём пайплайн для zero-shot классификации</span><br>
+      classifier = pipeline(<span class="sql-string">"zero-shot-classification"</span>)<br><br>
+
+      <span class="sql-comment"># Определяем свои категории</span><br>
+      candidate_labels = [<span class="sql-string">"технологии"</span>, <span class="sql-string">"спорт"</span>, <span class="sql-string">"политика"</span>, <span class="sql-string">"образование"</span>]<br><br>
+
+      <span class="sql-comment"># Классифицируем текст</span><br>
+      result = classifier(<span class="sql-string">"Google Colab позволяет бесплатно использовать GPU для обучения нейросетей"</span>, candidate_labels)<br>
+      <span class="sql-keyword">print</span>(result)<br>
+      <span class="sql-comment"># {'labels': ['технологии', 'образование', ...], 'scores': [0.95, 0.03, ...]}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 3: Извлечение именованных сущностей -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>3. Извлечение именованных сущностей (NER)</h3>
+    <p class="card-text text-muted small">Находит в тексте имена, организации, локации и другие сущности</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># Создаём пайплайн для NER</span><br>
+      ner = pipeline(<span class="sql-string">"ner"</span>, aggregation_strategy=<span class="sql-string">"simple"</span>)<br><br>
+
+      <span class="sql-comment"># Извлекаем сущности из текста</span><br>
+      result = ner(<span class="sql-string">"Стив Джобс основал Apple в Калифорнии в 1976 году"</span>)<br>
+      <span class="sql-keyword">print</span>(result)<br>
+      <span class="sql-comment"># [{'entity_group': 'PER', 'word': 'Стив Джобс'},</span><br>
+      <span class="sql-comment">#  {'entity_group': 'ORG', 'word': 'Apple'},</span><br>
+      <span class="sql-comment">#  {'entity_group': 'LOC', 'word': 'Калифорнии'}]</span>
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 4: Ответы на вопросы -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>4. Ответы на вопросы (Question Answering)</h3>
+    <p class="card-text text-muted small">Находит точный ответ на вопрос из предоставленного контекста</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># Создаём пайплайн для ответов на вопросы</span><br>
+      qa = pipeline(<span class="sql-string">"question-answering"</span>)<br><br>
+
+      <span class="sql-comment"># Задаём вопрос с контекстом</span><br>
+      result = qa(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;question=<span class="sql-string">"Что такое Google Colab?"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;context=<span class="sql-string">"Google Colab — это бесплатная облачная среда для работы с Jupyter Notebook, которая предоставляет GPU и TPU."</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(result)<br>
+      <span class="sql-comment"># {'answer': 'бесплатная облачная среда', 'score': 0.98}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 5в: Резюмирование с настройками -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>5в. Резюмирование с настройками</h3>
+    <p class="card-text text-muted small">Настраиваем параметры суммаризации для разных задач</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torch sentencepiece<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># 1. Загружаем модель</span><br>
+      summarizer = pipeline(<span class="sql-string">"summarization"</span>, model=<span class="sql-string">"facebook/bart-large-cnn"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Текст для теста</span><br>
+      text = <span class="sql-string">"""Искусственный интеллект — это область компьютерных наук,</span><br>
+      <span class="sql-string">которая занимается созданием систем, способных выполнять задачи,</span><br>
+      <span class="sql-string">требующие человеческого интеллекта. Современный ИИ развивается</span><br>
+      <span class="sql-string">по нескольким ключевым направлениям: машинное обучение,</span><br>
+      <span class="sql-string">глубокое обучение, обработка естественного языка и компьютерное зрение.</span><br>
+      <span class="sql-string">Машинное обучение позволяет системам учиться на данных без</span><br>
+      <span class="sql-string">явного программирования. Глубокое обучение использует многослойные</span><br>
+      <span class="sql-string">нейронные сети для обработки сложных данных, таких как изображения и текст.</span><br>
+      <span class="sql-string">Обработка естественного языка даёт возможность компьютерам понимать</span><br>
+      <span class="sql-string">и генерировать человеческую речь. Компьютерное зрение позволяет</span><br>
+      <span class="sql-string">машинам интерпретировать и анализировать визуальную информацию."""</span><br><br>
+
+      <span class="sql-comment"># 3. Разные варианты суммаризации</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📄 Оригинальный текст:"</span>)<br>
+      <span class="sql-keyword">print</span>(text[:<span class="sql-number">200</span>] + <span class="sql-string">"..."</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n"</span> + <span class="sql-string">"="</span>*<span class="sql-number">60</span>)<br><br>
+
+      <span class="sql-comment"># Вариант 1: Короткое резюме</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n✂️ Короткое резюме (max=50, min=10):"</span>)<br>
+      result = summarizer(text, max_length=<span class="sql-number">50</span>, min_length=<span class="sql-number">10</span>)<br>
+      <span class="sql-keyword">print</span>(result[<span class="sql-number">0</span>][<span class="sql-string">'summary_text'</span>])<br><br>
+
+      <span class="sql-comment"># Вариант 2: Длинное резюме</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n✂️ Длинное резюме (max=150, min=50):"</span>)<br>
+      result = summarizer(text, max_length=<span class="sql-number">150</span>, min_length=<span class="sql-number">50</span>)<br>
+      <span class="sql-keyword">print</span>(result[<span class="sql-number">0</span>][<span class="sql-string">'summary_text'</span>])<br><br>
+
+      <span class="sql-comment"># Вариант 3: С температурой (более креативное)</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n✂️ Креативное резюме (temperature=0.9):"</span>)<br>
+      result = summarizer(text, max_length=<span class="sql-number">80</span>, min_length=<span class="sql-number">20</span>, temperature=<span class="sql-number">0.9</span>)<br>
+      <span class="sql-keyword">print</span>(result[<span class="sql-number">0</span>][<span class="sql-string">'summary_text'</span>])
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 6а: Заполнение пропусков (русская модель) -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>6а. Заполнение пропусков (русская модель)</h3>
+    <p class="card-text text-muted small">Предсказываем пропущенное слово в русских предложениях</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torch<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br><br>
+
+      <span class="sql-comment"># 1. Загружаем русскоязычную модель</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем русскоязычную модель..."</span>)<br>
+      unmasker = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"fill-mask"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"DeepPavlov/rubert-base-cased"</span>  <span class="sql-comment"># Русская модель</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Заполняем пропуски [MASK]</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📝 Примеры на русском:"</span>)<br>
+      <br>
+      sentences = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Искусственный интеллект [MASK] будущее."</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Москва — [MASK] столица России."</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Google Colab предоставляет доступ к [MASK]."</span><br>
+      ]<br><br>
+
+      <span class="sql-keyword">for</span> sentence <span class="sql-keyword">in</span> sentences:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"\n🔍 {sentence}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;results = unmasker(sentence)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> i, result <span class="sql-keyword">in</span> enumerate(results[:<span class="sql-number">3</span>], <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"   {i}. {result['token_str']} (вероятность: {result['score']:.2%})"</span>)
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 7а: Перевод через M2M-100 (гарантированный перевод) -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>7а. Перевод через M2M-100</h3>
+    <p class="card-text text-muted small">Мультиязычная модель с явным указанием языка</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers sentencepiece torch<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> AutoTokenizer, AutoModelForSeq2SeqLM<br>
+      <span class="sql-keyword">import</span> torch<br><br>
+
+      <span class="sql-comment"># 1. Загружаем модель M2M-100</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем M2M-100..."</span>)<br>
+      model_name = <span class="sql-string">"facebook/m2m100_418M"</span><br>
+      tokenizer = AutoTokenizer.from_pretrained(model_name)<br>
+      model = AutoModelForSeq2SeqLM.from_pretrained(model_name)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Функция перевода с явным указанием языка</span><br>
+      <span class="sql-keyword">def</span> translate_m2m(text, src_lang, tgt_lang):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Устанавливаем исходный язык</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;tokenizer.src_lang = src_lang<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;inputs = tokenizer(text, return_tensors=<span class="sql-string">"pt"</span>, truncation=<span class="sql-keyword">True</span>, max_length=<span class="sql-number">512</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment"># Генерируем с указанием целевого языка</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;with torch.no_grad():<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputs = model.generate(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**inputs,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forced_bos_token_id=tokenizer.lang_code_to_id[tgt_lang],<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_new_tokens=<span class="sql-number">100</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_beams=<span class="sql-number">4</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> tokenizer.decode(outputs[<span class="sql-number">0</span>], skip_special_tokens=<span class="sql-keyword">True</span>)<br><br>
+
+      <span class="sql-comment"># 3. Тестируем перевод</span><br>
+      text = <span class="sql-string">"Google Colab is a free cloud-based platform for machine learning."</span><br>
+      result = translate_m2m(text, <span class="sql-string">"en"</span>, <span class="sql-string">"ru"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"\n📝 Английский: {text}"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"🇷🇺 Русский: {result}"</span>)<br><br>
+
+      <span class="sql-comment"># Проверяем обратный перевод</span><br>
+      text_ru = <span class="sql-string">"Искусственный интеллект меняет мир."</span><br>
+      result_back = translate_m2m(text_ru, <span class="sql-string">"ru"</span>, <span class="sql-string">"en"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"\n📝 Русский: {text_ru}"</span>)<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">f"🇬🇧 Английский: {result_back}"</span>)
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 8: Классификация изображений -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>8. Классификация изображений</h3>
+    <p class="card-text text-muted small">Определяем, что изображено на картинке, с помощью предобученной модели</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers torchvision requests pillow<br><br>
+
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">from</span> PIL <span class="sql-keyword">import</span> Image<br>
+      <span class="sql-keyword">import</span> requests<br>
+      <span class="sql-keyword">from</span> io <span class="sql-keyword">import</span> BytesIO<br><br>
+
+      <span class="sql-comment"># 1. Создаём пайплайн для классификации изображений</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"🤖 Загружаем модель для классификации..."</span>)<br>
+      classifier = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"image-classification"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"google/vit-base-patch16-224"</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># 2. Загружаем изображение по URL</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📥 Загружаем изображение..."</span>)<br>
+      url = <span class="sql-string">"https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/beignets-task-guide.png"</span><br>
+      response = requests.get(url)<br>
+      image = Image.open(BytesIO(response.content))<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Изображение загружено!"</span>)<br><br>
+
+      <span class="sql-comment"># 3. Классифицируем изображение</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🔍 Классифицируем изображение..."</span>)<br>
+      results = classifier(image)<br><br>
+
+      <span class="sql-comment"># 4. Выводим результаты</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n📊 Результаты классификации:"</span>)<br>
+      <span class="sql-keyword">for</span> i, result <span class="sql-keyword">in</span> enumerate(results[:<span class="sql-number">5</span>], <span class="sql-number">1</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"{i}. {result['label']}: {result['score']:.2%}"</span>)
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 9г: Полный вариант ASR -->
+<div class="card my-3" style="max-width: 800px">
+  <div class="card-body">
+    <h3>9г. Полный вариант распознавания речи</h3>
+    <p class="card-text text-muted small">Загружаем аудио из разных источников</p>
+
+    <div class="code-block">
+      <span class="sql-keyword">!pip</span> install -q transformers datasets torchaudio librosa requests soundfile<br><br>
+
+      <span class="sql-keyword">import</span> torch<br>
+      <span class="sql-keyword">import</span> requests<br>
+      <span class="sql-keyword">import</span> librosa<br>
+      <span class="sql-keyword">from</span> transformers <span class="sql-keyword">import</span> pipeline<br>
+      <span class="sql-keyword">from</span> datasets <span class="sql-keyword">import</span> load_dataset<br>
+      <span class="sql-keyword">from</span> io <span class="sql-keyword">import</span> BytesIO<br><br>
+
+      <span class="sql-comment"># Функция для загрузки аудио</span><br>
+      <span class="sql-keyword">def</span> load_audio_from_url(url, target_sr=<span class="sql-number">16000</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">try</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = requests.get(url, timeout=<span class="sql-number">10</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> response.status_code == <span class="sql-number">200</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio, sr = librosa.load(BytesIO(response.content), sr=target_sr)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> audio, sr<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">except</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">return</span> <span class="sql-keyword">None</span>, <span class="sql-keyword">None</span><br><br>
+
+      <span class="sql-comment"># Загружаем аудио</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"📥 Загружаем аудио..."</span>)<br>
+      audio_array, samplerate = <span class="sql-keyword">None</span>, <span class="sql-keyword">None</span><br><br>
+
+      <span class="sql-comment"># Пробуем датасет</span><br>
+      <span class="sql-keyword">try</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;dataset = load_dataset(<span class="sql-string">"hf-internal-testing/librispeech_asr_demo"</span>, split=<span class="sql-string">"validation"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;sample = dataset[<span class="sql-number">0</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;audio_array = sample[<span class="sql-string">"audio"</span>][<span class="sql-string">"array"</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;samplerate = sample[<span class="sql-string">"audio"</span>][<span class="sql-string">"sampling_rate"</span>]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"✅ Аудио из датасета"</span>)<br>
+      <span class="sql-keyword">except</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"🔄 Пробуем загрузить по ссылке..."</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;urls = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"https://www.voiptroubleshooter.com/open_speech/american/OSR_us_000_0010_8k.wav"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"https://www.voiptroubleshooter.com/open_speech/russian/RUS_000_001_0001.wav"</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">for</span> url <span class="sql-keyword">in</span> urls:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio_array, samplerate = load_audio_from_url(url)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">if</span> audio_array <span class="sql-keyword">is</span> <span class="sql-keyword">not</span> <span class="sql-keyword">None</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"✅ Аудио загружено: {url}"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">break</span><br><br>
+
+      <span class="sql-comment"># Если ничего не загрузилось, генерируем сигнал</span><br>
+      <span class="sql-keyword">if</span> audio_array <span class="sql-keyword">is</span> <span class="sql-keyword">None</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"🔊 Генерируем тестовый сигнал"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;samplerate = <span class="sql-number">16000</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;duration = <span class="sql-number">2</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;t = torch.linspace(<span class="sql-number">0</span>, duration, int(samplerate * duration))<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;audio_array = torch.sin(<span class="sql-number">2</span> * torch.pi * <span class="sql-number">440</span> * t).numpy()<br><br>
+
+      <span class="sql-comment"># Создаём пайплайн</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🤖 Загружаем модель..."</span>)<br>
+      asr = pipeline(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"automatic-speech-recognition"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;model=<span class="sql-string">"openai/whisper-small"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;device=<span class="sql-number">0</span> <span class="sql-keyword">if</span> torch.cuda.is_available() <span class="sql-keyword">else</span> -<span class="sql-number">1</span><br>
+      )<br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"✅ Модель загружена!"</span>)<br><br>
+
+      <span class="sql-comment"># Распознаём</span><br>
+      <span class="sql-keyword">print</span>(<span class="sql-string">"\n🎤 Распознаём речь..."</span>)<br>
+      <span class="sql-keyword">try</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;result = asr(audio_array, generate_kwargs={<span class="sql-string">"language"</span>: <span class="sql-string">"english"</span>})<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">"\n📝 Распознанный текст:"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(result[<span class="sql-string">'text'</span>])<br>
+      <span class="sql-keyword">except</span> <span class="sql-keyword">Exception</span> <span class="sql-keyword">as</span> e:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">print</span>(<span class="sql-string">f"❌ Ошибка: {e}"</span>)
+    </div>
+  </div>
+</div>
+
+
+
+     
+
+      <div class="card mb-1" style="max-width: 800px">
+        <img
+          src="../quiz.avif"
+          class="card-img-top"
+          style="filter: grayscale(1)"
+          alt="quiz"
+        />
+        <div class="card-body">
+          <div class="container" id="formcontainer" style="display: none">
+            <form>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                  Email может быть фиктивный. Пароль НЕ требуется
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="user" class="form-label">ФИО Группа</label>
+                <input type="text" class="form-control" id="userInput" />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                id="loginbutton"
+              >
+                Сохранить
+              </button>
+            </form>
+          </div>
+          <div
+            class="container my-1 d-flex flex-wrap"
+            id="quizbuttonslist"
+          ></div>
+          <div class="container" id="quizcontainer" style="display: none">
+            <div class="card" style="min-height: 100px">
+              <div class="card-header" id="quizHeader"></div>
+              <div class="card-body">
+                <h5 class="card-title fade-in-div" id="quizTitle">
+                  Выберите тестовое задание
+                </h5>
+                <div class="card-text fade-in-div" id="quizString"></div>
+                <form id="quizform">
+                  <div id="quizChecks" class="m-1 p-1"></div>
+                  <div id="quizHint" class="m-1 p-1"></div>
+                  <div
+                    class="container p-1 m-1"
+                    id="accountingblock"
+                    style="display: none"
+                  ></div>
+                  <div id="quizformdataarray"></div>
+                  <div id="usercalculations" style="display: none">
+                    <label
+                      for="inputFormula"
+                      class="col-form-label"
+                      id="resformula"
+                      >Калькулятор</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="inputFormula"
+                    />
+                  </div>
+                  <textarea
+                    class="form-control my-3"
+                    id="userComment"
+                    rows="2"
+                    style="display: none"
+                  >
+Мой комментарий</textarea
+                  >
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary m-3"
+                    id="answerButton"
+                    style="display: none"
+                  >
+                    Ответить
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Подключение скриптов (аналогично оригиналу) -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+  </body>
+</html>
