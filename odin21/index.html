@@ -1,0 +1,538 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>История и суть текстовых нейросетей</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../dist/original.css"
+      rel="stylesheet"      
+    />
+  </head>
+
+  <style>
+    .q-card {
+      border-radius: 8px;
+      min-width: 127px;
+      box-shadow: 0 1px 2px #131d3129;
+      padding: auto;
+      background: #fff;
+      padding: 14px;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <body>
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+
+      <!-- ==================== ЛЕКЦИЯ ==================== -->
+      <h2 class="my-4">Лекция: История появления и суть текстовых нейросетей</h2>
+
+      <!-- Карточка 1.1: От статистики к нейросетям -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture1"> 
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="От статистики к нейросетям"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.1. От статистических моделей к нейросетевым: эволюция обработки текста
+          </h3>
+          <div>
+            <p>
+              <strong>Текстовые нейросети</strong> — это класс моделей машинного обучения, предназначенных для понимания, генерации и анализа естественного языка. Их история насчитывает более 70 лет и прошла путь от простых статистических моделей до современных больших языковых моделей (LLM).
+            </p>
+            <p><strong>Этапы развития обработки естественного языка (NLP):</strong></p>
+            <ul>
+              <li><strong>1950–1980 — Эра правил и статистики:</strong> первые системы машинного перевода использовали словари и грамматические правила. В 1970-х появились статистические методы (n-граммы, байесовские модели).</li>
+              <li><strong>1980–2000 — Машинное обучение:</strong> применение алгоритмов машинного обучения (SVM, наивный Байес) для классификации текстов, распознавания именованных сущностей.</li>
+              <li><strong>2000–2010 — Нейросетевые подходы:</strong> появление нейросетей для обработки текста (RNN, LSTM, word embeddings).</li>
+              <li><strong>2017–н.в. — Эра трансформеров:</strong> революция с появлением механизма внимания и архитектуры Transformer, которая привела к созданию GPT, BERT и других LLM.</li>
+            </ul>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Год</th><th>Открытие/Работа</th><th>Вклад в текстовые нейросети</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1954</td><td>Система машинного перевода IBM</td><td>Первая крупная система для перевода текста</td></tr>
+                <tr><td>2001</td><td>Word2Vec (Томас Миколов)</td><td>Векторные представления слов — основа для нейросетей</td></tr>
+                <tr><td>2014</td><td>Sequence-to-Sequence</td><td>Архитектура для машинного перевода</td></tr>
+                <tr><td>2017</td><td>Transformer (Google)</td><td>Революционная архитектура — основа всех современных LLM</td></tr>
+                <tr><td>2018</td><td>GPT (OpenAI), BERT (Google)</td><td>Первые большие языковые модели</td></tr>
+              </tbody>
+            </table>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Ключевая идея: эволюция текстовых нейросетей — это путь от "правил" к "обучению на данных" и от "специализированных моделей" к "универсальным" (LLM).</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.2: Революция трансформеров -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Революция трансформеров"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.2. Революция Transformer: основа современных текстовых нейросетей
+          </h3>
+          <div>
+            <p>
+              <strong>Архитектура Transformer</strong>, предложенная в работе Google "Attention is All You Need" (2017), произвела революцию в обработке естественного языка. Она полностью изменила подход к созданию текстовых нейросетей.
+            </p>
+            <p><strong>Ключевые инновации Transformer:</strong></p>
+            <ul>
+              <li><strong>Механизм внимания (Self-Attention):</strong> позволяет модели фокусироваться на важных частях текста, анализируя связи между всеми словами в предложении. Это преодолело ограничения RNN (проблема длинных зависимостей).</li>
+              <li><strong>Параллельная обработка:</strong> в отличие от RNN, которые обрабатывают слова последовательно, Transformer обрабатывает весь текст одновременно, что значительно ускоряет обучение.</li>
+              <li><strong>Многослойная архитектура:</strong> стек слоев внимания позволяет извлекать все более сложные закономерности из текста.</li>
+              <li><strong>Трансферное обучение:</strong> возможность предобучать модель на огромных корпусах текста и затем дообучать под конкретную задачу (fine-tuning).</li>
+            </ul>
+            <p><strong>Как работает механизм внимания:</strong></p>
+            <div class="border p-2 bg-light mb-2" style="font-size: 0.9em">
+              <strong>Пример:</strong> в предложении "Кот, который сидел на ковре, был пушистым" модель понимает, что "кот" и "пушистым" связаны, а "ковер" — это фон.
+            </div>
+            <p><strong>Наследие Transformer:</strong></p>
+            <ul>
+              <li><strong>GPT (Generative Pre-trained Transformer):</strong> авторегрессионные модели для генерации текста (OpenAI).</li>
+              <li><strong>BERT (Bidirectional Encoder Representations from Transformers):</strong> модели для понимания текста (Google).</li>
+              <li><strong>Все современные LLM (DeepSeek, GigaChat, Claude, Gemini)</strong> используют эту архитектуру.</li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>🌟 Суть трансформера одной фразой:</strong> механизм внимания позволяет модели видеть все слова в тексте одновременно и понимать их взаимосвязи, как шахматист видит всю доску.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.3: От GPT-1 до современных LLM -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Эволюция LLM"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.3. От GPT-1 до современных LLM: эволюция больших языковых моделей
+          </h3>
+          <div>
+            <p>
+              <strong>Большие языковые модели (LLM)</strong> — это современное воплощение текстовых нейросетей, достигшее впечатляющих успехов благодаря масштабу данных и вычислительных мощностей.
+            </p>
+            <p><strong>Эволюция ключевых LLM:</strong></p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Модель</th><th>Год</th><th>Количество параметров</th><th>Ключевое достижение</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>GPT-1</strong> (OpenAI)</td>
+                  <td>2018</td>
+                  <td>117 млн</td>
+                  <td>Показал эффективность генеративного обучения без разметки</td>
+                </tr>
+                <tr>
+                  <td><strong>BERT</strong> (Google)</td>
+                  <td>2018</td>
+                  <td>340 млн</td>
+                  <td>Революция в понимании текста (вопросы-ответы, NER)</td>
+                </tr>
+                <tr>
+                  <td><strong>GPT-3</strong> (OpenAI)</td>
+                  <td>2020</td>
+                  <td>175 млрд</td>
+                  <td>Показал возможности few-shot обучения, генерация текста</td>
+                </tr>
+                <tr>
+                  <td><strong>ChatGPT</strong> (OpenAI)</td>
+                  <td>2022</td>
+                  <td>Тот же GPT-3.5</td>
+                  <td>Массовый доступ к LLM, революция в использовании AI</td>
+                </tr>
+                <tr>
+                  <td><strong>GPT-4</strong> (OpenAI)</td>
+                  <td>2023</td>
+                  <td>~1.7 трлн (оценка)</td>
+                  <td>Мультимодальность, улучшенные рассуждения</td>
+                </tr>
+                <tr>
+                  <td><strong>DeepSeek-V3</strong></td>
+                  <td>2024</td>
+                  <td>671 млрд</td>
+                  <td>Открытая модель, сравнимая с GPT-4</td>
+                </tr>
+                <tr>
+                  <td><strong>GigaChat</strong> (Сбер)</td>
+                  <td>2023</td>
+                  <td>До 100+ млрд</td>
+                  <td>Российская мультимодальная LLM</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Ключевые тренды эволюции:</strong></p>
+            <ul>
+              <li><strong>Рост размера:</strong> от сотен миллионов до сотен миллиардов параметров.</li>
+              <li><strong>Качество рассуждений:</strong> Chain-of-Thought, Self-Consistency для решения сложных задач.</li>
+              <li><strong>Мультимодальность:</strong> обработка не только текста, но и изображений, аудио, видео.</li>
+              <li><strong>Длинный контекст:</strong> от 512 токенов (GPT-1) до 1 млн токенов (DeepSeek).</li>
+              <li><strong>Эффективность:</strong> дистилляция, квантизация, более экономичные архитектуры (Mamba, RWKV).</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: LLM не "думают" как люди, а являются сложными статистическими моделями, генерирующими текст на основе вероятностных паттернов.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ПРАКТИКА ==================== -->
+      <h2 class="my-4">Практика: Работа с текстовыми нейросетями</h2>
+
+      <!-- Карточка 2.1: Сравнение моделей -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Сравнение моделей"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.1. Практика: сравнение разных поколений LLM на одном запросе
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> отправить одинаковый запрос разным моделям (или разным версиям одной модели) и проанализировать эволюцию качества ответов.
+            </p>
+            <p><strong>Доступные модели для сравнения:</strong></p>
+            <ul>
+              <li><strong>DeepSeek-V3:</strong> современная модель с открытым доступом.</li>
+              <li><strong>GigaChat:</strong> российская мультимодальная модель.</li>
+              <li><strong>Более старые модели:</strong> если есть доступ к GPT-3 или более ранним версиям.</li>
+            </ul>
+            <p><strong>Тестовый запрос:</strong></p>
+            <div class="border p-2 bg-light mb-2" style="font-family: monospace; font-size: 0.9em">
+              "Объясни, что такое квантовые вычисления, простыми словами, как будто я школьник. Приведи аналогии и примеры."
+            </div>
+            <p><strong>Критерии анализа ответов:</strong></p>
+            <ul>
+              <li><strong>Понимание запроса:</strong> насколько точно модель поняла задачу.</li>
+              <li><strong>Качество объяснения:</strong> насколько понятно и доступно объяснение.</li>
+              <li><strong>Глубина:</strong> достаточно ли деталей и примеров.</li>
+              <li><strong>Стиль:</strong> насколько естественно звучит текст.</li>
+              <li><strong>Объем:</strong> оптимальная длина ответа (не слишком кратко и не слишком длинно).</li>
+            </ul>
+            <p><strong>План действий:</strong></p>
+            <ol>
+              <li>Отправьте запрос в DeepSeek и GigaChat.</li>
+              <li>Сравните полученные ответы по указанным критериям.</li>
+              <li>Отметьте, какая модель дала более понятное и качественное объяснение.</li>
+              <li>Сделайте вывод о прогрессе в области LLM за последние годы.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы увидите, как современные модели справляются с задачей, требующей упрощения сложной темы, и как отличаются их подходы.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 2.2: Анализ архитектуры -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Анализ архитектуры"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.2. Практика: анализ механизма внимания на примере текста
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> визуально или концептуально исследовать, как работает механизм внимания в Transformer, используя готовые инструменты или визуализации.
+            </p>
+            <p><strong>Инструменты для визуализации внимания:</strong></p>
+            <ul>
+              <li><strong>BertViz:</strong> инструмент для визуализации внимания в BERT (можно использовать онлайн-демо).</li>
+              <li><strong>Hugging Face Transformers:</strong> возможность получить веса внимания из модели и отобразить их в виде тепловой карты.</li>
+              <li><strong>Интерактивные демонстрации:</strong> поищите в интернете "Attention visualization demo".</li>
+            </ul>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li>Выберите предложение для анализа, например: "Кот, который сидел на ковре, был пушистым".</li>
+              <li>Используйте один из инструментов для визуализации внимания (или найдите готовую картинку в интернете).</li>
+              <li>Изучите, как слои внимания связывают разные слова в предложении.</li>
+              <li>Обратите внимание: на ранних слоях модель анализирует локальные связи (кот-сидел), на поздних — более глобальные (кот-пушистым).</li>
+              <li>Попробуйте сравнить визуализации для разных моделей (BERT и GPT).</li>
+            </ol>
+            <p><strong>Пример анализа:</strong></p>
+            <div class="border p-2 bg-light mb-2" style="font-size: 0.9em">
+              <strong>Наблюдение:</strong> в модели BERT внимание сильнее всего между "кот" и "пушистым", что показывает, как модель понимает семантическую связь между подлежащим и определением.
+            </div>
+            <p>
+              <strong>Результат:</strong> вы поймете, как работает один из ключевых механизмов Transformer, и почему он так эффективен для обработки текста.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: поищите видео или статьи с визуализациями внимания — это поможет лучше понять концепцию.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 2.3: Эксперименты с рассуждениями -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Эксперименты с рассуждениями"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.3. Практика: эксперименты с логическими рассуждениями в LLM
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> протестировать способность современных LLM к логическим рассуждениям и решению сложных задач, используя Chain-of-Thought (цепочка рассуждений).
+            </p>
+            <p><strong>Тестовые задачи (от простых к сложным):</strong></p>
+            <ul>
+              <li><strong>Простая логика:</strong> "У Маши 5 яблок, она отдала 2 Пете, потом купила еще 3. Сколько яблок у Маши?"</li>
+              <li><strong>Цепочка событий:</strong> "В комнате зажгли свет. Через 5 минут его потушили. Еще через 2 минуты снова зажгли. Горел свет в комнате суммарно 5 минут. Сколько времени прошло?"</li>
+              <li><strong>Пространственное мышление:</strong> "Куб с ребром 3 см разрезали на кубики с ребром 1 см. Сколько кубиков получилось?"</li>
+              <li><strong>Абстрактные рассуждения:</strong> "Все кошки любят рыбу. Мурка — кошка. Любит ли Мурка рыбу?"</li>
+            </ul>
+            <p><strong>План эксперимента:</strong></p>
+            <ol>
+              <li>Отправьте каждую задачу в DeepSeek в обычном режиме.</li>
+              <li>Затем отправьте ту же задачу, добавив инструкцию: "Покажи ход рассуждений шаг за шагом".</li>
+              <li>Сравните ответы: с цепочкой рассуждений и без нее.</li>
+              <li>Попробуйте усложнить задачи и посмотреть, где модель начинает ошибаться.</li>
+            </ol>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>⚡ Результат:</strong> вы увидите, как Chain-of-Thought улучшает точность ответов на сложные логические задачи, и поймете эволюцию возможностей рассуждений в LLM от GPT-3 к современным моделям.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== САМОСТОЯТЕЛЬНАЯ РАБОТА ==================== 
+      <h2 class="my-4">Самостоятельная работа: Изучение эволюции и практика</h2>-->
+
+      <!-- Карточка 3.1: Эволюция внимания -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Эволюция внимания"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.1. Изучение эволюции механизма внимания: от RNN к Transformer
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> самостоятельно изучить, как эволюционировал подход к обработке последовательностей в NLP — от RNN к механизму внимания и Transformer.
+            </p>
+            <p><strong>План изучения:</strong></p>
+            <ol>
+              <li><strong>RNN (Рекуррентные сети):</strong>
+                <ul>
+                  <li>Прочитайте о принципе работы RNN, LSTM, GRU.</li>
+                  <li>Поймите проблему долгосрочных зависимостей (vanishing gradients).</li>
+                  <li>Ответьте на вопрос: "Как RNN обрабатывает текст и почему это неэффективно?"</li>
+                </ul>
+              </li>
+              <li><strong>Механизм внимания:</strong>
+                <ul>
+                  <li>Изучите статью "Neural Machine Translation by Jointly Learning to Align and Translate" (2014).</li>
+                  <li>Поймите, как внимание позволяет модели "смотреть" на разные части входного текста при генерации.</li>
+                  <li>Ответьте на вопрос: "Какое ограничение RNN преодолевает механизм внимания?"</li>
+                </ul>
+              </li>
+              <li><strong>Transformer:</strong>
+                <ul>
+                  <li>Изучите статью "Attention is All You Need" (2017).</li>
+                  <li>Поймите ключевые компоненты: Multi-Head Attention, Positional Encoding, Feed-Forward Networks.</li>
+                  <li>Ответьте на вопрос: "Почему Transformer стал революцией в NLP?"</li>
+                </ul>
+              </li>
+            </ol>
+            <p><strong>Результат:</strong> вы составите хронологию развития ключевых архитектур для обработки текста и поймете, почему Transformer стал доминирующей архитектурой.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.2: Сравнение архитектур -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Сравнение архитектур"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.2. Сравнение архитектур: Encoder-Decoder vs Decoder-only
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> провести сравнительный анализ двух основных архитектурных подходов в современных LLM и понять, какой из них для каких задач лучше подходит.
+            </p>
+            <p><strong>Архитектуры для сравнения:</strong></p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Архитектура</th><th>Представители</th><th>Применение</th><th>Принцип работы</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Encoder-Decoder</strong></td>
+                  <td>BERT, T5, BART</td>
+                  <td>Понимание текста, классификация, QA, суммаризация</td>
+                  <td>Двустороннее понимание контекста (би-направленное)</td>
+                </tr>
+                <tr>
+                  <td><strong>Decoder-only</strong></td>
+                  <td>GPT, DeepSeek, GigaChat, LLaMA</td>
+                  <td>Генерация текста, диалоги, творчество</td>
+                  <td>Авторегрессивная генерация (слева направо)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li><strong>Тест на понимание:</strong> попросите модель выполнить задачу на классификацию текста (например, определить тональность отзыва). Сравните, как справляются модели двух типов.</li>
+              <li><strong>Тест на генерацию:</strong> попросите написать продолжение текста. Сравните результаты.</li>
+              <li><strong>Тест на суммаризацию:</strong> попросите кратко изложить содержание новости. Сравните.</li>
+              <li>Сделайте вывод: для каких задач лучше использовать Encoder-Decoder, а для каких — Decoder-only.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы поймете, как выбор архитектуры влияет на возможности модели, и сможете осознанно выбирать инструмент под свою задачу.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: современные модели (например, GigaChat) могут использовать гибридные подходы или быть расширенными для мультимодальности.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.3: История развития LLM -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="История развития LLM"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.3. Самостоятельное исследование истории развития LLM
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> углубиться в историю развития больших языковых моделей, изучив ключевые статьи, модели и вехи, которые привели к современному состоянию.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li><strong>Хронология:</strong> создайте временную шкалу ключевых моделей с 2017 по 2026 год. Укажите для каждой: название, разработчика, количество параметров, основные достижения.</li>
+              <li><strong>Ключевые статьи:</strong> найдите и кратко законспектируйте 3 ключевые статьи:
+                <ul>
+                  <li>"Attention is All You Need" (2017) — основа Transformer.</li>
+                  <li>"BERT: Pre-training of Deep Bidirectional Transformers" (2018).</li>
+                  <li>"Language Models are Few-Shot Learners" (GPT-3, 2020).</li>
+                </ul>
+              </li>
+              <li><strong>Эволюция размера:</strong> постройте график роста количества параметров в LLM от GPT-1 до современных моделей.</li>
+              <li><strong>Тренды:</strong> выделите 5 ключевых трендов, которые определили развитие LLM (масштабирование, мультимодальность, открытость, эффективность, рассуждения).</li>
+            </ol>
+            <p><strong>Формат отчета:</strong></p>
+            <ul>
+              <li>Это может быть презентация, документ Google Docs или заметки в Notion.</li>
+              <li>Включите визуальные элементы (графики, таблицы, схемы).</li>
+              <li>Сделайте прогноз: как, по вашему мнению, будут развиваться LLM в ближайшие 2-3 года.</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы получите глубокое понимание истории и эволюции текстовых нейросетей, что поможет вам лучше ориентироваться в современном ландшафте AI-инструментов.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Резюме: история текстовых нейросетей — это захватывающий путь от простых правил до сверхсложных моделей, способных рассуждать, творить и решать задачи наравне с человеком. Понимание этой эволюции — ключ к эффективному использованию современных AI-инструментов.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

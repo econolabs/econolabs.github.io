@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My First Web Page</title>
+    <title>Введение в ИИ и обзор нейросетей</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../dist/original.css"
+      rel="stylesheet"      
+    />
   </head>
 
   <style>
@@ -15,1030 +24,876 @@
       background: #fff;
       padding: 14px;
       max-width: 800px;
-      margin-bottom: 2rem; 
+      margin-bottom: 2rem;
     }
   </style>
 
   <body>
-    <div class="q-card my-3">
-     <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Машинное обучение"
-          loading="lazy"
-        />
-      </p>
-      <p>Тема 1. Что такое искусственный интеллект (ИИ) простыми словами</p>
-      <div class="card-body">
-        <div>
-          <p>
-            <strong>Искусственный интеллект (ИИ)</strong> — это способность
-            компьютера выполнять задачи, которые обычно требуют человеческого
-            интеллекта: распознавание образов, принятие решений, понимание
-            языка, творчество.
-          </p>
-          <p><strong>Важные понятия:</strong></p>
-          <ul>
-            <li>
-              <strong>Узкий ИИ (Weak AI)</strong> — решает одну конкретную
-              задачу (распознавание лиц, генерация текста, игра в шахматы). Вся
-              современная ИИ — узкая.
-            </li>
-            <li>
-              <strong>Общий ИИ (AGI)</strong> — гипотетическая машина, которая
-              может выполнять любую интеллектуальную задачу как человек. Пока не
-              существует.
-            </li>
-            <li>
-              <strong>Супер-ИИ</strong> — превосходит человеческий интеллект.
-              Пока из области фантастики.
-            </li>
-          </ul>
-          <p>
-            <strong>ИИ — это не магия.</strong> Это математика, статистика и
-            огромные объёмы данных. Нейросеть не «думает», а вычисляет
-            вероятности и паттерны.
-          </p>
-          <p>
-            <strong>Бытовые примеры ИИ вокруг нас:</strong> рекомендации
-            YouTube/Netflix, фильтры спама в почте, голосовые помощники (Алиса,
-            Siri), автозаполнение в поиске Google, распознавание лиц в телефоне.
-          </p>
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
         </div>
-        <div class="mt-2 text-muted small">
-          🤖 Вводная тема — фундамент для всего курса
-        </div>
-      </div>
-    </div>
-    <div class="q-card my-3" >
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Машинное обучение"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 2. Машинное обучение (ML) — как ИИ учится на данных
-        </h3>
-        <div>
-          <p>
-            <strong>Машинное обучение (Machine Learning, ML)</strong> — это
-            подраздел ИИ, где алгоритмы учатся на данных без явного
-            программирования правил.
-          </p>
-          <p><strong>Три типа обучения:</strong></p>
-          <ul>
-            <li>
-              <strong>Обучение с учителем (Supervised Learning)</strong> —
-              алгоритму показывают «вопрос-ответ» (размеченные данные). Пример:
-              фото кошек с подписью «кошка» и фото собак с подписью «собака».
-              Изучив, модель сама определяет новых животных.
-            </li>
-            <li>
-              <strong>Обучение без учителя (Unsupervised Learning)</strong> —
-              данные не размечены, алгоритм сам ищет скрытые закономерности и
-              группы (кластеры). Пример: сегментация покупателей в
-              интернет-магазине без меток «богатый/бедный».
-            </li>
-            <li>
-              <strong>Обучение с подкреплением (Reinforcement Learning)</strong>
-              — алгоритм учится методом проб и ошибок, получая «награду» за
-              правильные действия. Пример: обучение робота ходить или ИИ игре в
-              шахматы (AlphaGo).
-            </li>
-          </ul>
-          <p>
-            <strong>Ключевая формула:</strong> Данные + Алгоритм + Вычисления =
-            Обученная модель.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          📚 Базовое понимание — как работают нейросети «под капотом»
+    </nav>
+
+    
+    <div class="container">
+
+      <!-- ==================== ЛЕКЦИЯ (6 карточек) ==================== -->
+      <h2 class="my-4">Лекция: Введение в работу с искусственным интеллектом</h2>
+
+      <!-- Карточка 1.1: Что такое ИИ -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture1"> 
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Что такое ИИ"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.1. Что такое искусственный интеллект?
+          </h3>
+          <div>
+            <p>
+              <strong>Искусственный интеллект (ИИ)</strong> — это область компьютерных наук, занимающаяся созданием систем, способных выполнять задачи, которые обычно требуют человеческого интеллекта: обучение, рассуждение, восприятие, понимание языка и принятие решений.
+            </p>
+            <p><strong>Ключевые понятия:</strong></p>
+            <ul>
+              <li><strong>AI (Artificial Intelligence):</strong> общее понятие, охватывающее все технологии, имитирующие человеческий интеллект.</li>
+              <li><strong>ML (Machine Learning):</strong> подмножество ИИ, где системы обучаются на данных, а не программируются явно.</li>
+              <li><strong>DL (Deep Learning):</strong> подмножество ML, использующее глубокие нейронные сети с множеством слоев.</li>
+              <li><strong>LLM (Large Language Models):</strong> большие языковые модели, способные генерировать и понимать текст.</li>
+              <li><strong>Generative AI:</strong> ИИ, способный создавать новый контент (текст, изображения, видео, музыку).</li>
+            </ul>
+            <p><strong>Типы ИИ по способностям:</strong></p>
+            <ul>
+              <li><strong>Узкий ИИ (Narrow AI):</strong> решает конкретные задачи (распознавание лиц, рекомендательные системы).</li>
+              <li><strong>Общий ИИ (AGI):</strong> гипотетический ИИ, способный решать любые интеллектуальные задачи на уровне человека.</li>
+              <li><strong>Супер-ИИ (Superintelligence):</strong> ИИ, превосходящий человека по всем аспектам.</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Ключевая идея: современный ИИ — это мощный инструмент, который не заменяет человека, а усиливает его возможности.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="Что такое нейросеть"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 3. Нейронные сети: архитектура и принцип работы
-        </h3>
-        <div>
-          <p>
-            <strong>Нейронная сеть (Neural Network)</strong> — это
-            математическая модель, вдохновлённая структурой мозга. Состоит из
-            слоёв искусственных нейронов.
-          </p>
-          <p><strong>Три типа слоёв:</strong></p>
-          <ul>
-            <li>
-              <strong>Входной слой (Input)</strong> — принимает данные (пиксели
-              изображения, слова текста, числа).
-            </li>
-            <li>
-              <strong>Скрытые слои (Hidden)</strong> — здесь происходит основная
-              обработка. Чем больше слоёв — тем «глубже» сеть (Deep Learning).
-            </li>
-            <li>
-              <strong>Выходной слой (Output)</strong> — выдаёт результат
-              (например, «кошка» с вероятностью 95%).
-            </li>
-          </ul>
-          <p>
-            <strong>Как происходит обучение:</strong> сеть делает предположение
-            → сравнивает с правильным ответом → вычисляет ошибку → корректирует
-            «веса» связей между нейронами → повторяет миллион раз. Процесс
-            называется
-            <strong>backpropagation (обратное распространение ошибки)</strong>.
-          </p>
-          <p>
-            <strong>Почему «нейросети»?</strong> Потому что похоже на
-            биологические нейроны: есть вход (дендриты), обработка (ядро), выход
-            (аксон). Но это очень упрощённая аналогия.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🧠 Анатомия нейросети — понимаем, как она делает выводы
+
+      <!-- Карточка 1.2: Как работают нейросети -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Как работают нейросети"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.2. Как работают нейросети: от нейрона к глубокому обучению
+          </h3>
+          <div>
+            <p>
+              <strong>Нейросети</strong> — это вычислительные системы, вдохновленные биологическими нейронными сетями мозга. Они состоят из множества связанных между собой "нейронов", которые обрабатывают и передают информацию.
+            </p>
+            <p><strong>Основные компоненты нейросети:</strong></p>
+            <ul>
+              <li><strong>Искусственный нейрон:</strong> базовая единица, которая принимает входные данные, умножает их на веса, суммирует и пропускает через функцию активации.</li>
+              <li><strong>Слои (Layers):</strong> группы нейронов. Нейросеть состоит из входного слоя, скрытых слоев и выходного слоя.</li>
+              <li><strong>Веса (Weights):</strong> параметры, которые настраиваются в процессе обучения для минимизации ошибки.</li>
+              <li><strong>Функция активации:</strong> определяет, активируется ли нейрон (например, ReLU, сигмоида).</li>
+            </ul>
+            <p><strong>Этапы обучения нейросети:</strong></p>
+            <ol>
+              <li><strong>Прямой проход (Forward Pass):</strong> данные проходят через сеть, и вычисляется выход.</li>
+              <li><strong>Вычисление ошибки (Loss):</strong> сравнивается предсказанный и реальный результат.</li>
+              <li><strong>Обратный проход (Backpropagation):</strong> ошибка распространяется обратно, корректируя веса.</li>
+              <li><strong>Итерации (Epochs):</strong> процесс повторяется множество раз, пока ошибка не уменьшится до приемлемого уровня.</li>
+            </ol>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>🌟 Суть нейросетей:</strong> это математические функции, которые обучаются на данных, настраивая свои параметры для решения конкретной задачи.
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Deep Learning"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 4. Глубокое обучение (Deep Learning) — когда нейросеть становится
-          «глубокой»
-        </h3>
-        <div>
-          <p>
-            <strong>Deep Learning (глубокое обучение)</strong> — это подраздел
-            машинного обучения, использующий нейронные сети с большим
-            количеством скрытых слоёв (от 3 до сотен и тысяч).
-          </p>
-          <p>
-            <strong>Почему «глубокое»?</strong> Потому что каждый следующий слой
-            извлекает из данных всё более абстрактные признаки:
-          </p>
-          <ul>
-            <li>Слой 1: видит отдельные пиксели →</li>
-            <li>Слой 2: видит края и градиенты →</li>
-            <li>Слой 3: видит углы и простые формы →</li>
-            <li>Слой 4: видит глаза, уши, нос →</li>
-            <li>Слой 5: видит целое лицо →</li>
-            <li>Слой 6: узнаёт конкретного человека.</li>
-          </ul>
-          <p><strong>Что нужно для Deep Learning:</strong></p>
-          <ul>
-            <li>Огромные объёмы данных (миллионы примеров);</li>
-            <li>Большие вычислительные мощности (видеокарты GPU, TPU);</li>
-            <li>Время обучения (дни и недели даже на мощном железе).</li>
-          </ul>
-          <p>
-            <strong>Примеры Deep Learning:</strong> распознавание лиц, ChatGPT,
-            Midjourney, автономные автомобили.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          📈 Почему современные нейросети стали такими мощными
-        </div>
-      </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://www.odin.study/ru/Activity/h1title.jpg"
-          alt="Текстовые ИИ"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 5. LLM (Large Language Models) — большие языковые модели для
-          работы с текстом
-        </h3>
-        <div>
-          <p>
-            <strong>LLM (Large Language Model)</strong> — это нейросеть,
-            обученная на огромном количестве текстов (книги, статьи, сайты, код)
-            для понимания и генерации человеческого языка.
-          </p>
-          <p><strong>Что умеют LLM:</strong></p>
-          <ul>
-            <li>📝 писать тексты (письма, статьи, посты, сценарии);</li>
-            <li>🔍 отвечать на вопросы (консультация, поиск информации);</li>
-            <li>📋 резюмировать длинные документы;</li>
-            <li>🌐 переводить между языками;</li>
-            <li>🐍 писать и отлаживать код;</li>
-            <li>🎨 генерировать идеи и креативы;</li>
-            <li>🎭 имитировать стиль автора или персонажа.</li>
-          </ul>
-          <p><strong>Самые популярные LLM в 2024-2025:</strong></p>
-          <ul>
-            <li>
-              <strong>ChatGPT (OpenAI)</strong> — самый известный, GPT-4o/GPT-5;
-            </li>
-            <li>
-              <strong>Claude (Anthropic)</strong> — отлично работает с большими
-              документами;
-            </li>
-            <li><strong>Gemini (Google)</strong> — мультимодальная;</li>
-            <li>
-              <strong>LLaMA (Meta)</strong> — открытая модель, можно запустить
-              локально;
-            </li>
-            <li><strong>YandexGPT, GigaChat</strong> — российские аналоги.</li>
-          </ul>
-          <p>
-            <strong>Важно:</strong> LLM могут «галлюцинировать» — уверенно
-            писать неправду. Всегда проверяйте факты!
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          💬 Самый популярный класс ИИ сегодня — текстовые нейросети
+
+      <!-- Карточка 1.3: Основные типы нейросетей -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Типы нейросетей"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.3. Основные типы нейросетей и их применение
+          </h3>
+          <div>
+            <p>
+              <strong>Существует множество архитектур нейросетей</strong>, каждая из которых оптимизирована для определенного типа задач. Понимание этих различий поможет вам выбирать правильный инструмент.
+            </p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Тип нейросети</th><th>Архитектура</th><th>Применение</th><th>Примеры</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CNN</strong></td>
+                  <td>Сверточные</td>
+                  <td>Изображения, видео, компьютерное зрение</td>
+                  <td>ResNet, VGG, YOLO</td>
+                </tr>
+                <tr>
+                  <td><strong>RNN/LSTM</strong></td>
+                  <td>Рекуррентные</td>
+                  <td>Последовательные данные (текст, временные ряды)</td>
+                  <td>Модели для прогнозирования, перевод</td>
+                </tr>
+                <tr>
+                  <td><strong>Transformer</strong></td>
+                  <td>Механизм внимания</td>
+                  <td>Обработка текста, генерация, понимание</td>
+                  <td>GPT, BERT, DeepSeek</td>
+                </tr>
+                <tr>
+                  <td><strong>GAN</strong></td>
+                  <td>Генеративно-состязательные</td>
+                  <td>Генерация изображений, синтез данных</td>
+                  <td>StyleGAN, CycleGAN</td>
+                </tr>
+                <tr>
+                  <td><strong>Diffusion</strong></td>
+                  <td>Диффузионные</td>
+                  <td>Генерация изображений высокого качества</td>
+                  <td>Stable Diffusion, DALL-E</td>
+                </tr>
+                <tr>
+                  <td><strong>Autoencoder</strong></td>
+                  <td>Автоэнкодеры</td>
+                  <td>Сжатие данных, шумоподавление</td>
+                  <td>VAE, вариационные автоэнкодеры</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: современные модели часто комбинируют элементы разных архитектур (например, мультимодальные LLM).</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="ChatGPT"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 6. ChatGPT: возможности, версии, как пользоваться
-        </h3>
-        <div>
-          <p>
-            <strong>ChatGPT</strong> — это чат-бот на базе LLM от компании
-            OpenAI, который может вести диалог, отвечать на вопросы, писать
-            тексты и код.
-          </p>
-          <p><strong>Версии ChatGPT:</strong></p>
-          <ul>
-            <li>
-              <strong>GPT-3.5 (бесплатно)</strong> — базовая, быстрая, но менее
-              умная;
-            </li>
-            <li>
-              <strong>GPT-4o (платно $20/мес)</strong> — мультимодальная
-              (принимает текст, изображения, аудио), понимает контекст до 128K
-              токенов (~300 страниц текста);
-            </li>
-            <li>
-              <strong>GPT-4 Turbo</strong> — улучшенная версия, дешевле в API;
-            </li>
-            <li>
-              <strong>o1 (Strawberry)</strong> — специализирована на сложных
-              рассуждениях и математике;
-            </li>
-            <li><strong>GPT-5 (ожидается)</strong> — новый уровень.</li>
-          </ul>
-          <p><strong>Как получить доступ:</strong></p>
-          <ul>
-            <li>
-              Веб-версия: chat.openai.com (регистрация по email или через
-              Google);
-            </li>
-            <li>Мобильное приложение (iOS/Android) — с голосовым вводом;</li>
-            <li>API — для интеграции в свои программы.</li>
-          </ul>
-          <p>
-            <strong>Ключевая фишка: контекстное окно.</strong> ChatGPT «помнит»
-            предыдущие сообщения в диалоге. Чем больше контекст — тем лучше
-            нейросеть понимает, что вы хотите.
-          </p>
-          <p>
-            <em>Совет:</em> бесплатной версии достаточно для 80% повседневных
-            задач.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🤖 Самый популярный ИИ-инструмент в мире
+
+      <!-- Карточка 1.4: Текстовые нейросети (LLM) -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture4">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Текстовые нейросети"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.4. Текстовые нейросети (LLM): обзор и возможности
+          </h3>
+          <div>
+            <p>
+              <strong>Большие языковые модели (LLM)</strong> — это текстовые нейросети, которые понимают, генерируют и анализируют естественный язык. Они произвели революцию в том, как мы взаимодействуем с компьютером.
+            </p>
+            <p><strong>Популярные текстовые нейросети (2026):</strong></p>
+            <ul>
+              <li><strong>DeepSeek (Китай):</strong> открытая модель с длинным контекстом до 1 млн токенов, бесплатный доступ.</li>
+              <li><strong>GigaChat (Сбер, Россия):</strong> мультимодальная модель с генерацией текста и изображений.</li>
+              <li><strong>YandexGPT (Яндекс, Россия):</strong> интегрирована в Алису и сервисы Яндекс.</li>
+              <li><strong>ChatGPT (OpenAI, США):</strong> самая популярная модель для диалогов.</li>
+              <li><strong>Claude (Anthropic):</strong> модель с акцентом на безопасность и длинный контекст.</li>
+              <li><strong>Gemini (Google):</strong> мультимодальная модель, конкурент GPT-4.</li>
+            </ul>
+            <p><strong>Основные применения LLM:</strong></p>
+            <ul>
+              <li>Генерация контента (статьи, посты, письма).</li>
+              <li>Диалоговые системы и чат-боты.</li>
+              <li>Анализ и суммаризация документов.</li>
+              <li>Написание и ревью кода.</li>
+              <li>Образование и объяснение сложных концепций.</li>
+              <li>Творчество (сценарии, стихи, рассказы).</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: LLM становятся "интерфейсом" для взаимодействия с информацией и автоматизации задач.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="Генерация изображений"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 7. Генерация изображений: Midjourney, DALL-E, Stable Diffusion
-        </h3>
-        <div>
-          <p>
-            <strong>Нейросети для генерации изображений</strong> создают
-            картинку по текстовому описанию (промпту).
-          </p>
-          <p><strong>Топ-3 инструмента в 2024-2025:</strong></p>
-          <ul>
-            <li>
-              <strong>Midjourney</strong> — самый качественный с художественной
-              точки зрения. Работает через Discord. Платный ($10-120/мес).
-              Идеален для иллюстраций, концепт-арта, логотипов.
-            </li>
-            <li>
-              <strong>DALL-E 3 (OpenAI, через ChatGPT Plus)</strong> — отлично
-              понимает сложные промпты и текст внутри картинки. Лучше для
-              типографики и сцен с множеством объектов.
-            </li>
-            <li>
-              <strong>Stable Diffusion</strong> — открытая модель, можно
-              запустить бесплатно на своём компьютере (с хорошей видеокартой).
-              Огромное количество дополнений (ControlNet, LoRA). Максимальная
-              гибкость, но сложнее в настройке.
-            </li>
-          </ul>
-          <p>
-            <strong>Альтернативы:</strong> Kandinsky 3.0 (Сбер, бесплатный),
-            FusionBrain, Leonardo.ai (бесплатный, хорош для игровых ассетов).
-          </p>
-          <p>
-            <strong>Что нельзя делать:</strong> генерировать deepfakes,
-            порнографию, узнаваемых знаменитостей без разрешения, нарушать
-            авторские права.
-          </p>
-          <p>
-            <em>Совет новичку:</em> начните с Midjourney в канале #newbies на
-            официальном сервере Discord.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🎨 Создаём картинки одной фразой — революция для дизайнеров
+
+      <!-- Карточка 1.5: Графические нейросети -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture5">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Графические нейросети"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.5. Графические (визуальные) нейросети: генерация и анализ изображений
+          </h3>
+          <div>
+            <p>
+              <strong>Графические нейросети</strong> — это модели для обработки, анализа и генерации изображений, видео и других визуальных данных. Они прошли путь от распознавания цифр до создания фотореалистичных изображений.
+            </p>
+            <p><strong>Популярные графические нейросети (2026):</strong></p>
+            <ul>
+              <li><strong>Шедеврум (Яндекс):</strong> мобильное приложение на YandexART 2.5 для генерации изображений.</li>
+              <li><strong>Fusion Brain (Kandinsky, Сбер):</strong> редактор для генерации изображений и видео.</li>
+              <li><strong>Stable Diffusion:</strong> открытая диффузионная модель для генерации изображений.</li>
+              <li><strong>Midjourney:</strong> популярный сервис для творческой генерации.</li>
+              <li><strong>DALL-E 3 (OpenAI):</strong> мультимодальная модель для генерации изображений.</li>
+              <li><strong>Adobe Firefly:</strong> интеграция AI в дизайн-инструменты.</li>
+            </ul>
+            <p><strong>Основные применения:</strong></p>
+            <ul>
+              <li>Дизайн и иллюстрации.</li>
+              <li>Маркетинг и реклама.</li>
+              <li>Редактирование фото и видео.</li>
+              <li>Прототипирование и концепт-арт.</li>
+              <li>Визуализация данных.</li>
+              <li>Медицина (анализ снимков).</li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>🌟 Тренд:</strong> современные модели становятся мультимодальными — могут генерировать и текст, и изображения одновременно (GigaChat, Gemini).
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Промпты"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 8. Искусство промптинга: как правильно общаться с нейросетями
-        </h3>
-        <div>
-          <p>
-            <strong>Промпт (prompt)</strong> — это запрос или инструкция,
-            которую вы даёте нейросети. Качество результата напрямую зависит от
-            того, насколько хорошо вы сформулировали промпт.
-          </p>
-          <p>
-            <strong
-              >Правила хорошего промпта для текстовых ИИ (ChatGPT):</strong
-            >
-          </p>
-          <ul>
-            <li>
-              <strong>Укажите роль:</strong> «Ты — профессиональный маркетолог с
-              10-летним стажем...»
-            </li>
-            <li>
-              <strong>Дайте контекст:</strong> «У меня есть интернет-магазин по
-              продаже натуральной косметики...»
-            </li>
-            <li>
-              <strong>Сформулируйте задачу:</strong> «Напиши 5 вариантов
-              приветственного поста в Telegram...»
-            </li>
-            <li>
-              <strong>Укажите формат:</strong> «Каждый вариант — 100-150 слов,
-              без воды, с эмодзи и призывом к действию».
-            </li>
-            <li>
-              <strong>Добавьте ограничения:</strong> «Не используй слова
-              "бесплатно" и "скидка"».
-            </li>
-          </ul>
-          <p>
-            <strong
-              >Правила хорошего промпта для изображений (Midjourney):</strong
-            >
-          </p>
-          <ul>
-            <li>
-              субъект (что именно) → детали (цвет, стиль, свет) → среда (фон) →
-              атмосфера → художник/стиль.
-            </li>
-            <li>
-              <strong>Пример:</strong> «/imagine a cute orange cat wearing
-              wizard hat, sitting on a pile of old books, digital art, fantasy
-              style, by Greg Rutkowski, warm lighting».
-            </li>
-          </ul>
-          <p>
-            <strong>Техники продвинутого промптинга:</strong> few-shot (примеры
-            в промпте), chain-of-thought (рассуждение по шагам), negative
-            prompts (чего НЕ делать).
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          ✍️ Самый важный навык при работе с ИИ — правильно его попросить
+
+      <!-- Карточка 1.6: Как выбрать нейросеть -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture6">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Как выбрать нейросеть"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.6. Как выбрать подходящую нейросеть для своих задач?
+          </h3>
+          <div>
+            <p>
+              <strong>Выбор правильной нейросети</strong> критически важен для успешного решения вашей задачи. Вот ключевые критерии, которые помогут вам сделать выбор.
+            </p>
+            <p><strong>Критерии выбора нейросети:</strong></p>
+            <ul>
+              <li><strong>Тип задачи:</strong> текст, изображения, видео, код, речь или комбинация.</li>
+              <li><strong>Язык:</strong> русский, английский или мультиязычный.</li>
+              <li><strong>Бесплатный/платный:</strong> есть ли бесплатный тариф, сколько запросов в день.</li>
+              <li><strong>Доступность в РФ:</strong> работает ли без VPN и с локальными картами.</li>
+              <li><strong>Качество:</strong> насколько хорошо модель справляется с вашими задачами.</li>
+              <li><strong>Интеграция:</strong> есть ли API для автоматизации.</li>
+              <li><strong>Безопасность:</strong> где и как хранятся данные.</li>
+            </ul>
+            <p><strong>Рекомендации для разных задач:</strong></p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Задача</th><th>Рекомендуемые модели</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Генерация текста</strong></td><td>DeepSeek, GigaChat, YandexGPT</td></tr>
+                <tr><td><strong>Генерация изображений</strong></td><td>Шедеврум, Fusion Brain, Stable Diffusion</td></tr>
+                <tr><td><strong>Анализ документов</strong></td><td>DeepSeek (длинный контекст), GigaChat</td></tr>
+                <tr><td><strong>Чат-боты для бизнеса</strong></td><td>Yandex Agent Atelier, GigaChat</td></tr>
+                <tr><td><strong>Программирование</strong></td><td>DeepSeek, GigaChat, ChatGPT</td></tr>
+                <tr><td><strong>Мультимодальные задачи</strong></td><td>GigaChat, Gemini</td></tr>
+              </tbody>
+            </table>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: не ограничивайтесь одной модельой — комбинируйте разные сервисы под разные задачи для достижения наилучшего результата.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="Кодинг с ИИ"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 9. ИИ для программистов: GitHub Copilot, Codeium, Cursor
-        </h3>
-        <div>
-          <p>
-            <strong>ИИ-ассистенты кодинга</strong> помогают писать код быстрее,
-            находить ошибки, генерировать тесты и документацию.
-          </p>
-          <p><strong>Лучшие инструменты:</strong></p>
-          <ul>
-            <li>
-              <strong
-                >GitHub Copilot (Microsoft, $10/мес, бесплатно для
-                студентов)</strong
-              >
-              — автодополнение кода на лету (поддерживает VS Code, JetBrains,
-              Neovim). Понимает комментарии на русском и генерирует целые
-              функции. Работает на GPT-4.
-            </li>
-            <li>
-              <strong>Codeium (бесплатно)</strong> — альтернатива Copilot, почти
-              не уступает по качеству, без ограничений.
-            </li>
-            <li>
-              <strong>Cursor</strong> — редактор кода на основе VS Code с
-              глубокой интеграцией ИИ. Позволяет «спрашивать» у всего кодовой
-              базы, редактировать выделенный код по текстовой инструкции.
-            </li>
-            <li>
-              <strong>Continue (open-source)</strong> — плагин для VS Code для
-              подключения локальных моделей (CodeLLaMA).
-            </li>
-          </ul>
-          <p>
-            <strong>Что умеют:</strong> писать функции по описанию, объяснять
-            сложный код, генерировать unit-тесты, переписывать код в другом
-            стиле, находить баги, писать SQL-запросы, генерировать регулярные
-            выражения.
-          </p>
-          <p>
-            <strong>Важно:</strong> всегда проверяйте код, сгенерированный ИИ —
-            он может содержать ошибки, уязвимости или устаревшие решения.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          💻 Для разработчиков — скорость программирования вырастает в 2-3 раза
+
+      <!-- ==================== ПРАКТИКА (6 карточек) ==================== -->
+      <h2 class="my-4">Практика: Знакомство с нейросетями и их возможностями</h2>
+
+      <!-- Карточка 2.1: Регистрация в DeepSeek -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Регистрация в DeepSeek"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.1. Регистрация в DeepSeek и первый запрос
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> зарегистрироваться в DeepSeek, освоить интерфейс и отправить первый запрос, чтобы понять базовые возможности текстовой нейросети.
+            </p>
+            <p><strong>Пошаговая инструкция:</strong></p>
+            <ol>
+              <li>Перейдите на сайт <a href="https://chat.deepseek.com" target="_blank">chat.deepseek.com</a>.</li>
+              <li>Нажмите "Sign Up" и зарегистрируйтесь по email или номеру телефона.</li>
+              <li>Подтвердите регистрацию и войдите в чат.</li>
+              <li>Отправьте первый запрос: <strong>"Расскажи краткую историю искусственного интеллекта"</strong>.</li>
+              <li>Попробуйте разные типы запросов:
+                <ul>
+                  <li>Текст: "Напиши стихотворение о весне".</li>
+                  <li>Код: "Напиши функцию на Python для расчета факториала".</li>
+                  <li>Творчество: "Придумай название для стартапа по доставке еды".</li>
+                </ul>
+              </li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы получите первый опыт работы с текстовой нейросетью, поймете, как формулировать запросы и оценивать качество ответов.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: обратите внимание на скорость ответа и качество русского языка в генерации.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3" >
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Музыка и видео"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 10. Генерация музыки, видео и 3D: новые горизонты творчества
-        </h3>
-        <div>
-          <p>
-            <strong
-              >ИИ уже генерирует не только текст и картинки, но и аудио, видео,
-              3D-модели.</strong
-            >
-          </p>
-          <p><strong>Музыка и звук:</strong></p>
-          <ul>
-            <li>
-              <strong>Suno AI</strong> — генерирует полноценные песни с вокалом
-              и инструменталом по текстовому описанию (жанр, тема, настроение).
-              Платный.
-            </li>
-            <li>
-              <strong>Udio</strong> — конкурент Suno, часто более качественные
-              вокалы.
-            </li>
-            <li>
-              <strong>ElevenLabs</strong> — синтез голоса, клонирование речи,
-              чтение текстов голосом знаменитостей.
-            </li>
-            <li>
-              <strong>MusicLM (Google)</strong> — генерация инструментальной
-              музыки.
-            </li>
-          </ul>
-          <p><strong>Видео:</strong></p>
-          <ul>
-            <li>
-              <strong>Runway Gen-3 / Gen-4</strong> — генерация коротких видео
-              по тексту или изображению (до 10-30 секунд).
-            </li>
-            <li><strong>Pika Labs</strong> — анимирует статичные картинки.</li>
-            <li>
-              <strong>Sora (OpenAI)</strong> — самая качественная модель,
-              генерирует видео до 1 минуты. Пока не в открытом доступе.
-            </li>
-            <li>
-              <strong>HeyGen</strong> — создаёт видео с аватаром-диктором по
-              тексту (перевод на 50+ языков).
-            </li>
-          </ul>
-          <p>
-            <strong>3D и анимация:</strong> Luma AI, Meshy (генерация 3D-моделей
-            из текста/фото).
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🎵🎬 Следующий рубеж — ИИ делает музыку и фильмы
+
+      <!-- Карточка 2.2: Работа с GigaChat -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Работа с GigaChat"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.2. Регистрация в GigaChat и знакомство с мультимодальностью
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> зарегистрироваться в GigaChat и опробовать его мультимодальные возможности — генерацию текста и изображений.
+            </p>
+            <p><strong>Пошаговая инструкция:</strong></p>
+            <ol>
+              <li>Перейдите на сайт <a href="https://giga.chat" target="_blank">giga.chat</a> и зарегистрируйтесь по номеру телефона.</li>
+              <li>Войдите в чат и отправьте запрос: <strong>"Напиши пост для соцсетей о важности изучения нейросетей"</strong>.</li>
+              <li>Попробуйте генерацию изображения: <strong>"Нарисуй робота, который читает книгу"</strong>.</li>
+              <li>Загрузите любой документ (например, PDF) и попросите его проанализировать.</li>
+            </ol>
+            <p><strong>Сравнение с DeepSeek:</strong></p>
+            <ul>
+              <li>Отправьте одинаковый текстовый запрос в DeepSeek и GigaChat.</li>
+              <li>Сравните качество ответов, стиль, детализацию.</li>
+              <li>Отметьте, в чем сильные стороны каждой модели.</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы познакомитесь с мультимодальной нейросетью и сможете сравнивать разные модели по качеству и функциональности.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="OCR и обработка видео"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 11. Распознавание: OCR, ASR (голос в текст) и компьютерное зрение
-        </h3>
-        <div>
-          <p>
-            <strong>OCR (Optical Character Recognition)</strong> — перевод
-            печатного или рукописного текста с картинки/PDF в редактируемый
-            формат.
-          </p>
-          <p><strong>Инструменты OCR:</strong></p>
-          <ul>
-            <li>
-              <strong>ABBYY FineReader / SmartEngines</strong> — лучшие
-              коммерческие, распознают документы любой сложности;
-            </li>
-            <li>
-              <strong>Tesseract OCR (open-source)</strong> — бесплатно, но
-              проще;
-            </li>
-            <li>
-              <strong>ChatGPT Vision / Claude</strong> — могут читать текст на
-              загруженных изображениях и таблицах.
-            </li>
-          </ul>
-          <p>
-            <strong>ASR (Automatic Speech Recognition)</strong> — перевод голоса
-            в текст (Speech-to-Text).
-          </p>
-          <ul>
-            <li>
-              <strong>Whisper (OpenAI)</strong> — лучшая бесплатная модель, 100+
-              языков, отлично работает с акцентами и шумом;
-            </li>
-            <li>
-              <strong>Yandex SpeechKit, Sber SaluteTTS</strong> — российские
-              решения, можно через API;
-            </li>
-            <li>
-              <strong>Google Speech-to-Text</strong> — удобно через Google
-              Colab/Cloud.
-            </li>
-          </ul>
-          <p>
-            <strong>Компьютерное зрение (CV)</strong> — распознавание объектов,
-            лиц, эмоций на изображениях и видео.
-          </p>
-          <ul>
-            <li>
-              <strong>YOLO (You Only Look Once)</strong> — распознавание
-              объектов в реальном времени (люди, машины, животные);
-            </li>
-            <li>
-              <strong>Google Vision API, Amazon Rekognition</strong> — готовые
-              облачные сервисы;
-            </li>
-            <li>
-              <strong>FaceNet / DeepFace</strong> — распознавание лиц с высокой
-              точностью.
-            </li>
-          </ul>
-        </div>
-        <div class="mt-2 text-muted small">
-          📷 Превращаем речь и картинки в структурированные данные
+
+      <!-- Карточка 2.3: Генерация изображений -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Генерация изображений"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.3. Практика: генерация изображений в Шедеврум и Fusion Brain
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> опробовать российские сервисы для генерации изображений — Шедеврум и Fusion Brain — и сравнить их возможности.
+            </p>
+            <p><strong>Инструкция по работе с Шедеврум:</strong></p>
+            <ol>
+              <li>Скачайте приложение Шедеврум в App Store или Google Play.</li>
+              <li>Войдите через Яндекс ID и начните генерацию.</li>
+              <li>Создайте изображение по промпту: <strong>"Космонавт верхом на единороге в неоновом городе, киберпанк"</strong>.</li>
+            </ol>
+            <p><strong>Инструкция по работе с Fusion Brain:</strong></p>
+            <ol>
+              <li>Перейдите на сайт <a href="https://fusionbrain.ai" target="_blank">fusionbrain.ai</a> и зарегистрируйтесь.</li>
+              <li>В режиме "Изображение" создайте картинку с тем же промптом.</li>
+              <li>Попробуйте режим "Видео" для генерации короткого ролика.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы получите практический опыт работы с графическими нейросетями и сможете сравнивать качество генерации в разных сервисах.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: экспериментируйте с разными стилями — фотореализм, аниме, акварель — чтобы увидеть все возможности моделей.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3" >
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Автоматизация RPA"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 12. ИИ в офисной работе: обзор AI-помощников (Notion, Zoom, Miro,
-          Canva)
-        </h3>
-        <div>
-          <p><strong>Популярные сервисы, в которые уже встроен ИИ:</strong></p>
-          <ul>
-            <li>
-              <strong>Notion AI</strong> — написание и редактирование текста
-              внутри заметок, генерация таблиц, перевод, резюмирование страниц.
-            </li>
-            <li>
-              <strong>Zoom AI Companion</strong> — автоматическое резюме встреч,
-              выделение ключевых решений, запись действий.
-            </li>
-            <li>
-              <strong>Miro AI</strong> — в mind-картах: генерация идей,
-              группировка стикеров, создание схем по тексту.
-            </li>
-            <li>
-              <strong>Canva AI</strong> — генерация изображений, удаление фона,
-              ресайз дизайна под соцсети, написание текстов для постов, создание
-              презентаций по промпту.
-            </li>
-            <li>
-              <strong>Slack AI</strong> — умный поиск по истории переписки,
-              резюме непрочитанных тредов.
-            </li>
-            <li>
-              <strong>Google Workspace (Docs, Gmail, Sheets)</strong> —
-              автодополнение текста, помощь в написании писем, создание формул в
-              таблицах по описанию (через режим эксперимента).
-            </li>
-          </ul>
-          <p>
-            <strong>Microsoft Copilot (365)</strong> — встроен в Word, Excel,
-            PowerPoint, Outlook. Пишет документы, делает презентации,
-            анализирует данные в Excel по текстовому запросу.
-          </p>
-          <p>
-            <em>Совет:</em> изучите горячие клавиши для вызова ИИ в ваших
-            рабочих приложениях (обычно Alt+Space или Ctrl+Shift+I).
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          📎 ИИ уже в приложениях, которыми вы пользуетесь каждый день
+
+      <!-- Карточка 2.4: Анализ документов -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice4">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Анализ документов"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.4. Практика: анализ документов с помощью LLM
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> протестировать возможности LLM по анализу и суммаризации документов, используя DeepSeek и GigaChat.
+            </p>
+            <p><strong>Подготовка:</strong> найдите любой текстовый документ (можно взять статью из интернета или PDF-файл).</p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ul>
+              <li><strong>Суммаризация:</strong> попросите модель сделать краткое изложение документа на 3-5 предложений.</li>
+              <li><strong>Извлечение данных:</strong> "Извлеки все даты и суммы из этого документа".</li>
+              <li><strong>Ответы на вопросы:</strong> "Какие ключевые выводы представлены в документе?"</li>
+              <li><strong>Реферирование:</strong> "Сделай структурированный план документа".</li>
+            </ul>
+            <p><strong>Сравнение моделей:</strong></p>
+            <ul>
+              <li>Загрузите один и тот же документ в DeepSeek и GigaChat.</li>
+              <li>Сравните, как модели справляются с извлечением фактов и суммаризацией.</li>
+              <li>Отметьте, какая модель лучше понимает контекст и структуру документа.</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы научитесь использовать LLM для работы с документами, что сэкономит время на анализе и обработке информации.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="Запуск локально"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 13. Локальные модели: как запустить ИИ на своём компьютере (LM
-          Studio, Ollama)
-        </h3>
-        <div>
-          <p><strong>Зачем запускать ИИ локально?</strong></p>
-          <ul>
-            <li>✅ Конфиденциальность — данные не уходят в облако;</li>
-            <li>✅ Бесплатно (кроме электричества);</li>
-            <li>✅ Работа без интернета;</li>
-            <li>
-              ✅ Можно кастомизировать модели под свои задачи (дообучать);
-            </li>
-            <li>✅ Нет ограничений на количество запросов.</li>
-          </ul>
-          <p>
-            <strong
-              >Инструменты для локального запуска (для обычных
-              пользователей):</strong
-            >
-          </p>
-          <ul>
-            <li>
-              <strong>LM Studio</strong> — программа с графическим интерфейсом,
-              позволяет скачать любую модель с Hugging Face и общаться с ней
-              через чат. Работает на Windows/Mac/Linux. Требует 8-16 ГБ RAM и
-              видеокарту (можно и на CPU, но медленно).
-            </li>
-            <li>
-              <strong>Ollama</strong> — для продвинутых (командная строка), но
-              очень простая в использовании. Команда «ollama run llama3» — и
-              модель готова.
-            </li>
-            <li>
-              <strong>GPT4All</strong> — максимально простой запуск на обычном
-              ноутбуке.
-            </li>
-          </ul>
-          <p>
-            <strong>Какие модели можно запустить локально:</strong> Llama 3
-            (8B/70B), Mistral, Phi-3 (маленькая и быстрая), CodeLLaMA (для
-            кода), Qwen, Gemma от Google. Модели в формате GGUF (квантованные)
-            работают даже на 8 ГБ RAM.
-          </p>
-          <p>
-            <em>Совет:</em> начните с Phi-3-mini на LM Studio — модель 3.8B
-            параметров, работает на любом ноутбуке, качество выше GPT-3.5 во
-            многих задачах.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🖥️ ИИ в офлайне и без слежки за данными — реальность уже сегодня
+
+      <!-- Карточка 2.5: Работа с кодом -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice5">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Работа с кодом"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.5. Практика: написание и ревью кода с помощью нейросетей
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> оценить способность LLM генерировать, объяснять и улучшать программный код.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ul>
+              <li><strong>Генерация кода:</strong> "Напиши функцию на Python, которая сортирует список чисел по возрастанию. Добавь комментарии."</li>
+              <li><strong>Объяснение кода:</strong> "Объясни, как работает этот код, построчно: [вставьте любой код]".</li>
+              <li><strong>Оптимизация:</strong> "Как можно оптимизировать этот код для повышения производительности?"</li>
+              <li><strong>Отладка:</strong> "Найди ошибку в этом коде и предложи исправление."</li>
+            </ul>
+            <p><strong>Сравнение моделей:</strong></p>
+            <ul>
+              <li>Отправьте один и тот же запрос по коду в DeepSeek и GigaChat.</li>
+              <li>Сравните правильность синтаксиса, качество объяснений, стиль кода.</li>
+              <li>Проверьте, учитывают ли модели лучшие практики программирования.</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы убедитесь, что нейросети — мощный помощник для программистов, ускоряющий написание и понимание кода.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: используйте нейросети для изучения новых языков программирования — они хорошо объясняют синтаксис и концепции.</em>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="RAG"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 14. RAG (Retrieval-Augmented Generation) — как заставить ИИ
-          читать ваши файлы
-        </h3>
-        <div>
-          <p>
-            <strong>Проблема LLM:</strong> они не знают ваших личных документов,
-            писем, базы знаний компании. RAG решает эту проблему.
-          </p>
-          <p>
-            <strong>Что такое RAG:</strong> сначала нейросеть «ищет» информацию
-            в ваших документах (Retrieval), а затем генерирует ответ,
-            основываясь на найденном (Generation).
-          </p>
-          <p><strong>Как это работает технически:</strong></p>
-          <ol>
-            <li>Вы загружаете файлы (PDF, Word, Excel, базы данных);</li>
-            <li>
-              Система разбивает текст на кусочки (chunks) и индексирует их;
-            </li>
-            <li>Вы задаёте вопрос;</li>
-            <li>Модель находит самые релевантные кусочки ваших документов;</li>
-            <li>
-              LLM генерирует ответ, опираясь только на эти кусочки (и может дать
-              ссылку на исходный документ).
-            </li>
-          </ol>
-          <p><strong>Инструменты с RAG для обычных пользователей:</strong></p>
-          <ul>
-            <li>
-              <strong>Notion AI</strong> — отвечает по вашим заметкам и базе
-              знаний;
-            </li>
-            <li>
-              <strong>Microsoft Copilot (в SharePoint/Teams)</strong> — ищет по
-              корпоративным документам;
-            </li>
-            <li>
-              <strong>ChatGPT (через Custom GPT с загруженными файлами)</strong>
-              — можно создать своего бота, который отвечает по загруженной
-              инструкции;
-            </li>
-            <li>
-              <strong>AnythingLLM</strong> — бесплатная программа для локального
-              RAG (загружаете папку документов и чат с ИИ на её основе).
-            </li>
-            <li>
-              <strong>Dify</strong> — open-source платформа для создания
-              RAG-приложений.
-            </li>
-          </ul>
-          <p>
-            <em>Пример:</em> загрузили в RAG все протоколы совещаний за год.
-            Спрашиваете: «Какие решения принимались по бюджету на маркетинг в
-            апреле?» — ИИ находит и выдаёт ответ с цитатами из документов.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          📁 ИИ, который знает ВАШИ данные — прорыв для бизнеса и личной
-          организации
+
+      <!-- Карточка 2.6: Сравнение моделей -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice6">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Сравнение моделей"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.6. Практика: сравнительный анализ нескольких нейросетей
+          </h3>
+          <div>
+            <p>
+              <strong>Задача:</strong> провести комплексное сравнение нескольких нейросетей по единому набору критериев, чтобы понять их сильные и слабые стороны.
+            </p>
+            <p><strong>Модели для сравнения:</strong></p>
+            <ul>
+              <li>DeepSeek (текстовая, бесплатная)</li>
+              <li>GigaChat (мультимодальная, российская)</li>
+              <li>Шедеврум (генерация изображений)</li>
+            </ul>
+            <p><strong>Набор тестовых заданий:</strong></p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Задание</th><th>DeepSeek</th><th>GigaChat</th><th>Шедеврум</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Генерация текста: "Напиши рассказ о коте"</td><td>Оценить качество</td><td>Оценить качество</td><td>—</td></tr>
+                <tr><td>Генерация изображения: "Закат над морем"</td><td>—</td><td>Оценить качество</td><td>Оценить качество</td></tr>
+                <tr><td>Анализ документа</td><td>Оценить точность</td><td>Оценить точность</td><td>—</td></tr>
+                <tr><td>Скорость ответа</td><td>Замерить время</td><td>Замерить время</td><td>Замерить время</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li><strong>Качество:</strong> насколько хорош результат (1-10).</li>
+              <li><strong>Скорость:</strong> время получения ответа.</li>
+              <li><strong>Удобство интерфейса:</strong> оценка пользовательского опыта.</li>
+              <li><strong>Доступность:</strong> наличие бесплатного тарифа, лимиты.</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы получите объективную картину того, какая модель лучше всего подходит для решения ваших конкретных задач.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title.jpg"
-          alt="Этика ИИ"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 15. Этика, безопасность и ограничения: на что способен и на что
-          НЕ способен ИИ
-        </h3>
-        <div>
-          <p><strong>Важно понимать границы современных нейросетей.</strong></p>
-          <p><strong>Чего ИИ НЕ умеет (и пока не умеет):</strong></p>
-          <ul>
-            <li>
-              ❌ Настоящего понимания и сознания — нейросеть не «думает», она
-              сопоставляет статистические паттерны;
-            </li>
-            <li>
-              ❌ Отличать правду от вымысла без внешних источников —
-              галлюцинации;
-            </li>
-            <li>
-              ❌ Этической интуиции — ИИ не различает добро и зло, только
-              отражение того, на чём обучен;
-            </li>
-            <li>
-              ❌ Считать и решать сложную математику точно (лучше дать ему код
-              для расчётов, а не просить самому считать);
-            </li>
-            <li>
-              ❌ Сохранять конфиденциальность по умолчанию — не загружайте
-              пароли, паспортные данные, коммерческую тайну в публичные модели.
-            </li>
-          </ul>
-          <p><strong>Основные риски при работе с ИИ:</strong></p>
-          <ul>
-            <li>
-              <strong>Предвзятость (bias)</strong> — нейросети наследуют
-              стереотипы из обучающих данных (расовые, гендерные, социальные);
-            </li>
-            <li>
-              <strong>Галлюцинации</strong> — уверенная генерация ложных фактов
-              (проверяйте важную информацию);
-            </li>
-            <li>
-              <strong>Утечка данных</strong> — то, что вы набрали в ChatGPT,
-              может попасть в его обучающую выборку (отключите в настройках,
-              используйте локальные модели);
-            </li>
-            <li>
-              <strong>Плагиат и авторские права</strong> — сгенерированный
-              текст/изображение могут быть слишком похожи на оригинал.
-            </li>
-          </ul>
-          <p>
-            <strong>Принципы ответственного использования ИИ:</strong>
-            проверяйте важное, не доверяйте слепо, не загружайте чувствительные
-            данные, указывайте, если контент создан ИИ.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          ⚠️ Критически важно — ИИ мощный, но глупый и опасный без контроля
+
+      <!-- ==================== САМОСТОЯТЕЛЬНАЯ РАБОТА (6 карточек) ==================== -->
+      <h2 class="my-4">Самостоятельная работа: Изучение и эксперименты с нейросетями</h2>
+
+      <!-- Карточка 3.1: История ИИ -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="История ИИ"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.1. Самостоятельное изучение истории развития ИИ
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> углубиться в историю развития искусственного интеллекта, чтобы понять контекст современных достижений.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li><strong>Хронология:</strong> создайте временную шкалу ключевых событий в истории ИИ:
+                <ul>
+                  <li>1950 — Тест Тьюринга.</li>
+                  <li>1956 — Дартмутская конференция, термин "AI".</li>
+                  <li>1966 — ELIZA — первый чат-бот.</li>
+                  <li>1997 — Deep Blue побеждает Каспарова.</li>
+                  <li>2011 — Watson побеждает в Jeopardy!</li>
+                  <li>2016 — AlphaGo побеждает Ли Седоля.</li>
+                  <li>2018 — Первые LLM (GPT-1, BERT).</li>
+                  <li>2022 — ChatGPT выходит в массы.</li>
+                </ul>
+              </li>
+              <li><strong>Ключевые персоны:</strong> напишите краткий портрет одного из основоположников ИИ (Тьюринг, Маккарти, Мински, Хинтон, Лекун).</li>
+              <li><strong>Эволюция архитектур:</strong> проследите путь от Perceptron до Transformer.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы получите глубокое понимание того, как развивался ИИ и какие факторы привели к современному буму.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="q-card my-3">
-      <p>
-        <img
-          class="card-img-top"
-          style="filter: grayscale(1)"
-          src="https://econolabs.github.io/h1title2.jpg"
-          alt="Практические кейсы"
-          loading="lazy"
-        />
-      </p>
-      <div class="card-body">
-        <h3 class="card-title">
-          Тема 16. Практические кейсы: как ИИ меняет профессии уже сегодня
-        </h3>
-        <div>
-          <p>
-            <strong
-              >Реальные примеры использования ИИ в разных сферах (не для
-              госслужащих):</strong
-            >
-          </p>
-          <p><strong>1. Маркетинг и копирайтинг</strong></p>
-          <ul>
-            <li>
-              Генерация 100 вариантов рекламных креативов за 10 минут (ChatGPT +
-              Midjourney);
-            </li>
-            <li>
-              Анализ отзывов клиентов через тональность текста (NLP,
-              SMM-инструменты);
-            </li>
-            <li>
-              Персонализированные email-рассылки (ИИ пишет письмо под каждого
-              клиента).
-            </li>
-          </ul>
-          <p><strong>2. Дизайн и творчество</strong></p>
-          <ul>
-            <li>
-              Создание логотипа за 5 минут (Midjourney + Photoshop с
-              AI-инструментами);
-            </li>
-            <li>Генерация бесшовных паттернов для одежды и упаковки;</li>
-            <li>
-              Реставрация старых фото и раскрашивание ч/б (Colourise.com,
-              GFP-GAN).
-            </li>
-          </ul>
-          <p><strong>3. Образование и самообучение</strong></p>
-          <ul>
-            <li>
-              ИИ-репетитор по любому предмету (ChatGPT объяснит сложную тему,
-              если попросить «объясни как пятикласснику»);
-            </li>
-            <li>Генерация тестов для самопроверки;</li>
-            <li>
-              Перевод зарубежных статей и лекций с субтитрами (Whisper + GPT-4).
-            </li>
-          </ul>
-          <p><strong>4. Предпринимательство и фриланс</strong></p>
-          <ul>
-            <li>
-              ИИ-помощник для составления коммерческих предложений и договоров;
-            </li>
-            <li>
-              Автоматизация ответов в техподдержку (RAG-бот по базе знаний);
-            </li>
-            <li>Анализ конкурентов (парсинг + ИИ-классификация).</li>
-          </ul>
-          <p><strong>5. Личная продуктивность</strong></p>
-          <ul>
-            <li>
-              Стенографирование встреч и звонков в Telegram-бот (Whisper);
-            </li>
-            <li>Генерация еженедельного плана по целям;</li>
-            <li>Автоматическое заполнение таблиц по голосовым командам.</li>
-          </ul>
-          <p>
-            <strong>Главный вывод:</strong> ИИ не забирает работу, он забирает
-            скучную рутину. Освободившееся время — на творчество и сложные
-            задачи.
-          </p>
-        </div>
-        <div class="mt-2 text-muted small">
-          🚀 Завершающая тема — как применить всё это прямо завтра
+
+      <!-- Карточка 3.2: Обзор моделей -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Обзор моделей"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.2. Самостоятельный обзор доступных нейросетей
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> провести самостоятельное исследование доступных нейросетей, составить их каталог с описанием возможностей.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li>Составьте таблицу из 10-15 нейросетей, доступных в РФ (без VPN).</li>
+              <li>Для каждой укажите:
+                <ul>
+                  <li>Название и разработчика.</li>
+                  <li>Тип (текстовая, графическая, мультимодальная).</li>
+                  <li>Бесплатный доступ (есть/нет, лимиты).</li>
+                  <li>Основные возможности.</li>
+                  <li>Ссылка на сервис.</li>
+                </ul>
+              </li>
+              <li>Разделите модели на категории:
+                <ul>
+                  <li>Текстовые (DeepSeek, GigaChat, YandexGPT).</li>
+                  <li>Графические (Шедеврум, Fusion Brain, Stable Diffusion).</li>
+                  <li>Мультимодальные (GigaChat, Gemini).</li>
+                  <li>Специализированные (для кода, для музыки, для видео).</li>
+                </ul>
+              </li>
+              <li>Добавьте краткую характеристику каждой модели (1-2 предложения).</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> у вас будет персональный каталог нейросетей, который поможет быстро выбирать инструмент под конкретную задачу.
+            </p>
+          </div>
         </div>
       </div>
+
+      <!-- Карточка 3.3: Промпт-инжиниринг -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Промпт-инжиниринг"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.3. Основы промпт-инжиниринга: создание эффективных запросов
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> освоить основные принципы составления эффективных промптов для взаимодействия с LLM.
+            </p>
+            <p><strong>Теория:</strong></p>
+            <ul>
+              <li><strong>Конкретность:</strong> чем детальнее запрос, тем точнее ответ.</li>
+              <li><strong>Роль:</strong> задайте модели роль: "Ты — опытный маркетолог".</li>
+              <li><strong>Формат:</strong> укажите формат ответа (список, таблица, эссе).</li>
+              <li><strong>Ограничения:</strong> укажите, что нужно избегать.</li>
+            </ul>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li>Составьте "плохой" и "хороший" промпт для одной задачи.</li>
+              <li>Отправьте оба в нейросеть и сравните результаты.</li>
+              <li>Создайте 5 шаблонов промптов для разных типов задач:
+                <ul>
+                  <li>Для написания постов в соцсети.</li>
+                  <li>Для объяснения сложной темы.</li>
+                  <li>Для генерации кода.</li>
+                  <li>Для творческого задания.</li>
+                  <li>Для анализа документа.</li>
+                </ul>
+              </li>
+              <li>Запишите выводы: какие элементы делают промпт эффективным.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы приобретете навык промпт-инжиниринга, который значительно повысит качество работы с нейросетями.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.4: Этические аспекты -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork4">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Этические аспекты"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.4. Этические аспекты использования ИИ
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> изучить этические аспекты использования искусственного интеллекта и сформировать ответственное отношение к технологии.
+            </p>
+            <p><strong>Вопросы для изучения:</strong></p>
+            <ul>
+              <li><strong>Предвзятость (Bias):</strong> как модели могут воспроизводить и усиливать предубеждения из данных.</li>
+              <li><strong>Галлюцинации:</strong> когда модель генерирует ложную информацию с высокой уверенностью.</li>
+              <li><strong>Конфиденциальность:</strong> риски утечки данных при работе с LLM.</li>
+              <li><strong>Авторские права:</strong> кому принадлежит контент, созданный ИИ?</li>
+              <li><strong>Автоматизация и занятость:</strong> влияние ИИ на рынок труда.</li>
+            </ul>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li>Найдите и прочитайте 2-3 статьи о проблемах этики ИИ.</li>
+              <li>Составьте список из 5 принципов ответственного использования ИИ.</li>
+              <li>Протестируйте модель на предвзятость: задайте провокационные вопросы и проанализируйте ответы.</li>
+              <li>Напишите краткое эссе на тему: "Как избежать злоупотреблений при использовании ИИ в бизнесе?".</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы будете осознанно подходить к использованию ИИ, понимая его сильные стороны и ограничения.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.5: Создание чат-бота -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork5">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Создание чат-бота"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.5. Проектирование чат-бота на базе LLM
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> спроектировать концепцию чат-бота для решения конкретной бизнес-задачи, используя изученные нейросети.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li><strong>Выберите задачу:</strong>
+                <ul>
+                  <li>Поддержка клиентов интернет-магазина.</li>
+                  <li>Консультант по подбору товаров.</li>
+                  <li>Помощник для сотрудников (HR, IT).</li>
+                  <li>Образовательный бот.</li>
+                </ul>
+              </li>
+              <li><strong>Спроектируйте архитектуру:</strong>
+                <ul>
+                  <li>Какая модель будет использоваться? (DeepSeek, GigaChat).</li>
+                  <li>Будет ли бот использовать инструменты (API, базы знаний)?</li>
+                  <li>Как будет храниться история диалогов?</li>
+                </ul>
+              </li>
+              <li><strong>Создайте сценарий:</strong>
+                <ul>
+                  <li>Напишите 5-10 примеров диалогов.</li>
+                  <li>Продумайте обработку ошибок и нестандартных запросов.</li>
+                </ul>
+              </li>
+              <li><strong>Оцените риски:</strong>
+                <ul>
+                  <li>Что может пойти не так?</li>
+                  <li>Как обеспечить безопасность и качество ответов?</li>
+                </ul>
+              </li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> у вас будет готовый проект концепции чат-бота, который можно взять за основу для реальной разработки.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.6: Итоговый проект -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork6">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Итоговый проект"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.6. Итоговый проект: создание комплексного AI-решения
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> применить все полученные знания для создания комплексного AI-решения, сочетающего текст, изображения и аналитику.
+            </p>
+            <p><strong>Задание:</strong> разработать концепцию AI-решения для выбранной сферы, которое использует минимум два типа нейросетей (текстовую и графическую).</p>
+            <p><strong>Примеры проектов:</strong></p>
+            <ul>
+              <li><strong>Маркетинговый помощник:</strong> генерирует текст (пост + изображение) на основе промпта.</li>
+              <li><strong>AI-дизайнер:</strong> принимает текстовое описание и создает логотип + слоган.</li>
+              <li><strong>Образовательная платформа:</strong> генерирует материал (текст + иллюстрации) для студентов.</li>
+              <li><strong>Помощник для e-commerce:</strong> создает описание товара + визуализацию.</li>
+            </ul>
+            <p><strong>Структура проекта:</strong></p>
+            <ol>
+              <li><strong>Описание проблемы:</strong> какую задачу решает решение?</li>
+              <li><strong>Архитектура:</strong> какие нейросети и инструменты используются?</li>
+              <li><strong>Пользовательский сценарий:</strong> как взаимодействует пользователь?</li>
+              <li><strong>Бизнес-потенциал:</strong> кому и зачем это нужно?</li>
+              <li><strong>Примеры:</strong> приложите скриншоты или описания работы.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> у вас будет готовый проект, демонстрирующий ваше понимание возможностей ИИ и умение комбинировать разные инструменты для решения комплексных задач.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Резюме: изучение теории, практические эксперименты и самостоятельные проекты — это путь к экспертному владению инструментами ИИ для автоматизации и творчества.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автоматизация и оптимизация с нейросетями</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../dist/original.css"
+      rel="stylesheet"      
+    />
+  </head>
+
+  <style>
+    .q-card {
+      border-radius: 8px;
+      min-width: 127px;
+      box-shadow: 0 1px 2px #131d3129;
+      padding: auto;
+      background: #fff;
+      padding: 14px;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <body>
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+
+      <!-- ==================== ЛЕКЦИЯ ==================== -->
+      <h2 class="my-4">Лекция: Введение в автоматизацию с AI</h2>
+
+      <!-- Карточка 1.1: Платформа Yandex AI Studio -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture1"> 
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Yandex AI Studio"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.1. Yandex AI Studio — платформа для бизнес-решений
+          </h3>
+          <div>
+            <p>
+              <strong>Yandex AI Studio</strong> — это платформа от Yandex Cloud, предназначенная для создания AI-приложений и агентов на базе больших генеративных моделей. Она предоставляет все необходимое для полного цикла разработки: от экспериментов до промышленного внедрения.
+            </p>
+            <p><strong>Ключевые возможности для бизнеса:</strong></p>
+            <ul>
+              <li><strong>Model Gallery:</strong> доступ к моделям для генерации текста, изображений, голоса, а также для классификации и построения эмбеддингов.</li>
+              <li><strong>AI Playground:</strong> среда для тестирования и экспериментов с моделями перед интеграцией.</li>
+              <li><strong>Agent Atelier:</strong> визуальная среда для создания и управления AI-агентами.</li>
+              <li><strong>OpenAI-совместимые API:</strong> легкая интеграция с существующими приложениями через знакомые инструменты (LangChain, SDK).</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Ключевая идея: AI Studio закрывает потребности бизнеса на всех этапах — от прототипирования до масштабирования AI-решений.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.2: Модели для бизнес-задач -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Модели для бизнеса"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.2. Какие модели помогают бизнесу?
+          </h3>
+          <div>
+            <p>
+              <strong>Современные генеративные модели</strong> решают широкий спектр прикладных задач. В Yandex AI Studio доступны следующие типы моделей:
+            </p>
+            
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Тип модели</th><th>Задачи для бизнеса</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Текстовые</strong></td><td>Создание контента, анализ документов, чат-боты, генерация отчетов</td></tr>
+                <tr><td><strong>Голосовые</strong></td><td>Голосовые помощники, озвучка, обработка звонков</td></tr>
+                <tr><td><strong>Генеративные (изображения)</strong></td><td>Дизайн, маркетинговые материалы, прототипирование</td></tr>
+                <tr><td><strong>Классификации</strong></td><td>Обработка заявок, модерация, анализ тональности</td></tr>
+                <tr><td><strong>Эмбеддинги</strong></td><td>Поиск по документам, рекомендательные системы</td></tr>
+              </tbody>
+            </table>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Главное: выбор модели определяется конкретной бизнес-задачей. AI Studio предоставляет гибкость для любых сценариев.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.3: Способы интеграции -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title3.jpg"
+            alt="Интеграции"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.3. Интеграция AI в бизнес-процессы: варианты подключения
+          </h3>
+          <div>
+            <p>
+              <strong>Yandex AI Studio</strong> предлагает несколько способов встраивания AI-функций в существующие бизнес-процессы. Это позволяет выбрать оптимальный путь для любой компании.
+            </p>
+            <ul>
+              <li><strong>AI Playground и Agent Atelier</strong> — для быстрого тестирования и создания прототипов без кода.</li>
+              <li><strong>OpenAI-совместимые API</strong> (Responses API, Realtime API) — для разработчиков, позволяют использовать знакомые инструменты и фреймворки (LangChain, LangGraph).</li>
+              <li><strong>REST и gRPC API</strong> — для тонкой настройки и решения специфических задач.</li>
+              <li><strong>Пакетная обработка</strong> — для асинхронной работы с большими объемами данных (например, анализ тысяч документов).</li>
+              <li><strong>Yandex Workflows</strong> — low-code конструктор для визуального проектирования бизнес-логики.</li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>🌟 Суть для бизнеса:</strong> AI можно внедрять как через готовые low-code инструменты, так и через мощные API, интегрируя их в ИТ-инфраструктуру компании.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ПРАКТИКА ==================== -->
+      <h2 class="my-4">Практика: Создание AI-агентов и приложений</h2>
+
+      <!-- Карточка 2.1: Agent Atelier -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title8.jpg"
+            alt="Agent Atelier"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.1. Разработка AI-агентов в Agent Atelier
+          </h3>
+          <div>
+            <p>
+              <strong>Agent Atelier</strong> — это среда разработки в AI Studio, предназначенная для создания текстовых и голосовых AI-агентов. Это ключевой инструмент для автоматизации взаимодействия с клиентами и внутренними процессами.
+            </p>
+            <p><strong>Что можно сделать в Agent Atelier:</strong></p>
+            <ul>
+              <li>Создать агента, используя готовые или кастомные инструменты (MCP-серверы из MCP Hub).</li>
+              <li>Настроить поведение агента через диалоговый интерфейс.</li>
+              <li>Подключить внешние API для расширения функциональности.</li>
+              <li>Интегрировать агента в бизнес-приложения через API.</li>
+            </ul>
+            <p>
+              <strong>Примеры бизнес-агентов:</strong> AI-консультант для поддержки клиентов, внутренний помощник для сотрудников, автоматический сборщик данных из внешних источников.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: Agent Atelier позволяет создавать агентов без глубоких знаний программирования, что ускоряет внедрение AI в бизнес.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 2.2: Использование API -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="API интеграции"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.2. Интеграция AI-функций через API
+          </h3>
+          <div>
+            <p>
+              <strong>Для разработчиков</strong> Yandex AI Studio предоставляет мощные API, совместимые с OpenAI. Это позволяет легко встраивать AI-функции в существующие приложения.
+            </p>
+            <p><strong>Доступные API и их применение:</strong></p>
+            <ul>
+              <li><strong>Responses API:</strong> для создания текстовых чат-агентов, автоматических ответчиков, систем генерации отчетов.</li>
+              <li><strong>Realtime API:</strong> для голосовых агентов, которые могут общаться с клиентами по телефону или в голосовых интерфейсах.</li>
+              <li><strong>Files API и Vector Store API:</strong> для загрузки и умного поиска по бизнес-документам (договоры, инструкции, базы знаний).</li>
+            </ul>
+            <p>
+              Все API поддерживают интеграцию с популярными фреймворками, что упрощает разработку и ускоряет вывод продуктов на рынок.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: начинайте с тестирования через AI Playground, а затем интегрируйте проверенные сценарии через API в свои системы.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Карточка 2.3: Пакетная обработка -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title3.jpg"
+            alt="Пакетная обработка"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.3. Автоматизация рутины: пакетная обработка данных
+          </h3>
+          <div>
+            <p>
+              <strong>Пакетная обработка</strong> — это функция AI Studio для асинхронной обработки больших объемов информации. Это идеальное решение для задач, где не требуется мгновенный ответ.
+            </p>
+            <p><strong>Где это применимо в бизнесе:</strong></p>
+            <ul>
+              <li><strong>Анализ документов:</strong> обработка сотен и тысяч договоров, счетов, отчетов для извлечения ключевых данных.</li>
+              <li><strong>Классификация данных:</strong> автоматическая категоризация заявок, обращений, товаров.</li>
+              <li><strong>Генерация контента:</strong> создание описаний товаров, статей, отчетов в больших объемах.</li>
+              <li><strong>Построение эмбеддингов:</strong> для создания поисковых систем и рекомендательных механизмов на основе всей базы знаний компании.</li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>⚡ Результат:</strong> автоматизация рутинных операций, экономия времени сотрудников и сокращение ручного труда. Обработка, которая занимала недели, теперь выполняется за часы.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== САМОСТОЯТЕЛЬНАЯ РАБОТА ==================== -->
+      <h2 class="my-4">Самостоятельная работа: Изучение и тестирование</h2>
+
+      <!-- Карточка 3.1: Изучение платформы -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title4.jpg"
+            alt="Изучение платформы"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.1. Знакомство с Yandex AI Studio: регистрация и интерфейс
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> самостоятельное изучение платформы Yandex AI Studio, ее интерфейса и основных разделов. Это первый шаг к использованию AI в ваших бизнес-задачах.
+            </p>
+            <p><strong>План действий:</strong></p>
+            <ol>
+              <li>Перейдите на <a href="https://aistudio.yandex.ru" target="_blank">aistudio.yandex.ru</a> и авторизуйтесь через Yandex ID.</li>
+              <li>Изучите разделы: <strong>Model Gallery</strong> (каталог моделей), <strong>AI Playground</strong> (песочница), <strong>Agent Atelier</strong> (среда агентов).</li>
+              <li>Ознакомьтесь с документацией: <a href="https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/" target="_blank">Обзор API и концепции</a>.</li>
+              <li>Найдите раздел "Квоты и лимиты", чтобы понимать технические ограничения сервиса.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы должны ориентироваться в интерфейсе платформы и понимать, где искать нужные инструменты для решения бизнес-задач.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.2: Тестирование моделей -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title5.jpg"
+            alt="Тестирование моделей"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.2. Эксперименты с моделями в AI Playground
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> провести собственные эксперименты с генеративными моделями в AI Playground, чтобы оценить их возможности и потенциал для ваших бизнес-задач.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ul>
+              <li><strong>Текстовая генерация:</strong> попросите модель написать пост для социальных сетей, письмо клиенту или краткое резюме документа.</li>
+              <li><strong>Генерация изображений:</strong> создайте концепт-арт для будущего продукта или дизайн-макет для маркетингового баннера.</li>
+              <li><strong>Классификация:</strong> загрузите пример обращения в поддержку и попросите модель определить его тематику.</li>
+              <li><strong>Анализ данных:</strong> загрузите небольшой текстовый файл и используйте модели для извлечения ключевых сущностей (даты, имена, суммы).</li>
+            </ul>
+            <p>
+              <strong>Результат:</strong> вы получите практический опыт работы с моделями и сможете оценить, насколько эффективно они могут быть применены в вашей компании.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.3: Создание прототипа агента -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title6.jpg"
+            alt="Создание агента"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.3. Практическая работа: создание простого AI-агента в Agent Atelier
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> создать простейшего AI-агента, который сможет отвечать на часто задаваемые вопросы (FAQ) или помогать с типовой задачей (например, подбор товара).
+            </p>
+            <p><strong>Пошаговая инструкция:</strong></p>
+            <ol>
+              <li>Зайдите в раздел <strong>Agent Atelier</strong> в AI Studio.</li>
+              <li>Нажмите "Создать агента". Выберите шаблон "Базовый текстовый агент".</li>
+              <li>В "Инструкции" (System Prompt) пропишите роль агента: *"Ты — консультант по подбору ноутбуков для бизнеса. Твоя задача — задавать уточняющие вопросы о потребностях пользователя и рекомендовать подходящие модели."*</li>
+              <li>В разделе "Инструменты" (Tools) добавьте инструмент для поиска информации или оставьте без него для простого диалога.</li>
+              <li>Сохраните агента и протестируйте его в чате, задав несколько вопросов.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> рабочий прототип агента, который демонстрирует, как AI может автоматизировать одну из бизнес-функций. В дальнейшем его можно усложнять и интегрировать в реальные процессы.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Резюме: самостоятельное изучение и эксперименты — лучший способ понять потенциал AI для автоматизации и оптимизации в вашем бизнесе.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

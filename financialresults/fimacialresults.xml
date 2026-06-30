@@ -1,0 +1,1699 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- ==================== СЧЕТ 90 "ПРОДАЖИ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Счет 90 'Продажи' - назначение</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначен счет 90 'Продажи'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для учета доходов и расходов по обычным видам деятельности</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета прочих доходов и расходов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета прибылей и убытков</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Субсчета счета 90</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие субсчета используются для учета выручки и себестоимости на счете 90 'Продажи'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>90.1 'Выручка' и 90.2 'Себестоимость продаж'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.1 'Доходы' и 90.2 'Расходы'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.1 'Прибыль' и 90.2 'Убыток'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.1 'Реализация' и 90.2 'Себестоимость'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Проводка по выручке</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает признание выручки от продажи продукции?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 62 Кт 90.1</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 90.2 Кт 43</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 90.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 51 Кт 62</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Проводка по себестоимости</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой списывается себестоимость проданной готовой продукции?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 90.2 Кт 43</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 62 Кт 90.1</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 90.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 43 Кт 20</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Закрытие счета 90</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>На какой счет списывается финансовый результат от продаж в конце месяца?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>99 'Прибыли и убытки'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>91 'Прочие доходы и расходы'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>84 'Нераспределенная прибыль'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>97 'Расходы будущих периодов'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Прибыль от продаж</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой субсчет счета 90 используется для отражения прибыли (убытка) от продаж?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>90.9 'Прибыль/убыток от продаж'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.1 'Выручка'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.2 'Себестоимость продаж'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90.7 'Коммерческие расходы'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== СЧЕТ 91 "ПРОЧИЕ ДОХОДЫ И РАСХОДЫ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Счет 91 'Прочие доходы и расходы'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначен счет 91 'Прочие доходы и расходы'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для учета доходов и расходов от прочей деятельности</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета доходов и расходов по обычным видам деятельности</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета финансовых результатов от продаж</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Проводка по продаже ОС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает доход от продажи основного средства?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 62 Кт 91.1</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 91.2 Кт 01</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 91.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 50 Кт 91.1</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Списание остаточной стоимости ОС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой списывается остаточная стоимость проданного основного средства?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 91.2 Кт 01</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 62 Кт 91.1</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 91.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 01 Кт 91.2</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Закрытие счета 91</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>На какой счет списывается сальдо прочих доходов и расходов?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>99 'Прибыли и убытки'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>90 'Продажи'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>84 'Нераспределенная прибыль'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>97 'Расходы будущих периодов'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== СЧЕТ 99 "ПРИБЫЛИ И УБЫТКИ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Счет 99 'Прибыли и убытки'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначен счет 99 'Прибыли и убытки'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для выявления итогового финансового результата</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета доходов от обычной деятельности</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета прочих расходов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Начисление налога на прибыль</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает начисление налога на прибыль?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 99 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 51</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 84</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 91.2 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Реформация баланса (прибыль)</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой закрывается счет 99 при получении прибыли в конце года?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 99 Кт 84</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 84 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 90.9</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 90.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Реформация баланса (убыток)</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой закрывается счет 99 при получении убытка в конце года?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 84 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 84</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 90.9</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 90.9 Кт 99</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== СЧЕТ 97 "РАСХОДЫ БУДУЩИХ ПЕРИОДОВ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Счет 97 'Расходы будущих периодов'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначен счет 97 'Расходы будущих периодов'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для учета расходов, относящихся к будущим отчетным периодам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов текущего периода</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета доходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета прочих расходов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Списание расходов будущих периодов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой списываются расходы будущих периодов в текущем периоде?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 20, 26, 44 Кт 97</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 97 Кт 60</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 97 Кт 76</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 91.2 Кт 97</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Освоение новых производств</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой отражаются расходы на освоение новых производств как расходы будущих периодов?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 97 Кт 20, 23, 25, 26</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 20 Кт 97</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 97 Кт 70</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 97 Кт 60</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== СЧЕТ 98 "ДОХОДЫ БУДУЩИХ ПЕРИОДОВ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Счет 98 'Доходы будущих периодов'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначен счет 98 'Доходы будущих периодов'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для учета доходов, относящихся к будущим отчетным периодам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета доходов текущего периода</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета прочих доходов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Субсчет 98-1 'Доходы, полученные в счет будущих периодов'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие доходы учитываются на субсчете 98-1?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Арендная плата за будущие периоды, подписка, абонентская плата</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Безвозмездные поступления</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Задолженность по недостачам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Проценты по кредитам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Субсчет 98-2 'Безвозмездные поступления'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие доходы учитываются на субсчете 98-2?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Безвозмездные поступления основных средств, материалов, товаров</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Арендная плата за будущие периоды</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Задолженность по недостачам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Проценты по кредитам</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Признание доходов от безвозмездных поступлений</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Как признаются доходы от безвозмездного поступления основных средств?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>По мере начисления амортизации</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Сразу при получении</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>В конце отчетного периода</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>По мере списания материалов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Признание доходов от безвозмездного поступления материалов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Как признаются доходы от безвозмездного поступления материалов?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>По мере списания материалов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Сразу при получении</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>В конце отчетного периода</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>По мере начисления амортизации</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== ПБУ 18/02 "УЧЕТ РАСЧЕТОВ ПО НАЛОГУ НА ПРИБЫЛЬ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>ПБУ 18/02 - назначение</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для чего предназначено ПБУ 18/02 'Учет расчетов по налогу на прибыль'?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Для отражения разниц между бухгалтерской и налоговой прибылью</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для расчета НДС</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета расходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Для учета доходов будущих периодов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отложенный налоговый актив (ОНА)</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой счет используется для учета отложенных налоговых активов?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>09 'Отложенные налоговые активы'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>77 'Отложенные налоговые обязательства'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>68 'Расчеты по налогам'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>99 'Прибыли и убытки'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отложенное налоговое обязательство (ОНО)</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой счет используется для учета отложенных налоговых обязательств?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>77 'Отложенные налоговые обязательства'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>09 'Отложенные налоговые активы'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>68 'Расчеты по налогам'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>99 'Прибыли и убытки'</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Возникновение ОНА</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает возникновение отложенного налогового актива (ОНА)?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 09 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 09</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 77 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 77</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Возникновение ОНО</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает возникновение отложенного налогового обязательства (ОНО)?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 68 Кт 77</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 09 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 77 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 09</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Погашение ОНА</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает погашение отложенного налогового актива (ОНА)?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 68 Кт 09</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 09 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 77 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 77</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Погашение ОНО</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая проводка отражает погашение отложенного налогового обязательства (ОНО)?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">ПБУ 18/02</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 77 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 77</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 09 Кт 68</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 68 Кт 09</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Ставка налога на прибыль в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая ставка налога на прибыль действует в 2026 году?</p>
+<p><a target="_blank" href="https://www.nalog.gov.ru/" class="link-secondary">Налоговый кодекс РФ</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>25%</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>20%</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>22%</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>15%</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== ОТЧЕТ О ФИНАНСОВЫХ РЕЗУЛЬТАТАХ ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Отчет о финансовых результатах - выручка</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Под каким кодом в отчете о финансовых результатах отражается выручка?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=306759" class="link-secondary">ФСБУ 4/2023</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>2110</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2120</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2100</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2200</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отчет о финансовых результатах - себестоимость</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Под каким кодом в отчете о финансовых результатах отражается себестоимость продаж?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=306759" class="link-secondary">ФСБУ 4/2023</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>2120</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2110</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2100</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2200</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отчет о финансовых результатах - валовая прибыль</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Под каким кодом в отчете о финансовых результатах отражается валовая прибыль?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=306759" class="link-secondary">ФСБУ 4/2023</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>2100</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2110</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2120</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2200</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отчет о финансовых результатах - прибыль от продаж</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Под каким кодом в отчете о финансовых результатах отражается прибыль от продаж?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=306759" class="link-secondary">ФСБУ 4/2023</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>2200</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2100</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2300</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2400</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отчет о финансовых результатах - чистая прибыль</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Под каким кодом в отчете о финансовых результатах отражается чистая прибыль?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=306759" class="link-secondary">ФСБУ 4/2023</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>2400</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2300</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2200</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>2100</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== РАСПРЕДЕЛЕНИЕ ПРИБЫЛИ ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Начисление дивидендов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой отражается начисление дивидендов учредителям?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 84 Кт 75</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 75 Кт 51</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 84</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 84 Кт 82</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Отчисления в резервный капитал</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой отражаются отчисления в резервный капитал?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 84 Кт 82</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 82 Кт 84</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 99 Кт 82</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 84 Кт 75</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <question type="multichoice">
+        <name>
+            <text>Выплата дивидендов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой проводкой отражается выплата дивидендов учредителям?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/ru/document?id_4=2293" class="link-secondary">Инструкция по применению Плана счетов</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Дт 75 Кт 51</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 84 Кт 75</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 75 Кт 50</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Дт 51 Кт 75</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== МАЛЫЙ БИЗНЕС ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>Упрощенные способы учета для СМП</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие упрощенные способы учета доступны субъектам малого предпринимательства (СМП)?</p>
+<p><a target="_blank" href="https://minfin.gov.ru/" class="link-secondary">Федеральный закон №402-ФЗ</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>Все перечисленные</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Освобождение от ПБУ 18/02</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Сокращенный план счетов</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Упрощенная отчетность</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== НОВЫЙ ФСБУ 9/2025 "ДОХОДЫ" ==================== -->
+    <question type="multichoice">
+        <name>
+            <text>ФСБУ 9/2025 'Доходы'</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Когда становится обязательным применение ФСБУ 9/2025 'Доходы'?</p>
+<p><a target="_blank" href="https://www.consultant.ru/document/cons_doc_LAW_511967/" class="link-secondary">ФСБУ 9/2025</a></p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100" format="html">
+            <text>С 2027 года</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>С 2026 года</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>С 2025 года</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>С 2028 года</text>
+            <feedback format="html">
+                <text></text>
+            </feedback>
+        </answer>
+    </question>
+
+    <!-- ==================== ТИПОВЫЕ ЗАДАЧИ ==================== -->
+    <!-- Примечание: Вопросы типа quizwithrandomnumber нестандартны для Moodle. -->
+    <!-- Они были пропущены, так как Moodle XML не поддерживает вычисляемые вопросы такого типа напрямую. -->
+    <!-- Вместо них следует использовать стандартный тип вопроса "calculated" в Moodle. -->
+
+</quiz>

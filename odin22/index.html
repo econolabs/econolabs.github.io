@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация в текстовых нейросетях: DeepSeek и GigaChat</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="../dist/original.css"
+      rel="stylesheet"      
+    />
+  </head>
+
+  <style>
+    .q-card {
+      border-radius: 8px;
+      min-width: 127px;
+      box-shadow: 0 1px 2px #131d3129;
+      padding: auto;
+      background: #fff;
+      padding: 14px;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <body>
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="https://vk.com/dmglvn">
+                    <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                        alt="" style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                object-fit: cover;
+              " />
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+
+      <!-- ==================== ЛЕКЦИЯ ==================== -->
+      <h2 class="my-4">Лекция: Регистрация и знакомство с текстовыми нейросетями</h2>
+
+      <!-- Карточка 1.1: Обзор DeepSeek -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture1"> 
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="DeepSeek"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.1. DeepSeek: мощная текстовая нейросеть с открытым доступом
+          </h3>
+          <div>
+            <p>
+              <strong>DeepSeek</strong> — это современная большая языковая модель (LLM) от китайской компании DeepSeek AI, которая привлекла внимание мирового сообщества своей производительностью, открытостью и экономичностью. Это одна из лучших доступных альтернатив ChatGPT.
+            </p>
+            <p><strong>Ключевые особенности DeepSeek:</strong></p>
+            <ul>
+              <li><strong>Открытая модель:</strong> доступны веса модели для локального запуска (DeepSeek-R1, DeepSeek-V3).</li>
+              <li><strong>Бесплатный доступ:</strong> веб-версия и мобильное приложение полностью бесплатны.</li>
+              <li><strong>Высокая производительность:</strong> сравнима с лучшими коммерческими моделями (GPT-4, Claude).</li>
+              <li><strong>Длинный контекст:</strong> обрабатывает до 1 млн токенов — это несколько книг за раз.</li>
+              <li><strong>Возможность чтения файлов:</strong> загружайте PDF, Word, Excel, изображения (с извлечением текста).</li>
+              <li><strong>Поиск в интернете:</strong> доступен при ручном включении.</li>
+            </ul>
+            <p><strong>Где доступен DeepSeek:</strong></p>
+            <ul>
+              <li><strong>Веб-версия:</strong> <a href="https://chat.deepseek.com" target="_blank">chat.deepseek.com</a></li>
+              <li><strong>Мобильное приложение:</strong> iOS и Android (App Store, Google Play).</li>
+              <li><strong>API:</strong> для разработчиков (платный, но с доступными ценами).</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Ключевая идея: DeepSeek — это мощный, бесплатный и доступный инструмент для работы с текстом, который может конкурировать с ведущими мировыми моделями.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.2: Обзор GigaChat -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="GigaChat"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.2. GigaChat: российская мультимодальная нейросеть от Сбера
+          </h3>
+          <div>
+            <p>
+              <strong>GigaChat</strong> — это мультимодальная нейросеть от Сбера, которая объединяет в себе возможности чат-бота с генерацией текста, изображений и анализа данных. Это ведущая российская AI-платформа, доступная для бизнеса и частных пользователей.
+            </p>
+            <p><strong>Ключевые возможности GigaChat:</strong></p>
+            <ul>
+              <li><strong>Генерация текста:</strong> написание статей, писем, постов, сценариев.</li>
+              <li><strong>Генерация изображений:</strong> создание картинок по текстовому описанию (на базе Kandinsky).</li>
+              <li><strong>Анализ файлов:</strong> загрузка и анализ документов (PDF, Word, Excel).</li>
+              <li><strong>Работа с кодом:</strong> написание, объяснение и отладка программного кода.</li>
+              <li><strong>Голосовой ввод и вывод:</strong> взаимодействие через голосовые сообщения.</li>
+              <li><strong>Поиск в интернете:</strong> доступ к актуальной информации.</li>
+            </ul>
+            <p><strong>Где доступен GigaChat:</strong></p>
+            <ul>
+              <li><strong>Веб-версия:</strong> <a href="https://giga.chat" target="_blank">giga.chat</a></li>
+              <li><strong>Мобильное приложение:</strong> iOS и Android.</li>
+              <li><strong>Telegram-бот:</strong> <a href="https://t.me/GigaChatBot" target="_blank">@GigaChatBot</a></li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>🌟 Важно:</strong> GigaChat — российский продукт, что гарантирует соответствие локальным законам и обработку данных на территории РФ.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 1.3: Сравнение сервисов -->
+      <div class="card q-card my-3" style="max-width: 800px" id="lecture3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Сравнение"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            1.3. Сравнение DeepSeek и GigaChat: как выбрать?
+          </h3>
+          <div>
+            <p>
+              <strong>DeepSeek и GigaChat</strong> — две мощные текстовые нейросети, но они имеют разные сильные стороны и целевые аудитории. Понимание их различий поможет вам выбрать правильный инструмент под свои задачи.
+            </p>
+            <table class="table table-sm mt-2" style="font-size: 0.9em">
+              <thead>
+                <tr><th>Характеристика</th><th>DeepSeek</th><th>GigaChat</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Разработчик</strong></td>
+                  <td>DeepSeek AI (Китай)</td>
+                  <td>Сбер (Россия)</td>
+                </tr>
+                <tr>
+                  <td><strong>Бесплатный доступ</strong></td>
+                  <td>✅ Полностью бесплатный</td>
+                  <td>✅ Бесплатный с ограничениями</td>
+                </tr>
+                <tr>
+                  <td><strong>Генерация изображений</strong></td>
+                  <td>❌ Нет (только текст)</td>
+                  <td>✅ Есть (Kandinsky)</td>
+                </tr>
+                <tr>
+                  <td><strong>Длинный контекст</strong></td>
+                  <td>✅ до 1 млн токенов</td>
+                  <td>до 32 тыс. токенов</td>
+                </tr>
+                <tr>
+                  <td><strong>Поиск в интернете</strong></td>
+                  <td>✅ (ручной режим)</td>
+                  <td>✅ (в некоторых режимах)</td>
+                </tr>
+                <tr>
+                  <td><strong>Анализ файлов</strong></td>
+                  <td>✅ (PDF, Word, Excel)</td>
+                  <td>✅ (PDF, Word, Excel)</td>
+                </tr>
+                <tr>
+                  <td><strong>Открытый код</strong></td>
+                  <td>✅ (веса доступны)</td>
+                  <td>❌ (проприетарная)</td>
+                </tr>
+                <tr>
+                  <td><strong>Русский язык</strong></td>
+                  <td>✅ (хорошо понимает)</td>
+                  <td>✅ (превосходно)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Рекомендации по выбору:</strong></p>
+            <ul>
+              <li><strong>DeepSeek:</strong> если вам нужна мощная текстовая модель с очень длинным контекстом и вы хотите экономить.</li>
+              <li><strong>GigaChat:</strong> если вам важна генерация изображений, работа с русским языком и локальное законодательство.</li>
+              <li><strong>Идеальный вариант:</strong> использовать оба сервиса для разных задач.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ПРАКТИКА ==================== 
+      <h2 class="my-4">Практика: Регистрация и знакомство с интерфейсами</h2>-->
+
+      <!-- Карточка 2.1: Регистрация в DeepSeek -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Регистрация в DeepSeek"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.1. Пошаговая регистрация в DeepSeek
+          </h3>
+          <div>
+            <p>
+              <strong>Регистрация в DeepSeek</strong> проста и занимает не более 2-3 минут. Вам понадобится только email или номер телефона.
+            </p>
+            <p><strong>Пошаговая инструкция для веб-версии:</strong></p>
+            <ol>
+              <li>Перейдите на сайт <a href="https://chat.deepseek.com" target="_blank">chat.deepseek.com</a>.</li>
+              <li>Нажмите кнопку <strong>"Sign Up"</strong> (Зарегистрироваться) в правом верхнем углу.</li>
+              <li>Выберите способ регистрации: <strong>Email</strong> или <strong>Phone Number</strong> (номер телефона).</li>
+              <li>Если вы выбрали Email:
+                <ul>
+                  <li>Введите адрес электронной почты.</li>
+                  <li>Придумайте пароль (не менее 8 символов).</li>
+                  <li>Нажмите "Sign Up".</li>
+                  <li>Подтвердите email, перейдя по ссылке из письма.</li>
+                </ul>
+              </li>
+              <li>Если вы выбрали номер телефона:
+                <ul>
+                  <li>Введите номер телефона (с кодом страны).</li>
+                  <li>Нажмите "Get Code" (Получить код).</li>
+                  <li>Введите код из SMS.</li>
+                  <li>Придумайте пароль.</li>
+                </ul>
+              </li>
+              <li>После подтверждения вы автоматически войдете в чат DeepSeek.</li>
+            </ol>
+            <p><strong>Для мобильного приложения:</strong></p>
+            <ul>
+              <li>Скачайте приложение DeepSeek в App Store или Google Play.</li>
+              <li>Откройте приложение и нажмите "Sign Up".</li>
+              <li>Повторите шаги по регистрации (email или номер телефона).</li>
+              <li>Подтвердите и войдите.</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Важно: DeepSeek не требует подтверждения личности или привязки банковской карты. Это полностью бесплатный сервис.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 2.2: Интерфейс DeepSeek -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="Интерфейс DeepSeek"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.2. Знакомство с интерфейсом DeepSeek
+          </h3>
+          <div>
+            <p>
+              <strong>Интерфейс DeepSeek</strong> минималистичен и интуитивно понятен. Он похож на другие чат-боты, но имеет свои особенности.
+            </p>
+            <p><strong>Основные элементы интерфейса:</strong></p>
+            <ul>
+              <li><strong>Левая панель:</strong> 
+                <ul>
+                  <li><strong>+ New Chat:</strong> кнопка для создания нового диалога.</li>
+                  <li><strong>История чатов:</strong> список всех ваших диалогов с поиском.</li>
+                </ul>
+              </li>
+              <li><strong>Центральная область:</strong>
+                <ul>
+                  <li><strong>Окно диалога:</strong> отображение сообщений пользователя и ответов нейросети.</li>
+                  <li><strong>Разметка ответов:</strong> поддерживается форматирование текста (жирный, курсив, списки, код).</li>
+                </ul>
+              </li>
+              <li><strong>Нижняя панель (поле ввода):</strong>
+                <ul>
+                  <li><strong>Текстовое поле:</strong> ввод запроса.</li>
+                  <li><strong>Кнопка отправки:</strong> отправка сообщения.</li>
+                  <li><strong>Иконка скрепки:</strong> загрузка файлов (изображения, PDF, Word, Excel).</li>
+                  <li><strong>Переключатель поиска:</strong> включение/выключение поиска в интернете.</li>
+                </ul>
+              </li>
+              <li><strong>Верхняя панель:</strong> имя пользователя, настройки, выход.</li>
+            </ul>
+            <p><strong>Специальные возможности:</strong></p>
+            <ul>
+              <li><strong>DeepSeek-R1 (режим рассуждений):</strong> модель показывает ход своих размышлений, что полезно для сложных логических задач.</li>
+              <li><strong>Загрузка файлов:</strong> поддерживает до 50 файлов за раз, максимальный размер каждого файла до 100 МБ.</li>
+            </ul>
+            <div class="alert alert-light border mt-2 p-2" style="background: #f8f9fa">
+              <strong>⚡ Совет:</strong> для сложных задач используйте режим рассуждений (DeepSeek-R1) — он дает более детальные и обоснованные ответы.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 2.3: Регистрация и интерфейс GigaChat -->
+      <div class="card q-card my-3" style="max-width: 800px" id="practice3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title.jpg"
+            alt="GigaChat интерфейс"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            2.3. Регистрация в GigaChat и знакомство с интерфейсом
+          </h3>
+          <div>
+            <p>
+              <strong>Регистрация в GigaChat</strong> также проста и занимает несколько минут. Для доступа к сервису не обязательно быть клиентом Сбера.
+            </p>
+            <p><strong>Способы регистрации:</strong></p>
+            <ul>
+              <li><strong>Веб-версия:</strong>
+                <ol>
+                  <li>Перейдите на <a href="https://giga.chat" target="_blank">giga.chat</a>.</li>
+                  <li>Нажмите "Войти" → выберите "Зарегистрироваться".</li>
+                  <li>Введите номер телефона → получите SMS-код.</li>
+                  <li>Введите код → укажите имя → готово!</li>
+                </ol>
+              </li>
+              <li><strong>Мобильное приложение:</strong>
+                <ol>
+                  <li>Скачайте приложение GigaChat в App Store или Google Play.</li>
+                  <li>Откройте приложение → нажмите "Зарегистрироваться".</li>
+                  <li>Введите номер телефона → подтвердите по SMS.</li>
+                  <li>Укажите имя и настройте профиль.</li>
+                </ol>
+              </li>
+              <li><strong>Telegram-бот:</strong>
+                <ol>
+                  <li>Найдите бота <a href="https://t.me/GigaChatBot" target="_blank">@GigaChatBot</a> в Telegram.</li>
+                  <li>Нажмите "Старт" → следуйте инструкциям для привязки номера телефона.</li>
+                  <li>Подтвердите вход через веб-версию или приложение.</li>
+                </ol>
+              </li>
+            </ul>
+            <p><strong>Особенности интерфейса GigaChat:</strong></p>
+            <ul>
+              <li><strong>Панель слева:</strong> список диалогов, кнопка создания нового чата, доступ к настройкам.</li>
+              <li><strong>Центральная область:</strong> окно диалога с историей сообщений.</li>
+              <li><strong>Панель ввода:</strong> поле для текста, кнопки для загрузки файлов, голосового ввода, выбора режима работы.</li>
+              <li><strong>Верхняя панель:</strong> название текущего чата, информация о тарифном плане, настройки профиля.</li>
+            </ul>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Совет: начните с бесплатного тарифа — его достаточно для знакомства и выполнения большинства учебных задач.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== САМОСТОЯТЕЛЬНАЯ РАБОТА ==================== -->
+      <h2 class="my-4">Самостоятельная работа: Изучение и эксперименты</h2>
+
+      <!-- Карточка 3.1: Сравнительный анализ -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork1">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Сравнительный анализ"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.1. Сравнительный анализ интерфейсов DeepSeek и GigaChat
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> провести самостоятельное исследование и сравнить пользовательские интерфейсы DeepSeek и GigaChat по различным критериям.
+            </p>
+            <p><strong>Критерии для сравнения:</strong></p>
+            <ul>
+              <li><strong>Интуитивность:</strong> насколько легко и понятно ориентироваться в интерфейсе.</li>
+              <li><strong>Скорость работы:</strong> как быстро загружается чат и обрабатываются запросы.</li>
+              <li><strong>Функциональность:</strong> какие дополнительные возможности есть (загрузка файлов, поиск, голосовой ввод).</li>
+              <li><strong>Качество ответов:</strong> насколько понятно и полезно нейросеть отвечает (можно задать одинаковые вопросы).</li>
+              <li><strong>Визуальное оформление:</strong> дизайн, удобство чтения, настройки тем.</li>
+            </ul>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li>Зарегистрируйтесь в обоих сервисах (если еще не сделали этого).</li>
+              <li>Проведите по 15 минут в каждом интерфейсе: создайте чаты, отправьте несколько запросов, изучите меню и настройки.</li>
+              <li>Составьте таблицу сравнения по указанным критериям, поставив оценки от 1 до 5.</li>
+              <li>Напишите краткий вывод: какой интерфейс вам показался удобнее и почему.</li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы получите объективное представление о сильных и слабых сторонах каждого интерфейса и сможете выбрать более комфортный для себя.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.2: Эксперименты с функциями -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork2">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Эксперименты с функциями"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.2. Эксперименты с продвинутыми функциями DeepSeek
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> провести эксперименты с уникальными функциями DeepSeek — режимом рассуждений (DeepSeek-R1) и загрузкой файлов.
+            </p>
+            <p><strong>Задания для экспериментов:</strong></p>
+            <ol>
+              <li><strong>Режим рассуждений (DeepSeek-R1):</strong>
+                <ul>
+                  <li>Включите режим "DeepSeek-R1" (если есть переключатель).</li>
+                  <li>Задайте сложную логическую задачу: "У Маши 5 яблок, она отдала 2 Пете, потом купила еще 3. Сколько яблок у Маши? Покажи ход решения."</li>
+                  <li>Проанализируйте, как модель показывает свои рассуждения — это помогает понять логику ответа.</li>
+                  <li>Сравните ответ с обычным режимом (без рассуждений).</li>
+                </ul>
+              </li>
+              <li><strong>Загрузка файлов:</strong>
+                <ul>
+                  <li>Загрузите в DeepSeek любой документ (PDF, Word или Excel).</li>
+                  <li>Попросите: "Извлеки все даты и суммы из этого документа" или "Сделай краткое резюме файла".</li>
+                  <li>Оцените качество анализа и извлечения данных.</li>
+                </ul>
+              </li>
+              <li><strong>Работа с длинным контекстом:</strong>
+                <ul>
+                  <li>Вставьте в чат большой текст (например, несколько страниц книги).</li>
+                  <li>Задайте вопрос по содержанию: "Что говорится о [конкретная тема] на страницах 3-5?"</li>
+                  <li>Оцените, как модель удерживает контекст и находит нужную информацию.</li>
+                </ul>
+              </li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы познакомитесь с уникальными возможностями DeepSeek и научитесь эффективно их использовать для решения сложных задач.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карточка 3.3: Работа с GigaChat -->
+      <div class="card q-card my-3" style="max-width: 800px" id="selfwork3">
+        <p>
+          <img
+            loading="lazy"
+            class="card-img-top"
+            src="https://econolabs.github.io/h1title2.jpg"
+            alt="Работа с GigaChat"
+            style="filter: grayscale(1)"
+          />
+        </p>
+        <div class="card-body">
+          <h3 class="card-title">
+            3.3. Практическая работа с мультимодальными возможностями GigaChat
+          </h3>
+          <div>
+            <p>
+              <strong>Цель работы:</strong> освоить мультимодальные возможности GigaChat — генерацию изображений, анализ документов и работу с кодом.
+            </p>
+            <p><strong>Задания для выполнения:</strong></p>
+            <ol>
+              <li><strong>Генерация изображения:</strong>
+                <ul>
+                  <li>Напишите запрос: "Нарисуй закат над морем в стиле импрессионизма".</li>
+                  <li>Попробуйте разные стили: "в стиле киберпанк", "акварель", "фотореализм".</li>
+                  <li>Оцените качество генерации — насколько изображение соответствует описанию.</li>
+                </ul>
+              </li>
+              <li><strong>Анализ документа:</strong>
+                <ul>
+                  <li>Загрузите в GigaChat любой текстовый документ (PDF, Word).</li>
+                  <li>Задайте вопросы по содержанию: "Выдели главные тезисы", "Найди все ошибки".</li>
+                  <li>Сравните качество анализа с DeepSeek.</li>
+                </ul>
+              </li>
+              <li><strong>Работа с кодом:</strong>
+                <ul>
+                  <li>Напишите запрос: "Напиши функцию на Python для расчета факториала с комментариями".</li>
+                  <li>Попросите: "Объясни этот код построчно".</li>
+                  <li>Оцените качество генерации и объяснений кода.</li>
+                </ul>
+              </li>
+              <li><strong>Голосовой ввод:</strong>
+                <ul>
+                  <li>Найдите кнопку микрофона в интерфейсе GigaChat.</li>
+                  <li>Произнесите запрос голосом, например: "Расскажи мне о нейросетях".</li>
+                  <li>Оцените качество распознавания речи.</li>
+                </ul>
+              </li>
+            </ol>
+            <p>
+              <strong>Результат:</strong> вы получите практический опыт работы с мультимодальной нейросетью и сможете использовать ее для решения разнообразных задач — от генерации контента до программирования.
+            </p>
+            <p class="text-muted mt-2" style="font-size: 0.85em">
+              <em>Резюме: регистрация и знакомство с интерфейсами DeepSeek и GigaChat — ваш первый шаг к эффективному использованию мощных текстовых нейросетей в работе и учебе. Экспериментируйте и находите для себя оптимальные инструменты!</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
