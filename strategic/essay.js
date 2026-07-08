@@ -126,15 +126,15 @@
         tempDiv.querySelectorAll('table').forEach(el => {
             const wrapper = document.createElement('div');
             wrapper.className = 'table-responsive';
-            el.className = 'table table-striped table-hover';
+            el.className = 'table table-sm table-striped table-hover';
             el.parentNode.insertBefore(wrapper, el);
             wrapper.appendChild(el);
         });
 
-        // Заголовки таблиц
-        tempDiv.querySelectorAll('th').forEach(el => {
-            el.className = 'table-dark';
-        });
+        // // Заголовки таблиц
+        // tempDiv.querySelectorAll('th').forEach(el => {
+        //     el.className = 'table-dark';
+        // });
 
         // Изображения
         tempDiv.querySelectorAll('img').forEach(el => {

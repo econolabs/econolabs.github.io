@@ -114,22 +114,22 @@ let quizesSets = [
     "answers": ["Ведение бухгалтерского учета"],
     "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Бухучет — это операционная деятельность, а не стратегический анализ.</p></div></div>"
   },
-  {
-    "id": "strat_008",
-    "type": "multiplechoices",
-    "header": "Тема 1. Сущность стратегического анализа",
-    "title": "Эволюция стратегий",
-    "theme": "Менеджмент",
-    "text": "Какой этап следует после формулирования стратегии?",
-    "choices": [
-      "Реализация стратегии",
-      "Увольнение персонала",
-      "Пересмотр миссии",
-      "Ликвидация компании"
-    ],
-    "answers": ["Реализация стратегии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сначала анализ и план, потом выполнение.</p></div></div>"
-  },
+  // {
+  //   "id": "strat_008",
+  //   "type": "multiplechoices",
+  //   "header": "Тема 1. Сущность стратегического анализа",
+  //   "title": "Эволюция стратегий",
+  //   "theme": "Менеджмент",
+  //   "text": "Какой этап следует после формулирования стратегии?",
+  //   "choices": [
+  //     "Реализация стратегии",
+  //     "Увольнение персонала",
+  //     "Пересмотр миссии",
+  //     "Ликвидация компании"
+  //   ],
+  //   "answers": ["Реализация стратегии"],
+  //   "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Сначала анализ и план, потом выполнение.</p></div></div>"
+  // },
   {
     "id": "strat_009",
     "type": "multiplechoices",
@@ -205,7 +205,7 @@ let quizesSets = [
       "Переменные, дающие конкурентное преимущество",
       "Налоговые льготы",
       "Адрес офиса",
-      "Фамилия директора"
+      "Репутация директора"
     ],
     "answers": ["Переменные, дающие конкурентное преимущество"],
     "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>КФУ — это то, в чем компания должна быть сильна, чтобы побеждать.</p></div></div>"
@@ -302,7 +302,7 @@ let quizesSets = [
     "choices": [
       "Возможностей",
       "Цвета логотипа",
-      "Места рождения директора",
+      "Репутацию основателя",
       "Количества офисов"
     ],
     "answers": ["Возможностей"],
@@ -612,8 +612,120 @@ let quizesSets = [
       "Доли рынка"
     ],
     "answers": ["Рентабельности собственного капитала (ROE)"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>DuPont раскладывает ROE на три компонента: маржа, оборачиваемость, плечо.</p></div></div>"
-  },
+    "hint": `<div class='container-fluid p-0'>
+        <div class='alert alert-primary mb-3'>
+            <h5>Модель Дюпона (DuPont)</h5>
+            <p>Это метод факторного анализа, который раскладывает рентабельность собственного капитала (ROE) на три ключевых компонента, чтобы понять, что именно драйвит доходность бизнеса.</p>
+        </div>
+
+        <div class='card mb-3'>
+            <div class='card-header bg-light fw-bold'>Формула Дюпона</div>
+            <div class='card-body'>
+                <div class='row text-center'>
+                    <div class='col-md-4 border-end'>
+                        <div class='fw-bold text-primary'>ROE</div>
+                        <div class='text-muted'>=</div>
+                        <div class='fw-bold'>Чистая прибыль</div>
+                        <div class='text-muted'>/</div>
+                        <div class='fw-bold'>Собственный капитал</div>
+                    </div>
+                    <div class='col-md-8'>
+                        <div class='row'>
+                            <div class='col-4'>
+                                <span class='badge bg-success p-2 w-100'>Маржа</span>
+                                <small class='d-block text-muted'>ЧП / Выручка</small>
+                                <span class='fw-bold'>×</span>
+                            </div>
+                            <div class='col-4'>
+                                <span class='badge bg-info p-2 w-100'>Оборачиваемость</span>
+                                <small class='d-block text-muted'>Выручка / Активы</small>
+                                <span class='fw-bold'>×</span>
+                            </div>
+                            <div class='col-4'>
+                                <span class='badge bg-warning p-2 w-100'>Плечо</span>
+                                <small class='d-block text-muted'>Активы / СК</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='card mb-3'>
+            <div class='card-header bg-light fw-bold'>📊 Пример расчета для компании</div>
+            <div class='card-body'>
+                <div class='table-responsive'>
+                    <table class='table table-bordered table-striped'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th>Показатель</th>
+                                <th>Формула</th>
+                                <th>Значение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class='badge bg-success'>Маржа</span></td>
+                                <td>Чистая прибыль / Выручка</td>
+                                <td>10 / 200 = <strong>5%</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class='badge bg-info'>Оборачиваемость</span></td>
+                                <td>Выручка / Активы</td>
+                                <td>200 / 100 = <strong>2.0</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class='badge bg-warning'>Плечо</span></td>
+                                <td>Активы / Собственный капитал</td>
+                                <td>100 / 50 = <strong>2.0</strong></td>
+                            </tr>
+                            <tr class='table-primary fw-bold'>
+                                <td>ROE</td>
+                                <td>Маржа × Оборачиваемость × Плечо</td>
+                                <td>5% × 2.0 × 2.0 = <strong>20%</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class='mt-2'>
+                    <p class='mb-1'><strong>Что показывают компоненты:</strong></p>
+                    <ul class='mb-0'>
+                        <li><span class='badge bg-success'>Маржа</span> — сколько прибыли остается с каждого рубля выручки (операционная эффективность).</li>
+                        <li><span class='badge bg-info'>Оборачиваемость</span> — насколько эффективно компания использует свои активы.</li>
+                        <li><span class='badge bg-warning'>Плечо</span> — сколько заемных средств использует компания (финансовый рычаг).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class='card'>
+            <div class='card-header bg-light fw-bold'>🔍 Анализ результата (ROE = 20%)</div>
+            <div class='card-body'>
+                <p class='mb-1'><strong>Как увеличить ROE?</strong></p>
+                <div class='row'>
+                    <div class='col-md-4'>
+                        <div class='border p-2 rounded bg-success bg-opacity-10'>
+                            <span class='badge bg-success'>Маржа ↑</span>
+                            <small class='d-block'>Повысить цены или снизить себестоимость</small>
+                        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class='border p-2 rounded bg-info bg-opacity-10'>
+                            <span class='badge bg-info'>Оборачиваемость ↑</span>
+                            <small class='d-block'>Ускорить продажи, эффективнее использовать склады</small>
+                        </div>
+                    </div>
+                    <div class='col-md-4'>
+                        <div class='border p-2 rounded bg-warning bg-opacity-10'>
+                            <span class='badge bg-warning'>Плечо ↑</span>
+                            <small class='d-block'>Привлечь кредиты (это рискованно!)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+},
   {
     "id": "strat_039",
     "type": "multiplechoices",
@@ -628,8 +740,143 @@ let quizesSets = [
       "Количество сотрудников"
     ],
     "answers": ["Эффективность использования активов для генерации выручки"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Оборачиваемость = Выручка / Активы.</p></div></div>"
-  },
+    "hint": `<div class='container-fluid p-0'>
+    <div class='alert alert-primary mb-3'>
+        <h5>Оборачиваемость активов (Asset Turnover)</h5>
+        <p>Это коэффициент, который показывает, сколько рублей выручки приносит каждый рубль, вложенный в активы компании. Чем выше показатель, тем эффективнее используются ресурсы.</p>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>Формула</div>
+        <div class='card-body text-center'>
+            <div class='row align-items-center'>
+                <div class='col-4'>
+                    <div class='p-3 bg-success bg-opacity-10 rounded border'>
+                        <span class='fw-bold'>Оборачиваемость</span>
+                        <span class='text-muted d-block'>=</span>
+                        <span class='h5'>Выручка</span>
+                        <span class='text-muted d-block'>/</span>
+                        <span class='h5'>Средние активы</span>
+                    </div>
+                </div>
+                <div class='col-8'>
+                    <div class='text-start'>
+                        <span class='badge bg-success p-2'>Выручка</span> — доход от продаж за период (год, квартал)<br>
+                        <span class='badge bg-info p-2'>Средние активы</span> — (Активы на начало + Активы на конец) / 2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>📊 Сравнительный пример: две компании из одной отрасли</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered table-striped'>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th>Показатель</th>
+                            <th>Компания А</th>
+                            <th>Компания Б</th>
+                            <th>Вывод</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Выручка</strong></td>
+                            <td>200 млн руб.</td>
+                            <td>200 млн руб.</td>
+                            <td>Одинаковая</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Активы</strong></td>
+                            <td>100 млн руб.</td>
+                            <td>200 млн руб.</td>
+                            <td>А < Б</td>
+                        </tr>
+                        <tr class='table-primary fw-bold'>
+                            <td><strong>Оборачиваемость</strong></td>
+                            <td>200 / 100 = <span class='text-success'>2.0</span></td>
+                            <td>200 / 200 = <span class='text-danger'>1.0</span></td>
+                            <td>А <span class='text-success'>▶ эффективнее</span><br>Б <span class='text-danger'>▶ менее эффективна</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class='mt-2'>
+                <p class='mb-1'><strong>Что это означает на практике?</strong></p>
+                <ul class='mb-0'>
+                    <li><span class='text-success'>✅ Компания А</span> генерирует 2 рубля выручки с каждого рубля активов. Активы используются эффективно.</li>
+                    <li><span class='text-danger'>❌ Компания Б</span> генерирует только 1 рубль выручки с каждого рубля активов. Возможно, есть избыточные основные средства или неэффективные запасы.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>🔍 Как интерпретировать оборачиваемость</div>
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-success bg-opacity-10'>
+                        <span class='badge bg-success'>Высокая оборачиваемость (> 2-3)</span>
+                        <ul class='mb-0 mt-1 small'>
+                            <li>Компания эффективно использует активы</li>
+                            <li>Быстрый оборот запасов и дебиторки</li>
+                            <li>Минимальные простои оборудования</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10'>
+                        <span class='badge bg-danger'>Низкая оборачиваемость (< 1)</span>
+                        <ul class='mb-0 mt-1 small'>
+                            <li>Возможно, простаивают мощности</li>
+                            <li>Затоваривание складов</li>
+                            <li>Медленный сбор дебиторской задолженности</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='card'>
+        <div class='card-header bg-light fw-bold'>📌 Важно! Зависимость от отрасли</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered table-sm'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th>Отрасль</th>
+                            <th>Типичная оборачиваемость</th>
+                            <th>Примеры компаний</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🛒 Розничная торговля</td>
+                            <td><span class='fw-bold text-success'>Высокая</span> (3-8)</td>
+                            <td>Магнит, Walmart — быстро оборачивают товары</td>
+                        </tr>
+                        <tr>
+                            <td>🏭 Тяжелая промышленность</td>
+                            <td><span class='fw-bold text-warning'>Средняя</span> (0.5-1.5)</td>
+                            <td>Заводы с дорогим оборудованием</td>
+                        </tr>
+                        <tr>
+                            <td>💎 Ювелирные украшения</td>
+                            <td><span class='fw-bold text-danger'>Низкая</span> (0.2-0.5)</td>
+                            <td>Дорогие активы, медленная реализация</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class='mt-1 small text-muted'>⚠️ Поэтому сравнивать оборачиваемость нужно только с компаниями из одной отрасли!</p>
+        </div>
+    </div>
+</div>`},
   {
     "id": "strat_040",
     "type": "multiplechoices",
@@ -639,11 +886,12 @@ let quizesSets = [
     "text": "Матрица McKinsey (GE) отличается от BCG тем, что:",
     "choices": [
       "Использует два комплексных показателя (привлекательность рынка и конкурентная позиция)",
+      "Использует комплексные, многокритериальные показатели вместо двух простых показателей BCG",
       "Учитывает только прибыль",
       "Игнорирует конкуренцию",
       "Основана на климате"
     ],
-    "answers": ["Использует два комплексных показателя (привлекательность рынка и конкурентная позиция)"],
+    "answers": ["Использует комплексные, многокритериальные показатели вместо двух простых показателей BCG"],
     "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>BCG — простые оси (рост и доля), McKinsey — многомерные оценки.</p></div></div>"
   },
   {
@@ -822,8 +1070,194 @@ let quizesSets = [
       "Возраста компании"
     ],
     "answers": ["Конкурентной позиции и роста рынка"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Это более сложная версия BCG с 4 квадрантами.</p></div></div>"
-  },
+    "hint": `<div class='container-fluid p-0'>
+    <div class='alert alert-primary mb-3'>
+        <h5>Матрица Томпсона-Стрикленда (Thompson-Strickland Matrix)</h5>
+        <p>Это стратегический инструмент для выбора конкурентной стратегии в зависимости от двух факторов: <strong>темпа роста рынка</strong> (быстрый/медленный) и <strong>конкурентной позиции компании</strong> (сильная/слабая). Это усовершенствованная версия матрицы BCG.</p>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>📐 Структура матрицы</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-center'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th></th>
+                            <th colspan='2' class='fw-bold'>ТЕМП РОСТА РЫНКА</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th class='bg-success bg-opacity-25'>Быстрый рост</th>
+                            <th class='bg-danger bg-opacity-25'>Медленный рост</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class='bg-success bg-opacity-25'>Сильная<br>конкурентная<br>позиция</th>
+                            <td class='bg-success bg-opacity-10'>
+                                <span class='badge bg-success'>Квадрант I</span><br>
+                                <strong>«Звезды»</strong><br>
+                                <small>Концентрация, вертикальная интеграция</small>
+                            </td>
+                            <td class='bg-warning bg-opacity-10'>
+                                <span class='badge bg-warning'>Квадрант II</span><br>
+                                <strong>«Дойные коровы»</strong><br>
+                                <small>Сбор урожая, диверсификация</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class='bg-danger bg-opacity-25'>Слабая<br>конкурентная<br>позиция</th>
+                            <td class='bg-info bg-opacity-10'>
+                                <span class='badge bg-info'>Квадрант III</span><br>
+                                <strong>«Вопросительные знаки»</strong><br>
+                                <small>Изменение стратегии, инвестиции</small>
+                            </td>
+                            <td class='bg-danger bg-opacity-10'>
+                                <span class='badge bg-danger'>Квадрант IV</span><br>
+                                <strong>«Собаки»</strong><br>
+                                <small>Ликвидация, сокращение</small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>📊 Пример: производитель бытовой техники</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered table-striped'>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th>Подразделение</th>
+                            <th>Темп роста рынка</th>
+                            <th>Конкурентная позиция</th>
+                            <th>Квадрант</th>
+                            <th>Рекомендуемая стратегия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Умные холодильники</strong></td>
+                            <td><span class='text-success'>Быстрый (+25%)</span></td>
+                            <td><span class='text-success'>Сильная</span></td>
+                            <td><span class='badge bg-success'>I</span></td>
+                            <td>Инвестировать в рост, захват доли</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Обычные холодильники</strong></td>
+                            <td><span class='text-danger'>Медленный (+2%)</span></td>
+                            <td><span class='text-success'>Сильная</span></td>
+                            <td><span class='badge bg-warning'>II</span></td>
+                            <td>Максимизировать прибыль, не инвестировать</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Умные тостеры</strong></td>
+                            <td><span class='text-success'>Быстрый (+30%)</span></td>
+                            <td><span class='text-danger'>Слабая</span></td>
+                            <td><span class='badge bg-info'>III</span></td>
+                            <td>Усилить маркетинг или продать</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Микроволновки</strong></td>
+                            <td><span class='text-danger'>Медленный (-5%)</span></td>
+                            <td><span class='text-danger'>Слабая</span></td>
+                            <td><span class='badge bg-danger'>IV</span></td>
+                            <td>Уйти с рынка, прекратить производство</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>🔄 Отличие от матрицы BCG</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th>Критерий</th>
+                            <th class='text-primary'>BCG</th>
+                            <th class='text-success'>Томпсон-Стрикленд</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ось X</td>
+                            <td>Доля рынка (только количественный показатель)</td>
+                            <td>Конкурентная позиция (более комплексная оценка)</td>
+                        </tr>
+                        <tr>
+                            <td>Ось Y</td>
+                            <td>Темп роста рынка</td>
+                            <td>Темп роста рынка</td>
+                        </tr>
+                        <tr>
+                            <td>Количество квадрантов</td>
+                            <td>4</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>Оценка позиции</td>
+                            <td>Одномерная (доля рынка)</td>
+                            <td>Многомерная (качество, бренд, технологии)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class='card'>
+        <div class='card-header bg-light fw-bold'>📌 Стратегии по квадрантам</div>
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-success bg-opacity-10 mb-2'>
+                        <span class='badge bg-success'>Квадрант I: «Звезды»</span>
+                        <ul class='mb-0 small'>
+                            <li>Инвестиции в рост и расширение</li>
+                            <li>Вертикальная интеграция</li>
+                            <li>Захват доли рынка</li>
+                        </ul>
+                    </div>
+                    <div class='border p-2 rounded bg-warning bg-opacity-10 mb-2'>
+                        <span class='badge bg-warning'>Квадрант II: «Дойные коровы»</span>
+                        <ul class='mb-0 small'>
+                            <li>Сбор урожая (максимум прибыли)</li>
+                            <li>Диверсификация</li>
+                            <li>Минимальные инвестиции</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-info bg-opacity-10 mb-2'>
+                        <span class='badge bg-info'>Квадрант III: «Вопросительные знаки»</span>
+                        <ul class='mb-0 small'>
+                            <li>Выборочные инвестиции</li>
+                            <li>Изменение стратегии</li>
+                            <li>Продажа или усиление</li>
+                        </ul>
+                    </div>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 mb-2'>
+                        <span class='badge bg-danger'>Квадрант IV: «Собаки»</span>
+                        <ul class='mb-0 small'>
+                            <li>Ликвидация бизнеса</li>
+                            <li>Сокращение затрат</li>
+                            <li>Уход с рынка</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class='mt-2 small text-muted'>⚠️ Матрица Томпсона-Стрикленда — это более гибкий инструмент, так как «конкурентная позиция» учитывает не только долю рынка, но и качество продукта, бренд, инновации.</p>
+        </div>
+    </div>
+</div>`},
   {
     "id": "strat_052",
     "type": "multiplechoices",
@@ -870,8 +1304,222 @@ let quizesSets = [
       "Рекламы"
     ],
     "answers": ["Оценки выполнения стратегии"],
-    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>KPI измеримы и связаны со стратегическими целями.</p></div></div>"
-  },
+   "hint": `<div class='container-fluid p-0'>
+    <div class='alert alert-primary mb-3'>
+        <h5>KPI — Ключевые показатели эффективности</h5>
+        <p>KPI (Key Performance Indicators) — это измеримые показатели, которые помогают оценить, насколько успешно компания достигает своих стратегических и операционных целей. KPI — это не просто цифры, а <strong>инструмент управления</strong>, который связывает стратегию с повседневной деятельностью.</p>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>🎯 Основные функции KPI</div>
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-3'>
+                    <div class='border p-2 rounded bg-success bg-opacity-10 text-center'>
+                        <span class='h5'>📊</span>
+                        <h6>Оценка</h6>
+                        <small>Показывают, достигнуты ли цели</small>
+                    </div>
+                </div>
+                <div class='col-md-3'>
+                    <div class='border p-2 rounded bg-info bg-opacity-10 text-center'>
+                        <span class='h5'>🎯</span>
+                        <h6>Фокус</h6>
+                        <small>Концентрируют внимание на важном</small>
+                    </div>
+                </div>
+                <div class='col-md-3'>
+                    <div class='border p-2 rounded bg-warning bg-opacity-10 text-center'>
+                        <span class='h5'>🔄</span>
+                        <h6>Корректировка</h6>
+                        <small>Позволяют вовремя менять курс</small>
+                    </div>
+                </div>
+                <div class='col-md-3'>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 text-center'>
+                        <span class='h5'>📈</span>
+                        <h6>Мотивация</h6>
+                        <small>Стимулируют сотрудников</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>📊 Пример: KPI для интернет-магазина</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered table-striped'>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th>KPI</th>
+                            <th>Формула</th>
+                            <th>Цель (2024)</th>
+                            <th>Факт (2024)</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Выручка</strong></td>
+                            <td>Сумма всех продаж</td>
+                            <td>120 млн руб.</td>
+                            <td>115 млн руб.</td>
+                            <td><span class='badge bg-warning'>Отставание 4%</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Конверсия</strong></td>
+                            <td>Покупки / Посетители × 100%</td>
+                            <td>4.5%</td>
+                            <td>4.7%</td>
+                            <td><span class='badge bg-success'>✅ Достигнуто</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NPS (лояльность)</strong></td>
+                            <td>% промоутеров - % критиков</td>
+                            <td>50</td>
+                            <td>45</td>
+                            <td><span class='badge bg-danger'>Критично</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Средний чек</strong></td>
+                            <td>Выручка / Кол-во заказов</td>
+                            <td>4 200 руб.</td>
+                            <td>4 100 руб.</td>
+                            <td><span class='badge bg-warning'>Отставание 2%</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Доставка (в срок)</strong></td>
+                            <td>Заказы вовремя / Все заказы × 100%</td>
+                            <td>98%</td>
+                            <td>97.5%</td>
+                            <td><span class='badge bg-success'>✅ Достигнуто</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class='mt-2 small text-muted'>🔴 <strong>Красный</strong> — критическое отставание, требуются срочные меры.<br>
+            🟡 <strong>Желтый</strong> — есть отклонение, требуется анализ.<br>
+            🟢 <strong>Зеленый</strong> — цель достигнута.</p>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>✅ Хороший KPI: SMART-критерии</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th>Критерий</th>
+                            <th>Описание</th>
+                            <th>Пример (плохой → хороший)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class='badge bg-primary'>S</span> Specific</td>
+                            <td>Конкретный, понятный</td>
+                            <td>❌ «Увеличить продажи»<br>✅ «Увеличить продажи в Москве на 15%»</td>
+                        </tr>
+                        <tr>
+                            <td><span class='badge bg-primary'>M</span> Measurable</td>
+                            <td>Измеримый, количественный</td>
+                            <td>❌ «Улучшить сервис»<br>✅ «Повысить NPS с 45 до 50»</td>
+                        </tr>
+                        <tr>
+                            <td><span class='badge bg-primary'>A</span> Achievable</td>
+                            <td>Достижимый, реалистичный</td>
+                            <td>❌ «Увеличить прибыль в 10 раз за месяц»<br>✅ «Увеличить прибыль на 20% за год»</td>
+                        </tr>
+                        <tr>
+                            <td><span class='badge bg-primary'>R</span> Relevant</td>
+                            <td>Релевантный, связанный со стратегией</td>
+                            <td>❌ «Количество лайков в Instagram» (для В2B)<br>✅ «Количество новых контрактов с крупными клиентами»</td>
+                        </tr>
+                        <tr>
+                            <td><span class='badge bg-primary'>T</span> Time-bound</td>
+                            <td>Ограниченный по времени</td>
+                            <td>❌ «Когда-нибудь запустим»<br>✅ «Запустить новый продукт до 1 декабря 2024»</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class='card mb-3'>
+        <div class='card-header bg-light fw-bold'>📌 Связь KPI со стратегией</div>
+        <div class='card-body'>
+            <div class='table-responsive'>
+                <table class='table table-bordered'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th>Стратегическая цель</th>
+                            <th>KPI (что измеряем)</th>
+                            <th>Ответственный</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class='fw-bold'>💰 Увеличить прибыль</span></td>
+                            <td>ROE, ROA, чистая прибыль</td>
+                            <td>Финансовый директор</td>
+                        </tr>
+                        <tr>
+                            <td><span class='fw-bold'>👥 Завоевать лояльность</span></td>
+                            <td>NPS, повторные покупки, отток клиентов</td>
+                            <td>Директор по маркетингу</td>
+                        </tr>
+                        <tr>
+                            <td><span class='fw-bold'>⚙️ Улучшить качество</span></td>
+                            <td>Процент брака, время доставки</td>
+                            <td>Директор по производству</td>
+                        </tr>
+                        <tr>
+                            <td><span class='fw-bold'>📚 Развивать персонал</span></td>
+                            <td>Текучесть, часы обучения</td>
+                            <td>HR-директор</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class='card'>
+        <div class='card-header bg-light fw-bold'>🚫 Типичные ошибки при работе с KPI</div>
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 mb-2'>
+                        <span class='badge bg-danger'>Ошибка 1</span>
+                        <strong>Слишком много KPI</strong>
+                        <p class='mb-0 small'>Более 10 KPI на одного сотрудника размывают фокус. Оптимально — 3-7 показателей.</p>
+                    </div>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 mb-2'>
+                        <span class='badge bg-danger'>Ошибка 2</span>
+                        <strong>KPI без связи со стратегией</strong>
+                        <p class='mb-0 small'>Измерять «количество звонков» вместо «конверсии звонков в продажи».</p>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 mb-2'>
+                        <span class='badge bg-danger'>Ошибка 3</span>
+                        <strong>KPI без «цифровой» цели</strong>
+                        <p class='mb-0 small'>«Увеличить продажи» — плохо. «Увеличить продажи на 20% за квартал» — хорошо.</p>
+                    </div>
+                    <div class='border p-2 rounded bg-danger bg-opacity-10 mb-2'>
+                        <span class='badge bg-danger'>Ошибка 4</span>
+                        <strong>KPI не пересматриваются</strong>
+                        <p class='mb-0 small'>Рынок меняется, и KPI должны меняться вместе со стратегией. Пересмотр — раз в квартал.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`},
   {
     "id": "strat_055",
     "type": "multiplechoices",
@@ -969,7 +1617,237 @@ let quizesSets = [
     "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>SMART: Specific, Measurable, Achievable, Relevant, Time-bound.</p></div></div>"
   },
 
-  
+  // ==================== ТЕМА 4: Обобщение и выводы (ДОПОЛНЕНИЕ) ====================
+{
+    "id": "strat_061",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Матрица SWOT: стратегия S-O",
+    "theme": "SWOT",
+    "text": "В матрице SWOT стратегия, которая использует сильные стороны компании для захвата внешних возможностей, называется:",
+    "choices": [
+      "Защитной (S-T)",
+      "Наступательной (S-O)",
+      "Преодоления (W-O)",
+      "Оборонительной (W-T)"
+    ],
+    "answers": ["Наступательной (S-O)"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегия S-O («Макси-Макси») направлена на агрессивный рост и использование сильных сторон для реализации возможностей.</p></div></div>"
+},
+{
+    "id": "strat_062",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Матрица SWOT: стратегия W-T",
+    "theme": "SWOT",
+    "text": "Какой тип стратегии в SWOT-анализе направлен на минимизацию слабостей и избегание угроз?",
+    "choices": [
+      "Наступательная (S-O)",
+      "Преодоления (W-O)",
+      "Оборонительная (W-T)",
+      "Защитная (S-T)"
+    ],
+    "answers": ["Оборонительная (W-T)"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегия W-T («Мини-Мини») — это оборонительная стратегия, направленная на выживание и минимизацию потерь.</p></div></div>"
+},
+{
+    "id": "strat_063",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Критерий 'Осуществимость' стратегии",
+    "theme": "Оценка альтернатив",
+    "text": "При оценке стратегических альтернатив критерий 'Осуществимость' (Feasibility) отвечает на вопрос:",
+    "choices": [
+      "Соответствует ли стратегия миссии компании?",
+      "Есть ли у компании ресурсы и компетенции для реализации стратегии?",
+      "Каков ожидаемый ROI и уровень риска?",
+      "Одобряют ли стратегию ключевые стейкхолдеры?"
+    ],
+    "answers": ["Есть ли у компании ресурсы и компетенции для реализации стратегии?"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Осуществимость проверяет наличие финансов, персонала, технологий и ключевых компетенций для воплощения стратегии в жизнь.</p></div></div>"
+},
+{
+    "id": "strat_064",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Уровни неопределенности среды",
+    "theme": "Сценарное планирование",
+    "text": "Согласно модели Кортни, какой уровень неопределенности среды предполагает использование сценарного планирования?",
+    "choices": [
+      "Уровень 1: Ясное будущее",
+      "Уровень 2: Несколько сценариев",
+      "Уровень 3: Диапазон возможностей",
+      "Уровень 4: Полная неопределенность"
+    ],
+    "answers": ["Уровень 2: Несколько сценариев"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>При наличии нескольких дискретных сценариев (уровень 2) применяется сценарное планирование с мониторингом индикаторов.</p></div></div>"
+},
+{
+    "id": "strat_065",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "SPACE-анализ: координата X",
+    "theme": "SPACE",
+    "text": "В SPACE-анализе координата X (горизонтальная ось) рассчитывается как сумма:",
+    "choices": [
+      "Финансовой силы (FS) и Стабильности среды (ES)",
+      "Силы отрасли (IS) и Конкурентного преимущества (CA)",
+      "Финансовой силы (FS) и Конкурентного преимущества (CA)",
+      "Силы отрасли (IS) и Стабильности среды (ES)"
+    ],
+    "answers": ["Силы отрасли (IS) и Конкурентного преимущества (CA)"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>X = IS + CA. Эта координата показывает привлекательность отрасли и конкурентную позицию компании.</p></div></div>"
+},
+{
+    "id": "strat_066",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "SPACE-анализ: квадрант 'Консервативная стратегия'",
+    "theme": "SPACE",
+    "text": "В каком квадранте SPACE-матрицы рекомендуются стратегии стабилизации, защиты позиций и снижения долга?",
+    "choices": [
+      "Агрессивном (X > 0, Y > 0)",
+      "Конкурентном (X < 0, Y > 0)",
+      "Консервативном (X > 0, Y < 0)",
+      "Оборонительном (X < 0, Y < 0)"
+    ],
+    "answers": ["Консервативном (X > 0, Y < 0)"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Консервативная стратегия рекомендуется, когда отрасль привлекательна (X > 0), но финансовая сила компании слаба, а среда нестабильна (Y < 0).</p></div></div>"
+},
+{
+    "id": "strat_067",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "BSC: Перспектива 'Обучение и рост'",
+    "theme": "BSC",
+    "text": "В Сбалансированной системе показателей (BSC) какие показатели относятся к перспективе 'Обучение и рост'?",
+    "choices": [
+      "ROE и денежный поток",
+      "NPS и доля рынка",
+      "Текучесть кадров и часы обучения",
+      "Время цикла и процент брака"
+    ],
+    "answers": ["Текучесть кадров и часы обучения"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Перспектива 'Обучение и рост' измеряет инвестиции в персонал, корпоративную культуру и инновации.</p></div></div>"
+},
+{
+    "id": "strat_068",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Причинно-следственные связи в BSC",
+    "theme": "BSC",
+    "text": "Стратегическая карта в рамках BSC визуализирует:",
+    "choices": [
+      "Географию продаж компании",
+      "Причинно-следственные связи между целями в четырех перспективах",
+      "Организационную структуру компании",
+      "Динамику рыночной доли"
+    ],
+    "answers": ["Причинно-следственные связи между целями в четырех перспективах"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Стратегическая карта показывает, как улучшения в обучении ведут к улучшению процессов, а те — к росту удовлетворенности клиентов и финансовым результатам.</p></div></div>"
+},
+
+// ==================== ТЕМА 2: Анализ внешней среды (ДОПОЛНЕНИЕ) ====================
+{
+    "id": "strat_069",
+    "type": "multiplechoices",
+    "header": "Тема 2. Анализ внешней среды",
+    "title": "Барьеры выхода из отрасли",
+    "theme": "Отраслевой анализ",
+    "text": "Высокие барьеры выхода из отрасли (например, специализированное оборудование) приводят к:",
+    "choices": [
+      "Снижению внутриотраслевой конкуренции",
+      "Усилению внутриотраслевой конкуренции, так как компаниям сложно уйти",
+      "Повышению рыночной власти покупателей",
+      "Уменьшению угрозы со стороны новых игроков"
+    ],
+    "answers": ["Усилению внутриотраслевой конкуренции, так как компаниям сложно уйти"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Когда уйти сложно, компании вынуждены бороться до конца, что обостряет конкуренцию, даже если рынок падает.</p></div></div>"
+},
+{
+    "id": "strat_070",
+    "type": "multiplechoices",
+    "header": "Тема 2. Анализ внешней среды",
+    "title": "Комплементарные товары",
+    "theme": "Анализ отрасли",
+    "text": "Что такое комплементарные товары в контексте отраслевого анализа?",
+    "choices": [
+      "Товары, которые заменяют друг друга",
+      "Товары, которые дополняют друг друга и используются совместно",
+      "Товары конкурентов с аналогичными функциями",
+      "Товары, которые находятся на стадии спада жизненного цикла"
+    ],
+    "answers": ["Товары, которые дополняют друг друга и используются совместно"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Например, кофе и кофемашина — это комплементарные товары. Рост продаж одного часто ведет к росту продаж другого.</p></div></div>"
+},
+
+// ==================== ТЕМА 3: Анализ внутренней среды (ДОПОЛНЕНИЕ) ====================
+{
+    "id": "strat_071",
+    "type": "multiplechoices",
+    "header": "Тема 3. Анализ внутренней среды",
+    "title": "Стратегия 'Сбор урожая'",
+    "theme": "Портфельный анализ",
+    "text": "Стратегия 'сбора урожая' (harvest) в портфельном анализе применяется для:",
+    "choices": [
+      "Быстрого роста и захвата доли рынка",
+      "Максимизации краткосрочной прибыли от 'Дойных коров' перед сворачиванием бизнеса",
+      "Выхода на новые рынки",
+      "Инвестирования в 'Вопросительные знаки'"
+    ],
+    "answers": ["Максимизации краткосрочной прибыли от 'Дойных коров' перед сворачиванием бизнеса"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Это стратегия, при которой минимизируются инвестиции и максимизируется денежный поток, чтобы 'выжать' максимум прибыли, пока продукт еще на плаву.</p></div></div>"
+},
+{
+    "id": "strat_072",
+    "type": "multiplechoices",
+    "header": "Тема 3. Анализ внутренней среды",
+    "title": "Организационная поддержка в VRIO",
+    "theme": "Ресурсы",
+    "text": "В VRIO-анализе критерий 'Организация' (Organization) проверяет:",
+    "choices": [
+      "Ликвидность ресурса",
+      "Наличие процессов и систем, способных реализовать потенциал ресурса",
+      "Редкость ресурса на рынке",
+      "Стоимость ресурса для компании"
+    ],
+    "answers": ["Наличие процессов и систем, способных реализовать потенциал ресурса"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Даже если ресурс ценен и редок, компания должна быть правильно организована, чтобы извлечь из него выгоду.</p></div></div>"
+},
+
+// ==================== ТЕМА 4: Обобщение и выводы (ДОПОЛНИТЕЛЬНЫЕ РАЗДЕЛЫ) ====================
+{
+    "id": "strat_073",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "Цикл PDCA в стратегическом контроле",
+    "theme": "Контроль",
+    "text": "В цикле PDCA (Plan-Do-Check-Act) этап 'Проверка' (Check) соответствует:",
+    "choices": [
+      "Формулированию стратегии и установке целей",
+      "Реализации стратегии и выполнению планов",
+      "Оценке влияния стратегии и сравнению цели и факта",
+      "Корректировке стратегии и стандартизации успеха"
+    ],
+    "answers": ["Оценке влияния стратегии и сравнению цели и факта"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>Этап 'Check' — это оценка результатов, которая позволяет понять, сработала ли стратегия.</p></div></div>"
+},
+{
+    "id": "strat_074",
+    "type": "multiplechoices",
+    "header": "Тема 4. Обобщение результатов",
+    "title": "OKR против KPI",
+    "theme": "Оценка эффективности",
+    "text": "В чем ключевое различие между OKR (Objectives and Key Results) и KPI (Key Performance Indicators)?",
+    "choices": [
+      "OKR измеряют прогресс в достижении амбициозных целей, а KPI — текущую эффективность процессов",
+      "OKR — это финансовые показатели, а KPI — нефинансовые",
+      "OKR используются только в маркетинге, а KPI — во всех сферах",
+      "Принципиального различия нет, это синонимы"
+    ],
+    "answers": ["OKR измеряют прогресс в достижении амбициозных целей, а KPI — текущую эффективность процессов"],
+    "hint": "<div class='container-fluid p-0'><div class='alert alert-primary mb-3'><p>OKR задают направление и амбиции (например, 'Запустить приложение'), а KPI следят за стабильностью и рутиной (например, 'Уровень сбоев')</p></div></div>"
+}
 
 
 ]
