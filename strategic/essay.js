@@ -206,7 +206,11 @@
 
           let updates = {};
           updates["currentDay/" + currentDay + "/posts/" + htmlPost.id] = htmlPost;
+          updates["/usersCraft/" + userEmail + "/posts/" + htmlPost.id + Math.floor(Math.random() * (100000- 1) + 1)] = {...htmlPost, type: "markdown" };
           updates["/usersCraft/" + userEmail + "/posts/" + htmlPost.id] = htmlPost;
+
+
+          
 
 
           window.basicfirebasecrudauthservices.updateFirebaseNode(updates)
