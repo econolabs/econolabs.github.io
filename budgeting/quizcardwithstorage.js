@@ -21663,6 +21663,15 @@ function doSaveQuiz(answer, type, content, quizString, hint) {
         .format(new Date())
         .replace(/[^a-zA-Z0-9]/g, "_");
 
+
+    let formulahint = "";
+    
+    if ($("#inputFormula").value.length > 2) {
+            formulahint = "<br>" + $("#inputFormula").value + "<br>" + hint;
+        }  else { formulahint = "<br>" + hint + "<br>" }  
+
+        console.log(formulahint)
+
     let postObject = {
         id: idPost,
         title: title,
@@ -21672,7 +21681,7 @@ function doSaveQuiz(answer, type, content, quizString, hint) {
         answer, 
         content, 
         quizString,
-        hint: hint || "",  // Сохраняем hint
+        hint: formulahint,  // Сохраняем hint
         deleted: false,
         email: email,
         user: user,
@@ -22208,43 +22217,6 @@ function updateQuiz(activePage) {
     });
 
     //store.subscribe(() => { })
-
-
-
-
-
-    // function processSpreadsheet(protoDataSpreadsheetObjectWithFormula) {
-    //     console.log(protoDataSpreadsheetObjectWithFormula);
-    //     let result =
-    //         createNewDraft(
-    //             createMinimalProtoArray(
-    //                 protoDataSpreadsheetObjectWithFormula
-    //                 ))
-    // createMinimalProtoArray({
-    //     A1: "2",
-    //     A2: "2",
-    //     A3: "=A1+A2"
-    // }, 6, 6)
-    //   console.log(result);
-    //     $("#resformula").innerText = result[result.length - 1][0];
-    // }
-
-    // function reСalculation() {
-    //     let protoDataSpreadsheetObject = store.getState().application.protoDataSpreadsheetObject;
-    //     let answer = $("#inputFormula").value;
-    //     console.log(answer);
-
-    //     let lastRowIndex = 1;
-    //     Object.keys(protoDataSpreadsheetObject)
-    //         .forEach(objKey => {
-    //             if (Number(objKey.slice(1)) > lastRowIndex) { lastRowIndex = Number(objKey.slice(1)) + 1 }
-    //         });
-    //     console.log(lastRowIndex);
-    //     let protoDataSpreadsheetObjectWithFormula = {
-    //         ...protoDataSpreadsheetObject, ["A" + (lastRowIndex + 1)]: answer
-    //     }
-    //     processSpreadsheet(protoDataSpreadsheetObjectWithFormula);
-    //   };
 
     return index;
 
