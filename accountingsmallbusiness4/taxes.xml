@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- Вопрос 1: НДС в книге покупок -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. НДС в книге покупок</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти налог НДС в книге покупок.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>НДС в книге покупок = Стоимость покупки с НДС * 22/122 = {=10+{var1}*10} * 22/122 = {=(10+{var1}*10)*22/122}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=(10+{var1}*10)*22/122}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 2: НДС в книге продаж -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. НДС в книге продаж</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=(10+{var1}*10)*0.7} млн. руб. (в том числе НДС -22%), продали 90% товара за {=10+{var1}*10} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти налог НДС в книге продаж.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>НДС в книге продаж = Стоимость отгрузки с НДС * 22/122 = {=10+{var1}*10} * 22/122 = {=(10+{var1}*10)*22/122}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=(10+{var1}*10)*22/122}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 3: НДС за отчетный период -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. НДС за отчетный период</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти налог НДС за отчетный период.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>1. НДС с реализации (книга продаж): {=(10+{var1}*10)*2} * 22/122 = {=((10+{var1}*10)*2*22/122)}<br>2. НДС к вычету (книга покупок): {=10+{var1}*10} * 22/122 = {=((10+{var1}*10)*22/122)}<br>3. НДС к уплате = {=((10+{var1}*10)*2*22/122)} - {=((10+{var1}*10)*22/122)} = {=((10+{var1}*10)*2*22/122 - (10+{var1}*10)*22/122)}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=((10+{var1}*10)*2*22/122 - (10+{var1}*10)*22/122)}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 4: НДС к платежу в апреле -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. НДС к платежу в апреле</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили в январе товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара в феврале за {=(10+{var1}*10)*4} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. НДС к платежу в апреле?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>1. НДС за квартал = ({=(10+{var1}*10)*4} - {=10+{var1}*10}) * 22/122 = {=((10+{var1}*10)*4*22/122 - (10+{var1}*10)*22/122)}<br>2. Платеж в апреле = НДС за квартал / 3 = {=((10+{var1}*10)*4*22/122 - (10+{var1}*10)*22/122)/3}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=((10+{var1}*10)*4*22/122 - (10+{var1}*10)*22/122)/3}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 5: Доходы организации -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. Доходы организации</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти доходы организации.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>Доходы = Стоимость отгрузки без НДС = {=(10+{var1}*10)*2} * 100/122 = {=((10+{var1}*10)*2*100/122)}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=((10+{var1}*10)*2*100/122)}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 6: Расходы организации -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. Расходы организации</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти расходы организации.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>Расходы = Стоимость покупки без НДС * Доля реализованного товара = {=10+{var1}*10} * 100/122 * 90/100 = {=((10+{var1}*10)*100*90/(122*100))}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=((10+{var1}*10)*100*90/(122*100))}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 7: Прибыль за период -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. Прибыль за период</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти прибыль за период.</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>1. Доходы: {=(10+{var1}*10)*2} * 100/122 = {=((10+{var1}*10)*2*100/122)}<br>2. Расходы: {=10+{var1}*10} * 100/122 * 90/100 = {=((10+{var1}*10)*100*90/(122*100))}<br>3. Прибыль = {=((10+{var1}*10)*2*100/122)} - {=((10+{var1}*10)*100*90/(122*100))} = {=((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 8: Налог на прибыль за период -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. Налог на прибыль за период</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали 90% товара за {=(10+{var1}*10)*2} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти налог на прибыль за период (ставка 25%).</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>1. Доходы: {=(10+{var1}*10)*2} * 100/122 = {=((10+{var1}*10)*2*100/122)}<br>2. Расходы: {=10+{var1}*10} * 100/122 * 90/100 = {=((10+{var1}*10)*100*90/(122*100))}<br>3. Прибыль: {=((10+{var1}*10)*2*100/122)} - {=((10+{var1}*10)*100*90/(122*100))} = {=((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))}<br>4. Налог на прибыль (25%): 0.25 * {=((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))} = {=0.25*((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=0.25*((10+{var1}*10)*2*100/122 - (10+{var1}*10)*100*90/(122*100))}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+
+    <!-- Вопрос 9: Налог на прибыль к уплате в апреле -->
+    <question type="calculated">
+        <name>
+            <text>06.16 Купили-продали. Налог на прибыль к уплате в апреле</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Купили товар в январе за {=10+{var1}*10} млн. руб. (в том числе НДС -22%), продали в феврале 90% товара за {=(10+{var1}*10)*4} млн. руб. (в том числе НДС -22%). Оплачено поставщикам 50% задолженности, покупатели заплатили 80% долга. Найти ежемесячный авансовый платеж по налогу на прибыль в апреле (в тыс. руб., ставка 25%).</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p>1. Доходы: {=(10+{var1}*10)*4} * 100/122 = {=((10+{var1}*10)*4*100/122)}<br>2. Расходы: {=10+{var1}*10} * 100/122 * 90/100 = {=((10+{var1}*10)*100*90/(122*100))}<br>3. Прибыль за квартал: {=((10+{var1}*10)*4*100/122)} - {=((10+{var1}*10)*100*90/(122*100))} = {=((10+{var1}*10)*4*100/122 - (10+{var1}*10)*100*90/(122*100))}<br>4. Налог за квартал (25%): {=0.25*((10+{var1}*10)*4*100/122 - (10+{var1}*10)*100*90/(122*100))}<br>5. Ежемесячный платеж в апреле (налог за квартал / 3): {=0.25*((10+{var1}*10)*4*100/122 - (10+{var1}*10)*100*90/(122*100))/3}</p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <idnumber></idnumber>
+        <synchronize>0</synchronize>
+        <single>0</single>
+        <answernumbering>abc</answernumbering>
+        <shuffleanswers>1</shuffleanswers>
+        <correctfeedback>
+            <text></text>
+        </correctfeedback>
+        <partiallycorrectfeedback>
+            <text></text>
+        </partiallycorrectfeedback>
+        <incorrectfeedback>
+            <text></text>
+        </incorrectfeedback>
+        <calculation>
+            <dataset_definitions>
+                <dataset_definition>
+                    <status>shared</status>
+                    <name>
+                        <text>var1</text>
+                    </name>
+                    <type>numeric</type>
+                    <distribution>uniform</distribution>
+                    <minimum>1</minimum>
+                    <maximum>10</maximum>
+                    <decimals>0</decimals>
+                    <itemcount>5</itemcount>
+                    <dataset_items>
+                        <dataset_item>
+                            <number>1</number>
+                            <value>1</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>2</number>
+                            <value>2</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>3</number>
+                            <value>3</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>4</number>
+                            <value>4</value>
+                        </dataset_item>
+                        <dataset_item>
+                            <number>5</number>
+                            <value>5</value>
+                        </dataset_item>
+                    </dataset_items>
+                </dataset_definition>
+            </dataset_definitions>
+            <tolerance>0.02</tolerance>
+            <tolerancetype>1</tolerancetype>
+            <correctanswerformat>1</correctanswerformat>
+            <correctanswerlength>2</correctanswerlength>
+            <answer>
+                <text>{=0.25*((10+{var1}*10)*4*100/122 - (10+{var1}*10)*100*90/(122*100))/3}</text>
+                <tolerance>0.02</tolerance>
+                <tolerancetype>1</tolerancetype>
+                <correctanswerformat>1</correctanswerformat>
+                <correctanswerlength>2</correctanswerlength>
+                <feedback format="html">
+                    <text></text>
+                </feedback>
+            </answer>
+            <unitgradingtype>0</unitgradingtype>
+            <unitpenalty>0.1000000</unitpenalty>
+            <showunits>3</showunits>
+            <unitsleft>0</unitsleft>
+        </calculation>
+    </question>
+</quiz>
