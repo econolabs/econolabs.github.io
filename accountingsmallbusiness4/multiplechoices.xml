@@ -1,0 +1,1931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- Вопрос 1 -->
+    <question type="multichoice">
+        <name>
+            <text>Что такое УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие налоги заменяет УСН для организаций?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Всё об УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Налог на прибыль, НДС, налог на имущество, кроме недвижимости, которая облагается налогом по кадастровой стоимости</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налог на прибыль, НДС, налог на имущество</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налог на прибыль, НДФЛ, налог на имущество</text>
+        </answer>
+        <answer fraction="0">
+            <text>НДС, налог на прибыль, страховые взносы</text>
+        </answer>
+        <answer fraction="0">
+            <text>НДФЛ, НДС, налог на имущество</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 2 -->
+    <question type="multichoice">
+        <name>
+            <text>Виды УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие объекты налогообложения доступны на УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Виды УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>«Доходы» и «Доходы минус расходы»</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Доходы» и «Прибыль»</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Выручка» и «Прибыль»</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Доходы» и «Расходы»</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 3 -->
+    <question type="multichoice">
+        <name>
+            <text>Лимиты УСН в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой лимит доходов для применения УСН в 2026 году?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Условия УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>490 500 000 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>450 000 000 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>300 000 000 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>600 000 000 ₽</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 4 -->
+    <question type="multichoice">
+        <name>
+            <text>Ставка УСН «Доходы»</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая стандартная налоговая ставка на УСН «Доходы»?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Виды УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>6%</text>
+        </answer>
+        <answer fraction="0">
+            <text>15%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>13%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 5 -->
+    <question type="multichoice">
+        <name>
+            <text>Минимальный налог на УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Если на УСН «Доходы минус расходы» отрицательная величина, то...</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Минимальный налог</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>необходимо заплатить 1% от годовых доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>необходимо заплатить 1% от годовой прибыли</text>
+        </answer>
+        <answer fraction="0">
+            <text>необходимо заплатить 5% от годовых доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>необходимо заплатить 0,5% от годовых доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>налог не уплачивается</text>
+        </answer>
+        <answer fraction="0">
+            <text>убыток компенсируется ФНС</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 6 -->
+    <question type="multichoice">
+        <name>
+            <text>Срок уплаты авансовых платежей</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой срок уплаты авансового платежа за I квартал на УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Авансовые платежи</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>До 28 апреля</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 25 апреля</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 30 апреля</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 28 марта</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 7 -->
+    <question type="multichoice">
+        <name>
+            <text>НДС на УСН в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>При каком уровне дохода на УСН с 2026 года нужно платить НДС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">НДС на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Свыше 20 млн ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>Свыше 60 млн ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>Свыше 100 млн ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>Свыше 150 млн ₽</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 8 -->
+    <question type="multichoice">
+        <name>
+            <text>Фиксированные взносы ИП в 2026</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой размер фиксированных страховых взносов для ИП в 2026 году?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Страховые взносы</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>57 390 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>53 658 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>49 500 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>60 000 ₽</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 9 -->
+    <question type="multichoice">
+        <name>
+            <text>Уменьшение налога на взносы</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>На сколько ИП без работников на УСН «Доходы» может уменьшить налог на страховые взносы?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Уменьшение налога</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>На всю сумму взносов</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более чем на 50%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более чем на 30%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более чем на 75%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 10 -->
+    <question type="multichoice">
+        <name>
+            <text>Учет страховых взносов на УСН «Доходы-расходы»</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Как учитываются страховые взносы ИП за себя на УСН «Доходы минус расходы»?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://e-kontur.ru/enquiry/1635/strahovye-vznosy-na-usn">Страховые взносы на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Включаются в состав расходов, уменьшая налоговую базу</text>
+        </answer>
+        <answer fraction="0">
+            <text>Уменьшают сам налог (как на УСН «Доходы»)</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не влияют на расчет налога</text>
+        </answer>
+        <answer fraction="0">
+            <text>Уменьшают налог на 50%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 11 -->
+    <question type="multichoice">
+        <name>
+            <text>Расчет 1% для ИП на УСН «Доходы-расходы»</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>С какой суммы рассчитывается дополнительный взнос 1% для ИП на УСН «Доходы минус расходы» с 2026 года?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://e-kontur.ru/enquiry/1635/strahovye-vznosy-na-usn">Правила расчета 1%</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>С прибыли (доходы минус расходы) за вычетом 300 000 руб.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Со всех доходов за вычетом 300 000 руб.</text>
+        </answer>
+        <answer fraction="0">
+            <text>С разницы между доходами и расходами без ограничений</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только с фиксированной части</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 12 -->
+    <question type="multichoice">
+        <name>
+            <text>Льготная ставка взносов для МСП</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая ставка страховых взносов применяется для МСП с части зарплаты сотрудника, превышающей МРОТ?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://e-kontur.ru/enquiry/1635/strahovye-vznosy-na-usn">Взносы за работников</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>15%</text>
+        </answer>
+        <answer fraction="0">
+            <text>30%</text>
+        </answer>
+        <answer fraction="0">
+            <text>20%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 13 -->
+    <question type="multichoice">
+        <name>
+            <text>Фиксированные взносы ИП в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой размер фиксированных страховых взносов для ИП установлен на 2026 год?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://e-kontur.ru/enquiry/1635/strahovye-vznosy-na-usn">Фиксированные взносы</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>57 390 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>53 658 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>49 500 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>60 000 ₽</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 14 -->
+    <question type="multichoice">
+        <name>
+            <text>Освобождение от страховых взносов для ИП</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>В каком случае ИП может быть временно освобожден от уплаты страховых взносов?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://e-kontur.ru/enquiry/1635/strahovye-vznosy-na-usn">Освобождение от взносов</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>При уходе за ребенком до 1,5 лет</text>
+        </answer>
+        <answer fraction="0">
+            <text>При снижении доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>При отсутствии деятельности менее 3 месяцев</text>
+        </answer>
+        <answer fraction="0">
+            <text>При регистрации в качестве самозанятого</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 15 -->
+    <question type="multichoice">
+        <name>
+            <text>Срок сдачи декларации по УСН для ООО</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой крайний срок сдачи декларации по УСН для организаций?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Отчетность на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>25 марта следующего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>25 апреля следующего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>31 марта следующего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>28 апреля следующего года</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 16 -->
+    <question type="multichoice">
+        <name>
+            <text>Штраф за неподачу декларации</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой минимальный штраф за неподачу налоговой декларации по УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Ответственность на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>1 000 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>5 000 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>500 ₽</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 000 ₽</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 17 -->
+    <question type="multichoice">
+        <name>
+            <text>Переход на УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>В какой срок нужно подать уведомление о переходе на УСН при регистрации бизнеса?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Как перейти на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>В течение 30 дней после регистрации</text>
+        </answer>
+        <answer fraction="0">
+            <text>В течение 10 дней после регистрации</text>
+        </answer>
+        <answer fraction="0">
+            <text>В течение 3 месяцев после регистрации</text>
+        </answer>
+        <answer fraction="0">
+            <text>В течение года после регистрации</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 18 -->
+    <question type="multichoice">
+        <name>
+            <text>Специальные налоговые режимы</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой режим НЕ относится к специальным налоговым режимам по данным ФНС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/">Налоги и сборы РФ</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>ОСНО (общая система)</text>
+        </answer>
+        <answer fraction="0">
+            <text>УСН (упрощенная система)</text>
+        </answer>
+        <answer fraction="0">
+            <text>ПСН (патентная система)</text>
+        </answer>
+        <answer fraction="0">
+            <text>ЕСХН (единый сельхозналог)</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 19 -->
+    <question type="multichoice">
+        <name>
+            <text>Федеральные налоги</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой налог относится к федеральным по данным ФНС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/">Федеральные налоги</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Налог на добавленную стоимость (НДС)</text>
+        </answer>
+        <answer fraction="0">
+            <text>Транспортный налог</text>
+        </answer>
+        <answer fraction="0">
+            <text>Земельный налог</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налог на имущество организаций</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 20 -->
+    <question type="multichoice">
+        <name>
+            <text>Порог НДС на УСН в 2026</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая ставка НДС применяется на УСН при доходе от 250 до 450 млн рублей?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">НДС на УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>7%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10%</text>
+        </answer>
+        <answer fraction="0">
+            <text>22%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 21 -->
+    <question type="multichoice">
+        <name>
+            <text>Льготная ставка для ИТ-компаний в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Согласно Закону Кировской области от 04.03.2025 № 368-ЗО, какая ставка налога установлена для аккредитованных ИТ-компаний на УСН «Доходы»?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>1%</text>
+        </answer>
+        <answer fraction="0">
+            <text>6%</text>
+        </answer>
+        <answer fraction="0">
+            <text>0%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 22 -->
+    <question type="multichoice">
+        <name>
+            <text>Льготная ставка для ИТ-компаний на УСН «Доходы-расходы» в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Согласно региональному закону, какая ставка УСН «Доходы минус расходы» установлена для аккредитованных ИТ-компаний в Кировской области?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>15%</text>
+        </answer>
+        <answer fraction="0">
+            <text>7%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 23 -->
+    <question type="multichoice">
+        <name>
+            <text>Условия для льготной ставки ИТ-компаниям в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое условие необходимо соблюдать ИТ-компании в Кировской области для применения пониженной ставки УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Оба условия: аккредитация и 70% доходов от ИТ</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не менее 70% доходов от ИТ-деятельности</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не менее 50% доходов от ИТ-деятельности</text>
+        </answer>
+        <answer fraction="0">
+            <text>Наличие государственной аккредитации</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 24 -->
+    <question type="multichoice">
+        <name>
+            <text>Льготная ставка для ветеранов боевых действий в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Законом Кировской области № 319-ЗО для ИП – ветеранов боевых действий установлена ставка УСН «Доходы» в размере:</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>1%</text>
+        </answer>
+        <answer fraction="0">
+            <text>6%</text>
+        </answer>
+        <answer fraction="0">
+            <text>0%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 25 -->
+    <question type="multichoice">
+        <name>
+            <text>Льгота для ветеранов на УСН «Доходы-расходы» в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Для ИП – ветеранов боевых действий в Кировской области на УСН «Доходы минус расходы» установлена ставка:</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>15%</text>
+        </answer>
+        <answer fraction="0">
+            <text>7%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 26 -->
+    <question type="multichoice">
+        <name>
+            <text>Лимит доходов для льготы ветеранам в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>До какого размера годового дохода ИП-ветеран в Кировской области может применять пониженную ставку УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>8 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>5 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>15 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 27 -->
+    <question type="multichoice">
+        <name>
+            <text>Налоговые каникулы для ИП в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Согласно Закону Кировской области № 582-ЗО, какая ставка УСН установлена для впервые зарегистрированных ИП в течение двух налоговых периодов?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>0%</text>
+        </answer>
+        <answer fraction="0">
+            <text>1%</text>
+        </answer>
+        <answer fraction="0">
+            <text>6%</text>
+        </answer>
+        <answer fraction="0">
+            <text>3%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 28 -->
+    <question type="multichoice">
+        <name>
+            <text>Срок налоговых каникул в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>На какой срок в Кировской области ИП могут применять ставку УСН 0% в рамках налоговых каникул?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Два налоговых периода (два года)</text>
+        </answer>
+        <answer fraction="0">
+            <text>Один налоговый период (год)</text>
+        </answer>
+        <answer fraction="0">
+            <text>Три налоговых периода</text>
+        </answer>
+        <answer fraction="0">
+            <text>До достижения дохода 8 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 29 -->
+    <question type="multichoice">
+        <name>
+            <text>Условия для налоговых каникул в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое условие необходимо для применения налоговой ставки 0% в Кировской области?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Осуществлять виды деятельности, определенные Правительством РФ</text>
+        </answer>
+        <answer fraction="0">
+            <text>Быть аккредитованной ИТ-компанией</text>
+        </answer>
+        <answer fraction="0">
+            <text>Иметь доход не более 8 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>Быть ветераном боевых действий</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 30 -->
+    <question type="multichoice">
+        <name>
+            <text>Стандартная ставка УСН в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая базовая ставка УСН «Доходы» действует в Кировской области (по умолчанию)?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>6%</text>
+        </answer>
+        <answer fraction="0">
+            <text>1%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>4%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 31 -->
+    <question type="multichoice">
+        <name>
+            <text>Базовая ставка УСН «Доходы-расходы» в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая базовая ставка УСН «Доходы минус расходы» действует в Кировской области?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">УСН в Кировской области</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>15%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10%</text>
+        </answer>
+        <answer fraction="0">
+            <text>7%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 32 -->
+    <question type="multichoice">
+        <name>
+            <text>Особые условия для организаций на УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое ограничение действует для организаций на УСН по доле участия других организаций?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Условия применения УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Доля участия не более 25%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля участия не более 50%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля участия не более 10%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля участия не ограничена</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 33 -->
+    <question type="multichoice">
+        <name>
+            <text>Запрет на филиалы для УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое ограничение по филиалам действует для организаций на УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Условия применения УСН</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Не должно быть филиалов</text>
+        </answer>
+        <answer fraction="0">
+            <text>Допускается не более 1 филиала</text>
+        </answer>
+        <answer fraction="0">
+            <text>Допускается не более 2 филиалов</text>
+        </answer>
+        <answer fraction="0">
+            <text>Ограничений по филиалам нет</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 34 -->
+    <question type="multichoice">
+        <name>
+            <text>Минимальный налог на УСН в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой минимальный налог должны уплатить предприниматели на УСН «Доходы минус расходы» в Кировской области?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Ставки и порядок расчета</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>1% от доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>1% от прибыли</text>
+        </answer>
+        <answer fraction="0">
+            <text>0,5% от доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>2% от доходов</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 35 -->
+    <question type="multichoice">
+        <name>
+            <text>Смена объекта налогообложения на УСН в Кировской области</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>До какого числа нужно уведомить налоговый орган о смене объекта налогообложения на УСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/usn/">Объект налогообложения</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>До 31 декабря текущего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 1 декабря текущего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 1 января следующего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 25 декабря текущего года</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 36 -->
+    <question type="multichoice">
+        <name>
+            <text>Срок подачи декларации УСН</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>До какого числа ИП должны подать декларацию по УСН за 2025 год?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://reg.ubrr.ru/kak-zapolnit-deklaratsiyu-usn-dokhody-poshagovaya-instruktsiya-obraztsom.do">Порядок заполнения</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>25 апреля 2026 года</text>
+        </answer>
+        <answer fraction="0">
+            <text>25 марта 2026 года</text>
+        </answer>
+        <answer fraction="0">
+            <text>28 апреля 2026 года</text>
+        </answer>
+        <answer fraction="0">
+            <text>31 марта 2026 года</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 37 -->
+    <question type="multichoice">
+        <name>
+            <text>Хранение декларации и документов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой минимальный срок хранения декларации УСН и подтверждающих документов?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://reg.ubrr.ru/kak-zapolnit-deklaratsiyu-usn-dokhody-poshagovaya-instruktsiya-obraztsom.do">Сроки хранения</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>5 лет</text>
+        </answer>
+        <answer fraction="0">
+            <text>3 года</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 лет</text>
+        </answer>
+        <answer fraction="0">
+            <text>4 года</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 38 -->
+    <question type="multichoice">
+        <name>
+            <text>Особенности вычета для ИП без работников</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Когда ИП без работников может учесть страховые взносы для уменьшения налога?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://reg.ubrr.ru/kak-zapolnit-deklaratsiyu-usn-dokhody-poshagovaya-instruktsiya-obraztsom.do">Страховые взносы</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Может учесть взносы, подлежащие уплате, даже без фактической уплаты</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только после фактической уплаты взносов</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только после получения квитанции об уплате</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не может учесть взносы за себя</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 39 -->
+    <question type="multichoice">
+        <name>
+            <text>Ограничение вычета для ИП с работниками</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>На сколько процентов ИП с работниками может уменьшить налог на страховые взносы?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://reg.ubrr.ru/kak-zapolnit-deklaratsiyu-usn-dokhody-poshagovaya-instruktsiya-obraztsom.do">Страховые взносы</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Не более чем на 50%</text>
+        </answer>
+        <answer fraction="0">
+            <text>На 100%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более чем на 30%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более чем на 75%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 40 -->
+    <question type="multichoice">
+        <name>
+            <text>Налог на профессиональный доход: основные ставки</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие ставки налога установлены для самозанятых на НПД в зависимости от категории покупателя?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://npd.nalog.ru/">НПД на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>4% с физлиц, 6% с юрлиц и ИП</text>
+        </answer>
+        <answer fraction="0">
+            <text>6% с физлиц, 4% с юрлиц и ИП</text>
+        </answer>
+        <answer fraction="0">
+            <text>3% с физлиц, 4% с юрлиц и ИП</text>
+        </answer>
+        <answer fraction="0">
+            <text>5% с физлиц, 7% с юрлиц и ИП</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 41 -->
+    <question type="multichoice">
+        <name>
+            <text>Налог на профессиональный доход: лимиты</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой максимальный годовой доход разрешен для применения НПД?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://npd.nalog.ru/">НПД на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>2,4 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>4 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>1,5 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>3 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 42 -->
+    <question type="multichoice">
+        <name>
+            <text>Налог на профессиональный доход: вычет</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой налоговый вычет предоставляется плательщикам НПД и как он влияет на ставку?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://npd.nalog.ru/">НПД на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>10 000 рублей, ставка снижается до 3% и 4%</text>
+        </answer>
+        <answer fraction="0">
+            <text>5 000 рублей, ставка снижается до 3% и 4%</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 000 рублей, ставка снижается до 2% и 3%</text>
+        </answer>
+        <answer fraction="0">
+            <text>15 000 рублей, ставка снижается до 4% и 5%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 43 -->
+    <question type="multichoice">
+        <name>
+            <text>Налог на профессиональный доход: регистрация</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Через какие сервисы можно зарегистрироваться в качестве плательщика НПД?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://npd.nalog.ru/">НПД на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Приложение «Мой налог», сайт ФНС или банк</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только через приложение «Мой налог»</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только через сайт ФНС</text>
+        </answer>
+        <answer fraction="0">
+            <text>Через МФЦ или Госуслуги</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 44 -->
+    <question type="multichoice">
+        <name>
+            <text>Налог на профессиональный доход: ограничения</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Кто НЕ может применять НПД?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://npd.nalog.ru/">НПД на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Продавцы подакцизных товаров</text>
+        </answer>
+        <answer fraction="0">
+            <text>Продавцы товаров собственного производства</text>
+        </answer>
+        <answer fraction="0">
+            <text>Фрилансеры (дизайнеры, разработчики)</text>
+        </answer>
+        <answer fraction="0">
+            <text>Водители такси</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 45 -->
+    <question type="multichoice">
+        <name>
+            <text>Патентная система: кто может применять</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Кто имеет право применять патентную систему налогообложения (ПСН)?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/psn/">ПСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Только индивидуальные предприниматели</text>
+        </answer>
+        <answer fraction="0">
+            <text>Индивидуальные предприниматели и ООО</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только организации</text>
+        </answer>
+        <answer fraction="0">
+            <text>Любые налогоплательщики</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 46 -->
+    <question type="multichoice">
+        <name>
+            <text>Патентная система: ставка налога</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая ставка налога применяется при ПСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/psn/">ПСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>6% от потенциального дохода</text>
+        </answer>
+        <answer fraction="0">
+            <text>15% от фактического дохода</text>
+        </answer>
+        <answer fraction="0">
+            <text>6% от фактического дохода</text>
+        </answer>
+        <answer fraction="0">
+            <text>4% от потенциального дохода</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 47 -->
+    <question type="multichoice">
+        <name>
+            <text>Патентная система: лимиты</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой лимит дохода и численности сотрудников действует на ПСН с 2026 года?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/psn/">ПСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Доход 20 млн руб., сотрудников до 15 чел.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доход 60 млн руб., сотрудников до 15 чел.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доход 20 млн руб., сотрудников до 5 чел.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доход 30 млн руб., сотрудников до 10 чел.</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 48 -->
+    <question type="multichoice">
+        <name>
+            <text>ЕСХН: условие применения</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое условие должно выполняться для применения ЕСХН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/esh/">ЕСХН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Доля дохода от сельхоздеятельности ≥ 70%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля дохода от сельхоздеятельности ≥ 50%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля дохода от сельхоздеятельности ≥ 80%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Доля дохода от сельхоздеятельности ≥ 60%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 49 -->
+    <question type="multichoice">
+        <name>
+            <text>ЕСХН: ставка налога</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая ставка налога применяется при ЕСХН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/esh/">ЕСХН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>6% от разницы доходов и расходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>15% от разницы доходов и расходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>6% от доходов</text>
+        </answer>
+        <answer fraction="0">
+            <text>10% от разницы доходов и расходов</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 50 -->
+    <question type="multichoice">
+        <name>
+            <text>ЕСХН: освобождение от НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>При каком доходе плательщики ЕСХН освобождаются от НДС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/esh/">ЕСХН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>До 60 млн рублей за прошлый год</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 100 млн рублей за прошлый год</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 20 млн рублей за прошлый год</text>
+        </answer>
+        <answer fraction="0">
+            <text>Освобождение не зависит от дохода</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 51 -->
+    <question type="multichoice">
+        <name>
+            <text>АУСН: суть режима</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>В чем заключается главная особенность автоматизированной упрощенной системы (АУСН)?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/ausn/">АУСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Налоги рассчитываются автоматически на основе данных банков и касс, декларация не сдается</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налоги уплачиваются раз в год, без авансовых платежей</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налоги рассчитываются налоговой по заявлению налогоплательщика</text>
+        </answer>
+        <answer fraction="0">
+            <text>Налоги не уплачиваются, если доход меньше 60 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 52 -->
+    <question type="multichoice">
+        <name>
+            <text>АУСН: ставки и лимиты</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие ставки и лимиты установлены для АУСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/ausn/">АУСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>«Доходы» — 8%, «Доходы-расходы» — 20%, лимит дохода 60 млн руб.</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Доходы» — 6%, «Доходы-расходы» — 15%, лимит дохода 490 млн руб.</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Доходы» — 8%, «Доходы-расходы» — 20%, лимит дохода 20 млн руб.</text>
+        </answer>
+        <answer fraction="0">
+            <text>«Доходы» — 4%, «Доходы-расходы» — 10%, лимит дохода 60 млн руб.</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 53 -->
+    <question type="multichoice">
+        <name>
+            <text>АУСН: ограничения</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какое ограничение по численности сотрудников действует для АУСН?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/ausn/">АУСН на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Не более 5 человек</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более 15 человек</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более 100 человек</text>
+        </answer>
+        <answer fraction="0">
+            <text>Не более 130 человек</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 54 -->
+    <question type="multichoice">
+        <name>
+            <text>Сравнение специальных режимов</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой специальный режим предоставляет 100% автоматизацию учета и не требует сдачи деклараций?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.nalog.gov.ru/rn43/taxation/taxes/">Специальные режимы на сайте ФНС</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>АУСН (автоматизированная УСН)</text>
+        </answer>
+        <answer fraction="0">
+            <text>НПД (налог на профессиональный доход)</text>
+        </answer>
+        <answer fraction="0">
+            <text>ПСН (патентная система)</text>
+        </answer>
+        <answer fraction="0">
+            <text>ЕСХН (единый сельхозналог)</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 55 -->
+    <question type="multichoice">
+        <name>
+            <text>Порог освобождения от НДС на УСН в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какой лимит дохода за предыдущий год дает право на освобождение от НДС в 2026–2028 годах?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>20 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>15 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>60 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 56 -->
+    <question type="multichoice">
+        <name>
+            <text>Момент возникновения обязанности по НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Если в течение 2026 года доход на УСН превысил 20 млн рублей, с какого момента нужно начать платить НДС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>С 1-го числа месяца, следующего за месяцем превышения</text>
+        </answer>
+        <answer fraction="0">
+            <text>С начала следующего квартала</text>
+        </answer>
+        <answer fraction="0">
+            <text>С начала следующего года</text>
+        </answer>
+        <answer fraction="0">
+            <text>С момента превышения</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 57 -->
+    <question type="multichoice">
+        <name>
+            <text>Ставки НДС на УСН без права на вычет</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какие ставки НДС на УСН не дают права на вычет входного налога?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>5% и 7%</text>
+        </answer>
+        <answer fraction="0">
+            <text>22% и 10%</text>
+        </answer>
+        <answer fraction="0">
+            <text>0%</text>
+        </answer>
+        <answer fraction="0">
+            <text>Только 5%</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 58 -->
+    <question type="multichoice">
+        <name>
+            <text>Порог для ставки НДС 5% на УСН в 2026 году</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>При каком доходе за предыдущий год можно применять ставку НДС 5% в 2026 году?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>От 20 до 272,5 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>От 20 до 250 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>От 272,5 до 490,5 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>До 20 млн рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 59 -->
+    <question type="multichoice">
+        <name>
+            <text>Минимальный срок применения спецставок НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Сколько кварталов нужно применять специальные ставки НДС (5% или 7%)?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>12 кварталов</text>
+        </answer>
+        <answer fraction="0">
+            <text>4 квартала</text>
+        </answer>
+        <answer fraction="0">
+            <text>8 кварталов</text>
+        </answer>
+        <answer fraction="0">
+            <text>6 кварталов</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 60 -->
+    <question type="multichoice">
+        <name>
+            <text>Исключение по спецставкам для 2026 года</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>В каком случае плательщик УСН может отказаться от специальной ставки НДС раньше истечения 12 кварталов?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Если начал применять спецставку в 2026 году</text>
+        </answer>
+        <answer fraction="0">
+            <text>При любом переходе между ставками</text>
+        </answer>
+        <answer fraction="0">
+            <text>При снижении дохода</text>
+        </answer>
+        <answer fraction="0">
+            <text>Такого исключения нет</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 61 -->
+    <question type="multichoice">
+        <name>
+            <text>Расчетная ставка НДС 5%</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Какая расчетная ставка соответствует специальной ставке НДС 5%?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>5/105</text>
+        </answer>
+        <answer fraction="0">
+            <text>5/100</text>
+        </answer>
+        <answer fraction="0">
+            <text>5/110</text>
+        </answer>
+        <answer fraction="0">
+            <text>22/122</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 62 -->
+    <question type="multichoice">
+        <name>
+            <text>Новое правило для договоров при переходе на НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Что разрешено с 01.04.2026, если покупатель не доплачивает НДС по длящемуся договору?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Уменьшить доход по УСН на сумму неполученного НДС</text>
+        </answer>
+        <answer fraction="0">
+            <text>Взыскать НДС через суд в полном объеме</text>
+        </answer>
+        <answer fraction="0">
+            <text>Отказаться от уплаты НДС</text>
+        </answer>
+        <answer fraction="0">
+            <text>Пересчитать налог за прошлые периоды</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 63 -->
+    <question type="multichoice">
+        <name>
+            <text>Ответственность за непредставление декларации по НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>Каков минимальный штраф по ст. 119 НК РФ за непредставление декларации по НДС?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>1 000 рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>5 000 рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>500 рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>10 000 рублей</text>
+        </answer>
+    </question>
+
+    <!-- Вопрос 64 -->
+    <question type="multichoice">
+        <name>
+            <text>Новая льгота по учету процентов для освобождения от НДС</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[<p>С 01.04.2026 при каком условии проценты по банковским вкладам не учитываются в лимите 20 млн рублей?</p>]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[<p><a target="_blank" href="https://www.kontur-extern.ru/info/86974-uproshchencam_platit_nds">НДС на УСН 2026</a></p>]]></text>
+        </generalfeedback>
+        <defaultgrade>1</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answer fraction="100">
+            <text>Если доход за 2025 год ≤ 60 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>Если доход за 2025 год ≤ 20 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>Если доход за 2026 год ≤ 60 млн рублей</text>
+        </answer>
+        <answer fraction="0">
+            <text>Если ИП совмещает УСН и ПСН</text>
+        </answer>
+    </question>
+</quiz>

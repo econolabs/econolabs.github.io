@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+
+  <question type="calculated">
+    <name>
+      <text>Уменьшение налога на взносы. Аванс 0</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>ИП на УСН «Доходы» (без работников) за I квартал 2026 года заработал {={var1-10}*10} тыс. руб.<br><br>
+Фиксированные страховые взносы в 2026 году — 57 390 руб.<br><br>
+Рассчитайте сумму авансового платежа, которую ИП должен заплатить за I квартал (тыс. руб).
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">Методика расчёта авансового платежа с учётом страховых взносов</h5>
+<p>В соответствии с <strong>п. 3.1 ст. 346.21 НК РФ</strong>, ИП без работников могут уменьшить авансовый платёж на всю сумму уплаченных страховых взносов.</p>
+<div class="alert alert-info" role="alert"><strong>Важно!</strong> ИП без работников могут уменьшить налог <strong>на 100%</strong> суммы страховых взносов (вплоть до нуля).</div>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доход: {={var1-10}*10} тыс. руб<br>
+Аванс без вычета: {={var1-10}*10} × 6% = {={var1-10}*0.6} тыс. руб<br>
+Страховые взносы: 57 390 руб = 57.39 тыс. руб<br>
+Так как взносы (57.39) больше аванса ({={var1-10}*0.6}), налог можно уменьшить до нуля.<br>
+<strong>Аванс к уплате: 0 тыс. руб</strong></p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong>Аванс к уплате = max(0, Аванс без вычета − Взносы)</strong></div>
+<p class="mt-2 text-muted small">Если взносы больше аванса, уведомлять налоговую не нужно. Взносы можно заплатить до декабря и указать в годовой декларации.</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>0</text>
+      <tolerance>0</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+
+
+
+  <!-- <question type="calculated">
+    <name>
+      <text>Дополнительный взнос ИП на УСН Доходы минус расходы</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>ИП на УСН «Доходы минус расходы» за год заработал {={var1-10}*200 + 300} тыс. руб.<br>
+Материальные расходы ИП за год составили {={var1-10}*100} тыс. руб.<br><br>
+Фиксированные страховые взносы в 2026 году — 57 390 руб.<br>
+Дополнительный взнос — 1% с прибыли (доходы минус материальные расходы) свыше 300 000 руб.<br><br>
+Рассчитайте сумму <strong>дополнительного</strong> страхового взноса (тыс. руб).
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">📌 Методика расчета дополнительного страхового взноса для УСН «Доходы минус расходы»</h5>
+<p>В соответствии с <strong>п. 1 ст. 430 НК РФ</strong>, ИП уплачивают дополнительный страховой взнос в размере <strong>1%</strong> с суммы <strong>прибыли</strong> (доходы минус материальные расходы), превышающей 300 000 руб. за расчетный период.</p>
+<div class="alert alert-info" role="alert"><strong>ℹ️ Важно!</strong> На УСН «Доходы минус расходы» дополнительный взнос считается от <strong>прибыли</strong>, а не от доходов!</div>
+<div class="alert alert-warning" role="alert"><strong>⚠️ Обратите внимание!</strong> Фиксированные страховые взносы (57 390 руб) <strong>не включены</strong> в материальные расходы. Они платятся отдельно и не влияют на расчет дополнительного взноса.</div>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доходы: {={var1-10}*200 + 300} тыс. руб = {={var1-10}*200000 + 300000} руб<br>
+Материальные расходы: {={var1-10}*100} тыс. руб = {={var1-10}*100000} руб<br>
+Прибыль: {={var1-10}*200 + 300} − {={var1-10}*100} = {={var1-10}*100 + 300} тыс. руб = {={var1-10}*100000 + 300000} руб<br>
+Превышение над 300 000 руб: {={var1-10}*100000} руб<br>
+<strong>Дополнительный взнос:</strong> {={var1-10}*100000} × 1% = {={var1-10}*1000} руб = {var1-10} тыс. руб</p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong style="font-size: 1.2rem;">Допвзнос = max(0, (Прибыль − 300 000) × 1%)</strong></div>
+<p class="mt-2 text-muted small"><i class="bi bi-info-circle"></i> Крайний срок уплаты дополнительного взноса — <strong>1 июля следующего года</strong> (п. 2 ст. 432 НК РФ).</p>
+<p class="mt-1 text-muted small"><i class="bi bi-calculator"></i> Фиксированные взносы в 2026 году — <strong>57 390 руб</strong>. Их нужно заплатить до <strong>28 декабря</strong>.</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>{var1-10}</text>
+      <tolerance>0.02</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question> -->
+
+
+
+  <!-- <question type="calculated">
+    <name>
+      <text>Общая сумма страховых взносов ИП</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>ИП на УСН «Доходы» за год заработал {={var1-10}*100 + 300} тыс. руб.<br>
+Расходы ИП за год составили {={var1-10}*20} тыс. руб.<br><br>
+Фиксированные страховые взносы в 2026 году — 57 390 руб.<br>
+Дополнительный взнос — 1% с дохода свыше 300 000 руб.<br><br>
+Рассчитайте <strong>общую сумму</strong> страховых взносов ИП за год (в тыс. руб).
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">📌 Методика расчета страховых взносов ИП</h5>
+<p>В соответствии с <strong>п. 1 ст. 430 НК РФ</strong>, ИП уплачивают:</p>
+<ol>
+<li><strong>Фиксированные взносы</strong> — 57 390 руб (в 2026 году)</li>
+<li><strong>Дополнительный взнос</strong> — 1% с дохода, превышающего 300 000 руб</li>
+</ol>
+<div class="alert alert-warning" role="alert">
+<strong>⚠️ Важно!</strong> Расходы ИП <strong>не учитываются</strong> при расчете дополнительного взноса на УСН «Доходы». Взнос считается только от <strong>доходов</strong>!
+</div>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доход: {={var1-10}*100 + 300} тыс. руб = {={var1-10}*100000 + 300000} руб<br>
+Расходы: {={var1-10}*20} тыс. руб (не участвуют в расчете)<br>
+Превышение над 300 000 руб: {={var1-10}*100000} руб<br>
+Дополнительный взнос: {={var1-10}*100000} × 1% = {={var1-10}*1000} руб = {var1-10} тыс. руб<br>
+Фиксированные взносы: 57 390 руб = 57.39 тыс. руб<br>
+<strong>Общая сумма:</strong> {var1-10} + 57.39 = {={var1-10} + 57.39} тыс. руб</p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong style="font-size: 1.2rem;">Общая сумма = Фиксированные взносы + Дополнительный взнос</strong></div>
+<p class="mt-2 text-muted small"><i class="bi bi-info-circle"></i> Крайний срок уплаты фиксированных взносов — <strong>28 декабря</strong>, дополнительного — <strong>1 июля следующего года</strong>.</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>{var1-10} + 57.39</text>
+      <tolerance>0.02</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question> -->
+
+
+
+  <!-- <question type="calculated">
+    <name>
+      <text>УСН. Авансовый платеж за полугодие</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>Компания на УСН «Доходы» (ставка 6%) заработала:<br>
+- за I квартал: {={var1-10}*100} тыс. руб.<br>
+- за II квартал: {={var1-10}*100/6} тыс. руб.<br><br>
+Аванс за I квартал уплачен в размере {={var1-10}*6} тыс. руб.<br><br>
+Рассчитайте сумму авансового платежа за полугодие к доплате (тыс. руб).
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">📌 Методика расчета авансового платежа</h5>
+<p>При УСН «Доходы» авансовые платежи рассчитываются <strong>нарастающим итогом</strong> с начала года (п. 3 ст. 346.21 НК РФ).</p>
+<ol>
+<li><strong>Аванс за I квартал</strong> = Доход за I квартал × 6%</li>
+<li><strong>Аванс за полугодие</strong> = (Доход за I квартал + Доход за II квартал) × 6%</li>
+<li><strong>К доплате</strong> = Аванс за полугодие − Аванс за I квартал</li>
+</ol>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доход за I квартал: {={var1-10}*100} тыс. руб.<br>
+Доход за II квартал: {={var1-10}*100/6} тыс. руб.<br>
+Доход за полугодие: {={var1-10}*100} + {={var1-10}*100/6} = {={var1-10}*700/6} тыс. руб.<br>
+Аванс за I квартал: {={var1-10}*100} × 6% = {={var1-10}*6} тыс. руб.<br>
+Аванс за полугодие: {={var1-10}*700/6} × 6% = {={var1-10}*7} тыс. руб.<br>
+<strong>К доплате за полугодие:</strong> {={var1-10}*7} − {={var1-10}*6} = {var1-10} тыс. руб.</p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong style="font-size: 1.2rem;">Аванс к доплате = (Доход_полугодие × 6%) − Аванс_I_квартал</strong></div>
+<p class="mt-2 text-muted small"><i class="bi bi-info-circle"></i> Авансовые платежи уплачиваются до 28-го числа месяца, следующего за отчетным периодом (п. 7 ст. 346.21 НК РФ).</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>{var1-10}</text>
+      <tolerance>0.02</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question> -->
+
+
+  <!-- <question type="calculated">
+    <name>
+      <text>УСН. Обычный налог</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>Компания на УСН «Доходы минус расходы» (ставка 15%) за год заработала {={var1-10}*220/3} тыс. руб., а потратила {={var1-10}*200/3} тыс. руб.<br><br></div>
+<div>Рассчитайте сумму налога, которую компания должна заплатить по итогам года (тыс. руб).</div>
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">📌 Методика расчета налога на УСН</h5>
+<p>При УСН «Доходы минус расходы» необходимо рассчитать два показателя и выбрать <strong>наибольший</strong>:</p>
+<ol>
+<li><strong>Обычный налог</strong> = (Доходы − Расходы) × 15%</li>
+<li><strong>Минимальный налог</strong> = Доходы × 1%</li>
+</ol>
+<p>Уплате подлежит <strong>большая</strong> из этих сумм.</p>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доход: {={var1-10}*220/3} тыс. руб.<br>
+Расход: {={var1-10}*200/3} тыс. руб.<br>
+Прибыль: {={var1-10}*220/3} − {={var1-10}*200/3} = {={var1-10}*20/3} тыс. руб.<br>
+Обычный налог: {={var1-10}*20/3} × 15% = {var1-10} тыс. руб.<br>
+Минимальный налог: {={var1-10}*220/3} × 1% = {={var1-10}*220/300} = {={var1-10}*0.73333} тыс. руб.<br>
+<strong>К уплате: {var1-10} тыс. руб.</strong> (так как обычный налог больше)</p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong style="font-size: 1.2rem;">Налог к уплате = max(Прибыль × 15%, Доход × 1%)</strong></div>
+<p class="mt-2 text-muted small"><i class="bi bi-info-circle"></i> Минимальный налог уплачивается только по итогам года, но из него вычитаются авансовые платежи, перечисленные в течение года (п. 6 ст. 346.18 НК РФ).</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>{var1-10}</text>
+      <tolerance>0.02</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question> -->
+
+
+  <!-- Вопрос: Минимальный налог на УСН «Доходы минус расходы» -->
+  <!-- <question type="calculated">
+    <name>
+      <text>УСН. Минимальный налог</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<div>
+<div>Компания на УСН «Доходы минус расходы» (ставка 15%) за год заработала {={var1-10}*100} тыс. руб., а потратила {={var1-10}*95} тыс. руб.&lt;br&gt;&lt;br&gt;</div>
+<div>Рассчитайте сумму налога, которую компания должна заплатить по итогам года (тыс. руб).</div>
+</div>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<div class="alert alert-primary" role="alert">
+<h5 class="alert-heading">📌 Методика расчета минимального налога</h5>
+<p>При УСН «Доходы минус расходы» необходимо рассчитать два показателя и выбрать <strong>наибольший</strong>:</p>
+<ol>
+<li><strong>Обычный налог</strong> = (Доходы − Расходы) × 15%</li>
+<li><strong>Минимальный налог</strong> = Доходы × 1%</li>
+</ol>
+<p>Уплате подлежит <strong>большая</strong> из этих сумм.</p>
+<hr>
+<p class="mb-0"><strong>Решение для данной задачи:</strong><br>
+Доход: {={var1-10}*100} тыс. руб.<br>
+Расход: {={var1-10}*95} тыс. руб.<br>
+Прибыль: {={var1-10}*100} − {={var1-10}*95} = {={var1-10}*5} тыс. руб.<br>
+Обычный налог: {={var1-10}*5} × 15% = {={var1-10}*0.75} тыс. руб.<br>
+Минимальный налог: {={var1-10}*100} × 1% = {var1-10} тыс. руб.<br>
+<strong>К уплате: {var1-10} тыс. руб.</strong> (так как минимальный налог больше)</p>
+<div class="mt-2 p-2 bg-light border rounded text-center"><strong style="font-size: 1.2rem;">Налог к уплате = max(Прибыль × 15%, Доход × 1%)</strong></div>
+<p class="mt-2 text-muted small"><i class="bi bi-info-circle"></i> Минимальный налог уплачивается только по итогам года, но из него вычитаются авансовые платежи, перечисленные в течение года (п. 6 ст. 346.18 НК РФ).</p>
+</div>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100">
+      <text>{var1-10}</text>
+      <tolerance>0.02</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerformat>1</correctanswerformat>
+      <correctanswerlength>2</correctanswerlength>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question> -->
+</quiz>
