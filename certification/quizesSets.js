@@ -2140,6 +2140,187 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
     ],
     hint: "В Запросе 1 условие в JOIN, в Запросе 2 - в WHERE. Подумайте о строках, где B IS NULL",
     answers: ["Оба запроса возвращают одинаковый результат"]
+  },
+
+   {
+    "id": "git001",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Инициализация и клонирование",
+    "theme": "Начало работы с Git",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда создает новый локальный репозиторий Git в текущей директории?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git clone",
+      "git init",
+      "git start",
+      "git create",
+      "git new",
+      "git repo"
+    ],
+    "hint": "Команда начинается с буквы 'i'",
+    "answers": ["git init"]
+  },
+  {
+    "id": "git002",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Клонирование репозитория",
+    "theme": "Начало работы с Git",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какой командой можно скопировать удаленный репозиторий на свой компьютер?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git copy",
+      "git download",
+      "git clone",
+      "git pull",
+      "git fetch",
+      "git replicate"
+    ],
+    "hint": "Эта команда используется для создания локальной копии удаленного репозитория",
+    "answers": ["git clone"]
+  },
+  {
+    "id": "git003",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Добавление файлов",
+    "theme": "Работа с изменениями",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда добавляет изменения в индекс (staging area) перед коммитом?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git commit",
+      "git add",
+      "git push",
+      "git stage",
+      "git include",
+      "git save"
+    ],
+    "hint": "Команда из трех букв, начинается с 'a'",
+    "answers": ["git add"]
+  },
+  {
+    "id": "git004",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Сохранение изменений",
+    "theme": "Работа с изменениями",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда создает коммит (снимок) текущего состояния репозитория?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git add",
+      "git save",
+      "git commit",
+      "git snapshot",
+      "git store",
+      "git record"
+    ],
+    "hint": "Команда из 6 букв, начинается с 'c' и заканчивается на 't'",
+    "answers": ["git commit"]
+  },
+  {
+    "id": "git005",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Отправка изменений",
+    "theme": "Взаимодействие с удаленным репозиторием",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда отправляет локальные коммиты в удаленный репозиторий?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git pull",
+      "git push",
+      "git send",
+      "git upload",
+      "git export",
+      "git deploy"
+    ],
+    "hint": "Команда из 4 букв, противоположна команде 'pull'",
+    "answers": ["git push"]
+  },
+  {
+    "id": "git006",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Получение изменений",
+    "theme": "Взаимодействие с удаленным репозиторием",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда загружает изменения из удаленного репозитория и объединяет их с локальными?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git push",
+      "git fetch",
+      "git pull",
+      "git merge",
+      "git download",
+      "git update"
+    ],
+    "hint": "Команда из 4 букв, противоположна команде 'push'",
+    "answers": ["git pull"]
+  },
+  {
+    "id": "git007",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Проверка статуса",
+    "theme": "Просмотр информации",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда показывает текущее состояние рабочей директории и индекса?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git check",
+      "git status",
+      "git info",
+      "git state",
+      "git view",
+      "git show"
+    ],
+    "hint": "Команда из 6 букв, показывает состояние репозитория",
+    "answers": ["git status"]
+  },
+  {
+    "id": "git008",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Просмотр истории",
+    "theme": "Просмотр информации",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда отображает историю коммитов в репозитории?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git history",
+      "git log",
+      "git list",
+      "git commits",
+      "git timeline",
+      "git show"
+    ],
+    "hint": "Команда из 3 букв, показывает записи в хронологическом порядке",
+    "answers": ["git log"]
+  },
+  {
+    "id": "git009",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Создание ветки",
+    "theme": "Работа с ветками",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда создает новую ветку в Git?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git branch",
+      "git checkout",
+      "git new-branch",
+      "git create-branch",
+      "git switch",
+      "git fork"
+    ],
+    "hint": "Команда из 6 букв, также используется для просмотра списка веток",
+    "answers": ["git branch"]
+  },
+  {
+    "id": "git010",
+    "type": "multiplechoices",
+    "header": "Тест по основным командам Git",
+    "title": "Объединение веток",
+    "theme": "Работа с ветками",
+    "text": "<div class=\"container-fluid\">\n      <div class=\"alert alert-primary mt-3\">\n        <strong>Вопрос:</strong>\n        <p class=\"mb-0\">Какая команда объединяет изменения из одной ветки в текущую?</p>\n      </div>\n    </div>",
+    "choices": [
+      "git combine",
+      "git join",
+      "git merge",
+      "git unite",
+      "git integrate",
+      "git connect"
+    ],
+    "hint": "Команда из 5 букв, начинается с 'm' и заканчивается на 'e'",
+    "answers": ["git merge"]
   }
 
 ];
