@@ -156,16 +156,16 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-3">Найдите стандартное отклонение (по генеральной совокупности) чисел:</div>
     <div class="text-center fs-3">
-      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
-      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
-      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
-      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
-      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
-      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
     </div>
   </div>
 </div>`,
-  "answer": "POWER({var1-10}, 1/2)",
+  "answer": "{var1-10}",
   "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">
@@ -175,13 +175,11 @@ let quizesSets = [
     <div class="mb-2">1. Дисперсия (из предыдущего расчёта):</div>
     <div class="text-center">$$\\sigma^2 = {var1-10}$$</div>
     
-    <div class="mt-3 mb-2">2. Стандартное отклонение:</div>
-    <div class="text-center">$$\\sigma = \\sqrt{\\sigma^2} = \\sqrt{{var1-10}} = {= POWER({var1-10}, 1/2)}$$</div>
-    
-    <div class="alert alert-primary mt-3">Ответ: {= POWER({var1-10}, 1/2)}</div>
+   
+    <div class="alert alert-primary mt-3">Ответ: {={var1-10}}</div>
   </div>
 </div>`,
-  "randomfrom": [4, 9, 16, 25]
+  "randomfrom": [2, 3, 4, 5]
 },
 
  {
