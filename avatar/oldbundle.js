@@ -1124,21 +1124,6 @@
       }),
       placeholder: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043C\u044F",
       required: true
-    })), /*#__PURE__*/React.createElement(reactBootstrap.Form.Group, {
-      className: "my-5"
-    }, /*#__PURE__*/React.createElement(reactBootstrap.Form.Label, null, "URL \u0441\u0430\u0439\u0442\u0430(\u0431\u043B\u043E\u0433\u0430)"), /*#__PURE__*/React.createElement(reactBootstrap.Form.Control, {
-      type: "url",
-      value: state?.url,
-      onChange: e => dispatch({
-        type: "SEED_STATE",
-        payload: {
-          objects: {
-            url: e.target.value
-          }
-        }
-      }),
-      placeholder: "URL \u0441\u0430\u0439\u0442\u0430(\u0431\u043B\u043E\u0433\u0430)",
-      required: true
     })), /*#__PURE__*/React.createElement(reactBootstrap.Button, {
       variant: "primary",
       type: "submit",
