@@ -1,5 +1,22 @@
 let quizesSets = [
 
+      {
+        "id": "tv_127",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Моделирование зависимости",
+        "theme": "Регрессионный анализ",
+        "text": "Модель зависимости одной переменной от другой вида y = a + bx — это...",
+        "choices": [
+            "Корреляционный анализ",
+            "Линейная регрессия",
+            "Дисперсионный анализ",
+            "Кластерный анализ"
+        ],
+        "answers": ["Линейная регрессия"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Линейная регрессия</h5><p class='mb-1'>Моделирует <span class='badge badge-info'>линейную зависимость</span> между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Уравнение:</strong> y = <span class='badge badge-info'>a</span> + <span class='badge badge-info'>b</span>x. Коэффициенты находят <span class='badge badge-success'>методом наименьших квадратов</span> (минимизация суммы квадратов ошибок).</p></div>"
+    },
+
     {
     id: "statistics_mean_mixed001",
     type: "mathwithrandomnumber",
@@ -229,205 +246,7 @@ let quizesSets = [
     "answers": ["Стандартного отклонения по генеральной совокупности"],
     "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>квадратный корень из дисперсии</strong>. Результат выражается в тех же единицах, что и исходные данные. Это <strong>стандартное отклонение по генеральной совокупности</strong> (STDEV.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Стандартное отклонение по генеральной совокупности</div></div></div>"
   },
-  {
-    "id": "statistics546",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
-    "answers": ["Коэффициента корреляции Пирсона"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
-  },
-  {
-    "id": "statistics547",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Корреляционно-регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
-    "answers": ["Ковариации по генеральной совокупности"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>"
-  },
-  {
-    "id": "statistics548",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистическая оценка",
-    "theme": "Регрессионный анализ",
-    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
-    "answers": ["Углового коэффициента (наклона) регрессии"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
-  },
-  {
-    "id": "statistics549",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Регрессионный анализ",
-    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
-    "answers": ["Свободного члена (пересечения) регрессии"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
-  },
   
-  {
-    "id": "statistics551",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Позиционные характеристики",
-    "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
-    "answers": ["Первого квартиля (25-го процентиля)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Q1 = x_{0.25}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Q1 обозначает <strong>первый квартиль</strong>, x_{0.25} — <strong>25-й процентиль</strong>. Это значение, ниже которого находятся 25% данных.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Первый квартиль (25-й процентиль)</div></div></div>"
-  },
-  {
-    "id": "statistics552",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Меры формы распределения",
-    "text": "$$\\text{Skewness} = \\frac{n}{(n-1)(n-2)} \\cdot \\sum_{i=1}^{n} \\left(\\frac{x_i - \\bar{x}}{s}\\right)^3$$\n\nДанная формула используется для расчёта:",
-    "choices": ["Эксцесса", "Асимметрии (коэффициента скошенности)", "Коэффициента вариации", "Медианы"],
-    "answers": ["Асимметрии (коэффициента скошенности)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Skewness} = \\frac{n}{(n-1)(n-2)} \\sum \\left(\\frac{x_i - \\bar{x}}{s}\\right)^3$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>третий стандартизированный момент</strong>. Формула использует <strong>куб</strong> нормированных отклонений. Положительное значение → правый хвост длиннее. Это <strong>коэффициент асимметрии (SKEW)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Асимметрия (коэффициент скошенности)</div></div></div>"
-  },
-
-   {
-    "id": "statistics553",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистическая оценка",
-    "theme": "Законы распределения",
-    "text": "$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nДанная формула описывает:",
-    "choices": [
-      "Равномерное распределение",
-      "Распределение Пуассона",
-      "Нормальное распределение (распределение Гаусса)",
-      "Биномиальное распределение"
-    ],
-    "answers": ["Нормальное распределение (распределение Гаусса)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>π</strong> и <strong>e</strong> (экспоненту)</li><li>Имеет параметры <strong>μ</strong> (среднее) и <strong>σ</strong> (стандартное отклонение)</li><li>Симметрична относительно μ</li><li>Классическая «колоколообразная» кривая</li></ul><p class='card-text mt-2'>Это <strong>нормальное распределение (распределение Гаусса)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Нормальное распределение (распределение Гаусса)</div></div></div>"
-  },
-  {
-    "id": "statistics554",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Законы распределения",
-    "text": "$$P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}, \\quad k = 0,1,2,\\dots$$\n\nДанная формула описывает:",
-    "choices": [
-      "Нормальное распределение",
-      "Равномерное распределение",
-      "Распределение Пуассона",
-      "Геометрическое распределение"
-    ],
-    "answers": ["Распределение Пуассона"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>e^{-λ}</strong> (экспоненту)</li><li>В знаменателе <strong>k!</strong> (факториал)</li><li>Параметр <strong>λ</strong> (интенсивность потока событий)</li><li>Значения k = 0,1,2,... (целые неотрицательные)</li></ul><p class='card-text mt-2'>Это <strong>распределение Пуассона</strong> — моделирует количество редких событий за фиксированный интервал времени.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Пуассона</div></div></div>"
-  },
-  {
-    "id": "statistics555",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Законы распределения",
-    "text": "$$P(X=k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}, \\quad k = 0,1,\\dots,n$$\n\nДанная формула описывает:",
-    "choices": [
-      "Распределение Пуассона",
-      "Нормальное распределение",
-      "Биномиальное распределение",
-      "Распределение Коши"
-    ],
-    "answers": ["Биномиальное распределение"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$P(X=k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>C_n^k</strong> (число сочетаний)</li><li>Параметры: <strong>n</strong> (число испытаний), <strong>p</strong> (вероятность успеха)</li><li>Значения k = 0,1,...,n</li><li>Моделирует число успехов в серии независимых испытаний</li></ul><p class='card-text mt-2'>Это <strong>биномиальное распределение</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Биномиальное распределение</div></div></div>"
-  },
-  {
-    "id": "statistics556",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистический показатель",
-    "theme": "Законы распределения",
-    "text": "$$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b$$\n\nДанная формула описывает:",
-    "choices": [
-      "Нормальное распределение",
-      "Равномерное распределение",
-      "Экспоненциальное распределение",
-      "Распределение Стьюдента"
-    ],
-    "answers": ["Равномерное распределение"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Плотность <strong>постоянна</strong> на интервале [a,b]</li><li>Не зависит от x</li><li>Параметры: <strong>a</strong> (минимум), <strong>b</strong> (максимум)</li><li>Все значения в интервале равновероятны</li></ul><p class='card-text mt-2'>Это <strong>равномерное распределение</strong> (прямоугольное распределение).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Равномерное распределение</div></div></div>"
-  },
-  {
-    "id": "statistics557",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Количественная оценка",
-    "theme": "Законы распределения",
-    "text": "$$f(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0$$\n\nДанная формула описывает:",
-    "choices": [
-      "Нормальное распределение",
-      "Распределение Пуассона",
-      "Экспоненциальное распределение",
-      "Равномерное распределение"
-    ],
-    "answers": ["Экспоненциальное распределение"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>e^{-λx}</strong> (экспоненциальное затухание)</li><li>Определена только при <strong>x ≥ 0</strong></li><li>Параметр <strong>λ</strong> (интенсивность отказов)</li><li>Моделирует время между событиями</li></ul><p class='card-text mt-2'>Это <strong>экспоненциальное распределение</strong> (показательное распределение).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Экспоненциальное распределение</div></div></div>"
-  },
-  {
-    "id": "statistics558",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Описательная статистика",
-    "theme": "Законы распределения",
-    "text": "$$f(t) = \\frac{\\Gamma\\left(\\frac{\\nu+1}{2}\\right)}{\\sqrt{\\nu\\pi}\\,\\Gamma\\left(\\frac{\\nu}{2}\\right)} \\left(1+\\frac{t^2}{\\nu}\\right)^{-\\frac{\\nu+1}{2}}$$\n\nДанная формула описывает:",
-    "choices": [
-      "Нормальное распределение",
-      "Распределение Стьюдента (t-распределение)",
-      "Распределение Фишера (F-распределение)",
-      "Распределение Коши"
-    ],
-    "answers": ["Распределение Стьюдента (t-распределение)"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(t) = \\frac{\\Gamma\\left(\\frac{\\nu+1}{2}\\right)}{\\sqrt{\\nu\\pi}\\,\\Gamma\\left(\\frac{\\nu}{2}\\right)} \\left(1+\\frac{t^2}{\\nu}\\right)^{-\\frac{\\nu+1}{2}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>Γ</strong> (гамма-функцию)</li><li>Параметр <strong>ν</strong> (число степеней свободы)</li><li>Похоже на нормальное, но с более тяжёлыми хвостами</li><li>Используется при малых выборках</li></ul><p class='card-text mt-2'>Это <strong>распределение Стьюдента (t-распределение)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Стьюдента (t-распределение)</div></div></div>"
-  },
-  {
-    "id": "statistics559",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Анализ данных",
-    "theme": "Законы распределения",
-    "text": "$$f(x) = \\frac{1}{\\pi \\gamma \\left[1 + \\left(\\frac{x - x_0}{\\gamma}\\right)^2\\right]}$$\n\nДанная формула описывает:",
-    "choices": [
-      "Нормальное распределение",
-      "Распределение Стьюдента",
-      "Распределение Коши",
-      "Логистическое распределение"
-    ],
-    "answers": ["Распределение Коши"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{\\pi \\gamma \\left[1 + \\left(\\frac{x - x_0}{\\gamma}\\right)^2\\right]}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>π</strong> в знаменателе</li><li>Имеет параметры <strong>x₀</strong> (положение пика) и <strong>γ</strong> (масштаб)</li><li>Очень <strong>тяжёлые хвосты</strong> — дисперсия не определена</li><li>Форма напоминает нормальное, но с более медленным затуханием</li></ul><p class='card-text mt-2'>Это <strong>распределение Коши</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Коши</div></div></div>"
-  },
-  {
-    "id": "statistics560",
-    "type": "multiplechoices",
-    "header": "Тест",
-    "title": "Статистическая оценка",
-    "theme": "Законы распределения",
-    "text": "$$F(x) = \\frac{1}{1+e^{-(x-\\mu)/s}}$$\n\nДанная формула описывает функцию распределения:",
-    "choices": [
-      "Нормального распределения",
-      "Логистического распределения",
-      "Распределения Лапласа",
-      "Распределения Гумбеля"
-    ],
-    "answers": ["Логистического распределения"],
-    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$F(x) = \\frac{1}{1+e^{-(x-\\mu)/s}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>логистическую функцию</strong> (S-образную кривую)</li><li>Использует <strong>экспоненту e</strong></li><li>Параметры: <strong>μ</strong> (положение), <strong>s</strong> (масштаб)</li><li>Похоже на нормальное, но с более тяжёлыми хвостами</li></ul><p class='card-text mt-2'>Это <strong>логистическое распределение</strong> (функция распределения).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Логистическое распределение</div></div></div>"
-  },
-
-
-
     // =====================================================================
     // ==================== ТЕМА 1.1: Основные понятия комбинаторики ====================
     // =====================================================================
@@ -788,6 +607,44 @@ let quizesSets = [
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Непрерывная случайная величина</h5><p class='mb-1'>Принимает <span class='badge badge-info'>любые значения</span> из некоторого промежутка.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> Рост может быть 170 см, 170.5 см, 170.55 см и т.д. — <span class='badge badge-success'>непрерывная величина</span></p></div>"
     },
 
+
+    {
+  "id": "ege004",
+  "type": "multiplechoices",
+  "header": "Теория вероятностей",
+  "title": "Классическая вероятность",
+  "theme": "Вероятность события",
+  "text": "В сборнике билетов по биологии всего 15 билетов, в 9 из них встречается вопрос по разделу «Ботаника». Найдите вероятность того, что в случайно выбранном на экзамене билете школьнику достанется вопрос по разделу «Ботаника».",
+  "choices": [
+    "0.3",
+    "0.4",
+    "0.5",
+    "0.6",
+    "0.7"
+  ],
+  "answers": ["0.6"],
+  "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Классическое определение вероятности:</strong> $$P = \\frac{m}{n}$$</p><p>где $$n$$ — общее число исходов, $$m$$ — число благоприятных исходов</p><p>$$n = 15$$ (всего билетов)</p><p>$$m = 9$$ (билетов с ботаникой)</p><p>$$P = \\frac{9}{15} = \\frac{3}{5} = 0.6 = 60\\%$$</p></div></div></div></div></div>`
+},
+
+{
+  "id": "ege005",
+  "type": "multiplechoices",
+  "header": "Теория вероятностей",
+  "title": "Вероятность независимых событий",
+  "theme": "Умножение вероятностей",
+  "text": "В магазине три продавца. Каждый из них занят с клиентом с вероятностью 0,2 независимо от других продавцов. Найдите вероятность того, что в случайный момент времени все три продавца заняты одновременно.",
+  "choices": [
+    "0.008",
+    "0.04",
+    "0.2",
+    "0.4",
+    "0.6"
+  ],
+  "answers": ["0.008"],
+  "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Для независимых событий:</strong> $$P(A \\cap B \\cap C) = P(A) \\cdot P(B) \\cdot P(C)$$</p><p>Вероятность, что один продавец занят: $$p = 0.2$$</p><p>События независимы, значит:</p><p>$$P(\\text{все три заняты}) = 0.2 \\cdot 0.2 \\cdot 0.2 = 0.008$$</p><p>Проверка: $$0.2^3 = 0.008$$</p></div></div></div></div></div>`
+},
+
+
     // ---- 2.6 Математическое ожидание ----
     {
         "id": "tv_010",
@@ -850,6 +707,120 @@ let quizesSets = [
         "answers": ["Дисперсия"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Дисперсия</h5><p class='mb-1'>Показывает, <span class='badge badge-info'>насколько сильно значения разбросаны</span> относительно среднего.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> D(X) = M(X²) − (M(X))². Чем больше дисперсия, тем <span class='badge badge-success'>больше разброс</span> значений.</p></div>"
     },
+
+     {
+        "id": "tv_015",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Закон больших чисел",
+        "theme": "Закон больших чисел",
+        "text": "Что утверждает закон больших чисел?",
+        "choices": [
+            "Среднее арифметическое сходится к математическому ожиданию",
+            "Сумма сходится к нормальному распределению",
+            "Дисперсия стремится к нулю",
+            "Вероятность стремится к единице"
+        ],
+        "answers": ["Среднее арифметическое сходится к математическому ожиданию"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>При увеличении числа испытаний <span class='badge badge-info'>среднее арифметическое</span> стремится к <span class='badge badge-info'>математическому ожиданию</span>.</p><hr class='my-2'><p class='mb-0'><strong>Смысл:</strong> чем больше наблюдений, тем точнее оценка. Например, при 1000 бросках монеты доля орлов будет <span class='badge badge-success'>≈ 0.5</span>.</p></div>"
+    },
+    {
+        "id": "tv_120",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Закон больших чисел",
+        "theme": "Закон больших чисел",
+        "text": "Утверждение о том, что среднее арифметическое случайных величин сходится к их математическому ожиданию — это...",
+        "choices": [
+            "Закон больших чисел",
+            "Центральная предельная теорема",
+            "Неравенство Чебышева",
+            "Теорема Муавра-Лапласа"
+        ],
+        "answers": ["Закон больших чисел"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>(1/n)ΣXᵢ → <span class='badge badge-info'>M(X)</span> при n → ∞ <span class='badge badge-info'>по вероятности</span>.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> обосновывает <span class='badge badge-success'>метод Монте-Карло</span> и практическую оценку вероятностей через частоты.</p></div>"
+    },
+
+    // ---- 3.3 Центральная предельная теорема ----
+    {
+        "id": "tv_016",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Центральная предельная теорема",
+        "theme": "Центральная предельная теорема",
+        "text": "К какому распределению стремится сумма большого числа независимых случайных величин?",
+        "choices": [
+            "К биномиальному",
+            "К пуассоновскому",
+            "К нормальному",
+            "К равномерному"
+        ],
+        "answers": ["К нормальному"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема</h5><p class='mb-1'>Сумма большого числа независимых случайных величин имеет распределение, <span class='badge badge-info'>близкое к нормальному</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важность:</strong> объясняет, почему нормальное распределение так часто встречается в природе и <span class='badge badge-success'>в статистике</span>.</p></div>"
+    },
+    {
+        "id": "tv_121",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Центральная предельная теорема",
+        "theme": "Центральная предельная теорема",
+        "text": "Утверждение о том, что сумма большого числа независимых случайных величин имеет распределение, близкое к нормальному — это...",
+        "choices": [
+            "Закон больших чисел",
+            "Центральная предельная теорема",
+            "Неравенство Чебышева",
+            "Теорема Пуассона"
+        ],
+        "answers": ["Центральная предельная теорема"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема (ЦПТ)</h5><p class='mb-1'><span class='badge badge-info'>Ключевой результат</span> теории вероятностей.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> позволяет <span class='badge badge-success'>использовать нормальное распределение</span> для приближённых вычислений даже когда исходные распределения неизвестны.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4: Элементы математической статистики ====================
+    // =====================================================================
+
+    // ---- 4.3 Числовые характеристики выборки ----
+    {
+        "id": "tv_017",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочное среднее",
+        "theme": "Числовые характеристики выборки",
+        "text": "Как вычисляется выборочное среднее?",
+        "choices": [
+            "Сумма всех значений / количество значений",
+            "Произведение всех значений",
+            "Максимальное значение",
+            "Медиана"
+        ],
+        "answers": ["Сумма всех значений / количество значений"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Выборочное среднее</h5><p class='mb-1'>Оценка математического ожидания по выборке: <span class='badge badge-info'>x̄ = (1/n) Σ xᵢ</span></p><hr class='my-2'><p class='mb-0'><strong>Свойства:</strong> несмещённая и состоятельная оценка. Чем больше выборка, тем <span class='badge badge-success'>точнее оценка</span> среднего.</p></div>"
+    },
+    {
+        "id": "tv_130",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочные характеристики",
+        "theme": "Числовые характеристики выборки",
+        "text": "Наиболее часто встречающееся значение в выборке — это...",
+        "choices": ["Среднее", "Медиана", "Мода", "Дисперсия"],
+        "answers": ["Мода"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Мода</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>встречается чаще всего</span> в выборке.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> в выборке 1, 2, 2, 3, 4 мода = <span class='badge badge-success'>2</span>. Может быть несколько мод (мультимодальное распределение).</p></div>"
+    },
+    {
+        "id": "tv_131",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочные характеристики",
+        "theme": "Числовые характеристики выборки",
+        "text": "Среднее значение в упорядоченном ряду данных — это...",
+        "choices": ["Среднее арифметическое", "Медиана", "Мода", "Дисперсия"],
+        "answers": ["Медиана"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Медиана</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>делит упорядоченный ряд пополам</span>.</p><hr class='my-2'><p class='mb-0'><strong>Особенность:</strong> устойчива к выбросам. В выборке 1, 2, 3, 100, 200 медиана = <span class='badge badge-success'>3</span>, а среднее сильно завышено.</p></div>"
+    },
+
+
+
 
     // ---- 2.8 Биномиальное распределение ----
     {
@@ -971,117 +942,7 @@ let quizesSets = [
     },
 
     // ---- 3.2 Закон больших чисел ----
-    {
-        "id": "tv_015",
-        "type": "multiplechoices",
-        "header": "Тема 3. Предельные теоремы и закон больших чисел",
-        "title": "Закон больших чисел",
-        "theme": "Закон больших чисел",
-        "text": "Что утверждает закон больших чисел?",
-        "choices": [
-            "Среднее арифметическое сходится к математическому ожиданию",
-            "Сумма сходится к нормальному распределению",
-            "Дисперсия стремится к нулю",
-            "Вероятность стремится к единице"
-        ],
-        "answers": ["Среднее арифметическое сходится к математическому ожиданию"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>При увеличении числа испытаний <span class='badge badge-info'>среднее арифметическое</span> стремится к <span class='badge badge-info'>математическому ожиданию</span>.</p><hr class='my-2'><p class='mb-0'><strong>Смысл:</strong> чем больше наблюдений, тем точнее оценка. Например, при 1000 бросках монеты доля орлов будет <span class='badge badge-success'>≈ 0.5</span>.</p></div>"
-    },
-    {
-        "id": "tv_120",
-        "type": "multiplechoices",
-        "header": "Тема 3. Предельные теоремы и закон больших чисел",
-        "title": "Закон больших чисел",
-        "theme": "Закон больших чисел",
-        "text": "Утверждение о том, что среднее арифметическое случайных величин сходится к их математическому ожиданию — это...",
-        "choices": [
-            "Закон больших чисел",
-            "Центральная предельная теорема",
-            "Неравенство Чебышева",
-            "Теорема Муавра-Лапласа"
-        ],
-        "answers": ["Закон больших чисел"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>(1/n)ΣXᵢ → <span class='badge badge-info'>M(X)</span> при n → ∞ <span class='badge badge-info'>по вероятности</span>.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> обосновывает <span class='badge badge-success'>метод Монте-Карло</span> и практическую оценку вероятностей через частоты.</p></div>"
-    },
-
-    // ---- 3.3 Центральная предельная теорема ----
-    {
-        "id": "tv_016",
-        "type": "multiplechoices",
-        "header": "Тема 3. Предельные теоремы и закон больших чисел",
-        "title": "Центральная предельная теорема",
-        "theme": "Центральная предельная теорема",
-        "text": "К какому распределению стремится сумма большого числа независимых случайных величин?",
-        "choices": [
-            "К биномиальному",
-            "К пуассоновскому",
-            "К нормальному",
-            "К равномерному"
-        ],
-        "answers": ["К нормальному"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема</h5><p class='mb-1'>Сумма большого числа независимых случайных величин имеет распределение, <span class='badge badge-info'>близкое к нормальному</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важность:</strong> объясняет, почему нормальное распределение так часто встречается в природе и <span class='badge badge-success'>в статистике</span>.</p></div>"
-    },
-    {
-        "id": "tv_121",
-        "type": "multiplechoices",
-        "header": "Тема 3. Предельные теоремы и закон больших чисел",
-        "title": "Центральная предельная теорема",
-        "theme": "Центральная предельная теорема",
-        "text": "Утверждение о том, что сумма большого числа независимых случайных величин имеет распределение, близкое к нормальному — это...",
-        "choices": [
-            "Закон больших чисел",
-            "Центральная предельная теорема",
-            "Неравенство Чебышева",
-            "Теорема Пуассона"
-        ],
-        "answers": ["Центральная предельная теорема"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема (ЦПТ)</h5><p class='mb-1'><span class='badge badge-info'>Ключевой результат</span> теории вероятностей.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> позволяет <span class='badge badge-success'>использовать нормальное распределение</span> для приближённых вычислений даже когда исходные распределения неизвестны.</p></div>"
-    },
-
-    // =====================================================================
-    // ==================== ТЕМА 4: Элементы математической статистики ====================
-    // =====================================================================
-
-    // ---- 4.3 Числовые характеристики выборки ----
-    {
-        "id": "tv_017",
-        "type": "multiplechoices",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Выборочное среднее",
-        "theme": "Числовые характеристики выборки",
-        "text": "Как вычисляется выборочное среднее?",
-        "choices": [
-            "Сумма всех значений / количество значений",
-            "Произведение всех значений",
-            "Максимальное значение",
-            "Медиана"
-        ],
-        "answers": ["Сумма всех значений / количество значений"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Выборочное среднее</h5><p class='mb-1'>Оценка математического ожидания по выборке: <span class='badge badge-info'>x̄ = (1/n) Σ xᵢ</span></p><hr class='my-2'><p class='mb-0'><strong>Свойства:</strong> несмещённая и состоятельная оценка. Чем больше выборка, тем <span class='badge badge-success'>точнее оценка</span> среднего.</p></div>"
-    },
-    {
-        "id": "tv_130",
-        "type": "multiplechoices",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Выборочные характеристики",
-        "theme": "Числовые характеристики выборки",
-        "text": "Наиболее часто встречающееся значение в выборке — это...",
-        "choices": ["Среднее", "Медиана", "Мода", "Дисперсия"],
-        "answers": ["Мода"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Мода</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>встречается чаще всего</span> в выборке.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> в выборке 1, 2, 2, 3, 4 мода = <span class='badge badge-success'>2</span>. Может быть несколько мод (мультимодальное распределение).</p></div>"
-    },
-    {
-        "id": "tv_131",
-        "type": "multiplechoices",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Выборочные характеристики",
-        "theme": "Числовые характеристики выборки",
-        "text": "Среднее значение в упорядоченном ряду данных — это...",
-        "choices": ["Среднее арифметическое", "Медиана", "Мода", "Дисперсия"],
-        "answers": ["Медиана"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Медиана</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>делит упорядоченный ряд пополам</span>.</p><hr class='my-2'><p class='mb-0'><strong>Особенность:</strong> устойчива к выбросам. В выборке 1, 2, 3, 100, 200 медиана = <span class='badge badge-success'>3</span>, а среднее сильно завышено.</p></div>"
-    },
-
+   
     // ---- 4.4 Точечные оценки параметров ----
     {
         "id": "tv_018",
@@ -1271,6 +1132,205 @@ let quizesSets = [
         "answers": ["Линейная регрессия"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Линейная регрессия</h5><p class='mb-1'>Моделирует <span class='badge badge-info'>линейную зависимость</span> между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Уравнение:</strong> y = <span class='badge badge-info'>a</span> + <span class='badge badge-info'>b</span>x. Коэффициенты находят <span class='badge badge-success'>методом наименьших квадратов</span> (минимизация суммы квадратов ошибок).</p></div>"
     },
+
+    {
+    "id": "statistics546",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Количественная оценка",
+    "theme": "Корреляционно-регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
+    "answers": ["Коэффициента корреляции Пирсона"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$r = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\cdot \\sigma_Y}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong>, в знаменателе — <strong>произведение стандартных отклонений</strong>. Результат — безразмерная величина от -1 до 1. Это <strong>коэффициент корреляции Пирсона</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Коэффициент корреляции Пирсона</div></div></div>"
+  },
+  {
+    "id": "statistics547",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Корреляционно-регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
+    "answers": ["Ковариации по генеральной совокупности"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Cov}(X,Y) = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>сумма произведений отклонений</strong>, в знаменателе — <strong>n</strong>. Это <strong>ковариация по генеральной совокупности</strong> (COVARIANCE.P).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Ковариация по генеральной совокупности</div></div></div>"
+  },
+  {
+    "id": "statistics548",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистическая оценка",
+    "theme": "Регрессионный анализ",
+    "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
+    "answers": ["Углового коэффициента (наклона) регрессии"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$a = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>В числителе — <strong>ковариация</strong> (умноженная на n), в знаменателе — <strong>сумма квадратов отклонений X</strong>. Это формула <strong>углового коэффициента (наклона) регрессии</strong> (SLOPE).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Угловой коэффициент (наклон) регрессии</div></div></div>"
+  },
+  {
+    "id": "statistics549",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Анализ данных",
+    "theme": "Регрессионный анализ",
+    "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
+    "answers": ["Свободного члена (пересечения) регрессии"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$b = \\bar{y} - a \\cdot \\bar{x}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Из среднего Y вычитается <strong>произведение наклона на среднее X</strong>. Это формула <strong>свободного члена (пересечения) регрессии</strong> (INTERCEPT).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Свободный член (пересечение) регрессии</div></div></div>"
+  },
+  
+  {
+    "id": "statistics551",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Количественная оценка",
+    "theme": "Позиционные характеристики",
+    "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
+    "answers": ["Первого квартиля (25-го процентиля)"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$Q1 = x_{0.25}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Q1 обозначает <strong>первый квартиль</strong>, x_{0.25} — <strong>25-й процентиль</strong>. Это значение, ниже которого находятся 25% данных.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Первый квартиль (25-й процентиль)</div></div></div>"
+  },
+  {
+    "id": "statistics552",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Меры формы распределения",
+    "text": "$$\\text{Skewness} = \\frac{n}{(n-1)(n-2)} \\cdot \\sum_{i=1}^{n} \\left(\\frac{x_i - \\bar{x}}{s}\\right)^3$$\n\nДанная формула используется для расчёта:",
+    "choices": ["Эксцесса", "Асимметрии (коэффициента скошенности)", "Коэффициента вариации", "Медианы"],
+    "answers": ["Асимметрии (коэффициента скошенности)"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О какой формуле идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$\\text{Skewness} = \\frac{n}{(n-1)(n-2)} \\sum \\left(\\frac{x_i - \\bar{x}}{s}\\right)^3$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><p class='card-text'>Это <strong>третий стандартизированный момент</strong>. Формула использует <strong>куб</strong> нормированных отклонений. Положительное значение → правый хвост длиннее. Это <strong>коэффициент асимметрии (SKEW)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Асимметрия (коэффициент скошенности)</div></div></div>"
+  },
+
+   {
+    "id": "statistics553",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистическая оценка",
+    "theme": "Законы распределения",
+    "text": "$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nДанная формула описывает:",
+    "choices": [
+      "Равномерное распределение",
+      "Распределение Пуассона",
+      "Нормальное распределение (распределение Гаусса)",
+      "Биномиальное распределение"
+    ],
+    "answers": ["Нормальное распределение (распределение Гаусса)"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>π</strong> и <strong>e</strong> (экспоненту)</li><li>Имеет параметры <strong>μ</strong> (среднее) и <strong>σ</strong> (стандартное отклонение)</li><li>Симметрична относительно μ</li><li>Классическая «колоколообразная» кривая</li></ul><p class='card-text mt-2'>Это <strong>нормальное распределение (распределение Гаусса)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Нормальное распределение (распределение Гаусса)</div></div></div>"
+  },
+  {
+    "id": "statistics554",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Законы распределения",
+    "text": "$$P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}, \\quad k = 0,1,2,\\dots$$\n\nДанная формула описывает:",
+    "choices": [
+      "Нормальное распределение",
+      "Равномерное распределение",
+      "Распределение Пуассона",
+      "Геометрическое распределение"
+    ],
+    "answers": ["Распределение Пуассона"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>e^{-λ}</strong> (экспоненту)</li><li>В знаменателе <strong>k!</strong> (факториал)</li><li>Параметр <strong>λ</strong> (интенсивность потока событий)</li><li>Значения k = 0,1,2,... (целые неотрицательные)</li></ul><p class='card-text mt-2'>Это <strong>распределение Пуассона</strong> — моделирует количество редких событий за фиксированный интервал времени.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Пуассона</div></div></div>"
+  },
+  {
+    "id": "statistics555",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Анализ данных",
+    "theme": "Законы распределения",
+    "text": "$$P(X=k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}, \\quad k = 0,1,\\dots,n$$\n\nДанная формула описывает:",
+    "choices": [
+      "Распределение Пуассона",
+      "Нормальное распределение",
+      "Биномиальное распределение",
+      "Распределение Коши"
+    ],
+    "answers": ["Биномиальное распределение"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$P(X=k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>C_n^k</strong> (число сочетаний)</li><li>Параметры: <strong>n</strong> (число испытаний), <strong>p</strong> (вероятность успеха)</li><li>Значения k = 0,1,...,n</li><li>Моделирует число успехов в серии независимых испытаний</li></ul><p class='card-text mt-2'>Это <strong>биномиальное распределение</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Биномиальное распределение</div></div></div>"
+  },
+  {
+    "id": "statistics556",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистический показатель",
+    "theme": "Законы распределения",
+    "text": "$$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b$$\n\nДанная формула описывает:",
+    "choices": [
+      "Нормальное распределение",
+      "Равномерное распределение",
+      "Экспоненциальное распределение",
+      "Распределение Стьюдента"
+    ],
+    "answers": ["Равномерное распределение"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Плотность <strong>постоянна</strong> на интервале [a,b]</li><li>Не зависит от x</li><li>Параметры: <strong>a</strong> (минимум), <strong>b</strong> (максимум)</li><li>Все значения в интервале равновероятны</li></ul><p class='card-text mt-2'>Это <strong>равномерное распределение</strong> (прямоугольное распределение).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Равномерное распределение</div></div></div>"
+  },
+  {
+    "id": "statistics557",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Количественная оценка",
+    "theme": "Законы распределения",
+    "text": "$$f(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0$$\n\nДанная формула описывает:",
+    "choices": [
+      "Нормальное распределение",
+      "Распределение Пуассона",
+      "Экспоненциальное распределение",
+      "Равномерное распределение"
+    ],
+    "answers": ["Экспоненциальное распределение"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>e^{-λx}</strong> (экспоненциальное затухание)</li><li>Определена только при <strong>x ≥ 0</strong></li><li>Параметр <strong>λ</strong> (интенсивность отказов)</li><li>Моделирует время между событиями</li></ul><p class='card-text mt-2'>Это <strong>экспоненциальное распределение</strong> (показательное распределение).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Экспоненциальное распределение</div></div></div>"
+  },
+  {
+    "id": "statistics558",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Описательная статистика",
+    "theme": "Законы распределения",
+    "text": "$$f(t) = \\frac{\\Gamma\\left(\\frac{\\nu+1}{2}\\right)}{\\sqrt{\\nu\\pi}\\,\\Gamma\\left(\\frac{\\nu}{2}\\right)} \\left(1+\\frac{t^2}{\\nu}\\right)^{-\\frac{\\nu+1}{2}}$$\n\nДанная формула описывает:",
+    "choices": [
+      "Нормальное распределение",
+      "Распределение Стьюдента (t-распределение)",
+      "Распределение Фишера (F-распределение)",
+      "Распределение Коши"
+    ],
+    "answers": ["Распределение Стьюдента (t-распределение)"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(t) = \\frac{\\Gamma\\left(\\frac{\\nu+1}{2}\\right)}{\\sqrt{\\nu\\pi}\\,\\Gamma\\left(\\frac{\\nu}{2}\\right)} \\left(1+\\frac{t^2}{\\nu}\\right)^{-\\frac{\\nu+1}{2}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>Γ</strong> (гамма-функцию)</li><li>Параметр <strong>ν</strong> (число степеней свободы)</li><li>Похоже на нормальное, но с более тяжёлыми хвостами</li><li>Используется при малых выборках</li></ul><p class='card-text mt-2'>Это <strong>распределение Стьюдента (t-распределение)</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Стьюдента (t-распределение)</div></div></div>"
+  },
+  {
+    "id": "statistics559",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Анализ данных",
+    "theme": "Законы распределения",
+    "text": "$$f(x) = \\frac{1}{\\pi \\gamma \\left[1 + \\left(\\frac{x - x_0}{\\gamma}\\right)^2\\right]}$$\n\nДанная формула описывает:",
+    "choices": [
+      "Нормальное распределение",
+      "Распределение Стьюдента",
+      "Распределение Коши",
+      "Логистическое распределение"
+    ],
+    "answers": ["Распределение Коши"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$f(x) = \\frac{1}{\\pi \\gamma \\left[1 + \\left(\\frac{x - x_0}{\\gamma}\\right)^2\\right]}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>π</strong> в знаменателе</li><li>Имеет параметры <strong>x₀</strong> (положение пика) и <strong>γ</strong> (масштаб)</li><li>Очень <strong>тяжёлые хвосты</strong> — дисперсия не определена</li><li>Форма напоминает нормальное, но с более медленным затуханием</li></ul><p class='card-text mt-2'>Это <strong>распределение Коши</strong>.</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Распределение Коши</div></div></div>"
+  },
+  {
+    "id": "statistics560",
+    "type": "multiplechoices",
+    "header": "Тест",
+    "title": "Статистическая оценка",
+    "theme": "Законы распределения",
+    "text": "$$F(x) = \\frac{1}{1+e^{-(x-\\mu)/s}}$$\n\nДанная формула описывает функцию распределения:",
+    "choices": [
+      "Нормального распределения",
+      "Логистического распределения",
+      "Распределения Лапласа",
+      "Распределения Гумбеля"
+    ],
+    "answers": ["Логистического распределения"],
+    "hint": "<div class='card'><div class='card-header bg-primary text-white'><h5>📊 О каком распределении идёт речь?</h5></div><div class='card-body'><div class='alert alert-secondary mb-3'><strong>📌 Дана формула:</strong> $$F(x) = \\frac{1}{1+e^{-(x-\\mu)/s}}$$</div><div class='card mb-3'><div class='card-header bg-info text-white'><h5>🔍 Анализ формулы</h5></div><div class='card-body'><ul><li>Содержит <strong>логистическую функцию</strong> (S-образную кривую)</li><li>Использует <strong>экспоненту e</strong></li><li>Параметры: <strong>μ</strong> (положение), <strong>s</strong> (масштаб)</li><li>Похоже на нормальное, но с более тяжёлыми хвостами</li></ul><p class='card-text mt-2'>Это <strong>логистическое распределение</strong> (функция распределения).</p></div></div><div class='alert alert-success'><strong>✅ Правильный ответ:</strong> Логистическое распределение</div></div></div>"
+  },
+
+
 
       {
       id: "vec001",
