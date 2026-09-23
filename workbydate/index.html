@@ -337,6 +337,8 @@
             getAvatar(userEmail)
                 .then(info => {
                     user = !!info?.user ? info.user : "Иван Оленев";
+                    user = !!info?.url ? user + " " + info.url : user;
+
                     avatarUrl = !!info?.avatarUrl ? info?.avatarUrl :
                         "../freelancer.jpg";
 

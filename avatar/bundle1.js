@@ -1137,8 +1137,8 @@
           }
         }
       }),
-      placeholder: "URL \u0441\u0430\u0439\u0442\u0430(\u0431\u043B\u043E\u0433\u0430)"
-      //   required
+      placeholder: "URL \u0441\u0430\u0439\u0442\u0430(\u0431\u043B\u043E\u0433\u0430)",
+      required: true
     })), /*#__PURE__*/React.createElement(reactBootstrap.Button, {
       variant: "primary",
       type: "submit",
