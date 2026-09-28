@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Введение в теорию вероятностей и статистику</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+<div class="container py-4" style="max-width:960px;">
+
+<h1>1. Введение в теорию вероятностей и статистику</h1>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h2>1. Что такое статистика?</h2>
+    <ul>
+      <li>Статистика — это наука о сборе, организации, анализе, интерпретации и представлении данных.</li>
+      <li>Она помогает нам принимать решения и находить закономерности в данных.</li>
+      <li>Используется почти во всех сферах: бизнесе, науке, инженерии, здравоохранении, финансах, машинном обучении и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>2. Что такое вероятность?</h2>
+    <ul>
+      <li>Вероятность — это мера того, насколько вероятно наступление события.</li>
+      <li>Её значение лежит в пределах от $0$ до $1$.</li>
+      <li>$0$ означает, что событие невозможно. $1$ означает, что событие достоверно.</li>
+      <li>Она помогает понимать неопределённость и случайность в реальных ситуациях.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>3. Разделы статистики</h2>
+<div class="tree mb-3">
+  <div class="box fw-bold">Статистика</div><br>
+  <div class="box">Описательная статистика  (Descriptive Statistics) </div>
+  <div class="box">Выводная статистика  (Inferential Statistics)</div>
+</div>
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <div class="card h-100"><div class="card-header bg-warning-subtle">Описательная статистика</div>
+      <div class="card-body"><ul class="mb-0">
+        <li>Обобщает и описывает основные характеристики данных.</li>
+        <li>Использует графики, таблицы и числовые показатели.</li>
+        <li>Пример: среднее, медиана, мода, стандартное отклонение.</li>
+      </ul></div></div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <div class="card h-100"><div class="card-header bg-info-subtle">Выводная статистика</div>
+      <div class="card-body"><ul class="mb-0">
+        <li>Использует выборочные данные для выводов о генеральной совокупности.</li>
+        <li>Помогает в прогнозировании, оценке и проверке гипотез.</li>
+        <li>Пример: доверительный интервал, проверка гипотез, регрессионный анализ.</li>
+      </ul></div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>4. Генеральная совокупность и выборка</h2>
+    <div class="row g-2">
+      <div class="col-6"><div class="card h-100"><div class="card-header pop-header">Генеральная совокупность</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Полный набор всех объектов или индивидуумов, представляющих интерес.</li>
+          <li>Обозначается $N$.</li>
+          <li>Параметры (например, $\mu, \sigma$) описывают генеральную совокупность.</li>
+          <li>Пример: рост всех студентов колледжа.</li>
+        </ul></div></div></div>
+      <div class="col-6"><div class="card h-100"><div class="card-header samp-header">Выборка</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Небольшое подмножество генеральной совокупности.</li>
+          <li>Обозначается $n$.</li>
+          <li>Статистики (например, $\bar{x}, s$) вычисляются по выборке.</li>
+          <li>Пример: рост 100 студентов, отобранных из колледжа.</li>
+        </ul></div></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>6. Ключевая терминология</h2>
+    <table class="table table-sm table-bordered align-middle">
+      <tbody>
+        <tr><td class="fw-bold">Эксперимент</td><td>Процесс, порождающий определённый исход.</td></tr>
+        <tr><td class="fw-bold">Исход</td><td>Возможный результат эксперимента.</td></tr>
+        <tr><td class="fw-bold">Событие</td><td>Набор одного или нескольких исходов.</td></tr>
+        <tr><td class="fw-bold">Пространство элементарных исходов (S)</td><td>Множество всех возможных исходов эксперимента.</td></tr>
+        <tr><td class="fw-bold">Случайный эксперимент</td><td>Эксперимент, исход которого не определён заранее.</td></tr>
+        <tr><td class="fw-bold">Случайная величина</td><td>Переменная, которая ставит в соответствие каждому исходу числовое значение.</td></tr>
+        <tr><td class="fw-bold">Испытание</td><td>Однократное проведение случайного эксперимента.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>5. Параметр и статистика</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered text-center">
+  <thead class="table-light"><tr><th>Аспект</th><th>Параметр</th><th>Статистика</th></tr></thead>
+  <tbody>
+    <tr><td class="fw-bold">Значение</td><td>Числовая характеристика генеральной совокупности</td><td>Числовая характеристика выборки</td></tr>
+    <tr><td class="fw-bold">Обозначение</td><td>Греческие буквы ($\mu, \sigma, p$)</td><td>Латинские буквы ($\bar{x}, s, \hat{p}$)</td></tr>
+    <tr><td class="fw-bold">Величина</td><td>Фиксированная (в большинстве реальных случаев неизвестна)</td><td>Меняется от выборки к выборке</td></tr>
+    <tr><td class="fw-bold">Пример</td><td>Среднее генеральной совокупности ($\mu$), стандартное отклонение генеральной совокупности ($\sigma$)</td><td>Выборочное среднее ($\bar{x}$), выборочное стандартное отклонение ($s$)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>7. Пример</h2>
+    <div class="card"><div class="card-body">
+      <p class="mb-1">Эксперимент: бросок честной игральной кости.</p>
+      <p class="mb-1">Пространство элементарных исходов (S) = $\{1, 2, 3, 4, 5, 6\}$</p>
+      <p class="mb-1">Событие A: выпадение чётного числа = $\{2, 4, 6\}$</p>
+      <p class="mb-2">Событие B: выпадение числа больше 4 = $\{5, 6\}$</p>
+      <p class="mb-1">$P(A) = \dfrac{3}{6} = 0.5$</p>
+      <p class="mb-1">$P(B) = \dfrac{2}{6} \approx 0.333$</p>
+      <p class="mb-0">$P(1) = \dfrac{1}{6} \approx 0.167$</p>
+    </div></div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>8. Применение в реальном мире</h2>
+    <div class="row row-cols-3 g-2 text-center">
+      <div class="col"><div class="app-icon">💼</div><div class="fw-bold small">Бизнес</div><div class="small">Анализ рынка, прогнозирование спроса</div></div>
+      <div class="col"><div class="app-icon">🏥</div><div class="fw-bold small">Здравоохранение</div><div class="small">Прогнозирование заболеваний, клинические испытания</div></div>
+      <div class="col"><div class="app-icon">💰</div><div class="fw-bold small">Финансы</div><div class="small">Анализ рисков, управление портфелем</div></div>
+      <div class="col"><div class="app-icon">⚙️</div><div class="fw-bold small">Инженерия</div><div class="small">Контроль качества, анализ надёжности</div></div>
+      <div class="col"><div class="app-icon">👥</div><div class="fw-bold small">Социальные науки</div><div class="small">Анализ опросов, исследование поведения</div></div>
+      <div class="col"><div class="app-icon">📊</div><div class="fw-bold small">Машинное обучение</div><div class="small">Моделирование данных, прогнозирование</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="quote">«Данные дают вам факты, но статистика помогает понять историю.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

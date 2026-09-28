@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Условная вероятность</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+table{font-size:.82rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.8rem;text-align:center;font-size:1.15rem;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.8rem;}
+.solution-green{background:#d3f9d8;border:2px solid #40c057;border-radius:8px;padding:.8rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.playing-card{width:70px;height:95px;border:2px solid #333;border-radius:6px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:4px;font-weight:bold;color:#e03131;margin:0 auto;}
+.med-icon{font-size:1.8rem;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1000px;">
+
+<h1>6. Условная вероятность (Conditional Probability)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h2>1. Что такое условная вероятность?</h2>
+    <ul>
+      <li>Условная вероятность (conditional probability) — это вероятность наступления события при условии, что другое событие уже произошло.</li>
+      <li>Она помогает анализировать ситуации, в которых известна дополнительная информация.</li>
+      <li>Обозначение: $P(A \mid B)$ означает вероятность A при условии, что произошло B.</li>
+      <li>Применяется в реальных сценариях: медицинские тесты, игры, опросы и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>2. Формула</h2>
+    <div class="row g-2 align-items-center">
+      <div class="col-6"><div class="formula-box">$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$</div></div>
+      <div class="col-6"><ul class="small mb-0">
+        <li>$P(B) > 0$</li>
+        <li>$P(A \cap B)$: вероятность того, что произойдут и A, и B.</li>
+        <li>$P(B)$: вероятность наступления события B.</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<h2>3. Представление на диаграмме Венна</h2>
+<div class="row align-items-center mb-3">
+  <div class="col-md-5 text-center">
+    <svg viewBox="0 0 260 140" width="100%" height="140">
+      <circle cx="105" cy="70" r="60" fill="#a5d8ff" fill-opacity="0.85" stroke="#1971c2" stroke-width="2"/>
+      <circle cx="165" cy="70" r="60" fill="#f8bbd0" fill-opacity="0.85" stroke="#c2255c" stroke-width="2"/>
+      <text x="70" y="75" font-size="16" font-weight="bold">A</text>
+      <text x="185" y="75" font-size="16" font-weight="bold">B</text>
+      <text x="118" y="128" font-size="11" font-style="italic">A ∩ B</text>
+      <line x1="130" y1="122" x2="130" y2="95" stroke="#333" stroke-width="1" marker-end="url(#arr2)"/>
+      <defs><marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#333"/></marker></defs>
+    </svg>
+  </div>
+  <div class="col-md-7">
+    <ul>
+      <li>$P(A \mid B)$ = вероятность A в пространстве элементарных исходов B.</li>
+      <li>Это отношение площади пересечения к общей площади области B.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>4. Ключевые свойства</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered align-middle">
+  <thead class="table-light"><tr><th>Свойство</th><th>Формула / Пояснение</th></tr></thead>
+  <tbody>
+    <tr><td class="fw-bold" style="background:#fadde1;">Определение<br><small class="fw-normal">(Definition)</small></td><td>$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$, $P(B) > 0$</td></tr>
+    <tr><td class="fw-bold" style="background:#f5e0f7;">Правило умножения<br><small class="fw-normal">(Multiplication Rule)</small></td><td>$P(A \cap B) = P(A \mid B) \times P(B) = P(B \mid A) \times P(A)$</td></tr>
+    <tr><td class="fw-bold" style="background:#e7d6f7;">Цепное правило<br><small class="fw-normal">(Chain Rule)</small></td><td>$P(A \cap B \cap C) = P(A) \times P(B \mid A) \times P(C \mid A \cap B)$</td></tr>
+    <tr><td class="fw-bold" style="background:#d3f9d8;">Независимость<br><small class="fw-normal">(Independence)</small></td><td class="small">Если A и B независимы, $P(A \mid B) = P(A)$ (то есть наступление B не меняет вероятность A).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>5. Пример 1 — Вытягивание карты</h2>
+    <div class="row g-2 align-items-start">
+      <div class="col-8">
+        <p class="small">В колоде 52 карты. Если вытянута одна карта и это король, какова вероятность, что это черви?</p>
+        <div class="solution-pink">
+          <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+          <ul class="small mb-2">
+            <li>Пусть A: карта является червями.</li>
+            <li>Пусть B: карта является королём.</li>
+            <li>В колоде 4 короля и 1 король червей.</li>
+          </ul>
+          <p class="small mb-0">$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{1/52}{4/52} = \dfrac{1}{4} = 0.25$</p>
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <div class="playing-card"><span>K</span><span style="align-self:end;font-size:1.4rem;">♥</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>6. Пример 2 — Игральная кость</h2>
+    <div class="row g-2 align-items-start">
+      <div class="col-8">
+        <p class="small">Бросается честная игральная кость. При условии, что выпало чётное число, какова вероятность, что это 4?</p>
+        <div class="solution-green">
+          <p class="fw-bold mb-1" style="color:#2f9e44;">Решение:</p>
+          <ul class="small mb-2">
+            <li>Пусть A: выпало число 4.</li>
+            <li>Пусть B: выпало чётное число (2, 4, 6).</li>
+          </ul>
+          <p class="small mb-0">$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{1/6}{3/6} = \dfrac{1}{3} \approx 0.333$</p>
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <i class="bi bi-dice-4-fill" style="font-size:3rem;color:#e03131;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>7. Пример 3 — Медицинский тест (реальный мир)</h2>
+<p class="small">Болезнь поражает 1% населения. Тест правильно выявляет 90% заражённых (чувствительность). Если человек получил положительный результат, какова вероятность, что он действительно болен?</p>
+<div class="row align-items-start">
+  <div class="col-9">
+    <div class="solution-pink">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+      <ul class="small mb-2">
+        <li>Пусть D: человек болен.</li>
+        <li>Пусть T: тест положительный.</li>
+        <li>$P(D) = 0.01$, $P(T \mid D) = 0.90$, $P(T \mid \bar{D}) = 0.05$ (ложноположительный результат)</li>
+      </ul>
+      <p class="small mb-1">$P(D \mid T) = \dfrac{P(T \mid D)P(D)}{P(T \mid D)P(D) + P(T \mid \bar{D})P(\bar{D})}$</p>
+      <p class="small mb-0">$= \dfrac{0.90 \times 0.01}{0.90 \times 0.01 + 0.05 \times 0.99} \approx 0.154 \approx 15.4\%$</p>
+    </div>
+  </div>
+  <div class="col-3 text-center">
+    <i class="bi bi-droplet-half med-icon" style="color:#e03131;"></i>
+    <i class="bi bi-virus med-icon ms-2" style="color:#495057;"></i>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-6 mb-3">
+    <h2>8. Независимость и условная вероятность</h2>
+    <table class="table table-bordered align-middle text-center">
+      <thead class="table-light"><tr><th>Случай</th><th>Соотношение</th><th>Смысл</th></tr></thead>
+      <tbody>
+        <tr><td class="fw-bold" style="background:#fadde1;">Независимые<br><small class="fw-normal">(Independent)</small></td><td>$P(A \mid B) = P(A)$</td><td class="small">Наступление B не меняет вероятность A.</td></tr>
+        <tr><td class="fw-bold" style="background:#f5e0f7;">Зависимые<br><small class="fw-normal">(Dependent)</small></td><td>$P(A \mid B) \ne P(A)$</td><td class="small">Наступление B влияет на вероятность A.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>9. Ключевые выводы</h2>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i>Условная вероятность описывает вероятность события при условии, что другое событие уже произошло.</div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i>$P(A \mid B) = P(A \cap B) / P(B)$.</div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i>Полезна в реальных задачах: игры, медицинские тесты и опросы.</div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i>Если события независимы, $P(A \mid B) = P(A)$.</div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i>Помогает принимать лучшие решения с учётом дополнительной информации.</div>
+  </div>
+</div>
+
+<div class="quote mt-2">«Условная вероятность помогает принимать лучшие решения с учётом дополнительной информации.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

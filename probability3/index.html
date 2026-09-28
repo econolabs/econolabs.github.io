@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Описательная статистика</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.9.0/jsxgraph.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.9.0/jsxgraphcore.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;}
+.ctend-header{background:#f8d7c4;}
+.disp-header{background:#c3e8d1;}
+table{font-size:.88rem;}
+.row-mean td:first-child{background:#f8d7c4;}
+.row-median td:first-child{background:#f5e0f7;}
+.row-mode td:first-child{background:#fde8b0;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.chart-icon{font-size:2.2rem;color:var(--blue);}
+.chart-card{text-align:center;border:2px solid #dee2e6;border-radius:10px;padding:.7rem .3rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+#boxplot{width:100%;height:180px;}
+.formula-block{background:#f8f9fa;border-radius:6px;padding:.4rem .6rem;margin:.2rem 0;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+<div class="container py-4" style="max-width:980px;">
+
+<h1>3. Описательная статистика</h1>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h2>1. Что такое описательная статистика?</h2>
+    <ul>
+      <li>Описательная статистика — это раздел статистики, который помогает обобщать, организовывать и описывать основные характеристики набора данных.</li>
+      <li>Использует числовые показатели, таблицы и графики для представления данных в простой и понятной форме.</li>
+      <li>Не делает прогнозов, а только описывает данные.</li>
+      <li>Широко применяется в бизнесе, науке, инженерии, здравоохранении и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>2. Виды описательной статистики</h2>
+    <div class="row g-2">
+      <div class="col-6"><div class="card h-100"><div class="card-header ctend-header small">Меры центральной тенденции<br><small class="fw-normal">(Находят центр данных)</small></div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li><u>Среднее</u> (арифметическое): среднее всех значений.</li>
+          <li><u>Медиана</u>: среднее значение при сортировке данных.</li>
+          <li><u>Мода</u>: наиболее часто встречающееся значение.</li>
+        </ul></div></div></div>
+      <div class="col-6"><div class="card h-100"><div class="card-header disp-header small">Меры разброса<br><small class="fw-normal">(Показывают разброс данных)</small></div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li><u>Размах</u>: разница между наибольшим и наименьшим значением.</li>
+          <li><u>Дисперсия</u>: среднее квадратов отклонений.</li>
+          <li><u>Стандартное отклонение</u>: квадратный корень из дисперсии.</li>
+          <li><u>Межквартильный размах (IQR)</u>: разброс средних 50% данных.</li>
+        </ul></div></div></div>
+    </div>
+  </div>
+</div>
+
+<h2>3. Меры центральной тенденции</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered align-middle">
+  <thead class="table-light"><tr><th>Мера</th><th>Формула</th><th>Описание</th></tr></thead>
+  <tbody>
+    <tr class="row-mean"><td class="fw-bold">Среднее (арифметическое)</td><td>$\bar{x} = \dfrac{\sum_{i=1}^{n} x_i}{n}$</td><td>Сумма всех значений, делённая на их количество. Чувствительно к экстремальным значениям (выбросам).</td></tr>
+    <tr class="row-median"><td class="fw-bold">Медиана</td><td>Если $n$ нечётно: $\text{Медиана} = x_{(n+1)/2}$<br>Если $n$ чётно: $\text{Медиана} = \dfrac{x_{(n/2)} + x_{(n/2+1)}}{2}$</td><td>Среднее значение при расположении данных в порядке возрастания. Мало подвержена влиянию выбросов.</td></tr>
+    <tr class="row-mode"><td class="fw-bold">Мода</td><td>Значение с наибольшей частотой</td><td>Наиболее часто встречающееся значение в наборе данных. Полезна для категориальных данных.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>4. Меры разброса</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered align-middle">
+  <thead class="table-light"><tr><th>Мера</th><th>Формула</th><th>Описание</th></tr></thead>
+  <tbody>
+    <tr><td class="fw-bold">Размах</td><td>$\text{Размах} = \text{Max} - \text{Min}$</td><td>Разница между наибольшим и наименьшим значением. Простая мера разброса.</td></tr>
+    <tr><td class="fw-bold">Дисперсия (генеральная)</td><td>$\sigma^2 = \dfrac{\sum (x_i-\mu)^2}{N}$</td><td>Среднее квадратов отклонений от среднего (генеральная совокупность). Показывает, насколько разбросаны данные.</td></tr>
+    <tr><td class="fw-bold">Дисперсия (выборочная)</td><td>$s^2 = \dfrac{\sum (x_i-\bar{x})^2}{n-1}$</td><td>Среднее квадратов отклонений от среднего (выборка).</td></tr>
+    <tr><td class="fw-bold">Стандартное отклонение</td><td>$\sigma = \sqrt{\sigma^2}$ или $s = \sqrt{s^2}$</td><td>Квадратный корень из дисперсии. Измеряется в тех же единицах, что и данные. Часто используемая мера разброса.</td></tr>
+    <tr><td class="fw-bold">Межквартильный размах (IQR)</td><td>$\text{IQR} = Q3 - Q1$</td><td>Разброс средних 50% данных. Менее подвержен влиянию экстремальных значений.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>5. Пример расчёта</h2>
+<div class="card mb-4"><div class="card-body">
+  <p class="mb-2">Данные: 3, 5, 7, 8, 10</p>
+  <ul class="mb-2">
+    <li>Среднее = (3 + 5 + 7 + 8 + 10) / 5 = 33 / 5 = 6.6</li>
+    <li>Медиана = 7 (среднее значение)</li>
+    <li>Мода = нет моды (все значения уникальны)</li>
+    <li>Размах = 10 − 3 = 7</li>
+  </ul>
+  <div class="formula-block">Дисперсия (выборочная) = $\dfrac{(3-6.6)^2+(5-6.6)^2+(7-6.6)^2+(8-6.6)^2+(10-6.6)^2}{5-1} = 23.2$</div>
+  <div class="formula-block mb-0">Стандартное отклонение (выборочное) = $\sqrt{23.2} \approx 4.82$</div>
+</div></div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>6. Квартили, процентили и IQR</h2>
+    <ul>
+      <li>Q1 (25-й процентиль) → 25% данных ниже этого значения.</li>
+      <li>Q2 (50-й процентиль) → То же, что медиана.</li>
+      <li>Q3 (75-й процентиль) → 75% данных ниже этого значения.</li>
+      <li>IQR = Q3 − Q1 (разброс средних 50% данных).</li>
+    </ul>
+    <div id="boxplot"></div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>7. Графическое представление данных</h2>
+    <div class="row row-cols-2 g-2">
+      <div class="col"><div class="chart-card"><i class="bi bi-bar-chart-steps chart-icon"></i><div class="fw-bold small mt-1">Гистограмма</div><div class="small">Показывает распределение числовых данных.</div></div></div>
+      <div class="col"><div class="chart-card"><i class="bi bi-bar-chart-line chart-icon"></i><div class="fw-bold small mt-1">Столбчатая диаграмма</div><div class="small">Используется для категориальных данных.</div></div></div>
+      <div class="col"><div class="chart-card"><i class="bi bi-columns-gap chart-icon"></i><div class="fw-bold small mt-1">Ящик с усами</div><div class="small">Показывает медиану, квартили и выбросы.</div></div></div>
+      <div class="col"><div class="chart-card"><i class="bi bi-pie-chart chart-icon"></i><div class="fw-bold small mt-1">Круговая диаграмма</div><div class="small">Показывает доли категорий.</div></div></div>
+      <div class="col"><div class="chart-card"><i class="bi bi-graph-up-arrow chart-icon"></i><div class="fw-bold small mt-1">Линейный график</div><div class="small">Показывает тренд во времени.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<h2>8. Ключевые выводы</h2>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Описательная статистика обобщает данные.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Среднее, медиана и мода показывают центральную тенденцию.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Размах, дисперсия и стандартное отклонение показывают разброс.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Квартили и IQR помогают понять распределение и выявить выбросы.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Графики помогают эффективно визуализировать данные.</div>
+
+<div class="quote mt-4">«Обобщай данные сегодня — принимай лучшие решения завтра.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+
+  var board = JXG.JSXGraph.initBoard('boxplot', {
+    boundingbox: [-0.5, 2, 10.5, -2.5],
+    axis: false, showCopyright: false, showNavigation: false, pan: {enabled:false}, zoom: {enabled:false}
+  });
+  var opts = {fixed:true, highlight:false, withLabel:false};
+  board.create('segment', [[0.5,0],[9.5,0]], Object.assign({},opts,{strokeColor:'#333',strokeWidth:2}));
+  board.create('segment', [[0.5,-0.6],[0.5,0.6]], Object.assign({},opts,{strokeColor:'#333',strokeWidth:2}));
+  board.create('segment', [[9.5,-0.6],[9.5,0.6]], Object.assign({},opts,{strokeColor:'#333',strokeWidth:2}));
+  board.create('polygon', [[3,-1],[7,-1],[7,1],[3,1]], Object.assign({},opts,{fillColor:'#a5d8ff',fillOpacity:0.7,borders:{strokeColor:'#1971c2',strokeWidth:2}, vertices:{visible:false}}));
+  board.create('segment', [[5,-1],[5,1]], Object.assign({},opts,{strokeColor:'#d6336c',strokeWidth:3}));
+  board.create('text', [0.2,-1.6,'Нижний\\nус'], Object.assign({},opts,{fontSize:11,anchorX:'middle'}));
+  board.create('text', [9.5,-1.6,'Верхний\\nус'], Object.assign({},opts,{fontSize:11,anchorX:'middle'}));
+  board.create('text', [3,1.5,'Q1'], Object.assign({},opts,{fontSize:12,anchorX:'middle'}));
+  board.create('text', [5,1.5,'Медиана (Q2)'], Object.assign({},opts,{fontSize:12,anchorX:'middle'}));
+  board.create('text', [7,1.5,'Q3'], Object.assign({},opts,{fontSize:12,anchorX:'middle'}));
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

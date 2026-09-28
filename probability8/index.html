@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Случайные величины</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;text-align:center;}
+table{font-size:.82rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.6rem;text-align:center;}
+.formula-blue{background:#d0ebff;border:2px solid #1971c2;border-radius:8px;padding:.6rem;text-align:center;}
+.formula-green{background:#d3f9d8;border:2px solid #40c057;border-radius:8px;padding:.6rem;text-align:center;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1000px;">
+
+<h1>8. Случайные величины (Random Variables)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-5">
+    <h2>1. Что такое случайная величина?</h2>
+    <ul>
+      <li>Случайная величина (random variable) — это числовое значение, представляющее исход случайного эксперимента.</li>
+      <li>Она ставит в соответствие каждому исходу из пространства элементарных исходов некоторое число.</li>
+      <li>Случайные величины могут быть дискретными или непрерывными.</li>
+      <li>Используются для анализа и обобщения случайных явлений в реальных задачах.</li>
+    </ul>
+  </div>
+  <div class="col-md-7">
+    <h2>2. Виды случайных величин</h2>
+    <div class="row g-2">
+      <div class="col-6"><div class="card h-100"><div class="card-header bg-warning-subtle small">Дискретная случайная величина<br><small class="fw-normal">(Discrete Random Variable)</small></div>
+        <div class="card-body small">
+          <ul class="ps-3"><li>Принимает счётные значения (например, 0, 1, 2, ...).</li><li>Используется, когда исходы подсчитываются.</li></ul>
+          <div class="bg-light rounded p-2"><strong>Примеры:</strong><ul class="mb-0 ps-3"><li>Число орлов при 3 подбрасываниях монеты</li><li>Число отсутствующих студентов в классе</li></ul></div>
+        </div></div></div>
+      <div class="col-6"><div class="card h-100"><div class="card-header bg-success-subtle small">Непрерывная случайная величина<br><small class="fw-normal">(Continuous Random Variable)</small></div>
+        <div class="card-body small">
+          <ul class="ps-3"><li>Принимает любое значение в диапазоне (например, действительные числа).</li><li>Используется, когда исходы измеряются.</li></ul>
+          <div class="bg-light rounded p-2"><strong>Примеры:</strong><ul class="mb-0 ps-3"><li>Рост человека</li><li>Время выполнения задачи</li><li>Температура</li></ul></div>
+        </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>3. Распределение вероятностей</h2>
+    <ul class="small">
+      <li>Распределение вероятностей (probability distribution) показывает вероятность каждого возможного значения случайной величины.</li>
+      <li>Для дискретных случайных величин используется функция вероятности (PMF).</li>
+      <li>Для непрерывных случайных величин используется плотность вероятности (PDF).</li>
+    </ul>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>4. Функция вероятности (PMF)</h2>
+    <p class="small mb-1">Для дискретной случайной величины X:</p>
+    <div class="formula-box small mb-2">$P(X=x) = $ вероятность того, что X примет значение $x$</div>
+    <ul class="small"><li>$0 \le P(X=x) \le 1$</li><li>$\sum P(X=x) = 1$</li></ul>
+    <p class="small mb-1"><strong>Пример:</strong> Бросок честной кости (X = число на кости)</p>
+    <table class="table table-bordered table-sm text-center small">
+      <tbody>
+        <tr><td class="fw-bold">x</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+        <tr><td class="fw-bold">P(X=x)</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>5. Плотность вероятности (PDF)</h2>
+    <p class="small mb-1">Для непрерывной случайной величины X:</p>
+    <div class="formula-box small mb-2">$f(x) \ge 0$ и $\int_{-\infty}^{\infty} f(x)\,dx = 1$</div>
+    <ul class="small"><li>$P(a \le X \le b) = \int_a^b f(x)\,dx$</li><li>$P(X=x)=0$ (для любого отдельного значения)</li></ul>
+    <p class="small mb-1"><strong>Пример:</strong> Равномерное распределение (от 0 до 1)</p>
+    <svg viewBox="0 0 140 90" width="100%" height="90">
+      <line x1="15" y1="75" x2="130" y2="75" stroke="#333" stroke-width="1"/>
+      <line x1="15" y1="10" x2="15" y2="75" stroke="#333" stroke-width="1"/>
+      <rect x="30" y="20" width="80" height="55" fill="#a5d8ff" fill-opacity="0.6" stroke="#1971c2" stroke-width="1.5"/>
+      <text x="2" y="24" font-size="9">1</text>
+      <text x="27" y="86" font-size="9">0</text>
+      <text x="105" y="86" font-size="9">1</text>
+      <text x="120" y="86" font-size="9">x</text>
+      <text x="4" y="12" font-size="9">f(x)</text>
+    </svg>
+    <p class="small mb-0">$f(x)=1$ ($0 \le x \le 1$), $f(x)=0$ (в остальных случаях)</p>
+  </div>
+</div>
+
+<h2>6. Функция распределения (CDF)</h2>
+<p class="small">Функция распределения (CDF) даёт вероятность того, что случайная величина не превышает заданное значение.</p>
+<div class="formula-box mb-2" style="max-width:260px;">$F(x) = P(X \le x)$</div>
+<ul class="small">
+  <li>$0 \le F(x) \le 1$</li>
+  <li>$F(x)$ — неубывающая функция.</li>
+  <li>$\lim_{x \to -\infty} F(x) = 0$ и $\lim_{x \to \infty} F(x) = 1$</li>
+</ul>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>7. Пример — CDF для дискретной величины</h2>
+    <p class="small">Пусть X = число на честной кости.</p>
+    <table class="table table-bordered table-sm text-center small">
+      <tbody>
+        <tr><td class="fw-bold">x</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+        <tr><td class="fw-bold">P(X=x)</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td></tr>
+        <tr><td class="fw-bold">F(x)=P(X≤x)</td><td>1/6</td><td>2/6</td><td>3/6</td><td>4/6</td><td>5/6</td><td>6/6 (=1)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>8. Пример — CDF для непрерывной величины</h2>
+    <p class="small">Пусть X ~ Uniform(0, 1).</p>
+    <div class="formula-box small mb-2">$F(x) = \begin{cases} 0 & x<0 \\ x & 0 \le x \le 1 \\ 1 & x>1 \end{cases}$</div>
+    <svg viewBox="0 0 140 90" width="100%" height="90">
+      <line x1="15" y1="75" x2="130" y2="75" stroke="#333" stroke-width="1"/>
+      <line x1="15" y1="10" x2="15" y2="75" stroke="#333" stroke-width="1"/>
+      <polyline points="15,75 15,75 65,20 115,20 130,20" fill="none" stroke="#e03131" stroke-width="2"/>
+      <text x="2" y="24" font-size="9">1</text>
+      <text x="10" y="86" font-size="9">0</text>
+      <text x="60" y="86" font-size="9">1</text>
+      <text x="120" y="86" font-size="9">x</text>
+      <text x="2" y="12" font-size="9">F(x)</text>
+    </svg>
+  </div>
+</div>
+
+<h2>9. Математическое ожидание и дисперсия случайной величины</h2>
+<div class="row g-2 mb-3">
+  <div class="col-md-6"><div class="card h-100"><div class="card-header bg-danger-subtle small">Дискретная случайная величина</div>
+    <div class="card-body small">
+      <p class="mb-1"><strong>Математическое ожидание (Mean, Expected Value):</strong></p>
+      <div class="formula-box mb-2">$E(X) = \sum x \cdot P(X=x)$</div>
+      <p class="mb-1"><strong>Дисперсия (Variance):</strong></p>
+      <div class="formula-box mb-0">$\text{Var}(X) = \sum (x-\mu)^2 \cdot P(X=x)$<br><small>($\mu = E(X)$)</small></div>
+    </div></div></div>
+  <div class="col-md-6"><div class="card h-100"><div class="card-header bg-info-subtle small">Непрерывная случайная величина</div>
+    <div class="card-body small">
+      <p class="mb-1"><strong>Математическое ожидание (Mean, Expected Value):</strong></p>
+      <div class="formula-blue mb-2">$E(X) = \int_{-\infty}^{\infty} x \cdot f(x)\,dx$</div>
+      <p class="mb-1"><strong>Дисперсия (Variance):</strong></p>
+      <div class="formula-blue mb-0">$\text{Var}(X) = \int_{-\infty}^{\infty} (x-\mu)^2 \cdot f(x)\,dx$<br><small>($\mu = E(X)$)</small></div>
+    </div></div></div>
+</div>
+
+<h2>10. Ключевые выводы</h2>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Случайная величина ставит в соответствие каждому исходу числовое значение.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Может быть дискретной (счётной) или непрерывной (измеримой).</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>PMF используется для дискретных случайных величин.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>PDF используется для непрерывных случайных величин.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>CDF даёт вероятность значений до x включительно.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Математическое ожидание и дисперсия описывают центр и разброс распределения.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Случайные величины широко применяются в реальных задачах: игры, контроль качества, финансы и анализ данных.</div>
+
+<div class="quote mt-4">«Случайные величины помогают превратить неопределённость в числа.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

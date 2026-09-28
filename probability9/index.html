@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Основные распределения вероятностей</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- KaTeX (локально) -->
+  <link rel="stylesheet" href="../dist/katex.min.css">
+  <script src="../dist/katex.min.js"></script>
+  <script src="../dist/auto-render.min.js"></script>
+
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
+
+  <script src="./quizesSets.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+  <script src="../dist/react18.3.1.production.min.js"></script>
+  <script src="../dist/react-dom18.3.1.production.min.js"></script>
+  <script src="../dist/redux-toolkit.umd.min.js"></script>
+  <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #dc2626;
+      --blue: #3b82f6;
+      --pink: #ec4899;
+      --green: #22c55e;
+      --purple: #8b5cf6;
+      --orange: #f97316;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    header .source {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #f1f5f9;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-dist {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-dist h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e40af;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-dist h2 .num {
+      background: #dbeafe;
+      color: #1e40af;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .card-dist ul {
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .card-dist ul li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-dist ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #94a3b8;
+    }
+
+    .formula {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .plot {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .example {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    .example strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #166534;
+    }
+
+    .apps {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .apps h2 {
+      font-size: 1.2rem;
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    .takeaways {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .takeaways h2 {
+      font-size: 1.2rem;
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+
+    .takeaways ul {
+      list-style: none;
+    }
+
+    .takeaways li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .takeaways li::before {
+      content: "✓";
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      font-style: italic;
+      color: #065f46;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+  <div class="container">
+    <header>
+      <h1>9. Основные распределения вероятностей</h1>
+      <span class="source">@crafted_note</span>
+    </header>
+
+    <div class="grid">
+      <!-- 1. Бернулли -->
+      <div class="card-dist">
+        <h2><span class="num">1</span> Распределение Бернулли<br><small class="fw-normal" style="font-size:0.75rem">(Bernoulli)</small></h2>
+        <ul>
+          <li>Моделирует одно испытание с двумя исходами: успех (1) или неудача (0).</li>
+          <li>Параметр: $p$ (вероятность успеха).</li>
+          <li>$X \sim \mathrm{Bernoulli}(p)$</li>
+        </ul>
+        <div class="formula">
+          $$P(X=x)=p^{x}(1-p)^{1-x},\quad x=0,1$$
+        </div>
+        <div id="bernoulli" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Подбрасывание монеты ($p=0.5$)<br>
+          $P(X=1)=0.5$ · $P(X=0)=0.5$
+        </div>
+      </div>
+
+      <!-- 2. Биномиальное -->
+      <div class="card-dist">
+        <h2><span class="num">2</span> Биномиальное распределение<br><small class="fw-normal" style="font-size:0.75rem">(Binomial)</small></h2>
+        <ul>
+          <li>Моделирует число успехов в $n$ независимых испытаниях Бернулли.</li>
+          <li>Параметры: $n$ (число испытаний), $p$ (вероятность успеха).</li>
+          <li>$X \sim \mathrm{Binomial}(n,p)$</li>
+        </ul>
+        <div class="formula">
+          $$P(X=k)=\binom{n}{k}p^{k}(1-p)^{n-k},\quad k=0,1,\dots,n$$
+        </div>
+        <div id="binomial" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Число орлов при 5 подбрасываниях монеты ($n=5$, $p=0.5$)<br>
+          $P(X=3)=\binom{5}{3}(0.5)^{3}(0.5)^{2}=0.3125$
+        </div>
+      </div>
+
+      <!-- 3. Пуассона -->
+      <div class="card-dist">
+        <h2><span class="num">3</span> Распределение Пуассона<br><small class="fw-normal" style="font-size:0.75rem">(Poisson)</small></h2>
+        <ul>
+          <li>Моделирует число событий за фиксированный интервал времени или пространства.</li>
+          <li>Параметр: $\lambda$ (средняя интенсивность событий).</li>
+          <li>$X \sim \mathrm{Poisson}(\lambda)$</li>
+        </ul>
+        <div class="formula">
+          $$P(X=k)=e^{-\lambda}\frac{\lambda^{k}}{k!},\quad k=0,1,2,\dots$$
+        </div>
+        <div id="poisson" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Число покупателей в магазине за час ($\lambda=3$)<br>
+          $P(X=2)=e^{-3}\frac{3^{2}}{2!}\approx 0.224$
+        </div>
+      </div>
+
+      <!-- 4. Нормальное -->
+      <div class="card-dist">
+        <h2><span class="num">4</span> Нормальное распределение<br><small class="fw-normal" style="font-size:0.75rem">(Normal)</small></h2>
+        <ul>
+          <li>Моделирует непрерывные данные с симметричной колоколообразной кривой.</li>
+          <li>Параметры: $\mu$ (среднее), $\sigma$ (стандартное отклонение).</li>
+          <li>$X\sim\mathcal{N}(\mu,\sigma^{2})$</li>
+        </ul>
+        <div class="formula">
+          $$f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$$
+        </div>
+        <div id="normal" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Рост студентов в классе ($\mu=170\,\mathrm{см}$, $\sigma=10\,\mathrm{см}$)
+        </div>
+      </div>
+
+      <!-- 5. Равномерное -->
+      <div class="card-dist">
+        <h2><span class="num">5</span> Равномерное распределение<br><small class="fw-normal" style="font-size:0.75rem">(Uniform)</small></h2>
+        <ul>
+          <li>Моделирует непрерывную величину, все значения которой в диапазоне равновероятны.</li>
+          <li>Параметры: $a$ (минимум), $b$ (максимум).</li>
+          <li>$X\sim\mathrm{Uniform}(a,b)$</li>
+        </ul>
+        <div class="formula">
+          $$f(x)=\frac{1}{b-a}\quad\text{при }a\le x\le b,\quad f(x)=0\text{ в остальных случаях}$$
+        </div>
+        <div id="uniform" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Случайное число от 0 до 1<br>
+          $X\sim\mathrm{Uniform}(0,1)\to f(x)=1\ (0\le x\le 1)$
+        </div>
+      </div>
+
+      <!-- 6. Экспоненциальное -->
+      <div class="card-dist">
+        <h2><span class="num">6</span> Экспоненциальное распределение<br><small class="fw-normal" style="font-size:0.75rem">(Exponential)</small></h2>
+        <ul>
+          <li>Моделирует время между двумя последовательными событиями.</li>
+          <li>Параметр: $\lambda$ (интенсивность).</li>
+          <li>$X\sim\mathrm{Exponential}(\lambda)$</li>
+        </ul>
+        <div class="formula">
+          $$f(x)=\lambda e^{-\lambda x}\quad\text{при }x\ge 0,\quad f(x)=0\text{ при }x<0$$
+        </div>
+        <div id="exponential" class="plot"></div>
+        <div class="example">
+          <strong>Пример:</strong>
+          Время между приходами покупателей ($\lambda=2$)<br>
+          $P(X>1)=e^{-2\cdot 1}=e^{-2}\approx 0.135$
+        </div>
+      </div>
+    </div>
+
+    <!-- Применение в реальном мире -->
+    <div class="apps">
+      <h2>7. Применение в реальном мире</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Распределение</th>
+            <th>Сценарии использования</th>
+            <th>Пример</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Бернулли (Bernoulli)</td>
+            <td>Одиночный эксперимент с успехом/неудачей</td>
+            <td>Подбрасывание монеты, дефект изделия (да/нет)</td>
+          </tr>
+          <tr>
+            <td>Биномиальное (Binomial)</td>
+            <td>Число успехов в фиксированном числе испытаний</td>
+            <td>Число орлов при 10 подбрасываниях монеты</td>
+          </tr>
+          <tr>
+            <td>Пуассона (Poisson)</td>
+            <td>Число событий за фиксированный интервал</td>
+            <td>Приход покупателей, запросы по email</td>
+          </tr>
+          <tr>
+            <td>Нормальное (Normal)</td>
+            <td>Непрерывные данные вокруг среднего</td>
+            <td>Рост, вес, результаты тестов</td>
+          </tr>
+          <tr>
+            <td>Равномерное (Uniform)</td>
+            <td>Равные шансы в диапазоне</td>
+            <td>Генерация случайных чисел</td>
+          </tr>
+          <tr>
+            <td>Экспоненциальное (Exponential)</td>
+            <td>Время между событиями</td>
+            <td>Время между приходами покупателей</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Ключевые выводы -->
+    <div class="takeaways">
+      <h2>8. Ключевые выводы</h2>
+      <ul>
+        <li>Разные распределения используются для разных типов данных (дискретных или непрерывных).</li>
+        <li>У каждого распределения свои параметры и формула.</li>
+        <li>Важно понимать, когда применять каждое распределение в реальных задачах.</li>
+        <li>Распределения вероятностей помогают моделировать неопределённость.</li>
+        <li>Широко применяются в контроле качества, финансах, здравоохранении, машинном обучении и прогнозировании.</li>
+      </ul>
+    </div>
+
+    <footer>
+      «Распределения вероятностей помогают понимать и предсказывать явления реального мира.»
+    </footer>
+
+    <!-- Блок квиза -->
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+  </div>
+
+  <script>
+    // Рендер KaTeX
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ]
+      });
+    });
+
+    // Helper: биномиальный коэффициент
+    function binom(n, k) {
+      if (k < 0 || k > n) return 0;
+      let res = 1;
+      for (let i = 1; i <= k; i++) {
+        res = res * (n - k + i) / i;
+      }
+      return res;
+    }
+
+    // 1. Бернулли (p = 0.5)
+    (function () {
+      const board = JXG.JSXGraph.initBoard('bernoulli', {
+        boundingbox: [-0.6, 1.15, 1.6, -0.15],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+      board.create('axis', [[0,0],[1,0]], { ticks: { majorHeight: 8, drawLabels: true, label: { offset: [0,-12] } } });
+      board.create('axis', [[0,0],[0,1]], { ticks: { majorHeight: 8, drawLabels: true } });
+
+      board.create('polygon', [[-0.2,0],[-0.2,0.5],[0.2,0.5],[0.2,0]], {
+        fillColor: '#3b82f6', fillOpacity: 0.85, borders: { strokeWidth: 0 }, highlight: false
+      });
+      board.create('polygon', [[0.8,0],[0.8,0.5],[1.2,0.5],[1.2,0]], {
+        fillColor: '#ec4899', fillOpacity: 0.85, borders: { strokeWidth: 0 }, highlight: false
+      });
+      board.create('text', [0, -0.08, '0'], { fontSize: 12, anchorX: 'middle' });
+      board.create('text', [1, -0.08, '1'], { fontSize: 12, anchorX: 'middle' });
+      board.create('text', [0.1, 0.55, '1-p'], { fontSize: 11, color: '#3b82f6' });
+      board.create('text', [1.1, 0.55, 'p'], { fontSize: 11, color: '#ec4899' });
+    })();
+
+    // 2. Биномиальное (n=5, p=0.5)
+    (function () {
+      const n = 5, p = 0.5;
+      const board = JXG.JSXGraph.initBoard('binomial', {
+        boundingbox: [-0.7, 0.38, 5.7, -0.05],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      const probs = [];
+      for (let k = 0; k <= n; k++) {
+        probs.push(binom(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k));
+      }
+
+      probs.forEach((pr, k) => {
+        board.create('polygon', [
+          [k - 0.3, 0], [k - 0.3, pr], [k + 0.3, pr], [k + 0.3, 0]
+        ], {
+          fillColor: '#3b82f6',
+          fillOpacity: 0.75 + (k === 3 ? 0.2 : 0),
+          borders: { strokeWidth: 0 },
+          highlight: false
+        });
+      });
+    })();
+
+    // 3. Пуассона (λ=3)
+    (function () {
+      const lambda = 3;
+      const board = JXG.JSXGraph.initBoard('poisson', {
+        boundingbox: [-0.7, 0.28, 7.5, -0.04],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      function fact(m) {
+        let r = 1;
+        for (let i = 2; i <= m; i++) r *= i;
+        return r;
+      }
+
+      for (let k = 0; k <= 7; k++) {
+        const pr = Math.exp(-lambda) * Math.pow(lambda, k) / fact(k);
+        board.create('polygon', [
+          [k - 0.3, 0], [k - 0.3, pr], [k + 0.3, pr], [k + 0.3, 0]
+        ], {
+          fillColor: '#22c55e',
+          fillOpacity: 0.8,
+          borders: { strokeWidth: 0 },
+          highlight: false
+        });
+      }
+    })();
+
+    // 4. Нормальное (μ=0, σ=1)
+    (function () {
+      const board = JXG.JSXGraph.initBoard('normal', {
+        boundingbox: [-4, 0.45, 4, -0.05],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      board.create('functiongraph', [
+        function (x) {
+          return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * x * x);
+        }, -4, 4
+      ], {
+        strokeColor: '#3b82f6',
+        strokeWidth: 2.5
+      });
+
+      board.create('line', [[0, 0], [0, 0.4]], {
+        strokeColor: '#64748b',
+        strokeWidth: 1,
+        dash: 2,
+        straightFirst: false,
+        straightLast: false
+      });
+
+      board.create('arrow', [[-1, 0.22], [0, 0.22]], {
+        strokeColor: '#f97316', strokeWidth: 1.5, lastArrow: false, firstArrow: true
+      });
+      board.create('arrow', [[0, 0.22], [1, 0.22]], {
+        strokeColor: '#f97316', strokeWidth: 1.5, lastArrow: true, firstArrow: false
+      });
+      board.create('text', [0, -0.03, 'μ'], { fontSize: 13, anchorX: 'middle', color: '#334155' });
+      board.create('text', [-0.5, 0.26, 'σ'], { fontSize: 12, color: '#f97316' });
+      board.create('text', [0.5, 0.26, 'σ'], { fontSize: 12, color: '#f97316' });
+    })();
+
+    // 5. Равномерное (a=0, b=1)
+    (function () {
+      const board = JXG.JSXGraph.initBoard('uniform', {
+        boundingbox: [-0.3, 1.3, 1.3, -0.15],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      board.create('polygon', [
+        [0, 0], [0, 1], [1, 1], [1, 0]
+      ], {
+        fillColor: '#3b82f6',
+        fillOpacity: 0.7,
+        borders: { strokeColor: '#1d4ed8', strokeWidth: 1.5 },
+        highlight: false
+      });
+
+      board.create('text', [0, -0.08, 'a'], { fontSize: 13, anchorX: 'middle' });
+      board.create('text', [1, -0.08, 'b'], { fontSize: 13, anchorX: 'middle' });
+      board.create('text', [-0.15, 1.05, '1/(b-a)'], { fontSize: 11, color: '#1e40af' });
+    })();
+
+    // 6. Экспоненциальное (λ=1)
+    (function () {
+      const lambda = 1;
+      const board = JXG.JSXGraph.initBoard('exponential', {
+        boundingbox: [-0.4, 1.15, 5, -0.1],
+        axis: true,
+        showNavigation: false,
+        showCopyright: false,
+        pan: { enabled: false },
+        zoom: { enabled: false }
+      });
+
+      board.create('functiongraph', [
+        function (x) {
+          return x >= 0 ? lambda * Math.exp(-lambda * x) : 0;
+        }, 0, 5
+      ], {
+        strokeColor: '#ef4444',
+        strokeWidth: 2.5
+      });
+
+      board.create('text', [0.15, 1.02, 'λ'], { fontSize: 13, color: '#dc2626' });
+    })();
+  </script>
+
+  <script src="../dist/basicfirebasecrudauthservices.js"></script>
+  <script src="./vanillajscrudutilities.js"></script>
+  <script src="./jsxtemplatefunctions.js"></script>
+  <script src="./bundle.js"></script>
+
+</body>
+</html>

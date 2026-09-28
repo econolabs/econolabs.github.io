@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Типы данных и шкалы измерений</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;}
+.qual-header{background:#f8d7c4;}
+.quant-header{background:#c3e8d1;}
+.disc-header{background:#fff3bf;}
+.cont-header{background:#f3c9d4;}
+table{font-size:.9rem;}
+.scale-nominal td:first-child,.scale-nominal th{background:#f8d7c4;}
+.scale-ordinal td:first-child{background:#d0ebc4;}
+.scale-interval td:first-child{background:#e7d6f7;}
+.scale-ratio td:first-child{background:#f5c99b;}
+.check{color:#2f9e44;font-weight:700;}
+.icon-cell{font-size:1.5rem;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+<div class="container py-4" style="max-width:960px;">
+
+<h1>2. Типы данных и шкалы измерений</h1>
+
+<div class="row mt-3">
+  <div class="col-md-6 mb-3">
+    <h2>1. Типы данных (по природе)</h2>
+    <div class="row g-2">
+      <div class="col-6"><div class="card h-100"><div class="card-header qual-header">Качественные (категориальные)</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Описывают качества или категории.</li>
+          <li>Нечисловые данные.</li>
+          <li>Делятся на номинальные и порядковые.</li>
+          <li>Примеры: пол, цвет, группа крови, уровень удовлетворённости.</li>
+        </ul></div></div></div>
+      <div class="col-6"><div class="card h-100"><div class="card-header quant-header">Количественные (числовые)</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Представляют числовые значения.</li>
+          <li>Могут быть измерены или подсчитаны.</li>
+          <li>Делятся на дискретные и непрерывные.</li>
+          <li>Примеры: возраст, рост, вес, число студентов, температура.</li>
+        </ul></div></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>2. Типы данных (по значениям)</h2>
+    <div class="row g-2">
+      <div class="col-6"><div class="card h-100"><div class="card-header disc-header">Дискретные данные</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Принимают только конкретные, счётные значения.</li>
+          <li>Обычно целые числа.</li>
+          <li>Получаются путём подсчёта.</li>
+          <li>Примеры: число студентов, число машин, число звонков.</li>
+        </ul></div></div></div>
+      <div class="col-6"><div class="card h-100"><div class="card-header cont-header">Непрерывные данные</div>
+        <div class="card-body small"><ul class="mb-0 ps-3">
+          <li>Могут принимать любое значение в диапазоне.</li>
+          <li>Получаются путём измерения.</li>
+          <li>Могут быть дробными значениями.</li>
+          <li>Примеры: рост, вес, время, температура, зарплата.</li>
+        </ul></div></div></div>
+    </div>
+  </div>
+</div>
+
+
+    <h2>3. Уровни измерения (шкалы данных)</h2>
+    <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light"><tr><th>Шкала</th><th>Описание</th><th>Характеристики</th><th>Примеры</th></tr></thead>
+      <tbody>
+        <tr class="scale-nominal"><td class="fw-bold">Номинальная</td><td>Классифицирует данные на отдельные группы без порядка.</td><td>Нет ранжирования. Только метки.</td><td>Пол (М/Ж), группа крови (A, B, O, AB), названия городов</td></tr>
+        <tr class="scale-ordinal"><td class="fw-bold">Порядковая</td><td>Классифицирует данные с осмысленным порядком.</td><td>Есть ранжирование. Разница между рангами не фиксирована.</td><td>Уровень удовлетворённости (Низкий, Средний, Высокий), место в классе (1-й, 2-й, 3-й)</td></tr>
+        <tr class="scale-interval"><td class="fw-bold">Интервальная</td><td>Числовые данные с равными интервалами, но без истинного нуля.</td><td>Порядок осмыслен. Равные интервалы. Нет истинного нуля.</td><td>Температура (°C, °F), календарные годы, IQ-баллы</td></tr>
+        <tr class="scale-ratio"><td class="fw-bold">Относительная</td><td>Числовые данные с равными интервалами и истинным нулём.</td><td>Порядок осмыслен. Равные интервалы. Истинный ноль (отношения имеют смысл).</td><td>Рост, вес, возраст, доход, расстояние, температура (K)</td></tr>
+      </tbody>
+    </table>
+    </div>
+  
+
+    <h2>4. Примеры для каждой шкалы</h2>
+    <table class="table table-bordered align-middle">
+      <tbody>
+        <tr><td class="fw-bold scale-nominal">Номинальная</td><td class="small">Цвет глаз (Голубой, Карий, Чёрный); Группа крови (A, B, O, AB); Отдел (HR, IT, Финансы)</td><td class="icon-cell">👁️</td></tr>
+        <tr><td class="fw-bold scale-ordinal">Порядковая</td><td class="small">Оценка пользователя (Плохо, Хорошо, Отлично); Уровень образования (Школа, ВУЗ); Место в классе (1-й, 2-й, 3-й)</td><td class="icon-cell">📶</td></tr>
+        <tr><td class="fw-bold scale-interval">Интервальная</td><td class="small">Температура в °C (0°C не означает отсутствие температуры); Календарные годы (например, 2000, 2020); IQ-баллы</td><td class="icon-cell">🌡️</td></tr>
+        <tr><td class="fw-bold scale-ratio">Относительная</td><td class="small">Рост (0 означает отсутствие роста); Вес (0 означает отсутствие веса); Возраст (0 означает отсутствие возраста); Доход (0 означает отсутствие дохода)</td><td class="icon-cell">⚖️</td></tr>
+      </tbody>
+    </table>
+
+
+<h2>5. Структурированные, полуструктурированные и неструктурированные данные</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered align-middle">
+  <thead class="table-light"><tr><th>Тип</th><th>Описание</th><th>Примеры</th><th>Сценарии использования</th></tr></thead>
+  <tbody>
+    <tr><td class="fw-bold">Структурированные данные</td><td>Организованный формат, обычно в таблицах с фиксированной схемой.</td><td>Реляционные базы данных (MySQL, PostgreSQL), Excel</td><td>Бизнес-отчёты, транзакции, аналитика</td></tr>
+    <tr><td class="fw-bold">Полуструктурированные данные</td><td>Нет фиксированной схемы, но есть структура (теги/ключи).</td><td>JSON, XML, логи, электронные письма</td><td>Веб-данные, логи, данные сенсоров</td></tr>
+    <tr><td class="fw-bold">Неструктурированные данные</td><td>Нет предопределённого формата или структуры.</td><td>Текстовые файлы, PDF, изображения, видео, данные соцсетей</td><td>Документы, медиафайлы, аналитика соцсетей</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>6. Примеры из реального мира</h2>
+    <ul>
+      <li><strong>Электронная коммерция:</strong> данные клиентов (структурированные), отзывы о товарах (неструктурированные), логи кликов (полуструктурированные).</li>
+      <li><strong>Здравоохранение:</strong> медицинские карты (структурированные), записи врачей (неструктурированные), данные сенсоров (полуструктурированные).</li>
+      <li><strong>Социальные сети:</strong> профили пользователей (структурированные), посты (неструктурированные), логи активности (полуструктурированные).</li>
+      <li><strong>Финансы:</strong> данные транзакций (структурированные), письма в поддержку (неструктурированные), логи API (полуструктурированные).</li>
+    </ul>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>7. Ключевые моменты для запоминания</h2>
+    <ul>
+      <li>Выбирайте правильную шкалу измерения в зависимости от типа данных.</li>
+      <li>Категориальные данные — качественные, числовые — количественные.</li>
+      <li>Дискретные данные — счётные, непрерывные — измеримые.</li>
+      <li>Шкала измерения определяет, какие статистические методы можно использовать.</li>
+      <li>Реальные данные могут быть структурированными, полуструктурированными или неструктурированными.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>8. Резюме</h2>
+<ul class="list-unstyled">
+  <li><span class="check">✔</span> Качественные → Номинальные / Порядковые</li>
+  <li><span class="check">✔</span> Количественные → Дискретные / Непрерывные</li>
+  <li><span class="check">✔</span> Шкалы измерений → Номинальная, Порядковая, Интервальная, Относительная</li>
+  <li><span class="check">✔</span> Форматы данных → Структурированные, Полуструктурированные, Неструктурированные</li>
+  <li><span class="check">✔</span> Понимание типов данных помогает выбрать правильный анализ и статистические методы.</li>
+</ul>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

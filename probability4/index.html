@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Представление и распределение данных</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;text-align:center;}
+table{font-size:.85rem;}
+.mini{width:100%;height:90px;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.pie{width:80px;height:80px;border-radius:50%;margin:0 auto;background:conic-gradient(#f06595 0 10%, #4dabf7 10% 50%, #63e6be 50% 80%, #ffd43b 80% 100%);}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.dist-header{background:#e7d6f7;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+<div class="container py-4" style="max-width:1000px;">
+
+<h1>4. Представление и распределение данных</h1>
+
+<div class="row mt-3">
+  <div class="col-md-5">
+    <h2>1. Почему важно представление данных?</h2>
+    <ul>
+      <li>Помогает организовать и обобщить большие объёмы данных.</li>
+      <li>Делает данные лёгкими для понимания.</li>
+      <li>Помогает находить закономерности, тренды и выбросы.</li>
+      <li>Полезно для принятия решений в реальных задачах.</li>
+      <li>Различные типы графиков и таблиц используются в зависимости от типа данных.</li>
+    </ul>
+  </div>
+  <div class="col-md-7">
+    <h2>2. Частотное распределение</h2>
+    <p class="small mb-2">Таблица частотного распределения показывает, сколько раз каждое значение или класс-интервал встречается в данных. Полезна для больших наборов данных.</p>
+    <table class="table table-bordered table-sm text-center">
+      <thead class="table-light"><tr><th>Класс-интервал</th><th>Частота (f)</th><th>Накопленная частота (cf)</th></tr></thead>
+      <tbody>
+        <tr><td>0 - 10</td><td>5</td><td>5</td></tr>
+        <tr><td>10 - 20</td><td>8</td><td>13</td></tr>
+        <tr><td>20 - 30</td><td>12</td><td>25</td></tr>
+        <tr><td>30 - 40</td><td>7</td><td>32</td></tr>
+        <tr><td>40 - 50</td><td>3</td><td>35</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>3. Графическое представление данных</h2>
+<div class="row row-cols-2 row-cols-md-5 g-2 mb-3">
+  <div class="col"><div class="card h-100"><div class="card-header bg-danger-subtle small">Гистограмма</div><div class="card-body p-2">
+    <svg class="mini" viewBox="0 0 100 60"><rect x="5" y="35" width="14" height="20" fill="#748ffc"/><rect x="22" y="15" width="14" height="40" fill="#4dabf7"/><rect x="39" y="8" width="14" height="47" fill="#ffd43b"/><rect x="56" y="25" width="14" height="30" fill="#ff922b"/><rect x="73" y="45" width="14" height="10" fill="#fa5252"/><line x1="2" y1="55" x2="98" y2="55" stroke="#333" stroke-width="1"/></svg>
+    <div class="small text-center">0-10 10-20 20-30 30-40 40-50</div>
+    <ul class="small mb-0 ps-3 mt-1"><li>Используется для непрерывных данных.</li><li>Столбцы примыкают друг к другу.</li><li>Показывает частотное распределение.</li></ul>
+  </div></div></div>
+  <div class="col"><div class="card h-100"><div class="card-header bg-warning-subtle small">Столбчатая диаграмма</div><div class="card-body p-2">
+    <svg class="mini" viewBox="0 0 100 60"><rect x="10" y="20" width="15" height="35" fill="#4dabf7"/><rect x="32" y="30" width="15" height="25" fill="#ffd43b"/><rect x="54" y="10" width="15" height="45" fill="#40c057"/><rect x="76" y="35" width="15" height="20" fill="#f06595"/><line x1="2" y1="55" x2="98" y2="55" stroke="#333" stroke-width="1"/></svg>
+    <div class="small text-center">A &nbsp; B &nbsp; C &nbsp; D</div>
+    <ul class="small mb-0 ps-3 mt-1"><li>Используется для категориальных данных.</li><li>Столбцы разделены.</li><li>Помогает сравнивать категории.</li></ul>
+  </div></div></div>
+  <div class="col"><div class="card h-100"><div class="card-header bg-info-subtle small">Круговая диаграмма</div><div class="card-body p-2 text-center">
+    <div class="pie"></div>
+    <div class="small mt-1">10% / 40% / 30% / 20%</div>
+    <ul class="small mb-0 ps-3 mt-1 text-start"><li>Показывает доли категорий.</li><li>Весь круг = 100%.</li></ul>
+  </div></div></div>
+  <div class="col"><div class="card h-100"><div class="card-header bg-primary-subtle small">Линейный график</div><div class="card-body p-2">
+    <svg class="mini" viewBox="0 0 100 60"><polyline points="5,45 25,35 45,40 65,15 85,10" fill="none" stroke="#1971c2" stroke-width="2"/><circle cx="5" cy="45" r="2.5" fill="#1971c2"/><circle cx="25" cy="35" r="2.5" fill="#1971c2"/><circle cx="45" cy="40" r="2.5" fill="#1971c2"/><circle cx="65" cy="15" r="2.5" fill="#1971c2"/><circle cx="85" cy="10" r="2.5" fill="#1971c2"/><line x1="2" y1="55" x2="98" y2="55" stroke="#333" stroke-width="1"/></svg>
+    <div class="small text-center">Янв Фев Мар Апр Май</div>
+    <ul class="small mb-0 ps-3 mt-1"><li>Показывает тренд во времени.</li><li>Полезен для временных рядов.</li></ul>
+  </div></div></div>
+  <div class="col"><div class="card h-100"><div class="card-header bg-success-subtle small">Ящик с усами</div><div class="card-body p-2">
+    <svg class="mini" viewBox="0 0 100 60"><line x1="5" y1="30" x2="95" y2="30" stroke="#333" stroke-width="1.5"/><rect x="35" y="15" width="30" height="30" fill="#96f2d7" stroke="#0ca678" stroke-width="1.5"/><line x1="50" y1="15" x2="50" y2="45" stroke="#d6336c" stroke-width="2"/><line x1="5" y1="20" x2="5" y2="40" stroke="#333" stroke-width="1.5"/><line x1="95" y1="20" x2="95" y2="40" stroke="#333" stroke-width="1.5"/></svg>
+    <div class="small text-center">Min &nbsp;Q1 Мед Q3&nbsp; Max</div>
+    <ul class="small mb-0 ps-3 mt-1"><li>Показывает пятичисловую сводку.</li><li>Помогает выявлять выбросы.</li></ul>
+  </div></div></div>
+</div>
+
+<h2>4. Меры формы распределения</h2>
+<div class="table-responsive mb-3">
+<table class="table table-bordered align-middle text-center">
+  <thead class="table-light"><tr><th>Мера</th><th>Описание</th><th>Интерпретация</th><th colspan="3">График</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="fw-bold" style="background:#fadde1;">Асимметрия</td>
+      <td class="small">Мера асимметрии распределения.</td>
+      <td class="small text-start">Положительная асимметрия: длинный правый хвост.<br>Отрицательная асимметрия: длинный левый хвост.<br>Нулевая асимметрия: симметричное.</td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q15,5 30,15 T55,45" fill="none" stroke="#f03e3e" stroke-width="2"/></svg><div class="small">Положительная</div></td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q30,0 55,45" fill="none" stroke="#1971c2" stroke-width="2"/><line x1="30" y1="5" x2="30" y2="45" stroke="#1971c2" stroke-dasharray="2"/></svg><div class="small">Нулевая</div></td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q30,15 45,5 T55,45" fill="none" stroke="#2f9e44" stroke-width="2"/></svg><div class="small">Отрицательная</div></td>
+    </tr>
+    <tr>
+      <td class="fw-bold" style="background:#fde8b0;">Эксцесс</td>
+      <td class="small">Мера островершинности или тяжести хвостов.</td>
+      <td class="small text-start">Лептокуртическое: более островершинное (больше выбросов).<br>Мезокуртическое: нормальное.<br>Платикуртическое: более плоское, легкие хвосты (меньше выбросов).</td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q30,0 30,0 Q30,0 55,45" fill="none" stroke="#f03e3e" stroke-width="2"/></svg><div class="small">Лепто (островерш.)</div></td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q30,10 55,45" fill="none" stroke="#1971c2" stroke-width="2"/></svg><div class="small">Мезо (нормальное)</div></td>
+      <td><svg class="mini" viewBox="0 0 60 50"><path d="M5,45 Q30,30 55,45" fill="none" stroke="#2f9e44" stroke-width="2"/></svg><div class="small">Плати (плоское)</div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>5. Выбросы</h2>
+    <ul>
+      <li>Выбросы — это значения, которые значительно меньше или больше остальных данных.</li>
+      <li>Они могут влиять на среднее и стандартное отклонение.</li>
+      <li>Распространённый метод обнаружения выбросов: метод IQR.</li>
+    </ul>
+    <div class="alert alert-danger py-2 small text-center mb-2"><strong>Нижняя граница = Q1 − 1.5 × IQR</strong><br><strong>Верхняя граница = Q3 + 1.5 × IQR</strong></div>
+    <p class="small">Значения за пределами этого диапазона считаются выбросами.</p>
+    <svg class="mini" style="height:70px" viewBox="0 0 100 40">
+      <line x1="5" y1="20" x2="95" y2="20" stroke="#333" stroke-width="1"/>
+      <circle cx="8" cy="20" r="2.5" fill="#e03131"/>
+      <rect x="35" y="10" width="30" height="20" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+      <line x1="50" y1="10" x2="50" y2="30" stroke="#d6336c" stroke-width="2"/>
+      <circle cx="92" cy="20" r="2.5" fill="#e03131"/>
+      <text x="2" y="5" font-size="6">Выбросы</text><text x="82" y="5" font-size="6">Выбросы</text>
+      <text x="2" y="38" font-size="6">0</text><text x="27" y="38" font-size="6">20</text><text x="47" y="38" font-size="6">40</text><text x="67" y="38" font-size="6">60</text><text x="87" y="38" font-size="6">80</text>
+    </svg>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>6. Основные распределения в данных</h2>
+    <div class="row row-cols-2 g-2">
+      <div class="col"><div class="card h-100"><div class="card-header dist-header small">Нормальное распределение</div><div class="card-body p-2">
+        <svg class="mini" style="height:60px" viewBox="0 0 60 40"><path d="M5,38 Q30,2 55,38" fill="none" stroke="#7048e8" stroke-width="2"/></svg>
+        <ul class="small mb-0 ps-3"><li>Симметричное.</li><li>Среднее = Медиана = Мода.</li><li>Часто встречается в реальных данных (рост, вес, результаты тестов).</li></ul>
+      </div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-header dist-header small">Равномерное распределение</div><div class="card-body p-2">
+        <svg class="mini" style="height:60px" viewBox="0 0 60 40"><rect x="10" y="10" width="40" height="25" fill="#63e6be" fill-opacity="0.5" stroke="#0ca678" stroke-width="2"/></svg>
+        <ul class="small mb-0 ps-3"><li>Все значения в диапазоне равновероятны.</li><li>Используется в симуляциях.</li></ul>
+      </div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-header dist-header small">Экспоненциальное распределение</div><div class="card-body p-2">
+        <svg class="mini" style="height:60px" viewBox="0 0 60 40"><path d="M5,5 Q10,35 55,37" fill="none" stroke="#f59f00" stroke-width="2"/></svg>
+        <ul class="small mb-0 ps-3"><li>Используется для времени между событиями (например, время ожидания).</li><li>Правосторонняя асимметрия.</li></ul>
+      </div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-header dist-header small">Биномиальное распределение</div><div class="card-body p-2">
+        <svg class="mini" style="height:60px" viewBox="0 0 60 40"><rect x="6" y="30" width="7" height="8" fill="#9775fa"/><rect x="16" y="18" width="7" height="20" fill="#9775fa"/><rect x="26" y="8" width="7" height="30" fill="#9775fa"/><rect x="36" y="18" width="7" height="20" fill="#9775fa"/><rect x="46" y="30" width="7" height="8" fill="#9775fa"/></svg>
+        <ul class="small mb-0 ps-3"><li>Дискретное распределение.</li><li>Моделирует число успехов в n испытаниях.</li></ul>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<h2>7. Ключевые выводы</h2>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Используйте подходящие графики в зависимости от типа данных.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Гистограмма, столбчатая диаграмма, круговая диаграмма, линейный график и ящик с усами помогают визуализировать данные.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Асимметрия и эксцесс описывают форму распределения.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Выбросы можно обнаружить с помощью метода IQR.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Понимание распределений помогает выявлять закономерности и делать прогнозы.</div>
+
+<div class="quote mt-4">«Хорошее представление данных превращает сырые данные в значимые идеи.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

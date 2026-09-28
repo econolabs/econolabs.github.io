@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Основы теории вероятностей</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;text-align:center;}
+table{font-size:.85rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.8rem;text-align:center;font-size:1.2rem;}
+.example-box{background:#f8f9fa;border-radius:8px;padding:.7rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.rw-item{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.rw-item i{font-size:1.3rem;color:var(--blue);}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.venn-title{background:#f8d7c4;text-align:center;font-weight:700;padding:.3rem;border-radius:6px 6px 0 0;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+<div class="container py-4" style="max-width:1000px;">
+
+<h1>5. Основы теории вероятностей (Probability Basics)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h2>1. Что такое вероятность (Probability)?</h2>
+    <ul>
+      <li>Вероятность измеряет шанс наступления события.</li>
+      <li>Принимает значения от 0 до 1 (или от 0% до 100%).</li>
+      <li>0 → Невозможное событие (Impossible event)</li>
+      <li>1 → Достоверное событие (Certain event)</li>
+      <li>Используется для анализа неопределённости в реальных ситуациях.</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>2. Ключевые термины (Key Terms)</h2>
+    <table class="table table-bordered align-middle">
+      <thead class="table-light"><tr><th>Термин</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td class="fw-bold" style="background:#fadde1;">Эксперимент<br><small class="fw-normal">(Experiment)</small></td><td class="small">Процесс, дающий чётко определённые исходы (например, бросок игральной кости).</td></tr>
+        <tr><td class="fw-bold" style="background:#f5e0f7;">Исход<br><small class="fw-normal">(Outcome)</small></td><td class="small">Возможный результат эксперимента (например, 1, 2, 3, 4, 5, 6).</td></tr>
+        <tr><td class="fw-bold" style="background:#e7d6f7;">Пространство элементарных исходов (S)<br><small class="fw-normal">(Sample Space)</small></td><td class="small">Множество всех возможных исходов (например, S = {1, 2, 3, 4, 5, 6} для кости).</td></tr>
+        <tr><td class="fw-bold" style="background:#d6e4f7;">Событие (A)<br><small class="fw-normal">(Event)</small></td><td class="small">Набор исходов (например, A = {2, 4, 6} для чётного числа).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <div>
+    <h2>3. Основная формула вероятности</h2>
+    <div class="formula-box mb-2">$P(A) = \dfrac{\text{Число благоприятных исходов}}{\text{Общее число исходов}}$</div>
+    <div class="example-box">
+      <p class="small mb-1"><strong>Пример:</strong> Бросается честная игральная кость. Найдите вероятность выпадения чётного числа.</p>
+      <ul class="small mb-1"><li>Благоприятные исходы = {2, 4, 6} → 3</li><li>Всего исходов = 6</li></ul>
+      <p class="small mb-0">$P(\text{Чётное}) = \dfrac{3}{6} = \dfrac{1}{2} = 0.5$</p>
+    </div>
+  </div>
+  <div >
+    <h2>4. Виды событий (Types of Events)</h2>
+    <table class="table table-bordered table-sm align-middle">
+      <thead class="table-light"><tr><th>Вид</th><th>Описание</th></tr></thead>
+      <tbody>
+        <tr><td class="fw-bold small">Достоверное событие<br><small class="fw-normal">(Sure Event)</small></td><td class="small">Всегда происходит. $P(A) = 1$</td></tr>
+        <tr><td class="fw-bold small">Невозможное событие<br><small class="fw-normal">(Impossible Event)</small></td><td class="small">Никогда не происходит. $P(A) = 0$</td></tr>
+        <tr><td class="fw-bold small">Несовместные события<br><small class="fw-normal">(Mutually Exclusive Events)</small></td><td class="small">Не могут произойти одновременно. $P(A \cap B) = 0$</td></tr>
+        <tr><td class="fw-bold small">Противоположное событие<br><small class="fw-normal">(Complementary Event)</small></td><td class="small">Событие, которое не происходит. $P(\bar{A}) = 1 - P(A)$</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h2>5. Важные формулы</h2>
+    <ul class="small">
+      <li>$0 \le P(A) \le 1$</li>
+      <li>$P(\bar{A}) = 1 - P(A)$</li>
+      <li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$ (для любых двух событий)</li>
+      <li>Если $A$ и $B$ несовместны: $P(A \cup B) = P(A) + P(B)$</li>
+      <li>Если $A$ и $B$ независимы: $P(A \cap B) = P(A) \times P(B)$</li>
+    </ul>
+  </div>
+
+<h2>6. Диаграммы Венна (Venn Diagrams)</h2>
+<div class="row g-2 mb-3">
+  <div class="col-md-4"><div class="card h-100"><div class="venn-title">Несовместные события<br><small class="fw-normal">(Mutually Exclusive)</small></div>
+    <div class="card-body text-center">
+      <svg viewBox="0 0 200 110" width="100%" height="110"><circle cx="70" cy="55" r="45" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/><circle cx="150" cy="55" r="45" fill="#f8bbd0" stroke="#c2255c" stroke-width="2"/><text x="60" y="60" font-size="16" font-weight="bold">A</text><text x="140" y="60" font-size="16" font-weight="bold">B</text></svg>
+      <p class="small mb-0 mt-1">$A \cap B = \varnothing$<br>$P(A \cup B) = P(A)+P(B)$</p>
+    </div></div></div>
+  <div class="col-md-4"><div class="card h-100"><div class="venn-title">Пересекающиеся события<br><small class="fw-normal">(Overlapping)</small></div>
+    <div class="card-body text-center">
+      <svg viewBox="0 0 200 110" width="100%" height="110"><circle cx="85" cy="55" r="45" fill="#a5d8ff" fill-opacity="0.7" stroke="#1971c2" stroke-width="2"/><circle cx="130" cy="55" r="45" fill="#f8bbd0" fill-opacity="0.7" stroke="#c2255c" stroke-width="2"/><text x="65" y="60" font-size="16" font-weight="bold">A</text><text x="145" y="60" font-size="16" font-weight="bold">B</text></svg>
+      <p class="small mb-0 mt-1">$P(A \cup B){=}P(A){+}P(B){-}P(A \cap B)$</p>
+    </div></div></div>
+  <div class="col-md-4"><div class="card h-100"><div class="venn-title">Противоположное событие<br><small class="fw-normal">(Complementary)</small></div>
+    <div class="card-body text-center">
+      <svg viewBox="0 0 200 110" width="100%" height="110"><rect x="10" y="10" width="180" height="90" fill="#fff" stroke="#333" stroke-width="2"/><circle cx="100" cy="55" r="35" fill="#f8bbd0" stroke="#c2255c" stroke-width="2"/><text x="15" y="25" font-size="14">S</text><text x="93" y="60" font-size="16" font-weight="bold">A</text><text x="150" y="30" font-size="14" font-style="italic">Ā</text></svg>
+      <p class="small mb-0 mt-1">$P(\bar{A}) = 1 - P(A)$</p>
+    </div></div></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>7. Примеры из реального мира</h2>
+    <div class="rw-item"><i class="bi bi-cash-coin"></i><span>Подбрасывание монеты: $P(\text{Орёл}) = \dfrac{1}{2}$, $P(\text{Решка}) = \dfrac{1}{2}$</span></div>
+    <div class="rw-item"><i class="bi bi-dice-3"></i><span>Бросок кости: $P(\text{выпадение } 3) = \dfrac{1}{6}$</span></div>
+    <div class="rw-item"><i class="bi bi-suit-spade-fill"></i><span>Вытягивание карты: $P(\text{туз из 52 карт}) = \dfrac{4}{52} = \dfrac{1}{13}$</span></div>
+    <div class="rw-item"><i class="bi bi-people-fill"></i><span>Опрос: если 30 из 100 студентов любят предмет, $P(\text{нравится}) = 30/100 = 0.3$</span></div>
+    <div class="rw-item"><i class="bi bi-cloud-rain-fill"></i><span>Погода: если дождь идёт 20 дней из 100, $P(\text{дождь}) = 0.2$</span></div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>8. Примеры задач</h2>
+    <div class="card mb-2"><div class="card-header bg-danger-subtle small">Пример 1: Подбрасывание монеты</div>
+      <div class="card-body small">
+        <p class="mb-1">Подбрасывается монета. Найдите вероятность выпадения орла.</p>
+        <ul class="mb-1"><li>Благоприятные исходы = 1</li><li>Всего исходов = 2</li></ul>
+        <p class="mb-0">$P(\text{Орёл}) = \dfrac{1}{2} = 0.5$</p>
+      </div></div>
+    <div class="card"><div class="card-header bg-info-subtle small">Пример 2: Две кости</div>
+      <div class="card-body small">
+        <p class="mb-1">Бросаются две кости. Найдите вероятность того, что сумма равна 7.</p>
+        <ul class="mb-1"><li>Благоприятные исходы = {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} → 6</li><li>Всего исходов = 6 × 6 = 36</li></ul>
+        <p class="mb-0">$P(\text{Сумма}=7) = \dfrac{6}{36} = \dfrac{1}{6}$</p>
+      </div></div>
+  </div>
+</div>
+
+<h2>9. Ключевые выводы</h2>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Вероятность измеряет шанс наступления события.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Значения лежат в диапазоне от 0 до 1.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Понимайте ключевые термины: эксперимент, исход, пространство элементарных исходов, событие.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Используйте правильные формулы в зависимости от вида события.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Диаграммы Венна помогают визуализировать события.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Вероятность широко применяется в реальных сценариях: игры, опросы, прогнозирование погоды.</div>
+
+<div class="quote mt-4">«Вероятность помогает нам принимать лучшие решения в мире неопределённости.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

@@ -321,7 +321,9 @@
         async function getAvatar(userEmail) {
             console.log(userEmail);
             let res = await store.dispatch(api.endpoints.fetchOpenAvatar.initiate(userEmail))
-            return !!res.data ? res.data : null;
+            console.log(res?.data);
+
+            return !!res?.data ? res.data : null;
         }
 
 
@@ -332,10 +334,19 @@
 
             let user, avatarUrl;
 
+             let item = Math.floor(Math.random() * 64) + 1;
+          let picindex = item > 9 ? "" + item : "0" + item;
+          avatarUrl = Math.random() > 0.5
+            ? "https://econolabs.github.io/avatars/male" + picindex + ".jpg"
+            : "https://econolabs.github.io/avatars/female" + picindex + ".jpg";
+
+
             var myModal = new bootstrap.Modal(document.getElementById('quizcaseModal')); //, options
 
             getAvatar(userEmail)
                 .then(info => {
+
+                                       
                     user = !!info?.user ? info.user : "Иван Оленев";
                     user = !!info?.url ? user + " " + info.url : user;
 

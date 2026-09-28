@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Теорема Байеса</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.5rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;}
+.card-header{font-weight:700;border-radius:8px 8px 0 0 !important;text-align:center;}
+table{font-size:.82rem;}
+.formula-box{background:#fff3bf;border:2px solid #f5c518;border-radius:8px;padding:.8rem;text-align:center;font-size:1.15rem;}
+.solution-box{border-radius:8px;padding:.8rem;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;}
+.solution-green{background:#d3f9d8;border:2px solid #40c057;}
+.formula-inner{background:#fff;border-radius:6px;padding:.5rem;text-align:center;margin:.4rem 0;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.app-card{text-align:center;border:2px solid #dee2e6;border-radius:10px;padding:.8rem .4rem;}
+.app-icon{font-size:2rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1000px;">
+
+<h1>7. Теорема Байеса (Bayes' Theorem)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое теорема Байеса?</h2>
+    <ul>
+      <li>Теорема Байеса (Bayes' theorem) помогает обновить вероятность события на основе новой информации (свидетельства).</li>
+      <li>Она даёт вероятность причины при наблюдаемом следствии.</li>
+      <li>Широко применяется в реальных задачах: медицинская диагностика, фильтрация спама, машинное обучение и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Формула</h2>
+    <div class="formula-box mb-2">$P(A \mid B) = \dfrac{P(B \mid A) \times P(A)}{P(B)}$</div>
+    <ul class="small">
+      <li>$P(A \mid B)$: вероятность A при условии B (апостериорная вероятность).</li>
+      <li>$P(B \mid A)$: вероятность B при условии A (правдоподобие).</li>
+      <li>$P(A)$: априорная вероятность A.</li>
+      <li>$P(B)$: полная вероятность B (свидетельство).</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Терминология</h2>
+    <table class="table table-bordered align-middle">
+      <thead class="table-light"><tr><th>Термин</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td class="fw-bold" style="background:#fadde1;">Априорная вероятность<br><small class="fw-normal">(Prior Probability)</small></td><td>Начальное представление о событии до получения свидетельства. $P(A)$</td></tr>
+        <tr><td class="fw-bold" style="background:#f5e0f7;">Правдоподобие<br><small class="fw-normal">(Likelihood)</small></td><td>Вероятность свидетельства при условии события. $P(B \mid A)$</td></tr>
+        <tr><td class="fw-bold" style="background:#e7d6f7;">Апостериорная вероятность<br><small class="fw-normal">(Posterior Probability)</small></td><td>Обновлённая вероятность после получения свидетельства. $P(A \mid B)$</td></tr>
+        <tr><td class="fw-bold" style="background:#d6e4f7;">Свидетельство<br><small class="fw-normal">(Evidence)</small></td><td>Наблюдаемые данные или информация.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5 mb-3">
+    <h2>4. Визуальное представление</h2>
+    <div class="card"><div class="card-body text-center">
+      <p class="small text-start mb-1">Пространство элементарных исходов</p>
+      <svg viewBox="0 0 260 140" width="100%" height="140">
+        <rect x="5" y="5" width="250" height="130" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <circle cx="105" cy="70" r="60" fill="#a5d8ff" fill-opacity="0.75" stroke="#1971c2" stroke-width="2"/>
+        <circle cx="165" cy="70" r="60" fill="#f8bbd0" fill-opacity="0.75" stroke="#c2255c" stroke-width="2"/>
+        <text x="70" y="75" font-size="15" font-weight="bold">A</text>
+        <text x="185" y="75" font-size="15" font-weight="bold">B</text>
+        <text x="45" y="30" font-size="11">(например, болезнь)</text>
+        <text x="150" y="30" font-size="11">(например, положительный тест)</text>
+        <text x="120" y="128" font-size="11" font-style="italic">A ∩ B</text>
+        <line x1="130" y1="122" x2="130" y2="95" stroke="#333" stroke-width="1" marker-end="url(#arr)"/>
+        <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#333"/></marker></defs>
+      </svg>
+      <ul class="small text-start mt-2 mb-0 ps-3">
+        <li>Нас интересует $P(A \mid B)$ → вероятность A в области пересечения при условии, что B произошло.</li>
+        <li>Теорема Байеса помогает обновить $P(A)$ с использованием информации из B.</li>
+      </ul>
+    </div></div>
+  </div>
+  <div class="col-md-7 mb-3">
+    <h2>5. Пример 1 — Диагностика заболевания</h2>
+    <p class="small">Болезнь поражает 1% населения. Тест правильно выявляет 98% заражённых (чувствительность) и обладает 95% специфичностью (то есть 5% ложноположительных результатов). Если человек получил положительный результат, какова вероятность, что он действительно болен?</p>
+    <div class="solution-pink">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+      <ul class="small mb-2">
+        <li>$P(D) = 0.01$ (априорная вероятность)</li>
+        <li>$P(+ \mid D) = 0.98$ (чувствительность)</li>
+        <li>$P(+ \mid \bar{D}) = 0.05$ (доля ложноположительных результатов)</li>
+      </ul>
+      <div class="formula-inner small">$P(D \mid +) = \dfrac{P(+ \mid D) \times P(D)}{P(+ \mid D)\times P(D) + P(+ \mid \bar{D}) \times P(\bar{D})}$</div>
+      <div class="formula-inner small mb-0">$= \dfrac{0.98 \times 0.01}{0.98 \times 0.01 + 0.05 \times 0.99} = 0.164 \approx 16.4\%$</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>6. Пример 2 — Обнаружение спама</h2>
+    <p class="small">Письмо является спамом в 20% случаев. Спам-фильтр правильно определяет 90% спам-писем и ошибочно помечает 5% обычных писем как спам. Если письмо помечено как спам, какова вероятность, что оно действительно спам?</p>
+    <div class="solution-green">
+      <p class="fw-bold mb-1" style="color:#2f9e44;">Решение:</p>
+      <ul class="small mb-2">
+        <li>$P(S) = 0.20$ (априорная)</li>
+        <li>$P(\text{Пометить} \mid S) = 0.90$ (доля истинно положительных)</li>
+        <li>$P(\text{Пометить} \mid \bar{S}) = 0.05$ (доля ложноположительных)</li>
+      </ul>
+      <div class="formula-inner small">$P(S \mid \text{Пометить}) = \dfrac{0.90 \times 0.20}{0.90 \times 0.20 + 0.05 \times 0.80} = 0.818 \approx 81.8\%$</div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>7. Полная вероятность (знаменатель)</h2>
+    <p class="small">$P(B)$ можно разложить по формуле полной вероятности:</p>
+    <div class="formula-box mb-2">$P(B) = P(B \mid A) \times P(A) + P(B \mid \bar{A}) \times P(\bar{A})$</div>
+    <ul class="small">
+      <li>Учитываются все возможные способы, которыми может произойти B.</li>
+      <li>Используется в знаменателе теоремы Байеса.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>8. Применение в реальном мире</h2>
+<div class="row row-cols-2 row-cols-md-4 g-2 mb-3">
+  <div class="col"><div class="app-card"><i class="bi bi-heart-pulse app-icon"></i><div class="fw-bold small mt-1">Медицинская диагностика</div><div class="small">Диагноз по результатам анализов.</div></div></div>
+  <div class="col"><div class="app-card"><i class="bi bi-envelope-exclamation-fill app-icon"></i><div class="fw-bold small mt-1">Фильтрация спама</div><div class="small">Классификация писем на спам и не спам.</div></div></div>
+  <div class="col"><div class="app-card"><i class="bi bi-diagram-3 app-icon"></i><div class="fw-bold small mt-1">Машинное обучение</div><div class="small">Наивный байесовский классификатор.</div></div></div>
+  <div class="col"><div class="app-card"><i class="bi bi-cloud-drizzle app-icon"></i><div class="fw-bold small mt-1">Прогноз погоды</div><div class="small">Обновление вероятности дождя по новым данным.</div></div></div>
+</div>
+
+<h2>9. Ключевые выводы</h2>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Теорема Байеса обновляет вероятность на основе новых свидетельств.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>$P(A \mid B) = P(B \mid A) \times P(A) / P(B)$.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Широко применяется в реальных сценариях.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Требует априорной вероятности и правдоподобия.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Помогает принимать решения в условиях неопределённости.</div>
+<div class="check-item"><i class="bi bi-check-circle-fill"></i>Часто используется в медицинских тестах, обнаружении спама, машинном обучении и прогнозировании.</div>
+
+<div class="quote mt-4">«Теорема Байеса помогает принимать лучшие решения с учётом новой информации.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>
