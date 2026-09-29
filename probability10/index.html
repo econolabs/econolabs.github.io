@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Центральная предельная теорема</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.2rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+table{font-size:.82rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.8rem;text-align:center;font-size:1.15rem;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.n-card{text-align:center;border-radius:8px;padding:.4rem;}
+.app-icon{font-size:1.5rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1050px;">
+
+<h1>10. Центральная предельная теорема (Central Limit Theorem)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое центральная предельная теорема?</h2>
+    <ul class="small">
+      <li>Центральная предельная теорема (ЦПТ, Central Limit Theorem, CLT) утверждает, что выборочное распределение выборочного среднего становится приблизительно нормальным по мере увеличения объёма выборки, независимо от формы распределения генеральной совокупности.</li>
+      <li>Она работает даже тогда, когда исходная генеральная совокупность не является нормально распределённой.</li>
+      <li>Широко применяется в проверке гипотез, построении доверительных интервалов и реальных прогнозах.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Формула</h2>
+    <div class="formula-box mb-2">$\bar{X} \sim N\left(\mu, \dfrac{\sigma}{\sqrt{n}}\right)$</div>
+    <ul class="small">
+      <li>$\bar{X}$: выборочное среднее</li>
+      <li>$\mu$: среднее генеральной совокупности</li>
+      <li>$\sigma$: стандартное отклонение генеральной совокупности</li>
+      <li>$n$: объём выборки</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Ключевые моменты</h2>
+    <ul class="small">
+      <li>С ростом объёма выборки (n) выборочное распределение приближается к нормальному.</li>
+      <li>Среднее выборочного распределения = $\mu$</li>
+      <li>Стандартное отклонение (стандартная ошибка) = $\sigma/\sqrt{n}$</li>
+      <li>Работает для любого распределения генеральной совокупности (нормального, асимметричного и т.д.), если n достаточно велико (обычно $n \ge 30$).</li>
+    </ul>
+  </div>
+</div>
+
+<h2>4. Визуальное представление</h2>
+<div class="card mb-3"><div class="card-body">
+  <div class="row align-items-center text-center">
+    <div class="col-5">
+      <p class="small fw-bold mb-1">Распределение генеральной совокупности (любая форма)</p>
+      <svg viewBox="0 0 160 90" width="100%" height="90"><line x1="5" y1="80" x2="155" y2="80" stroke="#333"/><path d="M5,78 Q20,20 45,25 Q70,30 155,78" fill="#ffe0cc" stroke="#f59f00" stroke-width="2"/><text x="70" y="88" font-size="9">x</text></svg>
+    </div>
+    <div class="col-2"><i class="bi bi-arrow-right" style="font-size:1.8rem;"></i><div class="small">Берём много случайных выборок (объёма n)</div></div>
+    <div class="col-5">
+      <p class="small fw-bold mb-1">Выборочное распределение среднего (приблизительно нормальное)</p>
+      <svg viewBox="0 0 160 90" width="100%" height="90"><line x1="5" y1="80" x2="155" y2="80" stroke="#333"/><path d="M5,78 Q55,5 80,5 Q105,5 155,78" fill="#a5d8ff" fill-opacity="0.6" stroke="#1971c2" stroke-width="2"/><line x1="80" y1="5" x2="80" y2="80" stroke="#333" stroke-dasharray="2"/><text x="76" y="90" font-size="9">μ, x̄</text></svg>
+    </div>
+  </div>
+</div></div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>5. Пример 1 — Ненормальная генеральная совокупность</h2>
+    <p class="small">Генеральная совокупность имеет экспоненциальное распределение со средним 50. Мы берём выборки объёмом n = 30. Каково распределение выборочного среднего?</p>
+    <div class="row align-items-center">
+      <div class="col-7">
+        <div class="solution-pink">
+          <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+          <ul class="small mb-0">
+            <li>Хотя генеральная совокупность не является нормальной, по ЦПТ выборочное распределение $\bar{X}$ приблизительно нормально.</li>
+            <li>Среднее = 50</li>
+            <li>Стандартная ошибка = $\sigma/\sqrt{30}$</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-5 text-center">
+        <div class="small">Генеральная совокупность (асимметричная)</div>
+        <svg viewBox="0 0 100 55" width="100%" height="45"><path d="M5,50 Q15,10 30,15 Q45,20 95,50" fill="#ffe0cc" stroke="#f59f00" stroke-width="1.5"/></svg>
+        <i class="bi bi-arrow-down" style="color:#1971c2;"></i>
+        <div class="small">Выборочное распределение (прибл. нормальное)</div>
+        <svg viewBox="0 0 100 55" width="100%" height="45"><path d="M5,50 Q35,5 50,5 Q65,5 95,50" fill="#a5d8ff" fill-opacity="0.6" stroke="#1971c2" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>6. Пример 2 — Выборочное распределение</h2>
+    <p class="small">Генеральная совокупность имеет среднее μ = 100 и стандартное отклонение σ = 20. Найдите среднее и стандартное отклонение выборочного распределения среднего для n = 50.</p>
+    <div class="solution-pink">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+      <ul class="small mb-1"><li>Среднее $\bar{X}$ = $\mu$ = 100</li></ul>
+      <p class="small mb-1">Стандартное отклонение (стандартная ошибка) = $\sigma/\sqrt{n}$</p>
+      <p class="small mb-0">$= 20/\sqrt{50} = 20/7.07 \approx 2.83$</p>
+    </div>
+  </div>
+</div>
+
+<h2>7. Влияние объёма выборки</h2>
+<div class="row row-cols-2 row-cols-md-4 g-2 mb-3">
+  <div class="col"><div class="n-card" style="background:#ffe3ea;"><div class="fw-bold">n = 5</div>
+    <svg viewBox="0 0 100 55" width="100%" height="50"><line x1="5" y1="48" x2="95" y2="48" stroke="#333"/><path d="M5,46 Q30,10 50,10 Q70,10 95,46" fill="#f8bbd0" stroke="#c2255c" stroke-width="1.5"/><line x1="50" y1="10" x2="50" y2="46" stroke="#333" stroke-dasharray="2"/><text x="46" y="55" font-size="7">μ</text></svg>
+    <div class="small">Шире разброс (больше изменчивость)</div></div></div>
+  <div class="col"><div class="n-card" style="background:#fff3bf;"><div class="fw-bold">n = 30</div>
+    <svg viewBox="0 0 100 55" width="100%" height="50"><line x1="5" y1="48" x2="95" y2="48" stroke="#333"/><path d="M15,46 Q30,20 50,20 Q70,20 85,46" fill="#ffe8a3" stroke="#f59f00" stroke-width="1.5"/><line x1="50" y1="20" x2="50" y2="46" stroke="#333" stroke-dasharray="2"/><text x="46" y="55" font-size="7">μ</text></svg>
+    <div class="small">Меньше разброс</div></div></div>
+  <div class="col"><div class="n-card" style="background:#d3f9d8;"><div class="fw-bold">n = 100</div>
+    <svg viewBox="0 0 100 55" width="100%" height="50"><line x1="5" y1="48" x2="95" y2="48" stroke="#333"/><path d="M25,46 Q35,28 50,28 Q65,28 75,46" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/><line x1="50" y1="28" x2="50" y2="46" stroke="#333" stroke-dasharray="2"/><text x="46" y="55" font-size="7">μ</text></svg>
+    <div class="small">Уже разброс</div></div></div>
+  <div class="col"><div class="n-card" style="background:#d0ebff;"><div class="fw-bold">n = 500</div>
+    <svg viewBox="0 0 100 55" width="100%" height="50"><line x1="5" y1="48" x2="95" y2="48" stroke="#333"/><path d="M35,46 Q42,35 50,35 Q58,35 65,46" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/><line x1="50" y1="35" x2="50" y2="46" stroke="#333" stroke-dasharray="2"/><text x="46" y="55" font-size="7">μ</text></svg>
+    <div class="small">Очень узкий разброс (близко к μ)</div></div></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>8. Применение в реальном мире</h2>
+    <table class="table table-bordered align-middle">
+      <thead class="table-light"><tr><th>Область</th><th>Сценарий использования</th></tr></thead>
+      <tbody>
+        <tr><td class="text-center"><i class="bi bi-bar-chart-fill app-icon"></i></td><td class="small">Бизнес и финансы: средние продажи, расходы клиентов, анализ рисков</td></tr>
+        <tr><td class="text-center"><i class="bi bi-clipboard2-check-fill app-icon"></i></td><td class="small">Контроль качества: средний вес/размер изделия по выборкам</td></tr>
+        <tr><td class="text-center"><i class="bi bi-people-fill app-icon"></i></td><td class="small">Опросы: оценка среднего по генеральной совокупности (рост, доход)</td></tr>
+        <tr><td class="text-center"><i class="bi bi-heart-pulse-fill app-icon"></i></td><td class="small">Здравоохранение: средний эффект лечения, результаты анализов</td></tr>
+        <tr><td class="text-center"><i class="bi bi-cpu-fill app-icon"></i></td><td class="small">Машинное обучение: средние показатели модели, оценка ошибки</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>9. Важные замечания</h2>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">ЦПТ применяется к выборочному распределению среднего, а не к отдельным значениям.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Объём выборки обычно считается большим, когда $n \ge 30$ (эмпирическое правило).</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Если генеральная совокупность уже нормальна, ЦПТ справедлива при любом n.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Чем больше объём выборки, тем ближе распределение к нормальному.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Используется для построения доверительных интервалов и проверки гипотез.</span></div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>10. Ключевые выводы</h2>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">ЦПТ: выборочное среднее становится приблизительно нормальным при большом n.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Среднее выборочного распределения = $\mu$.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Стандартная ошибка = $\sigma/\sqrt{n}$.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Работает для любого распределения генеральной совокупности.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Широко применяется в реальных задачах: опросы, контроль качества, финансы, здравоохранение.</span></div>
+  </div>
+</div>
+
+<div class="quote mt-2">«Независимо от исходного распределения, выборочное среднее подчиняется нормальному распределению при больших выборках.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

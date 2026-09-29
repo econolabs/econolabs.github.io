@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>t-распределение</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.2rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+table{font-size:.85rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;text-align:center;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.rw-item{margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+.rw-item i{font-size:1.4rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1050px;">
+
+<h1>12. t-распределение (t-Distribution)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое t-распределение?</h2>
+    <ul class="small">
+      <li>Распределение вероятностей, используемое, когда стандартное отклонение генеральной совокупности (σ) неизвестно.</li>
+      <li>Похоже на нормальное распределение, но имеет более тяжёлые хвосты.</li>
+      <li>Обычно применяется для малых выборок (n &lt; 30).</li>
+      <li>Широко используется в проверке гипотез и построении доверительных интервалов.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Плотность вероятности (PDF)</h2>
+    <div class="formula-box mb-2 small">$f(t)=\dfrac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\,\Gamma\left(\frac{\nu}{2}\right)}\left(1+\dfrac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}$</div>
+    <ul class="small mb-0">
+      <li>ν: число степеней свободы (degrees of freedom, df) = n − 1</li>
+      <li>Γ: гамма-функция (Gamma function)</li>
+      <li>t: случайная величина, подчиняющаяся t-распределению</li>
+      <li>Более тяжёлые хвосты по сравнению с нормальным распределением.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Форма t-распределения</h2>
+    <svg viewBox="0 0 170 100" width="100%" height="100">
+      <line x1="10" y1="85" x2="160" y2="85" stroke="#333" stroke-width="1"/><line x1="10" y1="10" x2="10" y2="85" stroke="#333" stroke-width="1"/>
+      <path d="M15,83 Q55,12 85,12 Q115,12 155,83" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="4 2"/>
+      <path d="M15,83 Q50,25 85,25 Q120,25 155,83" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="6 2"/>
+      <path d="M15,83 Q45,40 85,40 Q125,40 155,83" fill="none" stroke="#2f9e44" stroke-width="2" stroke-dasharray="2 2"/>
+      <text x="85" y="95" font-size="8">0</text><text x="2" y="12" font-size="8">f(t)</text>
+      <text x="120" y="18" font-size="7" fill="#e03131">Нормальное (σ известно)</text>
+      <text x="118" y="30" font-size="7" fill="#1971c2">t-распр. (df=5)</text>
+      <text x="118" y="45" font-size="7" fill="#2f9e44">t-распр. (df=1)</text>
+    </svg>
+    <ul class="small mb-0">
+      <li>С ростом числа степеней свободы t-распределение приближается к нормальному.</li>
+      <li>Меньшее df → более тяжёлые хвосты (больше изменчивость).</li>
+    </ul>
+  </div>
+</div>
+
+<h2>4. Число степеней свободы (df)</h2>
+<ul class="small mb-2">
+  <li>df = n − 1 (для выборки объёмом n).</li>
+  <li>Меньшее df → шире разброс (более тяжёлые хвосты).</li>
+  <li>Большее df → форма ближе к нормальному распределению.</li>
+</ul>
+<div class="row row-cols-4 g-2 mb-3 text-center">
+  <div class="col"><svg viewBox="0 0 100 65" width="100%" height="65"><line x1="5" y1="55" x2="95" y2="55" stroke="#333"/><path d="M8,53 Q30,10 50,10 Q70,10 92,53" fill="#ffc9c9" fill-opacity="0.6" stroke="#e03131" stroke-width="2"/><line x1="50" y1="10" x2="50" y2="53" stroke="#333" stroke-dasharray="2"/></svg><div class="fw-bold small">df = 1</div></div>
+  <div class="col"><svg viewBox="0 0 100 65" width="100%" height="65"><line x1="5" y1="55" x2="95" y2="55" stroke="#333"/><path d="M12,53 Q30,20 50,20 Q70,20 88,53" fill="#a5d8ff" fill-opacity="0.6" stroke="#1971c2" stroke-width="2"/><line x1="50" y1="20" x2="50" y2="53" stroke="#333" stroke-dasharray="2"/></svg><div class="fw-bold small">df = 5</div></div>
+  <div class="col"><svg viewBox="0 0 100 65" width="100%" height="65"><line x1="5" y1="55" x2="95" y2="55" stroke="#333"/><path d="M17,53 Q30,15 50,15 Q70,15 83,53" fill="#b2f2bb" fill-opacity="0.6" stroke="#2f9e44" stroke-width="2"/><line x1="50" y1="15" x2="50" y2="53" stroke="#333" stroke-dasharray="2"/></svg><div class="fw-bold small">df = 10</div></div>
+  <div class="col"><svg viewBox="0 0 100 65" width="100%" height="65"><line x1="5" y1="55" x2="95" y2="55" stroke="#333"/><path d="M22,53 Q35,10 50,10 Q65,10 78,53" fill="#d0bfff" fill-opacity="0.6" stroke="#7048e8" stroke-width="2"/><line x1="50" y1="10" x2="50" y2="53" stroke="#333" stroke-dasharray="2"/></svg><div class="fw-bold small">df = 30</div></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>5. Формула t-статистики</h2>
+    <div class="formula-box mb-2">$t = \dfrac{\bar{X}-\mu}{s/\sqrt{n}}$</div>
+    <ul class="small mb-0">
+      <li>$\bar{X}$: выборочное среднее</li>
+      <li>$\mu$: среднее генеральной совокупности (гипотетическое среднее)</li>
+      <li>$s$: выборочное стандартное отклонение</li>
+      <li>$n$: объём выборки</li>
+      <li>$t \sim$ t-распределение с (df = n − 1)</li>
+    </ul>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>6. Пример — расчёт t-статистики</h2>
+    <p class="small">Выборка из 10 студентов имеет средний балл 85 и стандартное отклонение 12. Проверьте, значимо ли отличается среднее от 80.</p>
+    <div class="solution-pink small">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+      <p class="mb-1">$t = \dfrac{85-80}{12/\sqrt{10}} = \dfrac{5}{3.79} \approx 1.32$</p>
+      <p class="mb-0">df = 10 − 1 = 9</p>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>7. Пример с t-таблицей</h2>
+    <p class="small">Найдите критическое значение t для df = 9 при 95% доверительном уровне (двусторонний тест).</p>
+    <div class="solution-pink small">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+      <ul class="mb-1">
+        <li>Уровень значимости $\alpha = 0.05$ (двусторонний → $\alpha/2 = 0.025$)</li>
+        <li>По t-таблице: $t(0.025, 9) = 2.262$</li>
+      </ul>
+      <p class="mb-0">Итак, критическое значение t = ±2.262</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>8. Доверительный интервал для среднего</h2>
+    <p class="small">95% доверительный интервал для среднего генеральной совокупности μ (σ неизвестно):</p>
+    <div class="formula-box mb-2">$\bar{X} \pm t_{\alpha/2,\,n-1} \times \dfrac{s}{\sqrt{n}}$</div>
+    <ul class="small mb-0">
+      <li>$t_{\alpha/2,n-1}$: критическое значение t из таблицы</li>
+      <li>$s$: выборочное стандартное отклонение</li>
+      <li>$n$: объём выборки</li>
+    </ul>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>9. Применение в реальном мире</h2>
+    <div class="rw-item"><i class="bi bi-mortarboard-fill"></i><span class="small"><strong>Образование:</strong> анализ результатов тестов</span></div>
+    <div class="rw-item"><i class="bi bi-heart-pulse-fill"></i><span class="small"><strong>Здравоохранение:</strong> клинические испытания на малых выборках</span></div>
+    <div class="rw-item"><i class="bi bi-gear-fill"></i><span class="small"><strong>Контроль качества:</strong> среднее процесса по малым выборкам</span></div>
+    <div class="rw-item"><i class="bi bi-cash-coin"></i><span class="small"><strong>Финансы:</strong> доходность инвестиций (малые данные)</span></div>
+    <div class="rw-item"><i class="bi bi-flask"></i><span class="small"><strong>Эксперименты:</strong> научные исследования и A/B-тестирование</span></div>
+  </div>
+</div>
+
+<h2>10. Ключевые выводы</h2>
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Используется, когда стандартное отклонение генеральной совокупности неизвестно.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Применяется для проверки гипотез и построения доверительных интервалов.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Имеет более тяжёлые хвосты, чем нормальное распределение.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">При больших объёмах выборки t-распределение приближается к нормальному.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Число степеней свободы (df) = n − 1.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Широко применяется в образовании, здравоохранении, финансах, контроле качества и научных исследованиях.</span></div>
+</div>
+
+<div class="quote mt-3">«t-распределение помогает делать выводы, когда объёмы выборок малы, а σ неизвестно.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

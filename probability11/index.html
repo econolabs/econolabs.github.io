@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Нормальное распределение</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.2rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+table{font-size:.85rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;text-align:center;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;}
+.solution-green{background:#d3f9d8;border:2px solid #40c057;border-radius:8px;padding:.7rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.app-card{text-align:center;border:2px solid #dee2e6;border-radius:10px;padding:.7rem .3rem;}
+.app-icon{font-size:1.8rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1050px;">
+
+<h1>11. Нормальное распределение (Normal Distribution)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое нормальное распределение?</h2>
+    <ul class="small">
+      <li>Непрерывное распределение вероятностей, симметричное и колоколообразное.</li>
+      <li>Многие реальные переменные (рост, вес, результаты тестов) приблизительно нормально распределены.</li>
+      <li>Полностью описывается двумя параметрами: средним (μ) и стандартным отклонением (σ).</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Плотность вероятности (PDF)</h2>
+    <div class="formula-box mb-2">$f(x)=\dfrac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$</div>
+    <ul class="small">
+      <li>μ: среднее (центр распределения)</li>
+      <li>σ: стандартное отклонение (разброс)</li>
+      <li>$X \sim N(\mu, \sigma^2)$</li>
+      <li>f(x) даёт относительную плотность вероятности в точке x.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Форма нормального распределения</h2>
+    <svg viewBox="0 0 160 100" width="100%" height="100"><line x1="10" y1="85" x2="150" y2="85" stroke="#333" stroke-width="1"/><line x1="10" y1="10" x2="10" y2="85" stroke="#333" stroke-width="1"/><path d="M15,83 Q55,10 80,10 Q105,10 145,83" fill="#a5d8ff" fill-opacity="0.5" stroke="#1971c2" stroke-width="2"/><line x1="80" y1="10" x2="80" y2="83" stroke="#333" stroke-dasharray="2"/><text x="76" y="95" font-size="8">μ</text><text x="140" y="95" font-size="8">x</text><text x="2" y="12" font-size="8">f(x)</text></svg>
+    <ul class="small mb-0">
+      <li>Симметрично относительно среднего. Среднее = Медиана = Мода = μ</li>
+      <li>Общая площадь под кривой = 1</li>
+      <li>С ростом σ кривая становится более плоской и широкой.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>4. Эмпирическое правило (правило 68-95-99.7)</h2>
+<div class="row align-items-center mb-3">
+  <div class="col-md-7">
+    <svg viewBox="0 0 340 160" width="100%" height="160">
+      <line x1="10" y1="140" x2="330" y2="140" stroke="#333" stroke-width="1"/>
+      <path d="M10,138 Q90,10 170,10 Q250,10 330,138" fill="none" stroke="#1971c2" stroke-width="2"/>
+      <path d="M65,138 Q90,40 118,25 L170,15 L222,25 Q250,40 275,138 Z" fill="#fff3bf" fill-opacity="0.8"/>
+      <path d="M105,138 Q125,55 145,40 L170,32 L195,40 Q215,55 235,138 Z" fill="#d3f9d8" fill-opacity="0.8"/>
+      <path d="M135,138 Q150,80 160,70 L170,65 L180,70 Q190,80 205,138 Z" fill="#f8bbd0" fill-opacity="0.9"/>
+      <text x="150" y="30" font-size="10" fill="#c2255c" font-weight="bold">68%</text>
+      <text x="130" y="17" font-size="10" fill="#2f9e44" font-weight="bold">95%</text>
+      <text x="150" y="5" font-size="10" fill="#e03131" font-weight="bold">99.7%</text>
+      <line x1="65" y1="145" x2="65" y2="140" stroke="#333"/><line x1="105" y1="145" x2="105" y2="140" stroke="#333"/><line x1="135" y1="145" x2="135" y2="140" stroke="#333"/>
+      <line x1="170" y1="145" x2="170" y2="140" stroke="#333"/>
+      <line x1="205" y1="145" x2="205" y2="140" stroke="#333"/><line x1="235" y1="145" x2="235" y2="140" stroke="#333"/><line x1="275" y1="145" x2="275" y2="140" stroke="#333"/>
+      <text x="52" y="158" font-size="8">μ-3σ</text><text x="92" y="158" font-size="8">μ-2σ</text><text x="124" y="158" font-size="8">μ-σ</text>
+      <text x="163" y="158" font-size="8">μ</text>
+      <text x="192" y="158" font-size="8">μ+σ</text><text x="222" y="158" font-size="8">μ+2σ</text><text x="262" y="158" font-size="8">μ+3σ</text>
+    </svg>
+  </div>
+  <div class="col-md-5">
+    <table class="table table-bordered text-center">
+      <thead class="table-light"><tr><th>Диапазон</th><th>Вероятность</th></tr></thead>
+      <tbody>
+        <tr><td>μ ± 1σ</td><td>68%</td></tr>
+        <tr><td>μ ± 2σ</td><td>95%</td></tr>
+        <tr><td>μ ± 3σ</td><td>99.7%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>5. Стандартизация (Z-оценка, Z-Score)</h2>
+    <ul class="small">
+      <li>Любое нормальное распределение можно преобразовать в стандартное нормальное N(0, 1) с помощью Z-оценки.</li>
+    </ul>
+    <div class="formula-box mb-2">$Z = \dfrac{X-\mu}{\sigma}$</div>
+    <ul class="small mb-0">
+      <li>Если $X \sim N(\mu,\sigma^2)$, то $Z \sim N(0,1)$.</li>
+      <li>Используйте Z-таблицу для нахождения вероятностей.</li>
+    </ul>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>6. Пример с Z-таблицей</h2>
+    <p class="small">Найдите $P(X \le 70)$ для $X \sim N(60, 10^2)$.</p>
+    <div class="solution-green small">
+      <p class="fw-bold mb-1" style="color:#2f9e44;">Решение:</p>
+      <ul class="mb-1">
+        <li>$Z = \dfrac{70-60}{10} = 1$</li>
+        <li>По Z-таблице $P(Z \le 1) = 0.8413$</li>
+      </ul>
+      <p class="mb-0">Итак, $P(X \le 70) = 0.8413$</p>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>7. Нахождение вероятностей</h2>
+    <ul class="small">
+      <li>$P(X \le a) = P\left(Z \le \dfrac{a-\mu}{\sigma}\right)$</li>
+      <li>$P(X \ge a) = 1 - P(X \le a)$</li>
+      <li>$P(a \le X \le b) = P(Z_1 \le Z \le Z_2)$</li>
+      <li>где $Z_1 = \dfrac{a-\mu}{\sigma}$, $Z_2 = \dfrac{b-\mu}{\sigma}$</li>
+    </ul>
+  </div>
+</div>
+
+<h2>8. Пример — Рост</h2>
+<p class="small">Рост людей распределён нормально с μ = 170 см, σ = 10 см. Найдите вероятность того, что рост человека находится между 160 см и 180 см.</p>
+<div class="solution-pink small mb-3">
+  <p class="fw-bold mb-1" style="color:#c2255c;">Решение:</p>
+  <ul class="mb-1">
+    <li>$Z_1 = \dfrac{160-170}{10} = -1$</li>
+    <li>$Z_2 = \dfrac{180-170}{10} = 1$</li>
+  </ul>
+  <p class="mb-0">$P(160 \le X \le 180) = P(-1 \le Z \le 1) = 0.8413 - 0.1587 = 0.6826 \, (\approx 68.26\%)$</p>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    <h2>9. Применение</h2>
+    <div class="row row-cols-4 g-2">
+      <div class="col"><div class="app-card"><i class="bi bi-bar-chart-fill app-icon"></i><div class="small mt-1">Результаты тестов (образование)</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-rulers app-icon"></i><div class="small mt-1">Рост и вес (биология)</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-gear-fill app-icon"></i><div class="small mt-1">Производственные допуски</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-graph-up-arrow app-icon"></i><div class="small mt-1">Доходность акций (финансы)</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-people-fill app-icon"></i><div class="small mt-1">IQ-баллы (психология)</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-speedometer2 app-icon"></i><div class="small mt-1">Ошибки измерений</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-thermometer-half app-icon"></i><div class="small mt-1">Природные явления</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-shield-check app-icon"></i><div class="small mt-1">Контроль качества (процессы)</div></div></div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <h2>10. Ключевые выводы</h2>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Нормальное распределение симметрично и колоколообразно.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Определяется средним (μ) и стандартным отклонением (σ).</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Правило 68-95-99.7 помогает быстро оценивать вероятности.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Используйте Z-оценку для перехода к стандартному нормальному распределению.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Широко применяется в образовании, здравоохранении, финансах, контроле качества и анализе данных.</span></div>
+  </div>
+</div>
+
+<div class="quote mt-3">«Нормальное распределение — одно из важнейших распределений в статистике.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>
