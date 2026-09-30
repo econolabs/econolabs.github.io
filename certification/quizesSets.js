@@ -33,104 +33,104 @@ let quizesSets = [
         "answers": ["На всех этапах, начиная с анализа требований"],
         "hint": "<div class='alert alert-primary'><p>Качество должно закладываться на всех этапах ЖЦ, а не проверяться только в конце.</p></div>"
     },
-    {
-        "id": "qa_003",
-        "type": "multiplechoices",
-        "header": "Тема 1. Основы качества и стандартизации",
-        "title": "ISO 25010",
-        "theme": "Стандарты",
-        "text": "Сколько основных характеристик качества включает модель ISO 25010?",
-        "choices": [
-            "6",
-            "8",
-            "10",
-            "12"
-        ],
-        "answers": ["8"],
-        "hint": "<div class='alert alert-primary'><p>ISO 25010 включает 8 характеристик: функциональная пригодность, производительность, совместимость, удобство использования, надёжность, безопасность, поддерживаемость, переносимость.</p></div>"
-    },
-    {
-        "id": "qa_004",
-        "type": "multiplechoices",
-        "header": "Тема 1. Основы качества и стандартизации",
-        "title": "Стандарты ИТ",
-        "theme": "Стандарты",
-        "text": "Какой стандарт устанавливает требования к системе менеджмента качества?",
-        "choices": [
-            "ISO 27001",
-            "ISO 9001",
-            "ISO 25010",
-            "ГОСТ 34.601"
-        ],
-        "answers": ["ISO 9001"],
-        "hint": "<div class='alert alert-primary'><p>ISO 9001 — это базовый стандарт для систем менеджмента качества.</p></div>"
-    },
-    {
-        "id": "qa_005",
-        "type": "multiplechoices",
-        "header": "Тема 1. Основы качества и стандартизации",
-        "title": "ISO 27001",
-        "theme": "Безопасность",
-        "text": "Что регулирует стандарт ISO 27001?",
-        "choices": [
-            "Качество программного обеспечения",
-            "Систему менеджмента информационной безопасности",
-            "Процессы разработки ПО",
-            "Экологические требования"
-        ],
-        "answers": ["Систему менеджмента информационной безопасности"],
-        "hint": "<div class='alert alert-primary'><p>ISO 27001 — это стандарт для системы менеджмента информационной безопасности (СМИБ).</p></div>"
-    },
-    {
-        "id": "qa_006",
-        "type": "multiplechoices",
-        "header": "Тема 1. Основы качества и стандартизации",
-        "title": "ГОСТы для ИС",
-        "theme": "Стандарты",
-        "text": "Какой ГОСТ регламентирует стадии создания автоматизированных систем?",
-        "choices": [
-            "ГОСТ 19.101",
-            "ГОСТ 34.601",
-            "ГОСТ 34.603",
-            "ГОСТ Р ИСО/МЭК 12207"
-        ],
-        "answers": ["ГОСТ 34.601"],
-        "hint": "<div class='alert alert-primary'><p>ГОСТ 34.601-90 — это основной стандарт по стадиям создания АС.</p></div>"
-    },
-    {
-        "id": "qa_007",
-        "type": "multiplechoices",
-        "header": "Тема 1. Основы качества и стандартизации",
-        "title": "Принципы ISO 9001",
-        "theme": "СМК",
-        "text": "Какой принцип НЕ относится к ISO 9001?",
-        "choices": [
-            "Ориентация на потребителя",
-            "Процессный подход",
-            "Максимизация прибыли",
-            "Непрерывное улучшение"
-        ],
-        "answers": ["Максимизация прибыли"],
-        "hint": "<div class='alert alert-primary'><p>ISO 9001 основан на 7 принципах, среди которых нет максимизации прибыли.</p></div>"
-    },
+  {
+    "id": "qa_003",
+    "type": "multiplechoices",
+    "header": "Тема 1. Основы качества и стандартизации",
+    "title": "ISO 25010",
+    "theme": "Стандарты",
+    "text": "Сколько основных характеристик качества включает модель ISO 25010?",
+    "choices": [
+        "6",
+        "8",
+        "10",
+        "12"
+    ],
+    "answers": ["8"],
+    "hint": "<div class='alert alert-primary'><p>ISO 25010 включает 8 характеристик: функциональная пригодность, производительность, совместимость, удобство использования, надёжность, безопасность, поддерживаемость, переносимость.</p><p><a href='https://www.iso.org/standard/78176.html' target='_blank' rel='noopener'>Официальная страница ISO/IEC 25010:2023</a></p></div>"
+},
+{
+    "id": "qa_004",
+    "type": "multiplechoices",
+    "header": "Тема 1. Основы качества и стандартизации",
+    "title": "Стандарты ИТ",
+    "theme": "Стандарты",
+    "text": "Какой стандарт устанавливает требования к системе менеджмента качества?",
+    "choices": [
+        "ISO 27001",
+        "ISO 9001",
+        "ISO 25010",
+        "ГОСТ 34.601"
+    ],
+    "answers": ["ISO 9001"],
+    "hint": "<div class='alert alert-primary'><p>ISO 9001 — это базовый стандарт для систем менеджмента качества.</p><p><a href='https://www.iso.org/standard/9001' target='_blank' rel='noopener'>Официальная страница ISO 9001</a></p></div>"
+},
+{
+    "id": "qa_005",
+    "type": "multiplechoices",
+    "header": "Тема 1. Основы качества и стандартизации",
+    "title": "ISO 27001",
+    "theme": "Безопасность",
+    "text": "Что регулирует стандарт ISO 27001?",
+    "choices": [
+        "Качество программного обеспечения",
+        "Систему менеджмента информационной безопасности",
+        "Процессы разработки ПО",
+        "Экологические требования"
+    ],
+    "answers": ["Систему менеджмента информационной безопасности"],
+    "hint": "<div class='alert alert-primary'><p>ISO 27001 — это стандарт для системы менеджмента информационной безопасности (СМИБ).</p><p><a href='https://www.iso.org/standard/27001' target='_blank' rel='noopener'>Официальная страница ISO/IEC 27001</a></p></div>"
+},
+{
+    "id": "qa_006",
+    "type": "multiplechoices",
+    "header": "Тема 1. Основы качества и стандартизации",
+    "title": "ГОСТы для ИС",
+    "theme": "Стандарты",
+    "text": "Какой ГОСТ регламентирует стадии создания автоматизированных систем?",
+    "choices": [
+        "ГОСТ 19.101",
+        "ГОСТ 34.601",
+        "ГОСТ 34.603",
+        "ГОСТ Р ИСО/МЭК 12207"
+    ],
+    "answers": ["ГОСТ 34.601"],
+    "hint": "<div class='alert alert-primary'><p>ГОСТ 34.601-90 — это основной стандарт по стадиям создания АС.</p><p><a href='https://meganorm.ru/Data2/1/4294850/4294850117.htm' target='_blank' rel='noopener'>Текст ГОСТ 34.601-90 в ИС «Меганорм»</a></p></div>"
+},
+{
+    "id": "qa_007",
+    "type": "multiplechoices",
+    "header": "Тема 1. Основы качества и стандартизации",
+    "title": "Принципы ISO 9001",
+    "theme": "СМК",
+    "text": "Какой принцип НЕ относится к ISO 9001?",
+    "choices": [
+        "Ориентация на потребителя",
+        "Процессный подход",
+        "Максимизация прибыли",
+        "Непрерывное улучшение"
+    ],
+    "answers": ["Максимизация прибыли"],
+    "hint": "<div class='alert alert-primary'><p>ISO 9001 основан на 7 принципах, среди которых нет максимизации прибыли.</p><p><a href='https://www.iso.org/standard/9001' target='_blank' rel='noopener'>Официальная страница ISO 9001</a></p></div>"
+},
 
     // ==================== ТЕМА 2: Сертификация ИС ====================
     {
-        "id": "qa_008",
-        "type": "multiplechoices",
-        "header": "Тема 2. Сертификация информационных систем",
-        "title": "Цели сертификации",
-        "theme": "Сертификация",
-        "text": "Что НЕ является целью сертификации?",
-        "choices": [
-            "Подтверждение соответствия требованиям",
-            "Повышение конкурентоспособности",
-            "Увеличение прибыли компании (гарантированно)",
-            "Обеспечение доверия потребителей"
-        ],
-        "answers": ["Увеличение прибыли компании (гарантированно)"],
-        "hint": "<div class='alert alert-primary'><p>Сертификация повышает доверие и конкурентоспособность, но не гарантирует прибыль.</p></div>"
-    },
+    "id": "qa_008",
+    "type": "multiplechoices",
+    "header": "Тема 2. Сертификация информационных систем",
+    "title": "Цели сертификации",
+    "theme": "Сертификация",
+    "text": "Что НЕ является целью сертификации?",
+    "choices": [
+        "Подтверждение соответствия требованиям",
+        "Повышение конкурентоспособности",
+        "Увеличение прибыли компании (гарантированно)",
+        "Обеспечение доверия потребителей"
+    ],
+    "answers": ["Увеличение прибыли компании (гарантированно)"],
+    "hint": "<div class='alert alert-primary'><p>Сертификация повышает доверие и конкурентоспособность, но не гарантирует прибыль.</p><p><a href='https://www.consultant.ru/document/cons_doc_LAW_40241/' target='_blank' rel='noopener'>ФЗ-184 «О техническом регулировании»</a></p></div>"
+},
     {
         "id": "qa_009",
         "type": "multiplechoices",
@@ -147,54 +147,54 @@ let quizesSets = [
         "answers": ["ПО, аппаратно-программные комплексы, СЗИ, системы в целом"],
         "hint": "<div class='alert alert-primary'><p>Объектами могут быть ПО, аппаратные средства, системы защиты и информационные системы в целом.</p></div>"
     },
-    {
-        "id": "qa_010",
-        "type": "multiplechoices",
-        "header": "Тема 2. Сертификация информационных систем",
-        "title": "ФСТЭК",
-        "theme": "Сертификация",
-        "text": "За что отвечает ФСТЭК России в сфере сертификации?",
-        "choices": [
-            "За сертификацию всех ИТ-продуктов",
-            "За сертификацию средств защиты информации",
-            "За сертификацию качества ПО",
-            "За сертификацию веб-сайтов"
-        ],
-        "answers": ["За сертификацию средств защиты информации"],
-        "hint": "<div class='alert alert-primary'><p>ФСТЭК — это регулятор в сфере сертификации СЗИ и аттестации объектов информатизации.</p></div>"
-    },
-    {
-        "id": "qa_011",
-        "type": "multiplechoices",
-        "header": "Тема 2. Сертификация информационных систем",
-        "title": "SSL-сертификаты",
-        "theme": "Сертификация",
-        "text": "Какой тип SSL-сертификата требует наиболее строгой проверки организации?",
-        "choices": [
-            "DV (Domain Validation)",
-            "OV (Organization Validation)",
-            "EV (Extended Validation)",
-            "Wildcard"
-        ],
-        "answers": ["EV (Extended Validation)"],
-        "hint": "<div class='alert alert-primary'><p>EV (Extended Validation) — это сертификат с полной проверкой организации, обычно используется банками и крупными компаниями.</p></div>"
-    },
-    {
-        "id": "qa_012",
-        "type": "multiplechoices",
-        "header": "Тема 2. Сертификация информационных систем",
-        "title": "Процедура сертификации",
-        "theme": "Сертификация",
-        "text": "Какой этап следует после испытаний в процедуре сертификации?",
-        "choices": [
-            "Выдача сертификата",
-            "Анализ результатов",
-            "Инспекционный контроль",
-            "Подача заявки"
-        ],
-        "answers": ["Анализ результатов"],
-        "hint": "<div class='alert alert-primary'><p>После испытаний проводится анализ результатов, затем решение о выдаче сертификата.</p></div>"
-    },
+   {
+    "id": "qa_010",
+    "type": "multiplechoices",
+    "header": "Тема 2. Сертификация информационных систем",
+    "title": "ФСТЭК",
+    "theme": "Сертификация",
+    "text": "За что отвечает ФСТЭК России в сфере сертификации?",
+    "choices": [
+        "За сертификацию всех ИТ-продуктов",
+        "За сертификацию средств защиты информации",
+        "За сертификацию качества ПО",
+        "За сертификацию веб-сайтов"
+    ],
+    "answers": ["За сертификацию средств защиты информации"],
+    "hint": "<div class='alert alert-primary'><p>ФСТЭК — это регулятор в сфере сертификации СЗИ и аттестации объектов информатизации.</p><p><a href='https://fstec.ru/' target='_blank' rel='noopener'>Официальный сайт ФСТЭК России</a></p></div>"
+},
+{
+    "id": "qa_011",
+    "type": "multiplechoices",
+    "header": "Тема 2. Сертификация информационных систем",
+    "title": "SSL-сертификаты",
+    "theme": "Сертификация",
+    "text": "Какой тип SSL-сертификата требует наиболее строгой проверки организации?",
+    "choices": [
+        "DV (Domain Validation)",
+        "OV (Organization Validation)",
+        "EV (Extended Validation)",
+        "Wildcard"
+    ],
+    "answers": ["EV (Extended Validation)"],
+    "hint": "<div class='alert alert-primary'><p>EV (Extended Validation) — это сертификат с полной проверкой организации, обычно используется банками и крупными компаниями.</p><p><a href='https://cabforum.org/working-groups/server/baseline-requirements/' target='_blank' rel='noopener'>CA/Browser Forum Baseline Requirements</a></p></div>"
+},
+{
+    "id": "qa_012",
+    "type": "multiplechoices",
+    "header": "Тема 2. Сертификация информационных систем",
+    "title": "Процедура сертификации",
+    "theme": "Сертификация",
+    "text": "Какой этап следует после испытаний в процедуре сертификации?",
+    "choices": [
+        "Выдача сертификата",
+        "Анализ результатов",
+        "Инспекционный контроль",
+        "Подача заявки"
+    ],
+    "answers": ["Анализ результатов"],
+    "hint": "<div class='alert alert-primary'><p>После испытаний проводится анализ результатов, затем решение о выдаче сертификата.</p><p><a href='https://www.consultant.ru/document/cons_doc_LAW_40241/' target='_blank' rel='noopener'>ФЗ-184 «О техническом регулировании»</a></p></div>"
+},
 
     // ==================== ТЕМА 3: Методы контроля качества ====================
     {
@@ -261,22 +261,22 @@ let quizesSets = [
         "answers": ["Количество независимых путей в программе"],
         "hint": "<div class='alert alert-primary'><p>Цикломатическая сложность показывает число возможных путей выполнения.</p></div>"
     },
-    {
-        "id": "qa_017",
-        "type": "multiplechoices",
-        "header": "Тема 3. Методы и средства контроля качества",
-        "title": "Тестирование безопасности",
-        "theme": "Безопасность",
-        "text": "Что такое DAST (Dynamic Application Security Testing)?",
-        "choices": [
-            "Анализ исходного кода на уязвимости",
-            "Анализ работающего приложения на уязвимости",
-            "Анализ сторонних библиотек",
-            "Тестирование производительности"
-        ],
-        "answers": ["Анализ работающего приложения на уязвимости"],
-        "hint": "<div class='alert alert-primary'><p>DAST — это динамическое тестирование безопасности, проверяется работающее приложение.</p></div>"
-    },
+   {
+    "id": "qa_017",
+    "type": "multiplechoices",
+    "header": "Тема 3. Методы и средства контроля качества",
+    "title": "Тестирование безопасности",
+    "theme": "Безопасность",
+    "text": "Что такое DAST (Dynamic Application Security Testing)?",
+    "choices": [
+        "Анализ исходного кода на уязвимости",
+        "Анализ работающего приложения на уязвимости",
+        "Анализ сторонних библиотек",
+        "Тестирование производительности"
+    ],
+    "answers": ["Анализ работающего приложения на уязвимости"],
+    "hint": "<div class='alert alert-primary'><p>DAST — это динамическое тестирование безопасности, проверяется работающее приложение.</p><p><a href='https://owasp.org/www-project-top-ten/' target='_blank' rel='noopener'>OWASP Top 10</a></p></div>"
+},
     {
         "id": "qa_018",
         "type": "multiplechoices",
@@ -295,22 +295,22 @@ let quizesSets = [
     },
 
     // ==================== ТЕМА 4: Управление качеством ====================
-    {
-        "id": "qa_019",
-        "type": "multiplechoices",
-        "header": "Тема 4. Управление качеством и сертификация в организации",
-        "title": "Внедрение СМК",
-        "theme": "СМК",
-        "text": "С чего начинается внедрение СМК по ISO 9001?",
-        "choices": [
-            "С сертификации",
-            "С анализа текущих процессов",
-            "С закупки ПО",
-            "С обучения персонала"
-        ],
-        "answers": ["С анализа текущих процессов"],
-        "hint": "<div class='alert alert-primary'><p>Внедрение СМК начинается с анализа текущих процессов и определения целей.</p></div>"
-    },
+  {
+    "id": "qa_019",
+    "type": "multiplechoices",
+    "header": "Тема 4. Управление качеством и сертификация в организации",
+    "title": "Внедрение СМК",
+    "theme": "СМК",
+    "text": "С чего начинается внедрение СМК по ISO 9001?",
+    "choices": [
+        "С сертификации",
+        "С анализа текущих процессов",
+        "С закупки ПО",
+        "С обучения персонала"
+    ],
+    "answers": ["С анализа текущих процессов"],
+    "hint": "<div class='alert alert-primary'><p>Внедрение СМК начинается с анализа текущих процессов и определения целей.</p><p><a href='https://www.iso.org/standard/9001' target='_blank' rel='noopener'>Официальная страница ISO 9001</a></p></div>"
+},
     {
         "id": "qa_020",
         "type": "multiplechoices",
@@ -328,37 +328,37 @@ let quizesSets = [
         "hint": "<div class='alert alert-primary'><p>Политика качества — это документ, декларирующий цели и подходы организации к качеству.</p></div>"
     },
     {
-        "id": "qa_021",
-        "type": "multiplechoices",
-        "header": "Тема 4. Управление качеством и сертификация в организации",
-        "title": "PDCA",
-        "theme": "Улучшение",
-        "text": "Что означает буква 'C' в цикле PDCA?",
-        "choices": [
-            "Control (контроль)",
-            "Check (проверка)",
-            "Correct (исправление)",
-            "Create (создание)"
-        ],
-        "answers": ["Check (проверка)"],
-        "hint": "<div class='alert alert-primary'><p>PDCA: Plan, Do, Check, Act.</p></div>"
-    },
+    "id": "qa_021",
+    "type": "multiplechoices",
+    "header": "Тема 4. Управление качеством и сертификация в организации",
+    "title": "PDCA",
+    "theme": "Улучшение",
+    "text": "Что означает буква 'C' в цикле PDCA?",
+    "choices": [
+        "Control (контроль)",
+        "Check (проверка)",
+        "Correct (исправление)",
+        "Create (создание)"
+    ],
+    "answers": ["Check (проверка)"],
+    "hint": "<div class='alert alert-primary'><p>PDCA: Plan, Do, Check, Act.</p><p><a href='https://www.iso.org/standard/9001' target='_blank' rel='noopener'>ISO 9001 — цикл PDCA</a></p></div>"
+},
     {
-        "id": "qa_022",
-        "type": "multiplechoices",
-        "header": "Тема 4. Управление качеством и сертификация в организации",
-        "title": "Аудит СМК",
-        "theme": "Аудит",
-        "text": "Какой аудит проводится силами самой организации?",
-        "choices": [
-            "Внешний аудит",
-            "Внутренний аудит",
-            "Инспекционный контроль",
-            "Сертификационный аудит"
-        ],
-        "answers": ["Внутренний аудит"],
-        "hint": "<div class='alert alert-primary'><p>Внутренний аудит проводится сотрудниками организации для проверки СМК.</p></div>"
-    },
+    "id": "qa_022",
+    "type": "multiplechoices",
+    "header": "Тема 4. Управление качеством и сертификация в организации",
+    "title": "Аудит СМК",
+    "theme": "Аудит",
+    "text": "Какой аудит проводится силами самой организации?",
+    "choices": [
+        "Внешний аудит",
+        "Внутренний аудит",
+        "Инспекционный контроль",
+        "Сертификационный аудит"
+    ],
+    "answers": ["Внутренний аудит"],
+    "hint": "<div class='alert alert-primary'><p>Внутренний аудит проводится сотрудниками организации для проверки СМК.</p><p><a href='https://www.iso.org/standard/70017.html' target='_blank' rel='noopener'>ISO 19011 — руководство по аудиту систем менеджмента</a></p></div>"
+},
     {
         "id": "qa_023",
         "type": "multiplechoices",
@@ -415,52 +415,7 @@ let quizesSets = [
     hint: "Первая буква английского слова 'Copy'",
     answers: ["Ctrl + C"]
   },
-  {
-    id: "win002",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10", 
-    title: "Работа с окнами",
-    theme: "Управление окнами",
-    text: `<div class="container-fluid">
-      <div class="alert alert-warning mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш позволяет переключаться между открытыми приложениями?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Alt + Tab",
-      "Win + Tab", 
-      "Ctrl + Tab",
-      "Alt + F4",
-      "Win + D",
-      "Ctrl + F4"
-    ],
-    hint: "Используется клавиша Alt и клавиша переключения вкладок",
-    answers: ["Alt + Tab"]
-  },
-  {
-    id: "win003", 
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Системные команды",
-    theme: "Системные сочетания",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает диалоговое окно 'Выполнить'?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + R",
-      "Ctrl + R", 
-      "Alt + R",
-      "Win + E",
-      "Ctrl + Shift + Esc",
-      "Win + X"
-    ],
-    hint: "Используется клавиша Windows и первая буква слова 'Run'",
-    answers: ["Win + R"]
-  },
+ 
   {
     id: "win004",
     type: "multiplechoices",
@@ -484,75 +439,7 @@ let quizesSets = [
     hint: "Последняя буква алфавита - отмена последнего действия",
     answers: ["Ctrl + Z"]
   },
-  {
-    id: "win005",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10", 
-    title: "Файловый менеджер",
-    theme: "Проводник Windows",
-    text: `<div class="container-fluid">
-      <div class="alert alert-secondary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает Проводник Windows?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + F",
-      "Win + E", 
-      "Ctrl + E",
-      "Win + D",
-      "Ctrl + Shift + N",
-      "Win + R"
-    ],
-    hint: "Клавиша Windows и первая буква слова 'Explorer'",
-    answers: ["Win + E"]
-  },
-  {
-    id: "win006",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Экран и представления",
-    theme: "Управление экраном",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш сворачивает все окна и показывает рабочий стол?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + M",
-      "Win + D", 
-      "Win + L",
-      "Alt + F4",
-      "Win + Tab",
-      "Ctrl + D"
-    ],
-    hint: "Клавиша Windows и первая буква слова 'Desktop'",
-    answers: ["Win + D"]
-  },
-  {
-    id: "win007",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Безопасность", 
-    theme: "Блокировка системы",
-    text: `<div class="container-fluid">
-      <div class="alert alert-warning mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш мгновенно блокирует компьютер?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + K",
-      "Win + L", 
-      "Ctrl + L",
-      "Alt + L",
-      "Win + Shift + L",
-      "Ctrl + Alt + L"
-    ],
-    hint: "Клавиша Windows и первая буква слова 'Lock'",
-    answers: ["Win + L"]
-  },
+  
   {
     id: "win008",
     type: "multiplechoices",
@@ -576,147 +463,10 @@ let quizesSets = [
     hint: "Просто нажатие одной специальной клавиши",
     answers: ["Print Screen"]
   },
-  {
-    id: "win009",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Виртуальные рабочие столы", 
-    theme: "Многозадачность",
-    text: `<div class="container-fluid">
-      <div class="alert alert-primary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш создает новый виртуальный рабочий стол?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + Ctrl + D",
-      "Win + Tab", 
-      "Win + Ctrl + Left",
-      "Win + Ctrl + F4",
-      "Win + D",
-      "Ctrl + N"
-    ],
-    hint: "Клавиша Windows + Control + первая буква слова 'Desktop'",
-    answers: ["Win + Ctrl + D"]
-  },
-  {
-    id: "win010",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Поиск и навигация",
-    theme: "Поиск в системе",
-    text: `<div class="container-fluid">
-      <div class="alert alert-secondary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает поиск Windows?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + F",
-      "Win + S", 
-      "Ctrl + F",
-      "Win + Q",
-      "Alt + S",
-      "Win + Space"
-    ],
-    hint: "Клавиша Windows и первая буква слова 'Search'",
-    answers: ["Win + S"]
-  },
-  {
-    id: "win011",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Панель управления", 
-    theme: "Системные утилиты",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш открывает Диспетчер задач?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Ctrl + Alt + Delete",
-      "Ctrl + Shift + Esc", 
-      "Win + X then T",
-      "Alt + F4",
-      "Ctrl + Alt + T",
-      "Все варианты верны"
-    ],
-    hint: "Есть несколько способов, но самый прямой - без дополнительных меню",
-    answers: ["Все варианты верны"]
-  },
   
-  {
-    id: "win013",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Масштабирование", 
-    theme: "Изменение масштаба",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш увеличивает масштаб (лупа) в Windows?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Win + Plus",
-      "Ctrl + Plus", 
-      "Win + M",
-      "Ctrl + Mouse Wheel",
-      "Win + Minus",
-      "Варианты 1 и 4 верны"
-    ],
-    hint: "Используется клавиша Windows и математический символ увеличения",
-    answers: ["Варианты 1 и 4 верны"]
-  },
-
-  {
-    id: "win016",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Управление приложениями", 
-    theme: "Закрытие приложений",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш закрывает активное окно или приложение?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Alt + F4",
-      "Ctrl + F4", 
-      "Ctrl + W",
-      "Win + F4",
-      "Все варианты верны",
-      "Только вариант 1"
-    ],
-    hint: "Разные комбинации для разных типов окон, но есть универсальная",
-    answers: ["Все варианты верны"]
-  },
-
-  {
-    id: "win018",
-    type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Командная строка", 
-    theme: "Терминал и консоль",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш в командной строке (CMD) вставляет текст из буфера обмена?</p>
-      </div>
-    </div>`,
-    choices: [
-      "Ctrl + V",
-      "Ctrl + Shift + V", 
-      "Shift + Insert",
-      "Ctrl + Insert",
-      "Варианты 1 и 3 верны",
-      "Только вариант 2"
-    ],
-    hint: "В командной строке работают не все стандартные сочетания",
-    answers: ["Варианты 1 и 3 верны"]
-  },
+  
+  
+  
   
     {
     id: "crypto001",
@@ -1623,126 +1373,7 @@ WHERE Студенты.id IS NOT NULL</code></pre>
     hint: "RIGHT JOIN сохраняет все результаты тестов, WHERE оставляет только те, где студент существует",
     answers: ["1, 2, 3, 4"]
   },
-  {
-    id: "psy003", 
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с фильтрацией по дате",
-    theme: "Анализ последних сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Клиенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Артем</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Светлана</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Павел</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Ирина</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Михаил</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Юлия</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Терапия:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">client_id</th><th class="p-1">дата</th><th class="p-1">длительность</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-01</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-08</small></td><td class="p-1"><small>45</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-02-15</small></td><td class="p-1"><small>90</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>2024-03-10</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-03-05</small></td><td class="p-1"><small>30</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>2024-02-28</small></td><td class="p-1"><small>120</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-success mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Клиенты.id 
-FROM Клиенты 
-LEFT JOIN Терапия ON Клиенты.id = Терапия.client_id 
-WHERE Терапия.дата >= '2024-03-01'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id клиентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 4, 5, 6",
-      "1, 4, 6", 
-      "1, 2, 3, 4, 6",
-      "1, 4 только",
-      "1, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех клиентов, но WHERE фильтрует только сессии с марта 2024",
-    answers: ["1, 4, 6"]
-  },
-  {
-    id: "psy004",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "RIGHT JOIN с комплексным условием", 
-    theme: "Анализ групповой терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Участники:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ксения</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Роман</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Алина</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Глеб</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Вероника</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Станислав</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Групповые_сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">member_id</th><th class="p-1">группа</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Депрессия</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>ПТСР</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Горевание</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>9</small></td><td class="p-1"><small>Гнев</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-danger mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Групповые_сессии.id 
-FROM Участники 
-RIGHT JOIN Групповые_сессии ON Участники.id = Групповые_сессии.member_id 
-WHERE Групповые_сессии.группа = 'Тревожность' OR Участники.id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Групповые_сессии будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 5, 6",
-      "1, 3, 5", 
-      "1, 2, 3, 5",
-      "5, 6 только",
-      "1, 3, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все групповые сессии, WHERE оставляет сессии по тревожности ИЛИ без участника",
-    answers: ["1, 3, 5"]
-  },
+ 
   {
     id: "psy005",
     type: "multiplechoices",
@@ -2119,7 +1750,7 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
   {
     id: "join005",
     type: "multiplechoices",
-    header: "Тест по соединению таблиц", 
+    header: "Тест по соединению таблиц",
     title: "Фильтрация до и после JOIN",
     theme: "WHERE vs ON условия",
     text: `Какая разница между этими запросами?
@@ -2132,15 +1763,15 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
     LEFT JOIN B ON A.id = B.a_id 
     WHERE B.status = 'active' OR B.a_id IS NULL</pre>`,
     choices: [
-      "Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи",
-      "Оба запроса возвращают одинаковый результат", 
-      "Запрос 2 вернет ошибку из-за OR",
-      "Запрос 1 вернет только активные связи",
-      "Запрос 2 вернет все строки из A"
+        "Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи",
+        "Оба запроса возвращают одинаковый результат",
+        "Запрос 2 вернет ошибку из-за OR",
+        "Запрос 1 вернет только активные связи",
+        "Запрос 2 вернет все строки из A"
     ],
-    hint: "В Запросе 1 условие в JOIN, в Запросе 2 - в WHERE. Подумайте о строках, где B IS NULL",
-    answers: ["Оба запроса возвращают одинаковый результат"]
-  },
+    hint: "<div class='alert alert-primary'><p>Условие в ON фильтрует соединение, но не строки левой таблицы. Условие в WHERE фильтрует итоговый результат.</p><p><a href='https://github.com/CODECRUNCHWORLDWIDE/C1-Code-Crunch-Convos/blob/main/curriculum/week-10-databases-sql/quiz.md' target='_blank' rel='noopener'>Разбор JOIN и WHERE</a></p></div>",
+    answers: ["Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи"]
+},
 
    {
     "id": "git001",

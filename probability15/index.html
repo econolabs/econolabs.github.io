@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Логистическая регрессия</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.2rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+table{font-size:.8rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;text-align:center;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;}
+.info-box{background:#fff3bf;border:2px solid #f5c518;border-radius:8px;padding:.6rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.metric-icon{font-size:1.2rem;color:#2f9e44;}
+.rw-item{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.rw-item i{font-size:1.3rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1080px;">
+
+<h1>15. Логистическая регрессия (Logistic Regression)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое логистическая регрессия?</h2>
+    <ul class="small">
+      <li>Алгоритм классификации для предсказания вероятности бинарного исхода (0 или 1).</li>
+      <li>Моделирует связь между входными признаками (X) и вероятностью целевой переменной (Y).</li>
+      <li>Использует сигмоидную функцию для преобразования линейного выхода в вероятность от 0 до 1.</li>
+      <li>Широко применяется в реальных задачах: обнаружение спама, диагностика заболеваний, выявление мошенничества и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Уравнение модели</h2>
+    <div class="formula-box mb-2">$P(Y{=}1|X) = \dfrac{1}{1+e^{-(\beta_0+\beta_1 X)}}$</div>
+    <div class="info-box small">
+      <ul class="mb-0 ps-3">
+        <li>$\beta_0$: свободный член (intercept) — значение при X = 0</li>
+        <li>$\beta_1$: коэффициент (влияние X)</li>
+        <li>$e$: число Эйлера (≈ 2.718)</li>
+        <li>Выход — вероятность от 0 до 1.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Сигмоидная функция</h2>
+    <div class="formula-box mb-2 small">$\sigma(z) = \dfrac{1}{1+e^{-z}}$</div>
+    <svg viewBox="0 0 170 100" width="100%" height="100">
+      <line x1="10" y1="85" x2="160" y2="85" stroke="#333" stroke-width="1"/><line x1="85" y1="10" x2="85" y2="85" stroke="#333" stroke-width="1"/>
+      <path d="M15,80 Q60,80 85,47 Q110,15 155,15" fill="none" stroke="#e03131" stroke-width="2"/>
+      <line x1="10" y1="47" x2="160" y2="47" stroke="#333" stroke-dasharray="2"/>
+      <text x="2" y="20" font-size="8">1</text><text x="2" y="50" font-size="8">0.5</text><text x="2" y="83" font-size="8">0</text>
+      <text x="12" y="95" font-size="8">-3</text><text x="82" y="95" font-size="8">0</text><text x="150" y="95" font-size="8">3</text>
+      <text x="163" y="88" font-size="8">z</text>
+    </svg>
+    <ul class="small mb-0">
+      <li>Преобразует любое действительное значение в вероятность от 0 до 1.</li>
+      <li>При большом положительном z → вероятность ≈ 1</li>
+      <li>При большом отрицательном z → вероятность ≈ 0</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>4. Разделяющая граница</h2>
+    <p class="small">При пороге 0.5:</p>
+    <ul class="small">
+      <li>Если $P(Y{=}1) \ge 0.5$ → прогнозируем класс 1</li>
+      <li>Если $P(Y{=}1) < 0.5$ → прогнозируем класс 0</li>
+    </ul>
+    <svg viewBox="0 0 170 110" width="100%" height="110">
+      <line x1="10" y1="95" x2="160" y2="95" stroke="#333"/><line x1="10" y1="10" x2="10" y2="95" stroke="#333"/>
+      <line x1="15" y1="15" x2="140" y2="90" stroke="#e03131" stroke-width="1.5" stroke-dasharray="3"/>
+      <circle cx="20" cy="55" r="2.5" fill="#3b5bdb"/><circle cx="30" cy="65" r="2.5" fill="#3b5bdb"/><circle cx="40" cy="50" r="2.5" fill="#3b5bdb"/><circle cx="25" cy="75" r="2.5" fill="#3b5bdb"/><circle cx="45" cy="70" r="2.5" fill="#3b5bdb"/><circle cx="35" cy="85" r="2.5" fill="#3b5bdb"/>
+      <circle cx="80" cy="30" r="2.5" fill="#e8590c"/><circle cx="95" cy="40" r="2.5" fill="#e8590c"/><circle cx="110" cy="25" r="2.5" fill="#e8590c"/><circle cx="100" cy="55" r="2.5" fill="#e8590c"/><circle cx="120" cy="45" r="2.5" fill="#e8590c"/><circle cx="130" cy="35" r="2.5" fill="#e8590c"/>
+      <text x="95" y="25" font-size="8" fill="#e8590c">Класс 1</text>
+      <text x="18" y="88" font-size="8" fill="#3b5bdb">Класс 0</text>
+      <text x="4" y="8" font-size="8">X₂</text><text x="163" y="98" font-size="8">X₁</text>
+    </svg>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>5. Обучение (оценка параметров)</h2>
+    <ul class="small">
+      <li>Параметры ($\beta_0, \beta_1$) находятся методом максимального правдоподобия (Maximum Likelihood Estimation, MLE).</li>
+      <li>Мы максимизируем правдоподобие наблюдения заданных меток.</li>
+    </ul>
+    <div class="formula-box mb-2 small">$L(\beta) = \prod_{i=1}^{n} p_i^{y_i}(1-p_i)^{1-y_i}$</div>
+    <p class="small mb-0">На практике минимизируют отрицательное логарифмическое правдоподобие (log loss) с помощью градиентного спуска или других алгоритмов оптимизации.</p>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>6. Пример расчёта</h2>
+    <p class="small">Модель даёт $\beta_0=-3$, $\beta_1=1.2$ для человека с X = 4. Найдите вероятность класса 1.</p>
+    <div class="solution-pink small">
+      <p class="mb-1">$z = -3 + 1.2 \times 4 = 1.8$</p>
+      <p class="mb-1">$P(Y{=}1) = \dfrac{1}{1+e^{-1.8}} \approx 0.858$</p>
+    </div>
+    <p class="small mt-2">При пороге 0.5: $P(Y{=}1) = 0.858 \ge 0.5$ → прогнозируем класс 1</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>7. Метрики оценки</h2>
+    <table class="table table-bordered align-middle">
+      <tbody>
+        <tr><td class="text-center"><i class="bi bi-check-circle-fill metric-icon"></i></td><td class="fw-bold small">Accuracy<br><small class="fw-normal">(Точность)</small></td><td class="small">$\dfrac{TP+TN}{TP+TN+FP+FN}$</td></tr>
+        <tr><td class="text-center"><i class="bi bi-bullseye metric-icon"></i></td><td class="fw-bold small">Precision<br><small class="fw-normal">(Точность прогноза)</small></td><td class="small">$\dfrac{TP}{TP+FP}$</td></tr>
+        <tr><td class="text-center"><i class="bi bi-bar-chart-fill metric-icon"></i></td><td class="fw-bold small">Recall (Sensitivity)<br><small class="fw-normal">(Полнота)</small></td><td class="small">$\dfrac{TP}{TP+FN}$</td></tr>
+        <tr><td class="text-center"><i class="bi bi-gear-fill metric-icon"></i></td><td class="fw-bold small">F1-Score</td><td class="small">$\dfrac{2\times(\text{Prec}\times\text{Rec})}{\text{Prec}+\text{Rec}}$</td></tr>
+        <tr><td class="text-center"><i class="bi bi-graph-up metric-icon"></i></td><td class="fw-bold small">ROC-AUC</td><td class="small">Площадь под ROC-кривой (общая оценка качества)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>8. Матрица ошибок</h2>
+    <table class="table table-bordered text-center small">
+      <thead><tr><th></th><th colspan="2">Прогноз</th></tr><tr><th>Факт</th><th>0</th><th>1</th></tr></thead>
+      <tbody>
+        <tr><td class="fw-bold">0</td><td style="background:#d3f9d8;">TN<br>(True Negative)</td><td style="background:#ffe3ea;">FP<br>(False Positive)</td></tr>
+        <tr><td class="fw-bold">1</td><td style="background:#ffe3ea;">FN<br>(False Negative)</td><td style="background:#d3f9d8;">TP<br>(True Positive)</td></tr>
+      </tbody>
+    </table>
+    <ul class="small mb-0 ps-3">
+      <li>TN: правильный прогноз 0</li>
+      <li>TP: правильный прогноз 1</li>
+      <li>FP: прогноз 1, а факт 0</li>
+      <li>FN: прогноз 0, а факт 1</li>
+    </ul>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>9. Применение в реальном мире</h2>
+    <div class="rw-item"><i class="bi bi-envelope-exclamation-fill"></i><span class="small">Обнаружение спама (спам / не спам)</span></div>
+    <div class="rw-item"><i class="bi bi-heart-pulse-fill"></i><span class="small">Диагностика заболеваний (болезнь / нет болезни)</span></div>
+    <div class="rw-item"><i class="bi bi-credit-card-fill"></i><span class="small">Обнаружение мошенничества (мошенничество / легитимно)</span></div>
+    <div class="rw-item"><i class="bi bi-people-fill"></i><span class="small">Прогноз оттока клиентов (уйдёт / останется)</span></div>
+    <div class="rw-item"><i class="bi bi-shield-check"></i><span class="small">Одобрение кредита (одобрить / отклонить)</span></div>
+  </div>
+</div>
+
+<h2>10. Ключевые выводы</h2>
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Логистическая регрессия используется для бинарной классификации.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Классификация выполняется с использованием порога (обычно 0.5).</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Использует сигмоидную функцию для предсказания вероятности (0–1).</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Оценка через accuracy, precision, recall, F1-score и ROC-AUC.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Параметры находятся методом максимального правдоподобия.</span></div>
+  <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Широко применяется в обнаружении спама, здравоохранении, финансах, прогнозе оттока клиентов.</span></div>
+</div>
+
+<div class="quote mt-3">«Логистическая регрессия помогает предсказывать вероятность события, а не просто метку класса.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Галерея графиков по статистике (JSXGraph)</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.9.0/jsxgraph.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.9.0/jsxgraphcore.js"></script>
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:#d6336c;border-bottom:3px solid #d6336c;padding-bottom:.3rem;font-weight:700;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+.card-header{font-weight:700;text-align:center;background:#f8f9fa;border-radius:8px 8px 0 0 !important;}
+.jxgbox{width:100%;height:190px;}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1100px;">
+<h1>Галерея графиков по статистике</h1>
+<p class="text-muted small">Каждый график ниже создаётся функцией из JS-объекта <code>graphs</code>, ключ которой совпадает с именем графика; каждый ключ одновременно служит id контейнера div, а один общий цикл подключает каждую запись к её доске.</p>
+<div id="gallery" class="row row-cols-1 row-cols-md-3 g-3 mt-1"></div>
+
+    <div class="card mb-1 mt-4" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+<script>
+// ---------- общие вспомогательные функции ----------
+function mkBoard(id, bbox){
+  return JXG.JSXGraph.initBoard(id, {boundingbox:bbox, axis:false, showCopyright:false,
+    showNavigation:false, pan:{enabled:false}, zoom:{enabled:false}});
+}
+function normalPdf(mu, sigma){
+  return function(x){ return (1/(sigma*Math.sqrt(2*Math.PI)))*Math.exp(-((x-mu)*(x-mu))/(2*sigma*sigma)); };
+}
+function drawCurve(board, f, xmin, xmax, color, fillOpacity){
+  return board.create('functiongraph', [f, xmin, xmax],
+    {strokeColor:color, strokeWidth:2, fixed:true,
+     fillColor: fillOpacity ? color : 'none', fillOpacity: fillOpacity || 0});
+}
+function axisLine(board, xmax){
+  board.create('segment', [[-0.3,0],[xmax,0]], {strokeColor:'#333', strokeWidth:1, fixed:true, highlight:false});
+}
+function bars(board, values, color){
+  var w = 0.55;
+  values.forEach(function(v,i){
+    board.create('polygon', [[i-w/2,0],[i+w/2,0],[i+w/2,v],[i-w/2,v]],
+      {fillColor:color, fillOpacity:0.75, borders:{strokeColor:color, strokeWidth:1},
+       vertices:{visible:false}, fixed:true, highlight:false});
+  });
+}
+function label(board, x, y, text, opts){
+  board.create('text', [x,y,text], Object.assign({fontSize:11, fixed:true, highlight:false}, opts||{}));
+}
+
+// ---------- функции-создатели графиков, ключ = имя графика ----------
+var graphs = {
+
+  boxPlot: function(id){
+    var board = mkBoard(id, [-0.5,2,10.5,-2.5]);
+    var o = {fixed:true, highlight:false};
+    board.create('segment',[[0.5,0],[9.5,0]], Object.assign({},o,{strokeColor:'#333',strokeWidth:2}));
+    board.create('segment',[[0.5,-0.6],[0.5,0.6]], Object.assign({},o,{strokeColor:'#333',strokeWidth:2}));
+    board.create('segment',[[9.5,-0.6],[9.5,0.6]], Object.assign({},o,{strokeColor:'#333',strokeWidth:2}));
+    board.create('polygon',[[3,-1],[7,-1],[7,1],[3,1]],
+      Object.assign({},o,{fillColor:'#a5d8ff',fillOpacity:0.7,borders:{strokeColor:'#1971c2',strokeWidth:2},vertices:{visible:false}}));
+    board.create('segment',[[5,-1],[5,1]], Object.assign({},o,{strokeColor:'#d6336c',strokeWidth:3}));
+    label(board,0.2,-1.6,'Min'); label(board,9.1,-1.6,'Max');
+    label(board,3,1.5,'Q1'); label(board,5,1.5,'Медиана'); label(board,7,1.5,'Q3');
+  },
+
+  normalDistribution: function(id){
+    var board = mkBoard(id, [-4,0.5,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1), -4, 4, '#7048e8', 0.3);
+  },
+
+  uniformDistribution: function(id){
+    var board = mkBoard(id, [-0.5,1.5,1.5,-0.2]);
+    axisLine(board,1.5);
+    board.create('polygon',[[0,0],[1,0],[1,1],[0,1]],
+      {fillColor:'#63e6be', fillOpacity:0.5, borders:{strokeColor:'#0ca678',strokeWidth:2}, vertices:{visible:false}, fixed:true});
+    label(board,-0.15,-0.15,'a'); label(board,1,-0.15,'b');
+  },
+
+  exponentialDistribution: function(id){
+    var board = mkBoard(id, [-0.3,2.2,5,-0.2]);
+    axisLine(board,5);
+    drawCurve(board, function(x){return 2*Math.exp(-2*x);}, 0, 5, '#e03131', 0.2);
+  },
+
+  bernoulliDistribution: function(id){
+    var board = mkBoard(id, [-0.7,1.1,1.7,-0.2]);
+    axisLine(board,1.7);
+    bars(board, [0.5, 0.5], '#4dabf7');
+    label(board,-0.05,-0.1,'0'); label(board,0.95,-0.1,'1');
+  },
+
+  binomialDistribution: function(id){
+    var board = mkBoard(id, [-0.7,0.4,5.7,-0.05]);
+    axisLine(board,5.7);
+    bars(board, [0.03,0.16,0.31,0.31,0.16,0.03], '#4dabf7');
+  },
+
+  poissonDistribution: function(id){
+    var board = mkBoard(id, [-0.7,0.3,6.7,-0.03]);
+    axisLine(board,6.7);
+    bars(board, [0.05,0.15,0.22,0.22,0.17,0.10,0.05], '#40c057');
+  },
+
+  skewPositive: function(id){
+    var board = mkBoard(id, [-1,0.7,5,-0.05]);
+    axisLine(board,5);
+    drawCurve(board, function(x){ x=x+0.5; return x<=0?0: (1/(x*0.6*Math.sqrt(2*Math.PI)))*Math.exp(-((Math.log(x))**2)/(2*0.36)); }, -0.4, 5, '#f03e3e', 0.25);
+  },
+
+  skewZero: function(id){
+    var board = mkBoard(id, [-4,0.5,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1), -4, 4, '#1971c2', 0.25);
+  },
+
+  skewNegative: function(id){
+    var board = mkBoard(id, [-5,0.7,1,-0.05]);
+    axisLine(board,1);
+    drawCurve(board, function(x){ x=-x+0.5; return x<=0?0: (1/(x*0.6*Math.sqrt(2*Math.PI)))*Math.exp(-((Math.log(x))**2)/(2*0.36)); }, -5, 0.4, '#2f9e44', 0.25);
+  },
+
+  kurtosisLepto: function(id){
+    var board = mkBoard(id, [-4,0.8,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,0.6), -4, 4, '#f03e3e', 0.25);
+  },
+
+  kurtosisMeso: function(id){
+    var board = mkBoard(id, [-4,0.5,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1), -4, 4, '#1971c2', 0.25);
+  },
+
+  kurtosisPlaty: function(id){
+    var board = mkBoard(id, [-4,0.35,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1.6), -4, 4, '#2f9e44', 0.25);
+  },
+
+  empiricalRule: function(id){
+    var board = mkBoard(id, [-3.5,0.5,3.5,-0.05]);
+    axisLine(board,3.5);
+    drawCurve(board, normalPdf(0,1), -1, 1, '#f8bbd0', 0.9);
+    drawCurve(board, normalPdf(0,1), -2, 2, '#d3f9d8', 0.5);
+    drawCurve(board, normalPdf(0,1), -3, 3, '#fff3bf', 0.3);
+    drawCurve(board, normalPdf(0,1), -3.5, 3.5, '#1971c2', 0);
+    [-3,-2,-1,0,1,2,3].forEach(function(s){ label(board, s-0.15, -0.03, s===0?'μ':(s>0?'+'+s+'σ':s+'σ')); });
+  },
+
+  sampleSizeEffect: function(id){
+    var board = mkBoard(id, [-4,1.7,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1.5), -4, 4, '#f06595', 0);
+    drawCurve(board, normalPdf(0,0.9), -4, 4, '#f59f00', 0);
+    drawCurve(board, normalPdf(0,0.5), -4, 4, '#2f9e44', 0);
+    drawCurve(board, normalPdf(0,0.25), -4, 4, '#1971c2', 0);
+    label(board,-3.8,1.55,'n=5 → n=500 (сужается разброс)');
+  },
+
+  tDistributionShape: function(id){
+    var board = mkBoard(id, [-4,0.5,4,-0.05]);
+    axisLine(board,4);
+    drawCurve(board, normalPdf(0,1), -4, 4, '#e03131', 0);
+    drawCurve(board, function(x){ return Math.pow(1+ (x*x)/5, -3) * 0.42; }, -4, 4, '#1971c2', 0);
+    drawCurve(board, function(x){ return Math.pow(1+ (x*x)/1, -1) * 0.32; }, -4, 4, '#2f9e44', 0);
+  },
+
+  chiSquareShape: function(id){
+    var board = mkBoard(id, [-0.5,0.35,15,-0.02]);
+    axisLine(board,15);
+    drawCurve(board, function(x){ return x<=0?0:0.5*Math.exp(-x/2)/Math.sqrt(x); }, 0.05, 15, '#e03131', 0);
+    drawCurve(board, function(x){ return x<=0?0:Math.pow(x,1.5)*Math.exp(-x/2)*0.09; }, 0, 15, '#1971c2', 0);
+    drawCurve(board, function(x){ return x<=0?0:Math.pow(x,4)*Math.exp(-x/2)*0.00035; }, 0, 15, '#2f9e44', 0);
+  },
+
+  sigmoidFunction: function(id){
+    var board = mkBoard(id, [-6,1.1,6,-0.1]);
+    axisLine(board,6);
+    board.create('segment',[[0,0],[0,1]],{strokeColor:'#333',strokeWidth:1,fixed:true,highlight:false});
+    drawCurve(board, function(z){ return 1/(1+Math.exp(-z)); }, -6, 6, '#e03131', 0);
+  },
+
+  decisionBoundary: function(id){
+    var board = mkBoard(id, [-1,10,10,-1]);
+    board.create('segment',[[-1,10],[10,-1]],{strokeColor:'#333',strokeWidth:1,fixed:true,highlight:false});
+    var class0=[[1,2],[2,3.5],[1.5,4.5],[3,1],[2.5,5.5]];
+    var class1=[[6,7],[7,6],[8,8],[6.5,5.5],[8.5,6.5]];
+    class0.forEach(function(p){ board.create('point',p,{color:'#3b5bdb',size:3,fixed:true,name:'',highlight:false}); });
+    class1.forEach(function(p){ board.create('point',p,{color:'#e8590c',size:3,fixed:true,name:'',highlight:false}); });
+  },
+
+  regressionScatter: function(id){
+    var board = mkBoard(id, [-1,10,10,-1]);
+    var pts=[[1,2],[2,3],[3,2.5],[4,5],[5,4.5],[6,6],[7,6.5],[8,8]];
+    pts.forEach(function(p){ board.create('point',p,{color:'#3b5bdb',size:3,fixed:true,name:'',highlight:false}); });
+    board.create('segment',[[0,1.5],[9,8.5]],{strokeColor:'#e03131',strokeWidth:2,fixed:true,highlight:false});
+  },
+
+  vennOverlap: function(id){
+    var board = mkBoard(id, [-1,4,9,-4]);
+    board.create('circle',[[2.5,0],2.5],{fillColor:'#a5d8ff',fillOpacity:0.6,strokeColor:'#1971c2',strokeWidth:2,fixed:true,highlight:false,center:{visible:false}});
+    board.create('circle',[[5.5,0],2.5],{fillColor:'#f8bbd0',fillOpacity:0.6,strokeColor:'#c2255c',strokeWidth:2,fixed:true,highlight:false,center:{visible:false}});
+    label(board,1.5,0.3,'A',{fontSize:16}); label(board,6.3,0.3,'B',{fontSize:16});
+  }
+
+};
+
+// ---------- строим галерею: одна карточка на график, затем цикл отрисовки ----------
+var gallery = document.getElementById('gallery');
+Object.keys(graphs).forEach(function(name){
+  var title = name.replace(/([A-Z])/g,' $1').replace(/^./,function(s){return s.toUpperCase();});
+  var col = document.createElement('div');
+  col.className = 'col';
+  col.innerHTML = '<div class="card"><div class="card-header">'+title+'</div>' +
+                  '<div class="card-body p-2"><div id="'+name+'" class="jxgbox"></div></div></div>';
+  gallery.appendChild(col);
+});
+
+// один цикл, который подключает каждый id из `graphs` к его функции-создателю доски
+Object.keys(graphs).forEach(function(name){
+  graphs[name](name);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Линейная регрессия</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../dist/katex.min.css" rel="stylesheet">
+<script src="../dist/katex.min.js"></script>
+<script src="../dist/auto-render.min.js"></script>
+
+   <script src="./quizesSets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+<style>
+:root{--ink:#1a1a1a;--accent:#d6336c;--blue:#1971c2;}
+body{background:#fffdf8;color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);}
+h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.3rem;font-weight:700;}
+h2{color:var(--blue);font-weight:700;margin-top:1.2rem;}
+.card{border:2px solid #dee2e6;border-radius:10px;height:100%;}
+table{font-size:.82rem;}
+.formula-box{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;text-align:center;}
+.formula-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.5rem;text-align:center;}
+.solution-pink{background:#ffe3ea;border:2px solid #f06595;border-radius:8px;padding:.7rem;}
+.check-item{margin-bottom:.4rem;}
+.check-item i{color:#2f9e44;margin-right:.4rem;}
+.quote{background:#fff3cd;border-left:5px solid #f5c518;padding:1rem;border-radius:6px;font-style:italic;text-align:center;}
+.app-card{text-align:center;border:2px solid #dee2e6;border-radius:10px;padding:.6rem .3rem;}
+.app-icon{font-size:1.6rem;color:var(--blue);}
+</style>
+</head>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+      data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+<div class="container py-4" style="max-width:1050px;">
+
+<h1>14. Линейная регрессия (Linear Regression)</h1>
+
+<div class="row mt-3">
+  <div class="col-md-4">
+    <h2>1. Что такое линейная регрессия?</h2>
+    <ul class="small">
+      <li>Линейная регрессия — это статистический метод для нахождения связи между зависимой переменной (Y) и одной или несколькими независимыми переменными (X).</li>
+      <li>Она предсказывает непрерывное значение на основе входных признаков.</li>
+      <li>Предполагает линейную зависимость между X и Y.</li>
+      <li>Широко применяется в реальных задачах: прогнозирование цен, прогноз продаж, анализ рисков и т.д.</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>2. Модель простой линейной регрессии</h2>
+    <div class="formula-box mb-2">$Y = \beta_0 + \beta_1 X + \varepsilon$</div>
+    <ul class="small mb-0">
+      <li>$Y$: зависимая переменная (целевая)</li>
+      <li>$X$: независимая переменная (признак)</li>
+      <li>$\beta_0$: свободный член (значение Y при X = 0)</li>
+      <li>$\beta_1$: коэффициент наклона (изменение Y при изменении X на 1 единицу)</li>
+      <li>$\varepsilon$: случайная ошибка (разность между фактическим и предсказанным значением)</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>3. Визуальное представление</h2>
+    <svg viewBox="0 0 170 110" width="100%" height="110">
+      <line x1="10" y1="95" x2="160" y2="95" stroke="#333" stroke-width="1"/><line x1="10" y1="10" x2="10" y2="95" stroke="#333" stroke-width="1"/>
+      <circle cx="25" cy="80" r="2.5" fill="#3b5bdb"/><circle cx="40" cy="70" r="2.5" fill="#3b5bdb"/><circle cx="55" cy="82" r="2.5" fill="#3b5bdb"/><circle cx="70" cy="58" r="2.5" fill="#3b5bdb"/><circle cx="85" cy="65" r="2.5" fill="#3b5bdb"/><circle cx="100" cy="45" r="2.5" fill="#3b5bdb"/><circle cx="115" cy="50" r="2.5" fill="#3b5bdb"/><circle cx="130" cy="30" r="2.5" fill="#3b5bdb"/><circle cx="145" cy="35" r="2.5" fill="#3b5bdb"/>
+      <line x1="15" y1="88" x2="155" y2="20" stroke="#e03131" stroke-width="2"/>
+      <line x1="115" y1="50" x2="115" y2="40" stroke="#333" stroke-dasharray="2"/>
+      <text x="118" y="45" font-size="7">Ошибка (ε)</text>
+      <text x="80" y="15" font-size="8" fill="#e03131">Линия регрессии (наилучшее приближение)</text>
+      <text x="20" y="75" font-size="7" fill="#3b5bdb">Факт. значение</text>
+      <text x="163" y="98" font-size="8">X</text><text x="4" y="12" font-size="8">Y</text>
+    </svg>
+    <ul class="small mb-0">
+      <li>Каждая точка — это наблюдение.</li>
+      <li>Красная линия — линия наилучшего приближения, минимизирующая ошибку.</li>
+      <li>Вертикальное расстояние — ошибка предсказания.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h2>4. Как найти $\beta_0$ и $\beta_1$?</h2>
+    <div class="formula-pink mb-2">$\beta_1 = \dfrac{\sum(X_i-\bar{X})(Y_i-\bar{Y})}{\sum(X_i-\bar{X})^2}$</div>
+    <div class="formula-pink mb-2">$\beta_0 = \bar{Y} - \beta_1\bar{X}$</div>
+    <ul class="small mb-0">
+      <li>$\bar{X}$: среднее значений X</li>
+      <li>$\bar{Y}$: среднее значений Y</li>
+      <li>$\beta_1$: наклон линии</li>
+      <li>$\beta_0$: свободный член (пересечение с осью Y)</li>
+    </ul>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>5. Пример расчёта</h2>
+    <p class="small mb-1">Даны данные (площадь дома vs цена):</p>
+    <table class="table table-bordered table-sm text-center small">
+      <thead class="table-light"><tr><th>Площадь (X)</th><th>Цена (Y)</th></tr></thead>
+      <tbody>
+        <tr><td>800</td><td>1.2</td></tr>
+        <tr><td>1000</td><td>1.5</td></tr>
+        <tr><td>1200</td><td>1.8</td></tr>
+        <tr><td>1400</td><td>2.1</td></tr>
+      </tbody>
+    </table>
+    <div class="solution-pink small">
+      <p class="fw-bold mb-1" style="color:#c2255c;">Решение (расчётное):</p>
+      <ul class="mb-1">
+        <li>$\beta_1$ (наклон) = 0.0015</li>
+        <li>$\beta_0$ (свободный член) = 0.0</li>
+      </ul>
+      <p class="mb-1">Уравнение регрессии: $Y = 0.0015X$</p>
+      <p class="mb-0">При X = 1000 предсказанная цена = 1.5</p>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h2>6. Прогнозирование</h2>
+    <p class="small">Если площадь дома = 1600 кв. футов, какова предсказанная цена?</p>
+    <div class="solution-pink small">
+      <p class="fw-bold mb-1" style="color:#c2255c;">По уравнению регрессии:</p>
+      <p class="mb-1">$Y = 0.0015 \times 1600 + 0.0$</p>
+      <p class="mb-0">$Y = 2.4$</p>
+    </div>
+    <p class="small mt-2">Итак, предсказанная цена для дома 1600 кв. футов равна 2.4 (в тех же единицах, например, миллионах).</p>
+    <h2>7. Оценка модели (метрики)</h2>
+    <ul class="small mb-0">
+      <li>MSE — средняя квадратичная ошибка (Mean Squared Error)</li>
+      <li>RMSE — корень из средней квадратичной ошибки (Root Mean Squared Error)</li>
+      <li>MAE — средняя абсолютная ошибка (Mean Absolute Error)</li>
+      <li>R² — коэффициент детерминации (показывает, насколько хорошо модель описывает данные)</li>
+      <li>Чем выше R² (ближе к 1), тем лучше.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>8. Предпосылки линейной регрессии (Assumptions)</h2>
+<div class="row row-cols-2 row-cols-md-4 g-2 mb-3 text-center">
+  <div class="col"><div class="card p-2"><div class="fw-bold small">Линейная зависимость</div>
+    <svg viewBox="0 0 100 65" width="100%" height="65"><line x1="10" y1="55" x2="95" y2="55" stroke="#333"/><line x1="10" y1="5" x2="10" y2="55" stroke="#333"/><circle cx="20" cy="48" r="2" fill="#3b5bdb"/><circle cx="35" cy="40" r="2" fill="#3b5bdb"/><circle cx="50" cy="32" r="2" fill="#3b5bdb"/><circle cx="65" cy="25" r="2" fill="#3b5bdb"/><circle cx="80" cy="15" r="2" fill="#3b5bdb"/><line x1="15" y1="50" x2="88" y2="12" stroke="#e03131" stroke-width="1.5"/><text x="3" y="8" font-size="7">Y</text><text x="90" y="63" font-size="7">X</text></svg></div></div>
+  <div class="col"><div class="card p-2"><div class="fw-bold small">Независимость ошибок</div>
+    <svg viewBox="0 0 100 65" width="100%" height="65"><line x1="10" y1="30" x2="95" y2="30" stroke="#333" stroke-dasharray="2"/><line x1="10" y1="55" x2="95" y2="55" stroke="#333"/><line x1="10" y1="5" x2="10" y2="55" stroke="#333"/><circle cx="20" cy="20" r="2" fill="#3b5bdb"/><circle cx="30" cy="38" r="2" fill="#3b5bdb"/><circle cx="42" cy="15" r="2" fill="#3b5bdb"/><circle cx="55" cy="42" r="2" fill="#3b5bdb"/><circle cx="68" cy="22" r="2" fill="#3b5bdb"/><circle cx="80" cy="35" r="2" fill="#3b5bdb"/><text x="3" y="8" font-size="7">Остатки</text><text x="90" y="63" font-size="7">X</text></svg></div></div>
+  <div class="col"><div class="card p-2"><div class="fw-bold small">Гомоскедастичность</div>
+    <svg viewBox="0 0 100 65" width="100%" height="65"><line x1="10" y1="30" x2="95" y2="30" stroke="#333" stroke-dasharray="2"/><line x1="10" y1="55" x2="95" y2="55" stroke="#333"/><line x1="10" y1="5" x2="10" y2="55" stroke="#333"/><circle cx="18" cy="25" r="2" fill="#3b5bdb"/><circle cx="28" cy="35" r="2" fill="#3b5bdb"/><circle cx="40" cy="22" r="2" fill="#3b5bdb"/><circle cx="52" cy="38" r="2" fill="#3b5bdb"/><circle cx="64" cy="24" r="2" fill="#3b5bdb"/><circle cx="76" cy="36" r="2" fill="#3b5bdb"/><circle cx="88" cy="26" r="2" fill="#3b5bdb"/><text x="3" y="8" font-size="7">Остатки</text><text x="90" y="63" font-size="7">X</text></svg></div></div>
+  <div class="col"><div class="card p-2"><div class="fw-bold small">Нормальность ошибок</div>
+    <svg viewBox="0 0 100 65" width="100%" height="65"><line x1="10" y1="55" x2="95" y2="55" stroke="#333"/><line x1="10" y1="5" x2="10" y2="55" stroke="#333"/><path d="M15,53 Q50,8 52,8 Q54,8 90,53" fill="#a5d8ff" fill-opacity="0.6" stroke="#1971c2" stroke-width="1.5"/><line x1="52" y1="8" x2="52" y2="53" stroke="#333" stroke-dasharray="2"/><text x="48" y="63" font-size="7">0</text><text x="3" y="8" font-size="7">Остатки</text></svg></div></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2>9. Применение в реальном мире</h2>
+    <div class="row row-cols-3 g-2">
+      <div class="col"><div class="app-card"><i class="bi bi-house-door-fill app-icon"></i><div class="small mt-1">Прогноз цен на жильё</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-megaphone-fill app-icon"></i><div class="small mt-1">Прогноз продаж</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-graph-up app-icon"></i><div class="small mt-1">Анализ маркетинговых кампаний</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-heart-pulse-fill app-icon"></i><div class="small mt-1">Прогноз расходов на здравоохранение</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-cash-stack app-icon"></i><div class="small mt-1">Финансы (прогноз акций)</div></div></div>
+      <div class="col"><div class="app-card"><i class="bi bi-people-fill app-icon"></i><div class="small mt-1">Прогноз спроса</div></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <h2>10. Ключевые выводы</h2>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Линейная регрессия предсказывает непрерывное значение с помощью линейного уравнения.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">$\beta_0$ — свободный член, $\beta_1$ — наклон.</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Качество модели измеряется через MSE, RMSE, MAE и R².</span></div>
+    <div class="check-item"><i class="bi bi-check-circle-fill"></i><span class="small">Широко применяется в финансах, здравоохранении, маркетинге и прогнозировании спроса.</span></div>
+  </div>
+</div>
+
+<div class="quote mt-2">«Линейная регрессия помогает найти простую линию, объясняющую связь между переменными.»</div>
+
+    <div class="card mb-1" style="max-width:800px;">
+            <img src="../quiz.avif"
+                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+            <div class="card-body">
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
+                                </div>
+                                <div id="quizformdataarray"></div>
+                                  <input type="text" class="form-control form-control-sm" id="feedback"
+                                  placeholder="Числовой ответ"
+                                  style="display: none;"
+                                  >
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                 </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+});
+</script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+      <script src="./vanillajscrudutilities.js"></script>
+      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="./bundle.js"></script>
+
+</body>
+</html>
