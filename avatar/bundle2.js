@@ -951,63 +951,38 @@
     updateFirebaseNode,
     loadState
   } = window.basicfirebasecrudservices;
-  function getRandomState(number = 3) {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let result = "";
-    for (let i = 0; i < number; i++) {
-      const randomIndex = Math.floor(Math.random() * alphabet.length);
-      result += alphabet[randomIndex];
-    }
-    return {
-      isMale: true,
-      email: result + "@yandex.ru",
-      user: result + " group",
-      avatarUrl: "https://econolabs.github.io/freelancer.jpg",
-      isLoading: true,
-      url: 'https://yourusername.gitverse.site/blog'
-    };
-  }
   function App() {
     const [state, dispatch] = React.useReducer(caseReducer, {
-      ...getRandomState(3)
+      isMale: true
     });
     React.useEffect(() => {
       async function getUserData() {
-        let applicationlocalstorage = await loadState()?.application;
-        console.log("applicationlocalstorage");
+        let applicationlocalstorage = loadState()?.application;
         console.log(applicationlocalstorage);
-        let email = !!applicationlocalstorage?.email ? applicationlocalstorage.email : state.email;
-        console.log(email);
-        let openavatar = await getFirebaseNode({
-          url: "openavatars/" + email.replace(/[^a-zA-Z0-9]/g, "_"),
+        let application = await getFirebaseNode({
+          url: "openavatars/" + !!applicationlocalstorage?.email ? applicationlocalstorage.email.replace(/[^a-zA-Z0-9]/g, "_") : `${Math.random().toString(36).substring(2, 11)}@yandex.ru`,
           type: "object"
         });
-        console.log(openavatar);
-
-        // let openavatars = await getFirebaseNode({
-        //   url:
-        //     "openavatars/",
-        //   type: "object",
-        // });
-        // console.log(openavatars);
-
-        let defaultuser = !!applicationlocalstorage && Object.keys(applicationlocalstorage).length > 1 ? applicationlocalstorage : {};
+        console.log(application);
         dispatch({
           type: "SEED_STATE",
           payload: {
             objects: {
-              ...defaultuser,
-              ...openavatar,
-              isLoading: false
+              ...applicationlocalstorage,
+              ...application
             }
           }
         });
-        return openavatar;
+
+        // console.log(
+        //   "openavatars/" + application?.email.replace(/[^a-zA-Z0-9]/g, "_"),
+        // );
+        return application;
       }
       getUserData().then(res => console.log(res));
     }, []);
-    console.log(state.isLoading);
-    if (state.isLoading) {
+    console.log(state);
+    if (Object.keys(state).length === 1) {
       return null;
     }
     function findUnspalshImageByGender(isMale) {
@@ -1075,14 +1050,10 @@
     const handleSubmit = e => {
       e.preventDefault();
       console.log(state);
-      let {
-        isLoading,
-        ...userdata
-      } = state;
       try {
         const serializedState = JSON.stringify({
           application: {
-            ...userdata
+            ...state
           }
         });
         localStorage.setItem("econolabs", serializedState);
@@ -1091,7 +1062,7 @@
       }
       let updates = {};
       updates["/openavatars/" + state.email.replace(/[^a-zA-Z0-9]/g, "_")] = {
-        ...userdata
+        ...state
       };
       console.log(updates);
       updateFirebaseNode(updates).then(() => {
@@ -1112,17 +1083,11 @@
     return /*#__PURE__*/React.createElement(reactBootstrap.Container, null, /*#__PURE__*/React.createElement("div", {
       className: "container mt-5"
     }), /*#__PURE__*/React.createElement(reactBootstrap.Container, null, /*#__PURE__*/React.createElement(reactBootstrap.Row, null, /*#__PURE__*/React.createElement(reactBootstrap.Col, null, /*#__PURE__*/React.createElement(reactBootstrap.Button, {
-      size: "sm",
       variant: "primary",
       onClick: () => findUnspalshImageByGender(state?.isMale)
-    }, "\u0414\u0440\u0443\u0433\u043E\u0439 \u0430\u0432\u0430\u0442\u0430\u0440")), /*#__PURE__*/React.createElement(reactBootstrap.Col, {
-      xs: 6,
-      sm: 4,
-      md: 3
-    }, /*#__PURE__*/React.createElement("img", {
+    }, "\u0414\u0440\u0443\u0433\u043E\u0439 \u0430\u0432\u0430\u0442\u0430\u0440")), /*#__PURE__*/React.createElement(reactBootstrap.Col, null, /*#__PURE__*/React.createElement("img", {
       src: state?.avatarUrl,
       style: {
-        margin: "5px",
         width: "64px",
         height: "64px",
         borderRadius: "50%",
@@ -1131,7 +1096,6 @@
       }
     })), /*#__PURE__*/React.createElement(reactBootstrap.Col, null, /*#__PURE__*/React.createElement(reactBootstrap.Button, {
       variant: "secondary",
-      size: "sm",
       onClick: () => {
         dispatch({
           type: "SEED_STATE",
@@ -1147,7 +1111,7 @@
       onSubmit: handleSubmit
     }, /*#__PURE__*/React.createElement(reactBootstrap.Form.Group, {
       className: "my-5"
-    }, /*#__PURE__*/React.createElement(reactBootstrap.Form.Label, null, "\u0424\u0430\u043C\u0438\u043B\u0438\u044F (3-4 \u0441\u043E\u0433\u043B\u0430\u0441\u043D\u044B\u0445) \u0438 \u0433\u0440\u0443\u043F\u043F\u0430 "), /*#__PURE__*/React.createElement(reactBootstrap.Form.Control, {
+    }, /*#__PURE__*/React.createElement(reactBootstrap.Form.Label, null, "\u0424\u0430\u043C\u0438\u043B\u0438\u044F (\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E 3-4 \u0441\u043E\u0433\u043B\u0430\u0441\u043D\u044B\u0445) \u0438 \u0433\u0440\u0443\u043F\u043F\u0430"), /*#__PURE__*/React.createElement(reactBootstrap.Form.Control, {
       type: "text",
       value: state?.user,
       onChange: e => dispatch({
@@ -1179,9 +1143,7 @@
       variant: "primary",
       type: "submit",
       className: "w-100"
-    }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")), /*#__PURE__*/React.createElement("p", {
-      class: "text-muted text-small"
-    }, state?.email));
+    }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
   }
   const container = document.getElementById("root");
   const root = client.createRoot(container);
