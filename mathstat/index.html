@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-   
+
     <script src="./quizesSets.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
     <script src="../dist/react18.3.1.production.min.js"></script>
@@ -12,14 +12,23 @@
     <script src="../dist/redux-toolkit.umd.min.js"></script>
     <script src="../dist/react-bootstrap1.6.8.min.js"></script>
 
-     <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js"></script> -->
+    <script src="../dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js"></script>
 
-     <script src="../dist/katex.min.js"></script>
-    
-      <link rel="stylesheet" href="../dist/original.css" />
-       <link rel="stylesheet" href="../dist/katex.min.css" />
+    <link rel="stylesheet" href="../dist/original.css" />
+    <link rel="stylesheet" href="../dist/katex.min.css" />
 
     <title>Теория вероятностей и математическая статистика</title>
+
+    <style>
+        /* Небольшое улучшение отображения формул KaTeX */
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 4px 0;
+        }
+        .katex { font-size: 1.05em; }
+    </style>
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
@@ -299,14 +308,10 @@
             </div>
         </div>
 
-        <!-- ================================================================ -->
-        <!--                  ДЕТАЛЬНЫЙ КОНТЕНТ ТЕМ                             -->
-        <!-- ================================================================ -->
-
         <!-- ==================== ТЕМА 1 ==================== -->
         <h1 class="text-primary">Тема 1. Элементы комбинаторики и основы теории вероятностей</h1>
 
-        <!-- 1.1 Основные понятия комбинаторики -->
+        <!-- 1.1 -->
         <div id="theme110" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Комбинаторика" style="filter: grayscale(1);">
             <div class="card-body">
@@ -324,13 +329,13 @@
                         <tbody>
                             <tr>
                                 <td><span class="badge bg-primary">Правило суммы</span></td>
-                                <td>Если элемент A можно выбрать m способами, а элемент B — n способами, то выбрать A или B можно m + n способами</td>
-                                <td>Выбор напитка из 3 видов чая и 2 видов кофе → 5 вариантов</td>
+                                <td>Если элемент \( A \) можно выбрать \( m \) способами, а элемент \( B \) — \( n \) способами, то выбрать \( A \) или \( B \) можно \( m + n \) способами</td>
+                                <td>Выбор напитка из 3 видов чая и 2 видов кофе → \( 3 + 2 = 5 \) вариантов</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-success">Правило произведения</span></td>
-                                <td>Если элемент A можно выбрать m способами, а элемент B — n способами, то выбрать пару (A, B) можно m × n способами</td>
-                                <td>Выбор напитка и десерта из 3 напитков и 4 десертов → 12 вариантов</td>
+                                <td>Если элемент \( A \) можно выбрать \( m \) способами, а элемент \( B \) — \( n \) способами, то выбрать пару \( (A, B) \) можно \( m \cdot n \) способами</td>
+                                <td>Выбор напитка и десерта из 3 напитков и 4 десертов → \( 3 \cdot 4 = 12 \) вариантов</td>
                             </tr>
                         </tbody>
                     </table>
@@ -341,14 +346,14 @@
             </div>
         </div>
 
-        <!-- 1.2 Перестановки, размещения, сочетания -->
+        <!-- 1.2 -->
         <div id="theme111" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Перестановки" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.2</span> Перестановки, размещения, сочетания</h3>
-                <p><strong>Перестановки</strong> — упорядоченные наборы из всех n элементов.</p>
-                <p><strong>Размещения</strong> — упорядоченные наборы из k элементов, выбранных из n.</p>
-                <p><strong>Сочетания</strong> — неупорядоченные наборы из k элементов, выбранных из n .</p>
+                <p><strong>Перестановки</strong> — упорядоченные наборы из всех \( n \) элементов.</p>
+                <p><strong>Размещения</strong> — упорядоченные наборы из \( k \) элементов, выбранных из \( n \).</p>
+                <p><strong>Сочетания</strong> — неупорядоченные наборы из \( k \) элементов, выбранных из \( n \).</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
@@ -361,34 +366,38 @@
                         <tbody>
                             <tr>
                                 <td><span class="badge bg-primary">Перестановки</span></td>
-                                <td><strong>Pₙ = n!</strong></td>
-                                <td>Сколькими способами можно расставить 5 книг на полке? 5! = 120</td>
+                                <td>\( P_n = n! \)</td>
+                                <td>Сколькими способами можно расставить 5 книг на полке? \( 5! = 120 \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-success">Размещения</span></td>
-                                <td><strong>Aₙᵏ = n! / (n−k)!</strong></td>
-                                <td>Сколько 3-значных чисел можно составить из 5 цифр? 5!/(5-3)! = 60</td>
+                                <td>\( A_n^k = \dfrac{n!}{(n-k)!} \)</td>
+                                <td>Сколько 3-значных чисел можно составить из 5 цифр? \( A_5^3 = \dfrac{5!}{2!} = 60 \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-info">Сочетания</span></td>
-                                <td><strong>Cₙᵏ = n! / (k!(n−k)!)</strong></td>
-                                <td>Сколькими способами можно выбрать 3 книги из 5? C₅³ = 10</td>
+                                <td>\( C_n^k = \dfrac{n!}{k!\,(n-k)!} \)</td>
+                                <td>Сколькими способами можно выбрать 3 книги из 5? \( C_5^3 = 10 \)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p><strong>Перестановки с повторениями</strong> (когда есть \( k \) групп одинаковых элементов объёмов \( n_1, \ldots, n_k \), \( n_1 + \cdots + n_k = n \)):</p>
+                <p>\( P_n(n_1, \ldots, n_k) = \dfrac{n!}{n_1!\,n_2!\cdots n_k!} \)</p>
+                <p><strong>Сочетания с повторениями</strong> (выбор \( k \) элементов из \( n \) типов с возвращением):</p>
+                <p>\( \bar{C}_n^k = C_{n+k-1}^{k} = \dfrac{(n+k-1)!}{k!\,(n-1)!} \)</p>
                 <div class="alert alert-warning">
                     <i class="fas fa-exclamation-triangle"></i> <strong>Важно:</strong> порядок важен для перестановок и размещений, но не важен для сочетаний.
                 </div>
             </div>
         </div>
 
-        <!-- 1.3 Случайные события и операции над ними -->
+        <!-- 1.3 -->
         <div id="theme112" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="События" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.3</span> Случайные события и операции над ними</h3>
-                <p><strong>Случайное событие</strong> — это исход, который может произойти или не произойти в результате эксперимента .</p>
+                <p><strong>Случайное событие</strong> — исход, который может произойти или не произойти в результате эксперимента.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
@@ -400,12 +409,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="badge bg-primary">Достоверное</span></td>
+                                <td><span class="badge bg-primary">Достоверное \( \Omega \)</span></td>
                                 <td>Происходит всегда</td>
                                 <td>При бросании кубика выпадет число от 1 до 6</td>
                             </tr>
                             <tr>
-                                <td><span class="badge bg-danger">Невозможное</span></td>
+                                <td><span class="badge bg-danger">Невозможное \( \varnothing \)</span></td>
                                 <td>Не может произойти</td>
                                 <td>При бросании кубика выпадет 7</td>
                             </tr>
@@ -420,45 +429,55 @@
                 <div class="alert alert-info">
                     <i class="fas fa-lightbulb"></i> <strong>Операции над событиями:</strong>
                     <ul>
-                        <li><strong>Объединение (A ∪ B)</strong> — произошло A или B</li>
-                        <li><strong>Пересечение (A ∩ B)</strong> — произошло A и B</li>
-                        <li><strong>Дополнение (¬A)</strong> — произошло не A</li>
+                        <li><strong>Объединение:</strong> \( A \cup B \) — произошло \( A \) или \( B \)</li>
+                        <li><strong>Пересечение:</strong> \( A \cap B \) — произошло \( A \) и \( B \)</li>
+                        <li><strong>Дополнение:</strong> \( \overline{A} \) — произошло не \( A \)</li>
+                        <li><strong>Разность:</strong> \( A \setminus B = A \cap \overline{B} \)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 1.4 Классическое и статистическое определение вероятности -->
+        <!-- 1.4 -->
         <div id="theme113" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Вероятность" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.4</span> Классическое и статистическое определение вероятности</h3>
-                <p><strong>Классическое определение:</strong> вероятность события A равна отношению числа благоприятных исходов к общему числу равновозможных исходов .</p>
-                <p><strong>P(A) = m / n</strong>, где m — число благоприятных исходов, n — общее число исходов.</p>
+                <p><strong>Классическое определение:</strong> вероятность события \( A \) равна отношению числа благоприятных исходов к общему числу равновозможных исходов.</p>
+                <p>\( \displaystyle P(A) = \frac{m}{n} \), где \( m \) — число благоприятных исходов, \( n \) — общее число исходов.</p>
+                <p>Свойства вероятности:</p>
+                <ul>
+                    <li>\( 0 \leq P(A) \leq 1 \)</li>
+                    <li>\( P(\Omega) = 1 \), \( P(\varnothing) = 0 \)</li>
+                    <li>\( P(\overline{A}) = 1 - P(A) \)</li>
+                </ul>
                 <div class="alert alert-secondary">
-                    <strong>Статистическое определение:</strong> вероятность события A — это предел относительной частоты его появления при большом числе испытаний.
+                    <strong>Статистическое определение:</strong> вероятность события \( A \) — это предел относительной частоты его появления при большом числе испытаний:
+                    \[ P(A) \approx \frac{m}{n} \quad \text{при } n \to \infty \]
                 </div>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Пример:</strong> Вероятность выпадения орла при подбрасывании монеты = 1/2 = 0.5.
+                    <i class="fas fa-lightbulb"></i> <strong>Пример:</strong> вероятность выпадения орла при подбрасывании монеты \( \displaystyle = \frac{1}{2} = 0.5 \).
                 </div>
             </div>
         </div>
 
-        <!-- 1.5 Геометрическая вероятность -->
+        <!-- 1.5 -->
         <div id="theme114" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Геометрическая вероятность" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.5</span> Геометрическая вероятность</h3>
-                <p><strong>Геометрическая вероятность</strong> — это вероятность попадания точки в область, определяемая отношением мер областей .</p>
+                <p><strong>Геометрическая вероятность</strong> — вероятность попадания точки в область, определяемая отношением мер областей.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong> P(A) = (мера области A) / (мера всей области)
+                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong>
+                    \[ P(A) = \frac{\text{мера области } A}{\text{мера всей области}} \]
+                    где в качестве меры может выступать длина, площадь или объём.
                 </div>
-                <p><strong>Пример:</strong> Какова вероятность, что точка, брошенная в круг радиуса R, попадёт в меньший круг радиуса r?</p>
-                <p>P = (πr²) / (πR²) = r² / R²</p>
+                <p><strong>Пример:</strong> какова вероятность, что точка, брошенная в круг радиуса \( R \), попадёт в меньший круг радиуса \( r \)?</p>
+                \[ P = \frac{\pi r^2}{\pi R^2} = \frac{r^2}{R^2} \]
             </div>
         </div>
 
-        <!-- 1.6 Теоремы сложения и умножения вероятностей -->
+        <!-- 1.6 -->
         <div id="theme115" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="Теоремы" style="filter: grayscale(1);">
             <div class="card-body">
@@ -475,66 +494,79 @@
                         <tbody>
                             <tr>
                                 <td><span class="badge bg-primary">Сложения для несовместных</span></td>
-                                <td>P(A ∪ B) = P(A) + P(B)</td>
-                                <td>Вероятность выпадения 1 или 2 на кубике = 1/6 + 1/6 = 1/3</td>
+                                <td>\( P(A \cup B) = P(A) + P(B) \)</td>
+                                <td>\( P(1 \text{ или } 2) = \frac{1}{6} + \frac{1}{6} = \frac{1}{3} \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-success">Сложения для совместных</span></td>
-                                <td>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</td>
-                                <td>P(число > 3 или чётное) = 1/2 + 1/2 − 1/3 = 2/3</td>
+                                <td>\( P(A \cup B) = P(A) + P(B) - P(A \cap B) \)</td>
+                                <td>\( P(\text{число} > 3 \text{ или чётное}) = \frac{1}{2} + \frac{1}{2} - \frac{1}{3} = \frac{2}{3} \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-info">Умножения для независимых</span></td>
-                                <td>P(A ∩ B) = P(A) × P(B)</td>
-                                <td>Вероятность выпадения орла дважды = 1/2 × 1/2 = 1/4</td>
+                                <td>\( P(A \cap B) = P(A) \cdot P(B) \)</td>
+                                <td>\( P(\text{орёл дважды}) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4} \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-warning">Умножения общая</span></td>
-                                <td>P(A ∩ B) = P(A) × P(B|A)</td>
+                                <td>\( P(A \cap B) = P(A) \cdot P(B \mid A) \)</td>
                                 <td>Вероятность вытянуть два туза подряд из колоды</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div class="alert alert-secondary">
+                    <strong>Обобщение:</strong> для нескольких событий
+                    \[ P(A_1 \cap \cdots \cap A_n) = P(A_1) \cdot P(A_2 \mid A_1) \cdots P(A_n \mid A_1 \cap \cdots \cap A_{n-1}) \]
+                </div>
             </div>
         </div>
 
-        <!-- 1.7 Условная вероятность и независимость -->
+        <!-- 1.7 -->
         <div id="theme116" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Условная вероятность" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.7</span> Условная вероятность и независимость событий</h3>
-                <p><strong>Условная вероятность</strong> P(B|A) — это вероятность события B при условии, что событие A уже произошло .</p>
+                <p><strong>Условная вероятность</strong> \( P(B \mid A) \) — вероятность события \( B \) при условии, что событие \( A \) уже произошло.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong> P(B|A) = P(A ∩ B) / P(A), если P(A) > 0
+                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong>
+                    \[ P(B \mid A) = \frac{P(A \cap B)}{P(A)}, \quad P(A) > 0 \]
                 </div>
-                <p><strong>Независимые события:</strong> A и B независимы, если P(B|A) = P(B) .</p>
-                <p><strong>Пример:</strong> Вероятность выпадения орла при втором подбрасывании не зависит от результата первого.</p>
+                <p><strong>Независимые события:</strong> \( A \) и \( B \) независимы, если</p>
+                \[ P(A \cap B) = P(A) \cdot P(B) \quad \Leftrightarrow \quad P(B \mid A) = P(B) \]
+                <p><strong>Пример:</strong> вероятность выпадения орла при втором подбрасывании не зависит от результата первого.</p>
             </div>
         </div>
 
-        <!-- 1.8 Формула полной вероятности -->
+        <!-- 1.8 -->
         <div id="theme117" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Формула полной вероятности" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.8</span> Формула полной вероятности</h3>
-                <p><strong>Формула полной вероятности</strong> позволяет найти вероятность события A, если известны вероятности гипотез H₁, H₂, ..., Hₙ и условные вероятности A при каждой гипотезе .</p>
+                <p><strong>Формула полной вероятности</strong> позволяет найти вероятность события \( A \), если известны вероятности гипотез \( H_1, \ldots, H_n \) (образующих полную группу) и условные вероятности \( A \) при каждой гипотезе.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong> P(A) = Σ P(Hᵢ) × P(A|Hᵢ)
+                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong>
+                    \[ P(A) = \sum_{i=1}^{n} P(H_i) \cdot P(A \mid H_i) \]
                 </div>
-                <p><strong>Пример:</strong> На складе 3 поставщика. Вероятность брака у каждого: 1%, 2%, 3%. Доли поставок: 50%, 30%, 20%. Какова общая вероятность брака?</p>
-                <p>P = 0.5×0.01 + 0.3×0.02 + 0.2×0.03 = 0.005 + 0.006 + 0.006 = 0.017 = 1.7%</p>
+                <p><strong>Пример:</strong> на складе 3 поставщика. Вероятность брака: 1%, 2%, 3%. Доли поставок: 50%, 30%, 20%. Какова общая вероятность брака?</p>
+                \[
+                \begin{aligned}
+                P &= 0.5 \cdot 0.01 + 0.3 \cdot 0.02 + 0.2 \cdot 0.03 \\
+                  &= 0.005 + 0.006 + 0.006 = 0.017 = 1.7\%
+                \end{aligned}
+                \]
             </div>
         </div>
 
-        <!-- 1.9 Формула Байеса -->
+        <!-- 1.9 -->
         <div id="theme118" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Формула Байеса" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.9</span> Формула Байеса</h3>
-                <p><strong>Формула Байеса</strong> позволяет пересчитать вероятности гипотез после того, как событие A произошло .</p>
+                <p><strong>Формула Байеса</strong> позволяет пересчитать вероятности гипотез после того, как событие \( A \) произошло.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong> P(Hᵢ|A) = P(Hᵢ) × P(A|Hᵢ) / P(A)
+                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong>
+                    \[ P(H_i \mid A) = \frac{P(H_i) \cdot P(A \mid H_i)}{P(A)} = \frac{P(H_i) \cdot P(A \mid H_i)}{\sum_{j=1}^{n} P(H_j) \cdot P(A \mid H_j)} \]
                 </div>
                 <div class="alert alert-success">
                     <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> спам-фильтры, диагностика систем, машинное обучение (наивный байесовский классификатор).
@@ -542,30 +574,32 @@
             </div>
         </div>
 
-        <!-- 1.10 Схема Бернулли -->
+        <!-- 1.10 -->
         <div id="theme119" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Схема Бернулли" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">1.10</span> Схема Бернулли. Формула Бернулли</h3>
-                <p><strong>Схема Бернулли</strong> — это последовательность n независимых испытаний, в каждом из которых событие A происходит с вероятностью p .</p>
+                <p><strong>Схема Бернулли</strong> — последовательность \( n \) независимых испытаний, в каждом из которых событие \( A \) происходит с вероятностью \( p \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула Бернулли:</strong> Pₙ(k) = Cₙᵏ × pᵏ × (1−p)ⁿ⁻ᵏ
+                    <i class="fas fa-lightbulb"></i> <strong>Формула Бернулли:</strong>
+                    \[ P_n(k) = C_n^k \cdot p^k \cdot (1-p)^{\,n-k}, \quad k = 0, 1, \ldots, n \]
                 </div>
-                <p>где k — число успехов в n испытаниях.</p>
-                <p><strong>Пример:</strong> Вероятность того, что при 5 подбрасываниях монеты орёл выпадет ровно 3 раза:</p>
-                <p>P₅(3) = C₅³ × (1/2)³ × (1/2)² = 10 × 1/8 × 1/4 = 10/32 = 0.3125</p>
+                <p><strong>Пример:</strong> вероятность того, что при 5 подбрасываниях монеты орёл выпадет ровно 3 раза:</p>
+                \[ P_5(3) = C_5^3 \cdot \left(\tfrac{1}{2}\right)^3 \cdot \left(\tfrac{1}{2}\right)^2 = 10 \cdot \tfrac{1}{8} \cdot \tfrac{1}{4} = \tfrac{10}{32} = 0.3125 \]
+                <p><strong>Наивероятнейшее число успехов</strong> \( k_0 \) находится из двойного неравенства:</p>
+                \[ np - q \;\leq\; k_0 \;\leq\; np + p, \quad q = 1 - p \]
             </div>
         </div>
 
         <!-- ==================== ТЕМА 2 ==================== -->
         <h1 class="text-primary">Тема 2. Случайные величины и их распределения</h1>
 
-        <!-- 2.1 Понятие случайной величины -->
+        <!-- 2.1 -->
         <div id="theme220" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Случайные величины" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.1</span> Понятие случайной величины</h3>
-                <p><strong>Случайная величина</strong> — это величина, которая в результате эксперимента принимает одно из множества значений, причём заранее неизвестно, какое именно .</p>
+                <p><strong>Случайная величина</strong> — величина, которая в результате эксперимента принимает одно из множества значений, причём заранее неизвестно, какое именно.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
@@ -592,79 +626,87 @@
             </div>
         </div>
 
-        <!-- 2.2 Дискретные случайные величины -->
+        <!-- 2.2 -->
         <div id="theme221" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Дискретные величины" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.2</span> Дискретные случайные величины</h3>
-                <p><strong>Ряд распределения</strong> дискретной случайной величины — это соответствие между значениями и их вероятностями .</p>
+                <p><strong>Ряд распределения</strong> дискретной случайной величины — соответствие между значениями и их вероятностями.</p>
                 <div class="alert alert-info">
                     <i class="fas fa-lightbulb"></i> <strong>Свойства ряда распределения:</strong>
                     <ul>
-                        <li>Σ Pᵢ = 1 (сумма всех вероятностей равна 1)</li>
-                        <li>Pᵢ ≥ 0 для всех i</li>
+                        <li>\( P_i \geq 0 \) для всех \( i \)</li>
+                        <li>\( \displaystyle \sum_i P_i = 1 \)</li>
                     </ul>
                 </div>
-                <p><strong>Пример:</strong> Бросание кубика. Ряд распределения: X = {1, 2, 3, 4, 5, 6}, P = {1/6, 1/6, 1/6, 1/6, 1/6, 1/6}</p>
+                <p><strong>Пример:</strong> бросание кубика.</p>
+                \[
+                \begin{array}{c|cccccc}
+                X & 1 & 2 & 3 & 4 & 5 & 6 \\
+                \hline
+                P & \tfrac{1}{6} & \tfrac{1}{6} & \tfrac{1}{6} & \tfrac{1}{6} & \tfrac{1}{6} & \tfrac{1}{6}
+                \end{array}
+                \]
             </div>
         </div>
 
-        <!-- 2.3 Непрерывные случайные величины -->
+        <!-- 2.3 -->
         <div id="theme222" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Непрерывные величины" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.3</span> Непрерывные случайные величины</h3>
-                <p><strong>Непрерывная случайная величина</strong> описывается плотностью распределения вероятностей .</p>
+                <p><strong>Непрерывная случайная величина</strong> описывается плотностью распределения вероятностей \( f(x) \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Свойства плотности f(x):</strong>
+                    <i class="fas fa-lightbulb"></i> <strong>Свойства плотности \( f(x) \):</strong>
                     <ul>
-                        <li>f(x) ≥ 0 для всех x</li>
-                        <li>∫ f(x) dx = 1 (интеграл по всей области равен 1)</li>
-                        <li>P(a < X < b) = ∫ₐᵇ f(x) dx</li>
+                        <li>\( f(x) \geq 0 \) для всех \( x \)</li>
+                        <li>\( \displaystyle \int_{-\infty}^{+\infty} f(x)\,dx = 1 \)</li>
+                        <li>\( \displaystyle P(a < X < b) = \int_a^b f(x)\,dx \)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 2.4 Функция распределения -->
+        <!-- 2.4 -->
         <div id="theme223" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title14.jpg" alt="Функция распределения" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.4</span> Функция распределения и её свойства</h3>
-                <p><strong>Функция распределения</strong> F(x) = P(X < x) — это вероятность того, что случайная величина X примет значение меньше x .</p>
+                <p><strong>Функция распределения</strong> \( F(x) = P(X < x) \) — вероятность того, что случайная величина \( X \) примет значение меньше \( x \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Свойства F(x):</strong>
+                    <i class="fas fa-lightbulb"></i> <strong>Свойства \( F(x) \):</strong>
                     <ul>
-                        <li>0 ≤ F(x) ≤ 1</li>
-                        <li>F(x) — неубывающая функция</li>
-                        <li>lim F(x) = 0 при x → −∞</li>
-                        <li>lim F(x) = 1 при x → +∞</li>
-                        <li>P(a < X < b) = F(b) − F(a)</li>
+                        <li>\( 0 \leq F(x) \leq 1 \)</li>
+                        <li>\( F(x) \) — неубывающая</li>
+                        <li>\( \displaystyle \lim_{x \to -\infty} F(x) = 0 \)</li>
+                        <li>\( \displaystyle \lim_{x \to +\infty} F(x) = 1 \)</li>
+                        <li>\( P(a < X < b) = F(b) - F(a) \)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 2.5 Плотность распределения -->
+        <!-- 2.5 -->
         <div id="theme224" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title15.jpg" alt="Плотность" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.5</span> Плотность распределения вероятностей</h3>
-                <p><strong>Плотность распределения</strong> f(x) = F'(x) — это производная функции распределения (для непрерывных величин) .</p>
+                <p><strong>Плотность распределения</strong> \( f(x) = F'(x) \) — производная функции распределения (для непрерывных величин).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Связь:</strong> F(x) = ∫ f(t) dt (от −∞ до x)
+                    <i class="fas fa-lightbulb"></i> <strong>Связь:</strong>
+                    \[ F(x) = \int_{-\infty}^{x} f(t)\,dt \]
                 </div>
-                <p><strong>Пример:</strong> Нормальное распределение имеет плотность:</p>
-                <p><code>f(x) = (1/√(2πσ²)) × exp(−(x−μ)²/(2σ²))</code></p>
+                <p><strong>Пример:</strong> нормальное распределение имеет плотность</p>
+                \[ f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) \]
             </div>
         </div>
 
-        <!-- 2.6 Математическое ожидание -->
+        <!-- 2.6 -->
         <div id="theme225" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Математическое ожидание" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.6</span> Математическое ожидание</h3>
-                <p><strong>Математическое ожидание</strong> — это среднее значение случайной величины .</p>
+                <p><strong>Математическое ожидание</strong> — среднее значение случайной величины.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
@@ -676,33 +718,33 @@
                         <tbody>
                             <tr>
                                 <td><span class="badge bg-primary">Дискретная</span></td>
-                                <td>M(X) = Σ xᵢ × P(xᵢ)</td>
+                                <td>\( M(X) = \displaystyle \sum_i x_i \cdot P(x_i) \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-success">Непрерывная</span></td>
-                                <td>M(X) = ∫ x × f(x) dx</td>
+                                <td>\( M(X) = \displaystyle \int_{-\infty}^{+\infty} x \cdot f(x)\,dx \)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Свойства M(X):</strong>
+                    <i class="fas fa-lightbulb"></i> <strong>Свойства \( M(X) \):</strong>
                     <ul>
-                        <li>M(c) = c (константа)</li>
-                        <li>M(cX) = c×M(X)</li>
-                        <li>M(X+Y) = M(X) + M(Y)</li>
-                        <li>Для независимых: M(XY) = M(X)×M(Y)</li>
+                        <li>\( M(c) = c \)</li>
+                        <li>\( M(cX) = c \cdot M(X) \)</li>
+                        <li>\( M(X+Y) = M(X) + M(Y) \)</li>
+                        <li>\( M(XY) = M(X) \cdot M(Y) \) для независимых \( X, Y \)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 2.7 Дисперсия -->
+        <!-- 2.7 -->
         <div id="theme226" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Дисперсия" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.7</span> Дисперсия и среднее квадратическое отклонение</h3>
-                <p><strong>Дисперсия</strong> D(X) — мера разброса случайной величины относительно математического ожидания .</p>
+                <p><strong>Дисперсия</strong> \( D(X) \) — мера разброса случайной величины относительно математического ожидания.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
@@ -714,71 +756,77 @@
                         <tbody>
                             <tr>
                                 <td><span class="badge bg-primary">Дискретная</span></td>
-                                <td>D(X) = Σ (xᵢ − M(X))² × P(xᵢ)</td>
+                                <td>\( D(X) = \displaystyle \sum_i (x_i - M(X))^2 \cdot P(x_i) \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-success">Непрерывная</span></td>
-                                <td>D(X) = ∫ (x − M(X))² × f(x) dx</td>
+                                <td>\( D(X) = \displaystyle \int_{-\infty}^{+\infty} (x - M(X))^2 f(x)\,dx \)</td>
                             </tr>
                             <tr>
                                 <td><span class="badge bg-info">Упрощённая</span></td>
-                                <td>D(X) = M(X²) − (M(X))²</td>
+                                <td>\( D(X) = M(X^2) - \big(M(X)\big)^2 \)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p><strong>Свойства:</strong> \( D(c) = 0 \), \( D(cX) = c^2 D(X) \), \( D(X+Y) = D(X) + D(Y) \) для независимых \( X, Y \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Среднее квадратическое отклонение:</strong> σ(X) = √D(X)
+                    <i class="fas fa-lightbulb"></i> <strong>Среднее квадратическое отклонение:</strong>
+                    \[ \sigma(X) = \sqrt{D(X)} \]
                 </div>
             </div>
         </div>
 
-        <!-- 2.8 Биномиальное распределение -->
+        <!-- 2.8 -->
         <div id="theme227" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Биномиальное распределение" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.8</span> Биномиальное распределение</h3>
-                <p><strong>Биномиальное распределение</strong> — распределение числа успехов в схеме Бернулли .</p>
+                <p><strong>Биномиальное распределение</strong> — распределение числа успехов в схеме Бернулли.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Параметры:</strong> n (число испытаний), p (вероятность успеха)
+                    <i class="fas fa-lightbulb"></i> <strong>Параметры:</strong> \( n \) (число испытаний), \( p \) (вероятность успеха).
                 </div>
-                <p><strong>P(X = k) = Cₙᵏ × pᵏ × (1−p)ⁿ⁻ᵏ</strong></p>
+                \[ P(X = k) = C_n^k \cdot p^k \cdot (1-p)^{\,n-k}, \quad k = 0, 1, \ldots, n \]
+                <p><strong>Рекуррентная формула:</strong></p>
+                \[ P(X = k+1) = P(X = k) \cdot \frac{n-k}{k+1} \cdot \frac{p}{1-p} \]
                 <div class="alert alert-secondary">
                     <strong>Характеристики:</strong>
                     <ul>
-                        <li>M(X) = n × p</li>
-                        <li>D(X) = n × p × (1−p)</li>
+                        <li>\( M(X) = n p \)</li>
+                        <li>\( D(X) = n p (1-p) \)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 2.9 Распределение Пуассона -->
+        <!-- 2.9 -->
         <div id="theme228" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Распределение Пуассона" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">2.9</span> Распределение Пуассона</h3>
-                <p><strong>Распределение Пуассона</strong> — предельный случай биномиального распределения при n → ∞, p → 0, np = λ .</p>
+                <p><strong>Распределение Пуассона</strong> — предельный случай биномиального при \( n \to \infty \), \( p \to 0 \), \( np = \lambda \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong> P(X = k) = (λᵏ / k!) × e⁻λ
+                    <i class="fas fa-lightbulb"></i> <strong>Формула:</strong>
+                    \[ P(X = k) = \frac{\lambda^k}{k!} \, e^{-\lambda}, \quad k = 0, 1, 2, \ldots \]
                 </div>
+                <p><strong>Рекуррентная формула:</strong></p>
+                \[ P(X = k+1) = P(X = k) \cdot \frac{\lambda}{k+1} \]
+                <p><strong>Характеристики:</strong> \( M(X) = \lambda \), \( D(X) = \lambda \).</p>
                 <div class="alert alert-success">
                     <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> моделирование количества запросов на сервер, числа ошибок в коде, трафика в сети.
                 </div>
             </div>
         </div>
 
-        <!-- 2.10 Нормальное распределение -->
+        <!-- 2.10 -->
         <div id="theme229" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Нормальное распределение" style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title"><span class="badge-method mr-2">2.10</span> Нормальное распределение (распределение Гаусса)</h3>
-                <p><strong>Нормальное распределение</strong> — это наиболее распространённое непрерывное распределение .</p>
+                <h3 class="card-title"><span class="badge-method mr-2">2.10</span> Нормальное распределение (Гаусса)</h3>
+                <p><strong>Нормальное распределение</strong> — наиболее распространённое непрерывное распределение.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Плотность:</strong> f(x) = (1/(σ√(2π))) × exp(−(x−μ)²/(2σ²))
-                </div>
-                <div class="alert alert-success">
-                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> анализ производительности, обработка сигналов, машинное обучение, статистический анализ данных.
+                    <i class="fas fa-lightbulb"></i> <strong>Плотность:</strong>
+                    \[ f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) \]
                 </div>
                 <div class="table-responsive">
                     <table class="table">
@@ -791,946 +839,572 @@
                         <tbody>
                             <tr>
                                 <td>Математическое ожидание</td>
-                                <td>μ (среднее)</td>
+                                <td>\( M(X) = \mu \)</td>
                             </tr>
                             <tr>
                                 <td>Дисперсия</td>
-                                <td>σ²</td>
+                                <td>\( D(X) = \sigma^2 \)</td>
                             </tr>
                             <tr>
                                 <td>Правило трёх сигм</td>
-                                <td>P(μ−3σ < X < μ+3σ) ≈ 0.997</td>
+                                <td>\( P(\mu - 3\sigma < X < \mu + 3\sigma) \approx 0.997 \)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-
-     
- <!-- ==================== ТЕМА 3 ==================== -->
-<h1 class="text-primary">Тема 3. Предельные теоремы и закон больших чисел</h1>
-
-<!-- 3.1 Неравенство Чебышева -->
-<div id="theme330" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Неравенство Чебышева" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.1</span> Неравенство Чебышева</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Основная формула</h5>
-            <p class="mb-0"><strong>P(|X − M(X)| ≥ ε) ≤ D(X) / ε²</strong></p>
-        </div>
-        
-        <p><strong>Неравенство Чебышева</strong> даёт оценку вероятности того, что случайная величина отклонится от своего математического ожидания не менее чем на заданную величину ε.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Смысл неравенства</h5>
-            <ul class="mb-0">
-                <li>Даёт <strong>верхнюю границу</strong> вероятности больших отклонений</li>
-                <li>Работает для <strong>любых</strong> распределений</li>
-                <li>Чем больше дисперсия, тем выше вероятность отклонения</li>
-                <li>Чем больше ε, тем меньше вероятность отклонения</li>
-            </ul>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">📝 Следствие</h5>
-            <p class="mb-0"><strong>P(|X − M(X)| < ε) ≥ 1 − D(X) / ε²</strong></p>
-            <small>Вероятность того, что отклонение будет меньше ε, не менее указанной величины.</small>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Обозначение</th>
-                        <th>Описание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>X</code></td>
-                        <td>Случайная величина</td>
-                    </tr>
-                    <tr>
-                        <td><code>M(X)</code></td>
-                        <td>Математическое ожидание</td>
-                    </tr>
-                    <tr>
-                        <td><code>D(X)</code></td>
-                        <td>Дисперсия</td>
-                    </tr>
-                    <tr>
-                        <td><code>ε</code></td>
-                        <td>Допустимое отклонение (ε > 0)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Пусть D(X) = 1, ε = 3. Тогда:</p>
-            <p class="mb-0"><strong>P(|X − M(X)| ≥ 3) ≤ 1/9 ≈ 0.111</strong></p>
-            <small>Вероятность отклонения более чем на 3 не превышает 11.1%.</small>
-        </div>
-        
-        <div class="alert alert-warning">
-            <h5 class="mb-2">⚠️ Важно</h5>
-            <p class="mb-0">Оценка может быть <strong>грубой</strong>. Для нормального распределения реальная вероятность значительно меньше.</p>
-        </div>
-    </div>
-</div>
-
-<!-- 3.2 Закон больших чисел -->
-<div id="theme331" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Закон больших чисел" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.2</span> Закон больших чисел</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Теорема Чебышева</h5>
-            <p class="mb-0">Если X₁, X₂, ..., Xₙ — независимые случайные величины с конечными дисперсиями, ограниченными одной константой C, то:</p>
-            <p class="mb-0 mt-1"><strong>(1/n)ΣXᵢ → M(X) при n → ∞ (по вероятности)</strong></p>
-        </div>
-        
-        <p><strong>Закон больших чисел</strong> — фундаментальный результат, утверждающий, что среднее арифметическое большого числа случайных величин сходится к их математическому ожиданию.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Суть закона</h5>
-            <ul class="mb-0">
-                <li>При увеличении числа испытаний <strong>относительная частота</strong> события стремится к его вероятности</li>
-                <li>Среднее арифметическое <strong>стремится к математическому ожиданию</strong></li>
-                <li>Ошибка уменьшается <strong>пропорционально 1/√n</strong></li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Форма закона</th>
-                        <th>Формулировка</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Теорема Бернулли</strong></td>
-                        <td>Частота успеха → p (вероятность успеха)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Теорема Чебышева</strong></td>
-                        <td>Среднее арифметическое → M(X)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Усиленный ЗБЧ</strong></td>
-                        <td>Сходимость почти наверное (не только по вероятности)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>При подбрасывании монеты 10 раз доля орлов может быть 0.7 или 0.3.</p>
-            <p>При 1000 бросках доля орлов будет ≈ <strong>0.5</strong>.</p>
-            <p class="mb-0">При 1 000 000 бросках ошибка будет <strong>менее 0.001</strong>.</p>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">💻 Применение в ИТ</h5>
-            <ul class="mb-0">
-                <li><strong>Метод Монте-Карло</strong> — численное интегрирование и моделирование</li>
-                <li><strong>Оценка качества</strong> генераторов случайных чисел</li>
-                <li><strong>Машинное обучение</strong> — оценка параметров на больших данных</li>
-                <li><strong>Статистическое тестирование</strong> — проверка гипотез</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 3.3 Центральная предельная теорема -->
-<div id="theme332" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="ЦПТ" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.3</span> Центральная предельная теорема</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Формулировка ЦПТ</h5>
-            <p class="mb-0">Пусть X₁, X₂, ..., Xₙ — независимые одинаково распределённые случайные величины с M(Xᵢ) = μ и D(Xᵢ) = σ². Тогда:</p>
-            <p class="mb-0 mt-1"><strong>Zₙ = (ΣXᵢ − nμ) / (σ√n) → N(0, 1) при n → ∞</strong></p>
-        </div>
-        
-        <p><strong>Центральная предельная теорема (ЦПТ)</strong> — один из важнейших результатов теории вероятностей. Она объясняет, почему нормальное распределение так часто встречается в природе и статистике.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Ключевые идеи</h5>
-            <ul class="mb-0">
-                <li>Сумма большого числа случайных величин <strong>≈ нормальное распределение</strong></li>
-                <li>Исходные распределения <strong>могут быть любыми</strong> (не обязательно нормальными)</li>
-                <li>Сходимость тем быстрее, чем <strong>симметричнее</strong> исходное распределение</li>
-                <li>Дисперсия суммы растёт <strong>линейно</strong> с n</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Обозначение</th>
-                        <th>Описание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Сумма</td>
-                        <td>Sₙ = ΣXᵢ</td>
-                        <td>Сумма n случайных величин</td>
-                    </tr>
-                    <tr>
-                        <td>Математическое ожидание суммы</td>
-                        <td>nμ</td>
-                        <td>Среднее значение суммы</td>
-                    </tr>
-                    <tr>
-                        <td>СКО суммы</td>
-                        <td>σ√n</td>
-                        <td>Стандартное отклонение суммы</td>
-                    </tr>
-                    <tr>
-                        <td>Нормированная сумма</td>
-                        <td>Zₙ</td>
-                        <td>Приводит к стандартному нормальному распределению</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Сумма 100 бросков кубика (равномерное распределение) имеет распределение, близкое к нормальному с параметрами:</p>
-            <ul class="mb-0">
-                <li>μ = 3.5 (среднее одного броска)</li>
-                <li>σ² ≈ 2.917 (дисперсия одного броска)</li>
-                <li>S₁₀₀ ≈ N(350, 291.7)</li>
-                <li>Z₁₀₀ = (S₁₀₀ − 350) / √291.7 ≈ N(0, 1)</li>
-            </ul>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">💻 Применение в ИТ</h5>
-            <ul class="mb-0">
-                <li><strong>Машинное обучение</strong> — обоснование использования нормального распределения</li>
-                <li><strong>Статистический вывод</strong> — построение доверительных интервалов</li>
-                <li><strong>Обработка сигналов</strong> — анализ шумов</li>
-                <li><strong>А/B-тестирование</strong> — проверка гипотез</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 3.4 Теоремы Муавра-Лапласа -->
-<div id="theme333" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Муавр-Лаплас" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.4</span> Теоремы Муавра-Лапласа</h3>
-        
-        <p><strong>Теоремы Муавра-Лапласа</strong> — это частный случай ЦПТ для схемы Бернулли. Они позволяют приближённо вычислять вероятности для больших n.</p>
-        
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <div class="card border-primary h-100">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Локальная теорема</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Pₙ(k) ≈ (1/√(npq)) × φ(x)</strong></p>
-                        <p>где <strong>x = (k − np) / √(npq)</strong></p>
-                        <p>φ(x) = (1/√(2π)) × e^(−x²/2)</p>
-                        <small>Применяется для нахождения вероятности конкретного значения k.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card border-success h-100">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Интегральная теорема</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>P(k₁ < k < k₂) ≈ Φ(x₂) − Φ(x₁)</strong></p>
-                        <p>где <strong>x = (k − np) / √(npq)</strong></p>
-                        <p>Φ(x) = (1/√(2π)) ∫₀ˣ e^(−t²/2) dt</p>
-                        <small>Применяется для нахождения вероятности попадания в интервал.</small>
-                    </div>
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> анализ производительности, обработка сигналов, машинное обучение, статистический анализ данных.
                 </div>
             </div>
         </div>
-        
-        <div class="alert alert-info mt-3">
-            <h5 class="mb-2">💡 Условия применения</h5>
-            <ul class="mb-0">
-                <li>n должно быть <strong>достаточно большим</strong> (обычно n > 30)</li>
-                <li>npq должно быть <strong>не слишком малым</strong> (обычно npq > 10)</li>
-                <li>Чем больше n, тем <strong>точнее</strong> приближение</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Обозначение</th>
-                        <th>Описание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>n</td>
-                        <td>—</td>
-                        <td>Число испытаний</td>
-                    </tr>
-                    <tr>
-                        <td>p</td>
-                        <td>—</td>
-                        <td>Вероятность успеха</td>
-                    </tr>
-                    <tr>
-                        <td>q</td>
-                        <td>1 − p</td>
-                        <td>Вероятность неудачи</td>
-                    </tr>
-                    <tr>
-                        <td>k</td>
-                        <td>—</td>
-                        <td>Число успехов</td>
-                    </tr>
-                    <tr>
-                        <td>np</td>
-                        <td>—</td>
-                        <td>Математическое ожидание</td>
-                    </tr>
-                    <tr>
-                        <td>√(npq)</td>
-                        <td>—</td>
-                        <td>Стандартное отклонение</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Вероятность того, что при 100 бросках монеты орёл выпадет от 45 до 55 раз.</p>
-            <p>Точное значение (по формуле Бернулли) ≈ 0.7286</p>
-            <p>По интегральной теореме Муавра-Лапласа:</p>
-            <ul class="mb-0">
-                <li>np = 50, √(npq) = 5</li>
-                <li>x₁ = (45 − 50)/5 = −1</li>
-                <li>x₂ = (55 − 50)/5 = 1</li>
-                <li>P ≈ Φ(1) − Φ(−1) = 0.3413 − (−0.3413) = <strong>0.6826</strong></li>
-            </ul>
-        </div>
-        
-        <div class="alert alert-warning">
-            <h5 class="mb-2">⚠️ Поправка на непрерывность</h5>
-            <p class="mb-0">Для повышения точности при использовании интегральной теоремы применяют <strong>поправку Йейтса</strong>:</p>
-            <p class="mb-0 mt-1"><strong>P(k₁ ≤ k ≤ k₂) ≈ Φ((k₂ + 0.5 − np)/√(npq)) − Φ((k₁ − 0.5 − np)/√(npq))</strong></p>
-        </div>
-    </div>
-</div>
 
-<!-- 3.5 Сходимость по вероятности и по распределению -->
-<div id="theme334" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Сходимость" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.5</span> Сходимость по вероятности и по распределению</h3>
-        
-        <p>В теории вероятностей существует несколько видов сходимости случайных величин. Рассмотрим два основных типа.</p>
-        
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <div class="card border-primary h-100">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Сходимость по вероятности</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Xₙ → X (по вероятности)</strong></p>
-                        <p class="mb-1">Если ∀ε > 0:</p>
-                        <p class="mb-0"><strong>P(|Xₙ − X| ≥ ε) → 0 при n → ∞</strong></p>
-                        <hr>
-                        <small>Вероятность того, что Xₙ отличается от X более чем на ε, стремится к нулю.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card border-success h-100">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Сходимость по распределению</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Xₙ → X (по распределению)</strong></p>
-                        <p class="mb-1">Если во всех точках непрерывности F(x):</p>
-                        <p class="mb-0"><strong>Fₙ(x) → F(x) при n → ∞</strong></p>
-                        <hr>
-                        <small>Функции распределения сходятся к функции распределения X.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Характеристика</th>
-                        <th>По вероятности</th>
-                        <th>По распределению</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Сила сходимости</strong></td>
-                        <td>Более сильная</td>
-                        <td>Более слабая</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Что сходится</strong></td>
-                        <td>Значения случайных величин</td>
-                        <td>Закон распределения</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Пример</strong></td>
-                        <td>Закон больших чисел</td>
-                        <td>Центральная предельная теорема</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Запись</strong></td>
-                        <td>Xₙ → X (p)</td>
-                        <td>Xₙ → X (d)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Важные соотношения</h5>
-            <ul class="mb-0">
-                <li>Из сходимости по вероятности <strong>следует</strong> сходимость по распределению</li>
-                <li>Обратное <strong>неверно</strong> в общем случае</li>
-                <li>Если предел — константа, то эти виды сходимости <strong>эквивалентны</strong></li>
-            </ul>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Примеры</h5>
-            <ul class="mb-0">
-                <li><strong>Закон больших чисел:</strong> (1/n)ΣXᵢ → μ <strong>по вероятности</strong></li>
-                <li><strong>ЦПТ:</strong> Zₙ → N(0, 1) <strong>по распределению</strong></li>
-            </ul>
-        </div>
-    </div>
-</div>
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-primary">Тема 3. Предельные теоремы и закон больших чисел</h1>
 
-<!-- 3.6 Цепи Маркова -->
-<div id="theme335" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Цепи Маркова" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.6</span> Цепи Маркова (общее понятие)</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Марковское свойство</h5>
-            <p class="mb-0"><strong>P(Xₙ = xₙ | Xₙ₋₁ = xₙ₋₁, ..., X₀ = x₀) = P(Xₙ = xₙ | Xₙ₋₁ = xₙ₋₁)</strong></p>
-        </div>
-        
-        <p><strong>Цепь Маркова</strong> — это последовательность случайных событий, в которой вероятность каждого события зависит <strong>только от предыдущего состояния</strong>.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Ключевые понятия</h5>
-            <ul class="mb-0">
-                <li><strong>Состояние</strong> — возможное значение цепи в данный момент</li>
-                <li><strong>Переход</strong> — изменение состояния</li>
-                <li><strong>Матрица переходов</strong> — вероятности перехода между состояниями</li>
-                <li><strong>Начальное распределение</strong> — распределение в момент t = 0</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Тип цепи</th>
-                        <th>Описание</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Дискретная</strong></td>
-                        <td>Конечное или счётное множество состояний</td>
-                        <td>Погода (солнечно/дождливо)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Непрерывная</strong></td>
-                        <td>Континуум состояний</td>
-                        <td>Цена актива</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Однородная</strong></td>
-                        <td>Вероятности не зависят от времени</td>
-                        <td>Классическая цепь Маркова</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Неоднородная</strong></td>
-                        <td>Вероятности зависят от времени</td>
-                        <td>Сезонные изменения</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Прогноз погоды: если сегодня солнечно, то завтра с вероятностью 0.8 будет солнечно и с вероятностью 0.2 дождливо. Если сегодня дождливо, то завтра с вероятностью 0.6 будет дождливо и с вероятностью 0.4 солнечно.</p>
-            <p class="mb-0"><strong>Матрица переходов:</strong> [[0.8, 0.2], [0.4, 0.6]]</p>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">💻 Применение в ИТ</h5>
-            <ul class="mb-0">
-                <li><strong>PageRank</strong> — алгоритм ранжирования страниц Google</li>
-                <li><strong>Обработка текста</strong> — генерация текста, распознавание речи</li>
-                <li><strong>Моделирование очередей</strong> — анализ производительности систем</li>
-                <li><strong>Финансовое моделирование</strong> — кредитные рейтинги</li>
-                <li><strong>Биоинформатика</strong> — анализ последовательностей ДНК</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 3.7 Случайные процессы -->
-<div id="theme336" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Случайные процессы" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.7</span> Случайные процессы</h3>
-        
-        <p><strong>Случайный процесс</strong> — это семейство случайных величин <strong>X(t)</strong>, зависящих от параметра t (обычно времени).</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Классификация случайных процессов</h5>
-            <ul class="mb-0">
-                <li><strong>По множеству значений:</strong> дискретные и непрерывные</li>
-                <li><strong>По множеству параметров:</strong> дискретное и непрерывное время</li>
-                <li><strong>По зависимости:</strong> с независимыми приращениями, марковские</li>
-                <li><strong>По стационарности:</strong> стационарные и нестационарные</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Тип процесса</th>
-                        <th>Описание</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Процесс Пуассона</strong></td>
-                        <td>Считает случайные события во времени</td>
-                        <td>Количество вызовов на станцию</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Броуновское движение</strong></td>
-                        <td>Непрерывный процесс с независимыми приращениями</td>
-                        <td>Движение частиц в жидкости</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Процесс гибели и размножения</strong></td>
-                        <td>Изменение численности популяции</td>
-                        <td>Рост популяции бактерий</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Винеровский процесс</strong></td>
-                        <td>Математическая модель броуновского движения</td>
-                        <td>Моделирование цен на бирже</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Пуассоновский процесс с интенсивностью λ = 2 (в среднем 2 события в минуту).</p>
-            <p class="mb-0">Вероятность ровно k событий за время t: <strong>P(N(t) = k) = (λt)ᵏ / k! × e^(−λt)</strong></p>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">💻 Применение в ИТ</h5>
-            <ul class="mb-0">
-                <li><strong>Анализ трафика</strong> — моделирование нагрузки на сервер</li>
-                <li><strong>Обслуживание очередей</strong> — планирование ресурсов</li>
-                <li><strong>Обработка сигналов</strong> — фильтрация шумов</li>
-                <li><strong>Финансовое моделирование</strong> — прогнозирование курсов</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 3.8 Характеристические функции -->
-<div id="theme337" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Характеристические функции" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.8</span> Характеристические функции</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Определение</h5>
-            <p class="mb-0"><strong>φ(t) = M(e^(itX)) = ∫ e^(itx) f(x) dx</strong></p>
-        </div>
-        
-        <p><strong>Характеристическая функция</strong> — это преобразование Фурье плотности распределения. Она полностью определяет распределение случайной величины.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Свойства</h5>
-            <ul class="mb-0">
-                <li><strong>Однозначность:</strong> однозначно определяет распределение</li>
-                <li><strong>Существование:</strong> существует для всех распределений</li>
-                <li><strong>Моменты:</strong> M(Xᵏ) = (−i)ᵏ φ⁽ᵏ⁾(0)</li>
-                <li><strong>Сумма:</strong> φₓ₊ᵧ(t) = φₓ(t) × φᵧ(t) для независимых X и Y</li>
-                <li><strong>Сходимость:</strong> φₙ(t) → φ(t) ⇔ Xₙ → X (по распределению)</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Распределение</th>
-                        <th>Характеристическая функция</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Нормальное N(0, 1)</td>
-                        <td>φ(t) = e^(−t²/2)</td>
-                    </tr>
-                    <tr>
-                        <td>Нормальное N(μ, σ²)</td>
-                        <td>φ(t) = e^(iμt − σ²t²/2)</td>
-                    </tr>
-                    <tr>
-                        <td>Пуассона Pois(λ)</td>
-                        <td>φ(t) = e^(λ(e^(it) − 1))</td>
-                    </tr>
-                    <tr>
-                        <td>Биномиальное Bin(n, p)</td>
-                        <td>φ(t) = (1 − p + p e^(it))ⁿ</td>
-                    </tr>
-                    <tr>
-                        <td>Равномерное U(a, b)</td>
-                        <td>φ(t) = (e^(itb) − e^(ita)) / (it(b−a))</td>
-                    </tr>
-                    <tr>
-                        <td>Экспоненциальное Exp(λ)</td>
-                        <td>φ(t) = λ / (λ − it)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример использования</h5>
-            <p>Доказательство ЦПТ с помощью характеристических функций:</p>
-            <p class="mb-0">φ_Zₙ(t) → e^(−t²/2), что соответствует стандартному нормальному распределению.</p>
-        </div>
-    </div>
-</div>
-
-<!-- 3.9 Условные математические ожидания -->
-<div id="theme338" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Условные математические ожидания" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.9</span> Условные математические ожидания</h3>
-        
-        <div class="alert alert-primary">
-            <h5 class="mb-2">📐 Определение</h5>
-            <p class="mb-0"><strong>M(X|Y = y) = ∫ x × f(x|y) dx</strong> — условное математическое ожидание X при условии Y = y</p>
-        </div>
-        
-        <p><strong>Условное математическое ожидание</strong> обобщает понятие условной вероятности на случайные величины.</p>
-        
-        <div class="alert alert-info">
-            <h5 class="mb-2">💡 Свойства</h5>
-            <ul class="mb-0">
-                <li><strong>Линейность:</strong> M(aX + bY | Z) = a M(X|Z) + b M(Y|Z)</li>
-                <li><strong>Свойство башни:</strong> M(M(X|Y)) = M(X)</li>
-                <li><strong>Независимость:</strong> если X и Y независимы, то M(X|Y) = M(X)</li>
-                <li><strong>Монотонность:</strong> если X ≤ Y, то M(X|Z) ≤ M(Y|Z)</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Случай</th>
-                        <th>Условное математическое ожидание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Дискретные величины</td>
-                        <td>M(X|Y=y) = Σ x × P(X=x|Y=y)</td>
-                    </tr>
-                    <tr>
-                        <td>Непрерывные величины</td>
-                        <td>M(X|Y=y) = ∫ x × f(x|y) dx</td>
-                    </tr>
-                    <tr>
-                        <td>Условная плотность</td>
-                        <td>f(x|y) = f(x,y) / f(y)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Пример</h5>
-            <p>Пусть X и Y имеют двумерное нормальное распределение с коэффициентом корреляции ρ.</p>
-            <p class="mb-0"><strong>M(X|Y=y) = μ_X + ρ × σ_X/σ_Y × (y − μ_Y)</strong></p>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">💻 Применение в ИТ</h5>
-            <ul class="mb-0">
-                <li><strong>Машинное обучение</strong> — прогнозирование на основе признаков</li>
-                <li><strong>Фильтрация</strong> — оценка состояния систем</li>
-                <li><strong>Эконометрика</strong> — моделирование зависимостей</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 3.10 Применение предельных теорем -->
-<div id="theme339" class="card my-3" style="max-width: 900px;">
-    <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Применение предельных теорем" style="filter: grayscale(1);">
-    <div class="card-body">
-        <h3 class="card-title"><span class="badge-method mr-2">3.10</span> Применение предельных теорем</h3>
-        
-        <p>Предельные теоремы имеют <strong>фундаментальное значение</strong> для статистики, машинного обучения и анализа данных.</p>
-        
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <div class="card border-primary h-100">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Закон больших чисел</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="mb-0">
-                            <li><strong>Метод Монте-Карло</strong> — численное интегрирование</li>
-                            <li><strong>Оценка вероятностей</strong> — через частоты</li>
-                            <li><strong>Проверка гипотез</strong> — состоятельность оценок</li>
-                            <li><strong>Машинное обучение</strong> — сходимость градиентного спуска</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card border-success h-100">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Центральная предельная теорема</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="mb-0">
-                            <li><strong>Доверительные интервалы</strong> — построение интервалов</li>
-                            <li><strong>Проверка гипотез</strong> — z-критерий, t-критерий</li>
-                            <li><strong>Параметрическая статистика</strong> — нормальная аппроксимация</li>
-                            <li><strong>А/B-тестирование</strong> — анализ результатов</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="alert alert-info mt-3">
-            <h5 class="mb-2">💡 Ключевые области применения</h5>
-            <ul class="mb-0">
-                <li><strong>Статистика:</strong> построение доверительных интервалов, проверка гипотез</li>
-                <li><strong>Машинное обучение:</strong> обоснование методов, оценка качества моделей</li>
-                <li><strong>Анализ данных:</strong> обработка больших массивов, поиск закономерностей</li>
-                <li><strong>Моделирование:</strong> метод Монте-Карло, стохастические модели</li>
-                <li><strong>Финансы:</strong> оценка рисков, моделирование цен</li>
-            </ul>
-        </div>
-        
-        <div class="table-responsive mt-3">
-            <table class="table ">
-                <thead class="table-light">
-                    <tr>
-                        <th>Задача</th>
-                        <th>Применяемая теорема</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Оценка среднего</td>
-                        <td>Закон больших чисел</td>
-                        <td>Среднее время ответа сервера</td>
-                    </tr>
-                    <tr>
-                        <td>Построение доверительного интервала</td>
-                        <td>Центральная предельная теорема</td>
-                        <td>95% доверительный интервал для среднего</td>
-                    </tr>
-                    <tr>
-                        <td>Проверка гипотезы о среднем</td>
-                        <td>Центральная предельная теорема</td>
-                        <td>z-тест, t-тест</td>
-                    </tr>
-                    <tr>
-                        <td>Оценка вероятности</td>
-                        <td>Закон больших чисел</td>
-                        <td>Частота отказов системы</td>
-                    </tr>
-                    <tr>
-                        <td>Моделирование сложных систем</td>
-                        <td>Закон больших чисел</td>
-                        <td>Метод Монте-Карло</td>
-                    </tr>
-                    <tr>
-                        <td>Анализ аномалий</td>
-                        <td>Неравенство Чебышева</td>
-                        <td>Обнаружение выбросов</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-secondary">
-            <h5 class="mb-2">📌 Практический пример</h5>
-            <p>Пусть мы измеряем время загрузки страницы (в мс). По ЦПТ:</p>
-            <ul class="mb-0">
-                <li>Среднее время: μ</li>
-                <li>СКО: σ</li>
-                <li>Для n = 100 измерений среднее ≈ N(μ, σ²/100)</li>
-                <li>95% доверительный интервал: x̄ ± 1.96 × σ/√100</li>
-            </ul>
-        </div>
-        
-        <div class="alert alert-success">
-            <h5 class="mb-2">🚀 Практические рекомендации</h5>
-            <ul class="mb-0">
-                <li>При n ≥ 30 можно использовать <strong>нормальную аппроксимацию</strong></li>
-                <li>Для малых выборок используйте <strong>t-распределение</strong></li>
-                <li>Проверяйте <strong>выбросы</strong> перед применением</li>
-                <li>Учитывайте <strong>зависимость</strong> данных (независимость — важное условие)</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-        <!-- ==================== ТЕМА 4 ==================== -->
-        <h1 class="text-primary">Тема 4. Элементы математической статистики</h1>
-
-        <!-- 4.1 Генеральная совокупность и выборка -->
-        <div id="theme440" class="card my-3" style="max-width: 900px;">
-            <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Выборка" style="filter: grayscale(1);">
+        <!-- 3.1 -->
+        <div id="theme330" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Неравенство Чебышева" style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title"><span class="badge-method mr-2">4.1</span> Генеральная совокупность и выборка</h3>
-                <p><strong>Генеральная совокупность</strong> — все объекты, подлежащие изучению .</p>
-                <p><strong>Выборка</strong> — часть объектов, отобранных для исследования .</p>
+                <h3 class="card-title"><span class="badge-method mr-2">3.1</span> Неравенство Чебышева</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Основная формула</h5>
+                    \[ P\big(|X - M(X)| \geq \varepsilon\big) \leq \frac{D(X)}{\varepsilon^2} \]
+                </div>
+                <p><strong>Неравенство Чебышева</strong> даёт оценку вероятности того, что случайная величина отклонится от своего математического ожидания не менее чем на \( \varepsilon \).</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Требования к выборке:</strong>
-                    <ul>
-                        <li><strong>Репрезентативность</strong> — выборка должна отражать свойства генеральной совокупности</li>
-                        <li><strong>Случайность</strong> — каждый элемент должен иметь равную вероятность попасть в выборку</li>
+                    <h5 class="mb-2">💡 Смысл неравенства</h5>
+                    <ul class="mb-0">
+                        <li>Даёт <strong>верхнюю границу</strong> вероятности больших отклонений</li>
+                        <li>Работает для <strong>любых</strong> распределений</li>
+                        <li>Чем больше дисперсия, тем выше вероятность отклонения</li>
+                        <li>Чем больше \( \varepsilon \), тем меньше вероятность отклонения</li>
+                    </ul>
+                </div>
+                <div class="alert alert-success">
+                    <h5 class="mb-2">📝 Следствие</h5>
+                    \[ P\big(|X - M(X)| < \varepsilon\big) \geq 1 - \frac{D(X)}{\varepsilon^2} \]
+                </div>
+                <div class="alert alert-warning">
+                    <h5 class="mb-2">📐 Неравенство Маркова (более общее)</h5>
+                    \[ P(X \geq a) \leq \frac{M(X)}{a}, \quad a > 0,\ X \geq 0 \]
+                    <p class="mb-0 mt-2">Одностороннее неравенство Чебышева:</p>
+                    \[ P\big(X - M(X) \geq \varepsilon\big) \leq \frac{D(X)}{D(X) + \varepsilon^2} \]
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Обозначение</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>\( X \)</td><td>Случайная величина</td></tr>
+                            <tr><td>\( M(X) \)</td><td>Математическое ожидание</td></tr>
+                            <tr><td>\( D(X) \)</td><td>Дисперсия</td></tr>
+                            <tr><td>\( \varepsilon \)</td><td>Допустимое отклонение (\( \varepsilon > 0 \))</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Пусть \( D(X) = 1 \), \( \varepsilon = 3 \). Тогда:</p>
+                    \[ P(|X - M(X)| \geq 3) \leq \tfrac{1}{9} \approx 0.111 \]
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.2 -->
+        <div id="theme331" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Закон больших чисел" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.2</span> Закон больших чисел</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Теорема Чебышева</h5>
+                    <p>Если \( X_1, \ldots, X_n \) — независимые случайные величины с конечными дисперсиями, ограниченными одной константой \( C \), то</p>
+                    \[ \frac{1}{n}\sum_{i=1}^{n} X_i \xrightarrow{\;p\;} M(X) \quad \text{при } n \to \infty \]
+                </div>
+                <p><strong>Закон больших чисел</strong> — фундаментальный результат, утверждающий, что среднее арифметическое большого числа случайных величин сходится к их математическому ожиданию.</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Суть закона</h5>
+                    <ul class="mb-0">
+                        <li>Относительная частота события стремится к его вероятности</li>
+                        <li>Среднее арифметическое стремится к \( M(X) \)</li>
+                        <li>Ошибка уменьшается пропорционально \( 1/\sqrt{n} \)</li>
+                    </ul>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Форма закона</th><th>Формулировка</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Теорема Бернулли</strong></td><td>Частота успеха \( \to p \)</td></tr>
+                            <tr><td><strong>Теорема Чебышева</strong></td><td>Среднее арифметическое \( \to M(X) \)</td></tr>
+                            <tr><td><strong>Усиленный ЗБЧ</strong></td><td>Сходимость почти наверное</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>При 10 подбрасываниях монеты доля орлов может быть 0.7 или 0.3. При 1000 бросках — \( \approx 0.5 \). При \( 10^6 \) бросках ошибка \( < 0.001 \).</p>
+                </div>
+                <div class="alert alert-success">
+                    <h5 class="mb-2">💻 Применение в ИТ</h5>
+                    <ul class="mb-0">
+                        <li>Метод Монте-Карло</li>
+                        <li>Оценка качества генераторов случайных чисел</li>
+                        <li>Машинное обучение — оценка параметров</li>
+                        <li>Статистическое тестирование</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 4.2 Вариационные ряды -->
+        <!-- 3.3 -->
+        <div id="theme332" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="ЦПТ" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.3</span> Центральная предельная теорема</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Формулировка ЦПТ</h5>
+                    <p>Пусть \( X_1, \ldots, X_n \) — независимые одинаково распределённые случайные величины с \( M(X_i) = \mu \) и \( D(X_i) = \sigma^2 \). Тогда</p>
+                    \[ Z_n = \frac{\sum_{i=1}^{n} X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{\;d\;} N(0, 1) \quad \text{при } n \to \infty \]
+                </div>
+                <p><strong>ЦПТ</strong> объясняет, почему нормальное распределение так часто встречается в природе и статистике.</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Ключевые идеи</h5>
+                    <ul class="mb-0">
+                        <li>Сумма большого числа случайных величин \( \approx \) нормальное распределение</li>
+                        <li>Исходные распределения могут быть любыми</li>
+                        <li>Дисперсия суммы растёт линейно с \( n \)</li>
+                    </ul>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Параметр</th><th>Обозначение</th><th>Описание</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Сумма</td><td>\( S_n = \sum X_i \)</td><td>Сумма \( n \) случайных величин</td></tr>
+                            <tr><td>Мат. ожидание суммы</td><td>\( n\mu \)</td><td>Среднее значение суммы</td></tr>
+                            <tr><td>СКО суммы</td><td>\( \sigma\sqrt{n} \)</td><td>Стандартное отклонение суммы</td></tr>
+                            <tr><td>Нормированная сумма</td><td>\( Z_n \)</td><td>Приводит к \( N(0,1) \)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Сумма 100 бросков кубика:</p>
+                    \[ S_{100} \approx N(350,\ 291.7), \qquad Z_{100} = \frac{S_{100} - 350}{\sqrt{291.7}} \approx N(0,1) \]
+                </div>
+                <div class="alert alert-success">
+                    <h5 class="mb-2">💻 Применение в ИТ</h5>
+                    <ul class="mb-0">
+                        <li>Машинное обучение — обоснование нормального распределения</li>
+                        <li>Статистический вывод — доверительные интервалы</li>
+                        <li>Обработка сигналов — анализ шумов</li>
+                        <li>A/B-тестирование</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.4 -->
+        <div id="theme333" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Муавр-Лаплас" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.4</span> Теоремы Муавра-Лапласа</h3>
+                <p><strong>Теоремы Муавра-Лапласа</strong> — частный случай ЦПТ для схемы Бернулли.</p>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-header bg-primary text-white"><h5 class="mb-0">Локальная теорема</h5></div>
+                            <div class="card-body">
+                                \[ P_n(k) \approx \frac{1}{\sqrt{npq}}\,\varphi(x), \quad x = \frac{k - np}{\sqrt{npq}} \]
+                                \[ \varphi(x) = \frac{1}{\sqrt{2\pi}}\,e^{-x^2/2} \]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-success h-100">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0">Интегральная теорема</h5></div>
+                            <div class="card-body">
+                                \[ P(k_1 < k < k_2) \approx \Phi(x_2) - \Phi(x_1) \]
+                                \[ \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_0^x e^{-t^2/2}\,dt \]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-info mt-3">
+                    <h5 class="mb-2">💡 Условия применения</h5>
+                    <ul class="mb-0">
+                        <li>\( n > 30 \)</li>
+                        <li>\( npq > 10 \)</li>
+                        <li>Чем больше \( n \), тем точнее приближение</li>
+                    </ul>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Вероятность того, что при 100 бросках монеты орёл выпадет от 45 до 55 раз:</p>
+                    \[ np = 50,\ \sqrt{npq} = 5,\ x_1 = -1,\ x_2 = 1 \]
+                    \[ P \approx \Phi(1) - \Phi(-1) = 0.3413 - (-0.3413) = 0.6826 \]
+                </div>
+                <div class="alert alert-warning">
+                    <h5 class="mb-2">⚠️ Поправка Йейтса</h5>
+                    \[ P(k_1 \leq k \leq k_2) \approx \Phi\!\left(\frac{k_2 + 0.5 - np}{\sqrt{npq}}\right) - \Phi\!\left(\frac{k_1 - 0.5 - np}{\sqrt{npq}}\right) \]
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.5 -->
+        <div id="theme334" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title8.jpg" alt="Сходимость" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.5</span> Сходимость по вероятности и по распределению</h3>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-header bg-primary text-white"><h5 class="mb-0">Сходимость по вероятности</h5></div>
+                            <div class="card-body">
+                                <p>\( X_n \xrightarrow{\;p\;} X \), если \( \forall \varepsilon > 0 \):</p>
+                                \[ P(|X_n - X| \geq \varepsilon) \to 0,\ n \to \infty \]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-success h-100">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0">Сходимость по распределению</h5></div>
+                            <div class="card-body">
+                                <p>\( X_n \xrightarrow{\;d\;} X \), если во всех точках непрерывности \( F \):</p>
+                                \[ F_n(x) \to F(x),\ n \to \infty \]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Характеристика</th><th>По вероятности</th><th>По распределению</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Сила</strong></td><td>Более сильная</td><td>Более слабая</td></tr>
+                            <tr><td><strong>Что сходится</strong></td><td>Значения</td><td>Закон распределения</td></tr>
+                            <tr><td><strong>Пример</strong></td><td>ЗБЧ</td><td>ЦПТ</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Соотношения</h5>
+                    <ul class="mb-0">
+                        <li>Из сходимости по вероятности <strong>следует</strong> сходимость по распределению</li>
+                        <li>Обратное в общем случае неверно</li>
+                        <li>Если предел — константа, оба вида эквивалентны</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.6 -->
+        <div id="theme335" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title9.jpg" alt="Цепи Маркова" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.6</span> Цепи Маркова</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Марковское свойство</h5>
+                    \[ P(X_n = x_n \mid X_{n-1} = x_{n-1}, \ldots, X_0 = x_0) = P(X_n = x_n \mid X_{n-1} = x_{n-1}) \]
+                </div>
+                <p><strong>Цепь Маркова</strong> — последовательность случайных событий, в которой вероятность каждого события зависит <strong>только от предыдущего состояния</strong>.</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Ключевые понятия</h5>
+                    <ul class="mb-0">
+                        <li><strong>Состояние</strong> — возможное значение цепи</li>
+                        <li><strong>Переход</strong> — изменение состояния</li>
+                        <li><strong>Матрица переходов</strong> \( P = (p_{ij}) \)</li>
+                        <li><strong>Начальное распределение</strong> \( \pi^{(0)} \)</li>
+                    </ul>
+                </div>
+                <p><strong>Уравнение Колмогорова—Чепмена</strong> (для \( n+m \) шагов):</p>
+                \[ p_{ij}^{(n+m)} = \sum_k p_{ik}^{(n)} \cdot p_{kj}^{(m)} \]
+                <p><strong>Стационарное распределение</strong> \( \pi = (\pi_j) \):</p>
+                \[ \pi_j = \sum_i \pi_i \cdot p_{ij}, \qquad \sum_j \pi_j = 1 \]
+                <p><strong>Эргодическая теорема:</strong> если цепь неприводима и непериодична, то</p>
+                \[ \lim_{n \to \infty} p_{ij}^{(n)} = \pi_j \quad \text{для всех } i, j \]
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Прогноз погоды. Матрица переходов:</p>
+                    \[ P = \begin{pmatrix} 0.8 & 0.2 \\ 0.4 & 0.6 \end{pmatrix} \]
+                </div>
+                <div class="alert alert-success">
+                    <h5 class="mb-2">💻 Применение в ИТ</h5>
+                    <ul class="mb-0">
+                        <li>PageRank (Google)</li>
+                        <li>Обработка текста и речи</li>
+                        <li>Моделирование очередей</li>
+                        <li>Финансовое моделирование</li>
+                        <li>Биоинформатика (ДНК)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.7 -->
+        <div id="theme336" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Случайные процессы" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.7</span> Случайные процессы</h3>
+                <p><strong>Случайный процесс</strong> — семейство случайных величин \( X(t) \), зависящих от параметра \( t \) (обычно времени).</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Классификация</h5>
+                    <ul class="mb-0">
+                        <li>По множеству значений: дискретные и непрерывные</li>
+                        <li>По множеству параметров: дискретное и непрерывное время</li>
+                        <li>По зависимости: с независимыми приращениями, марковские</li>
+                        <li>По стационарности: стационарные и нестационарные</li>
+                    </ul>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Тип</th><th>Описание</th><th>Пример</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Процесс Пуассона</strong></td><td>Считает события во времени</td><td>Вызовы на станцию</td></tr>
+                            <tr><td><strong>Броуновское движение</strong></td><td>Независимые приращения</td><td>Движение частиц</td></tr>
+                            <tr><td><strong>Гибель и размножение</strong></td><td>Изменение численности</td><td>Рост популяции</td></tr>
+                            <tr><td><strong>Винеровский процесс</strong></td><td>Модель броуновского движения</td><td>Цены на бирже</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Процесс Пуассона</strong> с интенсивностью \( \lambda \):</p>
+                \[ P(N(t) = k) = \frac{(\lambda t)^k}{k!}\,e^{-\lambda t}, \quad M(N(t)) = D(N(t)) = \lambda t \]
+                <p><strong>Винеровский процесс</strong> \( W(t) \):</p>
+                \[ W(t) \sim N(0, t), \quad W(t) - W(s) \sim N(0, t-s),\ t > s \]
+                \[ \mathrm{Cov}(W(s), W(t)) = \min(s, t) \]
+                <div class="alert alert-success">
+                    <h5 class="mb-2">💻 Применение в ИТ</h5>
+                    <ul class="mb-0">
+                        <li>Анализ трафика и нагрузки на сервер</li>
+                        <li>Обслуживание очередей</li>
+                        <li>Обработка сигналов</li>
+                        <li>Финансовое моделирование</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.8 -->
+        <div id="theme337" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Характеристические функции" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.8</span> Характеристические функции</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Определение</h5>
+                    \[ \varphi(t) = M\!\left(e^{itX}\right) = \int_{-\infty}^{+\infty} e^{itx} f(x)\,dx \]
+                </div>
+                <p><strong>Характеристическая функция</strong> — преобразование Фурье плотности распределения. Полностью определяет распределение случайной величины.</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Свойства</h5>
+                    <ul class="mb-0">
+                        <li><strong>Однозначность:</strong> однозначно определяет распределение</li>
+                        <li><strong>Существование:</strong> для всех распределений</li>
+                        <li><strong>Моменты:</strong> \( M(X^k) = (-i)^k \varphi^{(k)}(0) \)</li>
+                        <li><strong>Сумма:</strong> \( \varphi_{X+Y}(t) = \varphi_X(t) \cdot \varphi_Y(t) \) для независимых \( X, Y \)</li>
+                        <li><strong>Сходимость:</strong> \( \varphi_n(t) \to \varphi(t) \Leftrightarrow X_n \xrightarrow{\;d\;} X \)</li>
+                    </ul>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Распределение</th><th>Характеристическая функция</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>\( N(0, 1) \)</td><td>\( \varphi(t) = e^{-t^2/2} \)</td></tr>
+                            <tr><td>\( N(\mu, \sigma^2) \)</td><td>\( \varphi(t) = e^{i\mu t - \sigma^2 t^2/2} \)</td></tr>
+                            <tr><td>Пуассона \( \text{Pois}(\lambda) \)</td><td>\( \varphi(t) = e^{\lambda(e^{it} - 1)} \)</td></tr>
+                            <tr><td>Биномиальное \( \text{Bin}(n,p) \)</td><td>\( \varphi(t) = (1 - p + p\,e^{it})^n \)</td></tr>
+                            <tr><td>Равномерное \( U(a,b) \)</td><td>\( \varphi(t) = \dfrac{e^{itb} - e^{ita}}{it(b-a)} \)</td></tr>
+                            <tr><td>Экспоненциальное \( \text{Exp}(\lambda) \)</td><td>\( \varphi(t) = \dfrac{\lambda}{\lambda - it} \)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Доказательство ЦПТ с помощью характеристических функций:</p>
+                    \[ \varphi_{Z_n}(t) \to e^{-t^2/2}, \quad \text{что соответствует } N(0,1) \]
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.9 -->
+        <div id="theme338" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Условные мат. ожидания" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.9</span> Условные математические ожидания</h3>
+                <div class="alert alert-primary">
+                    <h5 class="mb-2">📐 Определение</h5>
+                    \[ M(X \mid Y = y) = \int_{-\infty}^{+\infty} x \cdot f(x \mid y)\,dx \]
+                </div>
+                <p><strong>Условное математическое ожидание</strong> обобщает понятие условной вероятности на случайные величины.</p>
+                <div class="alert alert-info">
+                    <h5 class="mb-2">💡 Свойства</h5>
+                    <ul class="mb-0">
+                        <li><strong>Линейность:</strong> \( M(aX + bY \mid Z) = a M(X|Z) + b M(Y|Z) \)</li>
+                        <li><strong>Свойство башни:</strong> \( M(M(X \mid Y)) = M(X) \)</li>
+                        <li><strong>Независимость:</strong> если \( X \perp Y \), то \( M(X \mid Y) = M(X) \)</li>
+                        <li><strong>Монотонность:</strong> если \( X \leq Y \), то \( M(X|Z) \leq M(Y|Z) \)</li>
+                    </ul>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Случай</th><th>Формула</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Дискретные величины</td><td>\( M(X|Y=y) = \sum_x x \cdot P(X=x \mid Y=y) \)</td></tr>
+                            <tr><td>Непрерывные величины</td><td>\( M(X|Y=y) = \int x \cdot f(x|y)\,dx \)</td></tr>
+                            <tr><td>Условная плотность</td><td>\( f(x|y) = \dfrac{f(x,y)}{f(y)} \)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Пример</h5>
+                    <p>Для двумерного нормального распределения с корреляцией \( \rho \):</p>
+                    \[ M(X \mid Y = y) = \mu_X + \rho\,\frac{\sigma_X}{\sigma_Y}\,(y - \mu_Y) \]
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.10 -->
+        <div id="theme339" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Применение" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.10</span> Применение предельных теорем</h3>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-header bg-primary text-white"><h5 class="mb-0">Закон больших чисел</h5></div>
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li>Метод Монте-Карло</li>
+                                    <li>Оценка вероятностей через частоты</li>
+                                    <li>Проверка гипотез</li>
+                                    <li>Сходимость градиентного спуска</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-success h-100">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0">ЦПТ</h5></div>
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li>Доверительные интервалы</li>
+                                    <li>z-критерий, t-критерий</li>
+                                    <li>Нормальная аппроксимация</li>
+                                    <li>A/B-тестирование</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr><th>Задача</th><th>Теорема</th><th>Пример</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Оценка среднего</td><td>ЗБЧ</td><td>Среднее время ответа сервера</td></tr>
+                            <tr><td>Доверительный интервал</td><td>ЦПТ</td><td>95% интервал для среднего</td></tr>
+                            <tr><td>Проверка гипотезы о среднем</td><td>ЦПТ</td><td>z-тест, t-тест</td></tr>
+                            <tr><td>Оценка вероятности</td><td>ЗБЧ</td><td>Частота отказов</td></tr>
+                            <tr><td>Моделирование</td><td>ЗБЧ</td><td>Метод Монте-Карло</td></tr>
+                            <tr><td>Анализ аномалий</td><td>Неравенство Чебышева</td><td>Обнаружение выбросов</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-secondary">
+                    <h5 class="mb-2">📌 Практический пример</h5>
+                    <p>Время загрузки страницы (мс). По ЦПТ для \( n = 100 \):</p>
+                    \[ \bar{x} \pm 1.96 \cdot \frac{\sigma}{\sqrt{100}} \]
+                </div>
+                <div class="alert alert-success">
+                    <h5 class="mb-2">🚀 Рекомендации</h5>
+                    <ul class="mb-0">
+                        <li>При \( n \geq 30 \) можно использовать нормальную аппроксимацию</li>
+                        <li>Для малых выборок — t-распределение</li>
+                        <li>Проверяйте выбросы</li>
+                        <li>Учитывайте зависимость данных</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-primary">Тема 4. Элементы математической статистики</h1>
+
+        <!-- 4.1 -->
+        <div id="theme440" class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title10.jpg" alt="Выборка" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">4.1</span> Генеральная совокупность и выборка</h3>
+                <p><strong>Генеральная совокупность</strong> — все объекты, подлежащие изучению.</p>
+                <p><strong>Выборка</strong> — часть объектов, отобранных для исследования.</p>
+                <div class="alert alert-info">
+                    <i class="fas fa-lightbulb"></i> <strong>Требования к выборке:</strong>
+                    <ul>
+                        <li><strong>Репрезентативность</strong> — отражает свойства генеральной совокупности</li>
+                        <li><strong>Случайность</strong> — каждый элемент имеет равную вероятность попасть в выборку</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.2 -->
         <div id="theme441" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title11.jpg" alt="Вариационный ряд" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.2</span> Вариационные ряды и гистограммы</h3>
-                <p><strong>Вариационный ряд</strong> — упорядоченная последовательность выборочных значений .</p>
+                <p><strong>Вариационный ряд</strong> — упорядоченная последовательность выборочных значений.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
-                            <tr>
-                                <th>Элемент</th>
-                                <th>Описание</th>
-                            </tr>
+                            <tr><th>Элемент</th><th>Описание</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><strong>Дискретный ряд</strong></td>
-                                <td>Значения и их частоты</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Интервальный ряд</strong></td>
-                                <td>Группировка данных по интервалам</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Гистограмма</strong></td>
-                                <td>Визуализация интервального ряда</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Полигон частот</strong></td>
-                                <td>График частот дискретного ряда</td>
-                            </tr>
+                            <tr><td><strong>Дискретный ряд</strong></td><td>Значения и их частоты</td></tr>
+                            <tr><td><strong>Интервальный ряд</strong></td><td>Группировка данных по интервалам</td></tr>
+                            <tr><td><strong>Гистограмма</strong></td><td>Визуализация интервального ряда</td></tr>
+                            <tr><td><strong>Полигон частот</strong></td><td>График частот дискретного ряда</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- 4.3 Числовые характеристики выборки -->
+        <!-- 4.3 -->
         <div id="theme442" class="card my-3" style="max-width: 900px;">
-            <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Характеристики выборки" style="filter: grayscale(1);">
+            <img loading="lazy" class="card-img-top" src="../h1title12.jpg" alt="Характеристики" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.3</span> Числовые характеристики выборки</h3>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
-                            <tr>
-                                <th>Характеристика</th>
-                                <th>Формула</th>
-                            </tr>
+                            <tr><th>Характеристика</th><th>Формула</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><strong>Выборочное среднее</strong></td>
-                                <td>x̄ = (1/n) Σ xᵢ</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Выборочная дисперсия</strong></td>
-                                <td>s² = (1/(n−1)) Σ (xᵢ − x̄)²</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Выборочное СКО</strong></td>
-                                <td>s = √s²</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Мода</strong></td>
-                                <td>Наиболее часто встречающееся значение</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Медиана</strong></td>
-                                <td>Среднее значение в упорядоченном ряду </td>
-                            </tr>
+                            <tr><td><strong>Выборочное среднее</strong></td><td>\( \bar{x} = \dfrac{1}{n}\displaystyle\sum_{i=1}^{n} x_i \)</td></tr>
+                            <tr><td><strong>Выборочная дисперсия</strong></td><td>\( s^2 = \dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2 \)</td></tr>
+                            <tr><td><strong>Выборочное СКО</strong></td><td>\( s = \sqrt{s^2} \)</td></tr>
+                            <tr><td><strong>Мода</strong></td><td>наиболее частое значение</td></tr>
+                            <tr><td><strong>Медиана</strong></td><td>середина упорядоченного ряда</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- 4.4 Точечные оценки -->
+        <!-- 4.4 -->
         <div id="theme443" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Оценки" style="filter: grayscale(1);">
             <div class="card-body">
@@ -1738,165 +1412,160 @@
                 <div class="alert alert-info">
                     <i class="fas fa-lightbulb"></i> <strong>Свойства хороших оценок:</strong>
                     <ul>
-                        <li><strong>Несмещённость</strong> — M(θ̂) = θ</li>
-                        <li><strong>Состоятельность</strong> — θ̂ → θ при n → ∞</li>
-                        <li><strong>Эффективность</strong> — минимальная дисперсия среди всех оценок</li>
+                        <li><strong>Несмещённость:</strong> \( M(\hat{\theta}) = \theta \)</li>
+                        <li><strong>Состоятельность:</strong> \( \hat{\theta} \xrightarrow{\;p\;} \theta \) при \( n \to \infty \)</li>
+                        <li><strong>Эффективность:</strong> минимальная дисперсия среди несмещённых</li>
                     </ul>
                 </div>
-                <p><strong>Пример:</strong> Выборочное среднее — несмещённая и состоятельная оценка для математического ожидания .</p>
+                <p><strong>Неравенство Рао—Крамера</strong> (нижняя граница дисперсии):</p>
+                \[ D(\hat{\theta}) \geq \frac{1}{n \cdot I(\theta)} \]
+                <p>где <strong>информация Фишера</strong>:</p>
+                \[ I(\theta) = M\!\left[\left(\frac{\partial \ln f(X; \theta)}{\partial \theta}\right)^{\!2}\right] \]
             </div>
         </div>
 
-        <!-- 4.5 Метод моментов -->
+        <!-- 4.5 -->
         <div id="theme444" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title14.jpg" alt="Метод моментов" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.5</span> Метод моментов</h3>
-                <p><strong>Метод моментов</strong> — метод оценивания параметров, основанный на приравнивании теоретических и выборочных моментов .</p>
+                <p><strong>Метод моментов</strong> — метод оценивания, основанный на приравнивании теоретических и выборочных моментов.</p>
                 <div class="alert alert-info">
                     <i class="fas fa-lightbulb"></i> <strong>Алгоритм:</strong>
                     <ol>
-                        <li>Вычислить первые k выборочных моментов</li>
+                        <li>Вычислить первые \( k \) выборочных моментов</li>
                         <li>Записать теоретические моменты как функции параметров</li>
                         <li>Приравнять и решить систему уравнений</li>
                     </ol>
                 </div>
+                <p>Теоретический момент \( k \)-го порядка: \( m_k = M(X^k) \).</p>
+                <p>Выборочный момент \( k \)-го порядка: \( \hat{m}_k = \dfrac{1}{n}\sum x_i^k \).</p>
+                <p>Оценки находятся из системы \( m_k(\theta_1, \ldots, \theta_s) = \hat{m}_k \), \( k = 1, \ldots, s \).</p>
             </div>
         </div>
 
-        <!-- 4.6 Метод максимального правдоподобия -->
+        <!-- 4.6 -->
         <div id="theme445" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title15.jpg" alt="ММП" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.6</span> Метод максимального правдоподобия</h3>
-                <p><strong>Метод максимального правдоподобия (ММП)</strong> — один из наиболее распространённых методов оценивания .</p>
+                <p><strong>Метод максимального правдоподобия (ММП)</strong> — один из наиболее распространённых методов оценивания.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Суть:</strong> Найти параметры, при которых вероятность наблюдать данную выборку максимальна.
+                    <i class="fas fa-lightbulb"></i> <strong>Суть:</strong> найти параметры, при которых вероятность наблюдать данную выборку максимальна.
                 </div>
-                <p><strong>Функция правдоподобия:</strong> L(θ) = Π f(xᵢ; θ)</p>
+                <p><strong>Функция правдоподобия:</strong></p>
+                \[ L(\theta) = \prod_{i=1}^{n} f(x_i; \theta) \]
+                <p><strong>Логарифмическая функция правдоподобия:</strong></p>
+                \[ \ell(\theta) = \ln L(\theta) = \sum_{i=1}^{n} \ln f(x_i; \theta) \]
+                <p><strong>Уравнение правдоподобия:</strong></p>
+                \[ \frac{\partial \ell(\theta)}{\partial \theta} = 0 \]
                 <div class="alert alert-success">
                     <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> обучение моделей машинного обучения, оценка параметров распределений.
                 </div>
             </div>
         </div>
 
-        <!-- 4.7 Доверительные интервалы -->
+        <!-- 4.7 -->
         <div id="theme446" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Доверительные интервалы" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.7</span> Доверительные интервалы</h3>
-                <p><strong>Доверительный интервал</strong> — интервал, который с заданной вероятностью (уровнем доверия) покрывает истинное значение параметра .</p>
+                <p><strong>Доверительный интервал</strong> — интервал, который с заданной вероятностью (уровнем доверия \( 1-\alpha \)) покрывает истинное значение параметра.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Доверительный интервал для среднего при известной дисперсии:</strong>
+                    <i class="fas fa-lightbulb"></i> <strong>Для среднего при известной \( \sigma \):</strong>
+                    \[ \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \]
                 </div>
-                <p>x̄ ± z(α/2) × σ/√n</p>
+                <p><strong>Для среднего при неизвестной \( \sigma \):</strong></p>
+                \[ \bar{x} \pm t_{\alpha/2,\,n-1} \cdot \frac{s}{\sqrt{n}} \]
+                <p><strong>Для доли \( p \):</strong></p>
+                \[ \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]
                 <div class="alert alert-secondary">
-                    <strong>Пример:</strong> При n = 100, x̄ = 50, σ = 10, доверительный интервал на 95%:
-                    <p>50 ± 1.96 × 10/√100 = 50 ± 1.96 = [48.04, 51.96]</p>
+                    <strong>Пример:</strong> \( n = 100 \), \( \bar{x} = 50 \), \( \sigma = 10 \), уровень 95%:
+                    \[ 50 \pm 1.96 \cdot \frac{10}{\sqrt{100}} = 50 \pm 1.96 = [48.04,\ 51.96] \]
                 </div>
             </div>
         </div>
 
-        <!-- 4.8 Проверка статистических гипотез -->
+        <!-- 4.8 -->
         <div id="theme447" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Гипотезы" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.8</span> Проверка статистических гипотез</h3>
-                <p><strong>Статистическая гипотеза</strong> — предположение о параметрах распределения .</p>
+                <p><strong>Статистическая гипотеза</strong> — предположение о параметрах распределения.</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="table-light">
-                            <tr>
-                                <th>Термин</th>
-                                <th>Описание</th>
-                            </tr>
+                            <tr><th>Термин</th><th>Описание</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><strong>Нулевая гипотеза H₀</strong></td>
-                                <td>Проверяемое предположение (обычно «нет эффекта»)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Альтернативная гипотеза H₁</strong></td>
-                                <td>Предположение, принимаемое при отклонении H₀</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Ошибка I рода</strong></td>
-                                <td>Отклонить H₀, когда она верна</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Ошибка II рода</strong></td>
-                                <td>Принять H₀, когда она ложна</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Уровень значимости α</strong></td>
-                                <td>Вероятность ошибки I рода</td>
-                            </tr>
-                            <tr>
-                                <td><strong>p-значение</strong></td>
-                                <td>Минимальный уровень значимости, при котором H₀ отклоняется</td>
-                            </tr>
+                            <tr><td><strong>\( H_0 \)</strong></td><td>Нулевая гипотеза (обычно «нет эффекта»)</td></tr>
+                            <tr><td><strong>\( H_1 \)</strong></td><td>Альтернативная гипотеза</td></tr>
+                            <tr><td><strong>Ошибка I рода</strong></td><td>Отклонить \( H_0 \), когда она верна (вероятность \( \alpha \))</td></tr>
+                            <tr><td><strong>Ошибка II рода</strong></td><td>Принять \( H_0 \), когда она ложна (вероятность \( \beta \))</td></tr>
+                            <tr><td><strong>Мощность</strong></td><td>\( 1 - \beta \)</td></tr>
+                            <tr><td><strong>p-значение</strong></td><td>Минимальный \( \alpha \), при котором \( H_0 \) отклоняется</td></tr>
                         </tbody>
                     </table>
                 </div>
+                <p><strong>Статистика z-критерия</strong> (при известной \( \sigma \)):</p>
+                \[ Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \sim N(0, 1) \]
+                <p><strong>Статистика t-критерия</strong> (при неизвестной \( \sigma \)):</p>
+                \[ t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \sim t_{n-1} \]
+                <p><strong>Статистика хи-квадрат</strong> (критерий согласия Пирсона):</p>
+                \[ \chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i} \]
                 <div class="alert alert-success">
                     <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> A/B-тестирование, анализ производительности, проверка качества ПО.
                 </div>
             </div>
         </div>
 
-        <!-- 4.9 Корреляционный анализ -->
+        <!-- 4.9 -->
         <div id="theme448" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Корреляция" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.9</span> Корреляционный анализ</h3>
-                <p><strong>Корреляция</strong> — статистическая связь между двумя или более переменными .</p>
-                <div class="table-responsive">
+                <p><strong>Корреляция</strong> — статистическая связь между двумя или более переменными.</p>
+                <p><strong>Коэффициент корреляции Пирсона:</strong></p>
+                \[ r_{xy} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}} \]
+                <div class="table-responsive mt-3">
                     <table class="table">
                         <thead class="table-light">
-                            <tr>
-                                <th>Показатель</th>
-                                <th>Описание</th>
-                                <th>Значения</th>
-                            </tr>
+                            <tr><th>Показатель</th><th>Описание</th><th>Значения</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><strong>Коэффициент корреляции Пирсона</strong></td>
-                                <td>Мера линейной связи</td>
-                                <td>r ∈ [−1, 1]</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Коэффициент детерминации</strong></td>
-                                <td>Доля объяснённой дисперсии</td>
-                                <td>R² = r²</td>
-                            </tr>
+                            <tr><td><strong>Коэффициент Пирсона</strong></td><td>Мера линейной связи</td><td>\( r \in [-1, 1] \)</td></tr>
+                            <tr><td><strong>Коэффициент детерминации</strong></td><td>Доля объяснённой дисперсии</td><td>\( R^2 = r^2 \)</td></tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="alert alert-success">
-                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> анализ данных, выявление зависимостей, машинное обучение (отбор признаков).
+                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> анализ данных, отбор признаков в машинном обучении.
                 </div>
             </div>
         </div>
 
-        <!-- 4.10 Регрессионный анализ -->
+        <!-- 4.10 -->
         <div id="theme449" class="card my-3" style="max-width: 900px;">
             <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Регрессия" style="filter: grayscale(1);">
             <div class="card-body">
                 <h3 class="card-title"><span class="badge-method mr-2">4.10</span> Регрессионный анализ</h3>
-                <p><strong>Регрессия</strong> — моделирование зависимости одной переменной от других .</p>
+                <p><strong>Регрессия</strong> — моделирование зависимости одной переменной от других.</p>
                 <div class="alert alert-info">
-                    <i class="fas fa-lightbulb"></i> <strong>Линейная регрессия:</strong> y = a + bx
+                    <i class="fas fa-lightbulb"></i> <strong>Линейная регрессия:</strong>
+                    \[ y = a + b x \]
                 </div>
+                <p><strong>МНК-оценки коэффициентов:</strong></p>
+                \[ b = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}, \qquad a = \bar{y} - b\bar{x} \]
+                <p><strong>Коэффициент детерминации:</strong></p>
+                \[ R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2} \]
                 <div class="alert alert-success">
-                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> прогнозирование, анализ данных, машинное обучение (линейная регрессия, полиномиальная регрессия).
+                    <i class="fas fa-check-circle"></i> <strong>Применение в ИТ:</strong> прогнозирование, анализ данных, машинное обучение (линейная и полиномиальная регрессия).
                 </div>
-                <p><strong>Метод наименьших квадратов</strong> — основной метод оценки коэффициентов регрессии .</p>
             </div>
         </div>
 
-          <div class="card mb-1" style="max-width:800px;">
+        <!-- Блок с тестами -->
+        <div class="card mb-1" style="max-width:800px;">
             <img src="../quiz.avif"
                 class="card-img-top" style="filter: grayscale(1);" alt="quiz">
             <div class="card-body">
@@ -1923,21 +1592,20 @@
                         <div class="card-body">
                             <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
                             <div class="card-text fade-in-div" id="quizString"></div>
-                             <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
+                            <div id="box" class="jxgbox" style="width:500px; aspect-ratio: 1/1; display: none;"></div>
                             <form id="quizform">
                                 <div id="quizChecks" class="m-1 p-1"></div>
                                 <div id="quizHint" class="m-1 p-1"></div>
                                 <div class="container p-1 m-1" id="accountingblock" style="display: none;">
                                 </div>
                                 <div id="quizformdataarray"></div>
-                                  <input type="text" class="form-control form-control-sm" id="feedback"
-                                  placeholder="Числовой ответ"
-                                  style="display: none;"
-                                  >
+                                <input type="text" class="form-control form-control-sm" id="feedback"
+                                       placeholder="Числовой ответ"
+                                       style="display: none;">
                                 <div id="usercalculations" style="display: none;">
                                     <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
                                     <input type="text" class="form-control form-control-sm" id="inputFormula">
-                                 </div>
+                                </div>
                                 <textarea class="form-control my-3" id="userComment" rows="2"
                                     style="display: none;">Мой комментарий</textarea>
                                 <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
@@ -1949,49 +1617,6 @@
 
             </div>
         </div>
-
-        <!-- Блок с тестами -->
-        <!-- <div class="card mb-1" style="max-width:800px;">
-            <img style="filter: grayscale(1)" src="../quiz.avif" class="card-img-top" alt="quiz">
-            <div class="card-body">
-                <div class="container" id="formcontainer" style="display: none;">
-                    <form>
-                        <div class="mb-3">
-                            <label for="emailInput" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="user" class="form-label">ФИО Группа</label>
-                            <input type="text" class="form-control" id="userInput">
-                        </div>
-                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom" id="loginbutton">Сохранить</button>
-                    </form>
-                </div>
-                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
-                <div class="container" id="quizcontainer" style="display: none;">
-                    <div class="card" style="min-height: 100px;">
-                        <div class="card-header" id="quizHeader"></div>
-                        <div class="card-body">
-                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
-                            <div class="card-text fade-in-div" id="quizString"></div>
-                            <form id="quizform">
-                                <div id="quizChecks" class="m-1 p-1"></div>
-                                <div id="quizHint" class="m-1 p-1"></div>
-                                <div class="container p-1 m-1" id="accountingblock" style="display: none;"></div>
-                                <div id="quizformdataarray"></div>
-                                <div id="usercalculations" style="display: none;">
-                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
-                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
-                                </div>
-                                <textarea class="form-control my-3" id="userComment" rows="2" style="display: none;">Мой комментарий</textarea>
-                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton" style="display: none;">Ответить</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
     </div>
 
@@ -2005,22 +1630,36 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="../dist/basicfirebasecrudauthservices.js"></script>
-    <script type="module" src="../dist/quizcardwithstorage.js"></script> -->
-
-
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-
-
-      <script src="../dist/basicfirebasecrudauthservices.js"></script>
-      <script src="./vanillajscrudutilities.js"></script>
-      <script src="./jsxtemplatefunctions.js"></script>
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./vanillajscrudutilities.js"></script>
+    <script src="./jsxtemplatefunctions.js"></script>
     <script src="./bundle.js"></script>
 
+    <!-- KaTeX autorender: рендеринг формул после загрузки DOM -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false,
+                errorColor: "#cc0000",
+                macros: {
+                    "\\N": "\\mathbb{N}",
+                    "\\R": "\\mathbb{R}",
+                    "\\Z": "\\mathbb{Z}",
+                    "\\E": "\\mathbb{E}",
+                    "\\Var": "\\mathrm{Var}",
+                    "\\Cov": "\\mathrm{Cov}"
+                }
+            });
+        });
+    </script>
 
 </body>
 
