@@ -392,21 +392,22 @@ let quizesSets = [
         "hint": "<div class='alert alert-success'><p>Качество — это процесс, сертификация — это подтверждение соответствия.</p></div>"
     },
 
-    {
-    id: "win001",
+  // ==================== ТОП-10 ГОРЯЧИХ КЛАВИШ ====================
+  {
+    id: "vscode001",
     type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Базовые сочетания клавиш",
-    theme: "Основные комбинации",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Копирование и вставка",
+    theme: "Базовые операции",
     text: `<div class="container-fluid">
       <div class="alert alert-info mt-3">
         <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш используется для копирования выделенного текста или файла?</p>
+        <p class="mb-0">Какое сочетание клавиш используется для копирования выделенного фрагмента кода в VS Code?</p>
       </div>
     </div>`,
     choices: [
       "Ctrl + X",
-      "Ctrl + C", 
+      "Ctrl + C",
       "Ctrl + V",
       "Ctrl + Z",
       "Ctrl + A",
@@ -415,56 +416,344 @@ let quizesSets = [
     hint: "Первая буква английского слова 'Copy'",
     answers: ["Ctrl + C"]
   },
- 
+
   {
-    id: "win004",
+    id: "vscode002",
     type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Работа с текстом", 
-    theme: "Текстовые редакторы",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Сохранение файла",
+    theme: "Базовые операции",
+    text: `<div class="container-fluid">
+      <div class="alert alert-info mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш сохраняет текущий файл в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Ctrl + S",
+      "Ctrl + Shift + S",
+      "Ctrl + D",
+      "Ctrl + W",
+      "Alt + S",
+      "F2"
+    ],
+    hint: "Первая буква английского слова 'Save'",
+    answers: ["Ctrl + S"]
+  },
+
+  {
+    id: "vscode003",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Отмена действия",
+    theme: "Базовые операции",
     text: `<div class="container-fluid">
       <div class="alert alert-primary mt-3">
         <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш отменяет последнее действие в большинстве программ?</p>
+        <p class="mb-0">Какое сочетание клавиш отменяет последнее действие в VS Code?</p>
       </div>
     </div>`,
     choices: [
       "Ctrl + Y",
-      "Ctrl + Z", 
+      "Ctrl + Z",
       "Ctrl + X",
       "Ctrl + Backspace",
       "Alt + Backspace",
       "Ctrl + D"
     ],
-    hint: "Последняя буква алфавита - отмена последнего действия",
+    hint: "Последняя буква алфавита — отмена последнего действия",
     answers: ["Ctrl + Z"]
   },
-  
+
   {
-    id: "win008",
+    id: "vscode004",
     type: "multiplechoices",
-    header: "Тест по сочетаниям клавиш Windows 10",
-    title: "Снимки экрана", 
-    theme: "Захват экрана",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Поиск в файле",
+    theme: "Поиск и навигация",
     text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
+      <div class="alert alert-warning mt-3">
         <strong>Вопрос:</strong>
-        <p class="mb-0">Какое сочетание клавиш делает скриншот и сохраняет его в буфер обмена?</p>
+        <p class="mb-0">Какое сочетание клавиш открывает поиск по текущему файлу в VS Code?</p>
       </div>
     </div>`,
     choices: [
-      "Print Screen",
-      "Alt + Print Screen", 
-      "Win + Print Screen",
-      "Ctrl + Print Screen",
-      "Shift + Print Screen",
-      "Win + Shift + S"
+      "Ctrl + F",
+      "Ctrl + H",
+      "Ctrl + Shift + F",
+      "Ctrl + P",
+      "Ctrl + G",
+      "Alt + F"
     ],
-    hint: "Просто нажатие одной специальной клавиши",
-    answers: ["Print Screen"]
+    hint: "Первая буква английского слова 'Find'",
+    answers: ["Ctrl + F"]
   },
-  
-  
+
+  {
+    id: "vscode005",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Быстрый переход к файлу",
+    theme: "Поиск и навигация",
+    text: `<div class="container-fluid">
+      <div class="alert alert-warning mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш открывает панель быстрого перехода к файлу по имени в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Ctrl + P",
+      "Ctrl + Shift + P",
+      "Ctrl + O",
+      "Ctrl + T",
+      "Ctrl + G",
+      "Alt + P"
+    ],
+    hint: "Первая буква английского слова 'Palette' (но без Shift — это переход к файлу)",
+    answers: ["Ctrl + P"]
+  },
+
+  {
+    id: "vscode006",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Палитра команд",
+    theme: "Управление",
+    text: `<div class="container-fluid">
+      <div class="alert alert-warning mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш открывает палитру команд (Command Palette) в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Ctrl + Shift + P",
+      "Ctrl + P",
+      "Ctrl + Shift + C",
+      "F1",
+      "Ctrl + Alt + P",
+      "Alt + Shift + P"
+    ],
+    hint: "Ctrl + P, но с добавлением Shift",
+    answers: ["Ctrl + Shift + P"]
+  },
+
+  {
+    id: "vscode007",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Комментирование строки",
+    theme: "Редактирование",
+    text: `<div class="container-fluid">
+      <div class="alert alert-success mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш закомментирует текущую строку (или выделенный блок) в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Ctrl + /",
+      "Ctrl + ;",
+      "Ctrl + K",
+      "Alt + /",
+      "Ctrl + Shift + /",
+      "Ctrl + '"
+    ],
+    hint: "Самый простой символ — обычный слэш",
+    answers: ["Ctrl + /"]
+  },
+
+  {
+    id: "vscode008",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Выделить следующее вхождение",
+    theme: "Мультикурсор",
+    text: `<div class="container-fluid">
+      <div class="alert alert-success mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш добавляет следующий курсор на следующем вхождении выделенного текста в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Ctrl + D",
+      "Ctrl + Shift + D",
+      "Alt + D",
+      "Ctrl + Alt + D",
+      "Ctrl + U",
+      "F3"
+    ],
+    hint: "Первая буква английского слова 'Duplicate' — но здесь это 'Add selection to next find match'",
+    answers: ["Ctrl + D"]
+  },
+
+  {
+    id: "vscode009",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Перемещение строки",
+    theme: "Редактирование",
+    text: `<div class="container-fluid">
+      <div class="alert alert-success mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш перемещает текущую строку вверх или вниз в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Alt + ↑ / Alt + ↓",
+      "Ctrl + ↑ / Ctrl + ↓",
+      "Shift + ↑ / Shift + ↓",
+      "Ctrl + Shift + ↑ / ↓",
+      "Alt + Shift + ↑ / ↓",
+      "Ctrl + Alt + ↑ / ↓"
+    ],
+    hint: "Используется клавиша Alt вместе со стрелками",
+    answers: ["Alt + ↑ / Alt + ↓"]
+  },
+
+  {
+    id: "vscode010",
+    type: "multiplechoices",
+    header: "Тест по горячим клавишам VS Code",
+    title: "Дублирование строки",
+    theme: "Редактирование",
+    text: `<div class="container-fluid">
+      <div class="alert alert-success mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое сочетание клавиш дублирует текущую строку вниз в VS Code?</p>
+      </div>
+    </div>`,
+    choices: [
+      "Shift + Alt + ↓",
+      "Ctrl + D",
+      "Ctrl + Shift + D",
+      "Alt + ↓",
+      "Shift + ↓",
+      "Ctrl + Alt + ↓"
+    ],
+    hint: "Shift + Alt + стрелка вниз",
+    answers: ["Shift + Alt + ↓"]
+  },
+
+  // ==================== ТОП-5 REGEX ====================
+  {
+    id: "regex001",
+    type: "multiplechoices",
+    header: "Тест по регулярным выражениям",
+    title: "Цифры",
+    theme: "Базовые regex",
+    text: `<div class="container-fluid">
+      <div class="alert alert-info mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое регулярное выражение соответствует одной или более цифрам?</p>
+      </div>
+    </div>`,
+    choices: [
+      "\\d+",
+      "\\w+",
+      "\\s+",
+      "[a-z]+",
+      ".*",
+      "\\D+"
+    ],
+    hint: "d — digit (цифра), + — один или более раз",
+    answers: ["\\d+"]
+  },
+
+  {
+    id: "regex002",
+    type: "multiplechoices",
+    header: "Тест по регулярным выражениям",
+    title: "Email",
+    theme: "Практические regex",
+    text: `<div class="container-fluid">
+      <div class="alert alert-primary mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое регулярное выражение чаще всего используется для проверки простого email-адреса?</p>
+      </div>
+    </div>`,
+    choices: [
+      "^[\\w.-]+@[\\w.-]+\\.\\w{2,}$",
+      "^\\d+@\\d+\\.\\d+$",
+      "^[a-z]+@[a-z]+$",
+      "^.*@.*$",
+      "^\\w+@\\w+$",
+      "^[A-Z]+@[A-Z]+\\.[A-Z]+$"
+    ],
+    hint: "Начинается с ^, содержит @ и домен с точкой",
+    answers: ["^[\\w.-]+@[\\w.-]+\\.\\w{2,}$"]
+  },
+
+  {
+    id: "regex003",
+    type: "multiplechoices",
+    header: "Тест по регулярным выражениям",
+    title: "Пробелы",
+    theme: "Базовые regex",
+    text: `<div class="container-fluid">
+      <div class="alert alert-warning mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое регулярное выражение соответствует одному или более пробельным символам (пробел, таб, перенос)?</p>
+      </div>
+    </div>`,
+    choices: [
+      "\\s+",
+      "\\d+",
+      "\\w+",
+      "\\S+",
+      " +",
+      "\\t+"
+    ],
+    hint: "s — space (пробельный символ)",
+    answers: ["\\s+"]
+  },
+
+  {
+    id: "regex004",
+    type: "multiplechoices",
+    header: "Тест по регулярным выражениям",
+    title: "Слово целиком",
+    theme: "Границы слов",
+    text: `<div class="container-fluid">
+      <div class="alert alert-success mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое регулярное выражение найдёт слово "test" как отдельное слово (не часть другого слова)?</p>
+      </div>
+    </div>`,
+    choices: [
+      "\\btest\\b",
+      "test",
+      "^test$",
+      "\\wtest\\w",
+      "[test]",
+      "test.*"
+    ],
+    hint: "\\b — граница слова (word boundary)",
+    answers: ["\\btest\\b"]
+  },
+
+  {
+    id: "regex005",
+    type: "multiplechoices",
+    header: "Тест по регулярным выражениям",
+    title: "Любой символ",
+    theme: "Базовые regex",
+    text: `<div class="container-fluid">
+      <div class="alert alert-danger mt-3">
+        <strong>Вопрос:</strong>
+        <p class="mb-0">Какое регулярное выражение соответствует любой строке (включая пустую) от начала до конца?</p>
+      </div>
+    </div>`,
+    choices: [
+      "^.*$",
+      "^.+$",
+      "^\\w*$",
+      "^\\d*$",
+      "^.?$",
+      "^.*"
+    ],
+    hint: "Точка — любой символ, звёздочка — ноль или более раз",
+    answers: ["^.*$"]
+  },
+
   
   
   
