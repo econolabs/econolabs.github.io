@@ -2128,7 +2128,652 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
     ],
     hint: "В Запросе 1 условие в JOIN, в Запросе 2 - в WHERE. Подумайте о строках, где B IS NULL",
     answers: ["Оба запроса возвращают одинаковый результат"]
-  }
+  },
+
+  {
+    id: "excel001",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "СЧЁТЕСЛИ: подсчёт по условию",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — продажи техники</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <!-- Фон -->
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+
+      <!-- Заголовки столбцов -->
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='90' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='370' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='500' y='0' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='325' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='435' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+      <text x='560' y='20' text-anchor='middle' font-size='13' fill='#495057'>F</text>
+
+      <!-- Строки -->
+      <g font-size='13' fill='#212529'>
+        <!-- номера строк -->
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='180' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+        <text x='20' y='200' text-anchor='middle' fill='#6c757d'>6</text>
+
+        <!-- данные -->
+        <text x='45' y='50'>Товар</text>
+        <text x='175' y='50'>Цена</text>
+        <text x='285' y='50'>Кол-во</text>
+        <text x='375' y='50'>Категория</text>
+        <text x='505' y='50'>Город</text>
+
+        <text x='45' y='80'>Ноутбук</text>
+        <text x='175' y='80'>55000</text>
+        <text x='285' y='80'>12</text>
+        <text x='375' y='80'>Техника</text>
+        <text x='505' y='80'>Москва</text>
+
+        <text x='45' y='110'>Мышь</text>
+        <text x='175' y='110'>800</text>
+        <text x='285' y='110'>150</text>
+        <text x='375' y='110'>Аксессуар</text>
+        <text x='505' y='110'>СПб</text>
+
+        <text x='45' y='140'>Монитор</text>
+        <text x='175' y='140'>18000</text>
+        <text x='285' y='140'>25</text>
+        <text x='375' y='140'>Техника</text>
+        <text x='505' y='140'>Москва</text>
+
+        <text x='45' y='170'>Клавиатура</text>
+        <text x='175' y='170'>2500</text>
+        <text x='285' y='170'>80</text>
+        <text x='375' y='170'>Аксессуар</text>
+        <text x='505' y='170'>Казань</text>
+
+        <text x='45' y='200'>Планшет</text>
+        <text x='175' y='200'>32000</text>
+        <text x='285' y='200'>18</text>
+        <text x='375' y='200'>Техника</text>
+        <text x='505' y='200'>СПб</text>
+      </g>
+
+      <!-- Сетка -->
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='210'/>
+        <line x1='170' y1='0' x2='170' y2='210'/>
+        <line x1='280' y1='0' x2='280' y2='210'/>
+        <line x1='370' y1='0' x2='370' y2='210'/>
+        <line x1='500' y1='0' x2='500' y2='210'/>
+        <line x1='0' y1='30' x2='620' y2='30'/>
+        <line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/>
+        <line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/>
+        <line x1='0' y1='180' x2='620' y2='180'/>
+        <line x1='0' y1='210' x2='620' y2='210'/>
+      </g>
+
+      <!-- Формула внизу -->
+      <rect x='0' y='220' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='245' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='245' font-size='13' fill='#212529'>=СЧЁТЕСЛИ(D2:D6; "Техника")</text>
+    </svg>
+    <p class='mt-3 mb-0'><strong>Вопрос:</strong> Какое значение вернёт формула <code>=СЧЁТЕСЛИ(D2:D6; "Техника")</code>?</p>
+  </div>
+</div>`,
+    choices: ["1", "2", "3", "4", "5"],
+    answers: ["3"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функция СЧЁТЕСЛИ</h5>
+      <p class='mb-1'>Считает количество ячеек, удовлетворяющих <strong>одному условию</strong>.</p>
+      <p class='mb-1'><strong>Синтаксис:</strong> =СЧЁТЕСЛИ(диапазон; условие)</p>
+      <hr class='my-2'>
+      <p class='mb-1'>В диапазоне D2:D6 значения: Техника, Аксессуар, Техника, Аксессуар, Техника.</p>
+      <p class='mb-0'>Слово «Техника» встречается <strong>3 раза</strong>.</p>
+    </div>`
+},
+
+{
+    id: "excel002",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "СЧЁТЕСЛИМН: подсчёт по двум условиям",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — продажи техники</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <!-- (тот же SVG, что и в excel001 — просто скопируйте) -->
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='90' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='370' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='500' y='0' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='325' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='435' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+      <text x='560' y='20' text-anchor='middle' font-size='13' fill='#495057'>F</text>
+
+      <g font-size='13' fill='#212529'>
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='180' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+        <text x='20' y='200' text-anchor='middle' fill='#6c757d'>6</text>
+
+        <text x='45' y='50'>Товар</text><text x='175' y='50'>Цена</text><text x='285' y='50'>Кол-во</text><text x='375' y='50'>Категория</text><text x='505' y='50'>Город</text>
+        <text x='45' y='80'>Ноутбук</text><text x='175' y='80'>55000</text><text x='285' y='80'>12</text><text x='375' y='80'>Техника</text><text x='505' y='80'>Москва</text>
+        <text x='45' y='110'>Мышь</text><text x='175' y='110'>800</text><text x='285' y='110'>150</text><text x='375' y='110'>Аксессуар</text><text x='505' y='110'>СПб</text>
+        <text x='45' y='140'>Монитор</text><text x='175' y='140'>18000</text><text x='285' y='140'>25</text><text x='375' y='140'>Техника</text><text x='505' y='140'>Москва</text>
+        <text x='45' y='170'>Клавиатура</text><text x='175' y='170'>2500</text><text x='285' y='170'>80</text><text x='375' y='170'>Аксессуар</text><text x='505' y='170'>Казань</text>
+        <text x='45' y='200'>Планшет</text><text x='175' y='200'>32000</text><text x='285' y='200'>18</text><text x='375' y='200'>Техника</text><text x='505' y='200'>СПб</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='210'/><line x1='170' y1='0' x2='170' y2='210'/>
+        <line x1='280' y1='0' x2='280' y2='210'/><line x1='370' y1='0' x2='370' y2='210'/>
+        <line x1='500' y1='0' x2='500' y2='210'/>
+        <line x1='0' y1='30' x2='620' y2='30'/><line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/><line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/><line x1='0' y1='180' x2='620' y2='180'/>
+        <line x1='0' y1='210' x2='620' y2='210'/>
+      </g>
+
+      <rect x='0' y='220' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='245' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='245' font-size='13' fill='#212529'>=СЧЁТЕСЛИМН(D2:D6; "Техника"; E2:E6; "Москва")</text>
+    </svg>
+    <p class='mt-3 mb-0'><strong>Вопрос:</strong> Какое значение вернёт формула <code>=СЧЁТЕСЛИМН(D2:D6; "Техника"; E2:E6; "Москва")</code>?</p>
+  </div>
+</div>`,
+    choices: ["1", "2", "3", "4", "5"],
+    answers: ["2"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функция СЧЁТЕСЛИМН</h5>
+      <p class='mb-1'>Считает количество ячеек, удовлетворяющих <strong>нескольким условиям одновременно</strong>.</p>
+      <p class='mb-1'><strong>Синтаксис:</strong> =СЧЁТЕСЛИМН(диапазон1; условие1; диапазон2; условие2; …)</p>
+      <hr class='my-2'>
+      <p class='mb-1'>Строки, где категория «Техника»: Ноутбук, Монитор, Планшет.</p>
+      <p class='mb-1'>Из них в Москве: Ноутбук и Монитор.</p>
+      <p class='mb-0'>Ответ: <strong>2</strong>.</p>
+    </div>`
+},
+
+{
+    id: "excel003",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "СУММЕСЛИ: сумма по условию",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — продажи техники</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <!-- тот же SVG -->
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='90' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='370' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='500' y='0' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='325' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='435' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+      <text x='560' y='20' text-anchor='middle' font-size='13' fill='#495057'>F</text>
+
+      <g font-size='13' fill='#212529'>
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='180' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+        <text x='20' y='200' text-anchor='middle' fill='#6c757d'>6</text>
+
+        <text x='45' y='50'>Товар</text><text x='175' y='50'>Цена</text><text x='285' y='50'>Кол-во</text><text x='375' y='50'>Категория</text><text x='505' y='50'>Город</text>
+        <text x='45' y='80'>Ноутбук</text><text x='175' y='80'>55000</text><text x='285' y='80'>12</text><text x='375' y='80'>Техника</text><text x='505' y='80'>Москва</text>
+        <text x='45' y='110'>Мышь</text><text x='175' y='110'>800</text><text x='285' y='110'>150</text><text x='375' y='110'>Аксессуар</text><text x='505' y='110'>СПб</text>
+        <text x='45' y='140'>Монитор</text><text x='175' y='140'>18000</text><text x='285' y='140'>25</text><text x='375' y='140'>Техника</text><text x='505' y='140'>Москва</text>
+        <text x='45' y='170'>Клавиатура</text><text x='175' y='170'>2500</text><text x='285' y='170'>80</text><text x='375' y='170'>Аксессуар</text><text x='505' y='170'>Казань</text>
+        <text x='45' y='200'>Планшет</text><text x='175' y='200'>32000</text><text x='285' y='200'>18</text><text x='375' y='200'>Техника</text><text x='505' y='200'>СПб</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='210'/><line x1='170' y1='0' x2='170' y2='210'/>
+        <line x1='280' y1='0' x2='280' y2='210'/><line x1='370' y1='0' x2='370' y2='210'/>
+        <line x1='500' y1='0' x2='500' y2='210'/>
+        <line x1='0' y1='30' x2='620' y2='30'/><line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/><line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/><line x1='0' y1='180' x2='620' y2='180'/>
+        <line x1='0' y1='210' x2='620' y2='210'/>
+      </g>
+
+      <rect x='0' y='220' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='245' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='245' font-size='13' fill='#212529'>=СУММЕСЛИ(D2:D6; "Аксессуар"; C2:C6)</text>
+    </svg>
+    <p class='mt-3 mb-0'><strong>Вопрос:</strong> Какое значение вернёт формула <code>=СУММЕСЛИ(D2:D6; "Аксессуар"; C2:C6)</code>?</p>
+  </div>
+</div>`,
+    choices: ["80", "150", "230", "500", "730"],
+    answers: ["230"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функция СУММЕСЛИ</h5>
+      <p class='mb-1'>Суммирует значения из одного диапазона, если в другом выполняется условие.</p>
+      <p class='mb-1'><strong>Синтаксис:</strong> =СУММЕСЛИ(диапазон_условия; условие; диапазон_суммирования)</p>
+      <hr class='my-2'>
+      <p class='mb-1'>Категория «Аксессуар» встречается у: Мыши (150), Клавиатуры (80).</p>
+      <p class='mb-0'>Сумма: 150 + 80 = <strong>230</strong>.</p>
+    </div>`
+},
+
+{
+    id: "excel004",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "МАКС: максимальное значение",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — продажи техники</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <!-- тот же SVG -->
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='90' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='370' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='500' y='0' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='325' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='435' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+      <text x='560' y='20' text-anchor='middle' font-size='13' fill='#495057'>F</text>
+
+      <g font-size='13' fill='#212529'>
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='180' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+        <text x='20' y='200' text-anchor='middle' fill='#6c757d'>6</text>
+
+        <text x='45' y='50'>Товар</text><text x='175' y='50'>Цена</text><text x='285' y='50'>Кол-во</text><text x='375' y='50'>Категория</text><text x='505' y='50'>Город</text>
+        <text x='45' y='80'>Ноутбук</text><text x='175' y='80'>55000</text><text x='285' y='80'>12</text><text x='375' y='80'>Техника</text><text x='505' y='80'>Москва</text>
+        <text x='45' y='110'>Мышь</text><text x='175' y='110'>800</text><text x='285' y='110'>150</text><text x='375' y='110'>Аксессуар</text><text x='505' y='110'>СПб</text>
+        <text x='45' y='140'>Монитор</text><text x='175' y='140'>18000</text><text x='285' y='140'>25</text><text x='375' y='140'>Техника</text><text x='505' y='140'>Москва</text>
+        <text x='45' y='170'>Клавиатура</text><text x='175' y='170'>2500</text><text x='285' y='170'>80</text><text x='375' y='170'>Аксессуар</text><text x='505' y='170'>Казань</text>
+        <text x='45' y='200'>Планшет</text><text x='175' y='200'>32000</text><text x='285' y='200'>18</text><text x='375' y='200'>Техника</text><text x='505' y='200'>СПб</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='210'/><line x1='170' y1='0' x2='170' y2='210'/>
+        <line x1='280' y1='0' x2='280' y2='210'/><line x1='370' y1='0' x2='370' y2='210'/>
+        <line x1='500' y1='0' x2='500' y2='210'/>
+        <line x1='0' y1='30' x2='620' y2='30'/><line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/><line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/><line x1='0' y1='180' x2='620' y2='180'/>
+        <line x1='0' y1='210' x2='620' y2='210'/>
+      </g>
+
+      <rect x='0' y='220' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='245' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='245' font-size='13' fill='#212529'>=МАКС(B2:B6) - МИН(B2:B6)</text>
+    </svg>
+    <p class='mt-3 mb-0'><strong>Вопрос:</strong> Какое значение вернёт формула <code>=МАКС(B2:B6) - МИН(B2:B6)</code>?</p>
+  </div>
+</div>`,
+    choices: ["54200", "55000", "55800", "32000", "18000"],
+    answers: ["54200"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функции МАКС и МИН</h5>
+      <p class='mb-1'><strong>МАКС</strong> возвращает наибольшее значение в диапазоне, <strong>МИН</strong> — наименьшее.</p>
+      <hr class='my-2'>
+      <p class='mb-1'>В диапазоне B2:B6 цены: 55000, 800, 18000, 2500, 32000.</p>
+      <p class='mb-1'>МАКС = 55000 (Ноутбук), МИН = 800 (Мышь).</p>
+      <p class='mb-0'>Разница: 55000 − 800 = <strong>54200</strong>.</p>
+    </div>`
+},
+
+{
+    id: "excel005",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "СРЗНАЧ: среднее значение",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — продажи техники</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <!-- тот же SVG -->
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='90' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='370' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='500' y='0' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='325' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='435' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+      <text x='560' y='20' text-anchor='middle' font-size='13' fill='#495057'>F</text>
+
+      <g font-size='13' fill='#212529'>
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='180' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+        <text x='20' y='200' text-anchor='middle' fill='#6c757d'>6</text>
+
+        <text x='45' y='50'>Товар</text><text x='175' y='50'>Цена</text><text x='285' y='50'>Кол-во</text><text x='375' y='50'>Категория</text><text x='505' y='50'>Город</text>
+        <text x='45' y='80'>Ноутбук</text><text x='175' y='80'>55000</text><text x='285' y='80'>12</text><text x='375' y='80'>Техника</text><text x='505' y='80'>Москва</text>
+        <text x='45' y='110'>Мышь</text><text x='175' y='110'>800</text><text x='285' y='110'>150</text><text x='375' y='110'>Аксессуар</text><text x='505' y='110'>СПб</text>
+        <text x='45' y='140'>Монитор</text><text x='175' y='140'>18000</text><text x='285' y='140'>25</text><text x='375' y='140'>Техника</text><text x='505' y='140'>Москва</text>
+        <text x='45' y='170'>Клавиатура</text><text x='175' y='170'>2500</text><text x='285' y='170'>80</text><text x='375' y='170'>Аксессуар</text><text x='505' y='170'>Казань</text>
+        <text x='45' y='200'>Планшет</text><text x='175' y='200'>32000</text><text x='285' y='200'>18</text><text x='375' y='200'>Техника</text><text x='505' y='200'>СПб</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='210'/><line x1='170' y1='0' x2='170' y2='210'/>
+        <line x1='280' y1='0' x2='280' y2='210'/><line x1='370' y1='0' x2='370' y2='210'/>
+        <line x1='500' y1='0' x2='500' y2='210'/>
+        <line x1='0' y1='30' x2='620' y2='30'/><line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/><line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/><line x1='0' y1='180' x2='620' y2='180'/>
+        <line x1='0' y1='210' x2='620' y2='210'/>
+      </g>
+
+      <rect x='0' y='220' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='245' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='245' font-size='13' fill='#212529'>=ОКРУГЛ(СРЗНАЧ(B2:B6); 0)</text>
+    </svg>
+    <p class='mt-3 mb-0'><strong>Вопрос:</strong> Какое значение вернёт формула <code>=ОКРУГЛ(СРЗНАЧ(B2:B6); 0)</code>?</p>
+  </div>
+</div>`,
+    choices: ["19600", "21000", "21500", "21660", "25000"],
+    answers: ["21660"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функции СРЗНАЧ и ОКРУГЛ</h5>
+      <p class='mb-1'><strong>СРЗНАЧ</strong> находит среднее арифметическое, <strong>ОКРУГЛ</strong> округляет до указанного числа знаков.</p>
+      <hr class='my-2'>
+      <p class='mb-1'>Сумма: 55000 + 800 + 18000 + 2500 + 32000 = 108300.</p>
+      <p class='mb-1'>Среднее: 108300 / 5 = 21660.</p>
+      <p class='mb-0'>Округление до целого: <strong>21660</strong>.</p>
+    </div>`
+},
+
+{
+    id: "excel006",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "Абсолютные и относительные ссылки",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — расчёт скидки</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 260' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <rect x='0' y='0' width='620' height='260' fill='#fff' stroke='#adb5bd'/>
+
+      <!-- Заголовки столбцов -->
+      <rect x='0' y='0' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='170' y='0' width='110' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='280' y='0' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='410' y='0' width='210' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+
+      <text x='20' y='20' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='105' y='20' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='225' y='20' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='345' y='20' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+      <text x='515' y='20' text-anchor='middle' font-size='13' fill='#495057'>E</text>
+
+      <g font-size='13' fill='#212529'>
+        <!-- номера строк -->
+        <rect x='0' y='30' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='60' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='90' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='120' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <rect x='0' y='150' width='40' height='30' fill='#f1f3f5' stroke='#dee2e6'/>
+        <text x='20' y='50'  text-anchor='middle' fill='#6c757d'>1</text>
+        <text x='20' y='80'  text-anchor='middle' fill='#6c757d'>2</text>
+        <text x='20' y='110' text-anchor='middle' fill='#6c757d'>3</text>
+        <text x='20' y='140' text-anchor='middle' fill='#6c757d'>4</text>
+        <text x='20' y='170' text-anchor='middle' fill='#6c757d'>5</text>
+
+        <!-- данные -->
+        <text x='45' y='50'>Товар</text>
+        <text x='175' y='50'>Цена</text>
+        <text x='285' y='50'>Скидка</text>
+        <text x='415' y='50'>Цена со скидкой</text>
+
+        <text x='45' y='80'>Ноутбук</text>
+        <text x='175' y='80'>55000</text>
+        <text x='285' y='80'>10%</text>
+        <text x='415' y='80'>49500</text>
+
+        <text x='45' y='110'>Мышь</text>
+        <text x='175' y='110'>800</text>
+        <text x='285' y='110'>10%</text>
+        <text x='415' y='110'>720</text>
+
+        <text x='45' y='140'>Монитор</text>
+        <text x='175' y='140'>18000</text>
+        <text x='285' y='140'>10%</text>
+        <text x='415' y='140'>16200</text>
+
+        <text x='45' y='170'>Планшет</text>
+        <text x='175' y='170'>32000</text>
+        <text x='285' y='170'>10%</text>
+        <text x='415' y='170'>28800</text>
+      </g>
+
+      <!-- Сетка -->
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='0' x2='40' y2='180'/>
+        <line x1='170' y1='0' x2='170' y2='180'/>
+        <line x1='280' y1='0' x2='280' y2='180'/>
+        <line x1='410' y1='0' x2='410' y2='180'/>
+        <line x1='0' y1='30' x2='620' y2='30'/>
+        <line x1='0' y1='60' x2='620' y2='60'/>
+        <line x1='0' y1='90' x2='620' y2='90'/>
+        <line x1='0' y1='120' x2='620' y2='120'/>
+        <line x1='0' y1='150' x2='620' y2='150'/>
+        <line x1='0' y1='180' x2='620' y2='180'/>
+      </g>
+
+      <!-- Выделенная ячейка D2 -->
+      <rect x='410' y='60' width='210' height='30' fill='rgba(13,110,253,0.1)' stroke='#0d6efd' stroke-width='2'/>
+
+      <!-- Строка формул -->
+      <rect x='0' y='190' width='620' height='40' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='215' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='215' font-size='13' fill='#212529'>=B2 * (1 - C2/100)</text>
+    </svg>
+    <p class='mt-3 mb-1'>Формула в ячейке <strong>D2</strong>: <code>=B2 * (1 - C2/100)</code>.</p>
+    <p class='mb-0'><strong>Вопрос:</strong> Какую формулу нужно записать в ячейку <strong>D5</strong>, чтобы получить цену со скидкой для планшета?</p>
+  </div>
+</div>`,
+    choices: [
+        "=B5 * (1 - C5/100)",
+        "=B2 * (1 - C2/100)",
+        "=B$2 * (1 - C$2/100)",
+        "=B5 * (1 - $C$2/100)",
+        "=B$5 * (1 - C$5/100)"
+    ],
+    answers: ["=B5 * (1 - C5/100)"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Относительные ссылки</h5>
+      <p class='mb-1'>При копировании формулы Excel автоматически меняет <strong>относительные ссылки</strong> (без знака <code>$</code>).</p>
+      <p class='mb-1'>Формула из D2: <code>=B2 * (1 - C2/100)</code></p>
+      <p class='mb-1'>При копировании в D5 номер строки увеличивается на 3: 2 → 5.</p>
+      <hr class='my-2'>
+      <p class='mb-0'>Правильная формула: <strong>=B5 * (1 - C5/100)</strong></p>
+    </div>`
+},
+
+{
+    id: "excel007",
+    type: "multiplechoices",
+    header: "ФИПИ · Обработка данных в Excel",
+    title: "ВПР: поиск значения по названию",
+    theme: "Формулы Excel",
+    text: `
+<div class='card'>
+  <div class='card-header bg-success text-white'>Лист Excel — заказы и прайс-лист</div>
+  <div class='card-body'>
+    <svg viewBox='0 0 620 320' width='100%' style='max-width:620px; display:block; margin:0 auto; font-family:Consolas,monospace;'>
+      <rect x='0' y='0' width='620' height='320' fill='#fff' stroke='#adb5bd'/>
+
+      <!-- Верхняя таблица: Заказы -->
+      <text x='10' y='20' font-size='13' font-weight='bold' fill='#0d6efd'>Таблица «Заказы» (диапазон A1:C4)</text>
+
+      <rect x='0' y='30' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='30' width='150' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='190' y='30' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='320' y='30' width='120' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+
+      <text x='20' y='50' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='115' y='50' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='255' y='50' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+      <text x='380' y='50' text-anchor='middle' font-size='13' fill='#495057'>D</text>
+
+      <g font-size='13' fill='#212529'>
+        <text x='45' y='75'>Заказ</text>
+        <text x='45' y='105'>Ноутбук</text>
+        <text x='45' y='135'>Мышь</text>
+        <text x='45' y='165'>Монитор</text>
+
+        <text x='195' y='75'>Товар</text>
+        <text x='195' y='105'>Ноутбук</text>
+        <text x='195' y='135'>Мышь</text>
+        <text x='195' y='165'>Монитор</text>
+
+        <text x='325' y='75'>Цена</text>
+        <text x='325' y='105'>55000</text>
+        <text x='325' y='135'>800</text>
+        <text x='325' y='165'>18000</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='30' x2='40' y2='180'/>
+        <line x1='190' y1='30' x2='190' y2='180'/>
+        <line x1='320' y1='30' x2='320' y2='180'/>
+        <line x1='0' y1='60' x2='440' y2='60'/>
+        <line x1='0' y1='90' x2='440' y2='90'/>
+        <line x1='0' y1='120' x2='440' y2='120'/>
+        <line x1='0' y1='150' x2='440' y2='150'/>
+        <line x1='0' y1='180' x2='440' y2='180'/>
+      </g>
+
+      <!-- Нижняя таблица: Прайс-лист -->
+      <text x='10' y='215' font-size='13' font-weight='bold' fill='#198754'>Таблица «Прайс-лист» (диапазон A10:C14)</text>
+
+      <rect x='0' y='225' width='40' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='40' y='225' width='150' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+      <rect x='190' y='225' width='130' height='30' fill='#e9ecef' stroke='#adb5bd'/>
+
+      <text x='20' y='245' text-anchor='middle' font-size='13' fill='#495057'>A</text>
+      <text x='115' y='245' text-anchor='middle' font-size='13' fill='#495057'>B</text>
+      <text x='255' y='245' text-anchor='middle' font-size='13' fill='#495057'>C</text>
+
+      <g font-size='13' fill='#212529'>
+        <text x='45' y='270'>Товар</text>
+        <text x='45' y='300'>Ноутбук</text>
+
+        <text x='195' y='270'>Цена</text>
+        <text x='195' y='300'>55000</text>
+      </g>
+
+      <g stroke='#dee2e6'>
+        <line x1='40' y1='225' x2='40' y2='315'/>
+        <line x1='190' y1='225' x2='190' y2='315'/>
+        <line x1='0' y1='255' x2='320' y2='255'/>
+        <line x1='0' y1='285' x2='320' y2='285'/>
+        <line x1='0' y1='315' x2='320' y2='315'/>
+      </g>
+
+      <!-- Строка формул -->
+      <rect x='0' y='330' width='620' height='35' fill='#f8f9fa' stroke='#adb5bd'/>
+      <text x='10' y='355' font-size='13' fill='#0d6efd'>fx</text>
+      <text x='40' y='355' font-size='13' fill='#212529'>=ВПР(B2; A10:C14; 2; ЛОЖЬ)</text>
+    </svg>
+    <p class='mt-3 mb-1'>В ячейке <strong>C2</strong> записана формула: <code>=ВПР(B2; A10:C14; 2; ЛОЖЬ)</code>.</p>
+    <p class='mb-0'><strong>Вопрос:</strong> Что вернёт эта формула?</p>
+  </div>
+</div>`,
+    choices: ["Ноутбук", "55000", "800", "18000", "#Н/Д"],
+    answers: ["55000"],
+    hint: `<div class='alert alert-primary'>
+      <h5 class='mb-2'>📊 Функция ВПР (VLOOKUP)</h5>
+      <p class='mb-1'>Ищет значение в первом столбце диапазона и возвращает значение из указанного столбца той же строки.</p>
+      <p class='mb-1'><strong>Синтаксис:</strong> =ВПР(искомое; таблица; номер_столбца; [точное_совпадение])</p>
+      <hr class='my-2'>
+      <p class='mb-1'>Искомое: <strong>B2</strong> = «Ноутбук»</p>
+      <p class='mb-1'>Диапазон: <strong>A10:C14</strong> (прайс-лист)</p>
+      <p class='mb-1'>Столбец <strong>2</strong> — это «Цена» в прайс-листе</p>
+      <p class='mb-1'>ЛОЖЬ — точное совпадение</p>
+      <p class='mb-0'>Находим «Ноутбук» → цена во 2-м столбце = <strong>55000</strong></p>
+    </div>`
+},
+
+
 
 ];
 
