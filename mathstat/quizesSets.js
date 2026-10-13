@@ -3565,6 +3565,996 @@ let quizesSets = [
 </div>`,
     randomfrom: [10, 15, 20, 25, 30]
 },
+
+
+{
+    id: "binom_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: биномиальное распределение",
+    title: "Математическое ожидание по графику",
+    theme: "Биномиальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Биномиальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение числа успехов в <strong>{var1-10}</strong> независимых испытаниях с вероятностью успеха <strong>p = 0.5</strong>.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно математическое ожидание <em>M(X) = n · p</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{= {var1-10} / 2}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для биномиального распределения:</div>
+    <div class="text-center">$$ M(X) = n \\cdot p $$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$ M(X) = {var1-10} \\cdot 0.5 = {= {var1-10} / 2} $$</div>
+    <div class="alert alert-success mt-3">Ответ: <strong>{= {var1-10} / 2}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 20, 30, 40],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "{var1-10}",
+        p: "0.5"
+    }
+},
+
+{
+    id: "poisson_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: распределение Пуассона",
+    title: "Математическое ожидание по графику",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Распределение Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение Пуассона с интенсивностью <strong>λ = {var1-10}</strong>.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно математическое ожидание <em>M(X)</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для распределения Пуассона:</div>
+    <div class="text-center">$$ M(X) = \\lambda $$</div>
+    <div class="mt-3 mb-2">По условию λ = {var1-10}, значит:</div>
+    <div class="text-center">$$ M(X) = {var1-10} $$</div>
+    <div class="alert alert-warning mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5, 6],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "{var1-10}"
+    }
+},
+
+{
+    id: "normal_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: нормальное распределение",
+    title: "Найдите σ по графику",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Нормальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность нормального распределения с μ = 0 и неизвестным σ.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно <em>σ</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{= {var1-10} / 10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Чем больше σ, тем шире и ниже колокол. Чем меньше σ, тем уже и выше.</div>
+    <div class="mt-3 mb-2">По форме кривой на графике видно σ:</div>
+    <div class="text-center">$$ \\sigma = {= {var1-10} / 10} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} / 10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [5, 10, 15, 20],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "{= {var1-10} / 10}"
+    }
+},
+
+{
+    id: "normal_area_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: площадь под кривой",
+    title: "Вероятность попадания в интервал",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Площадь под кривой нормального распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность стандартного нормального распределения (μ = 0, σ = 1). Закрашенная область — интервал <strong>[−{var1-10}, +{var1-10}]</strong>.</div>
+
+    <div class="chart-wrap" style="height: 340px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-2" id="chartResult">
+      P(a &lt; X &lt; b) = ...
+    </div>
+
+    <div class="alert alert-success mt-2 mb-0">
+      <strong>Вопрос:</strong> Чему равна вероятность <em>P(−{var1-10} &lt; X &lt; {var1-10})</em>?
+      Введите число, округлив до 4 знаков после запятой (например, 0.9545).
+    </div>
+  </div>
+</div>`,
+    answer: "{= ROUND(POWER(2, 1) * 1, 4)}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для стандартного нормального распределения площадь под кривой между a и b — это вероятность P(a &lt; X &lt; b).</div>
+    <div class="mt-3 mb-2">По графику закрашенная область равна:</div>
+    <div class="text-center">$$ P(-{var1-10} < X < {var1-10}) $$</div>
+    <div class="mt-3 mb-2">Точное значение показано под графиком.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>смотрите число под графиком</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1, 2, 3],
+    chartjs: "normalArea",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1",
+        a: "{= -{var1-10}}",
+        b: "{var1-10}"
+    },
+    chartjsResultId: "chartResult"
+},
+
+{
+    id: "normal_chart_002",
+    type: "multiplechoices",
+    header: "График: нормальное распределение",
+    title: "Какой σ больше?",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Нормальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показаны две плотности нормального распределения с одинаковым μ = 0, но разными σ.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какой кривой σ больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У синей (широкой)",
+        "У красной (узкой)",
+        "Они одинаковы",
+        "Нельзя определить"
+    ],
+    answers: ["У синей (широкой)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Правило формы:</div>
+    <ul class="mb-2">
+      <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong></li>
+      <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong></li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>у синей (широкой) кривой σ больше</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1, 2, 3],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1"
+    }
+},
+
+{
+    id: "poisson_chart_002",
+    type: "mathwithrandomnumber",
+    header: "График: распределение Пуассона",
+    title: "Максимум графика",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Распределение Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение Пуассона с интенсивностью λ = {var1-10}. Найдите значение k, при котором вероятность максимальна (то есть положение вершины графика).</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> При каком <em>k</em> вероятность максимальна?
+      Введите целое число.
+    </div>
+  </div>
+</div>`,
+    answer: "{= ROUND({var1-10}, 0)}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для распределения Пуассона максимум достигается при k, ближайшем к λ:</div>
+    <div class="text-center">$$ k_{max} \\approx \\lambda $$</div>
+    <div class="mt-3 mb-2">По условию λ = {var1-10}, значит:</div>
+    <div class="text-center">$$ k_{max} = {= ROUND({var1-10}, 0)} $$</div>
+    <div class="alert alert-warning mt-3">Ответ: <strong>{= ROUND({var1-10}, 0)}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5, 6],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "{var1-10}"
+    }
+},
+
+{
+    id: "charttype_001",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Симметричный колокол из столбиков",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки биномиального распределения на графике:</div>
+    <ul class="mb-2">
+      <li><strong>Столбики</strong> (дискретное)</li>
+      <li>Симметричная форма при <em>p = 0.5</em></li>
+      <li>По горизонтали — целые числа от 0 до n</li>
+      <li>Форма близка к колоколу, но не непрерывная</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [20],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "20",
+        p: "0.5"
+    }
+},
+
+{
+    id: "charttype_002",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Столбики со скошенным хвостом",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Пуассона"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки распределения Пуассона:</div>
+    <ul class="mb-2">
+      <li><strong>Столбики</strong> (дискретное)</li>
+      <li>Максимум смещён влево (в начало координат)</li>
+      <li>Длинный <strong>правый хвост</strong></li>
+      <li>Число событий целое: 0, 1, 2, 3, …</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>распределение Пуассона</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "2"
+    }
+},
+
+{
+    id: "charttype_003",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Гладкая непрерывная кривая",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность распределения. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Нормальное (Гаусса)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки нормального распределения:</div>
+    <ul class="mb-2">
+      <li><strong>Непрерывная гладкая кривая</strong> (не столбики)</li>
+      <li>Симметрична относительно среднего</li>
+      <li>Имеет форму <strong>колокола</strong></li>
+      <li>По горизонтали — любое вещественное число</li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>нормальное (Гаусса)</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1"
+    }
+},
+
+{
+    id: "charttype_004",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Асимметричные столбики",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как отличить биномиальное от Пуассона?</div>
+    <ul class="mb-2">
+      <li>Число столбиков <strong>ограничено</strong> (от 0 до n) — это <em>биномиальное</em>.</li>
+      <li>У Пуассона число столбиков может быть неограниченным справа (теоретически).</li>
+      <li>Асимметрия при <em>p &ne; 0.5</em> — нормальна для биномиального.</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "20",
+        p: "0.2"
+    }
+},
+
+{
+    id: "charttype_005",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      В среднем за минуту на сервер приходит <strong>5 запросов</strong>. Запросы независимы, вероятность каждого мала, а их общее возможное число очень велико.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>числа запросов за 1 минуту</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Пуассона"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«редкие события»</strong></li>
+      <li><strong>«за фиксированный интервал»</strong></li>
+      <li><strong>«средняя интенсивность λ»</strong></li>
+      <li><strong>«число событий»</strong></li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>распределения Пуассона</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>Пуассона</strong></div>
+  </div>
+</div>`,
+    randomfrom: [5]
+},
+
+{
+    id: "charttype_006",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Рост взрослых мужчин в городе имеет <strong>среднее 175 см</strong> и <strong>стандартное отклонение 7 см</strong>. Большинство значений сосредоточено около среднего, крайние значения встречаются редко.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>роста</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Нормальное (Гаусса)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«среднее μ»</strong> и <strong>«стандартное отклонение σ»</strong></li>
+      <li><strong>«большинство около среднего»</strong></li>
+      <li><strong>«крайние значения редки»</strong></li>
+      <li>Непрерывная величина (рост, а не счёт)</li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>нормального распределения</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>нормальное (Гаусса)</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1]
+},
+
+{
+    id: "charttype_007",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Монету подбрасывают <strong>10 раз</strong>. Нас интересует <strong>число выпавших орлов</strong>. Каждый бросок независим, вероятность орла <strong>p = 0.5</strong>.
+    </div>
+    <div class="mb-3">
+      Какое распределение описывает <strong>число орлов</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«фиксированное число испытаний n»</strong></li>
+      <li><strong>«два исхода»</strong> (орёл / решка)</li>
+      <li><strong>«независимые испытания»</strong></li>
+      <li><strong>«вероятность p одинакова»</strong></li>
+      <li>Считаем <strong>число успехов</strong></li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>биномиального распределения</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10]
+},
+
+
+{
+    id: "twochart_001",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого графика σ больше?",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сравнение двух нормальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны плотности нормального распределения. У обоих одинаковое среднее μ = 0.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>σ</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика А"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Правило формы нормальной кривой:</div>
+    <ul class="mb-2">
+      <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong></li>
+      <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong></li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>у графика А</strong> — он шире и ниже, значит σ больше</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "normal",
+            id: "quizChartA",
+            config: { mu: "0", sigma: "2" }
+        },
+        {
+            type: "normal",
+            id: "quizChartB",
+            config: { mu: "0", sigma: "0.7" }
+        }
+    ]
+},
+
+{
+    id: "twochart_002",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого графика больше n?",
+    theme: "Биномиальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковая вероятность успеха p = 0.5, но разное число испытаний n.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>n</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как читать биномиальное распределение:</div>
+    <ul class="mb-2">
+      <li>По горизонтали — <strong>число успехов k</strong> от 0 до n.</li>
+      <li><strong>Чем больше n</strong>, тем больше диапазон по горизонтали.</li>
+      <li>Чем больше n, тем уже и «колоколообразнее» форма.</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>у графика Б</strong> — у него больше столбиков</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "binom",
+            id: "quizChartA",
+            config: { n: "10", p: "0.5" }
+        },
+        {
+            type: "binom",
+            id: "quizChartB",
+            config: { n: "40", p: "0.5" }
+        }
+    ]
+},
+
+{
+    id: "twochart_003",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "Биномиальное или Пуассон?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны дискретные распределения. Оба — с длинным правым хвостом.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какой график соответствует <em>распределению Пуассона</em>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "График А — Пуассон, Б — биномиальное",
+        "График А — биномиальное, Б — Пуассон",
+        "Оба — Пуассон",
+        "Оба — биномиальные"
+    ],
+    answers: ["График А — Пуассон, Б — биномиальное"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки <strong>Пуассона</strong>:</div>
+    <ul class="mb-2">
+      <li>Максимум смещён к нулю.</li>
+      <li>Длинный правый хвост.</li>
+      <li>Число значений неограничено (в теории).</li>
+    </ul>
+    <div class="mb-2">Признаки <strong>биномиального</strong>:</div>
+    <ul class="mb-2">
+      <li>Число значений ограничено: от 0 до n.</li>
+      <li>При p &lt; 0.5 форма скошена вправо, но обрывается на n.</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>А — Пуассон, Б — биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "3" }
+        },
+        {
+            type: "binom",
+            id: "quizChartB",
+            config: { n: "20", p: "0.15" }
+        }
+    ]
+},
+
+{
+    id: "twochart_004",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "Непрерывное или дискретное?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения с похожей формой. Одно из них — непрерывное, другое — дискретное.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-info mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое из них <em>непрерывное</em>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "График А",
+        "График Б",
+        "Оба непрерывные",
+        "Оба дискретные"
+    ],
+    answers: ["График Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как отличить непрерывное от дискретного:</div>
+    <ul class="mb-2">
+      <li><strong>Непрерывное</strong> — гладкая кривая без разрывов.</li>
+      <li><strong>Дискретное</strong> — отдельные столбики, между которыми пусто.</li>
+    </ul>
+    <div class="alert alert-info mt-3">Ответ: <strong>график Б</strong> — гладкая непрерывная кривая</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "10" }
+        },
+        {
+            type: "normal",
+            id: "quizChartB",
+            config: { mu: "10", sigma: "3" }
+        }
+    ]
+},
+
+{
+    id: "twochart_005",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого Пуассона больше λ?",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения Пуассона с разными интенсивностями λ.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>λ</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как читать λ на графике Пуассона:</div>
+    <ul class="mb-2">
+      <li>Положение максимума ≈ λ.</li>
+      <li>Чем <strong>правее</strong> максимум, тем <strong>больше λ</strong>.</li>
+      <li>Чем больше λ, тем симметричнее форма (ближе к нормальному).</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>у графика Б</strong> — его максимум правее</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "2" }
+        },
+        {
+            type: "poisson",
+            id: "quizChartB",
+            config: { lambda: "10" }
+        }
+    ]
+},
+
+
+
+
 ];
 
 window.quizesSets = quizesSets;

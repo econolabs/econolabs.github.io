@@ -253,37 +253,87 @@ function renderMathInHTML(htmlString) {
  * ============================================================
  *  Подстановка случайных чисел и вычисление {= ... }
  * ============================================================
+ * 
+ * 
  */
-function processquizwithrandomnumber({
-    quizString = "this {={var1-10}+1} some {=2+{var1-10}} that can be {=3+{var1-10}} with a {=4+{var1-10}} function",
-    answer,
-    randomNumber
-}) {
 
+function processquizwithrandomnumber({ quizString, answer, randomNumber }) {
     if (quizString.includes("{var1-10}")) {
         const searchRegExp = /{var1-10}/g;
         const replaceWith = randomNumber.toString();
         quizString = quizString.replace(searchRegExp, replaceWith);
         answer = answer.replace(searchRegExp, replaceWith);
 
-        let stringExtractor = basicfirebasecrudauthservices.extract(["{=", "}"]);
-        let stuffIneed = stringExtractor(quizString);
+        // Безопасно извлекаем {= ... }
+        let stuffIneed = [];
+        try {
+            const stringExtractor = basicfirebasecrudauthservices.extract(["{=", "}"]);
+            stuffIneed = stringExtractor(quizString) || [];
+        } catch (e) {
+            stuffIneed = [];
+        }
+
         for (let i = 0; i < stuffIneed.length; i++) {
             let feedback = basicfirebasecrudauthservices.createNewDraft([["=" + stuffIneed[i]]])[0][0];
             feedback = Math.round(feedback * 10000) / 10000;
             quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
         }
-        return {
-            quizString: quizString,
-            answer: answer
-        }
+        return { quizString, answer };
     } else {
-        return {
-            quizString: quizString,
-            answer: answer
-        }
+        return { quizString, answer };
     }
 }
+// function processquizwithrandomnumber({ quizString, answer, randomNumber }) {
+//     if (quizString.includes("{var1-10}")) {
+//         const searchRegExp = /{var1-10}/g;
+//         const replaceWith = randomNumber.toString();
+//         quizString = quizString.replace(searchRegExp, replaceWith);
+//         answer = answer.replace(searchRegExp, replaceWith);
+
+//         let stringExtractor = basicfirebasecrudauthservices.extract(["{=", "}"]);
+//         let stuffIneed = stringExtractor(quizString) || [];   // ← защита от null
+
+//         for (let i = 0; i < stuffIneed.length; i++) {
+//             let feedback = basicfirebasecrudauthservices.createNewDraft([["=" + stuffIneed[i]]])[0][0];
+//             feedback = Math.round(feedback * 10000) / 10000;
+//             quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
+//         }
+//         return { quizString, answer };
+//     } else {
+//         return { quizString, answer };
+//     }
+// }
+
+// function processquizwithrandomnumber({
+//     quizString = "this {={var1-10}+1} some {=2+{var1-10}} that can be {=3+{var1-10}} with a {=4+{var1-10}} function",
+//     answer,
+//     randomNumber
+// }) {
+
+//     if (quizString.includes("{var1-10}")) {
+//         const searchRegExp = /{var1-10}/g;
+//         const replaceWith = randomNumber.toString();
+//         quizString = quizString.replace(searchRegExp, replaceWith);
+//         answer = answer.replace(searchRegExp, replaceWith);
+
+//         let stringExtractor = basicfirebasecrudauthservices.extract(["{=", "}"]);
+//         let stuffIneed = stringExtractor(quizString);
+//         for (let i = 0; i < stuffIneed.length; i++) {
+//             let feedback = basicfirebasecrudauthservices.createNewDraft([["=" + stuffIneed[i]]])[0][0];
+//             feedback = Math.round(feedback * 10000) / 10000;
+//             quizString = quizString.replace("{=" + stuffIneed[i] + "}", feedback);
+//         }
+//         return {
+//             quizString: quizString,
+//             answer: answer
+//         }
+//     } else {
+//         return {
+//             quizString: quizString,
+//             answer: answer
+//         }
+//     }
+// }
 
 /**
  * ============================================================

@@ -233,6 +233,19 @@ function updateQuiz(activePage) {
 
     $("#quizHint").innerHTML = "";
 
+    // Уничтожаем предыдущий график, если он был
+if (window.charts && window.charts._charts) {
+    const prevId = quiz.chartjsId || "quizChart";
+    // Уничтожаем все графики, которые могли остаться от прошлого теста
+    window.charts._charts.forEach((chart, key) => {
+        if (key === "binomChart" || key === "poisChart" || key === "normChart" || key === "contChart") {
+            return; // не трогаем графики страницы (не тестовые)
+        }
+        chart.destroy();
+        window.charts._charts.delete(key);
+    });
+}
+
     if (!!quiz?.JSXGraphType) {
         window.jsxtemplatefunctions[quiz.JSXGraphType]("box");
     }
@@ -316,7 +329,60 @@ function updateQuiz(activePage) {
 
     }
 
+// ============================================================
+//  ОТРИСОВКА ГРАФИКОВ (поддержка одного или нескольких)
+// ============================================================
+if (quiz.chartjs && window.charts) {
+    // Превращаем конфиг в массив: либо один график, либо несколько
+    const chartsList = Array.isArray(quiz.chartjs)
+        ? quiz.chartjs
+        : [{
+            type: quiz.chartjs,
+            id: quiz.chartjsId || "quizChart",
+            config: quiz.chartjsConfig || {},
+            resultId: quiz.chartjsResultId
+        }];
 
+    // Обрабатываем каждый график
+    chartsList.forEach((chartDef, index) => {
+        const canvasId = chartDef.id || "quizChart" + index;
+        const chartType = chartDef.type || "binom";
+        const rawConfig = chartDef.config || {};
+
+        // Прогоняем строки с подстановками через парсер
+        const processedConfig = { type: chartType };
+        for (const key of Object.keys(rawConfig)) {
+            const value = rawConfig[key];
+            if (typeof value === "string" && value.includes("{")) {
+                processedConfig[key] = processquizwithrandomnumber({
+                    quizString: value,
+                    answer: "{var1-10}",
+                    randomNumber: randomNumber
+                }).quizString;
+            } else {
+                processedConfig[key] = value;
+            }
+        }
+
+        // Колбэк результата (для normalArea)
+        let onUpdate;
+        if (chartDef.resultId) {
+            const resultEl = document.getElementById(chartDef.resultId);
+            if (resultEl) {
+                onUpdate = ({ p, a, b }) => {
+                    resultEl.innerHTML =
+                        `<strong>P(${a.toFixed(2)} &lt; X &lt; ${b.toFixed(2)}) = ${p.toFixed(4)}</strong>` +
+                        ` &nbsp;·&nbsp; <span class="text-muted">≈ ${(p * 100).toFixed(2)} %</span>`;
+                };
+            }
+        }
+
+        // Рисуем график
+        setTimeout(() => {
+            window.charts.renderChart(canvasId, processedConfig, onUpdate);
+        }, 0);
+    });
+}
 }
 
 function checkLocallyAndGlobally(index, title, text) {
