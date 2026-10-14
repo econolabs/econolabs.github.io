@@ -4552,7 +4552,629 @@ let quizesSets = [
     ]
 },
 
+    // ============================================================
+    // ================ JSXGRAPH: ОПРЕДЕЛИТЬ ТИП РАСПРЕДЕЛЕНИЯ =====
+    // ============================================================
+    {
+        id: "jsx_charttype_001",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Симметричные столбики",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <ul class='mb-0'>
+            <li>Отдельные <strong>столбики</strong> (дискретное)</li>
+            <li>Симметричная форма при <em>p = 0.5</em></li>
+            <li>Ограниченное число значений: от 0 до n</li>
+            <li>Форма напоминает колокол, но не непрерывная</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "binom",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            n: "20",
+            p: "0.5"
+        }
+    },
+    {
+        id: "jsx_charttype_002",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Столбики с длинным правым хвостом",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Пуассона"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Распределение Пуассона</h5>
+          <ul class='mb-0'>
+            <li>Отдельные <strong>столбики</strong> (дискретное)</li>
+            <li>Максимум смещён влево</li>
+            <li>Длинный <strong>правый хвост</strong></li>
+            <li>Число событий — целое: 0, 1, 2, 3, …</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "poisson",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            lambda: "2"
+        }
+    },
+    {
+        id: "jsx_charttype_003",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Гладкая непрерывная кривая",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность распределения. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Нормальное (Гаусса)"],
+        hint: `<div class='alert alert-primary'>
+          <h5 class='mb-2'>📊 Нормальное распределение</h5>
+          <ul class='mb-0'>
+            <li>Гладкая <strong>непрерывная кривая</strong></li>
+            <li>Симметрична относительно среднего</li>
+            <li>Форма <strong>колокола</strong></li>
+            <li>По горизонтали — любое вещественное число</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "normal",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            mu: "0",
+            sigma: "1"
+        }
+    },
+    {
+        id: "jsx_charttype_004",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Асимметричные столбики",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <p class='mb-1'>Как отличить биномиальное от Пуассона:</p>
+          <ul class='mb-0'>
+            <li>Число столбиков <strong>ограничено</strong> (от 0 до n) — это биномиальное.</li>
+            <li>У Пуассона число столбиков теоретически неограничено справа.</li>
+            <li>Асимметрия при <em>p &ne; 0.5</em> нормальна для биномиального.</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "binom",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            n: "20",
+            p: "0.2"
+        }
+    },
+    {
+        id: "jsx_charttype_005",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Запросы на сервер",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      В среднем за минуту на сервер приходит <strong>5 запросов</strong>. Запросы независимы, вероятность каждого мала, а их общее возможное число очень велико.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>числа запросов за 1 минуту</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Пуассона"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Распределение Пуассона</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«редкие события»</strong></li>
+            <li><strong>«за фиксированный интервал»</strong></li>
+            <li><strong>«средняя интенсивность λ»</strong></li>
+            <li>Считаем <strong>число событий</strong></li>
+          </ul>
+        </div>`,
+        randomfrom: [5]
+    },
+    {
+        id: "jsx_charttype_006",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Рост взрослых мужчин",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Рост взрослых мужчин в городе имеет <strong>среднее 175 см</strong> и <strong>стандартное отклонение 7 см</strong>. Большинство значений сосредоточено около среднего, крайние значения встречаются редко.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>роста</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Нормальное (Гаусса)"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Нормальное распределение</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«среднее μ»</strong> и <strong>«стандартное отклонение σ»</strong></li>
+            <li><strong>«большинство около среднего»</strong></li>
+            <li><strong>«крайние значения редки»</strong></li>
+            <li>Непрерывная величина (рост, а не счёт)</li>
+          </ul>
+        </div>`,
+        randomfrom: [1]
+    },
+    {
+        id: "jsx_charttype_007",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Подбрасывание монеты",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Монету подбрасывают <strong>10 раз</strong>. Нас интересует <strong>число выпавших орлов</strong>. Каждый бросок независим, вероятность орла <strong>p = 0.5</strong>.
+    </div>
+    <div class="mb-3">
+      Какое распределение описывает <strong>число орлов</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«фиксированное число испытаний n»</strong></li>
+            <li><strong>«два исхода»</strong> (орёл / решка)</li>
+            <li><strong>«независимые испытания»</strong></li>
+            <li>Вероятность <strong>p одинакова</strong></li>
+            <li>Считаем <strong>число успехов</strong></li>
+          </ul>
+        </div>`,
+        randomfrom: [10]
+    },
 
+    // ============================================================
+    // ================ JSXGRAPH: СРАВНЕНИЕ ДВУХ ГРАФИКОВ ==========
+    // ============================================================
+    {
+        id: "jsx_twochart_001",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика σ больше?",
+        theme: "Нормальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сравнение двух нормальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны плотности нормального распределения. У обоих одинаковое среднее μ = 0.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>σ</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика А"],
+        hint: `<div class='alert alert-primary'>
+          <h5 class='mb-2'>📊 Форма нормальной кривой</h5>
+          <ul class='mb-0'>
+            <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong>.</li>
+            <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong>.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика А σ больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "normal", id: "quizJsxGraphA", config: { mu: "0", sigma: "2" } },
+            { type: "normal", id: "quizJsxGraphB", config: { mu: "0", sigma: "0.7" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_002",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика больше n?",
+        theme: "Биномиальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковая вероятность успеха p = 0.5, но разное число испытаний n.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>n</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <ul class='mb-0'>
+            <li>По горизонтали — <strong>число успехов k</strong> от 0 до n.</li>
+            <li><strong>Чем больше n</strong>, тем больше диапазон по горизонтали.</li>
+            <li>Чем больше n, тем «колоколообразнее» форма.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б n больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "binom", id: "quizJsxGraphA", config: { n: "10", p: "0.5" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "40", p: "0.5" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_003",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "Биномиальное или Пуассон?",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны дискретные распределения. Оба — с длинным правым хвостом.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какой график соответствует <em>распределению Пуассона</em>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "График А — Пуассон, Б — биномиальное",
+            "График А — биномиальное, Б — Пуассон",
+            "Оба — Пуассон",
+            "Оба — биномиальные"
+        ],
+        answers: ["График А — Пуассон, Б — биномиальное"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Как отличить?</h5>
+          <p class='mb-1'><strong>Пуассон:</strong></p>
+          <ul class='mb-2'>
+            <li>Максимум смещён к нулю.</li>
+            <li>Длинный правый хвост.</li>
+            <li>Число значений теоретически неограничено.</li>
+          </ul>
+          <p class='mb-1'><strong>Биномиальное:</strong></p>
+          <ul class='mb-0'>
+            <li>Число значений ограничено: от 0 до n.</li>
+            <li>При p &lt; 0.5 форма скошена вправо, но обрывается на n.</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "3" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "20", p: "0.15" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_004",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "Непрерывное или дискретное?",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения с похожей формой. Одно из них — непрерывное, другое — дискретное.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-info mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое из них <em>непрерывное</em>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "График А",
+            "График Б",
+            "Оба непрерывные",
+            "Оба дискретные"
+        ],
+        answers: ["График Б"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Как отличить?</h5>
+          <ul class='mb-0'>
+            <li><strong>Непрерывное</strong> — гладкая кривая без разрывов.</li>
+            <li><strong>Дискретное</strong> — отдельные столбики, между которыми пусто.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: график Б — гладкая непрерывная кривая.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "10" } },
+            { type: "normal", id: "quizJsxGraphB", config: { mu: "10", sigma: "3" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_005",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого Пуассона больше λ?",
+        theme: "Распределение Пуассона",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения Пуассона с разными интенсивностями λ.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>λ</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Как читать λ на графике Пуассона</h5>
+          <ul class='mb-0'>
+            <li>Положение максимума ≈ λ.</li>
+            <li>Чем <strong>правее</strong> максимум, тем <strong>больше λ</strong>.</li>
+            <li>Чем больше λ, тем симметричнее форма (ближе к нормальному).</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б λ больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "2" } },
+            { type: "poisson", id: "quizJsxGraphB", config: { lambda: "10" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_006",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика p больше?",
+        theme: "Биномиальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковое число испытаний n = 20, но разная вероятность успеха p.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>p</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Как определить p по графику</h5>
+          <ul class='mb-0'>
+            <li>Максимум распределения находится около <em>n · p</em>.</li>
+            <li>Чем <strong>правее</strong> смещён максимум, тем <strong>больше p</strong>.</li>
+            <li>При <em>p = 0.5</em> максимум ровно в середине (k = n/2).</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б p больше (максимум правее).</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "binom", id: "quizJsxGraphA", config: { n: "20", p: "0.2" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "20", p: "0.7" } }
+        ]
+    },
 
 
 ];

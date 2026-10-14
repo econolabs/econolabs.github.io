@@ -1,18 +1,23 @@
 /* ============================================================================
- * charts.js — графики распределений для страницы «Теория вероятностей»
+ * charts.js — графики распределений и контрольных карт на Chart.js
  * Экспортирует window.charts с функциями:
- *   - binom(canvasId, params)   — биномиальное распределение
- *   - poisson(canvasId, params) — распределение Пуассона
- *   - normal(canvasId, params)  — нормальное распределение
- *   - normalArea(canvasId, params, ids) — нормальное с закрашенной площадью
- *   - renderChart(containerId, config) — универсальный рендер по конфигу
- *   - initAll()                 — инициализация всех стандартных графиков страницы
+ *   - binom(boardId, params)         — биномиальное распределение (столбики)
+ *   - poisson(boardId, params)       — распределение Пуассона (столбики)
+ *   - normal(boardId, params)        — нормальное распределение (кривая)
+ *   - normalArea(boardId, params)    — нормальное с закрашенной площадью
+ *   - shewhartChart(boardId, params) — контрольная карта Шухарта
+ *   - renderChart(id, config)        — универсальный рендер по конфигу
+ *   - initAll()                      — инициализация графиков страницы
+ *   - _math                          — математические помощники
+ *   - _charts                        — Map инстансов Chart.js
  * ========================================================================== */
 
 (function () {
   "use strict";
 
-  // -------- Математические помощники --------
+  // ============================================================
+  //  МАТЕМАТИЧЕСКИЕ ПОМОЩНИКИ
+  // ============================================================
   function binomCoeff(n, k) {
     if (k < 0 || k > n) return 0;
     if (k === 0 || k === n) return 1;
@@ -43,7 +48,29 @@
     );
   }
 
-  // -------- Цвета и defaults --------
+  // Площадь под нормальной кривой между a и b (метод трапеций)
+  function areaBetween(mu, sigma, a, b) {
+    if (a > b) {
+      const t = a;
+      a = b;
+      b = t;
+    }
+    const steps = 200;
+    const step = (b - a) / steps;
+    let sum = 0;
+    for (let i = 0; i < steps; i++) {
+      const x1 = a + i * step;
+      const x2 = x1 + step;
+      const y1 = normalPDF(x1, mu, sigma);
+      const y2 = normalPDF(x2, mu, sigma);
+      sum += ((y1 + y2) / 2) * step;
+    }
+    return sum;
+  }
+
+  // ============================================================
+  //  ЦВЕТА И DEFAULTS
+  // ============================================================
   const chartColors = {
     green: "rgba(33, 115, 70, 0.75)",
     greenBorder: "rgba(33, 115, 70, 1)",
@@ -51,6 +78,9 @@
     blueLight: "rgba(13, 110, 253, 0.18)",
     orange: "rgba(253, 126, 20, 0.75)",
     orangeBorder: "rgba(253, 126, 20, 1)",
+    redBorder: "rgba(220, 53, 69, 1)",
+    redDash: "rgba(220, 53, 69, 0.85)",
+    greenLine: "rgba(25, 135, 84, 1)",
   };
 
   if (window.Chart) {
@@ -59,13 +89,14 @@
     Chart.defaults.color = "#495057";
   }
 
-  // -------- Хранилище инстансов графиков (чтобы не пересоздавать) --------
+  // ============================================================
+  //  ХРАНИЛИЩЕ ИНСТАНСОВ ГРАФИКОВ
+  // ============================================================
   const charts = new Map();
 
   function getOrDestroy(canvasId) {
     if (charts.has(canvasId)) {
       const c = charts.get(canvasId);
-      // если canvas в DOM заменили — уничтожаем старый
       const existing = document.getElementById(canvasId);
       if (!existing || existing !== c.canvas) {
         c.destroy();
@@ -288,8 +319,7 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              title: (items) =>
-                `x = ${parseFloat(items[0].label).toFixed(3)}`,
+              title: (items) => `x = ${parseFloat(items[0].label).toFixed(3)}`,
               label: (c) => `f(x) = ${c.parsed.y.toFixed(5)}`,
             },
           },
@@ -315,33 +345,7 @@
 
   // ============================================================
   //  НОРМАЛЬНОЕ С ЗАКРАШЕННОЙ ПЛОЩАДЬЮ
-  //  На вход: canvasId, { mu, sigma, a, b }
-  //  Плюс: опциональный callback onUpdate(p) для отображения P(a<X<b)
   // ============================================================
-  function areaBetween(labels, data, a, b) {
-    if (a > b) {
-      const t = a;
-      a = b;
-      b = t;
-    }
-    let sum = 0;
-    for (let i = 0; i < labels.length - 1; i++) {
-      const x1 = labels[i];
-      const x2 = labels[i + 1];
-      const y1 = data[i];
-      const y2 = data[i + 1];
-      const lo = Math.max(x1, a);
-      const hi = Math.min(x2, b);
-      if (hi <= lo) continue;
-      const t1 = (lo - x1) / (x2 - x1);
-      const t2 = (hi - x1) / (x2 - x1);
-      const yLo = y1 + (y2 - y1) * t1;
-      const yHi = y1 + (y2 - y1) * t2;
-      sum += ((yLo + yHi) / 2) * (hi - lo);
-    }
-    return sum;
-  }
-
   function normalArea(canvasId, params, onUpdate) {
     const mu = parseFloat(params.mu);
     const sigma = parseFloat(params.sigma);
@@ -352,7 +356,7 @@
     if (!ctx) return null;
 
     const { labels, data } = buildNormData(mu, sigma);
-    const p = areaBetween(labels, data, a, b);
+    const p = areaBetween(mu, sigma, a, b);
 
     const fillData = data.map((y, i) => {
       const x = labels[i];
@@ -380,7 +384,7 @@
           {
             label: "f(x)",
             data,
-            borderColor: "rgba(13, 110, 253, 1)",
+            borderColor: chartColors.blueBorder,
             backgroundColor: "rgba(13, 110, 253, 0.05)",
             borderWidth: 2,
             fill: false,
@@ -390,7 +394,7 @@
           {
             label: "P(a < X < b)",
             data: fillData,
-            borderColor: "rgba(253, 126, 20, 1)",
+            borderColor: chartColors.orangeBorder,
             backgroundColor: "rgba(253, 126, 20, 0.35)",
             borderWidth: 1.5,
             fill: "origin",
@@ -408,8 +412,7 @@
           legend: { display: true, position: "top" },
           tooltip: {
             callbacks: {
-              title: (items) =>
-                `x = ${parseFloat(items[0].label).toFixed(3)}`,
+              title: (items) => `x = ${parseFloat(items[0].label).toFixed(3)}`,
               label: (c) =>
                 c.datasetIndex === 0
                   ? `f(x) = ${c.parsed.y.toFixed(5)}`
@@ -437,23 +440,176 @@
   }
 
   // ============================================================
-  //  УНИВЕРСАЛЬНЫЙ РЕНДЕР ПО КОНФИГУ
-  //  renderChart('myCanvas', { type: 'binom', n: 20, p: 0.5 })
-  //  renderChart('myCanvas', { type: 'poisson', lambda: 5 })
-  //  renderChart('myCanvas', { type: 'normal', mu: 0, sigma: 1 })
-  //  renderChart('myCanvas', { type: 'normalArea', mu: 0, sigma: 1, a: -1, b: 1 }, cb)
+  //  КОНТРОЛЬНАЯ КАРТА ШУХАРТА
+  //  params: {
+  //    mean: number,          // центральная линия μ
+  //    sigma: number,         // стандартное отклонение σ
+  //    k: number,             // множитель границ (по умолчанию 3)
+  //    points: array|string   // массив наблюдений (можно строкой "[1,2,3]")
+  //  }
   // ============================================================
-  function renderChart(containerId, config, onUpdate) {
+  function shewhartChart(canvasId, params) {
+    const mean = parseFloat(params.mean);
+    const sigma = parseFloat(params.sigma);
+    const k = params.k !== undefined ? parseFloat(params.k) : 3;
+
+    // --- Парсим points: массив или строка ---
+    let points = params.points;
+    if (typeof points === "string") {
+      try {
+        points = JSON.parse(points);
+      } catch (e) {
+        console.warn(
+          "shewhartChart: не удалось распарсить points как JSON, пробую split по запятой"
+        );
+        points = points
+          .replace(/[\[\]\s]/g, "")
+          .split(",")
+          .map((s) => parseFloat(s))
+          .filter((n) => !isNaN(n));
+      }
+    }
+    if (!Array.isArray(points)) points = [];
+    points = points.map((v) => parseFloat(v));
+
+    const ctx = getCtx(canvasId);
+    if (!ctx) return null;
+
+    const ucl = mean + k * sigma;
+    const lcl = mean - k * sigma;
+
+    // Точки-выбросы
+    const pointColors = points.map((y) =>
+      y > ucl || y < lcl ? "rgba(220, 53, 69, 1)" : "rgba(13, 110, 253, 1)"
+    );
+    const pointSizes = points.map((y) => (y > ucl || y < lcl ? 8 : 4));
+
+    // Метки по оси X
+    const labels = points.map((_, i) => i + 1);
+
+    const existing = getOrDestroy(canvasId);
+
+    const datasets = [
+      {
+        label: "Значения",
+        data: points,
+        borderColor: "rgba(13, 110, 253, 1)",
+        backgroundColor: "rgba(13, 110, 253, 0.08)",
+        borderWidth: 2,
+        pointBackgroundColor: pointColors,
+        pointBorderColor: "#fff",
+        pointBorderWidth: 1.5,
+        pointRadius: pointSizes,
+        pointHoverRadius: pointSizes.map((s) => s + 1),
+        tension: 0.15,
+        fill: false,
+        order: 1,
+      },
+      {
+        label: `UCL = ${ucl.toFixed(2)}`,
+        data: points.map(() => ucl),
+        borderColor: chartColors.redDash,
+        borderWidth: 1.5,
+        borderDash: [6, 4],
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        fill: false,
+        order: 2,
+      },
+      {
+        label: `CL = ${mean.toFixed(2)}`,
+        data: points.map(() => mean),
+        borderColor: chartColors.greenLine,
+        borderWidth: 1.5,
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        fill: false,
+        order: 3,
+      },
+      {
+        label: `LCL = ${lcl.toFixed(2)}`,
+        data: points.map(() => lcl),
+        borderColor: chartColors.redDash,
+        borderWidth: 1.5,
+        borderDash: [6, 4],
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        fill: false,
+        order: 4,
+      },
+    ];
+
+    if (existing) {
+      existing.data.labels = labels;
+      existing.data.datasets = datasets;
+      existing.update("none");
+      return existing;
+    }
+
+    const chart = new Chart(ctx, {
+      type: "line",
+      data: { labels, datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 300 },
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: {
+            display: true,
+            position: "top",
+            labels: {
+              usePointStyle: true,
+              boxWidth: 8,
+              font: { size: 11 },
+            },
+          },
+          tooltip: {
+            callbacks: {
+              label: (c) => {
+                if (c.dataset.label === "Значения") {
+                  return `Точка ${c.label}: ${c.parsed.y}`;
+                }
+                return c.dataset.label;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            title: { display: true, text: "Номер наблюдения", color: "#6c757d" },
+            grid: { display: false },
+          },
+          y: {
+            title: { display: true, text: "Значение", color: "#6c757d" },
+            grid: { color: "#eef1f3" },
+            suggestedMin: Math.min(lcl, ...points) - sigma,
+            suggestedMax: Math.max(ucl, ...points) + sigma,
+          },
+        },
+      },
+    });
+
+    charts.set(canvasId, chart);
+    return chart;
+  }
+
+  // ============================================================
+  //  УНИВЕРСАЛЬНЫЙ РЕНДЕР ПО ТИПУ
+  // ============================================================
+  function renderChart(canvasId, config, onUpdate) {
     if (!config || !config.type) return null;
     switch (config.type) {
       case "binom":
-        return binom(containerId, config);
+        return binom(canvasId, config);
       case "poisson":
-        return poisson(containerId, config);
+        return poisson(canvasId, config);
       case "normal":
-        return normal(containerId, config);
+        return normal(canvasId, config);
       case "normalArea":
-        return normalArea(containerId, config, onUpdate);
+        return normalArea(canvasId, config, onUpdate);
+      case "shewhart":
+        return shewhartChart(canvasId, config);
       default:
         console.warn("charts.renderChart: неизвестный тип", config.type);
         return null;
@@ -461,8 +617,7 @@
   }
 
   // ============================================================
-  //  ИНИЦИАЛИЗАЦИЯ СТАНДАРТНЫХ ГРАФИКОВ СТРАНИЦЫ
-  //  (только если соответствующие canvas есть в DOM)
+  //  ИНИЦИАЛИЗАЦИЯ ГРАФИКОВ СТРАНИЦЫ
   // ============================================================
   function initAll() {
     // --- Биномиальное ---
@@ -486,9 +641,7 @@
     // --- Пуассон ---
     if (document.getElementById("poisChart")) {
       const render = () => {
-        const lambda = parseFloat(
-          document.getElementById("poisL")?.value ?? 5
-        );
+        const lambda = parseFloat(document.getElementById("poisL")?.value ?? 5);
         const lv = document.getElementById("poisLVal");
         if (lv) lv.textContent = lambda.toFixed(1);
         poisson("poisChart", { lambda });
@@ -502,9 +655,7 @@
     if (document.getElementById("normChart")) {
       const render = () => {
         const mu = parseFloat(document.getElementById("normMu")?.value ?? 0);
-        const sigma = parseFloat(
-          document.getElementById("normSigma")?.value ?? 1
-        );
+        const sigma = parseFloat(document.getElementById("normSigma")?.value ?? 1);
         const mv = document.getElementById("normMuVal");
         const sv = document.getElementById("normSigmaVal");
         if (mv) mv.textContent = mu.toFixed(1);
@@ -522,9 +673,7 @@
     if (document.getElementById("contChart")) {
       const render = () => {
         const mu = parseFloat(document.getElementById("contMu")?.value ?? 0);
-        const sigma = parseFloat(
-          document.getElementById("contSigma")?.value ?? 1
-        );
+        const sigma = parseFloat(document.getElementById("contSigma")?.value ?? 1);
         const a = parseFloat(document.getElementById("contA")?.value ?? -1);
         const b = parseFloat(document.getElementById("contB")?.value ?? 1);
 
@@ -555,17 +704,19 @@
   }
 
   // ============================================================
-  //  Публичное API
+  //  ПУБЛИЧНОЕ API
   // ============================================================
   window.charts = {
-    // графики по отдельности
+    // отдельные графики
     binom,
     poisson,
     normal,
     normalArea,
+    shewhartChart,
+    shewhart: shewhartChart, // синоним для удобства
     renderChart,
     initAll,
-    // хелперы — пригодятся для тестов
+    // хелперы
     _math: { binomPMF, poissonPMF, normalPDF, areaBetween },
     _charts: charts,
   };

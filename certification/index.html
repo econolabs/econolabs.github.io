@@ -13,6 +13,19 @@
     <script src="../dist/react-dom18.3.1.production.min.js"></script>
     <script src="../dist/redux-toolkit.umd.min.js"></script>
     <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+        <script src="../dist/katex.min.js"></script>
+    <script
+      defer
+      src="../dist/auto-render.min.js"
+    ></script>
+
+   
+    <link rel="stylesheet" href="../dist/katex.min.css" />
+
+        <script src="../dist/chart.umd.min.js"></script>
+
+
     <title>Обеспечение качества и сертификация информационных систем</title>
   </head>
 
@@ -3264,12 +3277,11 @@
       </div>
       
 
-      <!-- Блок с тестами -->
       <div class="card mb-1" style="max-width: 800px">
         <img
-          style="filter: grayscale(1)"
           src="../quiz.avif"
           class="card-img-top"
+          style="filter: grayscale(1)"
           alt="quiz"
         />
         <div class="card-body">
@@ -3291,6 +3303,7 @@
                 <label for="user" class="form-label">ФИО Группа</label>
                 <input type="text" class="form-control" id="userInput" />
               </div>
+
               <button
                 type="submit"
                 class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
@@ -3312,6 +3325,11 @@
                   Выберите тестовое задание
                 </h5>
                 <div class="card-text fade-in-div" id="quizString"></div>
+                <div
+                  id="box"
+                  class="jxgbox"
+                  style="width: 500px; aspect-ratio: 1/1; display: none"
+                ></div>
                 <form id="quizform">
                   <div id="quizChecks" class="m-1 p-1"></div>
                   <div id="quizHint" class="m-1 p-1"></div>
@@ -3321,6 +3339,13 @@
                     style="display: none"
                   ></div>
                   <div id="quizformdataarray"></div>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="feedback"
+                    placeholder="Числовой ответ"
+                    style="display: none"
+                  />
                   <div id="usercalculations" style="display: none">
                     <label
                       for="inputFormula"
@@ -3356,6 +3381,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
 
     <script
@@ -3374,7 +3401,38 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="../dist/basicfirebasecrudauthservices.js"></script>
-    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+  <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="./vanillajscrudutilities.js"></script>
+    <script src="./jsxtemplatefunctions.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+    <!-- KaTeX autorender: рендеринг формул после загрузки DOM -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "\\[", right: "\\]", display: true },
+            { left: "\\(", right: "\\)", display: false },
+          ],
+          throwOnError: false,
+          errorColor: "#cc0000",
+          macros: {
+            "\\N": "\\mathbb{N}",
+            "\\R": "\\mathbb{R}",
+            "\\Z": "\\mathbb{Z}",
+            "\\E": "\\mathbb{E}",
+            "\\Var": "\\mathrm{Var}",
+            "\\Cov": "\\mathrm{Cov}",
+          },
+        });
+      });
+    </script>
+
+    <script src="../dist/charts.js"></script>
+
+    <script src="../dist/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="../dist/jsxgraph.css">
+<script src="../dist/jsxgraphs.js"></script>
+
   </body>
 </html>

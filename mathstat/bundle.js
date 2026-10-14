@@ -383,6 +383,45 @@ if (quiz.chartjs && window.charts) {
         }, 0);
     });
 }
+
+
+// ============================================================
+//  ОТРИСОВКА JSXGRAPH
+// ============================================================
+if (quiz.jsxgraph && window.jsxgraphs) {
+    const jsxList = Array.isArray(quiz.jsxgraph)
+        ? quiz.jsxgraph
+        : [{
+            type: quiz.jsxgraph,
+            id: quiz.jsxgraphId || "quizJsxGraph",
+            config: quiz.jsxgraphConfig || {}
+        }];
+
+    jsxList.forEach((def, index) => {
+        const boardId = def.id || "quizJsxGraph" + index;
+        const jsxType = def.type || "function";
+        const rawConfig = def.config || {};
+
+        // Прогоняем строки с подстановками через парсер
+        const processedConfig = {};
+        for (const key of Object.keys(rawConfig)) {
+            const value = rawConfig[key];
+            if (typeof value === "string" && value.includes("{")) {
+                processedConfig[key] = processquizwithrandomnumber({
+                    quizString: value,
+                    answer: "{var1-10}",
+                    randomNumber: randomNumber
+                }).quizString;
+            } else {
+                processedConfig[key] = value;
+            }
+        }
+
+        setTimeout(() => {
+            window.jsxgraphs.renderByType(boardId, jsxType, processedConfig);
+        }, 0);
+    });
+}
 }
 
 function checkLocallyAndGlobally(index, title, text) {
