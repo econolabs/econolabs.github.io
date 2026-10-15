@@ -344,6 +344,1114 @@ let quizesSets = [
         "hint": "<div class='alert alert-primary'><p>Квантовые вычисления, AGI, Web3, Metaverse — это тренды будущего.</p></div>"
     },
 
+    // =====================================================================
+// ==================== EXCEL · ЛОГИЧЕСКИЕ ФУНКЦИИ =====================
+// =====================================================================
+{
+    id: "excel_logic_001",
+    type: "mathwithrandomnumber",
+    header: "Excel · Логические функции",
+    title: "ЕСЛИ: логическое условие",
+    theme: "Функции Excel",
+    randomfrom: [0, 1],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — склад</div>
+  <div class="card-body">
+    <svg viewBox="0 0 480 220" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="480" height="220" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="140" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="180" y="0" width="100" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="280" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="110" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="230" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <text x="340" y="20" text-anchor="middle" font-size="13" fill="#495057">D</text>
+      <g font-size="13" fill="#212529">
+        <text x="45" y="50">Товар</text><text x="185" y="50">Цена</text><text x="285" y="50">Статус</text>
+        <text x="45" y="80">Стол</text><text x="185" y="80">{= IF({var1-10}=1; 20000; 5000)}</text><text x="285" y="80">?</text>
+        <text x="45" y="110">Стул</text><text x="185" y="110">3000</text><text x="285" y="110">?</text>
+        <text x="45" y="140">Шкаф</text><text x="185" y="140">25000</text><text x="285" y="140">?</text>
+        <text x="45" y="170">Полка</text><text x="185" y="170">1200</text><text x="285" y="170">?</text>
+      </g>
+      <g stroke="#dee2e6">
+        <line x1="40" y1="0" x2="40" y2="180"/><line x1="180" y1="0" x2="180" y2="180"/>
+        <line x1="280" y1="0" x2="280" y2="180"/>
+        <line x1="0" y1="30" x2="400" y2="30"/><line x1="0" y1="60" x2="400" y2="60"/>
+        <line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="120" x2="400" y2="120"/>
+        <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="180" x2="400" y2="180"/>
+      </g>
+      <rect x="0" y="190" width="480" height="30" fill="#f8f9fa" stroke="#adb5bd"/>
+      <text x="10" y="210" font-size="13" fill="#0d6efd">fx</text>
+      <text x="40" y="210" font-size="13" fill="#212529">=ЕСЛИ(B2&gt;10000; 1; 0)</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ЕСЛИ(B2&gt;10000; 1; 0)</code>
+      для ячейки <strong>C2</strong>? Введите \(0\) или \(1\).
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Функция <strong>ЕСЛИ</strong>:</div>
+    <div class="text-center">$$\\text{ЕСЛИ}(\\text{условие};\\; \\text{истина};\\; \\text{ложь})$$</div>
+    <div class="mt-3 mb-2">Цена в B2 = \\({= IF({var1-10}=1; 20000; 5000)}\\).</div>
+    <div class="mb-2">Сравниваем с \(10000\\):</div>
+    <div class="text-center">$$ {= IF({var1-10}=1; 20000; 5000)} > 10000 \\;\\Rightarrow\\; {= IF({var1-10}=1; "ИСТИНА"; "ЛОЖЬ")}$$</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "excel_logic_002",
+    type: "mathwithrandomnumber",
+    header: "Excel · Логические функции",
+    title: "СУММЕСЛИМН: сумма по двум условиям",
+    theme: "Функции Excel",
+    randomfrom: [50000, 60000, 70000, 80000],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — продажи</div>
+  <div class="card-body">
+    <svg viewBox="0 0 560 200" width="100%" style="max-width:560px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="560" height="200" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="130" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="170" y="0" width="130" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="300" y="0" width="130" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="430" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="105" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="235" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <text x="365" y="20" text-anchor="middle" font-size="13" fill="#495057">D</text>
+      <text x="490" y="20" text-anchor="middle" font-size="13" fill="#495057">E</text>
+      <g font-size="13" fill="#212529">
+        <text x="45" y="50">Товар</text><text x="175" y="50">Категория</text><text x="305" y="50">Город</text><text x="435" y="50">Сумма</text>
+        <text x="45" y="80">A</text><text x="175" y="80">Техника</text><text x="305" y="80">Москва</text><text x="435" y="80">{= {var1-10} - 40000}</text>
+        <text x="45" y="110">B</text><text x="175" y="110">Аксессуар</text><text x="305" y="110">Москва</text><text x="435" y="110">5000</text>
+        <text x="45" y="140">C</text><text x="175" y="140">Техника</text><text x="305" y="140">СПб</text><text x="435" y="140">25000</text>
+        <text x="45" y="170">D</text><text x="175" y="170">Техника</text><text x="305" y="170">Москва</text><text x="435" y="170">40000</text>
+      </g>
+      <g stroke="#dee2e6">
+        <line x1="40" y1="0" x2="40" y2="180"/><line x1="170" y1="0" x2="170" y2="180"/>
+        <line x1="300" y1="0" x2="300" y2="180"/><line x1="430" y1="0" x2="430" y2="180"/>
+        <line x1="0" y1="30" x2="550" y2="30"/><line x1="0" y1="60" x2="550" y2="60"/>
+        <line x1="0" y1="90" x2="550" y2="90"/><line x1="0" y1="120" x2="550" y2="120"/>
+        <line x1="0" y1="150" x2="550" y2="150"/><line x1="0" y1="180" x2="550" y2="180"/>
+      </g>
+      <rect x="0" y="190" width="560" height="30" fill="#f8f9fa" stroke="#adb5bd"/>
+      <text x="10" y="210" font-size="13" fill="#0d6efd">fx</text>
+      <text x="40" y="210" font-size="13" fill="#212529">=СУММЕСЛИМН(D2:D5; B2:B5; "Техника"; C2:C5; "Москва")</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула? Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Функция <strong>СУММЕСЛИМН</strong> суммирует значения,
+      где <em>одновременно</em> истинны все условия.</div>
+    <div class="mt-3 mb-2">Наши условия:</div>
+    <ul class="mb-2">
+      <li>Категория = «Техника»</li>
+      <li>Город = «Москва»</li>
+    </ul>
+    <div class="mb-2">Подходящие строки — \(A\\) и \(D\\). Суммируем:</div>
+    <div class="text-center">$$S = {= {var1-10} - 40000} + 40000 = {= {var1-10} - 40000 + 40000}$$</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "excel_logic_003",
+    type: "mathwithrandomnumber",
+    header: "Excel · Логические функции",
+    title: "И: все условия истинны",
+    theme: "Функции Excel",
+    randomfrom: [0, 1, 2, 3],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — успеваемость</div>
+  <div class="card-body">
+    <svg viewBox="0 0 520 200" width="100%" style="max-width:520px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="520" height="200" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="160" y="0" width="110" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="270" y="0" width="110" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="380" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="100" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="215" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <text x="325" y="20" text-anchor="middle" font-size="13" fill="#495057">D</text>
+      <text x="440" y="20" text-anchor="middle" font-size="13" fill="#495057">E</text>
+      <g font-size="13" fill="#212529">
+        <text x="45" y="50">ФИО</text><text x="165" y="50">Матем</text><text x="275" y="50">Русский</text><text x="385" y="50">Информ</text><text x="440" y="50">Рез.</text>
+        <text x="45" y="80">Иванов</text><text x="165" y="80">90</text><text x="275" y="80">85</text><text x="385" y="80">80</text><text x="440" y="80">?</text>
+        <text x="45" y="110">Петров</text><text x="165" y="110">60</text><text x="275" y="110">95</text><text x="385" y="110">90</text><text x="440" y="110">?</text>
+        <text x="45" y="140">Сидоров</text><text x="165" y="140">85</text><text x="275" y="140">70</text><text x="385" y="140">95</text><text x="440" y="140">?</text>
+      </g>
+      <g stroke="#dee2e6">
+        <line x1="40" y1="0" x2="40" y2="150"/><line x1="160" y1="0" x2="160" y2="150"/>
+        <line x1="270" y1="0" x2="270" y2="150"/><line x1="380" y1="0" x2="380" y2="150"/>
+        <line x1="0" y1="30" x2="500" y2="30"/><line x1="0" y1="60" x2="500" y2="60"/>
+        <line x1="0" y1="90" x2="500" y2="90"/><line x1="0" y1="120" x2="500" y2="120"/>
+        <line x1="0" y1="150" x2="500" y2="150"/>
+      </g>
+      <rect x="0" y="160" width="520" height="30" fill="#f8f9fa" stroke="#adb5bd"/>
+      <text x="10" y="180" font-size="13" fill="#0d6efd">fx</text>
+      <text x="40" y="180" font-size="13" fill="#212529">=СУММ(ЕСЛИ(И(B2:D4&gt;=70);1;0))</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Сколько учеников получат «Сдал» (все оценки ≥ 70)? Введите число от 0 до 3.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Функция <strong>И</strong> возвращает ИСТИНА только если <em>все</em> условия истинны.</div>
+    <div class="mt-3 mb-2">Проверяем каждого:</div>
+    <ul class="mb-2">
+      <li>Иванов: 90, 85, 80 → все ≥ 70 → <strong>Сдал</strong></li>
+      <li>Петров: 60, 95, 90 → есть 60 &lt; 70 → Не сдал</li>
+      <li>Сидоров: 85, 70, 95 → все ≥ 70 → <strong>Сдал</strong></li>
+    </ul>
+    <div class="mb-2">Значит, правильный ответ — <strong>2</strong>.</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== EXCEL · ДИАГРАММЫ ==============================
+// =====================================================================
+{
+    id: "excel_diagram_001",
+    type: "multiplechoices",
+    header: "Excel · Диаграммы",
+    title: "Динамика во времени",
+    theme: "Визуализация данных",
+    text: `В таблице представлена динамика продаж компании по месяцам (январь — декабрь).
+    Какой тип диаграммы <strong>лучше всего</strong> покажет изменение продаж во времени?`,
+    choices: [
+        "Круговая диаграмма",
+        "Линейный график",
+        "Гистограмма",
+        "Точечная диаграмма"
+    ],
+    answers: ["Линейный график"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Правила выбора диаграммы:</div>
+    <ul class="mb-0">
+      <li><strong>Линейный график</strong> — динамика во времени (тренды).</li>
+      <li><strong>Круговая</strong> — доли от целого (100%).</li>
+      <li><strong>Гистограмма</strong> — сравнение категорий.</li>
+      <li><strong>Точечная</strong> — связь между двумя величинами.</li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>линейный график</strong></div>
+  </div>
+</div>`
+},
+
+{
+    id: "excel_diagram_002",
+    type: "multiplechoices",
+    header: "Excel · Диаграммы",
+    title: "Доли от целого",
+    theme: "Визуализация данных",
+    text: `В таблице указаны доли четырёх категорий товаров в общем объёме продаж (в сумме 100%).
+    Какой тип диаграммы <strong>лучше всего</strong> покажет соотношение долей?`,
+    choices: [
+        "Линейный график",
+        "Круговая диаграмма",
+        "Гистограмма",
+        "Диаграмма рассеяния"
+    ],
+    answers: ["Круговая диаграмма"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Когда использовать круговую:</div>
+    <ul class="mb-2">
+      <li>Данные — <strong>части одного целого</strong> (100%).</li>
+      <li>Нужно показать <strong>доли</strong>, а не динамику.</li>
+      <li>Категорий немного (2–6).</li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>круговая диаграмма</strong></div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== СИСТЕМЫ СЧИСЛЕНИЯ ==============================
+// =====================================================================
+{
+    id: "ss_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Системы счисления",
+    title: "Количество единиц в двоичной записи",
+    theme: "Перевод чисел",
+    randomfrom: [3, 4, 5, 6, 7, 8],
+    text: `Сколько единиц в двоичной записи числа
+    \\(\\mathbf{{= IF({var1-10}=3;7;IF({var1-10}=4;195;IF({var1-10}=5;210;IF({var1-10}=6;225;IF({var1-10}=7;240;255)))))}}\\)?
+    <br><small class="text-muted">Введите целое число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Число: \\({= IF({var1-10}=3;7;IF({var1-10}=4;195;IF({var1-10}=5;210;IF({var1-10}=6;225;IF({var1-10}=7;240;255)))))}\\)</div>
+    <div class="mb-2">Раскладываем на степени двойки:</div>
+    <ul class="mb-2">
+      <li>7 = 4 + 2 + 1 → 111₂ — 3 единицы</li>
+      <li>195 = 128 + 64 + 2 + 1 → 11000011₂ — 4 единицы</li>
+      <li>210 = 128 + 64 + 16 + 2 → 11010010₂ — 4 единицы</li>
+      <li>225 = 128 + 64 + 32 + 1 → 11100001₂ — 4 единицы</li>
+      <li>240 = 128 + 64 + 32 + 16 → 11110000₂ — 4 единицы</li>
+      <li>255 = 11111111₂ — 8 единиц</li>
+    </ul>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "ss_002",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Системы счисления",
+    title: "Перевод из восьмеричной в десятичную",
+    theme: "Перевод чисел",
+    randomfrom: [64, 128, 256, 512, 1024],
+    text: `Какое число в <strong>десятичной</strong> системе соответствует
+    восьмеричной записи
+    \\(\\mathbf{{= IF({var1-10}=64;100;IF({var1-10}=128;200;IF({var1-10}=256;400;IF({var1-10}=512;1000;2000))))}_8}\\)?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Переводим из восьмеричной в десятичную:</div>
+    <div class="text-center">$$N = \\sum_k d_k \\cdot 8^k$$</div>
+    <div class="mt-3 mb-2">Примеры:</div>
+    <ul class="mb-2">
+      <li>\\(100_8 = 1 \\cdot 8^2 = 64\\)</li>
+      <li>\\(200_8 = 2 \\cdot 8^2 = 128\\)</li>
+      <li>\\(400_8 = 4 \\cdot 8^2 = 256\\)</li>
+      <li>\\(1000_8 = 1 \\cdot 8^3 = 512\\)</li>
+      <li>\\(2000_8 = 2 \\cdot 8^3 = 1024\\)</li>
+    </ul>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "ss_003",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Системы счисления",
+    title: "Перевод из шестнадцатеричной",
+    theme: "Перевод чисел",
+    randomfrom: [100, 144, 169, 196, 225],
+    text: `Какое число в <strong>десятичной</strong> системе соответствует
+    шестнадцатеричной записи
+    \\(\\mathbf{{= IF({var1-10}=100;"64";IF({var1-10}=144;"90";IF({var1-10}=169;"A9";IF({var1-10}=196;"C4";"E1"))))}_{16}}\\)?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Переводим из шестнадцатеричной в десятичную:</div>
+    <div class="text-center">$$N = \\sum_k d_k \\cdot 16^k$$</div>
+    <div class="mt-3 mb-2">Примеры:</div>
+    <ul class="mb-2">
+      <li>\\(64_{16} = 6 \\cdot 16 + 4 = 100\\)</li>
+      <li>\\(90_{16} = 9 \\cdot 16 + 0 = 144\\)</li>
+      <li>\\(A9_{16} = 10 \\cdot 16 + 9 = 169\\)</li>
+      <li>\\(C4_{16} = 12 \\cdot 16 + 4 = 196\\)</li>
+      <li>\\(E1_{16} = 14 \\cdot 16 + 1 = 225\\)</li>
+    </ul>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== КОДИРОВАНИЕ ИНФОРМАЦИИ =========================
+// =====================================================================
+{
+    id: "code_img_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Кодирование информации",
+    title: "Объём растрового изображения",
+    theme: "Кодирование графики",
+    randomfrom: [16, 20, 24, 28, 32],
+    text: `Изображение размером \\(128 \\times 256\\) пикселей,
+    число цветов \\(\\mathbf{{= POWER(2;{var1-10})}}\\).
+    Какой минимальный объём памяти (в Кбайт) нужен?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-3"><strong>Шаг 1.</strong> Глубина цвета \(i\\) бит, где:</div>
+    <div class="text-center">$$2^i = {= POWER(2;{var1-10})} \\Rightarrow i = {var1-10}$$</div>
+    <div class="mt-3 mb-3"><strong>Шаг 2.</strong> Объём изображения:</div>
+    <div class="text-center">$$V = \\frac{128 \\cdot 256 \\cdot {var1-10}}{8 \\cdot 1024} = {= 128*256*{var1-10}/8/1024}\\ \\text{Кбайт}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\) Кбайт
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "code_sound_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Кодирование информации",
+    title: "Объём звукового файла",
+    theme: "Кодирование звука",
+    randomfrom: [938, 1875, 2580, 5160],
+    text: `Моно-звукозапись, частота
+    \\(\\mathbf{{= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))}}\\) Гц,
+    глубина \\(16\\) бит, длительность \\(1\\) минуту.
+    Какой объём (в Кбайт) займёт файл? Округлите до целого.
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула объёма звукозаписи:</div>
+    <div class="text-center">$$V = \\frac{f \\cdot i \\cdot t}{8 \\cdot 1024}$$</div>
+    <div class="mb-2">где \(f = {= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))}\\) Гц,
+      \(i = 16\\), \(t = 60\\).</div>
+    <div class="text-center">$$V = \\frac{{= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))} \\cdot 16 \\cdot 60}{8 \\cdot 1024} \\approx {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\) Кбайт
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "code_text_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Кодирование информации",
+    title: "Объём текста",
+    theme: "Кодирование текста",
+    randomfrom: [24, 48, 96],
+    text: `Каждый символ кодируется
+    \\(\\mathbf{{= {var1-10} \\cdot 8 / 24}}\\) битами.
+    Фраза содержит \\(24\\) символа.
+    Каков информационный объём (в байтах)?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Объём текста:</div>
+    <div class="text-center">$$V = \\frac{n \\cdot i}{8}$$</div>
+    <div class="mb-2">где \(n = 24\\), \(i = {= {var1-10} \\cdot 8 / 24}\\) бит.</div>
+    <div class="text-center">$$V = \\frac{24 \\cdot {= {var1-10} \\cdot 8 / 24}}{8} = {var1-10}\\ \\text{байт}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\) байт
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== ЛОГИКА =========================================
+// =====================================================================
+{
+    id: "logic_imp_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Логика",
+    title: "Импликация: значение X",
+    theme: "Логические выражения",
+    randomfrom: [3, 4, 5, 6],
+    text: `Для какого \(X\\) истинно высказывание
+    $$\\neg\\big((X > {= {var1-10} - 1}) \\to (X > {var1-10})\\big)?$$
+    <br><small class="text-muted">Введите значение \\(X\\).</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Импликация \(A \\to B\\) ложна только если \(A\\) истинно, а \(B\\) ложно.</div>
+    <div class="mb-2">Значит, \(\\neg(A \\to B)\\) истинно, когда:</div>
+    <div class="text-center">$$A: X > {= {var1-10} - 1} \\quad\\text{и}\\quad B: X \\le {var1-10}$$</div>
+    <div class="mt-3 mb-2">Объединяем:</div>
+    <div class="text-center">$$ {= {var1-10} - 1} < X \\le {var1-10} \\Rightarrow X = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "logic_morgan_001",
+    type: "multiplechoices",
+    header: "ФИПИ · Логика",
+    title: "Закон де Моргана",
+    theme: "Преобразование выражений",
+    text: `Какое выражение равносильно $$\\neg(A \\lor B) \\land C?$$`,
+    choices: [
+        "\\(\\neg A \\land \\neg B \\land C\\)",
+        "\\(\\neg A \\lor \\neg B \\lor C\\)",
+        "\\(A \\land B \\land C\\)",
+        "\\(\\neg A \\land B \\land \\neg C\\)"
+    ],
+    answers: ["\\(\\neg A \\land \\neg B \\land C\\)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Первый закон де Моргана:</div>
+    <div class="text-center">$$\\neg(A \\lor B) = \\neg A \\land \\neg B$$</div>
+    <div class="mt-3 mb-2">Применяем к исходному выражению:</div>
+    <div class="text-center">$$\\neg(A \\lor B) \\land C = \\neg A \\land \\neg B \\land C$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{\\neg A \\land \\neg B \\land C}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "logic_morgan_002",
+    type: "multiplechoices",
+    header: "ФИПИ · Логика",
+    title: "Закон де Моргана (второй)",
+    theme: "Преобразование выражений",
+    text: `Какое выражение равносильно $$\\neg(A \\land B)?$$`,
+    choices: [
+        "\\(\\neg A \\land \\neg B\\)",
+        "\\(\\neg A \\lor \\neg B\\)",
+        "\\(A \\lor B\\)",
+        "\\(A \\land B\\)"
+    ],
+    answers: ["\\(\\neg A \\lor \\neg B\\)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Второй закон де Моргана:</div>
+    <div class="text-center">$$\\neg(A \\land B) = \\neg A \\lor \\neg B$$</div>
+    <div class="mb-2">Интуитивно: «не (и \(A\\), и \(B\\))» означает «не \(A\\) или не \(B\\)».</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{\\neg A \\lor \\neg B}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== ГРАФЫ ==========================================
+// =====================================================================
+{
+    id: "graph_path_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Графы",
+    title: "Кратчайший путь",
+    theme: "Схемы дорог",
+    randomfrom: [6, 7, 8, 9],
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">Схема дорог</div>
+  <div class="card-body">
+    <svg viewBox="0 0 500 260" width="100%" style="max-width:500px; display:block; margin:0 auto;">
+      <line x1="80" y1="130" x2="200" y2="60"  stroke="#495057" stroke-width="2"/>
+      <line x1="80" y1="130" x2="200" y2="200" stroke="#495057" stroke-width="2"/>
+      <line x1="200" y1="60" x2="320" y2="130" stroke="#495057" stroke-width="2"/>
+      <line x1="200" y1="200" x2="320" y2="130" stroke="#495057" stroke-width="2"/>
+      <line x1="200" y1="60" x2="200" y2="200" stroke="#495057" stroke-width="2"/>
+      <line x1="320" y1="130" x2="440" y2="130" stroke="#495057" stroke-width="2"/>
+      <line x1="200" y1="200" x2="440" y2="130" stroke="#495057" stroke-width="2"/>
+      <text x="75" y="145" font-size="16" font-weight="bold">A</text>
+      <text x="195" y="55" font-size="16" font-weight="bold">B</text>
+      <text x="195" y="215" font-size="16" font-weight="bold">C</text>
+      <text x="320" y="125" font-size="16" font-weight="bold">D</text>
+      <text x="440" y="125" font-size="16" font-weight="bold">E</text>
+      <text x="135" y="90" font-size="13" fill="#0d6efd">2</text>
+      <text x="135" y="180" font-size="13" fill="#0d6efd">4</text>
+      <text x="255" y="90" font-size="13" fill="#0d6efd">{= IF({var1-10}=6;2;IF({var1-10}=7;3;IF({var1-10}=8;4;5)))}</text>
+      <text x="255" y="180" font-size="13" fill="#0d6efd">3</text>
+      <text x="205" y="140" font-size="13" fill="#0d6efd">1</text>
+      <text x="375" y="120" font-size="13" fill="#0d6efd">2</text>
+      <text x="320" y="180" font-size="13" fill="#0d6efd">5</text>
+    </svg>
+    <div class="alert alert-info mt-3 mb-0">
+      <strong>Вопрос:</strong> Какая длина кратчайшего пути из \(A\\) в \(E\\)?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перебираем все пути из \(A\\) в \(E\\):</div>
+    <div class="text-center">$$\\begin{aligned}
+      A \\to B \\to D \\to E &= 2 + {= IF({var1-10}=6;2;IF({var1-10}=7;3;IF({var1-10}=8;4;5)))} + 2\\\\
+      A \\to B \\to C \\to D \\to E &= 2 + 1 + 3 + 2 = 8\\\\
+      A \\to C \\to D \\to E &= 4 + 3 + 2 = 9
+    \\end{aligned}$$</div>
+    <div class="mt-3 mb-2">По условию минимальный путь равен \\({var1-10}\\).</div>
+    <div class="alert alert-info mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== IP-АДРЕСАЦИЯ ===================================
+// =====================================================================
+{
+    id: "ip_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Сетевые технологии",
+    title: "Количество узлов в сети",
+    theme: "IP-адресация",
+    randomfrom: [30, 62, 126, 254],
+    text: `Сколько узлов может быть в сети с маской
+    \\(\\mathbf{{= IF({var1-10}=30;27;IF({var1-10}=62;26;IF({var1-10}=126;25;24)))}}\\)?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Маска /\(n\\) — под узлы отводится \\(32 - n\\) бит:</div>
+    <div class="text-center">$$N = 2^{32-n} - 2$$</div>
+    <div class="mt-3 mb-2">Примеры:</div>
+    <ul class="mb-2">
+      <li>/27 → \\(2^{5} - 2 = 30\\)</li>
+      <li>/26 → \\(2^{6} - 2 = 62\\)</li>
+      <li>/25 → \\(2^{7} - 2 = 126\\)</li>
+      <li>/24 → \\(2^{8} - 2 = 254\\)</li>
+    </ul>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "ip_002",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Сетевые технологии",
+    title: "Маска подсети: количество адресов",
+    theme: "IP-адресация",
+    randomfrom: [32, 64, 128, 256],
+    text: `Какое общее количество адресов в сети с маской
+    \\(\\mathbf{{= IF({var1-10}=32;27;IF({var1-10}=64;26;IF({var1-10}=128;25;24)))}}\\)?
+    <br><small class="text-muted">Введите число.</small>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Общее количество адресов в сети /\(n\\):</div>
+    <div class="text-center">$$N = 2^{32-n}$$</div>
+    <div class="mt-3 mb-2">Примеры:</div>
+    <ul class="mb-2">
+      <li>/27 → \\(2^{5} = 32\\)</li>
+      <li>/26 → \\(2^{6} = 64\\)</li>
+      <li>/25 → \\(2^{7} = 128\\)</li>
+      <li>/24 → \\(2^{8} = 256\\)</li>
+    </ul>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== АЛГОРИТМЫ ======================================
+// =====================================================================
+{
+    id: "algo_trace_001",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Алгоритмы",
+    title: "Трассировка цикла",
+    theme: "Анализ алгоритмов",
+    randomfrom: [3, 4, 5, 6, 7],
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Псевдокод</div>
+  <div class="card-body">
+    <pre class="bg-light p-3 border rounded">a := {= 20 - 3 * {var1-10}}
+b := 0
+пока a &lt; 20:
+    a := a + 3
+    b := b + 1
+напечатать b</pre>
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое число будет напечатано?
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Начальное \(a = {= 20 - 3 * {var1-10}}\\). Цикл выполняется, пока \(a < 20\\).</div>
+    <div class="mb-2">Так как шаг равен \(3\\), потребуется ровно \\({var1-10}\\) итераций,
+      чтобы \(a\\) достигло или превысило \(20\\).</div>
+    <div class="text-center">$$b = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "algo_trace_002",
+    type: "mathwithrandomnumber",
+    header: "ФИПИ · Алгоритмы",
+    title: "Деление на 2",
+    theme: "Анализ алгоритмов",
+    randomfrom: [5, 6, 7, 8, 9],
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Алгоритм</div>
+  <div class="card-body">
+    <div class="mb-3">Алгоритм получает число \(N = 2^{var1-10}\\).
+    Пока \(N\\) делится на \(2\\) без остатка, выполняется \(N := N / 2\\).
+    Сколько раз выполнится тело цикла?</div>
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Введите количество итераций.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Число \(N = 2^{var1-10}\\) делится на \(2\\) ровно \\({var1-10}\\) раз,
+      пока не станет равным \(1\\).</div>
+    <div class="text-center">$$\\underbrace{2^{var1-10} \\to 2^{{= {var1-10}-1}} \\to \\dots \\to 2^1 \\to 1}_{{var1-10}\\ \\text{шагов}}$$</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== EXCEL · СРЗНАЧ =================================
+// =====================================================================
+{
+    id: "excel_avg_001",
+    type: "mathwithrandomnumber",
+    header: "Excel · Статистические функции",
+    title: "СРЗНАЧ + ОКРУГЛ",
+    theme: "Функции Excel",
+    randomfrom: [10, 15, 20, 25, 30],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — измерения</div>
+  <div class="card-body">
+    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="480" height="260" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="200" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="240" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="140" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="300" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <g font-size="13" fill="#212529">
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+        <text x="48" y="70">1</text><text x="248" y="70">{= {var1-10}+4}</text>
+        <text x="48" y="96">2</text><text x="248" y="96">{= {var1-10}-4}</text>
+        <text x="48" y="122">3</text><text x="248" y="122">{= {var1-10}+4}</text>
+        <text x="48" y="148">4</text><text x="248" y="148">{= {var1-10}-4}</text>
+      </g>
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="156"/>
+        <line x1="240" y1="0" x2="240" y2="156"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+      </g>
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=ОКРУГЛ(СРЗНАЧ(B2:B5); 0)</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула? Введите целое число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Значения в диапазоне \(B2:B5\\):</div>
+    <div class="text-center">$$ {= {var1-10}+4},\\; {= {var1-10}-4},\\; {= {var1-10}+4},\\; {= {var1-10}-4}$$</div>
+    <div class="mt-3 mb-2">Они симметричны относительно \({var1-10}\\), поэтому среднее:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{\\sum x_i}{n} = \\frac{4 \\cdot {var1-10}}{4} = {var1-10}$$</div>
+    <div class="mb-2">Округление до целого:</div>
+    <div class="text-center">$$\\text{ОКРУГЛ}({var1-10}; 0) = {var1-10}$$</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== EXCEL · ДИСП ===================================
+// =====================================================================
+{
+    id: "excel_var_001",
+    type: "mathwithrandomnumber",
+    header: "Excel · Статистические функции",
+    title: "ДИСП.Г: дисперсия",
+    theme: "Функции Excel",
+    randomfrom: [4, 9, 16, 25],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — дисперсия</div>
+  <div class="card-body">
+    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="480" height="260" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="200" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="240" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="140" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="300" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <g font-size="13" fill="#212529">
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="48" y="44">№</text>
+        <text x="248" y="44">Значение</text>
+        <text x="48" y="70">1</text><text x="248" y="70">{= 20 - POWER({var1-10}; 1/2)}</text>
+        <text x="48" y="96">2</text><text x="248" y="96">{= 20 - POWER({var1-10}; 1/2)}</text>
+        <text x="48" y="122">3</text><text x="248" y="122">{= 20 - POWER({var1-10}; 1/2)}</text>
+        <text x="48" y="148">4</text><text x="248" y="148">{= 20 + POWER({var1-10}; 1/2)}</text>
+        <text x="48" y="174">5</text><text x="248" y="174">{= 20 + POWER({var1-10}; 1/2)}</text>
+      </g>
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=ДИСП.Г(B2:B6)</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула? Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула дисперсии по генеральной совокупности:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+    <div class="mt-3 mb-2"><strong>Шаг 1.</strong> Среднее (симметрия слагаемых):</div>
+    <div class="text-center">$$\\bar{x} = 20$$</div>
+    <div class="mt-3 mb-2"><strong>Шаг 2.</strong> Отклонения от среднего:</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}; 1/2)}$$ — три раза каждое</div>
+    <div class="mt-3 mb-2"><strong>Шаг 3.</strong> Квадраты отклонений:</div>
+    <div class="text-center">$$\\big({= POWER({var1-10}; 1/2)}\\big)^2 = {var1-10}$$</div>
+    <div class="mt-3 mb-2"><strong>Шаг 4.</strong> Сумма квадратов:</div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="mt-3 mb-2"><strong>Шаг 5.</strong> Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== EXCEL · МОДА ===================================
+// =====================================================================
+{
+    id: "excel_mode_001",
+    type: "mathwithrandomnumber",
+    header: "Excel · Статистические функции",
+    title: "МОДА: самое частое значение",
+    theme: "Функции Excel",
+    randomfrom: [10, 15, 20, 25, 30],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — мода</div>
+  <div class="card-body">
+    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="480" height="260" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="200" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="240" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="140" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="300" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <g font-size="13" fill="#212529">
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="48" y="44">Студент</text>
+        <text x="248" y="44">Оценка</text>
+        <text x="48" y="70">Анна</text><text x="248" y="70">{var1-10}</text>
+        <text x="48" y="96">Борис</text><text x="248" y="96">{= {var1-10} + 5}</text>
+        <text x="48" y="122">Вера</text><text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">Глеб</text><text x="248" y="148">{var1-10}</text>
+        <text x="48" y="174">Даша</text><text x="248" y="174">{= {var1-10} - 5}</text>
+      </g>
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=МОДА(B2:B6)</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула? Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
+    <div class="mt-3 mb-2">Значения \(B2:B6\\):</div>
+    <div class="text-center">$$ {var1-10},\\; {= {var1-10}+5},\\; {var1-10},\\; {var1-10},\\; {= {var1-10}-5}$$</div>
+    <div class="mt-3 mb-2">Частоты:</div>
+    <ul class="mb-2">
+      <li>\({var1-10}\\) — <strong>3 раза</strong></li>
+      <li>\({= {var1-10}+5}\\) — 1 раз</li>
+      <li>\({= {var1-10}-5}\\) — 1 раз</li>
+    </ul>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== EXCEL · КВАРТИЛЬ ===============================
+// =====================================================================
+{
+    id: "excel_quartile_001",
+    type: "mathwithrandomnumber",
+    header: "Excel · Статистические функции",
+    title: "КВАРТИЛЬ: первый квартиль",
+    theme: "Функции Excel",
+    randomfrom: [10, 15, 20, 25, 30],
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">Лист Excel — квартиль</div>
+  <div class="card-body">
+    <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+      <rect x="0" y="0" width="480" height="340" fill="#fff" stroke="#adb5bd"/>
+      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="40" y="0" width="200" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <rect x="240" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
+      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
+      <text x="140" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
+      <text x="300" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
+      <g font-size="13" fill="#212529">
+        <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+        <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
+        <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
+        <text x="48" y="44">№</text>
+        <text x="248" y="44">Значение</text>
+        <text x="48" y="70">1</text><text x="248" y="70">{= {var1-10} - 4}</text>
+        <text x="48" y="96">2</text><text x="248" y="96">{= {var1-10} - 2}</text>
+        <text x="48" y="122">3</text><text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">4</text><text x="248" y="148">{= {var1-10} + 2}</text>
+        <text x="48" y="174">5</text><text x="248" y="174">{= {var1-10} + 4}</text>
+        <text x="48" y="200">6</text><text x="248" y="200">{= {var1-10} + 6}</text>
+        <text x="48" y="226">7</text><text x="248" y="226">{= {var1-10} + 8}</text>
+        <text x="48" y="252">8</text><text x="248" y="252">{= {var1-10} + 10}</text>
+        <text x="48" y="278">9</text><text x="248" y="278">{= {var1-10} + 12}</text>
+      </g>
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="286"/>
+        <line x1="240" y1="0" x2="240" y2="286"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+        <line x1="0" y1="234" x2="360" y2="234"/>
+        <line x1="0" y1="260" x2="360" y2="260"/>
+        <line x1="0" y1="286" x2="360" y2="286"/>
+      </g>
+      <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="328" font-size="13" fill="#1f1f1f">=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</text>
+    </svg>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула? Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула <strong>КВАРТИЛЬ.ВКЛ</strong> использует линейную интерполяцию:</div>
+    <div class="text-center">$$Q_1 = x_{1 + 0.25 \\cdot (n - 1)}$$</div>
+    <div class="mt-3 mb-2">У нас \(n = 9\\), значит позиция:</div>
+    <div class="text-center">$$1 + 0.25 \\cdot 8 = 3$$</div>
+    <div class="mb-2">3-й элемент — это \({var1-10}\\).</div>
+    <div class="alert alert-success mt-3">
+      Ответ: \\(\\boxed{{var1-10}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+// =====================================================================
+// ==================== ШИФР ЦЕЗАРЯ ====================================
+// =====================================================================
+{
+    id: "cipher_caesar_001",
+    type: "multiplechoices",
+    header: "ФИПИ · Шифрование",
+    title: "Шифр Цезаря: сдвиг 2",
+    theme: "Классические шифры",
+    text: `Слово «<strong>ИНФОРМАТИКА</strong>» зашифровано шифром Цезаря
+    со сдвигом \(+2\) (А→В, Б→Г, …, Я→Б).
+    Какая буква будет <strong>первой</strong> в шифре?`,
+    choices: ["Й", "К", "Л", "М", "Н"],
+    answers: ["Л"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Первая буква — <strong>И</strong>.</div>
+    <div class="mb-2">Сдвигаем на \(+2\) по русскому алфавиту:</div>
+    <div class="text-center">$$\\text{И} \\xrightarrow{+1} \\text{Й} \\xrightarrow{+1} \\text{Л}$$</div>
+    <div class="mb-2">Проверка: \(И\\) — 10-я буква, \(+2\\) → 12-я = <strong>Л</strong>.</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{\\text{Л}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+{
+    id: "cipher_caesar_002",
+    type: "multiplechoices",
+    header: "ФИПИ · Шифрование",
+    title: "Шифр Цезаря: сдвиг 3",
+    theme: "Классические шифры",
+    text: `Слово «<strong>ПРИВЕТ</strong>» зашифровано шифром Цезаря
+    со сдвигом \(+3\) (А→Г, Б→Д, …, Я→В).
+    Какая буква будет <strong>первой</strong> в шифре?`,
+    choices: ["Р", "С", "Т", "У", "Ф"],
+    answers: ["У"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Первая буква — <strong>П</strong>.</div>
+    <div class="mb-2">Сдвигаем на \(+3\\):</div>
+    <div class="text-center">$$\\text{П} \\xrightarrow{+3} \\text{У}$$</div>
+    <div class="mb-2">Проверка: \(П\\) — 17-я буква, \(+3\\) → 20-я = <strong>У</strong>.</div>
+    <div class="alert alert-primary mt-3">
+      Ответ: \\(\\boxed{\\text{У}}\\)
+    </div>
+  </div>
+</div>`
+},
+
+
        {
     id: "vscode001",
     type: "multiplechoices",

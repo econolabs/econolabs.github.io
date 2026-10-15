@@ -202,7 +202,7 @@
 //   <script src="../dist/basicfirebasecrudauthservices.js"></script>
 //     <script src="./vanillajscrudutilities.js"></script>
 //     <script src="./jsxtemplatefunctions.js"></script>
-//     <script src="./bundle.js"></script>
+//       <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
 
 //     <!-- KaTeX autorender: рендеринг формул после загрузки DOM -->
 //     <script>

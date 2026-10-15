@@ -40,7 +40,7 @@ let quizesSets = [
   <hr>
   <p class="mb-0">На графике красные (крупные) точки — те, что вышли за границы. Их <strong>2</strong>.</p>
 </div>`,
-        randomfrom: [1],
+        randomfrom: [2],
         chartjs: "shewhart",
         chartjsId: "quizChart",
         chartjsConfig: {
@@ -97,49 +97,49 @@ let quizesSets = [
             points: "[195,202,198,205,207,220,199,203,201,178,204,200]"
         }
     },
-    {
-        id: "spc_chart_003",
-        type: "mathwithrandomnumber",
-        header: "SPC · Chart.js",
-        title: "Значение UCL",
-        theme: "Контрольные карты",
-        text: `
-<div class="card">
-  <div class="card-header bg-warning text-dark">
-    UCL по правилу 3σ
-  </div>
-  <div class="card-body">
-    <p>На графике — контрольная карта с параметрами μ = <strong>{var1-10}0</strong>, σ = <strong>4</strong>, границы построены по правилу 3σ.</p>
+//     {
+//         id: "spc_chart_003",
+//         type: "mathwithrandomnumber",
+//         header: "SPC · Chart.js",
+//         title: "Значение UCL",
+//         theme: "Контрольные карты",
+//         text: `
+// <div class="card">
+//   <div class="card-header bg-warning text-dark">
+//     UCL по правилу 3σ
+//   </div>
+//   <div class="card-body">
+//     <p>На графике — контрольная карта с параметрами μ = <strong>{var1-10}0</strong>, σ = <strong>4</strong>, границы построены по правилу 3σ.</p>
 
-    <div class="chart-wrap" style="height: 340px;">
-      <canvas id="quizChart"></canvas>
-    </div>
+//     <div class="chart-wrap" style="height: 340px;">
+//       <canvas id="quizChart"></canvas>
+//     </div>
 
-    <div class="alert alert-warning mt-3 mb-0">
-      <strong>Вопрос:</strong> Чему равна верхняя контрольная граница UCL? Введите число.
-    </div>
-  </div>
-</div>`,
-        answer: "{var1-10}*10+12",
-        hint: `
-<div class="alert alert-warning">
-  <h5 class="mb-3">📐 Формула UCL</h5>
-  <p class="text-center">$$ UCL = \\mu + 3\\sigma $$</p>
-  <hr>
-  <p class="mb-1">Подставляем:</p>
-  <p class="text-center">$$ UCL = {var1-10}0 + 3 \\cdot 4 = {= {var1-10} * 10 + 12 } $$</p>
-  <p class="mb-0">На графике UCL отмечена красной пунктирной линией.</p>
-</div>`,
-        randomfrom: [18, 20, 22, 25, 28],
-        chartjs: "shewhart",
-        chartjsId: "quizChart",
-        chartjsConfig: {
-            mean: "{= {var1-10} * 10}",
-            sigma: "4",
-            k: "3",
-            points: "[{= {var1-10} * 10 - 3}, {= {var1-10} * 10 + 2}, {= {var1-10} * 10 - 1}, {= {var1-10} * 10 + 5}, {= {var1-10} * 10}, {= {var1-10} * 10 + 4}, {= {var1-10} * 10 - 6}, {= {var1-10} * 10 + 3}, {= {var1-10} * 10 - 2}, {= {var1-10} * 10 + 1}]"
-        }
-    },
+//     <div class="alert alert-warning mt-3 mb-0">
+//       <strong>Вопрос:</strong> Чему равна верхняя контрольная граница UCL? Введите число.
+//     </div>
+//   </div>
+// </div>`,
+//         answer: "{var1-10}*10+12",
+//         hint: `
+// <div class="alert alert-warning">
+//   <h5 class="mb-3">📐 Формула UCL</h5>
+//   <p class="text-center">$$ UCL = \\mu + 3\\sigma $$</p>
+//   <hr>
+//   <p class="mb-1">Подставляем:</p>
+//   <p class="text-center">$$ UCL = {var1-10}0 + 3 \\cdot 4 = {= {var1-10} * 10 + 12 } $$</p>
+//   <p class="mb-0">На графике UCL отмечена красной пунктирной линией.</p>
+// </div>`,
+//         randomfrom: [18, 20, 22, 25, 28],
+//         chartjs: "shewhart",
+//         chartjsId: "quizChart",
+//         chartjsConfig: {
+//             mean: "{= {var1-10} * 10}",
+//             sigma: "4",
+//             k: "3",
+//             points: "[{= {var1-10} * 10 - 3}, {= {var1-10} * 10 + 2}, {= {var1-10} * 10 - 1}, {= {var1-10} * 10 + 5}, {= {var1-10} * 10}, {= {var1-10} * 10 + 4}, {= {var1-10} * 10 - 6}, {= {var1-10} * 10 + 3}, {= {var1-10} * 10 - 2}, {= {var1-10} * 10 + 1}]"
+//         }
+//     },
 
 
     {
@@ -232,36 +232,36 @@ let quizesSets = [
   <p class="mb-0">Значит, результат <strong>статистически значим</strong> на уровне 5 %. Отклоняем H₀.</p>
 </div>`
     },
-    {
-        id: "hyp_003",
-        type: "mathwithrandomnumber",
-        header: "Проверка гипотез · ОКСИС",
-        title: "Расчёт z-статистики",
-        theme: "Проверка гипотез",
-        text: `
-<div class="card">
-  <div class="card-header bg-danger text-white">
-    z-критерий
-  </div>
-  <div class="card-body">
-    <p>Выборочное среднее время отклика <strong>x̄ = {var1-10}0 мс</strong>, генеральное среднее по стандарту <strong>μ₀ = 200 мс</strong>, σ = 40 мс, n = 100.</p>
-    <p class="mb-0">Найдите z-статистику. Введите число с точностью до 0.1.</p>
-  </div>
-</div>`,
-        answer: "ROUND(({var1-10} * 10 - 200) / (40 / 10), 1)",
-        hint: `
-<div class="alert alert-danger">
-  <h5 class="mb-3">📐 z-критерий</h5>
-  <p class="text-center">$$ Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} $$</p>
-  <hr>
-  <p class="mb-1">Подставляем:</p>
-  <p class="text-center">$$ SE = \\frac{40}{10} = 4 $$</p>
-  <p class="text-center">$$ Z = \\frac{ {= {var1-10} * 10} - 200 }{4} = {= ROUND(({var1-10} * 10 - 200) / 4, 1) } $$</p>
+//     {
+//         id: "hyp_003",
+//         type: "mathwithrandomnumber",
+//         header: "Проверка гипотез · ОКСИС",
+//         title: "Расчёт z-статистики",
+//         theme: "Проверка гипотез",
+//         text: `
+// <div class="card">
+//   <div class="card-header bg-danger text-white">
+//     z-критерий
+//   </div>
+//   <div class="card-body">
+//     <p>Выборочное среднее время отклика <strong>x̄ = {var1-10}0 мс</strong>, генеральное среднее по стандарту <strong>μ₀ = 200 мс</strong>, σ = 40 мс, n = 100.</p>
+//     <p class="mb-0">Найдите z-статистику. Введите число с точностью до 0.1.</p>
+//   </div>
+// </div>`,
+//         answer: "ROUND(({var1-10} * 10 - 200) / (40 / 10), 1)",
+//         hint: `
+// <div class="alert alert-danger">
+//   <h5 class="mb-3">📐 z-критерий</h5>
+//   <p class="text-center">$$ Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} $$</p>
+//   <hr>
+//   <p class="mb-1">Подставляем:</p>
+//   <p class="text-center">$$ SE = \\frac{40}{10} = 4 $$</p>
+//   <p class="text-center">$$ Z = \\frac{ {= {var1-10} * 10} - 200 }{4} = {= ROUND(({var1-10} * 10 - 200) / 4, 1) } $$</p>
   
-  <p class="mb-0">Если <strong>|Z| &gt; 1.96</strong>, гипотеза H₀ отклоняется на уровне 5 %.</p>
-</div>`,
-        randomfrom: [22, 24, 26, 18]
-    },
+//   <p class="mb-0">Если <strong>|Z| &gt; 1.96</strong>, гипотеза H₀ отклоняется на уровне 5 %.</p>
+// </div>`,
+//         randomfrom: [22, 24, 26, 18]
+//     },
     {
         id: "hyp_004",
         type: "multiplechoices",
