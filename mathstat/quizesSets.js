@@ -1983,42 +1983,7 @@ let quizesSets = [
 </div>`,
         "randomfrom": [10, 20, 30, 40, 50]
     },
-    {
-        "id": "tv_175_reg_breakeven",
-        "type": "mathwithrandomnumber",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Регрессия: точка безубыточности",
-        "theme": "Регрессионный анализ",
-        "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Точка безубыточности
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Зависимость затрат <em>y</em> от выручки <em>x</em> линейна: <em>y = a + b·x</em>, причём <em>b = 1</em>.</div>
-    <div class="mb-2">Известно, что при выручке <em>x = {var1-10}</em> затраты равны нулю.</div>
-    <div class="mt-3 mb-2">При какой выручке затраты снова станут равны <strong>{= 2 * {var1-10}}</strong>? (То есть найдите <em>x</em>, при котором <em>y</em> = {= 2 * {var1-10}}.)</div>
-  </div>
-</div>`,
-        "answer": "{= 3 * {var1-10}}",
-        "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2">1. Из условия y = 0 при x = {var1-10} и b = 1 находим a:</div>
-    <div class="text-center">$$0 = a + 1 \\cdot {var1-10} \\Rightarrow a = -{var1-10}$$</div>
-    <div class="mt-3 mb-2">2. Уравнение регрессии:</div>
-    <div class="text-center">$$y = -{var1-10} + x$$</div>
-    <div class="mt-3 mb-2">3. Находим x, при котором y = {= 2 * {var1-10}}:</div>
-    <div class="text-center">$$ {=2*{var1-10}} = -{var1-10} + x \\Rightarrow x = {= 3 * {var1-10}}$$</div>
-    <div class="alert alert-primary mt-3">Ответ: {= 3 * {var1-10}}</div>
-  </div>
-</div>`,
-        "randomfrom": [100, 200, 300, 400]
-    },
-
+    
         // =====================================================================
     // ==================== ОБЩАЯ СТАТИСТИКА ====================
     // =====================================================================
@@ -2282,40 +2247,7 @@ let quizesSets = [
         "answers": ["0.9"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>Формула классической вероятности:</p><p class='mb-2'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{27}{30} = \\frac{9}{10} = 0.9$$</p></div>"
     },
-    {
-        "id": "fipi_abstract_002",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ 2026",
-        "title": "Абстрактная вероятность",
-        "theme": "Классическое определение вероятности",
-        "text": "В случайном опыте N = 50 равновозможных элементарных событий, из них N(A) = 15 благоприятствуют событию A. Вычислите вероятность события A.",
-        "choices": ["0.15", "0.25", "0.3", "0.5"],
-        "answers": ["0.3"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{15}{50} = 0.3$$</p></div>"
-    },
-    {
-        "id": "fipi_abstract_003",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ 2026",
-        "title": "Абстрактная вероятность",
-        "theme": "Классическое определение вероятности",
-        "text": "В случайном опыте N = 80 равновозможных элементарных событий, из них N(A) = 56 благоприятствуют событию A. Вычислите вероятность события A.",
-        "choices": ["0.6", "0.65", "0.7", "0.75"],
-        "answers": ["0.7"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{56}{80} = \\frac{7}{10} = 0.7$$</p></div>"
-    },
-    {
-        "id": "fipi_abstract_004",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ 2026",
-        "title": "Абстрактная вероятность",
-        "theme": "Классическое определение вероятности",
-        "text": "В случайном опыте N = 60 равновозможных элементарных событий, из них N(A) = 24 благоприятствуют событию A. Вычислите вероятность события A.",
-        "choices": ["0.2", "0.4", "0.5", "0.6"],
-        "answers": ["0.4"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{24}{60} = 0.4$$</p></div>"
-    },
-
+    
         {
         "id": "fipi_euler_001",
         "type": "multiplechoices",
