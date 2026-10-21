@@ -1,5 +1,843 @@
 let quizesSets = [
 
+   {
+        "id": "statistics_mean_mixed001",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Среднее арифметическое",
+        "theme": "Средние величины",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Среднее арифметическое
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите среднее арифметическое чисел:</div>
+    <div class="text-center fs-3">
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Сумма чисел:</div>
+    <div class="text-center">
+      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= 6 * {var1-10}}$$
+    </div>
+    <div class="mt-3 mb-2">Количество чисел: 6</div>
+    <div class="mb-2">Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 15, 20, 25, 30, 35]
+    },
+    {
+        "id": "statistics_var_mixed005",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Дисперсия",
+        "theme": "Меры разброса",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="mt-3 mb-2">2. Отклонения:</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$</div>
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\times {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">5. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [4, 9, 16, 25]
+    },
+    {
+        "id": "statistics_stdev_mixed005",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Стандартное отклонение",
+        "theme": "Меры разброса",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Стандартное отклонение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите стандартное отклонение (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = 20$$ (симметрия слагаемых)</div>
+    <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
+    <div class="text-center">$$\\pm {var1-10}$$ (по три раза каждое)</div>
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({var1-10})^2 = {= {var1-10} * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">4. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{6 \\cdot {= {var1-10} * {var1-10}}}{6} = {= {var1-10} * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">5. Стандартное отклонение:</div>
+    <div class="text-center">$$\\sigma = \\sqrt{{= {var1-10} * {var1-10}}} = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [2, 3, 4, 5]
+    },
+    {
+        "id": "statistics544",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Анализ данных",
+        "theme": "Меры разброса",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
+        "answers": ["Дисперсии по генеральной совокупности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ² = Σ(xᵢ − x̄)² / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма квадратов отклонений</span> от среднего, в знаменателе — <span class='badge badge-info'>n</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>дисперсия по генеральной совокупности</span> (VAR.P). Для выборки делят на (n−1).</p></div>"
+    },
+    {
+        "id": "statistics545",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистический показатель",
+        "theme": "Меры разброса",
+        "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
+        "answers": ["Стандартного отклонения по генеральной совокупности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ = √(Σ(xᵢ − x̄)² / n).</p><hr class='my-2'><p class='mb-1'>Это <span class='badge badge-info'>квадратный корень из дисперсии</span>. Результат — в тех же единицах, что и данные.</p><p class='mb-0'>Это <span class='badge badge-success'>стандартное отклонение по генеральной совокупности</span> (STDEV.P).</p></div>"
+    },
+
+    {
+    id: "excel016_rand",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "МОДА: самое частое значение",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция МОДА
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с оценками студентов:</div>
+    <svg viewBox="0 0 480 250" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="250" fill="#ffffff" stroke="#adb5bd"/>
+
+      <!-- Заголовки столбцов -->
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <!-- Строки -->
+      <g font-size="13" fill="#1f1f1f">
+        <!-- номера строк -->
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+
+        <!-- шапка -->
+        <text x="48" y="44">Студент</text>
+        <text x="248" y="44">Оценка</text>
+
+        <!-- данные -->
+        <text x="48" y="70">Анна</text>
+        <text x="248" y="70">{var1-10}</text>
+        <text x="48" y="96">Борис</text>
+        <text x="248" y="96">{= {var1-10} + 5}</text>
+        <text x="48" y="122">Вера</text>
+        <text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">Глеб</text>
+        <text x="248" y="148">{var1-10}</text>
+        <text x="48" y="174">Даша</text>
+        <text x="248" y="174">{= {var1-10} - 5}</text>
+      </g>
+
+      <!-- Сетка -->
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+
+      <!-- Строка формул -->
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=МОДА(B2:B6)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=МОДА(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
+    <div class="mt-3 mb-2">Оценки в диапазоне B2:B6:</div>
+    <div class="text-center fs-5 mb-2">
+      {var1-10}, &nbsp; {= {var1-10} + 5}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {= {var1-10} - 5}
+    </div>
+    <div class="mt-3 mb-2">Считаем частоты:</div>
+    <ul class="mb-2">
+      <li>«{var1-10}» — <strong>3 раза</strong></li>
+      <li>«{= {var1-10} + 5}» — 1 раз</li>
+      <li>«{= {var1-10} - 5}» — 1 раз</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30]
+},
+
+{
+    id: "excel020_disp_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "ДИСП.Г: дисперсия по генеральной совокупности",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.Г
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="208"/>
+        <line x1="240" y1="0" x2="240" y2="208"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+      </g>
+
+      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="250" font-size="13" fill="#1f1f1f">=ДИСП.Г(B2:B7)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.Г(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [4, 9, 16, 25]
+},
+
+{
+    id: "excel019_avedev_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "СРОТКЛ: среднее абсолютное отклонение",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция СРОТКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с отклонениями показателя:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">0</text>
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">0</text>
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">0</text>
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= 2 * {var1-10}}</text>
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= 2 * {var1-10}}</text>
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= 2 * {var1-10}}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="208"/>
+        <line x1="240" y1="0" x2="240" y2="208"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+      </g>
+
+      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="250" font-size="13" fill="#1f1f1f">=СРОТКЛ(B2:B7)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СРОТКЛ(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
+    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
+    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5]
+},
+    
+{
+    id: "excel021_dispv_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "ДИСП.В: дисперсия по выборке",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.В
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с измерениями:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{var1-10}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=ДИСП.В(B2:B6)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.В(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
+    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
+    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
+    <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
+    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [4, 9, 16, 25]
+},
+
+{
+    id: "excel023_cv_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "Коэффициент вариации",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: коэффициент вариации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="260" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= 100 - {var1-10}}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= 100 - {var1-10}}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{= 100 + {var1-10}}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= 100 + {var1-10}}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="156"/>
+        <line x1="240" y1="0" x2="240" y2="156"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+      </g>
+
+      <rect x="0" y="174" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="198" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="198" font-size="13" fill="#1f1f1f">=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</code>? Введите только число (в процентах, без знака %).
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>Коэффициент вариации</strong> — относительная мера разброса:</div>
+    <div class="text-center">$$ CV = \\frac{ \\sigma }{ \\bar{x} } \\cdot 100\\% $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= 100 - {var1-10}}» и два значения «{= 100 + {var1-10}}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$ \\bar{x} = \\frac{ {= 100 - {var1-10}} + {= 100 - {var1-10}} + {= 100 + {var1-10}} + {= 100 + {var1-10}} }{4} = 100 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$ -{var1-10}, \\; -{var1-10}, \\; +{var1-10}, \\; +{var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{= {var1-10} * {var1-10}}</strong>:</div>
+    <div class="text-center">$$ {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Дисперсия по генеральной совокупности.</strong></div>
+    <div class="text-center">$$ \\sigma^2 = \\frac{ 4 \\cdot {= {var1-10} * {var1-10}} }{4} = {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Стандартное отклонение.</strong></div>
+    <div class="text-center">$$ \\sigma = \\sqrt{ {= {var1-10} * {var1-10}} } = {var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Коэффициент вариации.</strong></div>
+    <div class="text-center">$$ CV = \\frac{ {var1-10} }{ 100 } \\cdot 100\\% = {var1-10}\\% $$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong>%</div>
+  </div>
+</div>`,
+    randomfrom: [5, 10, 15, 20, 25]
+},
+
+{
+    id: "excel024_quartile_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "КВАРТИЛЬ: первый квартиль Q1",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция КВАРТИЛЬ.ВКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан упорядоченный фрагмент листа Excel:</div>
+    <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="340" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="182" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="208" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="234" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="260" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+        <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+        <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
+        <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
+        <text x="20" y="278" text-anchor="middle" fill="#595959">10</text>
+
+        <text x="48" y="44">№</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - 4}</text>
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - 2}</text>
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + 2}</text>
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + 4}</text>
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= {var1-10} + 6}</text>
+        <text x="48" y="226">7</text>
+        <text x="248" y="226">{= {var1-10} + 8}</text>
+        <text x="48" y="252">8</text>
+        <text x="248" y="252">{= {var1-10} + 10}</text>
+        <text x="48" y="278">9</text>
+        <text x="248" y="278">{= {var1-10} + 12}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="286"/>
+        <line x1="240" y1="0" x2="240" y2="286"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+        <line x1="0" y1="234" x2="360" y2="234"/>
+        <line x1="0" y1="260" x2="360" y2="260"/>
+        <line x1="0" y1="286" x2="360" y2="286"/>
+      </g>
+
+      <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="328" font-size="13" fill="#1f1f1f">=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>КВАРТИЛЬ.ВКЛ</strong> — квартиль с включением границ (метод, аналогичный Excel).</div>
+    <div class="text-center">$$ Q_1 = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
+    <div class="text-center">$$ n = 9 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q1.</strong></div>
+    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 1 + 2 = 3 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
+    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
+    <div class="text-center">
+      {= {var1-10} - 4}, {= {var1-10} - 2}, <strong>{var1-10}</strong>, {= {var1-10} + 2}, {= {var1-10} + 4}, …
+    </div>
+    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30]
+},
+
+
       // ============================================================
     // ============ БЛОК 2: ПРОВЕРКА ГИПОТЕЗ =======================
     // ============================================================
