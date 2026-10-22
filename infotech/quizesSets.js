@@ -476,64 +476,64 @@ let quizesSets = [
 </div>`
 },
 
-{
-    id: "excel_logic_003",
-    type: "mathwithrandomnumber",
-    header: "Excel · Логические функции",
-    title: "И: все условия истинны",
-    theme: "Функции Excel",
-    randomfrom: [0, 1, 2, 3],
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">Лист Excel — успеваемость</div>
-  <div class="card-body">
-    <svg viewBox="0 0 520 200" width="100%" style="max-width:520px; display:block; margin:0 auto; font-family:Consolas,monospace;">
-      ...
-      <g font-size="13" fill="#212529">
-        <text x="45" y="50">ФИО</text><text x="165" y="50">Матем</text><text x="275" y="50">Русский</text><text x="385" y="50">Информ</text><text x="440" y="50">Рез.</text>
-        <text x="45" y="80">Иванов</text>
-        <text x="165" y="80">{= IF({var1-10}>=1; 90; 60)}</text>
-        <text x="275" y="80">{= IF({var1-10}>=1; 85; 55)}</text>
-        <text x="385" y="80">{= IF({var1-10}>=1; 80; 50)}</text>
-        <text x="440" y="80">?</text>
-        <text x="45" y="110">Петров</text>
-        <text x="165" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
-        <text x="275" y="110">{= IF({var1-10}>=2; 95; 65)}</text>
-        <text x="385" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
-        <text x="440" y="110">?</text>
-        <text x="45" y="140">Сидоров</text>
-        <text x="165" y="140">{= IF({var1-10}>=3; 85; 55)}</text>
-        <text x="275" y="140">{= IF({var1-10}>=3; 70; 60)}</text>
-        <text x="385" y="140">{= IF({var1-10}>=3; 95; 60)}</text>
-        <text x="440" y="140">?</text>
-      </g>
-      ...
-    </svg>
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Сколько учеников получат «Сдал» (все оценки ≥ 70)?
-      Введите число от 0 до 3.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Функция <strong>И</strong> возвращает ИСТИНА только если <em>все</em> условия истинны.</div>
-    <div class="mt-3 mb-2">Проверяем каждого:</div>
-    <ul class="mb-2">
-      <li>Иванов: {= IF({var1-10}>=1; "90, 85, 80 → все ≥ 70 → Сдал"; "60, 55, 50 → есть < 70 → Не сдал")}</li>
-      <li>Петров: {= IF({var1-10}>=2; "90, 95, 90 → все ≥ 70 → Сдал"; "60, 65, 60 → есть < 70 → Не сдал")}</li>
-      <li>Сидоров: {= IF({var1-10}>=3; "85, 70, 95 → все ≥ 70 → Сдал"; "55, 60, 60 → есть < 70 → Не сдал")}</li>
-    </ul>
-    <div class="mb-2">Значит, сдавших — <strong>{var1-10}</strong>.</div>
-    <div class="alert alert-success mt-3">
-      Ответ: \\(\\boxed{{var1-10}}\\)
-    </div>
-  </div>
-</div>`
-},
+// {
+//     id: "excel_logic_003",
+//     type: "mathwithrandomnumber",
+//     header: "Excel · Логические функции",
+//     title: "И: все условия истинны",
+//     theme: "Функции Excel",
+//     randomfrom: [1, 2, 3],
+//     text: `
+// <div class="card">
+//   <div class="card-header bg-success text-white">Лист Excel — успеваемость</div>
+//   <div class="card-body">
+//     <svg viewBox="0 0 520 200" width="100%" style="max-width:520px; display:block; margin:0 auto; font-family:Consolas,monospace;">
+//       ...
+//       <g font-size="13" fill="#212529">
+//         <text x="45" y="50">ФИО</text><text x="165" y="50">Матем</text><text x="275" y="50">Русский</text><text x="385" y="50">Информ</text><text x="440" y="50">Рез.</text>
+//         <text x="45" y="80">Иванов</text>
+//         <text x="165" y="80">{= IF({var1-10}>=1; 90; 60)}</text>
+//         <text x="275" y="80">{= IF({var1-10}>=1; 85; 55)}</text>
+//         <text x="385" y="80">{= IF({var1-10}>=1; 80; 50)}</text>
+//         <text x="440" y="80">?</text>
+//         <text x="45" y="110">Петров</text>
+//         <text x="165" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
+//         <text x="275" y="110">{= IF({var1-10}>=2; 95; 65)}</text>
+//         <text x="385" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
+//         <text x="440" y="110">?</text>
+//         <text x="45" y="140">Сидоров</text>
+//         <text x="165" y="140">{= IF({var1-10}>=3; 85; 55)}</text>
+//         <text x="275" y="140">{= IF({var1-10}>=3; 70; 60)}</text>
+//         <text x="385" y="140">{= IF({var1-10}>=3; 95; 60)}</text>
+//         <text x="440" y="140">?</text>
+//       </g>
+//       ...
+//     </svg>
+//     <div class="alert alert-success mt-3 mb-0">
+//       <strong>Вопрос:</strong> Сколько учеников получат «Сдал» (все оценки ≥ 70)?
+//       Введите число от 0 до 3.
+//     </div>
+//   </div>
+// </div>`,
+//     answer: "{var1-10}",
+//     hint: `
+// <div class="card">
+//   <div class="card-header bg-success text-white">Решение</div>
+//   <div class="card-body">
+//     <div class="mb-2">Функция <strong>И</strong> возвращает ИСТИНА только если <em>все</em> условия истинны.</div>
+//     <div class="mt-3 mb-2">Проверяем каждого:</div>
+//     <ul class="mb-2">
+//       <li>Иванов: {= IF({var1-10}>=1; "90, 85, 80 → все ≥ 70 → Сдал"; "60, 55, 50 → есть < 70 → Не сдал")}</li>
+//       <li>Петров: {= IF({var1-10}>=2; "90, 95, 90 → все ≥ 70 → Сдал"; "60, 65, 60 → есть < 70 → Не сдал")}</li>
+//       <li>Сидоров: {= IF({var1-10}>=3; "85, 70, 95 → все ≥ 70 → Сдал"; "55, 60, 60 → есть < 70 → Не сдал")}</li>
+//     </ul>
+//     <div class="mb-2">Значит, сдавших — <strong>{var1-10}</strong>.</div>
+//     <div class="alert alert-success mt-3">
+//       Ответ: \\(\\boxed{{var1-10}}\\)
+//     </div>
+//   </div>
+// </div>`
+// },
 
 // =====================================================================
 // ==================== EXCEL · ДИАГРАММЫ ==============================
@@ -731,35 +731,6 @@ let quizesSets = [
 },
 
 {
-    id: "code_sound_001",
-    type: "mathwithrandomnumber",
-    header: "ФИПИ · Кодирование информации",
-    title: "Объём звукового файла",
-    theme: "Кодирование звука",
-    randomfrom: [938, 1875, 2580, 5160],
-    text: `Моно-звукозапись, частота
-    \\(\\mathbf{{= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))}}\\) Гц,
-    глубина \\(16\\) бит, длительность \\(1\\) минуту.
-    Какой объём (в Кбайт) займёт файл? Округлите до целого.
-    <br><small class="text-muted">Введите число.</small>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Формула объёма звукозаписи:</div>
-    <div class="text-center">$$V = \\frac{f \\cdot i \\cdot t}{8 \\cdot 1024}$$</div>
-    <div class="mb-2">где \(f = {= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))}\\) Гц,
-      \(i = 16\\), \(t = 60\\).</div>
-    <div class="text-center">$$V = \\frac{{= IF({var1-10}=938;8000;IF({var1-10}=1875;16000;IF({var1-10}=2580;22050;44100)))} \\cdot 16 \\cdot 60}{8 \\cdot 1024} \\approx {var1-10}$$</div>
-    <div class="alert alert-primary mt-3">
-      Ответ: \\(\\boxed{{var1-10}}\\) Кбайт
-    </div>
-  </div>
-</div>`
-},
-
-{
     id: "code_text_001",
     type: "mathwithrandomnumber",
     header: "ФИПИ · Кодирование информации",
@@ -778,7 +749,7 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-2">Объём текста:</div>
     <div class="text-center">$$V = \\frac{n \\cdot i}{8}$$</div>
-    <div class="mb-2">где \(n = 24\\), \(i = {= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}\\) бит.</div>
+    <div class="mb-2">где \\(n = 24\\), \\(i = {= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}\\) бит.</div>
     <div class="text-center">$$V = \\frac{24 \\cdot {= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}}{8} = {var1-10}\\ \\text{байт}$$</div>
     <div class="alert alert-primary mt-3">
       Ответ: \\(\\boxed{{var1-10}}\\) байт
@@ -1393,6 +1364,59 @@ b := 0
 // =====================================================================
 // ==================== ШИФР ЦЕЗАРЯ ====================================
 // =====================================================================
+// {
+//     id: "cipher_caesar_001",
+//     type: "multiplechoices",
+//     header: "ФИПИ · Шифрование",
+//     title: "Шифр Цезаря: сдвиг 2",
+//     theme: "Классические шифры",
+//     text: `Слово «<strong>ИНФОРМАТИКА</strong>» зашифровано шифром Цезаря
+//     со сдвигом \(+2\) (А→В, Б→Г, …, Я→Б).
+//     Какая буква будет <strong>первой</strong> в шифре?`,
+//     choices: ["Й", "К", "Л", "М", "Н"],
+//     answers: ["Л"],
+//     hint: `
+// <div class="card">
+//   <div class="card-header bg-primary text-white">Решение</div>
+//   <div class="card-body">
+//     <div class="mb-2">Первая буква — <strong>И</strong>.</div>
+//     <div class="mb-2">Сдвигаем на \(+2\) по русскому алфавиту:</div>
+//     <div class="text-center">$$\\text{И} \\xrightarrow{+1} \\text{Й} \\xrightarrow{+1} \\text{Л}$$</div>
+//     <div class="mb-2">Проверка: \(И\\) — 10-я буква, \(+2\\) → 12-я = <strong>Л</strong>.</div>
+//     <div class="alert alert-primary mt-3">
+//       Ответ: \\(\\boxed{\\text{Л}}\\)
+//     </div>
+//   </div>
+// </div>`
+// },
+
+// {
+//     id: "cipher_caesar_002",
+//     type: "multiplechoices",
+//     header: "ФИПИ · Шифрование",
+//     title: "Шифр Цезаря: сдвиг 3",
+//     theme: "Классические шифры",
+//     text: `Слово «<strong>ПРИВЕТ</strong>» зашифровано шифром Цезаря
+//     со сдвигом \(+3\) (А→Г, Б→Д, …, Я→В).
+//     Какая буква будет <strong>первой</strong> в шифре?`,
+//     choices: ["Р", "С", "Т", "У", "Ф"],
+//     answers: ["У"],
+//     hint: `
+// <div class="card">
+//   <div class="card-header bg-primary text-white">Решение</div>
+//   <div class="card-body">
+//     <div class="mb-2">Первая буква — <strong>П</strong>.</div>
+//     <div class="mb-2">Сдвигаем на \(+3\\):</div>
+//     <div class="text-center">$$\\text{П} \\xrightarrow{+3} \\text{У}$$</div>
+//     <div class="mb-2">Проверка: \(П\\) — 17-я буква, \(+3\\) → 20-я = <strong>У</strong>.</div>
+//     <div class="alert alert-primary mt-3">
+//       Ответ: \\(\\boxed{\\text{У}}\\)
+//     </div>
+//   </div>
+// </div>`
+// },
+
+
 {
     id: "cipher_caesar_001",
     type: "multiplechoices",
@@ -1400,7 +1424,7 @@ b := 0
     title: "Шифр Цезаря: сдвиг 2",
     theme: "Классические шифры",
     text: `Слово «<strong>ИНФОРМАТИКА</strong>» зашифровано шифром Цезаря
-    со сдвигом \(+2\) (А→В, Б→Г, …, Я→Б).
+    со сдвигом \\(+2\\) (А→В, Б→Г, …, Я→Б).
     Какая буква будет <strong>первой</strong> в шифре?`,
     choices: ["Й", "К", "Л", "М", "Н"],
     answers: ["Л"],
@@ -1409,9 +1433,9 @@ b := 0
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Первая буква — <strong>И</strong>.</div>
-    <div class="mb-2">Сдвигаем на \(+2\) по русскому алфавиту:</div>
+    <div class="mb-2">Сдвигаем на \\(+2\\) по русскому алфавиту:</div>
     <div class="text-center">$$\\text{И} \\xrightarrow{+1} \\text{Й} \\xrightarrow{+1} \\text{Л}$$</div>
-    <div class="mb-2">Проверка: \(И\\) — 10-я буква, \(+2\\) → 12-я = <strong>Л</strong>.</div>
+    <div class="mb-2">Проверка: \\(И\\) — 10-я буква, \\(+2\\) → 12-я = <strong>Л</strong>.</div>
     <div class="alert alert-primary mt-3">
       Ответ: \\(\\boxed{\\text{Л}}\\)
     </div>
@@ -1420,31 +1444,30 @@ b := 0
 },
 
 {
-    id: "cipher_caesar_002",
+    id: "cipher_caesar_001",
     type: "multiplechoices",
     header: "ФИПИ · Шифрование",
-    title: "Шифр Цезаря: сдвиг 3",
+    title: "Шифр Цезаря: сдвиг 2",
     theme: "Классические шифры",
-    text: `Слово «<strong>ПРИВЕТ</strong>» зашифровано шифром Цезаря
-    со сдвигом \(+3\) (А→Г, Б→Д, …, Я→В).
+    text: `Слово «<strong>ИНФОРМАТИКА</strong>» зашифровано шифром Цезаря
+    со сдвигом \\(+2\\) (А→В, Б→Г, …, Я→Б).
     Какая буква будет <strong>первой</strong> в шифре?`,
-    choices: ["Р", "С", "Т", "У", "Ф"],
-    answers: ["У"],
+    choices: ["Й", "К", "Л", "М", "Н"],
+    answers: ["Л"],
     hint: `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
-    <div class="mb-2">Первая буква — <strong>П</strong>.</div>
-    <div class="mb-2">Сдвигаем на \(+3\\):</div>
-    <div class="text-center">$$\\text{П} \\xrightarrow{+3} \\text{У}$$</div>
-    <div class="mb-2">Проверка: \(П\\) — 17-я буква, \(+3\\) → 20-я = <strong>У</strong>.</div>
+    <div class="mb-2">Первая буква — <strong>И</strong>.</div>
+    <div class="mb-2">Сдвигаем на \\(+2\\) по русскому алфавиту:</div>
+    <div class="text-center">$$\\text{И} \\xrightarrow{+1} \\text{Й} \\xrightarrow{+1} \\text{Л}$$</div>
+    <div class="mb-2">Проверка: \\(И\\) — 10-я буква, \\(+2\\) → 12-я = <strong>Л</strong>.</div>
     <div class="alert alert-primary mt-3">
-      Ответ: \\(\\boxed{\\text{У}}\\)
+      Ответ: \\(\\boxed{\\text{Л}}\\)
     </div>
   </div>
 </div>`
 },
-
 
        {
     id: "vscode001",
