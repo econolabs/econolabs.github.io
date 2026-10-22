@@ -488,36 +488,30 @@ let quizesSets = [
   <div class="card-header bg-success text-white">Лист Excel — успеваемость</div>
   <div class="card-body">
     <svg viewBox="0 0 520 200" width="100%" style="max-width:520px; display:block; margin:0 auto; font-family:Consolas,monospace;">
-      <rect x="0" y="0" width="520" height="200" fill="#fff" stroke="#adb5bd"/>
-      <rect x="0" y="0" width="40" height="30" fill="#e9ecef" stroke="#adb5bd"/>
-      <rect x="40" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
-      <rect x="160" y="0" width="110" height="30" fill="#e9ecef" stroke="#adb5bd"/>
-      <rect x="270" y="0" width="110" height="30" fill="#e9ecef" stroke="#adb5bd"/>
-      <rect x="380" y="0" width="120" height="30" fill="#e9ecef" stroke="#adb5bd"/>
-      <text x="20" y="20" text-anchor="middle" font-size="13" fill="#495057">A</text>
-      <text x="100" y="20" text-anchor="middle" font-size="13" fill="#495057">B</text>
-      <text x="215" y="20" text-anchor="middle" font-size="13" fill="#495057">C</text>
-      <text x="325" y="20" text-anchor="middle" font-size="13" fill="#495057">D</text>
-      <text x="440" y="20" text-anchor="middle" font-size="13" fill="#495057">E</text>
+      ...
       <g font-size="13" fill="#212529">
         <text x="45" y="50">ФИО</text><text x="165" y="50">Матем</text><text x="275" y="50">Русский</text><text x="385" y="50">Информ</text><text x="440" y="50">Рез.</text>
-        <text x="45" y="80">Иванов</text><text x="165" y="80">90</text><text x="275" y="80">85</text><text x="385" y="80">80</text><text x="440" y="80">?</text>
-        <text x="45" y="110">Петров</text><text x="165" y="110">60</text><text x="275" y="110">95</text><text x="385" y="110">90</text><text x="440" y="110">?</text>
-        <text x="45" y="140">Сидоров</text><text x="165" y="140">85</text><text x="275" y="140">70</text><text x="385" y="140">95</text><text x="440" y="140">?</text>
+        <text x="45" y="80">Иванов</text>
+        <text x="165" y="80">{= IF({var1-10}>=1; 90; 60)}</text>
+        <text x="275" y="80">{= IF({var1-10}>=1; 85; 55)}</text>
+        <text x="385" y="80">{= IF({var1-10}>=1; 80; 50)}</text>
+        <text x="440" y="80">?</text>
+        <text x="45" y="110">Петров</text>
+        <text x="165" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
+        <text x="275" y="110">{= IF({var1-10}>=2; 95; 65)}</text>
+        <text x="385" y="110">{= IF({var1-10}>=2; 90; 60)}</text>
+        <text x="440" y="110">?</text>
+        <text x="45" y="140">Сидоров</text>
+        <text x="165" y="140">{= IF({var1-10}>=3; 85; 55)}</text>
+        <text x="275" y="140">{= IF({var1-10}>=3; 70; 60)}</text>
+        <text x="385" y="140">{= IF({var1-10}>=3; 95; 60)}</text>
+        <text x="440" y="140">?</text>
       </g>
-      <g stroke="#dee2e6">
-        <line x1="40" y1="0" x2="40" y2="150"/><line x1="160" y1="0" x2="160" y2="150"/>
-        <line x1="270" y1="0" x2="270" y2="150"/><line x1="380" y1="0" x2="380" y2="150"/>
-        <line x1="0" y1="30" x2="500" y2="30"/><line x1="0" y1="60" x2="500" y2="60"/>
-        <line x1="0" y1="90" x2="500" y2="90"/><line x1="0" y1="120" x2="500" y2="120"/>
-        <line x1="0" y1="150" x2="500" y2="150"/>
-      </g>
-      <rect x="0" y="160" width="520" height="30" fill="#f8f9fa" stroke="#adb5bd"/>
-      <text x="10" y="180" font-size="13" fill="#0d6efd">fx</text>
-      <text x="40" y="180" font-size="13" fill="#212529">=СУММ(ЕСЛИ(И(B2:D4&gt;=70);1;0))</text>
+      ...
     </svg>
     <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Сколько учеников получат «Сдал» (все оценки ≥ 70)? Введите число от 0 до 3.
+      <strong>Вопрос:</strong> Сколько учеников получат «Сдал» (все оценки ≥ 70)?
+      Введите число от 0 до 3.
     </div>
   </div>
 </div>`,
@@ -529,11 +523,11 @@ let quizesSets = [
     <div class="mb-2">Функция <strong>И</strong> возвращает ИСТИНА только если <em>все</em> условия истинны.</div>
     <div class="mt-3 mb-2">Проверяем каждого:</div>
     <ul class="mb-2">
-      <li>Иванов: 90, 85, 80 → все ≥ 70 → <strong>Сдал</strong></li>
-      <li>Петров: 60, 95, 90 → есть 60 &lt; 70 → Не сдал</li>
-      <li>Сидоров: 85, 70, 95 → все ≥ 70 → <strong>Сдал</strong></li>
+      <li>Иванов: {= IF({var1-10}>=1; "90, 85, 80 → все ≥ 70 → Сдал"; "60, 55, 50 → есть < 70 → Не сдал")}</li>
+      <li>Петров: {= IF({var1-10}>=2; "90, 95, 90 → все ≥ 70 → Сдал"; "60, 65, 60 → есть < 70 → Не сдал")}</li>
+      <li>Сидоров: {= IF({var1-10}>=3; "85, 70, 95 → все ≥ 70 → Сдал"; "55, 60, 60 → есть < 70 → Не сдал")}</li>
     </ul>
-    <div class="mb-2">Значит, правильный ответ — <strong>2</strong>.</div>
+    <div class="mb-2">Значит, сдавших — <strong>{var1-10}</strong>.</div>
     <div class="alert alert-success mt-3">
       Ответ: \\(\\boxed{{var1-10}}\\)
     </div>
@@ -773,7 +767,7 @@ let quizesSets = [
     theme: "Кодирование текста",
     randomfrom: [24, 48, 96],
     text: `Каждый символ кодируется
-    \\(\\mathbf{{= {var1-10} \\cdot 8 / 24}}\\) битами.
+    \\(\\mathbf{{= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}}\\) битами.
     Фраза содержит \\(24\\) символа.
     Каков информационный объём (в байтах)?
     <br><small class="text-muted">Введите число.</small>`,
@@ -784,8 +778,8 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-2">Объём текста:</div>
     <div class="text-center">$$V = \\frac{n \\cdot i}{8}$$</div>
-    <div class="mb-2">где \(n = 24\\), \(i = {= {var1-10} \\cdot 8 / 24}\\) бит.</div>
-    <div class="text-center">$$V = \\frac{24 \\cdot {= {var1-10} \\cdot 8 / 24}}{8} = {var1-10}\\ \\text{байт}$$</div>
+    <div class="mb-2">где \(n = 24\\), \(i = {= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}\\) бит.</div>
+    <div class="text-center">$$V = \\frac{24 \\cdot {= IF({var1-10}=24; 8; IF({var1-10}=48; 16; 32))}}{8} = {var1-10}\\ \\text{байт}$$</div>
     <div class="alert alert-primary mt-3">
       Ответ: \\(\\boxed{{var1-10}}\\) байт
     </div>
