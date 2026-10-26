@@ -1,602 +1,724 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/redux-toolkit.umd.js"></script>
-    <script src="https://unpkg.com/@reduxjs/toolkit@1.9.7/dist/query/rtk-query.umd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <style>
-        .avatar {
-            vertical-align: middle;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 1rem;
-        }
+      .avatar {
+        vertical-align: middle;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 1rem;
+      }
     </style>
     <title>Что и как мы решали</title>
-</head>
+  </head>
 
-<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
-    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
-
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-
-                    <a href="https://vk.com/dmglvn">
-
-                        <img src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
-                            style="
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              filter: grayscale(100%);
-              object-fit: cover;" />
-
-                    </a>
-                </form>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style="--bs-scroll-height: 100px"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="econolabs.github.io"
+              ></a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <a href="https://vk.com/dmglvn">
+              <img
+                src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+                alt=""
+                style="
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  filter: grayscale(100%);
+                  object-fit: cover;
+                "
+              />
+            </a>
+          </form>
         </div>
+      </div>
     </nav>
 
     <div class="container" id="layout">
+      <div class="input-group m-1 p-1">
+        <span class="input-group-text" id="classdate">Дата</span>
+        <input
+          type="date"
+          id="selecteddate"
+          class="form-control"
+          aria-label="Username"
+          aria-describedby="classdate"
+        />
+      </div>
 
-        <div class="input-group m-1 p-1">
-            <span class="input-group-text" id="classdate">Дата</span>
-            <input type="date" id="selecteddate" class="form-control" aria-label="Username"
-                aria-describedby="classdate">
-        </div>
+      <div id="quiz"></div>
 
-        <div id="quiz"></div>
+      <div id="cards" class="list-group"></div>
 
-        <div id="cards" class="list-group"></div>
+      <div id="cases" class="list-group"></div>
 
-        <div id="cases" class="list-group"></div>
+      <div id="budgeting" class="list-group"></div>
 
-        <div id="budgeting" class="list-group"></div>
-
-
-        <div class="modal  fade" id="quizcaseModal" tabindex="-1" aria-labelledby="quizcaseModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="quizcaseModalLabel">Пример</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modalbody">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                    </div>
-                </div>
+      <div
+        class="modal fade"
+        id="quizcaseModal"
+        tabindex="-1"
+        aria-labelledby="quizcaseModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quizcaseModalLabel">Пример</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
+            <div class="modal-body" id="modalbody">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-sm btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
 
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+
     <script type="module">
+      // ============================================================
+      //  Inlined financelabsutilities@0.0.10
+      //  (only the functions this page actually uses)
+      // ============================================================
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, ref, onValue, update, push, child, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-        import { createApi } from "https://unpkg.com/unsplash-js@7.0.19/dist/unsplash-js.esm.js";
-        import {
-           // alphabet, applyClassToTableTag,
-            createMinimalProtoArray, vanillajsQuizByDateCard, makeDomNodeForSpreadsheet, randomIntFromInterval,
-            getApexchartOptionsFromCase,
-            vanillajsShowAccountingRecords, vanillajsShowBalanceMarkUp, vanillajsShowBalanceStackedBars, vanillajsShowCashFlowMarkUp, vanillajsShowFinancialResultsMarkUp,
-            findUnspalshImageByGender
-        } from "../dist/financelabsutilities.js" // "https://unpkg.com/financelabsutilities@0.0.10/dist/index.js";
+      const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-        let myModal = new bootstrap.Modal(document.getElementById('quizcaseModal'));
-
-        //Utlilities
-
-       // Firebase Config
-
-        let firebaseConfig = {
-            apiKey: "AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4",
-            authDomain: "fincalculations.firebaseapp.com",
-            databaseURL: "https://fincalculations.firebaseio.com",
-            projectId: "fincalculations",
-            storageBucket: "fincalculations.appspot.com",
-            messagingSenderId: "892270777573",
-            appId: "1:892270777573:web:bdc13e9b47334b4319700c"
+      function applyClassToTableTag(e) {
+        if (e instanceof String && e.includes("table")) {
+          let t = /table/i;
+          console.log(e.replace(t, 'table class="table table-sm"'));
+          return e.replace(t, 'table class="table table-sm"');
         }
+        return e;
+      }
 
-
-        const app = initializeApp(firebaseConfig);
-        // const auth = getAuth();
-        // window.auth = auth;
-        const db = getDatabase();
-        // const provider = new EmailAuthProvider();
-
-        async function getFirebaseNode({
-            url = "crafts/temp_gmail_com/posts/-Ml6DEjYhdnjuW6HiHB7",
-            type = "array"
-        }) {
-            try {
-                let snapshot = await get(ref(db, url));
-                if (snapshot.exists()) {
-                    let res = snapshot.val();
-                    if (type === "array") { return Object.keys(res).map(objKey => res[objKey]) }
-                    return res
-                } else {
-                    if (type === "array") { return [] } else { return null }
-                }
-            }
-            catch (err) {
-                console.log(err);
-                if (type === "array") { return [] } else { return {} }
-            }
-        }
-
-        // Unsplash
-
-        const unsplash = createApi({
-            accessKey: "NhcRJz0lTzcxiZusH5ss4Up8-hBz5DTED3UE8rLCjbo"
+      function makeDomNodeForSpreadsheet(e) {
+        var t = document.createElement("table");
+        t.setAttribute("class", "table table-bordered table-sm");
+        var r = document.createElement("thead"),
+            a = document.createElement("tr"),
+            i = document.createElement("th");
+        i.innerText = " ";
+        a.appendChild(i);
+        e && Array.isArray(e) && e[0] && e[0].forEach((l, o) => {
+          var s = document.createElement("th");
+          s.setAttribute("class", "text-center");
+          s.innerText = alphabet[o];
+          a.appendChild(s);
         });
+        r.appendChild(a);
+        t.appendChild(r);
+        var n = document.createElement("tbody");
+        return e && Array.isArray(e) && e.forEach((s, o) => {
+          var s = document.createElement("tr"),
+              d = document.createElement("td");
+          d.setAttribute("scope", "row");
+          d.innerText = o + 1;
+          s.appendChild(d);
+          e[o] && e[o].forEach((p, c) => {
+            var f = document.createElement("td");
+            f.innerText = e[o][c];
+            s.appendChild(f);
+          });
+          n.appendChild(s);
+        }), t.appendChild(n), t;
+      }
 
-        async function getPicturesFromCollection({ collectionId = "aH98dheb50M", perPage = 30 }) {
-            let pics = await unsplash.collections.getPhotos({ collectionId, page: 1, perPage });
-            let pages = Math.ceil(pics.response.total / 30);
-            let allPics = [];
-            await Promise.all(
-                new Array(pages).fill(0).map((page, index) => {
-                    return unsplash.collections.getPhotos({ collectionId, page: index + 1, perPage: 30 })
-                }))
-                .then((pages) => {
-                    pages.forEach(page => {
-                        page.response.results.forEach(pic => {
-                            allPics.push(pic)
-                        })
-                    });
-                });
-            return allPics
-                .filter(item => !item.description?.includes("krain") && !item.alt_description?.includes("krain"))
-                .sort(({ likes: a }, { likes: b }) => b - a)
+      function vanillajsQuizByDateCard(e, t) {
+        return document.getElementById(e).innerHTML = `
+    <div class="card m-1">
+        <div class="card-body" id="studentquiz">
+            <h5 class="card-title">${t?.theme ? t.theme : ""}</h5>
+            <p class="card-text">${t?.title ? t.title : ""}</p>
+            <hr />
+            <div class=row>
+                <div class="col-12 col-lg-3">
+                    <img src=${t.avatarUrl}
+                            data-bs-toggle="tooltip" data-bs-html="true" 
+                            alt=${t.id} id=${t.id} class="avatar"
+                            title=${t.user}>
+                    <div class="m-1">
+                    ${t?.user ? applyClassToTableTag(t.user) : ""}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div id="studenthint" class="mb-3">${t?.quizString ? applyClassToTableTag(t.quizString) : ""}</div>
+                </div>
+            <div>    
+            <hr />
+        </div>
+    </div>`;
+      }
+
+      function balanceIndicatorValue({ indicator: e = "Sales", balanceIndicators: t = [], records: r = [], periods: a = ["default"], period: i = "default" }) {
+        let n = 0, l = 0,
+            o = t.filter(s => s.type === "asset").map(s => s.title);
+        return Array.isArray(r) && r.forEach(s => {
+          let d = a.findIndex(c => c === s.period),
+              p = a.findIndex(c => c === i) + 1;
+          s.d === e && p > d && (n = n + parseFloat(s.sum));
+          s.k === e && p > d && (l = l + parseFloat(s.sum));
+        }), o.includes(e) ? n - l : l - n;
+      }
+
+      function vanillajsShowAccountingRecords(e) {
+        return `<table class="table table-striped table-bordered table-hover">
+<thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Period</th>
+        <th scope="col">D</th>
+        <th scope="col">К</th>
+        <th scope="col">Sum</th>
+        <th scope="col">Type</th>                  
+    </tr>
+</thead>
+<tbody>
+    ${[...new Set(e.map(r => r.period))].map(r => Array.isArray(e) && e.filter(a => a.period === r).map((a, i) => `<tr>
+                <th scope="row">${i + 1}</th>
+                <td><small>${a?.period}</td>
+                <td><small>${a?.d}</td>
+                <td><small>${a?.k}</td>
+                <td><small>${a?.sum}</td>
+                <td><small>${a?.type ? a.type : ""}</td>
+               </tr>`).join("")).join("")}
+</tbody>
+</table>`;
+      }
+
+      function vanillajsShowBalanceMarkUp(e, t) {
+        let r = [...new Set(e.map(a => a.period))];
+        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [" ", ...r].map(a => `<th scope="col">${a}</th>`).join("") +
+          "</tr></thead><tbody>" +
+          t.filter(a => a.type === "asset" && a.title.length > 2).map(a => `
+                <tr>
+                    <th scope="row" class="text-small">${a.title}</th>
+
+                    ${r.map((i, n) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[n] })}</td>`).join("")}
+                    
+                </tr>`).join("") +
+          "</tbody></table><table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [" ", ...r].map(a => `<th scope="col">${a}</th>`).join("") +
+          "</tr></thead><tbody>" +
+          t.filter(a => a.type !== "asset" && a.title.length > 2).map((a, i) => `
+                <tr>
+                    <th scope="row">${a.title}</th>
+
+                    ${r.map((n, l) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[l] })}</td>`).join("")}
+                    
+                </tr>`).join("") +
+          "</tbody></table>";
+      }
+
+      function perPeriodAmounts(e, t, r, a) {
+        let i = [];
+        function n(l) {
+          let o = a.findIndex(s => l === s.title);
+          return a[o].type === "asset";
         }
+        return r.map(l => {
+          n(e) ? (i.push(balanceIndicatorValue({ indicator: e, balanceIndicators: a, records: t, periods: r, period: l })), i.push(0))
+               : (i.push(0), i.push(balanceIndicatorValue({ indicator: e, balanceIndicators: a, records: t, periods: r, period: l })));
+        }), i;
+      }
 
+      function vanillajsShowBalanceStackedBars(e, t) {
+        let r = [...new Set(e.map(l => l.period))],
+            a = [];
+        t.forEach(l => {
+          l.title.length > 2 && a.push({ name: l.title, data: perPeriodAmounts(l.title, e, r, t) });
+        });
+        let i = [];
+        return r.forEach(l => {
+          i.push("Asset " + l);
+          i.push("Cap+L " + l);
+        }), {
+          ...{
+            chart: { type: "bar", stacked: !0, zoom: { enabled: !0 }, width: "90%", height: "80%" },
+            plotOptions: { bar: { borderRadius: 1, horizontal: !1 } },
+            legend: { position: "bottom" },
+            fill: { opacity: 1 },
+            xaxis: { categories: i }
+          },
+          series: a
+        };
+      }
 
-        // Redux RTK Query Config
+      function sumByType(e, t, o = "cash", s) {
+        let d = 0;
+        return e.forEach(p => (
+          p?.type && p.type.includes(o) && p.period === s && (d = d + parseFloat(p.sum)),
+          null
+        )), d;
+      }
 
-        const appStore = window.RTK;
-        const appApi = window.RTKQ;
+      function vanillajsShowCashFlowMarkUp(e, t) {
+        let [r, ...a] = t,
+            i = [...new Set(e.map(l => l.period))];
+        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [r, ...i].map(l => `<th scope="col">${l}</th>`).join("") +
+          "</tr></thead><tbody>" +
+          a.map(l => `<tr>
+            <th scope="row" class="text-small">${l}</th>
+            ${i.map(o => `<td>${sumByType(e, l, o)}</td>`).join("")}            
+        </tr>`).join("") +
+          "</tbody></table>";
+      }
 
+      function vanillajsShowFinancialResultsMarkUp(e, t) {
+        let r = [...new Set(e.map(l => l.period))],
+            [a, ...i] = t;
+        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [a, ...r].map(l => `<th scope="col">${l}</th>`).join("") +
+          "</tr></thead><tbody>" +
+          i.map(l => `<tr>
+            <th scope="row" class="text-small">${l}</th>
+            ${r.map(o => `<td>${sumByType(e, l, o)}</td>`).join("")}                            
+        </tr>`).join("") +
+          "</tbody></table>";
+      }
 
-        
-        const api = appApi.createApi({
-            reducerPath: 'api',
-            tagTypes: ["OpenAvatar", "Unsplash", "WorkbookPost", "QuizesCasesEntyty", "QuizCase", "Apexchart"],
-            baseQuery: appApi.fakeBaseQuery(),
-            endpoints: (builder) => ({
+      // ============================================================
+      //  Pull the rest from your custom library
+      // ============================================================
 
-                fetchQuizesCasesByDate: builder.query({
-                    async queryFn(url = "/currentDay/Wed__Feb_14__2024/") {
-                        try {
-                            let quizes = await getFirebaseNode({ url: url + "posts", type: "array" });
-                            let cases = await getFirebaseNode({ url: url + "cases", type: "array" });
-                            //    console.log(list)
-                            return {
-                                data: [
-                                    ...quizes.map(item => { return { ...item, source: "posts" } }),
-                                    ...cases.map(item => { return { ...item, source: "cases" } })
-                                ]
-                            }
-                        }
-                        catch (err) { console.log(err); return { error: err } }
-                    },
-                    providesTags: (result, error, arg) =>
-                        result
-                            ? [...result.map(({ id }) => ({ type: "QuizCase", id })), "QuizCase"]
-                            : ["QuizCase"],
-                }),
+      let {
+        createMinimalProtoArray,
+        getFirebaseNode,
+        getFirebaseNodeKey,
+        updateFirebaseNode,
+        createApplicationStore,
+        seedState,
+        addItemToArray,
+        getUser,
+        saveState,
+        loadState,
+        createNewDraft,
+        getHashesArray,
+        areArraysEqual,
+        setMathInnerHTML,
+        renderMathInHTML,
+        processquizwithrandomnumber,
+        getApexchartOptionsFromCase,
+        randomIntFromInterval,
+        extract,
+        ensureKatex,
+        loadScript,
+      } = window.basicfirebasecrudauthservices;
 
-                getPicturesFromCollection: builder.query({
-                    async queryFn(collectionId = "aH98dheb50M") {
-                        try {
-                            let list = await getPicturesFromCollection({ collectionId, perPage: 30 });
-                            //     console.log(list)
-                            return { data: list }
-                        }
-                        catch (err) { console.log(err); return { error: err } }
-                    },
-                    providesTags: (result, error, arg) =>
-                        result
-                            ? [...result.map(({ id }) => ({ type: "Unsplash", id })), "Unsplash"]
-                            : ["Unsplash"],
-                }),
+      // ============================================================
+      //  App store (custom library, replaces RTK)
+      // ============================================================
 
-                fetchOpenAvatars: builder.query({
-                    async queryFn(url = "openavatars") {
-                        try {
-                            let list = await getFirebaseNode({ url, type: "array" });
-                            //     console.log(list)
-                            return { data: list }
-                        }
-                        catch (err) { console.log(err); return { error: err } }
-                    },
-                    providesTags: (result, error, arg) =>
-                        result
-                            ? [...result.map(({ id }) => ({ type: "OpenAvatar", id })), "OpenAvatar"]
-                            : ["OpenAvatar"],
-                }),
+      const store = createApplicationStore();
+      window.appStore = store;
 
-                fetchOpenAvatar: builder.query({
-                    async queryFn(url = "johndoe_gmail_com") {
-                        try {
-                            let list = await getFirebaseNode({ url: "openavatars/" + url, type: "object" });
-                            //     console.log(list)
-                            return { data: list }
-                        }
-                        catch (err) { console.log(err); return { error: err } }
-                    },
-                    providesTags: (result, error, id) => [{ type: "OpenAvatar", id }]
-                }),
+      store.dispatch(seedState({
+        object: {
+          openavatars: {},
+          quizesbyDate: [],
+          currentDate: null,
+        },
+      }));
 
-                getApexChart: builder.query({
-                    queryFn() {
-                        try {
-                            return { data: null }
-                        }
-                        catch (err) { console.log(err); return { error: err } }
-                    },
-                    providesTags: ["Apexchart"],
-                }),
+      let myModal = new bootstrap.Modal(document.getElementById("quizcaseModal"));
 
+      // ============================================================
+      //  Helpers
+      // ============================================================
 
-
-
-                fetchWorkbookPost: builder.query({
-                    async queryFn({ userEmail = "temp@google.com", id = "xxx" }) {
-                        //     console.log(userEmail, id)
-                        try {
-                            let list = await getFirebaseNode({ url: "usersCraft/" + userEmail + "/posts/" + id, type: "object" });
-                            return { data: list }
-                        }
-                        catch (err) {
-                            console.log(err);
-                            return { error: err }
-                        }
-                    },
-                    providesTags: (result, error, id) => [{ type: "WorkbookPost", id }]
-
-                }),
-
-                fetchQuizesCasesEntyty: builder.query({
-                    async queryFn({ userEmail = "temp@google.com", id = "xxx" }) {
-                        //          console.log(userEmail, id)
-                        try {
-                            let list = await getFirebaseNode({ url: "quizescases/quizesCasesEntyties/" + id + "/" + userEmail, type: "object" });
-                            return { data: list }
-                        }
-                        catch (err) {
-                            console.log(err);
-                            return { error: err }
-                        }
-                    },
-                    providesTags: (result, error, id) => [{ type: "WorkbookPost", id }]
-
-                }),
-
-
-            }),
-        })
-
-        const store = appStore.configureStore({
-            reducer: {
-                [api.reducerPath]: api.reducer
-            },
-            middleware: (getDefaultMiddleware) =>
-                getDefaultMiddleware().concat(api.middleware),
-        })
-        appApi.setupListeners(store.dispatch);
-
-
-        // Selectors
-        let apexchart = null;
-        const selectedDate = document.getElementById("selecteddate");
-
-        // Functions
-
-        async function getAvatar(userEmail) {
-            console.log(userEmail);
-            let res = await store.dispatch(api.endpoints.fetchOpenAvatar.initiate(userEmail))
-            console.log(res?.data);
-
-            return !!res?.data ? res.data : null;
-        }
-
-
-        function doSelectQuiz(id, userEmail) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = "";
-
-            let user, avatarUrl;
-
-             let item = Math.floor(Math.random() * 64) + 1;
+      function findImageByGender(isMale = true, usedAvatars = []) {
+        let avatarUrl = "https://econolabs.github.io/freelancer.jpg";
+        let counter = 0;
+        while (true) {
+          counter++;
+          let item = Math.floor(Math.random() * 64) + 1;
           let picindex = item > 9 ? "" + item : "0" + item;
-          avatarUrl = Math.random() > 0.5
+          avatarUrl = isMale
             ? "https://econolabs.github.io/avatars/male" + picindex + ".jpg"
             : "https://econolabs.github.io/avatars/female" + picindex + ".jpg";
+          if (!usedAvatars.includes(avatarUrl)) break;
+          if (counter > 64) {
+            console.warn("All avatars are already in use.");
+            break;
+          }
+        }
+        console.log(avatarUrl);
+        return avatarUrl;
+      }
 
+      // ============================================================
+      //  Plain async data accessors (replace RTK-Query endpoints)
+      // ============================================================
 
-            var myModal = new bootstrap.Modal(document.getElementById('quizcaseModal')); //, options
+      async function fetchQuizesCasesByDate(url = "/currentDay/Wed__Feb_14__2024/") {
+        try {
+          let quizes = await getFirebaseNode({ url: url + "posts", type: "array" });
+          let cases = await getFirebaseNode({ url: url + "cases", type: "array" });
+          return [
+            ...quizes.map((item) => ({ ...item, source: "posts" })),
+            ...cases.map((item) => ({ ...item, source: "cases" })),
+          ];
+        } catch (err) {
+          console.log(err);
+          return [];
+        }
+      }
 
-            getAvatar(userEmail)
-                .then(info => {
+      async function fetchOpenAvatar(url = "johndoe_gmail_com") {
+        try {
+          return await getFirebaseNode({ url: "openavatars/" + url, type: "object" });
+        } catch (err) {
+          console.log(err);
+          return null;
+        }
+      }
 
-                                       
-                    user = !!info?.user ? info.user : "Иван Оленев";
-                    user = !!info?.url ? user + " " + info.url : user;
+      async function fetchWorkbookPost({ userEmail = "temp@google.com", id = "xxx" }) {
+        try {
+          return await getFirebaseNode({
+            url: "usersCraft/" + userEmail + "/posts/" + id,
+            type: "object",
+          });
+        } catch (err) {
+          console.log(err);
+          return null;
+        }
+      }
 
-                    avatarUrl = !!info?.avatarUrl ? info?.avatarUrl :
-                        "../freelancer.jpg";
+      async function fetchQuizesCasesEntyty({ userEmail = "temp@google.com", id = "xxx" }) {
+        try {
+          return await getFirebaseNode({
+            url: "quizescases/quizesCasesEntyties/" + id + "/" + userEmail,
+            type: "object",
+          });
+        } catch (err) {
+          console.log(err);
+          return null;
+        }
+      }
 
-                    store.dispatch(api.endpoints.fetchWorkbookPost.initiate({ userEmail, id }))
-                        .then(foundquiz => {
+      async function getAvatar(userEmail) {
+        const cached = store.getState().application.openavatars[userEmail];
+        if (cached) return cached;
 
-                            if (!!foundquiz?.data) {
-                                if (foundquiz.data?.type === "spreadsheet") {
-                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, user, avatarUrl });
-                                    document.getElementById("studentquiz")
-                                        .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.data?.content, 0, 0)));
-                                }
+        const data = await fetchOpenAvatar(userEmail);
+        if (data) {
+          store.dispatch(seedState({
+            object: {
+              openavatars: {
+                ...store.getState().application.openavatars,
+                [userEmail]: data,
+              },
+            },
+          }));
+          return data;
+        }
+        return null;
+      }
 
-                                if (foundquiz.data?.type === "html") {
-                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, quizString: foundquiz.data?.content, user, avatarUrl });
-                                }
+      // ============================================================
+      //  UI actions
+      // ============================================================
 
-                                if (foundquiz.data?.type === "multiplechoices") {
-                                    vanillajsQuizByDateCard(quizcontainer, { ...foundquiz.data, quizString: foundquiz.data?.content + "<br> " + foundquiz.data?.answer, user, avatarUrl });
-                                }
-                            } else {
-                                let altid = "-N" + id.split("-N").pop();
+      let apexchart = null;
+      const selectedDate = document.getElementById("selecteddate");
 
-                                store.dispatch(api.endpoints.fetchQuizesCasesEntyty.initiate({ userEmail, id: altid }))
-                                    .then(hint => {
-                                        if (hint.data?.type === "spreadsheet") {
-                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, user, avatarUrl });
-                                            document.getElementById("studentquiz")
-                                                .appendChild(makeDomNodeForSpreadsheet(createMinimalProtoArray(hint.data.content, 0, 0)));
-                                        }
+      function destroyChart() {
+        if (apexchart) { apexchart.destroy(); apexchart = null; }
+      }
 
-                                        if (hint.data?.type === "html") {
-                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, quizString: hint.data?.content, user, avatarUrl });
-                                        }
+      async function doSelectQuiz(id, userEmail) {
+        destroyChart();
+        const quizcontainer = "modalbody";
+        document.getElementById(quizcontainer).innerHTML = "";
 
-                                        if (hint.data?.type === "multiplechoices") {
-                                            vanillajsQuizByDateCard(quizcontainer, { ...hint.data, quizString: hint.data?.content + "<br> " + hint.data?.answer, user, avatarUrl });
-                                        }
-                                    })
-                            }
-                        });
-                })
-                .then(() => myModal.show())
+        const info = await getAvatar(userEmail);
+        const user = info?.user ? info.user : "Иван Оленев";
+        const userWithUrl = info?.url ? user + " " + info.url : user;
+        const avatarUrl = info?.avatarUrl ? info.avatarUrl : findImageByGender(true, []);
+
+        let foundquiz = await fetchWorkbookPost({ userEmail, id });
+
+        if (!foundquiz) {
+          const altid = "-N" + id.split("-N").pop();
+          const hint = await fetchQuizesCasesEntyty({ userEmail, id: altid });
+          if (hint) foundquiz = hint;
         }
 
-        function doSelectCaseMedia(casemedia) {
-            apexchart ? apexchart.destroy() : null
-            document.getElementById("modalbody").innerHTML = "";
-            //, options
-
-            if (casemedia.type === "html") {
-                document.getElementById("modalbody").innerHTML = casemedia.content;
-            }
-
-            if (casemedia.type.includes("apex")) {
-                var chart = new ApexCharts(document.getElementById("modalbody"), getApexchartOptionsFromCase({ type: casemedia.type, content: casemedia.content }));
-                chart.render();
-                apexchart = chart;
-            }
-            myModal.show();
-        }
-
-
-        function showCaseRecords(usercase) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = vanillajsShowAccountingRecords(usercase.content);
-            myModal.show()
-        }
-
-        function showBalanceMarkUp(usercase) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = vanillajsShowBalanceMarkUp(
-                usercase.content,
-                [
-                    { id: 1, title: "", type: 'asset' },
-                    { id: 2, title: "Основные средства", type: 'asset' },
-                    { id: 3, title: "Материалы", type: 'asset' },
-                    { id: 4, title: "Незавершенное производство", type: 'asset' },
-                    { id: 5, title: "Готовая продукция", type: 'asset' },
-                    { id: 6, title: "Дебиторская задолженность", type: 'asset' },
-                    { id: 7, title: "Деньги", type: 'asset' },
-
-                    { id: 8, title: "", type: 'equity' },
-
-                    { id: 9, title: "Уставный капитал", type: 'equity' },
-                    { id: 10, title: "Нераспределенная прибыль", type: 'equity' },
-
-                    { id: 11, title: "", type: "liability" },
-                    { id: 12, title: "Долгосрочный банковский кредит", type: 'liability' },
-                    { id: 13, title: "Краткосрочный банковский кредит", type: 'liability' },
-                    { id: 14, title: "Кредиторская задолженность", type: 'liability' }
-                ]);
-            myModal.show()
-        }
-
-        function showShowCashFlowMarkUp(usercase) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = vanillajsShowCashFlowMarkUp(
-                usercase.content,
-                [
-                    "Кэш-фло",
-                    "Поступления по текущей деятельности",
-                    "Платежи по текущей деятельности",
-                    "Поступления по инвестиционной деятельности",
-                    "Платежи по инвестиционной деятельности",
-                    "Поступления по финансовой деятельности",
-                    "Платежи по финансовой деятельности"
-                ]
+        if (foundquiz) {
+          if (foundquiz.type === "spreadsheet") {
+            vanillajsQuizByDateCard(quizcontainer, { ...foundquiz, user: userWithUrl, avatarUrl });
+            document.getElementById("studentquiz").appendChild(
+              makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.content, 0, 0)),
             );
-            myModal.show()
+          } else if (foundquiz.type === "html") {
+            vanillajsQuizByDateCard(quizcontainer, {
+              ...foundquiz, quizString: foundquiz.content, user: userWithUrl, avatarUrl,
+            });
+          } else if (foundquiz.type === "multiplechoices") {
+            vanillajsQuizByDateCard(quizcontainer, {
+              ...foundquiz, quizString: foundquiz.content + "<br> " + foundquiz.answer,
+              user: userWithUrl, avatarUrl,
+            });
+          }
         }
 
-        function showFinancialResultsMarkUp(usercase) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = vanillajsShowFinancialResultsMarkUp(
-                usercase.content,
-                [
-                    "Финансовые результаты",
-                    "Выручка",
-                    "Себестоимость продукции, работ, услуг",
-                    "Коммерческие расходы",
-                    "Управленческие расходы",
-                    "Проценты к уплате",
-                    "Прочие расходы",
-                    "Налог на прибыль",
-                    "Дивиденды к начислению"]
-            );
-            myModal.show()
+        myModal.show();
+      }
+
+      function doSelectCaseMedia(casemedia) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML = "";
+
+        if (casemedia.type === "html") {
+          document.getElementById("modalbody").innerHTML = casemedia.content;
         }
 
-        function showCaseBalance(usercase) {
-            apexchart ? apexchart.destroy() : null
-            let quizcontainer = "modalbody"; // "quiz";
-            document.getElementById(quizcontainer).innerHTML = "";
-
-            var chart = new ApexCharts(document.getElementById("modalbody"),
-                vanillajsShowBalanceStackedBars(
-                    usercase.content,
-                    [
-
-                        { id: 1, title: "", type: 'asset' },
-                        { id: 2, title: "Деньги", type: 'asset' },
-                        { id: 3, title: "Дебиторская задолженность", type: 'asset' },
-                        { id: 4, title: "Готовая продукция", type: 'asset' },
-                        { id: 5, title: "Незавершенное производство", type: 'asset' },
-                        { id: 6, title: "Материалы", type: 'asset' },
-
-                        { id: 7, title: "Основные средства", type: 'asset' },
-
-
-                        { id: 8, title: "", type: "liability" },
-
-                        { id: 9, title: "Кредиторская задолженность", type: 'liability' },
-                        { id: 10, title: "Краткосрочный банковский кредит", type: 'liability' },
-                        { id: 11, title: "Долгосрочный банковский кредит", type: 'liability' },
-                        { id: 12, title: "Нераспределенная прибыль", type: 'equity' },
-
-                        { id: 13, title: "", type: 'equity' },
-
-                        { id: 14, title: "Уставный капитал", type: 'equity' }
-                    ]
-                )
-            );
-            chart.render();
-            apexchart = chart;
-            // console.log(chart);
-            myModal.show()
+        if (casemedia.type.includes("apex")) {
+          const chart = new ApexCharts(
+            document.getElementById("modalbody"),
+            getApexchartOptionsFromCase({ type: casemedia.type, content: casemedia.content }),
+          );
+          chart.render();
+          apexchart = chart;
         }
+        myModal.show();
+      }
 
-        function markupForQuizesCasesByDate(
-            domIdforPosts = "cards",
-            domIdforCases = "cases",
-            domIdForBudgeting = "budgeting",
-            currentDayQuizes = [],
-            openavatarsObject = {},
-            defaultUser = "John Doe",
-            defaultAvatar = "../freelancer.jpg"
-        ) {
+      function showCaseRecords(usercase) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML =
+          vanillajsShowAccountingRecords(usercase.content);
+        myModal.show();
+      }
 
-            let quizes = currentDayQuizes.filter(item => item.source === "posts")
-            let uniqueTitles = [...new Set(quizes.map(item => item?.title))];
-            document.getElementById(domIdforPosts).innerHTML =
-                uniqueTitles.map(title => {
-                    let avatarsmarkup = quizes
-                        .filter(quiz => quiz.title === title)
-                        .map(quiz => {
-                            let openavatar = openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
-                            let finduser = openavatar?.user;
-                            let user = !!finduser ? finduser : defaultUser;
-                            let findavatar = openavatar?.avatarUrl;
-                            let avatar = !!findavatar ? findavatar : defaultAvatar;
+      function showBalanceMarkUp(usercase) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML =
+          vanillajsShowBalanceMarkUp(usercase.content, [
+            { id: 1, title: "", type: "asset" },
+            { id: 2, title: "Основные средства", type: "asset" },
+            { id: 3, title: "Материалы", type: "asset" },
+            { id: 4, title: "Незавершенное производство", type: "asset" },
+            { id: 5, title: "Готовая продукция", type: "asset" },
+            { id: 6, title: "Дебиторская задолженность", type: "asset" },
+            { id: 7, title: "Деньги", type: "asset" },
+            { id: 8, title: "", type: "equity" },
+            { id: 9, title: "Уставный капитал", type: "equity" },
+            { id: 10, title: "Нераспределенная прибыль", type: "equity" },
+            { id: 11, title: "", type: "liability" },
+            { id: 12, title: "Долгосрочный банковский кредит", type: "liability" },
+            { id: 13, title: "Краткосрочный банковский кредит", type: "liability" },
+            { id: 14, title: "Кредиторская задолженность", type: "liability" },
+          ]);
+        myModal.show();
+      }
 
-                            return `<img src=${avatar}
+      function showShowCashFlowMarkUp(usercase) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML =
+          vanillajsShowCashFlowMarkUp(usercase.content, [
+            "Кэш-фло",
+            "Поступления по текущей деятельности",
+            "Платежи по текущей деятельности",
+            "Поступления по инвестиционной деятельности",
+            "Платежи по инвестиционной деятельности",
+            "Поступления по финансовой деятельности",
+            "Платежи по финансовой деятельности",
+          ]);
+        myModal.show();
+      }
+
+      function showFinancialResultsMarkUp(usercase) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML =
+          vanillajsShowFinancialResultsMarkUp(usercase.content, [
+            "Финансовые результаты",
+            "Выручка",
+            "Себестоимость продукции, работ, услуг",
+            "Коммерческие расходы",
+            "Управленческие расходы",
+            "Проценты к уплате",
+            "Прочие расходы",
+            "Налог на прибыль",
+            "Дивиденды к начислению",
+          ]);
+        myModal.show();
+      }
+
+      function showCaseBalance(usercase) {
+        destroyChart();
+        document.getElementById("modalbody").innerHTML = "";
+        const chart = new ApexCharts(
+          document.getElementById("modalbody"),
+          vanillajsShowBalanceStackedBars(usercase.content, [
+            { id: 1, title: "", type: "asset" },
+            { id: 2, title: "Деньги", type: "asset" },
+            { id: 3, title: "Дебиторская задолженность", type: "asset" },
+            { id: 4, title: "Готовая продукция", type: "asset" },
+            { id: 5, title: "Незавершенное производство", type: "asset" },
+            { id: 6, title: "Материалы", type: "asset" },
+            { id: 7, title: "Основные средства", type: "asset" },
+            { id: 8, title: "", type: "liability" },
+            { id: 9, title: "Кредиторская задолженность", type: "liability" },
+            { id: 10, title: "Краткосрочный банковский кредит", type: "liability" },
+            { id: 11, title: "Долгосрочный банковский кредит", type: "liability" },
+            { id: 12, title: "Нераспределенная прибыль", type: "equity" },
+            { id: 13, title: "", type: "equity" },
+            { id: 14, title: "Уставный капитал", type: "equity" },
+          ]),
+        );
+        chart.render();
+        apexchart = chart;
+        myModal.show();
+      }
+
+      // ============================================================
+      //  Markup rendering
+      // ============================================================
+
+      function markupForQuizesCasesByDate(
+        domIdforPosts = "cards",
+        domIdforCases = "cases",
+        domIdForBudgeting = "budgeting",
+        currentDayQuizes = [],
+        openavatarsObject = {},
+        defaultUser = "John Doe",
+        defaultAvatar = "../freelancer.jpg",
+      ) {
+        let quizes = currentDayQuizes.filter((item) => item.source === "posts");
+        let uniqueTitles = [...new Set(quizes.map((item) => item?.title))];
+        document.getElementById(domIdforPosts).innerHTML = uniqueTitles
+          .map((title) => {
+            let avatarsmarkup = quizes
+              .filter((quiz) => quiz.title === title)
+              .map((quiz) => {
+                let openavatar =
+                  openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+                let finduser = openavatar?.user;
+                let user = !!finduser ? finduser : defaultUser;
+                let findavatar = openavatar?.avatarUrl;
+                let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+                return `<img src=${avatar}
                                 data-bs-toggle="tooltip" data-bs-html="true" 
                                 alt=${quiz.id} id=${quiz.id} class="avatar"
-                                title=${user}>`
-                        }).join("")
+                                title=${user}>`;
+              })
+              .join("");
 
-                    return `
+            return `
                         <div class="card m-1" data-id=${title}>
                             <div class="card-body">
                                 <h5 class="card-title">${title}</h5>
                                 <div class="class-text">${avatarsmarkup}</div>
                             </div>
-                        </div>`
-                })
-                    .join("");
+                        </div>`;
+          })
+          .join("");
 
-            let avatarbuttons = document.getElementsByClassName("avatar");
-            for (var i = 0; i < avatarbuttons.length; i++) {
-                avatarbuttons[i].addEventListener('click',
-                    (e) => doSelectQuiz(
-                        e.target.id,
-                        quizes.find(item => item.id === e.target.id).email.replace(/[^a-zA-Z0-9]/g, "_")
-                    ));
-            }
+        let avatarbuttons = document.getElementsByClassName("avatar");
+        for (var i = 0; i < avatarbuttons.length; i++) {
+          avatarbuttons[i].addEventListener("click", (e) =>
+            doSelectQuiz(
+              e.target.id,
+              quizes
+                .find((item) => item.id === e.target.id)
+                .email.replace(/[^a-zA-Z0-9]/g, "_"),
+            ),
+          );
+        }
 
-            let caseswithmediatypes = currentDayQuizes.filter(item => item.source === "cases" && item.type !== "accountingwithprofitscash")
-            let uniqueTimeStamps = [...new Set(caseswithmediatypes.map(item => item?.timestamp))];
+        let caseswithmediatypes = currentDayQuizes.filter(
+          (item) =>
+            item.source === "cases" &&
+            item.type !== "accountingwithprofitscash",
+        );
+        let uniqueTimeStamps = [
+          ...new Set(caseswithmediatypes.map((item) => item?.timestamp)),
+        ];
 
-            document.getElementById(domIdforCases).innerHTML =
-                uniqueTimeStamps.map(timestamp => {
-                    let filteredquizes = caseswithmediatypes.filter(quiz => quiz.timestamp === timestamp);
-                    //   console.log(filteredquizes);
-                    let quiz = filteredquizes[0];
-                    let openavatar = openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
-                    let finduser = openavatar?.user;
-                    let user = !!finduser ? finduser : defaultUser;
-                    let findavatar = openavatar?.avatarUrl;
-                    let avatar = !!findavatar ? findavatar : defaultAvatar;
+        document.getElementById(domIdforCases).innerHTML = uniqueTimeStamps
+          .map((timestamp) => {
+            let filteredquizes = caseswithmediatypes.filter(
+              (quiz) => quiz.timestamp === timestamp,
+            );
+            let quiz = filteredquizes[0];
+            let openavatar =
+              openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+            let finduser = openavatar?.user;
+            let user = !!finduser ? finduser : defaultUser;
+            let findavatar = openavatar?.avatarUrl;
+            let avatar = !!findavatar ? findavatar : defaultAvatar;
 
-
-                    let casetimestampmarkup = filteredquizes.map(labcase => {
-                        return `<div class="col">
+            let casetimestampmarkup = filteredquizes
+              .map((labcase) => {
+                return `<div class="col">
                         <button class="btn btn-sm btn-outline-secondary casemediabutton" id=${labcase.id}>
                             ${labcase?.type}
                            </button>
-                           </div>`
-                    })
-                        .join("");
+                           </div>`;
+              })
+              .join("");
 
-                    return `<div class="card my-1">
+            return `<div class="card my-1">
                                 <div class="card-body">
 
                                     <div class="row">
@@ -619,30 +741,39 @@
                                     </div>
                                    </div>        
                                 </div>
-                            </div>`
-                }).join("");
+                            </div>`;
+          })
+          .join("");
 
-            let casemediabuttons = document.getElementsByClassName("casemediabutton");
-            for (var i = 0; i < casemediabuttons.length; i++) {
-                casemediabuttons[i].addEventListener('click',
-                    (e) => doSelectCaseMedia(caseswithmediatypes.find(item => item.id === e.target.id)));
-            }
+        let casemediabuttons =
+          document.getElementsByClassName("casemediabutton");
+        for (var i = 0; i < casemediabuttons.length; i++) {
+          casemediabuttons[i].addEventListener("click", (e) =>
+            doSelectCaseMedia(
+              caseswithmediatypes.find((item) => item.id === e.target.id),
+            ),
+          );
+        }
 
+        let caseswithbudgeting = currentDayQuizes.filter(
+          (item) =>
+            item.source === "cases" &&
+            item.type === "accountingwithprofitscash",
+        );
 
-            let caseswithbudgeting = currentDayQuizes.filter(item => item.source === "cases" && item.type === "accountingwithprofitscash")
+        document.getElementById(domIdForBudgeting).innerHTML =
+          caseswithbudgeting
+            .map((casewithbudgeting) => {
+              let openavatar =
+                openavatarsObject[
+                  casewithbudgeting.email.replace(/[^a-zA-Z0-9]/g, "_")
+                ];
+              let finduser = openavatar?.user;
+              let user = !!finduser ? finduser : defaultUser;
+              let findavatar = openavatar?.avatarUrl;
+              let avatar = !!findavatar ? findavatar : defaultAvatar;
 
-            document.getElementById(domIdForBudgeting).innerHTML =
-                caseswithbudgeting.map(casewithbudgeting => {
-
-                    let openavatar = openavatarsObject[casewithbudgeting.email.replace(/[^a-zA-Z0-9]/g, "_")];
-                    let finduser = openavatar?.user;
-                    let user = !!finduser ? finduser : defaultUser;
-                    let findavatar = openavatar?.avatarUrl;
-                    let avatar = !!findavatar ? findavatar : defaultAvatar;
-
-
-
-                    return `<div class="card my-1">
+              return `<div class="card my-1">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12 col-lg-3">
@@ -662,129 +793,124 @@
                                         </div>    
                                     </div>
                                 </div>
-                            </div>`
-                }).join("");
-
-       
-            let accountingrecordsbuttons = document.getElementsByClassName("btnaccountingrecords");
-            for (var i = 0; i < accountingrecordsbuttons.length; i++) {
-                accountingrecordsbuttons[i].addEventListener('click',
-                    (e) => showCaseRecords(currentDayQuizes.find(item => item.id === e.target.id)));
-            }
-
-            let accountingbalancebuttons = document.getElementsByClassName("btnaccountingbalance");
-            for (var i = 0; i < accountingbalancebuttons.length; i++) {
-                accountingbalancebuttons[i].addEventListener('click',
-                    (e) => showBalanceMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
-            }
-
-            let accountingcashflowbuttons = document.getElementsByClassName("btnaccountingcashflow");
-            for (var i = 0; i < accountingcashflowbuttons.length; i++) {
-                accountingcashflowbuttons[i].addEventListener('click',
-                    (e) => showShowCashFlowMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
-            }
-
-            let accountingfinancialresultsbuttons = document.getElementsByClassName("btnaccountingfinancialresults");
-            for (var i = 0; i < accountingfinancialresultsbuttons.length; i++) {
-                accountingfinancialresultsbuttons[i].addEventListener('click',
-                    (e) => showFinancialResultsMarkUp(currentDayQuizes.find(item => item.id === e.target.id)));
-            }
-
-            let balancecasesbuttons = document.getElementsByClassName("btnbalancecase");
-            for (var i = 0; i < balancecasesbuttons.length; i++) {
-                balancecasesbuttons[i].addEventListener('click',
-                    (e) => showCaseBalance(currentDayQuizes.find(item => item.id === e.target.id)));
-            }
-
-        }
-
-
-
-        function doSelectDate(e) {
-            apexchart ? apexchart.destroy() : null;
-            e.preventDefault();
-
-            var d = new Date(e.target.value);
-
-            let currentDay = new Intl.DateTimeFormat("en", {
-                weekday: "short",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
+                            </div>`;
             })
-                .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
-                .replace(/[^a-zA-Z0-9]/g, "_");
+            .join("");
 
-
-            store.dispatch(api.endpoints.fetchQuizesCasesByDate.initiate("/currentDay/" + currentDay + "/"))
-                .then(res => {
-                    let quizesbyDate = res.data;
-                    let uniqueEmails = [...new Set(res.data.map(item => item?.email))];
-
-                    let updatedopenavatars = {};
-
-                    Promise.all(uniqueEmails.map(email => { return getAvatar(email.replace(/[^a-zA-Z0-9]/g, "_")) }))
-                        .then(values => {
-                            values.forEach((result, index) => updatedopenavatars[uniqueEmails[index].replace(/[^a-zA-Z0-9]/g, "_")] = result)
-
-                            if ((1 - values.filter(item => !!item).length / values.length) > 0.8) {
-                                let getImages = store.dispatch(api.endpoints.getPicturesFromCollection.initiate("aH98dheb50M"));
-                                getImages.then(images => {
-
-                                    uniqueEmails.forEach((email, index) => {
-                                        if (!values[index]) {
-                                            let quizuser = quizesbyDate.find(item => item.email === email).user;
-                                            updatedopenavatars[uniqueEmails[index].replace(/[^a-zA-Z0-9]/g, "_")] = {
-                                                id: email.replace(/[^a-zA-Z0-9]/g, "_"),
-                                                avatarUrl: findUnspalshImageByGender(!(quizuser.includes("а ")), images.data),
-                                                user: quizuser
-                                            };
-                                        }
-                                    });
-
-                                    markupForQuizesCasesByDate(
-                                        "cards",
-                                        "cases",
-                                        "budgeting",
-                                        quizesbyDate,
-                                        updatedopenavatars,
-                                        "John Doe",
-                                        "../freelancer.jpg"
-                                    );
-
-                                    uniqueEmails.forEach((email, index) => {
-                                        store.dispatch(
-                                            api.util.upsertQueryData('fetchOpenAvatar', email.replace(/[^a-zA-Z0-9]/g, "_"),
-                                                updatedopenavatars[email.replace(/[^a-zA-Z0-9]/g, "_")]
-                                            ));
-                                    })
-                                })
-                            };
-
-                            markupForQuizesCasesByDate(
-                                "cards",
-                                "cases",
-                                "budgeting",
-                                quizesbyDate,
-                                updatedopenavatars,
-                                "John Doe",
-                                "../freelancer.jpg"
-                            );
-
-                        });
-
-                });
+        let accountingrecordsbuttons = document.getElementsByClassName(
+          "btnaccountingrecords",
+        );
+        for (var i = 0; i < accountingrecordsbuttons.length; i++) {
+          accountingrecordsbuttons[i].addEventListener("click", (e) =>
+            showCaseRecords(
+              currentDayQuizes.find((item) => item.id === e.target.id),
+            ),
+          );
         }
 
-        //    store.subscribe(() => {})
+        let accountingbalancebuttons = document.getElementsByClassName(
+          "btnaccountingbalance",
+        );
+        for (var i = 0; i < accountingbalancebuttons.length; i++) {
+          accountingbalancebuttons[i].addEventListener("click", (e) =>
+            showBalanceMarkUp(
+              currentDayQuizes.find((item) => item.id === e.target.id),
+            ),
+          );
+        }
 
+        let accountingcashflowbuttons = document.getElementsByClassName(
+          "btnaccountingcashflow",
+        );
+        for (var i = 0; i < accountingcashflowbuttons.length; i++) {
+          accountingcashflowbuttons[i].addEventListener("click", (e) =>
+            showShowCashFlowMarkUp(
+              currentDayQuizes.find((item) => item.id === e.target.id),
+            ),
+          );
+        }
 
-        // HTML event listeners
-        selectedDate.addEventListener("change", doSelectDate, false);
+        let accountingfinancialresultsbuttons = document.getElementsByClassName(
+          "btnaccountingfinancialresults",
+        );
+        for (var i = 0; i < accountingfinancialresultsbuttons.length; i++) {
+          accountingfinancialresultsbuttons[i].addEventListener("click", (e) =>
+            showFinancialResultsMarkUp(
+              currentDayQuizes.find((item) => item.id === e.target.id),
+            ),
+          );
+        }
 
+        let balancecasesbuttons =
+          document.getElementsByClassName("btnbalancecase");
+        for (var i = 0; i < balancecasesbuttons.length; i++) {
+          balancecasesbuttons[i].addEventListener("click", (e) =>
+            showCaseBalance(
+              currentDayQuizes.find((item) => item.id === e.target.id),
+            ),
+          );
+        }
+      }
+
+      // ============================================================
+      //  Date selection handler
+      // ============================================================
+
+      async function doSelectDate(e) {
+        destroyChart();
+        e.preventDefault();
+
+        const d = new Date(e.target.value);
+        const currentDay = new Intl.DateTimeFormat("en", {
+          weekday: "short", year: "numeric", month: "short", day: "numeric",
+        })
+          .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
+          .replace(/[^a-zA-Z0-9]/g, "_");
+
+        const quizesbyDate = await fetchQuizesCasesByDate("/currentDay/" + currentDay + "/");
+        const uniqueEmails = [...new Set(quizesbyDate.map((item) => item?.email))];
+
+        const updatedopenavatars = {};
+        const values = await Promise.all(
+          uniqueEmails.map((email) => getAvatar(email.replace(/[^a-zA-Z0-9]/g, "_"))),
+        );
+
+        const usedAvatars = [];
+        uniqueEmails.forEach((email, index) => {
+          const sanitized = email.replace(/[^a-zA-Z0-9]/g, "_");
+          let avatarInfo = values[index];
+
+          if (avatarInfo) {
+            updatedopenavatars[sanitized] = avatarInfo;
+            if (avatarInfo.avatarUrl) usedAvatars.push(avatarInfo.avatarUrl);
+          } else {
+            const quizuser = quizesbyDate.find((item) => item.email === email)?.user || "John Doe";
+            const avatarUrl = findImageByGender(true, usedAvatars);
+            usedAvatars.push(avatarUrl);
+            updatedopenavatars[sanitized] = { id: sanitized, avatarUrl, user: quizuser };
+          }
+        });
+
+        store.dispatch(seedState({ object: { openavatars: updatedopenavatars } }));
+
+        markupForQuizesCasesByDate(
+          "cards", "cases", "budgeting",
+          quizesbyDate, updatedopenavatars,
+          "John Doe", "../freelancer.jpg",
+        );
+      }
+
+      // ============================================================
+      //  Event listeners
+      // ============================================================
+
+      selectedDate.addEventListener("change", doSelectDate, false);
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
