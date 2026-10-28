@@ -31,7 +31,7 @@
   >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+        <a class="navbar-brand" href="#" id="brandLoginBtn">Econolabs</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,14 +49,19 @@
             style="--bs-scroll-height: 100px"
           >
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="econolabs.github.io"
-              ></a>
+              <a class="nav-link active" aria-current="page" href="#"></a>
             </li>
           </ul>
-          <form class="d-flex">
+          <div class="d-flex align-items-center gap-2">
+            <span id="authStatus" class="small text-muted"
+            style="display:none"
+            ></span>
+            <button
+              id="logoutBtn"
+              class="btn btn-sm btn-outline-secondary d-none"
+            >
+              Выйти
+            </button>
             <a href="https://vk.com/dmglvn">
               <img
                 src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
@@ -70,7 +75,7 @@
                 "
               />
             </a>
-          </form>
+          </div>
         </div>
       </div>
     </nav>
@@ -85,6 +90,42 @@
           aria-label="Username"
           aria-describedby="classdate"
         />
+      </div>
+
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic radio toggle button group"
+        id="authFunctions"
+        style="display: none"
+      >
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btnradio1"
+          autocomplete="off"
+          checked
+        />
+        <label class="btn btn-outline-primary" for="btnradio1">Best</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btnradio2"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-secondary" for="btnradio2">Decoy</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btnradio3"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-success" for="btnradio3">Hint</label>
       </div>
 
       <div id="quiz"></div>
@@ -126,9 +167,98 @@
           </div>
         </div>
       </div>
+
+      <!-- ============================================================ -->
+      <!-- Auth modal                                                   -->
+      <!-- ============================================================ -->
+      <div
+        class="modal fade"
+        id="authModal"
+        tabindex="-1"
+        aria-labelledby="authModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="authModalLabel">Вход в Econolabs</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="authForm">
+                <div class="mb-3">
+                  <label for="authEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="authEmail"
+                    required
+                    autocomplete="username"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="authPassword" class="form-label">Пароль</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="authPassword"
+                    required
+                    autocomplete="current-password"
+                  />
+                </div>
+                <div
+                  id="authError"
+                  class="alert alert-danger d-none py-2"
+                ></div>
+                <div
+                  id="authSuccess"
+                  class="alert alert-success d-none py-2"
+                ></div>
+              </form>
+              <hr />
+              <button
+                id="googleSignInBtn"
+                class="btn btn-outline-danger w-100"
+                style="display: none"
+              >
+                Войти через Google
+              </button>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <div style="display: none">
+                <button id="signUpBtn" class="btn btn-sm btn-link">
+                  Регистрация
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Закрыть
+                </button>
+                <button id="loginBtn" class="btn btn-sm btn-primary">
+                  Войти
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
 
     <script type="module">
       // ============================================================
@@ -136,51 +266,55 @@
       //  (only the functions this page actually uses)
       // ============================================================
 
-      const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+      // const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-      function applyClassToTableTag(e) {
-        if (e instanceof String && e.includes("table")) {
-          let t = /table/i;
-          console.log(e.replace(t, 'table class="table table-sm"'));
-          return e.replace(t, 'table class="table table-sm"');
-        }
-        return e;
-      }
+      let { alphabet, applyClassToTableTag } =
+        window.basicfirebasecrudauthservices;
 
       function makeDomNodeForSpreadsheet(e) {
         var t = document.createElement("table");
         t.setAttribute("class", "table table-bordered table-sm");
         var r = document.createElement("thead"),
-            a = document.createElement("tr"),
-            i = document.createElement("th");
+          a = document.createElement("tr"),
+          i = document.createElement("th");
         i.innerText = " ";
         a.appendChild(i);
-        e && Array.isArray(e) && e[0] && e[0].forEach((l, o) => {
-          var s = document.createElement("th");
-          s.setAttribute("class", "text-center");
-          s.innerText = alphabet[o];
-          a.appendChild(s);
-        });
+        e &&
+          Array.isArray(e) &&
+          e[0] &&
+          e[0].forEach((l, o) => {
+            var s = document.createElement("th");
+            s.setAttribute("class", "text-center");
+            s.innerText = alphabet[o];
+            a.appendChild(s);
+          });
         r.appendChild(a);
         t.appendChild(r);
         var n = document.createElement("tbody");
-        return e && Array.isArray(e) && e.forEach((s, o) => {
-          var s = document.createElement("tr"),
-              d = document.createElement("td");
-          d.setAttribute("scope", "row");
-          d.innerText = o + 1;
-          s.appendChild(d);
-          e[o] && e[o].forEach((p, c) => {
-            var f = document.createElement("td");
-            f.innerText = e[o][c];
-            s.appendChild(f);
-          });
-          n.appendChild(s);
-        }), t.appendChild(n), t;
+        return (
+          e &&
+            Array.isArray(e) &&
+            e.forEach((s, o) => {
+              var s = document.createElement("tr"),
+                d = document.createElement("td");
+              d.setAttribute("scope", "row");
+              d.innerText = o + 1;
+              s.appendChild(d);
+              e[o] &&
+                e[o].forEach((p, c) => {
+                  var f = document.createElement("td");
+                  f.innerText = e[o][c];
+                  s.appendChild(f);
+                });
+              n.appendChild(s);
+            }),
+          t.appendChild(n),
+          t
+        );
       }
 
       function vanillajsQuizByDateCard(e, t) {
-        return document.getElementById(e).innerHTML = `
+        return (document.getElementById(e).innerHTML = `
     <div class="card m-1">
         <div class="card-body" id="studentquiz">
             <h5 class="card-title">${t?.theme ? t.theme : ""}</h5>
@@ -202,18 +336,29 @@
             <div>    
             <hr />
         </div>
-    </div>`;
+    </div>`);
       }
 
-      function balanceIndicatorValue({ indicator: e = "Sales", balanceIndicators: t = [], records: r = [], periods: a = ["default"], period: i = "default" }) {
-        let n = 0, l = 0,
-            o = t.filter(s => s.type === "asset").map(s => s.title);
-        return Array.isArray(r) && r.forEach(s => {
-          let d = a.findIndex(c => c === s.period),
-              p = a.findIndex(c => c === i) + 1;
-          s.d === e && p > d && (n = n + parseFloat(s.sum));
-          s.k === e && p > d && (l = l + parseFloat(s.sum));
-        }), o.includes(e) ? n - l : l - n;
+      function balanceIndicatorValue({
+        indicator: e = "Sales",
+        balanceIndicators: t = [],
+        records: r = [],
+        periods: a = ["default"],
+        period: i = "default",
+      }) {
+        let n = 0,
+          l = 0,
+          o = t.filter((s) => s.type === "asset").map((s) => s.title);
+        return (
+          Array.isArray(r) &&
+            r.forEach((s) => {
+              let d = a.findIndex((c) => c === s.period),
+                p = a.findIndex((c) => c === i) + 1;
+              s.d === e && p > d && (n = n + parseFloat(s.sum));
+              s.k === e && p > d && (l = l + parseFloat(s.sum));
+            }),
+          o.includes(e) ? n - l : l - n
+        );
       }
 
       function vanillajsShowAccountingRecords(e) {
@@ -229,109 +374,184 @@
     </tr>
 </thead>
 <tbody>
-    ${[...new Set(e.map(r => r.period))].map(r => Array.isArray(e) && e.filter(a => a.period === r).map((a, i) => `<tr>
+    ${[...new Set(e.map((r) => r.period))]
+      .map(
+        (r) =>
+          Array.isArray(e) &&
+          e
+            .filter((a) => a.period === r)
+            .map(
+              (a, i) => `<tr>
                 <th scope="row">${i + 1}</th>
                 <td><small>${a?.period}</td>
                 <td><small>${a?.d}</td>
                 <td><small>${a?.k}</td>
                 <td><small>${a?.sum}</td>
                 <td><small>${a?.type ? a.type : ""}</td>
-               </tr>`).join("")).join("")}
+               </tr>`,
+            )
+            .join(""),
+      )
+      .join("")}
 </tbody>
 </table>`;
       }
 
       function vanillajsShowBalanceMarkUp(e, t) {
-        let r = [...new Set(e.map(a => a.period))];
-        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [" ", ...r].map(a => `<th scope="col">${a}</th>`).join("") +
+        let r = [...new Set(e.map((a) => a.period))];
+        return (
+          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [" ", ...r].map((a) => `<th scope="col">${a}</th>`).join("") +
           "</tr></thead><tbody>" +
-          t.filter(a => a.type === "asset" && a.title.length > 2).map(a => `
+          t
+            .filter((a) => a.type === "asset" && a.title.length > 2)
+            .map(
+              (a) => `
                 <tr>
                     <th scope="row" class="text-small">${a.title}</th>
 
                     ${r.map((i, n) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[n] })}</td>`).join("")}
                     
-                </tr>`).join("") +
+                </tr>`,
+            )
+            .join("") +
           "</tbody></table><table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [" ", ...r].map(a => `<th scope="col">${a}</th>`).join("") +
+          [" ", ...r].map((a) => `<th scope="col">${a}</th>`).join("") +
           "</tr></thead><tbody>" +
-          t.filter(a => a.type !== "asset" && a.title.length > 2).map((a, i) => `
+          t
+            .filter((a) => a.type !== "asset" && a.title.length > 2)
+            .map(
+              (a, i) => `
                 <tr>
                     <th scope="row">${a.title}</th>
 
                     ${r.map((n, l) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[l] })}</td>`).join("")}
                     
-                </tr>`).join("") +
-          "</tbody></table>";
+                </tr>`,
+            )
+            .join("") +
+          "</tbody></table>"
+        );
       }
 
       function perPeriodAmounts(e, t, r, a) {
         let i = [];
         function n(l) {
-          let o = a.findIndex(s => l === s.title);
+          let o = a.findIndex((s) => l === s.title);
           return a[o].type === "asset";
         }
-        return r.map(l => {
-          n(e) ? (i.push(balanceIndicatorValue({ indicator: e, balanceIndicators: a, records: t, periods: r, period: l })), i.push(0))
-               : (i.push(0), i.push(balanceIndicatorValue({ indicator: e, balanceIndicators: a, records: t, periods: r, period: l })));
-        }), i;
+        return (
+          r.map((l) => {
+            n(e)
+              ? (i.push(
+                  balanceIndicatorValue({
+                    indicator: e,
+                    balanceIndicators: a,
+                    records: t,
+                    periods: r,
+                    period: l,
+                  }),
+                ),
+                i.push(0))
+              : (i.push(0),
+                i.push(
+                  balanceIndicatorValue({
+                    indicator: e,
+                    balanceIndicators: a,
+                    records: t,
+                    periods: r,
+                    period: l,
+                  }),
+                ));
+          }),
+          i
+        );
       }
 
       function vanillajsShowBalanceStackedBars(e, t) {
-        let r = [...new Set(e.map(l => l.period))],
-            a = [];
-        t.forEach(l => {
-          l.title.length > 2 && a.push({ name: l.title, data: perPeriodAmounts(l.title, e, r, t) });
+        let r = [...new Set(e.map((l) => l.period))],
+          a = [];
+        t.forEach((l) => {
+          l.title.length > 2 &&
+            a.push({ name: l.title, data: perPeriodAmounts(l.title, e, r, t) });
         });
         let i = [];
-        return r.forEach(l => {
-          i.push("Asset " + l);
-          i.push("Cap+L " + l);
-        }), {
-          ...{
-            chart: { type: "bar", stacked: !0, zoom: { enabled: !0 }, width: "90%", height: "80%" },
-            plotOptions: { bar: { borderRadius: 1, horizontal: !1 } },
-            legend: { position: "bottom" },
-            fill: { opacity: 1 },
-            xaxis: { categories: i }
-          },
-          series: a
-        };
+        return (
+          r.forEach((l) => {
+            i.push("Asset " + l);
+            i.push("Cap+L " + l);
+          }),
+          {
+            ...{
+              chart: {
+                type: "bar",
+                stacked: !0,
+                zoom: { enabled: !0 },
+                width: "90%",
+                height: "80%",
+              },
+              plotOptions: { bar: { borderRadius: 1, horizontal: !1 } },
+              legend: { position: "bottom" },
+              fill: { opacity: 1 },
+              xaxis: { categories: i },
+            },
+            series: a,
+          }
+        );
       }
 
       function sumByType(e, t, o = "cash", s) {
         let d = 0;
-        return e.forEach(p => (
-          p?.type && p.type.includes(o) && p.period === s && (d = d + parseFloat(p.sum)),
-          null
-        )), d;
+        return (
+          e.forEach(
+            (p) => (
+              p?.type &&
+                p.type.includes(o) &&
+                p.period === s &&
+                (d = d + parseFloat(p.sum)),
+              null
+            ),
+          ),
+          d
+        );
       }
 
       function vanillajsShowCashFlowMarkUp(e, t) {
         let [r, ...a] = t,
-            i = [...new Set(e.map(l => l.period))];
-        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [r, ...i].map(l => `<th scope="col">${l}</th>`).join("") +
+          i = [...new Set(e.map((l) => l.period))];
+        return (
+          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [r, ...i].map((l) => `<th scope="col">${l}</th>`).join("") +
           "</tr></thead><tbody>" +
-          a.map(l => `<tr>
+          a
+            .map(
+              (l) => `<tr>
             <th scope="row" class="text-small">${l}</th>
-            ${i.map(o => `<td>${sumByType(e, l, o)}</td>`).join("")}            
-        </tr>`).join("") +
-          "</tbody></table>";
+            ${i.map((o) => `<td>${sumByType(e, l, o)}</td>`).join("")}            
+        </tr>`,
+            )
+            .join("") +
+          "</tbody></table>"
+        );
       }
 
       function vanillajsShowFinancialResultsMarkUp(e, t) {
-        let r = [...new Set(e.map(l => l.period))],
-            [a, ...i] = t;
-        return "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [a, ...r].map(l => `<th scope="col">${l}</th>`).join("") +
+        let r = [...new Set(e.map((l) => l.period))],
+          [a, ...i] = t;
+        return (
+          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
+          [a, ...r].map((l) => `<th scope="col">${l}</th>`).join("") +
           "</tr></thead><tbody>" +
-          i.map(l => `<tr>
+          i
+            .map(
+              (l) => `<tr>
             <th scope="row" class="text-small">${l}</th>
-            ${r.map(o => `<td>${sumByType(e, l, o)}</td>`).join("")}                            
-        </tr>`).join("") +
-          "</tbody></table>";
+            ${r.map((o) => `<td>${sumByType(e, l, o)}</td>`).join("")}                            
+        </tr>`,
+            )
+            .join("") +
+          "</tbody></table>"
+        );
       }
 
       // ============================================================
@@ -360,6 +580,11 @@
         extract,
         ensureKatex,
         loadScript,
+        auth,
+        onAuthStateChanged,
+        logOut,
+        logIn,
+        findImageByGender,
       } = window.basicfirebasecrudauthservices;
 
       // ============================================================
@@ -369,48 +594,40 @@
       const store = createApplicationStore();
       window.appStore = store;
 
-      store.dispatch(seedState({
-        object: {
-          openavatars: {},
-          quizesbyDate: [],
-          currentDate: null,
-        },
-      }));
+      store.dispatch(
+        seedState({
+          object: {
+            openavatars: {},
+            quizesbyDate: [],
+            currentDate: null,
+          },
+        }),
+      );
 
-      let myModal = new bootstrap.Modal(document.getElementById("quizcaseModal"));
+      let myModal = new bootstrap.Modal(
+        document.getElementById("quizcaseModal"),
+      );
 
       // ============================================================
       //  Helpers
       // ============================================================
 
-      function findImageByGender(isMale = true, usedAvatars = []) {
-        let avatarUrl = "https://econolabs.github.io/freelancer.jpg";
-        let counter = 0;
-        while (true) {
-          counter++;
-          let item = Math.floor(Math.random() * 64) + 1;
-          let picindex = item > 9 ? "" + item : "0" + item;
-          avatarUrl = isMale
-            ? "https://econolabs.github.io/avatars/male" + picindex + ".jpg"
-            : "https://econolabs.github.io/avatars/female" + picindex + ".jpg";
-          if (!usedAvatars.includes(avatarUrl)) break;
-          if (counter > 64) {
-            console.warn("All avatars are already in use.");
-            break;
-          }
-        }
-        console.log(avatarUrl);
-        return avatarUrl;
-      }
-
       // ============================================================
       //  Plain async data accessors (replace RTK-Query endpoints)
       // ============================================================
 
-      async function fetchQuizesCasesByDate(url = "/currentDay/Wed__Feb_14__2024/") {
+      async function fetchQuizesCasesByDate(
+        url = "/currentDay/Wed__Feb_14__2024/",
+      ) {
         try {
-          let quizes = await getFirebaseNode({ url: url + "posts", type: "array" });
-          let cases = await getFirebaseNode({ url: url + "cases", type: "array" });
+          let quizes = await getFirebaseNode({
+            url: url + "posts",
+            type: "array",
+          });
+          let cases = await getFirebaseNode({
+            url: url + "cases",
+            type: "array",
+          });
           return [
             ...quizes.map((item) => ({ ...item, source: "posts" })),
             ...cases.map((item) => ({ ...item, source: "cases" })),
@@ -423,14 +640,20 @@
 
       async function fetchOpenAvatar(url = "johndoe_gmail_com") {
         try {
-          return await getFirebaseNode({ url: "openavatars/" + url, type: "object" });
+          return await getFirebaseNode({
+            url: "openavatars/" + url,
+            type: "object",
+          });
         } catch (err) {
           console.log(err);
           return null;
         }
       }
 
-      async function fetchWorkbookPost({ userEmail = "temp@google.com", id = "xxx" }) {
+      async function fetchWorkbookPost({
+        userEmail = "temp@google.com",
+        id = "xxx",
+      }) {
         try {
           return await getFirebaseNode({
             url: "usersCraft/" + userEmail + "/posts/" + id,
@@ -442,7 +665,10 @@
         }
       }
 
-      async function fetchQuizesCasesEntyty({ userEmail = "temp@google.com", id = "xxx" }) {
+      async function fetchQuizesCasesEntyty({
+        userEmail = "temp@google.com",
+        id = "xxx",
+      }) {
         try {
           return await getFirebaseNode({
             url: "quizescases/quizesCasesEntyties/" + id + "/" + userEmail,
@@ -460,14 +686,16 @@
 
         const data = await fetchOpenAvatar(userEmail);
         if (data) {
-          store.dispatch(seedState({
-            object: {
-              openavatars: {
-                ...store.getState().application.openavatars,
-                [userEmail]: data,
+          store.dispatch(
+            seedState({
+              object: {
+                openavatars: {
+                  ...store.getState().application.openavatars,
+                  [userEmail]: data,
+                },
               },
-            },
-          }));
+            }),
+          );
           return data;
         }
         return null;
@@ -481,7 +709,10 @@
       const selectedDate = document.getElementById("selecteddate");
 
       function destroyChart() {
-        if (apexchart) { apexchart.destroy(); apexchart = null; }
+        if (apexchart) {
+          apexchart.destroy();
+          apexchart = null;
+        }
       }
 
       async function doSelectQuiz(id, userEmail) {
@@ -489,38 +720,69 @@
         const quizcontainer = "modalbody";
         document.getElementById(quizcontainer).innerHTML = "";
 
-        const info = await getAvatar(userEmail);
-        const user = info?.user ? info.user : "Иван Оленев";
-        const userWithUrl = info?.url ? user + " " + info.url : user;
-        const avatarUrl = info?.avatarUrl ? info.avatarUrl : findImageByGender(true, []);
+        if (auth.currentUser) {
+          document.getElementById("authFunctions").style.display = "block";
+          destroyChart();
+          document.getElementById("modalbody").innerHTML = "";
 
-        let foundquiz = await fetchWorkbookPost({ userEmail, id });
+          document
+            .getElementById("btnradio1")
+            .addEventListener("click", (e) => bestStudents());
+          document
+            .getElementById("btnradio2")
+            .addEventListener("click", (e) => bestStudents());
 
-        if (!foundquiz) {
-          const altid = "-N" + id.split("-N").pop();
-          const hint = await fetchQuizesCasesEntyty({ userEmail, id: altid });
-          if (hint) foundquiz = hint;
-        }
+          document
+            .getElementById("btnradio3")
+            .addEventListener("click", (e) => bestStudents());
+        } else {
+          const info = await getAvatar(userEmail);
+          const user = info?.user ? info.user : "Иван Оленев";
+          const userWithUrl = info?.url ? user + " " + info.url : user;
+          const avatarUrl = info?.avatarUrl
+            ? info.avatarUrl
+            : findImageByGender("https://econolabs.github.io/", true, []);
 
-        if (foundquiz) {
-          if (foundquiz.type === "spreadsheet") {
-            vanillajsQuizByDateCard(quizcontainer, { ...foundquiz, user: userWithUrl, avatarUrl });
-            document.getElementById("studentquiz").appendChild(
-              makeDomNodeForSpreadsheet(createMinimalProtoArray(foundquiz.content, 0, 0)),
-            );
-          } else if (foundquiz.type === "html") {
-            vanillajsQuizByDateCard(quizcontainer, {
-              ...foundquiz, quizString: foundquiz.content, user: userWithUrl, avatarUrl,
-            });
-          } else if (foundquiz.type === "multiplechoices") {
-            vanillajsQuizByDateCard(quizcontainer, {
-              ...foundquiz, quizString: foundquiz.content + "<br> " + foundquiz.answer,
-              user: userWithUrl, avatarUrl,
-            });
+          let foundquiz = await fetchWorkbookPost({ userEmail, id });
+
+          if (!foundquiz) {
+            const altid = "-N" + id.split("-N").pop();
+            const hint = await fetchQuizesCasesEntyty({ userEmail, id: altid });
+            if (hint) foundquiz = hint;
           }
-        }
 
-        myModal.show();
+          if (foundquiz) {
+            if (foundquiz.type === "spreadsheet") {
+              vanillajsQuizByDateCard(quizcontainer, {
+                ...foundquiz,
+                user: userWithUrl,
+                avatarUrl,
+              });
+              document
+                .getElementById("studentquiz")
+                .appendChild(
+                  makeDomNodeForSpreadsheet(
+                    createMinimalProtoArray(foundquiz.content, 0, 0),
+                  ),
+                );
+            } else if (foundquiz.type === "html") {
+              vanillajsQuizByDateCard(quizcontainer, {
+                ...foundquiz,
+                quizString: foundquiz.content,
+                user: userWithUrl,
+                avatarUrl,
+              });
+            } else if (foundquiz.type === "multiplechoices") {
+              vanillajsQuizByDateCard(quizcontainer, {
+                ...foundquiz,
+                quizString: foundquiz.content + "<br> " + foundquiz.answer,
+                user: userWithUrl,
+                avatarUrl,
+              });
+            }
+          }
+          myModal.show();
+        }
       }
 
       function doSelectCaseMedia(casemedia) {
@@ -534,7 +796,10 @@
         if (casemedia.type.includes("apex")) {
           const chart = new ApexCharts(
             document.getElementById("modalbody"),
-            getApexchartOptionsFromCase({ type: casemedia.type, content: casemedia.content }),
+            getApexchartOptionsFromCase({
+              type: casemedia.type,
+              content: casemedia.content,
+            }),
           );
           chart.render();
           apexchart = chart;
@@ -564,8 +829,16 @@
             { id: 9, title: "Уставный капитал", type: "equity" },
             { id: 10, title: "Нераспределенная прибыль", type: "equity" },
             { id: 11, title: "", type: "liability" },
-            { id: 12, title: "Долгосрочный банковский кредит", type: "liability" },
-            { id: 13, title: "Краткосрочный банковский кредит", type: "liability" },
+            {
+              id: 12,
+              title: "Долгосрочный банковский кредит",
+              type: "liability",
+            },
+            {
+              id: 13,
+              title: "Краткосрочный банковский кредит",
+              type: "liability",
+            },
             { id: 14, title: "Кредиторская задолженность", type: "liability" },
           ]);
         myModal.show();
@@ -618,8 +891,16 @@
             { id: 7, title: "Основные средства", type: "asset" },
             { id: 8, title: "", type: "liability" },
             { id: 9, title: "Кредиторская задолженность", type: "liability" },
-            { id: 10, title: "Краткосрочный банковский кредит", type: "liability" },
-            { id: 11, title: "Долгосрочный банковский кредит", type: "liability" },
+            {
+              id: 10,
+              title: "Краткосрочный банковский кредит",
+              type: "liability",
+            },
+            {
+              id: 11,
+              title: "Долгосрочный банковский кредит",
+              type: "liability",
+            },
             { id: 12, title: "Нераспределенная прибыль", type: "equity" },
             { id: 13, title: "", type: "equity" },
             { id: 14, title: "Уставный капитал", type: "equity" },
@@ -633,6 +914,97 @@
       // ============================================================
       //  Markup rendering
       // ============================================================
+
+      function bestStudents() {
+        // currentDayQuizes = [],
+        // domIdforPosts = "cards",
+        // openavatarsObject = {},
+        console.log(store.getState().application.quizesbyDate);
+
+        let quizesbyDate = store.getState().application.quizesbyDate;
+
+         let uniqueUserEmails = [...new Set(quizesbyDate.map(item => item?.email.replace(/[^a-zA-Z0-9]/g, "_")))];
+
+console.log(uniqueUserEmails)
+        // let uniqueEmails = [...new Set(store.getState().application.quizesbyDate.map(item => item?.email))];
+         let uniqueTitles = [...new Set(quizesbyDate.map(item => item?.title))];
+        // //  let uniqueUsers = [...new Set(res.map(item => item?.user))];
+console.log(uniqueTitles)
+         let users = [];
+         uniqueUserEmails.forEach(email => {
+             let solved = 0;
+             let id = email.replace(/[^a-zA-Z0-9]/g, "_");
+             let user = quizesbyDate.find(item => item.email === email)?.user;
+             let avatarUrl = quizesbyDate.find(item => item.email === email)?.avatarUrl;
+             uniqueTitles.forEach(title => {
+                 let foundIndex = quizesbyDate.findIndex(item => item.email === email && item.title === title);
+                 if (foundIndex > 0) { solved++ }
+             });
+             console.log(solved);
+             users.push({ id,
+               avatarUrl: !!avatarUrl ? avatarUrl :"https://econolabs.github.io/freelancer.jpg",
+               user: user,
+               solved: solved })
+         });
+
+         console.log(users);
+         users.sort((a, b) => b.solved - a.solved);
+         console.log(users);
+
+        // let quizes = currentDayQuizes.filter((item) => item.source === "posts");
+        // let uniqueUsers = [...new Set(quizes.map((item) => item?.user))];
+        // console.log(uniqueUsers);
+
+        // document.getElementById(domIdforPosts).innerHTML = uniqueTitles
+        //   .map((title) => {
+        //     let avatarsmarkup = quizes
+        //       .filter((quiz) => quiz.title === title)
+        //       .map((quiz) => {
+        //         let openavatar =
+        //           openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+        //         let finduser = openavatar?.user;
+        //         let user = !!finduser ? finduser : defaultUser;
+        //         let findavatar = openavatar?.avatarUrl;
+        //         let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+        //         return `<img src=${avatar}
+        //                         data-bs-toggle="tooltip" data-bs-html="true" 
+        //                         alt=${quiz.id} id=${quiz.id} class="avatar"
+        //                         title=${user}>`;
+        //       })
+        //       .join("");
+
+        //     return `
+        //                 <div class="card m-1" data-id=${title}>
+        //                     <div class="card-body">
+        //                         <h5 class="card-title">${title}</h5>
+        //                         <div class="class-text">${avatarsmarkup}</div>
+        //                     </div>
+        //                 </div>`;
+        //   })
+        //   .join("");
+        document.getElementById("modalbody").innerHTML = users.map(
+          user => {
+            console.log(user);
+            return `
+            <div class="card mb-3"  data-id=${user.id}>
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${user?.avatarUrl}"" class="avatar" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${user.id}</h5>
+        <p class="card-text">${user.solved}</p>
+        <p class="card-text"><small class="text-muted">${user.solved}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+ `
+          }).join(" ");
+        myModal.show();
+      }
 
       function markupForQuizesCasesByDate(
         domIdforPosts = "cards",
@@ -862,17 +1234,26 @@
 
         const d = new Date(e.target.value);
         const currentDay = new Intl.DateTimeFormat("en", {
-          weekday: "short", year: "numeric", month: "short", day: "numeric",
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
         })
           .format(new Date(d.getFullYear(), d.getMonth(), d.getDate()))
           .replace(/[^a-zA-Z0-9]/g, "_");
 
-        const quizesbyDate = await fetchQuizesCasesByDate("/currentDay/" + currentDay + "/");
-        const uniqueEmails = [...new Set(quizesbyDate.map((item) => item?.email))];
+        const quizesbyDate = await fetchQuizesCasesByDate(
+          "/currentDay/" + currentDay + "/",
+        );
+        const uniqueEmails = [
+          ...new Set(quizesbyDate.map((item) => item?.email)),
+        ];
 
         const updatedopenavatars = {};
         const values = await Promise.all(
-          uniqueEmails.map((email) => getAvatar(email.replace(/[^a-zA-Z0-9]/g, "_"))),
+          uniqueEmails.map((email) =>
+            getAvatar(email.replace(/[^a-zA-Z0-9]/g, "_")),
+          ),
         );
 
         const usedAvatars = [];
@@ -884,19 +1265,38 @@
             updatedopenavatars[sanitized] = avatarInfo;
             if (avatarInfo.avatarUrl) usedAvatars.push(avatarInfo.avatarUrl);
           } else {
-            const quizuser = quizesbyDate.find((item) => item.email === email)?.user || "John Doe";
-            const avatarUrl = findImageByGender(true, usedAvatars);
+            const quizuser =
+              quizesbyDate.find((item) => item.email === email)?.user ||
+              "John Doe";
+            const avatarUrl = findImageByGender(
+              "https://econolabs.github.io/",
+              true,
+              usedAvatars,
+            );
             usedAvatars.push(avatarUrl);
-            updatedopenavatars[sanitized] = { id: sanitized, avatarUrl, user: quizuser };
+            updatedopenavatars[sanitized] = {
+              id: sanitized,
+              avatarUrl,
+              user: quizuser,
+            };
           }
         });
 
-        store.dispatch(seedState({ object: { openavatars: updatedopenavatars } }));
+        store.dispatch(
+          seedState({ object:
+             { openavatars: updatedopenavatars,
+              quizesbyDate: quizesbyDate
+              } }),
+        );
 
         markupForQuizesCasesByDate(
-          "cards", "cases", "budgeting",
-          quizesbyDate, updatedopenavatars,
-          "John Doe", "../freelancer.jpg",
+          "cards",
+          "cases",
+          "budgeting",
+          quizesbyDate,
+          updatedopenavatars,
+          "John Doe",
+          "../freelancer.jpg",
         );
       }
 
@@ -905,12 +1305,170 @@
       // ============================================================
 
       selectedDate.addEventListener("change", doSelectDate, false);
-    </script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+      // ------------------------------------------------------------------
+      // Auth UI
+      // ------------------------------------------------------------------
+      const authModalEl = document.getElementById("authModal");
+      const authModal = new bootstrap.Modal(authModalEl);
+      const authForm = document.getElementById("authForm");
+      const authEmail = document.getElementById("authEmail");
+      const authPassword = document.getElementById("authPassword");
+      const authError = document.getElementById("authError");
+      const authSuccess = document.getElementById("authSuccess");
+      const loginBtn = document.getElementById("loginBtn");
+      const signUpBtn = document.getElementById("signUpBtn");
+      const googleSignInBtn = document.getElementById("googleSignInBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const authStatus = document.getElementById("authStatus");
+      const brandLoginBtn = document.getElementById("brandLoginBtn");
+
+      function showError(msg) {
+        authError.textContent = msg;
+        authError.classList.remove("d-none");
+        authSuccess.classList.add("d-none");
+      }
+
+      function showSuccess(msg) {
+        authSuccess.textContent = msg;
+        authSuccess.classList.remove("d-none");
+        authError.classList.add("d-none");
+      }
+
+      function clearMessages() {
+        authError.classList.add("d-none");
+        authSuccess.classList.add("d-none");
+      }
+
+      // Open login modal when brand is clicked
+      brandLoginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (auth.currentUser) {
+          return;
+        }
+        clearMessages();
+        authModal.show();
+      });
+
+      // Login
+      async function doLogin() {
+        clearMessages();
+        const email = authEmail.value.trim();
+        const password = authPassword.value;
+        if (!email || !password) {
+          showError("Введите email и пароль.");
+          return;
+        }
+        loginBtn.disabled = true;
+        try {
+          await logIn(email, password);
+          authModal.hide();
+        } catch (err) {
+          console.error(err);
+          const code = err?.code || "";
+          if (
+            code.includes("invalid-credential") ||
+            code.includes("wrong-password") ||
+            code.includes("user-not-found")
+          ) {
+            showError("Неверный email или пароль.");
+          } else if (code.includes("too-many-requests")) {
+            showError("Слишком много попыток. Попробуйте позже.");
+          } else {
+            showError(err?.message || "Ошибка входа.");
+          }
+        } finally {
+          loginBtn.disabled = false;
+        }
+      }
+
+      // Sign up
+      async function doSignUp() {
+        clearMessages();
+        const email = authEmail.value.trim();
+        const password = authPassword.value;
+        if (!email || !password) {
+          showError("Введите email и пароль для регистрации.");
+          return;
+        }
+        if (password.length < 6) {
+          showError("Пароль должен содержать не менее 6 символов.");
+          return;
+        }
+        signUpBtn.disabled = true;
+        try {
+          await signUp(email, password);
+          showSuccess("Аккаунт создан. Вы вошли.");
+          setTimeout(() => authModal.hide(), 800);
+        } catch (err) {
+          console.error(err);
+          const code = err?.code || "";
+          if (code.includes("email-already-in-use")) {
+            showError("Этот email уже зарегистрирован. Попробуйте войти.");
+          } else if (code.includes("weak-password")) {
+            showError("Слишком слабый пароль.");
+          } else if (code.includes("invalid-email")) {
+            showError("Некорректный email.");
+          } else {
+            showError(err?.message || "Ошибка регистрации.");
+          }
+        } finally {
+          signUpBtn.disabled = false;
+        }
+      }
+
+      // Google sign-in
+      async function doGoogleSignIn() {
+        clearMessages();
+        googleSignInBtn.disabled = true;
+        try {
+          await googleSignIn();
+          authModal.hide();
+        } catch (err) {
+          console.error(err);
+          if (err?.code === "auth/popup-closed-by-user") {
+            // user closed popup — ignore
+          } else {
+            showError(err?.message || "Ошибка входа через Google.");
+          }
+        } finally {
+          googleSignInBtn.disabled = false;
+        }
+      }
+
+      // Logout
+      async function doLogout() {
+        try {
+          await logOut();
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      // Event listeners
+      loginBtn.addEventListener("click", doLogin);
+      signUpBtn.addEventListener("click", doSignUp);
+      googleSignInBtn.addEventListener("click", doGoogleSignIn);
+      logoutBtn.addEventListener("click", doLogout);
+
+      // Submit on Enter inside form
+      authForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        doLogin();
+      });
+
+      // Reflect auth state in navbar
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          authStatus.textContent = user.email || user.uid;
+          logoutBtn.classList.remove("d-none");
+          brandLoginBtn.textContent = "Econolabs";
+        } else {
+          authStatus.textContent = "";
+          logoutBtn.classList.add("d-none");
+          brandLoginBtn.textContent = "Econolabs";
+        }
+      });
+    </script>
   </body>
 </html>
