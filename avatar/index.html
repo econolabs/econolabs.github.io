@@ -1,43 +1,382 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
-      <link rel="stylesheet" href="../dist/original.css">
-
-    <title>Edit User</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .avatar {
+        vertical-align: middle;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 5px;
+        border: 2px solid #e2e8f0;
+      }
+      .page-loading {
+        opacity: 0;
+      }
+      .page-ready {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+      }
+    </style>
+    <title>Редактирование пользователя</title>
   </head>
-  
-<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
-    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
 
-  <nav class="navbar navbar-light bg-light ">
-        <h3 style="margin: 5px;">
-            <a aria-current="page" style="
-            color:gray;
-            text-decoration:none;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-            " href="/">
-                Econolabs
-            </a>
-        </h3>
-        <a class="navbar-brand" href="https://vk.com/id151078439"><img
-                src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
-                style="vertical-align:middle;width:40px;height:40px;border-radius:50%;filter:grayscale(100%);object-fit:cover"></a>
-    </nav>
+  <body
+    data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+    data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+  >
+    <div class="container page-loading" id="app">
+      <div class="container mt-5"></div>
 
-    <div id="root"></div>
-    
-   
-<script src="../dist/basicfirebasecrudservices.js"></script>
-    <script crossorigin src="../dist/react18.3.1.production.min.js"></script>
-    <script crossorigin src="../dist/react-dom18.3.1.production.min.js"></script>
-    <script src="../dist/redux-toolkit.umd.min.js"></script>
-     <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+      <!-- ============ АВАТАР ============ -->
+      <div class="container mb-4">
+        <div class="row align-items-center">
+          <div class="col">
+            <button id="anotherAvatarBtn" class="btn btn-sm btn-primary" type="button">
+              Другой аватар
+            </button>
+          </div>
 
-    <script src="./bundle.js"></script>
-    
+          <div class="col-6 col-sm-4 col-md-3">
+            <img id="avatarImg" class="avatar" src="" alt="avatar" />
+          </div>
+
+          <div class="col">
+            <button id="toggleGenderBtn" class="btn btn-sm btn-secondary" type="button">
+              Переключить пол
+            </button>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button id="saveAvatarBtn" class="btn btn-sm btn-success" type="button">
+            Сохранить аватар
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ ИМЯ ============ -->
+      <form id="userForm" class="mb-4">
+        <div class="mb-3 my-5">
+          <label class="form-label" for="userInput">Фамилия (3-4 согласных) и группа</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userInput"
+            placeholder="Введите имя"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-sm btn-success">
+          Сохранить имя
+        </button>
+      </form>
+
+      <!-- ============ БЛОГ ============ -->
+      <form id="blogForm" class="mb-4">
+        <div class="mb-3 my-5">
+          <label class="form-label" for="urlInput">URL сайта (блога)</label>
+          <input
+            type="url"
+            class="form-control"
+            id="urlInput"
+            placeholder="URL сайта(блога)"
+          />
+        </div>
+        <button type="submit" class="btn btn-sm btn-success">
+          Сохранить блог
+        </button>
+      </form>
+
+      <p class="text-muted text-small mt-3" id="emailLabel"></p>
+    </div>
+
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+
+    <script type="module">
+      const {
+        getFirebaseNode,
+        updateFirebaseNode,
+        loadState,
+        findImageByGender,
+      } = window.basicfirebasecrudauthservices;
+
+      // ============================================================
+      //  Состояние
+      // ============================================================
+      const state = {
+        isMale: true,
+        email: "",
+        user: "",
+        avatarUrl: "https://econolabs.github.io/freelancer.jpg",
+        url: "https://yourusername.gitverse.site/blog",
+      };
+
+      function getRandomState(number = 3) {
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let result = "";
+        for (let i = 0; i < number; i++) {
+          result += alphabet[Math.floor(Math.random() * alphabet.length)];
+        }
+        return {
+          isMale: true,
+          email: result + "@yandex.ru",
+          user: result + " group",
+          avatarUrl: "https://econolabs.github.io/freelancer.jpg",
+          url: "https://yourusername.gitverse.site/blog",
+        };
+      }
+
+      function sanitizeEmail(email) {
+        return email.replace(/[^a-zA-Z0-9]/g, "_");
+      }
+
+      // ============================================================
+      //  DOM
+      // ============================================================
+      const appEl = document.getElementById("app");
+      const avatarImg = document.getElementById("avatarImg");
+      const userInput = document.getElementById("userInput");
+      const urlInput = document.getElementById("urlInput");
+      const emailLabel = document.getElementById("emailLabel");
+      const userForm = document.getElementById("userForm");
+      const blogForm = document.getElementById("blogForm");
+      const anotherAvatarBtn = document.getElementById("anotherAvatarBtn");
+      const toggleGenderBtn = document.getElementById("toggleGenderBtn");
+      const saveAvatarBtn = document.getElementById("saveAvatarBtn");
+
+      // ============================================================
+      //  Рендер
+      // ============================================================
+      function render() {
+        avatarImg.src = state.avatarUrl || "";
+        userInput.value = state.user || "";
+        urlInput.value = state.url || "";
+        emailLabel.textContent = state.email || "";
+      }
+
+      Object.assign(state, getRandomState(3));
+      render();
+
+      // ============================================================
+      //  Общий хелпер: сохранить только выбранные поля
+      //  Вариант 2 — пишем каждый лист полным путём
+      // ============================================================
+      async function persistFields(fields) {
+        if (!state.email) {
+          alert("Email не задан — сохранить нельзя.");
+          return false;
+        }
+
+        const safeEmail = sanitizeEmail(state.email);
+
+        // 1. localStorage — merge поверх текущего
+        const localApp = (loadState() || {}).application || {};
+        const mergedApp = { ...localApp };
+        fields.forEach((f) => {
+          mergedApp[f] = state[f];
+        });
+        try {
+          localStorage.setItem(
+            "econolabs",
+            JSON.stringify({ application: mergedApp }),
+          );
+        } catch (err) {
+          console.error(err);
+        }
+
+        // 2. Firebase — пишем каждый лист полным путём
+        const updates = {};
+        fields.forEach((f) => {
+          const value = state[f];
+          if (value === undefined) return; // не шлём undefined
+          updates[`/openavatars/${safeEmail}/${f}`] = value;
+        });
+
+        if (Object.keys(updates).length === 0) return true;
+
+        console.log("Firebase updates:", updates);
+
+        try {
+          await updateFirebaseNode(updates);
+          return true;
+        } catch (err) {
+          console.error("Save failed:", err);
+          alert("Не удалось сохранить. Попробуйте ещё раз.");
+          return false;
+        }
+      }
+
+      // ============================================================
+      //  Подбор аватара
+      // ============================================================
+      async function findUnsplashImageByGender(isMale) {
+        const currentDay = new Intl.DateTimeFormat("en", {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+          .format(new Date())
+          .replace(/[^a-zA-Z0-9]/g, "_");
+
+        const posts = await getFirebaseNode({
+          url: "/currentDay/" + currentDay + "/posts",
+          type: "array",
+        });
+
+        const emails = (posts || []).map((item) => item.email).filter(Boolean);
+
+        const avatarResults = await Promise.all(
+          emails.map((email) =>
+            getFirebaseNode({
+              url: "openavatars/" + sanitizeEmail(email),
+              type: "object",
+            }),
+          ),
+        );
+
+        const usedAvatars = [];
+        avatarResults.forEach((res) => {
+          if (res && res.avatarUrl) usedAvatars.push(res.avatarUrl);
+        });
+
+        const avatarUrl = findImageByGender(
+          "https://econolabs.github.io/",
+          isMale,
+          usedAvatars,
+        );
+
+        state.avatarUrl = avatarUrl;
+        render();
+        return avatarUrl;
+      }
+
+      // ============================================================
+      //  Инициализация
+      // ============================================================
+      async function initUserData() {
+        const localApp = (loadState() || {}).application || {};
+        state.email = localApp.email || state.email;
+
+        let openAvatar = null;
+        try {
+          openAvatar = await getFirebaseNode({
+            url: "openavatars/" + sanitizeEmail(state.email),
+            type: "object",
+          });
+        } catch (err) {
+          console.error(err);
+        }
+
+        const defaultUser =
+          localApp && Object.keys(localApp).length > 1 ? localApp : {};
+
+        Object.assign(state, defaultUser);
+        if (openAvatar) Object.assign(state, openAvatar);
+        if (!state.email) state.email = localApp.email || "";
+
+        render();
+        appEl.classList.remove("page-loading");
+        appEl.classList.add("page-ready");
+      }
+
+      // ============================================================
+      //  Обработчики — аватар
+      // ============================================================
+      anotherAvatarBtn.addEventListener("click", async () => {
+        anotherAvatarBtn.disabled = true;
+        try {
+          await findUnsplashImageByGender(state.isMale);
+        } finally {
+          anotherAvatarBtn.disabled = false;
+        }
+      });
+
+      toggleGenderBtn.addEventListener("click", () => {
+        state.isMale = !state.isMale;
+        findUnsplashImageByGender(state.isMale).catch((err) =>
+          console.error(err),
+        );
+      });
+
+      saveAvatarBtn.addEventListener("click", async () => {
+        saveAvatarBtn.disabled = true;
+        try {
+          const ok = await persistFields(["avatarUrl"]);
+          if (ok) {
+            saveAvatarBtn.textContent = "Сохранено ✓";
+            setTimeout(
+              () => (saveAvatarBtn.textContent = "Сохранить аватар"),
+              1200,
+            );
+          }
+        } finally {
+          saveAvatarBtn.disabled = false;
+        }
+      });
+
+      // ============================================================
+      //  Обработчики — имя
+      // ============================================================
+      userInput.addEventListener("input", (e) => {
+        state.user = e.target.value;
+      });
+
+      userForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = userForm.querySelector("button[type=submit]");
+        btn.disabled = true;
+        try {
+          const ok = await persistFields(["user"]);
+          if (ok) {
+            btn.textContent = "Сохранено ✓";
+            setTimeout(() => (btn.textContent = "Сохранить имя"), 1200);
+          }
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      // ============================================================
+      //  Обработчики — блог
+      // ============================================================
+      urlInput.addEventListener("input", (e) => {
+        state.url = e.target.value;
+      });
+
+      blogForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = blogForm.querySelector("button[type=submit]");
+        btn.disabled = true;
+        try {
+          const ok = await persistFields(["url"]);
+          if (ok) {
+            btn.textContent = "Сохранено ✓";
+            setTimeout(() => (btn.textContent = "Сохранить блог"), 1200);
+          }
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      // ============================================================
+      //  Старт
+      // ============================================================
+      initUserData().catch((err) => {
+        console.error(err);
+        appEl.classList.remove("page-loading");
+        appEl.classList.add("page-ready");
+      });
+    </script>
   </body>
 </html>
