@@ -464,6 +464,551 @@ let quizesSets = [
         "randomfrom": [1, 2, 3, 4, 5, 10]
     },
 
+        // =====================================================================
+    // ==================== ДОСКА ГАЛЬТОНА ====================
+    // =====================================================================
+    {
+        "id": "galton_001_qual",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Что моделирует доска Гальтона?",
+        "theme": "Доска Гальтона",
+        "text": "Какое распределение моделирует доска Гальтона при большом числе шариков?",
+        "choices": [
+            "Равномерное",
+            "Биномиальное (при малом числе рядов) и нормальное (при большом)",
+            "Только распределение Пуассона",
+            "Экспоненциальное"
+        ],
+        "answers": ["Биномиальное (при малом числе рядов) и нормальное (при большом)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Доска Гальтона</h5><p class='mb-1'>Каждое столкновение шарика со штырьком — это <span class='badge badge-info'>испытание Бернулли</span> (влево/вправо с вероятностью 0.5).</p><hr class='my-2'><p class='mb-1'>Число поворотов направо — это <span class='badge badge-info'>число успехов</span> в схеме Бернулли.</p><p class='mb-0'>При малом числе рядов распределение <span class='badge badge-success'>биномиальное</span>, при большом — приближается к <span class='badge badge-success'>нормальному</span> (ЦПТ).</p></div>"
+    },
+    {
+        "id": "galton_002_bernoulli",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Связь со схемой Бернулли",
+        "theme": "Доска Гальтона",
+        "text": "Что соответствует одному столкновению шарика со штырьком в доске Гальтона?",
+        "choices": [
+            "Одно испытание Бернулли",
+            "Одно сочетание C(n,k)",
+            "Одна перестановка",
+            "Один биномиальный коэффициент"
+        ],
+        "answers": ["Одно испытание Бернулли"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Испытание Бернулли</h5><p class='mb-1'>У шарика <span class='badge badge-info'>два исхода</span> при ударе о штырёк: поворот налево или направо.</p><hr class='my-2'><p class='mb-1'>Вероятность каждого — 0.5 (если доска идеальная).</p><p class='mb-0'>Это в точности <span class='badge badge-success'>испытание Бернулли</span> с p = 0.5.</p></div>"
+    },
+    {
+        "id": "galton_003_pascal",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Число путей в ячейку",
+        "theme": "Доска Гальтона",
+        "text": "Если шарик прошёл n рядов штырьков и попал в k-ю ячейку (повернул направо k раз), сколько существует путей, ведущих в эту ячейку?",
+        "choices": [
+            "n!",
+            "C(n, k)",
+            "k!",
+            "(n − k)!"
+        ],
+        "answers": ["C(n, k)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Число путей</h5><p class='mb-1'>Нужно выбрать, <span class='badge badge-info'>в каких k рядах</span> из n шарик повернул направо. Порядок не важен.</p><hr class='my-2'><p class='mb-0'>Это число сочетаний: $$C_n^k = \\binom{n}{k}$$ Именно эти числа образуют <span class='badge badge-success'>треугольник Паскаля</span> на доске Гальтона.</p></div>"
+    },
+    {
+        "id": "galton_004_prob_formula",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Формула вероятности",
+        "theme": "Доска Гальтона",
+        "text": "По какой формуле вычисляется вероятность попадания шарика в k-ю ячейку после n рядов?",
+        "choices": [
+            "P(X = k) = C(n, k) · pᵏ · (1−p)ⁿ⁻ᵏ",
+            "P(X = k) = λᵏ e⁻λ / k!",
+            "P(X = k) = 1 / n",
+            "P(X = k) = k / n"
+        ],
+        "answers": ["P(X = k) = C(n, k) · pᵏ · (1−p)ⁿ⁻ᵏ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Бернулли</h5><p class='mb-1'>Доска Гальтона — это <span class='badge badge-info'>схема Бернулли</span>: n независимых испытаний, в каждом успех (направо) с вероятностью p.</p><hr class='my-2'><p class='mb-0'>Вероятность ровно k успехов: $$P_n(k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}$$ При p = 0.5 формула упрощается до $$C_n^k / 2^n$$</p></div>"
+    },
+    {
+        "id": "galton_005_symmetric",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Симметрия распределения",
+        "theme": "Доска Гальтона",
+        "text": "При p = 0.5 распределение шариков по ячейкам симметрично. Какая ячейка самая вероятная (при чётном n)?",
+        "choices": [
+            "Самая левая",
+            "Самая правая",
+            "Центральная (k = n/2)",
+            "Крайние ячейки равновероятны и максимальны"
+        ],
+        "answers": ["Центральная (k = n/2)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Центральная ячейка</h5><p class='mb-1'>В центральную ячейку ведёт <span class='badge badge-info'>больше всего путей</span> — можно повернуть направо ровно n/2 раз многими способами.</p><hr class='my-2'><p class='mb-0'>При p = 0.5: $$k_0 = \\frac{n}{2}$$ — самая вероятная ячейка. При нечётном n максимум достигается в двух соседних ячейках.</p></div>"
+    },
+    {
+        "id": "galton_006_extreme",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Крайняя ячейка",
+        "theme": "Доска Гальтона",
+        "text": "Почему в крайние ячейки доски Гальтона попадает очень мало шариков?",
+        "choices": [
+            "К ним ведёт только один путь (все повороты в одну сторону)",
+            "Они находятся далеко от входа",
+            "Шарики отскакивают от стенок",
+            "В них слишком мало места"
+        ],
+        "answers": ["К ним ведёт только один путь (все повороты в одну сторону)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Один-единственный путь</h5><p class='mb-1'>Чтобы попасть в самую левую ячейку, шарик должен повернуть налево <span class='badge badge-info'>во всех n рядах</span>.</p><hr class='my-2'><p class='mb-0'>Вероятность этого: $$(0.5)^n$$ — очень мала при больших n. Аналогично для крайней правой. Поэтому «колокол» имеет <span class='badge badge-success'>тонкие хвосты</span>.</p></div>"
+    },
+    {
+        "id": "galton_007_asymmetric",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Смещённая доска",
+        "theme": "Доска Гальтона",
+        "text": "Что произойдёт с распределением шариков, если доска наклонена так, что вероятность поворота направо p = 0.7?",
+        "choices": [
+            "Распределение останется симметричным",
+            "«Колокол» сместится вправо, распределение станет асимметричным",
+            "Шарики перестанут попадать в ячейки",
+            "Все шарики попадут в центральную ячейку"
+        ],
+        "answers": ["«Колокол» сместится вправо, распределение станет асимметричным"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Смещённая доска</h5><p class='mb-1'>Если p ≠ 0.5, то <span class='badge badge-info'>максимум</span> распределения смещается к ячейке с номером ≈ n·p.</p><hr class='my-2'><p class='mb-1'>При p = 0.7 шарики чаще поворачивают направо, значит «горб» смещается <span class='badge badge-info'>вправо</span>.</p><p class='mb-0'>Форма остаётся <span class='badge badge-success'>биномиальной</span>, но становится асимметричной.</p></div>"
+    },
+    {
+        "id": "galton_008_many_balls",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Много шариков",
+        "theme": "Доска Гальтона",
+        "text": "Что произойдёт с гистограммой шариков, если увеличивать их число?",
+        "choices": [
+            "Она станет более гладкой и приблизится к теоретическому распределению",
+            "Она станет хаотичнее",
+            "Все шарики соберутся в одной ячейке",
+            "Она превратится в прямую линию"
+        ],
+        "answers": ["Она станет более гладкой и приблизится к теоретическому распределению"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Закон больших чисел</h5><p class='mb-1'>Чем больше шариков, тем <span class='badge badge-info'>ближе эмпирические частоты</span> к теоретическим вероятностям.</p><hr class='my-2'><p class='mb-0'>Это прямое следствие <span class='badge badge-success'>закона больших чисел</span> (тема 3.2): относительная частота сходится к вероятности.</p></div>"
+    },
+    {
+        "id": "galton_009_normal",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Форма при большом числе рядов",
+        "theme": "Доска Гальтона",
+        "text": "К какой форме стремится гистограмма шариков при увеличении числа рядов штырьков n?",
+        "choices": [
+            "К прямоугольнику",
+            "К треугольнику",
+            "К колоколообразной кривой (нормальное распределение)",
+            "К пиле"
+        ],
+        "answers": ["К колоколообразной кривой (нормальное распределение)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема</h5><p class='mb-1'>Биномиальное распределение при больших n <span class='badge badge-info'>приближается нормальным</span> — это следствие ЦПТ (тема 3.3).</p><hr class='my-2'><p class='mb-0'>Поэтому гистограмма шариков на доске Гальтона при большом числе рядов имеет форму <span class='badge badge-success'>колокола</span>.</p></div>"
+    },
+    {
+        "id": "galton_010_qual_hard",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Число ячеек",
+        "theme": "Доска Гальтона",
+        "text": "Если на доске Гальтона n рядов штырьков, сколько ячеек внизу?",
+        "choices": [
+            "n",
+            "n − 1",
+            "n + 1",
+            "2n"
+        ],
+        "answers": ["n + 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Число ячеек</h5><p class='mb-1'>Номер ячейки определяется числом поворотов направо: k = 0, 1, 2, …, n.</p><hr class='my-2'><p class='mb-0'>Значит, всего возможно <span class='badge badge-success'>n + 1</span> значений (от 0 до n включительно) — столько и ячеек.</p></div>"
+    },
+    {
+        "id": "galton_011_mean",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Математическое ожидание номера ячейки",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: математическое ожидание
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске Гальтона <strong>{var1-10}</strong> рядов штырьков, вероятность поворота направо p = 0.5. Номер ячейки = число поворотов направо.</div>
+    <div class="mt-3 mb-2">Найдите математическое ожидание номера ячейки <em>M(X) = n·p</em>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10} / 2",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для биномиального распределения:</div>
+    <div class="text-center">$$M(X) = n \\cdot p$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$M(X) = {var1-10} \\cdot 0.5 = {= {var1-10} / 2}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} / 2}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40]
+    },
+    {
+        "id": "galton_012_central_prob",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Вероятность центральной ячейки",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: центральная ячейка
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске <strong>4</strong> ряда штырьков, p = 0.5. Какова вероятность попасть в ячейку k = 2 (центральную)?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+        "answer": "0.375",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула Бернулли при p = 0.5:</div>
+    <div class="text-center">$$P_4(2) = C_4^2 \\cdot 0.5^2 \\cdot 0.5^2 = \\frac{6}{16} = 0.375$$</div>
+    <div class="mt-3 mb-2">Число путей C(4, 2) = 6, всего путей 2⁴ = 16.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>0.375</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [4]
+    },
+    {
+        "id": "galton_013_paths",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Число путей в ячейку",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: число путей
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске Гальтона <strong>5</strong> рядов. Сколько различных путей ведёт в ячейку k = 2?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "10",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Число путей = число сочетаний:</div>
+    <div class="text-center">$$C_5^2 = \\frac{5!}{2! \\cdot 3!} = 10$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>10</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [5]
+    },
+    {
+        "id": "galton_014_extreme_prob",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Вероятность крайней ячейки",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: крайняя ячейка
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске <strong>{var1-10}</strong> рядов, p = 0.5. Какова вероятность попасть в самую левую ячейку (k = 0)?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+        "answer": "ROUND(1 / POWER(2, {var1-10}), 6)",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">В самую левую ячейку ведёт <strong>только один путь</strong> — все повороты налево.</div>
+    <div class="mb-2">Вероятность:</div>
+    <div class="text-center">$$P = (0.5)^{{var1-10}} = \\frac{1}{2^{{var1-10}}} = {= ROUND(1 / POWER(2, {var1-10}), 6)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(1 / POWER(2, {var1-10}), 6)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [3, 4, 5, 6]
+    },
+
+    // =====================================================================
+    // ==================== БИНОМ НЬЮТОНА ====================
+    // =====================================================================
+    {
+        "id": "newton_001_formula",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Формула бинома Ньютона",
+        "theme": "Бином Ньютона",
+        "text": "Какая формула выражает бином Ньютона?",
+        "choices": [
+            "(a+b)ⁿ = Σ C(n,k) · aⁿ⁻ᵏ · bᵏ",
+            "(a+b)ⁿ = aⁿ + bⁿ",
+            "(a+b)ⁿ = n·a·b",
+            "(a+b)ⁿ = a·b·n"
+        ],
+        "answers": ["(a+b)ⁿ = Σ C(n,k) · aⁿ⁻ᵏ · bᵏ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона</h5><p class='mb-1'>Разложение степени суммы через <span class='badge badge-info'>биномиальные коэффициенты</span>:</p><hr class='my-2'><p class='mb-0'>$$(a+b)^n = \\sum_{k=0}^{n} C_n^k \\, a^{n-k} b^k$$ Коэффициенты C(n,k) образуют <span class='badge badge-success'>треугольник Паскаля</span>.</p></div>"
+    },
+    {
+        "id": "newton_002_pascal",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Треугольник Паскаля",
+        "theme": "Бином Ньютона",
+        "text": "Какое правило построения треугольника Паскаля?",
+        "choices": [
+            "Каждое число = сумма двух чисел над ним",
+            "Каждое число = произведение двух чисел над ним",
+            "Все числа равны 1",
+            "Каждое число = предыдущее + 1"
+        ],
+        "answers": ["Каждое число = сумма двух чисел над ним"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Треугольник Паскаля</h5><p class='mb-1'>Главное правило:</p><p class='text-center'>$$C_n^k = C_{n-1}^{k-1} + C_{n-1}^{k}$$</p><hr class='my-2'><p class='mb-0'>Крайние числа всегда <span class='badge badge-info'>1</span>. Внутренние — сумма двух соседних в предыдущей строке.</p></div>"
+    },
+    {
+        "id": "newton_003_sum_row",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Сумма строки Паскаля",
+        "theme": "Бином Ньютона",
+        "text": "Чему равна сумма всех коэффициентов в строке n треугольника Паскаля?",
+        "choices": [
+            "n",
+            "2ⁿ",
+            "n!",
+            "n²"
+        ],
+        "answers": ["2ⁿ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Сумма строки</h5><p class='mb-1'>Подставим в бином Ньютона a = 1, b = 1:</p><p class='text-center'>$$(1+1)^n = \\sum_{k=0}^{n} C_n^k = 2^n$$</p><hr class='my-2'><p class='mb-0'>Это <span class='badge badge-success'>мощная проверка</span> при разложении: сумма коэффициентов всегда 2ⁿ.</p></div>"
+    },
+    {
+        "id": "newton_004_degree2",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)²",
+        "theme": "Бином Ньютона",
+        "text": "Как выглядит разложение (a+b)²?",
+        "choices": [
+            "a² + 2ab + b²",
+            "a² + b²",
+            "a² − 2ab + b²",
+            "a² + ab + b²"
+        ],
+        "answers": ["a² + 2ab + b²"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)²</h5><p class='mb-1'>Коэффициенты: C(2,0)=1, C(2,1)=2, C(2,2)=1.</p><hr class='my-2'><p class='mb-0'>$$(a+b)^2 = a^2 + 2ab + b^2$$ Строка <span class='badge badge-success'>1, 2, 1</span> из треугольника Паскаля.</p></div>"
+    },
+    {
+        "id": "newton_005_degree3",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)³",
+        "theme": "Бином Ньютона",
+        "text": "Какой коэффициент при a²b в разложении (a+b)³?",
+        "choices": ["1", "2", "3", "6"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)³</h5><p class='mb-1'>Строка Паскаля для n = 3:</p><p class='text-center'><span class='badge badge-info'>1, 3, 3, 1</span></p><hr class='my-2'><p class='mb-0'>$$(a+b)^3 = a^3 + 3a^2 b + 3ab^2 + b^3$$ Коэффициент при a²b = <span class='badge badge-success'>3</span>.</p></div>"
+    },
+    {
+        "id": "newton_006_coeff",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Биномиальный коэффициент",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Биномиальный коэффициент
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите коэффициент при a⁴b² в разложении (a+b)⁶ (это C(6, 2)).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "15",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Коэффициент при aⁿ⁻ᵏbᵏ равен C(n,k). Здесь n = 6, k = 2:</div>
+    <div class="text-center">$$C_6^2 = \\frac{6!}{2! \\cdot 4!} = \\frac{6 \\cdot 5}{2} = 15$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>15</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [6]
+    },
+    {
+        "id": "newton_007_row_sum",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Сумма коэффициентов строки",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сумма коэффициентов
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Чему равна сумма всех коэффициентов в разложении (a+b)^{var1-10}?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "POWER(2, {var1-10})",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Подставим a = 1, b = 1:</div>
+    <div class="text-center">$$(1+1)^{{var1-10}} = 2^{{var1-10}} = {= POWER(2, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [3, 4, 5, 6]
+    },
+    {
+        "id": "newton_008_alternating",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Знакочередующаяся сумма",
+        "theme": "Бином Ньютона",
+        "text": "Чему равна знакочередующаяся сумма C(n,0) − C(n,1) + C(n,2) − … ?",
+        "choices": ["0", "1", "2ⁿ", "n!"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Знакочередующаяся сумма</h5><p class='mb-1'>Подставим в бином Ньютона a = 1, b = −1:</p><p class='text-center'>$$(1 - 1)^n = 0$$</p><hr class='my-2'><p class='mb-0'>Значит, <span class='badge badge-success'>Σ(−1)ᵏ C(n,k) = 0</span> для любого n ≥ 1.</p></div>"
+    },
+    {
+        "id": "newton_009_bernoulli_link",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Связь с Бернулли",
+        "theme": "Бином Ньютона",
+        "text": "Почему сумма всех вероятностей в формуле Бернулли равна 1?",
+        "choices": [
+            "Это следствие бинома Ньютона: (p + (1−p))ⁿ = 1",
+            "Это случайность",
+            "Это следует из нормального распределения",
+            "Это постулат теории вероятностей"
+        ],
+        "answers": ["Это следствие бинома Ньютона: (p + (1−p))ⁿ = 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона ↔ Бернулли</h5><p class='mb-1'>Сумма вероятностей в схеме Бернулли:</p><p class='text-center'>$$\\sum_{k=0}^n C_n^k p^k (1-p)^{n-k}$$</p><hr class='my-2'><p class='mb-1'>По биному Ньютона это:</p><p class='text-center'>$$(p + (1-p))^n = 1^n = 1$$</p><p class='mb-0'>Вот почему вероятности в сумме дают <span class='badge badge-success'>ровно 1</span>.</p></div>"
+    },
+    {
+        "id": "newton_010_pascal_row4",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Строка Паскаля для n = 4",
+        "theme": "Бином Ньютона",
+        "text": "Какая строка треугольника Паскаля соответствует n = 4?",
+        "choices": [
+            "1, 4, 6, 4, 1",
+            "1, 3, 3, 1",
+            "1, 5, 10, 10, 5, 1",
+            "1, 4, 4, 1"
+        ],
+        "answers": ["1, 4, 6, 4, 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Строка n = 4</h5><p class='mb-1'>Считаем по правилу: каждое число = сумма двух над ним.</p><hr class='my-2'><p class='mb-0'>Строка для n = 4: <span class='badge badge-success'>1, 4, 6, 4, 1</span><br>Проверка: 1+4+6+4+1 = 16 = 2⁴ ✓</p></div>"
+    },
+    {
+        "id": "newton_011_specific_term",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Член разложения",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Член разложения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">В разложении (a+b)⁵ найдите коэффициент при a³b².</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "10",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Член aⁿ⁻ᵏbᵏ соответствует коэффициенту C(n,k). Здесь n = 5, k = 2:</div>
+    <div class="text-center">$$C_5^2 = \\frac{5!}{2! \\cdot 3!} = 10$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>10</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [5]
+    },
+    {
+        "id": "newton_012_symmetry",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Симметрия коэффициентов",
+        "theme": "Бином Ньютона",
+        "text": "Почему строка треугольника Паскаля симметрична?",
+        "choices": [
+            "Потому что C(n,k) = C(n,n−k)",
+            "Потому что все коэффициенты равны",
+            "Потому что строка чётная",
+            "Это случайность"
+        ],
+        "answers": ["Потому что C(n,k) = C(n,n−k)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Симметрия</h5><p class='mb-1'>Свойство сочетаний:</p><p class='text-center'>$$C_n^k = C_n^{\\,n-k}$$</p><hr class='my-2'><p class='mb-0'>Выбрать k элементов из n — то же, что <span class='badge badge-info'>оставить n − k</span>. Поэтому строка Паскаля читается одинаково слева и справа.</p></div>"
+    },
+    {
+        "id": "newton_013_degree4_expand",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)⁴",
+        "theme": "Бином Ньютона",
+        "text": "Какой коэффициент при a²b² в разложении (a+b)⁴?",
+        "choices": ["4", "6", "8", "12"],
+        "answers": ["6"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)⁴</h5><p class='mb-1'>Строка Паскаля для n = 4:</p><p class='text-center'><span class='badge badge-info'>1, 4, 6, 4, 1</span></p><hr class='my-2'><p class='mb-0'>$$(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$$ Коэффициент при a²b² = <span class='badge badge-success'>6</span> = C(4,2).</p></div>"
+    },
+    {
+        "id": "newton_014_binomial_dist_link",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Связь с биномиальным распределением",
+        "theme": "Бином Ньютона",
+        "text": "Почему распределение числа успехов в схеме Бернулли называется биномиальным?",
+        "choices": [
+            "Потому что вероятности — это члены разложения бинома (p + q)ⁿ",
+            "Потому что оно имеет два параметра",
+            "Потому что оно связано с двумя исходами",
+            "Потому что оно бинарное"
+        ],
+        "answers": ["Потому что вероятности — это члены разложения бинома (p + q)ⁿ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Почему «биномиальное»</h5><p class='mb-1'>Вероятности P(X=k) = C(n,k)pᵏqⁿ⁻ᵏ — это <span class='badge badge-info'>члены разложения бинома</span>:</p><p class='text-center'>$$(p+q)^n = \\sum_{k=0}^{n} C_n^k p^k q^{n-k}$$</p><hr class='my-2'><p class='mb-0'>Отсюда и название — <span class='badge badge-success'>биномиальное распределение</span> (от «бином» — двучлен).</p></div>"
+    },
+    {
+        "id": "newton_015_qual_sum",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Проверка разложения",
+        "theme": "Бином Ньютона",
+        "text": "Вы разложили (a+b)⁵ и получили коэффициенты 1, 5, 10, 10, 5, 1. Как быстро проверить, что не ошиблись?",
+        "choices": [
+            "Сумма коэффициентов должна быть 2⁵ = 32",
+            "Сумма коэффициентов должна быть 5",
+            "Коэффициенты должны быть равны",
+            "Первый коэффициент должен быть 5"
+        ],
+        "answers": ["Сумма коэффициентов должна быть 2⁵ = 32"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>✅ Быстрая проверка</h5><p class='mb-1'>Сумма коэффициентов строки n всегда равна 2ⁿ:</p><p class='text-center'>$$1 + 5 + 10 + 10 + 5 + 1 = 32 = 2^5$$</p><hr class='my-2'><p class='mb-0'>Если сумма не равна 2ⁿ — <span class='badge badge-danger'>ошибка в разложении</span>.</p></div>"
+    },
+
     // =====================================================================
     // ==================== ТЕМА 1.9: Формула Байеса ====================
     // =====================================================================
