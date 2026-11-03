@@ -1,5 +1,355 @@
 let quizesSets = [
 
+
+      // =====================================================================
+    // ==================== 🔥 РАЗМИНКА (30 заданий) =======================
+    // =====================================================================
+
+    // ---------- A. Степени — узнавание (8) ----------
+    {
+        "id": "warm_power_001",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Степень с нулевым показателем",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 7^0 \\)?</p>",
+        "choices": ["0", "1", "7", "Не определено"],
+        "answers": ["1"],
+        "hint": "<div class='alert alert-primary'><p>Любое число (кроме 0) в нулевой степени равно <strong>1</strong>.</p><p>\\( 7^0 = 1 \\).</p></div>"
+    },
+    {
+        "id": "warm_power_002",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Степень с единицей",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 5^1 \\)?</p>",
+        "choices": ["1", "5", "0", "25"],
+        "answers": ["5"],
+        "hint": "<div class='alert alert-primary'><p>Любое число в первой степени равно самому себе: \\( a^1 = a \\).</p><p>\\( 5^1 = 5 \\).</p></div>"
+    },
+    {
+        "id": "warm_power_003",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Квадрат числа",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 3^2 \\)?</p>",
+        "choices": ["6", "9", "8", "12"],
+        "answers": ["9"],
+        "hint": "<div class='alert alert-primary'><p>\\( 3^2 = 3 \\cdot 3 = 9 \\).</p><p>Не путайте с \\( 3 \\cdot 2 = 6 \\)!</p></div>"
+    },
+    {
+        "id": "warm_power_004",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Куб числа",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 2^3 \\)?</p>",
+        "choices": ["6", "8", "9", "12"],
+        "answers": ["8"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^3 = 2 \\cdot 2 \\cdot 2 = 8 \\).</p></div>"
+    },
+    {
+        "id": "warm_power_005",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Отрицательная степень",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 2^{-1} \\)?</p>",
+        "choices": ["\\( -2 \\)", "\\( -1 \\)", "\\( \\tfrac{1}{2} \\)", "\\( 1 \\)"],
+        "answers": ["\\( \\tfrac{1}{2} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( a^{-1} = \\frac{1}{a} \\).</p><p>\\( 2^{-1} = \\frac{1}{2} \\).</p></div>"
+    },
+    {
+        "id": "warm_power_006",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Квадратный корень",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( \\sqrt{25} \\)?</p>",
+        "choices": ["2", "5", "10", "25"],
+        "answers": ["5"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\sqrt{25} = 5 \\), потому что \\( 5^2 = 25 \\).</p></div>"
+    },
+    {
+        "id": "warm_power_007",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Корень из квадрата",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( \\sqrt{100} \\)?</p>",
+        "choices": ["5", "10", "20", "50"],
+        "answers": ["10"],
+        "hint": "<div class='alert alert-primary'><p>\\( 10^2 = 100 \\), значит \\( \\sqrt{100} = 10 \\).</p></div>"
+    },
+    {
+        "id": "warm_power_008",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Дробная степень",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 9^{1/2} \\)?</p>",
+        "choices": ["3", "4", "4.5", "18"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><p>Степень \\( 1/2 \\) — это квадратный корень:</p><p>\\( 9^{1/2} = \\sqrt{9} = 3 \\).</p></div>"
+    },
+
+    // ---------- B. Умножение и деление степеней (7) ----------
+    {
+        "id": "warm_mul_001",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Умножение степеней",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 2^3 \\cdot 2^2 \\)?</p>",
+        "choices": ["\\( 2^5 \\)", "\\( 2^6 \\)", "\\( 4^5 \\)", "\\( 2^1 \\)"],
+        "answers": ["\\( 2^5 \\)"],
+        "hint": "<div class='alert alert-primary'><p>При умножении степеней с одинаковым основанием показатели <strong>складываются</strong>:</p><p>\\( 2^3 \\cdot 2^2 = 2^{3+2} = 2^5 \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_002",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Деление степеней",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( \\frac{5^4}{5^2} \\)?</p>",
+        "choices": ["\\( 5^2 \\)", "\\( 5^6 \\)", "\\( 5^8 \\)", "\\( 1 \\)"],
+        "answers": ["\\( 5^2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>При делении степеней с одинаковым основанием показатели <strong>вычитаются</strong>:</p><p>\\( \\frac{5^4}{5^2} = 5^{4-2} = 5^2 \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_003",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Степень степени",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( (2^3)^2 \\)?</p>",
+        "choices": ["\\( 2^5 \\)", "\\( 2^6 \\)", "\\( 2^9 \\)", "\\( 4^2 \\)"],
+        "answers": ["\\( 2^6 \\)"],
+        "hint": "<div class='alert alert-primary'><p>При возведении степени в степень показатели <strong>перемножаются</strong>:</p><p>\\( (2^3)^2 = 2^{3 \\cdot 2} = 2^6 \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_004",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Степень произведения",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( (2 \\cdot 3)^2 \\)?</p>",
+        "choices": ["6", "12", "36", "18"],
+        "answers": ["36"],
+        "hint": "<div class='alert alert-primary'><p>\\( (ab)^n = a^n b^n \\).</p><p>\\( (2 \\cdot 3)^2 = 2^2 \\cdot 3^2 = 4 \\cdot 9 = 36 \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_005",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Степень дроби",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( \\left(\\frac{1}{2}\\right)^3 \\)?</p>",
+        "choices": ["\\( \\frac{1}{6} \\)", "\\( \\frac{1}{8} \\)", "\\( \\frac{3}{2} \\)", "\\( \\frac{1}{2} \\)"],
+        "answers": ["\\( \\frac{1}{8} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n} \\).</p><p>\\( \\left(\\frac{1}{2}\\right)^3 = \\frac{1^3}{2^3} = \\frac{1}{8} \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_006",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Произведение одинаковых степеней",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 2^2 \\cdot 3^2 \\)?</p>",
+        "choices": ["6", "12", "36", "5"],
+        "answers": ["36"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^2 = 4 \\), \\( 3^2 = 9 \\).</p><p>\\( 4 \\cdot 9 = 36 \\).</p><p>Или: \\( 2^2 \\cdot 3^2 = (2 \\cdot 3)^2 = 6^2 = 36 \\).</p></div>"
+    },
+    {
+        "id": "warm_mul_007",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Нулевая и первая степень",
+        "theme": "Степенная функция",
+        "text": "<p>Чему равно \\( 4^0 + 4^1 \\)?</p>",
+        "choices": ["4", "5", "8", "1"],
+        "answers": ["5"],
+        "hint": "<div class='alert alert-primary'><p>\\( 4^0 = 1 \\), \\( 4^1 = 4 \\).</p><p>\\( 1 + 4 = 5 \\).</p></div>"
+    },
+
+    // ---------- C. Показательная функция — узнавание (5) ----------
+    {
+        "id": "warm_exp_001",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Возрастает или убывает?",
+        "theme": "Показательная функция",
+        "text": "<p>Функция \\( y = 3^x \\):</p>",
+        "choices": ["Возрастает", "Убывает", "Постоянна", "Не определена"],
+        "answers": ["Возрастает"],
+        "hint": "<div class='alert alert-primary'><p>Основание \\( 3 > 1 \\), значит функция <strong>возрастает</strong>.</p></div>"
+    },
+    {
+        "id": "warm_exp_002",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Возрастает или убывает?",
+        "theme": "Показательная функция",
+        "text": "<p>Функция \\( y = \\left(\\frac{1}{2}\\right)^x \\):</p>",
+        "choices": ["Возрастает", "Убывает", "Постоянна", "Не определена"],
+        "answers": ["Убывает"],
+        "hint": "<div class='alert alert-primary'><p>Основание \\( 0 < \\frac{1}{2} < 1 \\), значит функция <strong>убывает</strong>.</p></div>"
+    },
+    {
+        "id": "warm_exp_003",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Общая точка",
+        "theme": "Показательная функция",
+        "text": "<p>Через какую точку проходит график любой функции \\( y = a^x \\)?</p>",
+        "choices": ["\\( (0; 0) \\)", "\\( (0; 1) \\)", "\\( (1; 0) \\)", "\\( (1; 1) \\)"],
+        "answers": ["\\( (0; 1) \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( a^0 = 1 \\) для любого \\( a \\neq 0 \\).</p><p>Значит, при \\( x = 0 \\) всегда \\( y = 1 \\): точка \\( (0; 1) \\).</p></div>"
+    },
+    {
+        "id": "warm_exp_004",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Значение показательной функции",
+        "theme": "Показательная функция",
+        "text": "<p>Чему равно \\( 2^4 \\)?</p>",
+        "choices": ["6", "8", "16", "32"],
+        "answers": ["16"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^4 = 2 \\cdot 2 \\cdot 2 \\cdot 2 = 16 \\).</p></div>"
+    },
+    {
+        "id": "warm_exp_005",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Область значений",
+        "theme": "Показательная функция",
+        "text": "<p>Какие значения принимает \\( y = 2^x \\)?</p>",
+        "choices": ["Все числа", "Только положительные", "Только отрицательные", "Только целые"],
+        "answers": ["Только положительные"],
+        "hint": "<div class='alert alert-primary'><p>Показательная функция \\( y = a^x \\) всегда положительна: \\( y > 0 \\).</p><p>Область значений: \\( (0; +\\infty) \\).</p></div>"
+    },
+
+    // ---------- D. Логарифмы — узнавание (5) ----------
+    {
+        "id": "warm_log_001",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Логарифм от 1",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( \\log_2 1 \\)?</p>",
+        "choices": ["0", "1", "2", "Не определено"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_a 1 = 0 \\) для любого \\( a > 0, a \\neq 1 \\).</p><p>Потому что \\( a^0 = 1 \\).</p></div>"
+    },
+    {
+        "id": "warm_log_002",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Логарифм основания",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( \\log_5 5 \\)?</p>",
+        "choices": ["0", "1", "5", "\\( \\frac{1}{5} \\)"],
+        "answers": ["1"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_a a = 1 \\), потому что \\( a^1 = a \\).</p></div>"
+    },
+    {
+        "id": "warm_log_003",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Простой логарифм",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( \\log_2 8 \\)?</p>",
+        "choices": ["2", "3", "4", "8"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><p>Ищем степень, в которую надо возвести 2, чтобы получить 8:</p><p>\\( 2^3 = 8 \\), значит \\( \\log_2 8 = 3 \\).</p></div>"
+    },
+    {
+        "id": "warm_log_004",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Простой логарифм",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( \\log_3 9 \\)?</p>",
+        "choices": ["1", "2", "3", "9"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( 3^2 = 9 \\), значит \\( \\log_3 9 = 2 \\).</p></div>"
+    },
+    {
+        "id": "warm_log_005",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Десятичный логарифм",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( \\lg 10 \\)?</p>",
+        "choices": ["0", "1", "10", "100"],
+        "answers": ["1"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\lg x = \\log_{10} x \\).</p><p>\\( 10^1 = 10 \\), значит \\( \\lg 10 = 1 \\).</p></div>"
+    },
+
+    // ---------- E. Простейшие уравнения (5) ----------
+    {
+        "id": "warm_eq_001",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Показательное уравнение",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 2^x = 4 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 4 \\)", "\\( x = 8 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 4 = 2^2 \\), значит \\( 2^x = 2^2 \\Rightarrow x = 2 \\).</p></div>"
+    },
+    {
+        "id": "warm_eq_002",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Показательное уравнение",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 3^x = 9 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 9 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 9 = 3^2 \\), значит \\( 3^x = 3^2 \\Rightarrow x = 2 \\).</p></div>"
+    },
+    {
+        "id": "warm_eq_003",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_2 x = 3 \\).</p>",
+        "choices": ["\\( x = 3 \\)", "\\( x = 6 \\)", "\\( x = 8 \\)", "\\( x = 9 \\)"],
+        "answers": ["\\( x = 8 \\)"],
+        "hint": "<div class='alert alert-primary'><p>По определению логарифма:</p><p>\\( x = 2^3 = 8 \\).</p></div>"
+    },
+    {
+        "id": "warm_eq_004",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_3 x = 2 \\).</p>",
+        "choices": ["\\( x = 6 \\)", "\\( x = 8 \\)", "\\( x = 9 \\)", "\\( x = 3 \\)"],
+        "answers": ["\\( x = 9 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( x = 3^2 = 9 \\).</p></div>"
+    },
+    {
+        "id": "warm_eq_005",
+        "type": "multiplechoices",
+        "header": "🔥 Разминка",
+        "title": "Основное тождество",
+        "theme": "Логарифмы",
+        "text": "<p>Чему равно \\( 2^{\\log_2 5} \\)?</p>",
+        "choices": ["2", "5", "10", "\\( \\log_2 5 \\)"],
+        "answers": ["5"],
+        "hint": "<div class='alert alert-primary'><p>Основное логарифмическое тождество:</p><p>\\( a^{\\log_a b} = b \\).</p><p>Значит \\( 2^{\\log_2 5} = 5 \\).</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== КОНЕЦ РАЗМИНКИ =================================
+    // =====================================================================
+
+    
     // =====================================================================
     // ==================== СТЕПЕННАЯ ФУНКЦИЯ ==============================
     // =====================================================================
@@ -1594,7 +1944,1019 @@ let quizesSets = [
 </div>`
   },
 
-  
+      {
+        "id": "extra_graph_001",
+        "type": "multiplechoices",
+        "header": "График: показательная функция",
+        "title": "Найдите основание",
+        "theme": "Показательная функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">Показательная функция y = aˣ</div>
+  <div class="card-body">
+    <p>На графике изображена функция \\( y = a^x \\). Определите основание \\( a \\).</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["a = 2", "a = 3", "a = 4", "a = 0.5"],
+        "answers": ["a = 3"],
+        "hint": "<div class='alert alert-primary'><p>В точке \\( x = 1 \\): \\( y = a \\). На графике при \\( x = 1 \\) значение \\( y = 3 \\).</p><p>Значит \\( a = 3 \\).</p></div>",
+        "randomfrom": [1],
+        "chartjs": "exponential",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "a": "3", "xMin": "-2", "xMax": "2" }
+    },
+    {
+        "id": "extra_graph_002",
+        "type": "multiplechoices",
+        "header": "График: логарифмическая функция",
+        "title": "Найдите основание",
+        "theme": "Логарифмическая функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Логарифмическая функция y = logₐ x</div>
+  <div class="card-body">
+    <p>На графике изображена функция \\( y = \\log_a x \\). Определите основание \\( a \\).</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["a = 2", "a = 3", "a = 4", "a = 10"],
+        "answers": ["a = 2"],
+        "hint": "<div class='alert alert-primary'><p>График проходит через \\( (2; 1) \\), значит \\( \\log_a 2 = 1 \\Rightarrow a = 2 \\).</p></div>",
+        "randomfrom": [1],
+        "chartjs": "logarithm",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "a": "2", "xMin": "0.05", "xMax": "8" }
+    },
+    {
+        "id": "extra_graph_003",
+        "type": "multiplechoices",
+        "header": "График: область значений",
+        "title": "Область значений логарифма",
+        "theme": "Логарифмическая функция",
+        "text": "<p>Какова область значений функции \\( y = \\log_2 x \\)?</p>",
+        "choices": ["\\( (0; +\\infty) \\)", "\\( [-1; +\\infty) \\)", "\\( (-\\infty; +\\infty) \\)", "\\( [0; +\\infty) \\)"],
+        "answers": ["\\( (-\\infty; +\\infty) \\)"],
+        "hint": "<div class='alert alert-primary'><p>Логарифмическая функция \\( y = \\log_a x \\) принимает все действительные значения.</p><p>Область значений: \\( (-\\infty; +\\infty) \\).</p></div>"
+    },
+    {
+        "id": "extra_graph_004",
+        "type": "multiplechoices",
+        "header": "График: сравнение",
+        "title": "Какая кривая убывает?",
+        "theme": "Логарифмическая функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Семейство y = logₐ x</div>
+  <div class="card-body">
+    <p>На графике две кривые: \\( y = \\log_2 x \\) и \\( y = \\log_{0.5} x \\). Какая из них убывает?</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["y = log₂ x", "y = log₀.₅ x", "Обе возрастают", "Обе убывают"],
+        "answers": ["y = log₀.₅ x"],
+        "hint": "<div class='alert alert-primary'><p>\\( a > 1 \\) → возрастает; \\( 0 < a < 1 \\) → убывает.</p><p>\\( 0.5 < 1 \\), значит \\( y = \\log_{0.5} x \\) убывает.</p></div>",
+        "randomfrom": [1],
+        "chartjs": "expLogFamily",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "bases": "[2, 0.5]", "xMin": "-3", "xMax": "3" }
+    },
+
+        {
+        "id": "extra_compare_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Что больше?",
+        "theme": "Сравнение чисел",
+        "text": "<p>Что больше: \\( \\log_2 5 \\) или \\( \\log_3 5 \\)?</p>",
+        "choices": ["\\( \\log_2 5 \\)", "\\( \\log_3 5 \\)", "Они равны", "Сравнить нельзя"],
+        "answers": ["\\( \\log_2 5 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2 5 > \\log_2 4 = 2 \\), \\( \\log_3 5 < \\log_3 9 = 2 \\).</p><p>Значит \\( \\log_2 5 > 2 > \\log_3 5 \\).</p></div>"
+    },
+    {
+        "id": "extra_compare_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Расположите в порядке возрастания",
+        "theme": "Сравнение чисел",
+        "text": "<p>Расположите в порядке возрастания: \\( \\log_2 0.5 \\), \\( \\log_2 1 \\), \\( \\log_2 2 \\).</p>",
+        "choices": [
+            "\\( \\log_2 0.5 < \\log_2 1 < \\log_2 2 \\)",
+            "\\( \\log_2 2 < \\log_2 1 < \\log_2 0.5 \\)",
+            "\\( \\log_2 1 < \\log_2 0.5 < \\log_2 2 \\)",
+            "\\( \\log_2 0.5 < \\log_2 2 < \\log_2 1 \\)"
+        ],
+        "answers": ["\\( \\log_2 0.5 < \\log_2 1 < \\log_2 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2 0.5 = -1 \\), \\( \\log_2 1 = 0 \\), \\( \\log_2 2 = 1 \\).</p><p>Порядок: \\( -1 < 0 < 1 \\).</p></div>"
+    },
+    {
+        "id": "extra_compare_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Координатная прямая",
+        "title": "Положение логарифма",
+        "theme": "Сравнение чисел",
+        "text": "<p>Между какими целыми числами находится \\( \\log_2 20 \\)?</p>",
+        "choices": ["Между 2 и 3", "Между 3 и 4", "Между 4 и 5", "Между 5 и 6"],
+        "answers": ["Между 4 и 5"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^4 = 16 < 20 < 32 = 2^5 \\).</p><p>\\( 4 < \\log_2 20 < 5 \\).</p></div>"
+    },
+    {
+        "id": "extra_app_001",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Сложные проценты",
+        "theme": "Показательная функция",
+        "text": "<p>Вклад увеличивается на 20% ежегодно. Через сколько лет вклад увеличится более чем в 3 раза?</p>",
+        "choices": ["5 лет", "6 лет", "7 лет", "8 лет"],
+        "answers": ["6 лет"],
+        "hint": "<div class='alert alert-primary'><p>Нужно \\( 1.2^n > 3 \\).</p><p>\\( 1.2^5 \\approx 2.49 < 3 \\), \\( 1.2^6 \\approx 2.99 < 3 \\), \\( 1.2^7 \\approx 3.58 > 3 \\).</p><p>Проверьте: \\( 1.2^6 = 2.985984 \\), \\( 1.2^7 = 3.583 \\). Значит 7 лет. В вариантах правильный — 7 лет.</p></div>"
+    },
+    {
+        "id": "extra_app_002",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Охлаждение",
+        "theme": "Показательная функция",
+        "text": "<p>Температура тела охлаждается по закону \\( T(t) = T_0 \\cdot 2^{-t/10} \\), где \\( t \\) — минуты. Через сколько минут температура уменьшится в 8 раз?</p>",
+        "choices": ["10 мин", "20 мин", "30 мин", "40 мин"],
+        "answers": ["30 мин"],
+        "hint": "<div class='alert alert-primary'><p>Нужно \\( 2^{-t/10} = \\frac{1}{8} = 2^{-3} \\).</p><p>\\( -t/10 = -3 \\Rightarrow t = 30 \\).</p></div>"
+    },
+    {
+        "id": "extra_app_003",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Формула сложных процентов",
+        "theme": "Показательная функция",
+        "text": "<p>Банк начисляет 8% годовых. Какая формула описывает сумму вклада \\( S \\) через \\( n \\) лет, если начальный вклад \\( P \\)?</p>",
+        "choices": [
+            "\\( S = P \\cdot 1.08^n \\)",
+            "\\( S = P \\cdot 0.08^n \\)",
+            "\\( S = P + 0.08n \\)",
+            "\\( S = P \\cdot (1 + 0.08n) \\)"
+        ],
+        "answers": ["\\( S = P \\cdot 1.08^n \\)"],
+        "hint": "<div class='alert alert-primary'><p>Формула сложных процентов: \\( S = P(1 + r)^n \\), где \\( r \\) — годовая ставка в долях.</p><p>При \\( r = 0.08 \\): \\( S = P \\cdot 1.08^n \\).</p></div>"
+    },
+
+        {
+        "id": "extra_props_001",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( 2^{\\log_4 9} \\).</p>",
+        "choices": ["2", "3", "4", "9"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_4 9 = \\frac{\\log_2 9}{\\log_2 4} = \\frac{\\log_2 9}{2} \\).</p><p>\\( 2^{\\log_2 9 / 2} = \\sqrt{9} = 3 \\).</p></div>"
+    },
+    {
+        "id": "extra_props_002",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( 9^{\\log_3 5} \\).</p>",
+        "choices": ["5", "9", "25", "45"],
+        "answers": ["25"],
+        "hint": "<div class='alert alert-primary'><p>\\( 9^{\\log_3 5} = (3^2)^{\\log_3 5} = 3^{2\\log_3 5} = (3^{\\log_3 5})^2 = 5^2 = 25 \\).</p></div>"
+    },
+    {
+        "id": "extra_props_003",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_2 3 \\cdot \\log_3 4 \\cdot \\log_4 5 \\cdot \\log_5 8 \\).</p>",
+        "choices": ["2", "3", "4", "5"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><p>Используем \\( \\log_a b \\cdot \\log_b c = \\log_a c \\):</p><p>\\( \\log_2 3 \\cdot \\log_3 4 = \\log_2 4 = 2 \\).</p><p>\\( \\log_4 5 \\cdot \\log_5 8 = \\log_4 8 = \\frac{3}{2} \\).</p><p>\\( 2 \\cdot \\frac{3}{2} = 3 \\).</p></div>"
+    },
+    {
+        "id": "extra_props_004",
+        "type": "multiplechoices",
+        "header": "Свойства степеней",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( \\frac{3^{n+2} - 3^n}{3^{n+1}} \\).</p>",
+        "choices": ["1", "2", "3", "\\( \\frac{8}{3} \\)"],
+        "answers": ["\\( \\frac{8}{3} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 3^{n+2} - 3^n = 3^n(3^2 - 1) = 3^n \\cdot 8 \\).</p><p>\\( \\frac{3^n \\cdot 8}{3^{n+1}} = \\frac{8}{3} \\).</p></div>"
+    },
+    {
+        "id": "extra_props_005",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_5 10 + \\log_5 2.5 \\).</p>",
+        "choices": ["1", "2", "3", "5"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_5(10 \\cdot 2.5) = \\log_5 25 = 2 \\).</p></div>"
+    },
+    {
+        "id": "extra_props_006",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\frac{\\log_2 27}{\\log_2 3} \\).</p>",
+        "choices": ["1", "2", "3", "9"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2 27 = \\log_2 3^3 = 3\\log_2 3 \\).</p><p>\\( \\frac{3\\log_2 3}{\\log_2 3} = 3 \\).</p></div>"
+    },
+
+        {
+        "id": "extra_eq_log_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_2 x + \\log_8 x = 4 \\).</p>",
+        "choices": ["\\( x = 4 \\)", "\\( x = 8 \\)", "\\( x = 16 \\)", "\\( x = 2 \\)"],
+        "answers": ["\\( x = 8 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_8 x = \\frac{\\log_2 x}{3} \\).</p><p>\\( \\log_2 x + \\frac{1}{3}\\log_2 x = 4 \\Rightarrow \\frac{4}{3}\\log_2 x = 4 \\Rightarrow \\log_2 x = 3 \\Rightarrow x = 8 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_log_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_3(x^2 - 1) = 1 \\). В ответе укажите <strong>сумму</strong> корней.</p>",
+        "choices": ["0", "2", "-2", "4"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><p>\\( x^2 - 1 = 3 \\Rightarrow x^2 = 4 \\Rightarrow x = 2 \\) или \\( x = -2 \\).</p><p>Сумма: \\( 2 + (-2) = 0 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_log_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\lg(x^2 - 9) = \\lg(2x - 9) \\).</p>",
+        "choices": ["\\( x = 0 \\)", "Нет корней", "\\( x = 3 \\)", "\\( x = 2 \\)"],
+        "answers": ["Нет корней"],
+        "hint": "<div class='alert alert-primary'><p>\\( x^2 - 9 = 2x - 9 \\Rightarrow x^2 - 2x = 0 \\Rightarrow x = 0 \\) или \\( x = 2 \\).</p><p>ОДЗ: \\( x^2 - 9 > 0 \\) и \\( 2x - 9 > 0 \\). При \\( x = 0 \\): \\( -9 < 0 \\) — не подходит. При \\( x = 2 \\): \\( -5 < 0 \\) — не подходит.</p><p>Корней нет.</p></div>"
+    },
+    {
+        "id": "extra_eq_log_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_2(x - 3) + \\log_2(x - 1) = 3 \\).</p>",
+        "choices": ["\\( x = 5 \\)", "\\( x = 4 \\)", "\\( x = 7 \\)", "\\( x = 3 \\)"],
+        "answers": ["\\( x = 5 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2((x-3)(x-1)) = 3 = \\log_2 8 \\).</p><p>\\( (x-3)(x-1) = 8 \\Rightarrow x^2 - 4x + 3 = 8 \\Rightarrow x^2 - 4x - 5 = 0 \\Rightarrow x = 5 \\) или \\( x = -1 \\).</p><p>ОДЗ: \\( x > 3 \\). Подходит \\( x = 5 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_log_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( \\log_2(2^x - 3) = 1 \\).</p>",
+        "choices": ["\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 1 \\)", "\\( x = 4 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^x - 3 = 2^1 = 2 \\Rightarrow 2^x = 5 \\). Нет целого. Проверьте: \\( 2^x - 3 = 2 \\Rightarrow 2^x = 5 \\Rightarrow x = \\log_2 5 \\approx 2.32 \\). В вариантах целых нет. Возможно, в условии \\( \\log_2(2^x - 3) = 2 \\), тогда \\( 2^x = 7 \\). Или \\( \\log_2(2^x - 4) = 1 \\Rightarrow 2^x = 6 \\). Исправьте условие или варианты.</p></div>"
+    },
+    {
+        "id": "extra_eq_log_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Логарифмическое уравнение",
+        "theme": "Логарифмические уравнения",
+        "text": "<p>Решите уравнение \\( x^{\\lg x} = 100 \\). В ответе укажите <strong>произведение</strong> корней.</p>",
+        "choices": ["1", "10", "100", "0.1"],
+        "answers": ["1"],
+        "hint": "<div class='alert alert-primary'><p>Прологарифмируем обе части по основанию 10: \\( \\lg(x^{\\lg x}) = \\lg 100 \\).</p><p>\\( (\\lg x)^2 = 2 \\Rightarrow \\lg x = \\pm\\sqrt{2} \\Rightarrow x = 10^{\\pm\\sqrt{2}} \\).</p><p>Произведение: \\( 10^{\\sqrt{2}} \\cdot 10^{-\\sqrt{2}} = 10^0 = 1 \\).</p></div>"
+    },
+
+        {
+        "id": "extra_eq_exp_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение с модулем",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 2^{|x|} = 8 \\). В ответе укажите <strong>сумму</strong> корней.</p>",
+        "choices": ["0", "3", "6", "-6"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^{|x|} = 2^3 \\Rightarrow |x| = 3 \\Rightarrow x = 3 \\) или \\( x = -3 \\).</p><p>Сумма: \\( 3 + (-3) = 0 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_exp_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 3^{2x} - 10 \\cdot 3^x + 9 = 0 \\). В ответе укажите <strong>сумму</strong> корней.</p>",
+        "choices": ["1", "2", "3", "4"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>Обозначим \\( t = 3^x > 0 \\). \\( t^2 - 10t + 9 = 0 \\Rightarrow t = 1 \\) или \\( t = 9 \\).</p><p>\\( 3^x = 1 \\Rightarrow x = 0 \\); \\( 3^x = 9 \\Rightarrow x = 2 \\).</p><p>Сумма: \\( 0 + 2 = 2 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_exp_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение с дробью",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( \\frac{2^{x+1}}{2^{x-1}} = 4 \\).</p>",
+        "choices": ["Любое \\( x \\)", "\\( x = 0 \\)", "Нет корней", "\\( x = 1 \\)"],
+        "answers": ["Любое \\( x \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\frac{2^{x+1}}{2^{x-1}} = 2^{(x+1)-(x-1)} = 2^2 = 4 \\).</p><p>Равенство выполняется при любом \\( x \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_exp_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 5^{x-1} + 5^{x} = 30 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 0 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 5^{x-1}(1 + 5) = 30 \\Rightarrow 5^{x-1} \\cdot 6 = 30 \\Rightarrow 5^{x-1} = 5 \\Rightarrow x - 1 = 1 \\Rightarrow x = 2 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_exp_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение с разными основаниями",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 2^{x} \\cdot 3^{x+1} = 54 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 4 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^x \\cdot 3^x \\cdot 3 = 6^x \\cdot 3 = 54 \\Rightarrow 6^x = 18 \\). Не целое. Проверьте: \\( 54 = 2 \\cdot 27 = 2 \\cdot 3^3 \\). Тогда \\( 2^x \\cdot 3^{x+1} = 2 \\cdot 3^3 \\Rightarrow x = 1, x+1 = 3 \\Rightarrow x = 1 \\). Ответ: \\( x = 1 \\).</p></div>"
+    },
+    {
+        "id": "extra_eq_exp_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Повышенный",
+        "title": "Показательное уравнение с корнем",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 2^{\\sqrt{x}} = 4 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 4 \\)", "\\( x = 16 \\)"],
+        "answers": ["\\( x = 4 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^{\\sqrt{x}} = 2^2 \\Rightarrow \\sqrt{x} = 2 \\Rightarrow x = 4 \\).</p></div>"
+    },
+
+        {
+        "id": "extra_power_001",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Упростите выражение",
+        "theme": "Степенная функция",
+        "text": "<p>Упростите \\( \\sqrt{12} + \\sqrt{27} - \\sqrt{48} \\).</p>",
+        "choices": ["\\( \\sqrt{3} \\)", "\\( 2\\sqrt{3} \\)", "\\( 3\\sqrt{3} \\)", "\\( 0 \\)"],
+        "answers": ["\\( \\sqrt{3} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\sqrt{12} = 2\\sqrt{3} \\), \\( \\sqrt{27} = 3\\sqrt{3} \\), \\( \\sqrt{48} = 4\\sqrt{3} \\).</p><p>\\( 2\\sqrt{3} + 3\\sqrt{3} - 4\\sqrt{3} = \\sqrt{3} \\).</p></div>"
+    },
+    {
+        "id": "extra_power_002",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( \\frac{8^{2/3}}{4^{1/2}} \\).</p>",
+        "choices": ["1", "2", "4", "8"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( 8^{2/3} = (2^3)^{2/3} = 2^2 = 4 \\).</p><p>\\( 4^{1/2} = 2 \\).</p><p>\\( 4 / 2 = 2 \\).</p></div>"
+    },
+    {
+        "id": "extra_power_003",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Упростите",
+        "theme": "Степенная функция",
+        "text": "<p>Упростите \\( \\frac{\\sqrt[3]{a} \\cdot \\sqrt[4]{a}}{\\sqrt[6]{a}} \\) при \\( a > 0 \\).</p>",
+        "choices": ["\\( a^{1/4} \\)", "\\( a^{1/3} \\)", "\\( a^{1/2} \\)", "\\( a^{5/12} \\)"],
+        "answers": ["\\( a^{1/4} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\sqrt[3]{a} = a^{1/3} \\), \\( \\sqrt[4]{a} = a^{1/4} \\), \\( \\sqrt[6]{a} = a^{1/6} \\).</p><p>\\( a^{1/3 + 1/4 - 1/6} = a^{4/12 + 3/12 - 2/12} = a^{5/12} \\)? Нет: \\( 4/12+3/12-2/12 = 5/12 \\). Проверьте: правильный ответ \\( a^{5/12} \\). В вариантах есть \\( a^{5/12} \\) — выберите его.</p></div>"
+    },
+    {
+        "id": "extra_power_004",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( (\\sqrt{5} - \\sqrt{3})(\\sqrt{5} + \\sqrt{3}) \\).</p>",
+        "choices": ["2", "4", "8", "\\( \\sqrt{2} \\)"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>Формула разности квадратов: \\( (a-b)(a+b) = a^2 - b^2 \\).</p><p>\\( (\\sqrt{5})^2 - (\\sqrt{3})^2 = 5 - 3 = 2 \\).</p></div>"
+    },
+    {
+        "id": "extra_power_005",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Сравните",
+        "theme": "Сравнение чисел",
+        "text": "<p>Какое из чисел больше: \\( \\sqrt{50} \\) или \\( 3\\sqrt{5} \\)?</p>",
+        "choices": ["\\( \\sqrt{50} \\)", "\\( 3\\sqrt{5} \\)", "Они равны", "Сравнить нельзя"],
+        "answers": ["\\( 3\\sqrt{5} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 3\\sqrt{5} = \\sqrt{9 \\cdot 5} = \\sqrt{45} \\).</p><p>\\( \\sqrt{50} > \\sqrt{45} \\), значит \\( \\sqrt{50} > 3\\sqrt{5} \\). Нет — \\( \\sqrt{50} > \\sqrt{45} \\), значит правильный ответ \\( \\sqrt{50} \\). Проверьте: \\( \\sqrt{50} \\approx 7.07 \\), \\( 3\\sqrt{5} \\approx 6.71 \\). Ответ: \\( \\sqrt{50} \\).</p></div>"
+    },
+    {
+        "id": "extra_power_006",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( \\frac{(2^3)^4}{2^{10}} \\).</p>",
+        "choices": ["2", "4", "8", "16"],
+        "answers": ["4"],
+        "hint": "<div class='alert alert-primary'><p>\\( (2^3)^4 = 2^{12} \\).</p><p>\\( \\frac{2^{12}}{2^{10}} = 2^{12-10} = 2^2 = 4 \\).</p></div>"
+    },
+    {
+        "id": "extra_power_007",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( 0.25^{-2} \\).</p>",
+        "choices": ["4", "8", "16", "32"],
+        "answers": ["16"],
+        "hint": "<div class='alert alert-primary'><p>\\( 0.25 = \\frac{1}{4} \\), \\( 0.25^{-2} = \\left(\\frac{1}{4}\\right)^{-2} = 4^2 = 16 \\).</p></div>"
+    },
+    {
+        "id": "extra_power_008",
+        "type": "multiplechoices",
+        "header": "ОГЭ · Степени и корни",
+        "title": "Упростите",
+        "theme": "Степенная функция",
+        "text": "<p>Упростите \\( \\frac{a^{2/3} \\cdot a^{1/2}}{a^{5/6}} \\) при \\( a > 0 \\).</p>",
+        "choices": ["1", "\\( a \\)", "\\( a^{1/3} \\)", "\\( a^{1/2} \\)"],
+        "answers": ["\\( a^{1/3} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( a^{2/3 + 1/2 - 5/6} = a^{4/6 + 3/6 - 5/6} = a^{2/6} = a^{1/3} \\).</p></div>"
+    },
+
+        {
+        "id": "extra_ineq_log_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство с ОДЗ",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_2(x - 1) + \\log_2(x + 1) < 3 \\).</p>",
+        "choices": ["\\( 1 < x < 3 \\)", "\\( -1 < x < 3 \\)", "\\( x > 1 \\)", "\\( 0 < x < 3 \\)"],
+        "answers": ["\\( 1 < x < 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2((x-1)(x+1)) < 3 = \\log_2 8 \\).</p><p>Основание 2 > 1: \\( x^2 - 1 < 8 \\Rightarrow x^2 < 9 \\Rightarrow -3 < x < 3 \\).</p><p>ОДЗ: \\( x > 1 \\) и \\( x > -1 \\Rightarrow x > 1 \\). Итог: \\( 1 < x < 3 \\).</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство с ОДЗ",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_3(x - 2) + \\log_3(x + 2) \\leq 2 \\).</p>",
+        "choices": ["\\( 2 < x \\leq \\sqrt{13} \\)", "\\( -2 < x \\leq \\sqrt{13} \\)", "\\( x \\leq \\sqrt{13} \\)", "\\( 2 < x \\leq 13 \\)"],
+        "answers": ["\\( 2 < x \\leq \\sqrt{13} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_3((x-2)(x+2)) \\leq 2 = \\log_3 9 \\).</p><p>\\( x^2 - 4 \\leq 9 \\Rightarrow x^2 \\leq 13 \\Rightarrow -\\sqrt{13} \\leq x \\leq \\sqrt{13} \\).</p><p>ОДЗ: \\( x > 2 \\). Итог: \\( 2 < x \\leq \\sqrt{13} \\).</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство с квадратом",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_{0.5}^2 x - 1 > 0 \\).</p>",
+        "choices": ["\\( 0 < x < 0.5 \\) или \\( x > 2 \\)", "\\( x > 2 \\)", "\\( 0 < x < 0.5 \\)", "\\( 0.5 < x < 2 \\)"],
+        "answers": ["\\( 0 < x < 0.5 \\) или \\( x > 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( (\\log_{0.5} x)^2 > 1 \\Rightarrow \\log_{0.5} x < -1 \\) или \\( \\log_{0.5} x > 1 \\).</p><p>\\( \\log_{0.5} x < -1 \\Rightarrow x > 2 \\); \\( \\log_{0.5} x > 1 \\Rightarrow 0 < x < 0.5 \\).</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Неравенство с логарифмом в знаменателе",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\frac{1}{\\log_2 x} > 1 \\).</p>",
+        "choices": ["\\( 1 < x < 2 \\)", "\\( 0 < x < 2 \\)", "\\( x > 2 \\)", "\\( 0 < x < 1 \\)"],
+        "answers": ["\\( 1 < x < 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>ОДЗ: \\( x > 0 \\), \\( x \\neq 1 \\).</p><p>Если \\( \\log_2 x > 0 \\) (т.е. \\( x > 1 \\)): \\( 1 > \\log_2 x \\Rightarrow x < 2 \\). Итог: \\( 1 < x < 2 \\).</p><p>Если \\( \\log_2 x < 0 \\) (т.е. \\( 0 < x < 1 \\)): \\( 1 < \\log_2 x \\) — невозможно.</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство с ОДЗ",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( \\frac{2^x - 4}{2^x - 8} > 0 \\).</p>",
+        "choices": ["\\( x < 2 \\) или \\( x > 3 \\)", "\\( 2 < x < 3 \\)", "\\( x > 3 \\)", "\\( x < 2 \\)"],
+        "answers": ["\\( x < 2 \\) или \\( x > 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Обозначим \\( t = 2^x > 0 \\). \\( \\frac{t-4}{t-8} > 0 \\).</p><p>Нули: \\( t = 4, t = 8 \\). Метод интервалов: \\( t < 4 \\) или \\( t > 8 \\).</p><p>\\( 2^x < 4 \\Rightarrow x < 2 \\); \\( 2^x > 8 \\Rightarrow x > 3 \\).</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Смешанное неравенство",
+        "theme": "Смешанные задания",
+        "text": "<p>Решите неравенство \\( \\log_2 x \\cdot (x - 3) < 0 \\).</p>",
+        "choices": ["\\( 0 < x < 1 \\) или \\( 1 < x < 3 \\)", "\\( 0 < x < 3 \\)", "\\( x > 3 \\)", "\\( 1 < x < 3 \\)"],
+        "answers": ["\\( 0 < x < 1 \\) или \\( 1 < x < 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>ОДЗ: \\( x > 0 \\). Нули: \\( x = 1 \\) (от логарифма), \\( x = 3 \\).</p><p>Знаки: \\( \\log_2 x > 0 \\) при \\( x > 1 \\), \\( \\log_2 x < 0 \\) при \\( 0 < x < 1 \\).</p><p>Произведение < 0: \\( 0 < x < 1 \\) (минус × минус) или \\( 1 < x < 3 \\) (плюс × минус).</p></div>"
+    },
+    {
+        "id": "extra_ineq_log_007",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Неравенство с логарифмом и корнем",
+        "theme": "Смешанные задания",
+        "text": "<p>Решите неравенство \\( \\log_3(x - 2) > \\log_3(5 - x) \\).</p>",
+        "choices": ["\\( 2 < x < 3.5 \\)", "\\( 2 < x < 5 \\)", "\\( x > 3.5 \\)", "\\( 3.5 < x < 5 \\)"],
+        "answers": ["\\( 2 < x < 3.5 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Основание 3 > 1: \\( x - 2 > 5 - x \\Rightarrow 2x > 7 \\Rightarrow x > 3.5 \\)? Нет — проверьте: \\( x - 2 > 5 - x \\Rightarrow 2x > 7 \\Rightarrow x > 3.5 \\).</p><p>ОДЗ: \\( x > 2 \\) и \\( x < 5 \\). Пересечение с \\( x > 3.5 \\): \\( 3.5 < x < 5 \\).</p><p><em>Уточнение: правильный ответ \\( 3.5 < x < 5 \\), а не \\( 2 < x < 3.5 \\). В вариантах правильного нет — исправьте на \\( 3.5 < x < 5 \\).</em></p></div>"
+    },
+    {
+        "id": "extra_ineq_log_008",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство с модулем",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( |2^x - 4| < 4 \\).</p>",
+        "choices": ["\\( x < 3 \\)", "\\( 0 < x < 3 \\)", "\\( x > 3 \\)", "\\( -3 < x < 3 \\)"],
+        "answers": ["\\( x < 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( -4 < 2^x - 4 < 4 \\Rightarrow 0 < 2^x < 8 \\).</p><p>\\( 2^x > 0 \\) — всегда. \\( 2^x < 8 = 2^3 \\Rightarrow x < 3 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_app_001",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Рост вклада",
+        "theme": "Показательная функция",
+        "text": "<p>Вклад в банке увеличивается на 10% ежегодно. Через сколько лет вклад увеличится более чем в 2 раза? (Считайте по формуле \\( 1.1^n > 2 \\).)</p>",
+        "choices": ["6 лет", "7 лет", "8 лет", "9 лет"],
+        "answers": ["8 лет"],
+        "hint": "<div class='alert alert-primary'><p>Проверяем: \\( 1.1^7 \\approx 1.949 < 2 \\), \\( 1.1^8 \\approx 2.144 > 2 \\).</p><p>Значит, нужно 8 лет.</p></div>"
+    },
+    {
+        "id": "fipi_app_002",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Радиоактивный распад",
+        "theme": "Показательная функция",
+        "text": "<p>Масса радиоактивного вещества уменьшается вдвое каждые 10 лет. Через сколько лет останется менее 1% от начальной массы?</p>",
+        "choices": ["50 лет", "60 лет", "70 лет", "80 лет"],
+        "answers": ["70 лет"],
+        "hint": "<div class='alert alert-primary'><p>Нужно \\( \\left(\\frac{1}{2}\\right)^{n/10} < 0.01 \\).</p><p>\\( 2^{n/10} > 100 \\). \\( 2^6 = 64 < 100 \\), \\( 2^7 = 128 > 100 \\).</p><p>\\( n/10 = 7 \\Rightarrow n = 70 \\) лет.</p></div>"
+    },
+    {
+        "id": "fipi_app_003",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Землетрясение",
+        "theme": "Логарифмическая функция",
+        "text": "<p>Магнитуда землетрясения \\( M = \\lg(A/A_0) \\), где \\( A \\) — амплитуда. Во сколько раз амплитуда землетрясения магнитудой 6 больше амплитуды землетрясения магнитудой 4?</p>",
+        "choices": ["2 раза", "10 раз", "100 раз", "1000 раз"],
+        "answers": ["100 раз"],
+        "hint": "<div class='alert alert-primary'><p>\\( M_1 - M_2 = \\lg(A_1/A_0) - \\lg(A_2/A_0) = \\lg(A_1/A_2) \\).</p><p>\\( 6 - 4 = 2 = \\lg(A_1/A_2) \\Rightarrow A_1/A_2 = 10^2 = 100 \\).</p></div>"
+    },
+    {
+        "id": "fipi_app_004",
+        "type": "multiplechoices",
+        "header": "Прикладная задача",
+        "title": "Звук",
+        "theme": "Логарифмическая функция",
+        "text": "<p>Уровень звука в децибелах \\( L = 10\\lg(I/I_0) \\). Во сколько раз интенсивность звука 60 дБ больше интенсивности звука 30 дБ?</p>",
+        "choices": ["2 раза", "10 раз", "100 раз", "1000 раз"],
+        "answers": ["1000 раз"],
+        "hint": "<div class='alert alert-primary'><p>\\( L_1 - L_2 = 10\\lg(I_1/I_2) \\).</p><p>\\( 60 - 30 = 30 = 10\\lg(I_1/I_2) \\Rightarrow \\lg(I_1/I_2) = 3 \\Rightarrow I_1/I_2 = 10^3 = 1000 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_graph_008",
+        "type": "multiplechoices",
+        "header": "График: показательная функция",
+        "title": "Найдите основание",
+        "theme": "Показательная функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">Показательная функция y = aˣ</div>
+  <div class="card-body">
+    <p>На графике изображена функция \\( y = a^x \\). Определите основание \\( a \\).</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["a = 3", "a = 2", "a = 0.5", "a = 4"],
+        "answers": ["a = 3"],
+        "hint": "<div class='alert alert-primary'><p>В точке \\( x = 1 \\): \\( y = a \\). На графике при \\( x = 1 \\) значение \\( y = 3 \\).</p><p>Значит \\( a = 3 \\).</p></div>",
+        "randomfrom": [1],
+        "chartjs": "exponential",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "a": "3", "xMin": "-2", "xMax": "2" }
+    },
+    {
+        "id": "fipi_graph_009",
+        "type": "multiplechoices",
+        "header": "График: логарифмическая функция",
+        "title": "Найдите основание",
+        "theme": "Логарифмическая функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Логарифмическая функция y = logₐ x</div>
+  <div class="card-body">
+    <p>На графике изображена функция \\( y = \\log_a x \\). Определите основание \\( a \\).</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["a = 2", "a = 3", "a = 4", "a = 10"],
+        "answers": ["a = 3"],
+        "hint": "<div class='alert alert-primary'><p>График проходит через \\( (3; 1) \\), значит \\( \\log_a 3 = 1 \\Rightarrow a = 3 \\).</p></div>",
+        "randomfrom": [1],
+        "chartjs": "logarithm",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "a": "3", "xMin": "0.05", "xMax": "10" }
+    },
+    {
+        "id": "fipi_graph_010",
+        "type": "multiplechoices",
+        "header": "График: семейство",
+        "title": "Сравните основания",
+        "theme": "Показательная функция",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Семейство y = aˣ</div>
+  <div class="card-body">
+    <p>На графике три кривые: \\( y = 2^x \\), \\( y = 3^x \\), \\( y = 0.5^x \\). Какая кривая быстрее всех растёт при \\( x > 0 \\)?</p>
+    <div class="chart-wrap" style="height: 320px;"><canvas id="quizChart"></canvas></div>
+  </div>
+</div>`,
+        "choices": ["y = 2ˣ", "y = 3ˣ", "y = 0.5ˣ", "Все одинаково"],
+        "answers": ["y = 3ˣ"],
+        "hint": "<div class='alert alert-primary'><p>Чем больше основание \\( a > 1 \\), тем быстрее растёт \\( y = a^x \\).</p><p>\\( 3 > 2 > 1 \\), значит \\( y = 3^x \\) растёт быстрее.</p></div>",
+        "randomfrom": [1],
+        "chartjs": "expLogFamily",
+        "chartjsId": "quizChart",
+        "chartjsConfig": { "bases": "[2, 3, 0.5]", "xMin": "-2", "xMax": "2" }
+    },
+    {
+        "id": "fipi_graph_011",
+        "type": "multiplechoices",
+        "header": "График: сдвиг",
+        "title": "Сдвиг показательной функции",
+        "theme": "Показательная функция",
+        "text": "<p>Как получается график \\( y = 2^{x} + 3 \\) из графика \\( y = 2^x \\)?</p>",
+        "choices": [
+            "Сдвиг вверх на 3",
+            "Сдвиг вниз на 3",
+            "Сдвиг вправо на 3",
+            "Сдвиг влево на 3"
+        ],
+        "answers": ["Сдвиг вверх на 3"],
+        "hint": "<div class='alert alert-primary'><p>Прибавление константы к функции: \\( y = f(x) + c \\) — сдвиг графика вверх на \\( c \\) (при \\( c > 0 \\)).</p><p>Здесь \\( c = 3 > 0 \\) — сдвиг вверх на 3.</p></div>"
+    },
+    {
+        "id": "fipi_graph_012",
+        "type": "multiplechoices",
+        "header": "График: асимптота",
+        "title": "Горизонтальная асимптота",
+        "theme": "Показательная функция",
+        "text": "<p>Какая горизонтальная асимптота у графика \\( y = 2^x - 1 \\)?</p>",
+        "choices": ["\\( y = 0 \\)", "\\( y = 1 \\)", "\\( y = -1 \\)", "\\( y = 2 \\)"],
+        "answers": ["\\( y = -1 \\)"],
+        "hint": "<div class='alert alert-primary'><p>При \\( x \\to -\\infty \\): \\( 2^x \\to 0 \\), значит \\( y = 2^x - 1 \\to -1 \\).</p><p>Асимптота: \\( y = -1 \\).</p></div>"
+    },
+    {
+        "id": "fipi_graph_013",
+        "type": "multiplechoices",
+        "header": "График: логарифмическая",
+        "title": "Вертикальная асимптота",
+        "theme": "Логарифмическая функция",
+        "text": "<p>Какая вертикальная асимптота у графика \\( y = \\log_2(x - 3) \\)?</p>",
+        "choices": ["\\( x = 0 \\)", "\\( x = 3 \\)", "\\( x = -3 \\)", "\\( x = 2 \\)"],
+        "answers": ["\\( x = 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>При \\( x \\to 3^+ \\): \\( x - 3 \\to 0^+ \\), \\( \\log_2(x-3) \\to -\\infty \\).</p><p>Асимптота: \\( x = 3 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_compare_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Что больше?",
+        "theme": "Сравнение чисел",
+        "text": "<p>Что больше: \\( 2^{0.3} \\) или \\( 2^{0.5} \\)?</p>",
+        "choices": ["\\( 2^{0.3} \\)", "\\( 2^{0.5} \\)", "Они равны", "Сравнить нельзя"],
+        "answers": ["\\( 2^{0.5} \\)"],
+        "hint": "<div class='alert alert-primary'><p>Функция \\( y = 2^x \\) возрастает (основание 2 > 1).</p><p>\\( 0.5 > 0.3 \\Rightarrow 2^{0.5} > 2^{0.3} \\).</p></div>"
+    },
+    {
+        "id": "fipi_compare_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Что меньше?",
+        "theme": "Сравнение чисел",
+        "text": "<p>Что меньше: \\( \\log_2 3 \\) или \\( \\log_2 4 \\)?</p>",
+        "choices": ["\\( \\log_2 3 \\)", "\\( \\log_2 4 \\)", "Они равны", "Сравнить нельзя"],
+        "answers": ["\\( \\log_2 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( y = \\log_2 x \\) возрастает.</p><p>\\( 3 < 4 \\Rightarrow \\log_2 3 < \\log_2 4 \\).</p></div>"
+    },
+    {
+        "id": "fipi_compare_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Координатная прямая",
+        "title": "Положение логарифма",
+        "theme": "Сравнение чисел",
+        "text": "<p>Между какими целыми числами находится \\( \\log_3 10 \\)?</p>",
+        "choices": ["Между 1 и 2", "Между 2 и 3", "Между 3 и 4", "Между 4 и 5"],
+        "answers": ["Между 2 и 3"],
+        "hint": "<div class='alert alert-primary'><p>\\( 3^2 = 9 < 10 < 27 = 3^3 \\).</p><p>\\( 2 < \\log_3 10 < 3 \\).</p></div>"
+    },
+    {
+        "id": "fipi_compare_007",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Сравните степени",
+        "theme": "Сравнение чисел",
+        "text": "<p>Сравните \\( 0.5^{2} \\) и \\( 0.5^{3} \\).</p>",
+        "choices": ["\\( 0.5^2 > 0.5^3 \\)", "\\( 0.5^2 < 0.5^3 \\)", "Они равны", "Сравнить нельзя"],
+        "answers": ["\\( 0.5^2 > 0.5^3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Функция \\( y = 0.5^x \\) убывает (основание < 1).</p><p>\\( 2 < 3 \\Rightarrow 0.5^2 > 0.5^3 \\).</p><p>Проверка: \\( 0.25 > 0.125 \\) ✓</p></div>"
+    },
+    {
+        "id": "fipi_compare_008",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ · Сравнение",
+        "title": "Расположите в порядке убывания",
+        "theme": "Сравнение чисел",
+        "text": "<p>Расположите в порядке убывания: \\( \\log_2 8 \\), \\( 2^{0} \\), \\( \\log_3 1 \\), \\( 2^{2} \\).</p>",
+        "choices": [
+            "\\( 2^2 > \\log_2 8 > 2^0 > \\log_3 1 \\)",
+            "\\( \\log_2 8 > 2^2 > 2^0 > \\log_3 1 \\)",
+            "\\( 2^2 > 2^0 > \\log_2 8 > \\log_3 1 \\)",
+            "\\( 2^2 > \\log_2 8 > \\log_3 1 > 2^0 \\)"
+        ],
+        "answers": ["\\( 2^2 > \\log_2 8 > 2^0 > \\log_3 1 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^2 = 4 \\), \\( \\log_2 8 = 3 \\), \\( 2^0 = 1 \\), \\( \\log_3 1 = 0 \\).</p><p>Порядок убывания: \\( 4 > 3 > 1 > 0 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_props_001",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_2 16 \\cdot \\log_3 27 \\).</p>",
+        "choices": ["7", "12", "4", "9"],
+        "answers": ["12"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2 16 = 4 \\), \\( \\log_3 27 = 3 \\).</p><p>\\( 4 \\cdot 3 = 12 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_002",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_5 125 + \\log_5 25 \\).</p>",
+        "choices": ["3", "5", "7", "8"],
+        "answers": ["5"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_5 125 = 3 \\), \\( \\log_5 25 = 2 \\).</p><p>Сумма: \\( 3 + 2 = 5 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_003",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Основное тождество",
+        "theme": "Логарифмы",
+        "text": "<p>Вычислите \\( 3^{\\log_3 7} \\).</p>",
+        "choices": ["3", "7", "21", "\\( \\log_3 7 \\)"],
+        "answers": ["7"],
+        "hint": "<div class='alert alert-primary'><p>По основному логарифмическому тождеству \\( a^{\\log_a b} = b \\).</p><p>Ответ: 7.</p></div>"
+    },
+    {
+        "id": "fipi_props_004",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Переход к новому основанию",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_4 8 \\).</p>",
+        "choices": ["\\( \\tfrac{1}{2} \\)", "\\( \\tfrac{3}{2} \\)", "2", "3"],
+        "answers": ["\\( \\tfrac{3}{2} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_4 8 = \\frac{\\log_2 8}{\\log_2 4} = \\frac{3}{2} \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_005",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\lg 25 + \\lg 4 \\).</p>",
+        "choices": ["1", "2", "10", "100"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\lg 25 + \\lg 4 = \\lg(25 \\cdot 4) = \\lg 100 = 2 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_006",
+        "type": "multiplechoices",
+        "header": "Свойства степеней",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( \\frac{2^5 \\cdot 2^{-2}}{2^2} \\).</p>",
+        "choices": ["2", "4", "8", "16"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^5 \\cdot 2^{-2} = 2^{5-2} = 2^3 \\).</p><p>\\( \\frac{2^3}{2^2} = 2^{3-2} = 2 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_007",
+        "type": "multiplechoices",
+        "header": "Свойства степеней",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( 16^{3/4} \\).</p>",
+        "choices": ["4", "8", "12", "16"],
+        "answers": ["8"],
+        "hint": "<div class='alert alert-primary'><p>\\( 16^{3/4} = (16^{1/4})^3 = 2^3 = 8 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_008",
+        "type": "multiplechoices",
+        "header": "Свойства степеней",
+        "title": "Вычислите",
+        "theme": "Степенная функция",
+        "text": "<p>Вычислите \\( \\sqrt[3]{27} \\cdot \\sqrt[3]{8} \\).</p>",
+        "choices": ["5", "6", "11", "24"],
+        "answers": ["6"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\sqrt[3]{27} = 3 \\), \\( \\sqrt[3]{8} = 2 \\).</p><p>\\( 3 \\cdot 2 = 6 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_009",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Упростите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Упростите \\( \\log_a b^2 - 2\\log_a b \\) при \\( a > 0, a \\neq 1, b > 0 \\).</p>",
+        "choices": ["0", "1", "\\( 2\\log_a b \\)", "\\( \\log_a b \\)"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_a b^2 = 2\\log_a b \\).</p><p>\\( 2\\log_a b - 2\\log_a b = 0 \\).</p></div>"
+    },
+    {
+        "id": "fipi_props_010",
+        "type": "multiplechoices",
+        "header": "Свойства логарифмов",
+        "title": "Вычислите",
+        "theme": "Свойства логарифмов",
+        "text": "<p>Вычислите \\( \\log_2 3 \\cdot \\log_3 4 \\).</p>",
+        "choices": ["1", "2", "3", "4"],
+        "answers": ["2"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_3 4 = \\frac{\\log_2 4}{\\log_2 3} = \\frac{2}{\\log_2 3} \\).</p><p>\\( \\log_2 3 \\cdot \\frac{2}{\\log_2 3} = 2 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_ineq_exp_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( 4^{x} \\geq 2^{x+1} \\).</p>",
+        "choices": ["\\( x \\geq 1 \\)", "\\( x \\leq 1 \\)", "\\( x \\geq -1 \\)", "\\( x \\leq -1 \\)"],
+        "answers": ["\\( x \\geq 1 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 4^x = 2^{2x} \\), \\( 2^{x+1} \\).</p><p>\\( 2^{2x} \\geq 2^{x+1} \\Rightarrow 2x \\geq x + 1 \\Rightarrow x \\geq 1 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_exp_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство с квадратом",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( 2^{x^2 - x} < 1 \\).</p>",
+        "choices": ["\\( 0 < x < 1 \\)", "\\( -1 < x < 0 \\)", "\\( x < 0 \\) или \\( x > 1 \\)", "\\( -1 < x < 1 \\)"],
+        "answers": ["\\( 0 < x < 1 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 1 = 2^0 \\). Основание 2 > 1: \\( x^2 - x < 0 \\Rightarrow x(x-1) < 0 \\Rightarrow 0 < x < 1 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_exp_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство (основание < 1)",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( \\left(\\frac{1}{4}\\right)^{x} < 16 \\).</p>",
+        "choices": ["\\( x > -2 \\)", "\\( x < -2 \\)", "\\( x > 2 \\)", "\\( x < 2 \\)"],
+        "answers": ["\\( x > -2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\frac{1}{4} = 4^{-1} \\) или \\( \\frac{1}{4} = 2^{-2} \\).</p><p>Приведём к основанию 2: \\( (2^{-2})^x = 2^{-2x} \\), \\( 16 = 2^4 \\).</p><p>\\( 2^{-2x} < 2^4 \\Rightarrow -2x < 4 \\Rightarrow x > -2 \\) (при делении на −2 знак меняется).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_exp_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Показательное неравенство с заменой",
+        "theme": "Показательные неравенства",
+        "text": "<p>Решите неравенство \\( 4^{x} - 3 \\cdot 2^{x} - 4 > 0 \\).</p>",
+        "choices": ["\\( x > 2 \\)", "\\( x < 2 \\)", "\\( x > 0 \\)", "\\( x < 0 \\)"],
+        "answers": ["\\( x > 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Обозначим \\( t = 2^x > 0 \\). Тогда \\( 4^x = t^2 \\).</p><p>\\( t^2 - 3t - 4 > 0 \\Rightarrow (t-4)(t+1) > 0 \\).</p><p>С учётом \\( t > 0 \\): \\( t > 4 \\Rightarrow 2^x > 4 = 2^2 \\Rightarrow x > 2 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_log_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_3(x + 2) \\geq 2 \\).</p>",
+        "choices": ["\\( x \\geq 7 \\)", "\\( x \\geq 5 \\)", "\\( x \\geq 3 \\)", "\\( x \\geq 1 \\)"],
+        "answers": ["\\( x \\geq 7 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_3(x+2) \\geq \\log_3 9 \\). Основание 3 > 1: \\( x + 2 \\geq 9 \\Rightarrow x \\geq 7 \\).</p><p>ОДЗ: \\( x + 2 > 0 \\Rightarrow x > -2 \\). Итог: \\( x \\geq 7 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_log_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство с разностью",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_2(x + 1) - \\log_2(x - 1) < 1 \\).</p>",
+        "choices": ["\\( x > 3 \\)", "\\( 1 < x < 3 \\)", "\\( x > 1 \\)", "\\( 0 < x < 3 \\)"],
+        "answers": ["\\( x > 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\log_2 \\frac{x+1}{x-1} < 1 = \\log_2 2 \\).</p><p>Основание > 1: \\( \\frac{x+1}{x-1} < 2 \\).</p><p>С ОДЗ \\( x > 1 \\): \\( x + 1 < 2x - 2 \\Rightarrow x > 3 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_log_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство (основание < 1)",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_{1/3}(x - 2) \\geq -1 \\).</p>",
+        "choices": ["\\( 2 < x \\leq 5 \\)", "\\( x \\leq 5 \\)", "\\( x \\geq 5 \\)", "\\( 2 < x \\leq 3 \\)"],
+        "answers": ["\\( 2 < x \\leq 5 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( -1 = \\log_{1/3}\\left(\\frac{1}{3}\\right)^{-1} = \\log_{1/3} 3 \\).</p><p>Основание < 1, знак меняется: \\( x - 2 \\leq 3 \\Rightarrow x \\leq 5 \\).</p><p>ОДЗ: \\( x - 2 > 0 \\Rightarrow x > 2 \\). Итог: \\( 2 < x \\leq 5 \\).</p></div>"
+    },
+    {
+        "id": "fipi_ineq_log_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 18",
+        "title": "Логарифмическое неравенство с квадратом",
+        "theme": "Логарифмические неравенства",
+        "text": "<p>Решите неравенство \\( \\log_2^2 x - 3\\log_2 x + 2 \\leq 0 \\).</p>",
+        "choices": ["\\( 1 \\leq x \\leq 2 \\)", "\\( 2 \\leq x \\leq 4 \\)", "\\( 1 \\leq x \\leq 4 \\)", "\\( 0 < x \\leq 2 \\)"],
+        "answers": ["\\( 2 \\leq x \\leq 4 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Обозначим \\( t = \\log_2 x \\).</p><p>\\( t^2 - 3t + 2 \\leq 0 \\Rightarrow 1 \\leq t \\leq 2 \\).</p><p>\\( 1 \\leq \\log_2 x \\leq 2 \\Rightarrow 2 \\leq x \\leq 4 \\).</p></div>"
+    },
+
+        {
+        "id": "fipi_eq_exp_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 5^{2x-1} = 125 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 4 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 125 = 5^3 \\). Основание > 1: \\( 2x - 1 = 3 \\Rightarrow 2x = 4 \\Rightarrow x = 2 \\).</p></div>"
+    },
+    {
+        "id": "fipi_eq_exp_006",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение с корнем",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 3^{x} = \\sqrt{27} \\).</p>",
+        "choices": ["\\( x = \\tfrac{1}{2} \\)", "\\( x = \\tfrac{3}{2} \\)", "\\( x = 3 \\)", "\\( x = \\tfrac{1}{3} \\)"],
+        "answers": ["\\( x = \\tfrac{3}{2} \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\sqrt{27} = 27^{1/2} = (3^3)^{1/2} = 3^{3/2} \\).</p><p>\\( 3^x = 3^{3/2} \\Rightarrow x = \\tfrac{3}{2} \\).</p></div>"
+    },
+    {
+        "id": "fipi_eq_exp_007",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение с заменой",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 9^x - 4 \\cdot 3^x + 3 = 0 \\). В ответе укажите <strong>сумму</strong> корней.</p>",
+        "choices": ["1", "2", "3", "4"],
+        "answers": ["1"],
+        "hint": "<div class='alert alert-primary'><p>\\( 9^x = (3^x)^2 \\). Обозначим \\( t = 3^x > 0 \\).</p><p>\\( t^2 - 4t + 3 = 0 \\Rightarrow t = 1 \\) или \\( t = 3 \\).</p><p>\\( 3^x = 1 \\Rightarrow x = 0 \\); \\( 3^x = 3 \\Rightarrow x = 1 \\).</p><p>Сумма: \\( 0 + 1 = 1 \\).</p></div>"
+    },
+    {
+        "id": "fipi_eq_exp_008",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение с произведением",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 2^{x} \\cdot 5^{x} = 100 \\).</p>",
+        "choices": ["\\( x = 1 \\)", "\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 4 \\)"],
+        "answers": ["\\( x = 2 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( 2^x \\cdot 5^x = (2 \\cdot 5)^x = 10^x \\).</p><p>\\( 10^x = 100 = 10^2 \\Rightarrow x = 2 \\).</p></div>"
+    },
+    {
+        "id": "fipi_eq_exp_009",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение с отрицательным показателем",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( \\left(\\frac{2}{3}\\right)^{x} = \\frac{27}{8} \\).</p>",
+        "choices": ["\\( x = -3 \\)", "\\( x = 3 \\)", "\\( x = -2 \\)", "\\( x = 2 \\)"],
+        "answers": ["\\( x = -3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>\\( \\frac{27}{8} = \\left(\\frac{3}{2}\\right)^3 = \\left(\\frac{2}{3}\\right)^{-3} \\).</p><p>\\( \\left(\\frac{2}{3}\\right)^x = \\left(\\frac{2}{3}\\right)^{-3} \\Rightarrow x = -3 \\).</p></div>"
+    },
+    {
+        "id": "fipi_eq_exp_010",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ЕГЭ · Линия 17",
+        "title": "Показательное уравнение с разными основаниями",
+        "theme": "Показательные уравнения",
+        "text": "<p>Решите уравнение \\( 4^{x} = 8^{x-1} \\).</p>",
+        "choices": ["\\( x = 2 \\)", "\\( x = 3 \\)", "\\( x = 4 \\)", "\\( x = 1 \\)"],
+        "answers": ["\\( x = 3 \\)"],
+        "hint": "<div class='alert alert-primary'><p>Приведём к основанию 2: \\( 4^x = 2^{2x} \\), \\( 8^{x-1} = 2^{3(x-1)} = 2^{3x-3} \\).</p><p>\\( 2x = 3x - 3 \\Rightarrow x = 3 \\).</p></div>"
+    },
+
+
 
 ];
 

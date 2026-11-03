@@ -660,10 +660,120 @@
             case 'reliability': return reliabilityCurve(boardId, config);
             case 'reliabilityTangent': return reliabilityTangent(boardId, config);
             case 'galton': return galtonBoard(boardId, config);
+             case 'expFunction': return expFunction(boardId, config);
+            case 'logFunction': return logFunction(boardId, config);
+            case 'powerFunction': return powerFunction(boardId, config);
+            
             default:
                 console.warn('jsxgraphs: неизвестный тип', type);
                 return null;
         }
+    }
+
+
+        // ============================================================
+    //  ПОКАЗАТЕЛЬНАЯ y = a^x (с ползунком основания)
+    // ============================================================
+    function expFunction(boardId, config) {
+        config = config || {};
+        const xMin = config.xMin !== undefined ? parseFloat(config.xMin) : -3;
+        const xMax = config.xMax !== undefined ? parseFloat(config.xMax) : 3;
+
+        const board = createBoard(boardId, {
+            boundingbox: [xMin, 10, xMax, -1],
+            axis: true
+        });
+        if (!board) return null;
+
+        const a = board.create('slider', [[xMin + 0.5, 8], [xMin + 2.5, 8], [0.1, config.a || 2, 3]], {
+            name: 'a',
+            snapWidth: 0.1
+        });
+
+        board.create('functiongraph', [(x) => Math.pow(a.Value(), x), xMin, xMax], {
+            strokeColor: '#198754',
+            strokeWidth: 2
+        });
+
+        // Горизонтальная асимптота y=0
+        board.create('line', [[xMin, 0], [xMax, 0]], {
+            strokeColor: '#adb5bd',
+            strokeWidth: 1,
+            dash: 2
+        });
+
+        return board;
+    }
+
+    // ============================================================
+    //  ЛОГАРИФМИЧЕСКАЯ y = log_a(x) (с ползунком основания)
+    // ============================================================
+    function logFunction(boardId, config) {
+        config = config || {};
+        const xMin = config.xMin !== undefined ? parseFloat(config.xMin) : 0.05;
+        const xMax = config.xMax !== undefined ? parseFloat(config.xMax) : 8;
+
+        const board = createBoard(boardId, {
+            boundingbox: [xMin - 0.2, 4, xMax, -4],
+            axis: true
+        });
+        if (!board) return null;
+
+        const a = board.create('slider', [[xMax - 3, -3], [xMax - 1, -3], [0.2, config.a || 2, 3]], {
+            name: 'a',
+            snapWidth: 0.1
+        });
+
+        board.create('functiongraph', [(x) => Math.log(x) / Math.log(a.Value()), xMin, xMax], {
+            strokeColor: '#fd7e14',
+            strokeWidth: 2
+        });
+
+        // Вертикальная асимптота x=0
+        board.create('line', [[0, -4], [0, 4]], {
+            strokeColor: '#adb5bd',
+            strokeWidth: 1,
+            dash: 2
+        });
+
+        // Точка (1; 0) — общая для всех
+        board.create('point', [1, 0], {
+            size: 3,
+            color: '#dc3545',
+            fixed: true,
+            name: '(1; 0)',
+            label: { offset: [8, -12] }
+        });
+
+        return board;
+    }
+
+    
+    // ============================================================
+    //  СТЕПЕННАЯ y = x^n (с ползунком показателя)
+    // ============================================================
+    function powerFunction(boardId, config) {
+        config = config || {};
+        const xMin = config.xMin !== undefined ? parseFloat(config.xMin) : -3;
+        const xMax = config.xMax !== undefined ? parseFloat(config.xMax) : 3;
+
+        const board = createBoard(boardId, {
+            boundingbox: [xMin, 10, xMax, -10],
+            axis: true
+        });
+        if (!board) return null;
+
+        const n = board.create('slider', [[xMin + 0.5, 8], [xMin + 2.5, 8], [1, config.n || 2, 5]], {
+            name: 'n',
+            snapWidth: 0.5
+        });
+
+        board.create('functiongraph', [(x) => Math.pow(x, n.Value()), xMin, xMax], {
+            strokeColor: '#0d6efd',
+            strokeWidth: 2
+        });
+
+        return board;
     }
 
     // ============================================================
@@ -677,6 +787,9 @@
         functionGraph,
         sliderFunction,
         tangentLine,
+         expFunction,
+powerFunction,
+        logFunction,
         renderByType,
         galtonBoard,
         _boards: boards

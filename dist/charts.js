@@ -343,6 +343,247 @@
     return chart;
   }
 
+
+    // ============================================================
+  //  ПОКАЗАТЕЛЬНАЯ ФУНКЦИЯ  y = a^(b·x + c) + d
+  //  params: { a, b, c, d, xMin, xMax, color }
+  // ============================================================
+  function buildExpData(params) {
+    const a = parseFloat(params.a ?? 2);
+    const b = parseFloat(params.b ?? 1);
+    const c = parseFloat(params.c ?? 0);
+    const d = parseFloat(params.d ?? 0);
+    const xMin = parseFloat(params.xMin ?? -3);
+    const xMax = parseFloat(params.xMax ?? 3);
+    const steps = 240;
+    const step = (xMax - xMin) / steps;
+    const labels = [];
+    const data = [];
+    for (let i = 0; i <= steps; i++) {
+      const x = xMin + i * step;
+      const y = Math.pow(a, b * x + c) + d;
+      labels.push(x);
+      data.push(Number.isFinite(y) ? y : null);
+    }
+    return { labels, data };
+  }
+
+  function exponential(canvasId, params) {
+    const ctx = getCtx(canvasId);
+    if (!ctx) return null;
+
+    const { labels, data } = buildExpData(params);
+
+    // Автоматический диапазон по Y
+    const validYs = data.filter((v) => v !== null && Number.isFinite(v));
+    const yMax = validYs.length ? Math.max(...validYs) * 1.1 : 10;
+    const yMin = validYs.length ? Math.min(...validYs) : 0;
+
+    const existing = getOrDestroy(canvasId);
+    if (existing) {
+      existing.data.labels = labels;
+      existing.data.datasets[0].data = data;
+      existing.options.scales.y.max = yMax;
+      existing.options.scales.y.min = Math.min(0, yMin);
+      existing.update("none");
+      return existing;
+    }
+
+    const chart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "y = aˣ",
+            data,
+            borderColor: params.color || chartColors.greenBorder,
+            backgroundColor: "rgba(25,135,84,0.08)",
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            tension: 0.15,
+            spanGaps: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 250 },
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            type: "linear",
+            title: { display: true, text: "x", color: "#6c757d" },
+            grid: { color: "#eef1f3" },
+            ticks: { callback: (v) => parseFloat(v).toFixed(1) },
+          },
+          y: {
+            title: { display: true, text: "y", color: "#6c757d" },
+            min: Math.min(0, yMin),
+            max: yMax,
+            grid: { color: "#eef1f3" },
+          },
+        },
+      },
+    });
+    charts.set(canvasId, chart);
+    return chart;
+  }
+
+  // ============================================================
+  //  ЛОГАРИФМИЧЕСКАЯ ФУНКЦИЯ  y = log_a(x - c) + d
+  //  params: { a, c, d, xMin, xMax, color }
+  // ============================================================
+  function buildLogData(params) {
+    const a = parseFloat(params.a ?? 2);
+    const c = parseFloat(params.c ?? 0);
+    const d = parseFloat(params.d ?? 0);
+    const xMin = Math.max(parseFloat(params.xMin ?? 0.05), c + 0.02);
+    const xMax = parseFloat(params.xMax ?? 8);
+    const steps = 240;
+    const step = (xMax - xMin) / steps;
+    const labels = [];
+    const data = [];
+    for (let i = 0; i <= steps; i++) {
+      const x = xMin + i * step;
+      const arg = x - c;
+      const y = arg > 0 ? Math.log(arg) / Math.log(a) + d : null;
+      labels.push(x);
+      data.push(Number.isFinite(y) ? y : null);
+    }
+    return { labels, data };
+  }
+
+  function logarithm(canvasId, params) {
+    const ctx = getCtx(canvasId);
+    if (!ctx) return null;
+
+    const { labels, data } = buildLogData(params);
+
+    const validYs = data.filter((v) => v !== null && Number.isFinite(v));
+    const yMin = validYs.length ? Math.min(...validYs) : -4;
+    const yMax = validYs.length ? Math.max(...validYs) : 4;
+
+    const existing = getOrDestroy(canvasId);
+    if (existing) {
+      existing.data.labels = labels;
+      existing.data.datasets[0].data = data;
+      existing.options.scales.y.min = yMin - 0.5;
+      existing.options.scales.y.max = yMax + 0.5;
+      existing.update("none");
+      return existing;
+    }
+
+    const chart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "y = log_a x",
+            data,
+            borderColor: params.color || chartColors.orangeBorder,
+            backgroundColor: "rgba(253,126,20,0.08)",
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            tension: 0.15,
+            spanGaps: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 250 },
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            type: "linear",
+            title: { display: true, text: "x", color: "#6c757d" },
+            grid: { color: "#eef1f3" },
+            ticks: { callback: (v) => parseFloat(v).toFixed(1) },
+          },
+          y: {
+            title: { display: true, text: "y", color: "#6c757d" },
+            min: yMin - 0.5,
+            max: yMax + 0.5,
+            grid: { color: "#eef1f3" },
+          },
+        },
+      },
+    });
+    charts.set(canvasId, chart);
+    return chart;
+  }
+
+  // ============================================================
+  //  СЕМЕЙСТВО КРИВЫХ (для сравнения a>1 vs 0<a<1)
+  //  params: { bases: [2, 0.5], xMin, xMax }
+  // ============================================================
+  function expLogFamily(canvasId, params) {
+    const ctx = getCtx(canvasId);
+    if (!ctx) return null;
+
+    const bases = params.bases || [2, 0.5];
+    const xMin = parseFloat(params.xMin ?? -3);
+    const xMax = parseFloat(params.xMax ?? 3);
+    const steps = 240;
+    const step = (xMax - xMin) / steps;
+    const labels = [];
+    for (let i = 0; i <= steps; i++) labels.push(xMin + i * step);
+
+    const palette = ["#198754", "#dc3545", "#0d6efd", "#fd7e14"];
+    const datasets = bases.map((a, idx) => {
+      const data = labels.map((x) => Math.pow(parseFloat(a), x));
+      return {
+        label: `y = ${a}ˣ`,
+        data,
+        borderColor: palette[idx % palette.length],
+        backgroundColor: "transparent",
+        borderWidth: 2,
+        pointRadius: 0,
+        tension: 0.15,
+      };
+    });
+
+    const existing = getOrDestroy(canvasId);
+    if (existing) {
+      existing.data.labels = labels;
+      existing.data.datasets = datasets;
+      existing.update("none");
+      return existing;
+    }
+
+    const chart = new Chart(ctx, {
+      type: "line",
+      data: { labels, datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 250 },
+        plugins: { legend: { display: true, position: "top" } },
+        scales: {
+          x: {
+            type: "linear",
+            title: { display: true, text: "x", color: "#6c757d" },
+            grid: { color: "#eef1f3" },
+          },
+          y: {
+            title: { display: true, text: "y", color: "#6c757d" },
+            min: 0,
+            max: 10,
+            grid: { color: "#eef1f3" },
+          },
+        },
+      },
+    });
+    charts.set(canvasId, chart);
+    return chart;
+  }
+
   // ============================================================
   //  НОРМАЛЬНОЕ С ЗАКРАШЕННОЙ ПЛОЩАДЬЮ
   // ============================================================
@@ -610,6 +851,9 @@
         return normalArea(canvasId, config, onUpdate);
       case "shewhart":
         return shewhartChart(canvasId, config);
+        case "exponential":  return exponential(canvasId, config);
+    case "logarithm":    return logarithm(canvasId, config);
+    case "expLogFamily": return expLogFamily(canvasId, config);  
       default:
         console.warn("charts.renderChart: неизвестный тип", config.type);
         return null;
@@ -714,6 +958,9 @@
     normalArea,
     shewhartChart,
     shewhart: shewhartChart, // синоним для удобства
+      exponential,
+    logarithm,
+    expLogFamily,
     renderChart,
     initAll,
     // хелперы
