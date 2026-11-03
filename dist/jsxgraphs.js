@@ -74,6 +74,245 @@
         return board;
     }
 
+        // ============================================================
+    //  ДОСКА ГАЛЬТОНА
+    //  config: {
+    //    n:         число рядов штырьков (по умолчанию 8),
+    //    balls:     сколько шариков бросить (по умолчанию 200),
+    //    speed:     задержка между кадрами анимации в мс (по умолчанию 60),
+    //    pRight:    вероятность поворота направо (по умолчанию 0.5),
+    //    ballColor: цвет шарика,
+    //    barColor:  цвет столбиков гистограммы,
+    //    autoStart: запускать ли сразу (по умолчанию false),
+    //    onUpdate:  колбэк ({ ballsThrown, counts, n, running })
+    //  }
+    //  Возвращает объект управления:
+    //    { board, start(), stop(), reset(), isRunning(), setBalls(k) }
+    // ============================================================
+    function galtonBoard(boardId, config) {
+        config = config || {};
+        const n = Math.max(1, parseInt(config.n || 8, 10));
+        const totalBalls = Math.max(1, parseInt(config.balls || 200, 10));
+        const speed = Math.max(10, parseInt(config.speed || 60, 10));
+        const pRight = config.pRight !== undefined ? parseFloat(config.pRight) : 0.5;
+        const ballColor = config.ballColor || '#dc3545';
+        const barColor = config.barColor || '#198754';
+        const onUpdate = typeof config.onUpdate === 'function' ? config.onUpdate : null;
+
+        // Геометрия: ряды сверху вниз, ячейки внизу
+        // Ряд r = 0..n-1: r+1 штырьков, координаты x = -(r/2) + i, y = -(r+1)
+        // Ячейки: n+1 штук, x = -n/2 + k, y = -(n+1)
+        const cellY = -(n + 1);
+        const cellsX = [];
+        for (let k = 0; k <= n; k++) cellsX.push(-n / 2 + k);
+
+        const board = createBoard(boardId, {
+            boundingbox: [-n / 2 - 1.2, 0.8, n / 2 + 1.2, cellY - 1.4],
+            axis: false,
+            showNavigation: false,
+            showCopyright: false,
+            keepAspectRatio: false
+        });
+        if (!board) return null;
+
+        // --- Штырьки ---
+        for (let r = 0; r < n; r++) {
+            const count = r + 1;
+            for (let i = 0; i < count; i++) {
+                const x = -(r / 2) + i;
+                const y = -(r + 1);
+                board.create('point', [x, y], {
+                    size: 2,
+                    color: '#495057',
+                    fixed: true,
+                    name: '',
+                    highlight: false
+                });
+            }
+        }
+
+        // --- Ячейки (стенки) ---
+        const wallHalf = 0.45;
+        for (let k = 0; k <= n; k++) {
+            const x = cellsX[k];
+            board.create('segment', [[x - wallHalf, cellY], [x - wallHalf, cellY - 1]], {
+                strokeColor: '#adb5bd',
+                strokeWidth: 2,
+                fixed: true,
+                highlight: false
+            });
+            board.create('segment', [[x + wallHalf, cellY], [x + wallHalf, cellY - 1]], {
+                strokeColor: '#adb5bd',
+                strokeWidth: 2,
+                fixed: true,
+                highlight: false
+            });
+        }
+
+        // --- Счётчики по ячейкам ---
+        const counts = new Array(n + 1).fill(0);
+
+        // --- Столбики гистограммы (пересоздаём при каждом обновлении) ---
+        const barGroup = [];
+        function redrawBars() {
+            // удаляем старые
+            barGroup.forEach(el => { try { board.removeObject(el); } catch (e) {} });
+            barGroup.length = 0;
+            const maxCount = Math.max(1, ...counts);
+            const maxH = Math.min(3, Math.max(1.2, n * 0.35)); // высота самого высокого столбика
+            for (let k = 0; k <= n; k++) {
+                if (counts[k] === 0) continue;
+                const h = (counts[k] / maxCount) * maxH;
+                const x = cellsX[k];
+                const rect = board.create('polygon', [
+                    [x - wallHalf + 0.05, cellY],
+                    [x + wallHalf - 0.05, cellY],
+                    [x + wallHalf - 0.05, cellY - h],
+                    [x - wallHalf + 0.05, cellY - h]
+                ], {
+                    fillColor: barColor,
+                    fillOpacity: 0.55,
+                    strokeColor: barColor,
+                    strokeWidth: 1,
+                    fixed: true,
+                    highlight: false,
+                    borders: { strokeColor: barColor, strokeWidth: 1 }
+                });
+                barGroup.push(rect);
+            }
+        }
+
+        // --- Анимация одного шарика ---
+        // Шарик стартует над первым штырьком, на каждом ряду решает влево/вправо,
+        // затем падает в ячейку. Используем JXG-объекты и setTimeout.
+        let running = false;
+        let thrown = 0;
+        let timer = null;
+
+        function report() {
+            if (onUpdate) {
+                onUpdate({
+                    ballsThrown: thrown,
+                    counts: counts.slice(),
+                    n,
+                    running
+                });
+            }
+        }
+
+        function throwOneBall(done) {
+            if (!running) { done && done(); return; }
+
+            // Случайная траектория: массив из n поворотов (0 = влево, 1 = вправо)
+            const path = [];
+            let x = 0;
+            const points = [{ x: 0, y: 0 }];
+            for (let r = 0; r < n; r++) {
+                const goRight = Math.random() < pRight;
+                path.push(goRight ? 1 : 0);
+                // На ряду r шарик находится на x = -(r/2) + (число правых до r)
+                // Проще: считаем число правых до этого ряда
+                const rightSoFar = path.filter(v => v === 1).length;
+                const y = -(r + 1);
+                const px = -(r / 2) + rightSoFar;
+                points.push({ x: px, y });
+            }
+            // Ячейка = число правых
+            const rightTotal = path.filter(v => v === 1).length;
+            points.push({ x: cellsX[rightTotal], y: cellY - 0.5 });
+
+            // Создаём шарик
+            const ball = board.create('point', [points[0].x, 0], {
+                size: 3,
+                color: ballColor,
+                fixed: true,
+                name: '',
+                highlight: false
+            });
+
+            // Анимируем по точкам
+            let idx = 1;
+            function step() {
+                if (!running) {
+                    try { board.removeObject(ball); } catch (e) {}
+                    done && done();
+                    return;
+                }
+                if (idx >= points.length) {
+                    // Дошёл до ячейки — фиксируем попадание
+                    try { board.removeObject(ball); } catch (e) {}
+                    counts[rightTotal]++;
+                    thrown++;
+                    redrawBars();
+                    report();
+                    done && done();
+                    return;
+                }
+                const pt = points[idx++];
+                ball.moveTo([pt.x, pt.y], 80);
+                setTimeout(step, speed);
+            }
+            step();
+        }
+
+        function loop() {
+            if (!running || thrown >= totalBalls) {
+                running = false;
+                report();
+                return;
+            }
+            throwOneBall(() => {
+                timer = setTimeout(loop, Math.max(10, speed / 2));
+            });
+        }
+
+        // Публичное управление
+        const api = {
+            board,
+            start() {
+                if (running) return;
+                if (thrown >= totalBalls) return;
+                running = true;
+                report();
+                loop();
+            },
+            stop() {
+                running = false;
+                if (timer) { clearTimeout(timer); timer = null; }
+                report();
+            },
+            reset() {
+                running = false;
+                if (timer) { clearTimeout(timer); timer = null; }
+                thrown = 0;
+                counts.fill(0);
+                redrawBars();
+                report();
+            },
+            isRunning() { return running; },
+            setBalls(k) {
+                const newK = Math.max(1, parseInt(k, 10));
+                if (newK > totalBalls) {
+                    // разрешаем увеличить лимит
+                    // (totalBalls — const, поэтому храним в отдельной переменной)
+                }
+                // Для простоты: перезапуск не поддерживаем; лимит фиксирован
+            },
+            getCounts() { return counts.slice(); },
+            getThrown() { return thrown; }
+        };
+
+        // Первичная отрисовка и автостарт
+        redrawBars();
+        report();
+        if (config.autoStart) {
+            // небольшая задержка, чтобы доска успела инициализироваться
+            setTimeout(() => api.start(), 100);
+        }
+
+        return api;
+    }
+
     // ============================================================
     //  КРИВАЯ НАДЁЖНОСТИ (экспоненциальное снижение)
     //  config: { lambda0, theta, xMax, color }
@@ -420,6 +659,7 @@
             case 'tangent': return tangentLine(boardId, config);
             case 'reliability': return reliabilityCurve(boardId, config);
             case 'reliabilityTangent': return reliabilityTangent(boardId, config);
+            case 'galton': return galtonBoard(boardId, config);
             default:
                 console.warn('jsxgraphs: неизвестный тип', type);
                 return null;
@@ -438,6 +678,7 @@
         sliderFunction,
         tangentLine,
         renderByType,
+        galtonBoard,
         _boards: boards
     };
 })();

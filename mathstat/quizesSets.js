@@ -4068,7 +4068,7 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-    answer: "{= {var1-10} / 2}",
+    answer: "{var1-10}/2",
     hint: `
 <div class="card">
   <div class="card-header bg-success text-white">Решение</div>
@@ -4157,7 +4157,7 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-    answer: "{= {var1-10} / 10}",
+    answer: "{var1-10}/10",
     hint: `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
@@ -4205,7 +4205,7 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-    answer: "{= ROUND(POWER(2, 1) * 1, 4)}",
+    answer: "ROUND(POWER(2, 1) * 1, 4)",
     hint: `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
@@ -4304,7 +4304,7 @@ let quizesSets = [
     </div>
   </div>
 </div>`,
-    answer: "{= ROUND({var1-10}, 0)}",
+    answer: "ROUND({var1-10}, 0)",
     hint: `
 <div class="card">
   <div class="card-header bg-warning text-dark">Решение</div>

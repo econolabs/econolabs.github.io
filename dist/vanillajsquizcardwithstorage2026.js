@@ -240,7 +240,12 @@
 
 
 let { alphabet, loadState, shuffle, getFirebaseNode,
-    updateFirebaseNode, getFirebaseNodeKey, saveState } = basicfirebasecrudauthservices;
+    updateFirebaseNode, getFirebaseNodeKey, saveState,
+
+createApplicationStore, getUser, seedState,
+setMathInnerHTML, processquizwithrandomnumber,
+getHashesArray, areArraysEqual
+} = basicfirebasecrudauthservices;
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -467,7 +472,13 @@ function updateQuiz(activePage) {
 
     // Обработка заголовков
     $("#quizTitle").innerHTML = quiz.title;
-    $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
+    $("#quizHeader").innerHTML =
+    '<div class="d-flex justify-content-between">' +
+    quiz.header + " " + (activePage + 1) +
+    `<a href="/myworkbook" title="Рабочая тетрадь"
+        class="btn btn-sm btn btn-outline-primary ml-5" target="_blank">РТ
+    </a>` +
+    '</div>';
     $("#userComment").style.display = "block";
     $("#answerButton").className = "btn btn-outline-primary m-3";
     $("#answerButton").style.display = "block";
@@ -677,23 +688,126 @@ function checkLocallyAndGlobally(index, title, text) {
     return null
 }
 
+// function renderPagination() {
+
+//     $("#quizbuttonslist").innerHTML = window?.quizesSets.map((item, index) => {
+//         return `<button
+//          class='${checkLocallyAndGlobally(index, item.title, item.text)
+//                 //  foundQuiz(identifyQuiz(item.title, item.text),correctquizes)
+//                 ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
+//          page=${index}
+//         >
+//          ${index + 1}
+//          </button>`
+//     }).join("") +
+//         `<a href="/myworkbook" title="Рабочая тетрадь" class="btn btn-sm btn btn-outline-primary m-1" target="_blank">РТ</a>`
+//         ;
+
+//     let pagesLi = [...$$(".page")];
+//     pagesLi.forEach(function (btn) {
+//         btn.addEventListener('click', function (event) {
+//             const pageIndex = parseInt(event.target.getAttribute("page"));
+
+//             store.dispatch(seedState({
+//                 object: {
+//                     answer: null,
+//                     randomNumber: null,
+//                     answers: [],
+//                     pageIndex: pageIndex
+//                 }
+//             }))
+
+//             $("#userComment").value = "Мой комментарий";
+//             $("#quizChecks").innerHTML = "";
+//             $("#accountingblock").style.display = "none";
+//             $("#quizHint").innerHTML = "";
+//             $("#quizTitle").innerHTML = "";
+//             $("#quizString").innerHTML = "";
+//             //         if (!!resQuizesArray.data[pageIndex]?.quizesCasesId) {
+//             //             fetchQuizHint(pageIndex)
+//             //         } else { 
+//             updateQuiz(pageIndex)
+//             // }
+//         }, false);
+//     });
+
+
+// }
+
+const PAGE_SIZE = 5;
+
+let currentNavPage = 0; // 0-based index of the "page" of buttons
+
 function renderPagination() {
+    const total = window?.quizesSets?.length || 0;
 
-    $("#quizbuttonslist").innerHTML = window?.quizesSets.map((item, index) => {
-        return `<button
-         class='${checkLocallyAndGlobally(index, item.title, item.text)
-                //  foundQuiz(identifyQuiz(item.title, item.text),correctquizes)
-                ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
-         page=${index}
+    if (total === 0) {
+        $("#quizbuttonslist").innerHTML = "";
+        return;
+    }
+
+    const totalPages = Math.ceil(total / PAGE_SIZE);
+
+    // Clamp current page (e.g. if quizesSets changed)
+    if (currentNavPage >= totalPages) currentNavPage = totalPages - 1;
+    if (currentNavPage < 0) currentNavPage = 0;
+
+    const start = currentNavPage * PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, total);
+
+    // --- Quiz number buttons for the current window ---
+    let buttonsHtml = "";
+    for (let index = start; index < end; index++) {
+        const item = window.quizesSets[index];
+        const isDone = checkLocallyAndGlobally(index, item.title, item.text);
+        buttonsHtml += `<button
+            class='${isDone
+                ? "btn btn-sm btn-success page m-1"
+                : "btn btn-sm btn-outline-secondary page m-1"}'
+            page="${index}"
         >
-         ${index + 1}
-         </button>`
-    }).join("") +
-        `<a href="/myworkbook" title="Рабочая тетрадь" class="btn btn-sm btn btn-outline-primary m-1" target="_blank">РТ</a>`
-        ;
+            ${index + 1}
+        </button>`;
+    }
 
-    let pagesLi = [...$$(".page")];
-    pagesLi.forEach(function (btn) {
+    // --- Prev / Next arrows + page counter ---
+    let navHtml = "";
+
+    if (totalPages > 1) {
+        navHtml += `
+            <button
+                class="btn btn-sm btn-outline-primary m-1"
+                id="navPrev"
+                ${currentNavPage === 0 ? "disabled" : ""}
+                title="Предыдущие тесты"
+            >&laquo;</button>
+        `;
+    }
+
+    navHtml += buttonsHtml;
+
+    if (totalPages > 1) {
+        navHtml += `       
+            <button
+                class="btn btn-sm btn-outline-primary m-1"
+                id="navNext"
+                ${currentNavPage === totalPages - 1 ? "disabled" : ""}
+                title="Следующие тесты"
+            >&raquo;</button>            
+        `;
+    }
+
+    // --- "РТ" link (kept at the end, as before) ---
+    navHtml += `<div>
+            <span class="badge badge-light m-1 align-self-center">
+                ${currentNavPage + 1} / ${totalPages}
+            </span>    
+        </div>`;
+
+    $("#quizbuttonslist").innerHTML = navHtml;
+
+    // --- Wire up quiz number buttons ---
+    [...$$(".page")].forEach(function (btn) {
         btn.addEventListener('click', function (event) {
             const pageIndex = parseInt(event.target.getAttribute("page"));
 
@@ -704,7 +818,7 @@ function renderPagination() {
                     answers: [],
                     pageIndex: pageIndex
                 }
-            }))
+            }));
 
             $("#userComment").value = "Мой комментарий";
             $("#quizChecks").innerHTML = "";
@@ -712,15 +826,39 @@ function renderPagination() {
             $("#quizHint").innerHTML = "";
             $("#quizTitle").innerHTML = "";
             $("#quizString").innerHTML = "";
-            //         if (!!resQuizesArray.data[pageIndex]?.quizesCasesId) {
-            //             fetchQuizHint(pageIndex)
-            //         } else { 
-            updateQuiz(pageIndex)
+
+            updateQuiz(pageIndex);
+
+            // Auto-advance nav page if user is on last visible button
+            // (optional — comment out if not desired)
+            // const btnPage = Math.floor(pageIndex / PAGE_SIZE);
+            // if (btnPage !== currentNavPage) {
+            //     currentNavPage = btnPage;
+            //     renderPagination();
             // }
         }, false);
     });
 
+    // --- Wire up prev / next ---
+    const prevBtn = $("#navPrev");
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentNavPage > 0) {
+                currentNavPage--;
+                renderPagination();
+            }
+        });
+    }
 
+    const nextBtn = $("#navNext");
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentNavPage < totalPages - 1) {
+                currentNavPage++;
+                renderPagination();
+            }
+        });
+    }
 }
 
 function doLogin(e) {
