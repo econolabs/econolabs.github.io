@@ -1,5 +1,251 @@
+
+// <!doctype html>
+// <html lang="ru">
+//   <head>
+//     <meta charset="utf-8" />
+//     <meta
+//       name="viewport"
+//       content="width=device-width, initial-scale=1, shrink-to-fit=no"
+//     />
+//     <link rel="stylesheet" href="../dist/original.css" />
+//     <script src="./quizesSets.js"></script>
+//     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+//     <script src="../dist/react18.3.1.production.min.js"></script>
+//     <script src="../dist/react-dom18.3.1.production.min.js"></script>
+//     <script src="../dist/redux-toolkit.umd.min.js"></script>
+//     <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+//         <script src="../dist/katex.min.js"></script>
+//     <script
+//       defer
+//       src="../dist/auto-render.min.js"
+//     ></script>
+
+   
+//     <link rel="stylesheet" href="../dist/katex.min.css" />
+
+//         <script src="../dist/chart.umd.min.js"></script>
+
+
+//     <title>Обеспечение качества и сертификация информационных систем</title>
+//   </head>
+
+//   <body
+//     data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4"
+//     data-base="fincalculations"
+//     data-app="1:892270777573:web:bdc13e9b47334b4319700c"
+//   >
+//     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+//       <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+//       <button
+//         class="navbar-toggler"
+//         type="button"
+//         data-toggle="collapse"
+//         data-target="#navbarSupportedContent"
+//         aria-controls="navbarSupportedContent"
+//         aria-expanded="false"
+//         aria-label="Toggle navigation"
+//       >
+//         <span class="navbar-toggler-icon"></span>
+//       </button>
+//       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+//         <ul class="navbar-nav mr-auto">
+//           <li class="nav-item">
+//             <a class="nav-link" href="#"><span class="sr-only"></span></a>
+//           </li>
+//         </ul>
+//         <form class="form-inline my-2 my-lg-0">
+//           <a href="https://vk.com/dmglvn">
+//             <img
+//               loading="lazy"
+//               src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
+//               alt=""
+//               style="
+//                 width: 40px;
+//                 height: 40px;
+//                 border-radius: 50%;
+//                 filter: grayscale(100%);
+//                 object-fit: cover;
+//               "
+//             />
+//           </a>
+//         </form>
+//       </div>
+//     </nav>
+
+//     <div class="container">
+        
+//        <div class="card mb-1" style="max-width: 800px">
+//         <img
+//           src="../quiz.avif"
+//           class="card-img-top"
+//           style="filter: grayscale(1)"
+//           alt="quiz"
+//         />
+//         <div class="card-body">
+//           <div class="container" id="formcontainer" style="display: none">
+//             <form>
+//               <div class="mb-3">
+//                 <label for="emailInput" class="form-label">Email</label>
+//                 <input
+//                   type="email"
+//                   class="form-control"
+//                   id="emailInput"
+//                   aria-describedby="emailHelp"
+//                 />
+//                 <div id="emailHelp" class="form-text">
+//                   Email может быть фиктивный. Пароль НЕ требуется
+//                 </div>
+//               </div>
+//               <div class="mb-3">
+//                 <label for="user" class="form-label">ФИО Группа</label>
+//                 <input type="text" class="form-control" id="userInput" />
+//               </div>
+
+//               <button
+//                 type="submit"
+//                 class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+//                 id="loginbutton"
+//               >
+//                 Сохранить
+//               </button>
+//             </form>
+//           </div>
+//           <div
+//             class="container my-1 d-flex flex-wrap"
+//             id="quizbuttonslist"
+//           ></div>
+//           <div class="container" id="quizcontainer" style="display: none">
+//             <div class="card" style="min-height: 100px">
+//               <div class="card-header" id="quizHeader"></div>
+//               <div class="card-body">
+//                 <h5 class="card-title fade-in-div" id="quizTitle">
+//                   Выберите тестовое задание
+//                 </h5>
+//                 <div class="card-text fade-in-div" id="quizString"></div>
+//                 <div
+//                   id="box"
+//                   class="jxgbox"
+//                   style="width: 500px; aspect-ratio: 1/1; display: none"
+//                 ></div>
+//                 <form id="quizform">
+//                   <div id="quizChecks" class="m-1 p-1"></div>
+//                   <div id="quizHint" class="m-1 p-1"></div>
+//                   <div
+//                     class="container p-1 m-1"
+//                     id="accountingblock"
+//                     style="display: none"
+//                   ></div>
+//                   <div id="quizformdataarray"></div>
+//                   <input
+//                     type="text"
+//                     class="form-control form-control-sm"
+//                     id="feedback"
+//                     placeholder="Числовой ответ"
+//                     style="display: none"
+//                   />
+//                   <div id="usercalculations" style="display: none">
+//                     <label
+//                       for="inputFormula"
+//                       class="col-form-label"
+//                       id="resformula"
+//                       >Калькулятор</label
+//                     >
+//                     <input
+//                       type="text"
+//                       class="form-control form-control-sm"
+//                       id="inputFormula"
+//                     />
+//                   </div>
+//                   <textarea
+//                     class="form-control my-3"
+//                     id="userComment"
+//                     rows="2"
+//                     style="display: none"
+//                   >
+// Мой комментарий</textarea
+//                   >
+//                   <button
+//                     type="submit"
+//                     class="btn btn-outline-primary m-3"
+//                     id="answerButton"
+//                     style="display: none"
+//                   >
+//                     Ответить
+//                   </button>
+//                 </form>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+
+//     </div>
+
+//     <script
+//       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+//       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+//       crossorigin="anonymous"
+//     ></script>
+//     <script
+//       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+//       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+//       crossorigin="anonymous"
+//     ></script>
+//     <script
+//       src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+//       integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+//       crossorigin="anonymous"
+//     ></script>
+
+//   <script src="../dist/basicfirebasecrudauthservices.js"></script>
+//     <script src="./vanillajscrudutilities.js"></script>
+//     <script src="./jsxtemplatefunctions.js"></script>
+//       <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+//     <!-- KaTeX autorender: рендеринг формул после загрузки DOM -->
+//     <script>
+//       document.addEventListener("DOMContentLoaded", function () {
+//         renderMathInElement(document.body, {
+//           delimiters: [
+//             { left: "\\[", right: "\\]", display: true },
+//             { left: "\\(", right: "\\)", display: false },
+//           ],
+//           throwOnError: false,
+//           errorColor: "#cc0000",
+//           macros: {
+//             "\\N": "\\mathbb{N}",
+//             "\\R": "\\mathbb{R}",
+//             "\\Z": "\\mathbb{Z}",
+//             "\\E": "\\mathbb{E}",
+//             "\\Var": "\\mathrm{Var}",
+//             "\\Cov": "\\mathrm{Cov}",
+//           },
+//         });
+//       });
+//     </script>
+
+//     <script src="../dist/charts.js"></script>
+
+//     <script src="../dist/jsxgraphcore.js"></script>
+// <link rel="stylesheet" href="../dist/jsxgraph.css">
+// <script src="../dist/jsxgraphs.js"></script>
+
+//   </body>
+// </html>
+
+
+
+
+
 let { alphabet, loadState, shuffle, getFirebaseNode,
-    updateFirebaseNode, getFirebaseNodeKey, saveState } = basicfirebasecrudauthservices;
+    updateFirebaseNode, getFirebaseNodeKey, saveState,
+
+createApplicationStore, getUser, seedState,
+setMathInnerHTML, processquizwithrandomnumber,
+getHashesArray, areArraysEqual
+} = basicfirebasecrudauthservices;
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -226,7 +472,13 @@ function updateQuiz(activePage) {
 
     // Обработка заголовков
     $("#quizTitle").innerHTML = quiz.title;
-    $("#quizHeader").innerText = quiz.header + " " + (activePage + 1);
+    $("#quizHeader").innerHTML =
+    '<div class="d-flex justify-content-between">' +
+    quiz.header + " " + (activePage + 1) +
+    `<a href="/myworkbook" title="Рабочая тетрадь"
+        class="btn btn-sm btn btn-outline-primary ml-5" target="_blank">РТ
+    </a>` +
+    '</div>';
     $("#userComment").style.display = "block";
     $("#answerButton").className = "btn btn-outline-primary m-3";
     $("#answerButton").style.display = "block";
@@ -317,7 +569,7 @@ if (window.charts && window.charts._charts) {
 
                         }
 
-                        $("#quizChecks").innerHTML = markup;
+                       setMathInnerHTML($("#quizChecks"), markup);
                     })
 
 
@@ -436,23 +688,126 @@ function checkLocallyAndGlobally(index, title, text) {
     return null
 }
 
+// function renderPagination() {
+
+//     $("#quizbuttonslist").innerHTML = window?.quizesSets.map((item, index) => {
+//         return `<button
+//          class='${checkLocallyAndGlobally(index, item.title, item.text)
+//                 //  foundQuiz(identifyQuiz(item.title, item.text),correctquizes)
+//                 ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
+//          page=${index}
+//         >
+//          ${index + 1}
+//          </button>`
+//     }).join("") +
+//         `<a href="/myworkbook" title="Рабочая тетрадь" class="btn btn-sm btn btn-outline-primary m-1" target="_blank">РТ</a>`
+//         ;
+
+//     let pagesLi = [...$$(".page")];
+//     pagesLi.forEach(function (btn) {
+//         btn.addEventListener('click', function (event) {
+//             const pageIndex = parseInt(event.target.getAttribute("page"));
+
+//             store.dispatch(seedState({
+//                 object: {
+//                     answer: null,
+//                     randomNumber: null,
+//                     answers: [],
+//                     pageIndex: pageIndex
+//                 }
+//             }))
+
+//             $("#userComment").value = "Мой комментарий";
+//             $("#quizChecks").innerHTML = "";
+//             $("#accountingblock").style.display = "none";
+//             $("#quizHint").innerHTML = "";
+//             $("#quizTitle").innerHTML = "";
+//             $("#quizString").innerHTML = "";
+//             //         if (!!resQuizesArray.data[pageIndex]?.quizesCasesId) {
+//             //             fetchQuizHint(pageIndex)
+//             //         } else { 
+//             updateQuiz(pageIndex)
+//             // }
+//         }, false);
+//     });
+
+
+// }
+
+const PAGE_SIZE = 5;
+
+let currentNavPage = 0; // 0-based index of the "page" of buttons
+
 function renderPagination() {
+    const total = window?.quizesSets?.length || 0;
 
-    $("#quizbuttonslist").innerHTML = window?.quizesSets.map((item, index) => {
-        return `<button
-         class='${checkLocallyAndGlobally(index, item.title, item.text)
-                //  foundQuiz(identifyQuiz(item.title, item.text),correctquizes)
-                ? "btn btn-sm btn-success page m-1" : "btn btn-sm btn-outline-secondary page m-1"}'
-         page=${index}
+    if (total === 0) {
+        $("#quizbuttonslist").innerHTML = "";
+        return;
+    }
+
+    const totalPages = Math.ceil(total / PAGE_SIZE);
+
+    // Clamp current page (e.g. if quizesSets changed)
+    if (currentNavPage >= totalPages) currentNavPage = totalPages - 1;
+    if (currentNavPage < 0) currentNavPage = 0;
+
+    const start = currentNavPage * PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, total);
+
+    // --- Quiz number buttons for the current window ---
+    let buttonsHtml = "";
+    for (let index = start; index < end; index++) {
+        const item = window.quizesSets[index];
+        const isDone = checkLocallyAndGlobally(index, item.title, item.text);
+        buttonsHtml += `<button
+            class='${isDone
+                ? "btn btn-sm btn-success page m-1"
+                : "btn btn-sm btn-outline-secondary page m-1"}'
+            page="${index}"
         >
-         ${index + 1}
-         </button>`
-    }).join("") +
-        `<a href="/myworkbook" title="Рабочая тетрадь" class="btn btn-sm btn btn-outline-primary m-1" target="_blank">РТ</a>`
-        ;
+            ${index + 1}
+        </button>`;
+    }
 
-    let pagesLi = [...$$(".page")];
-    pagesLi.forEach(function (btn) {
+    // --- Prev / Next arrows + page counter ---
+    let navHtml = "";
+
+    if (totalPages > 1) {
+        navHtml += `
+            <button
+                class="btn btn-sm btn-outline-primary m-1"
+                id="navPrev"
+                ${currentNavPage === 0 ? "disabled" : ""}
+                title="Предыдущие тесты"
+            >&laquo;</button>
+        `;
+    }
+
+    navHtml += buttonsHtml;
+
+    if (totalPages > 1) {
+        navHtml += `       
+            <button
+                class="btn btn-sm btn-outline-primary m-1"
+                id="navNext"
+                ${currentNavPage === totalPages - 1 ? "disabled" : ""}
+                title="Следующие тесты"
+            >&raquo;</button>            
+        `;
+    }
+
+    // --- "РТ" link (kept at the end, as before) ---
+    navHtml += `<div>
+            <span class="badge badge-light m-1 align-self-center">
+                ${currentNavPage + 1} / ${totalPages}
+            </span>    
+        </div>`;
+
+    $("#quizbuttonslist").innerHTML = navHtml;
+
+    // --- Wire up quiz number buttons ---
+    [...$$(".page")].forEach(function (btn) {
         btn.addEventListener('click', function (event) {
             const pageIndex = parseInt(event.target.getAttribute("page"));
 
@@ -463,7 +818,7 @@ function renderPagination() {
                     answers: [],
                     pageIndex: pageIndex
                 }
-            }))
+            }));
 
             $("#userComment").value = "Мой комментарий";
             $("#quizChecks").innerHTML = "";
@@ -471,15 +826,39 @@ function renderPagination() {
             $("#quizHint").innerHTML = "";
             $("#quizTitle").innerHTML = "";
             $("#quizString").innerHTML = "";
-            //         if (!!resQuizesArray.data[pageIndex]?.quizesCasesId) {
-            //             fetchQuizHint(pageIndex)
-            //         } else { 
-            updateQuiz(pageIndex)
+
+            updateQuiz(pageIndex);
+
+            // Auto-advance nav page if user is on last visible button
+            // (optional — comment out if not desired)
+            // const btnPage = Math.floor(pageIndex / PAGE_SIZE);
+            // if (btnPage !== currentNavPage) {
+            //     currentNavPage = btnPage;
+            //     renderPagination();
             // }
         }, false);
     });
 
+    // --- Wire up prev / next ---
+    const prevBtn = $("#navPrev");
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentNavPage > 0) {
+                currentNavPage--;
+                renderPagination();
+            }
+        });
+    }
 
+    const nextBtn = $("#navNext");
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentNavPage < totalPages - 1) {
+                currentNavPage++;
+                renderPagination();
+            }
+        });
+    }
 }
 
 function doLogin(e) {
