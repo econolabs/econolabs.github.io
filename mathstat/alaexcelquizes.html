@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тесты — Средние величины в статистике</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- KaTeX -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body { background: #eef1f5; padding: 24px 12px; }
+        .case-card { max-width: 760px; margin: 0 auto; }
+        .case-card .card-header { background: #217346; color: #fff; font-weight: 600; }
+        .case-card .badge-theme { background: #e7f1ec; color: #217346; }
+
+        .table-scroll {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            max-width: 100%; border: 1px solid #d0d0d0; border-radius: 4px;
+        }
+        .table-scroll svg { display: block; }
+        .table-scroll svg text { font-family: Calibri, Arial, sans-serif; }
+
+        .legend-box {
+            display: flex; flex-wrap: wrap; gap: 6px 14px;
+            padding: 8px 10px; background: #f8f9fa; border-radius: 4px;
+            border-left: 3px solid #217346; font-size: 0.8rem; line-height: 1.3;
+        }
+        .legend-item { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+        .legend-key {
+            font-weight: 700; color: #217346; background: #e7f1ec;
+            padding: 1px 6px; border-radius: 3px; font-family: Consolas, monospace;
+        }
+        .legend-sep { color: #999; }
+        .legend-text { color: #333; }
+
+        .hint-wrap { margin-bottom: 1rem; }
+        .hint-wrap .card-body { padding: 1rem 1.1rem; }
+        .hint-wrap code {
+            background: rgba(0,0,0,0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        .hint-wrap .katex-display { margin: 0.5rem 0; overflow-x: auto; overflow-y: hidden; }
+        .hint-wrap .katex { font-size: 1.05em; }
+
+        .formula-input { font-family: Consolas, "Courier New", monospace; }
+        .choices-list .custom-control { margin-bottom: 8px; }
+        .choices-list .custom-control-label { cursor: pointer; }
+
+        .pagination-wrap {
+            max-width: 760px; margin: 16px auto 0;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px;
+        }
+        .pagination { margin: 0; flex-wrap: wrap; }
+        .pagination .page-link { color: #217346; }
+        .pagination .page-item.active .page-link {
+            background: #217346; border-color: #217346; color: #fff;
+        }
+        .pagination .page-item.disabled .page-link { color: #adb5bd; }
+        .page-counter { color: #6c757d; font-size: 0.9rem; }
+
+        @media (max-width: 575.98px) {
+            body { padding: 12px 8px; }
+            .case-card .card-body { padding: 1rem; }
+            .pagination .page-link { padding: .35rem .6rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card case-card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+        <span id="cardTitle" class="mr-2">—</span>
+        <span class="badge badge-theme" id="cardTheme">—</span>
+    </div>
+
+    <div class="card-body">
+        <div id="legendBox" class="mb-2" style="display:none;"></div>
+        <div id="taskContent"></div>
+    </div>
+
+    <div class="card-footer text-muted small" id="cardFooter"></div>
+</div>
+
+<div class="pagination-wrap">
+    <nav aria-label="Навигация по тестам">
+        <ul class="pagination" id="paginationTop"></ul>
+    </nav>
+    <span class="page-counter" id="pageCounter"></span>
+</div>
+
+<script>
+    // ===================== ДАННЫЕ ТЕСТОВ =====================
+    // hint — HTML-строка; поддерживается $...$ и $$...$$ (KaTeX).
+    // Плейсхолдеры {var1}, {var1-10} подставляются из test.vars.
+    const tests = [
+        {
+            id: "statistics525",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Среднее значение продаж за месяц",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"],
+            hint: `
+                <div class="card">
+                  <div class="card-header bg-primary text-white">Решение</div>
+                  <div class="card-body">
+                    <div class="mb-2">Формула среднего арифметического:</div>
+                    <div class="text-center">$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$$</div>
+                    <div class="mt-3 mb-2">Подставляем значения столбца «Продажи» (D2:D13):</div>
+                    <div class="text-center">$$\\bar{x} = \\frac{52 + 55 + \\dots + 80}{12}$$</div>
+                    <div class="alert alert-primary mt-3 mb-0">
+                      Ответ: <code>=AVERAGE(D2:D13)</code>
+                    </div>
+                  </div>
+                </div>
+            `,
+            text: "Введите формулу для расчета средних продаж за месяц",
+            answer: "AVERAGE(D2:D13)",
+        },
+        {
+            id: "statistics309",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Ковариация между количеством звонков и продажами",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"],
+            vars: { "1": 100 },
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула ковариации через моменты:</div>
+    <div class="text-center">$$\\mathrm{Cov}(X, Y) = M(XY) - M(X) \\cdot M(Y)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$\\mathrm{Cov}(X, Y) = {var1-10} - 10 \\cdot 10 = {var1-10} - 100 = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3 mb-0">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+            text: "Введите формулу для расчета ковариации между количеством звонков и продажами",
+            answer: "COVAR(D2:D13,C2:C13)",
+        },
+        {
+            id: "statistics729",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Квадрат коэффициента корреляции Пирсона",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"],
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Квадрат коэффициента корреляции Пирсона:</div>
+    <div class="text-center">$$R^2 = \\left( \\frac{\\mathrm{Cov}(X,Y)}{\\sigma_X \\sigma_Y} \\right)^2$$</div>
+    <div class="mt-3 mb-2">В Excel — функция <code>КВПИРСОН</code> (RSQ):</div>
+    <div class="text-center">$$R^2 = \\mathrm{RSQ}(y, x)$$</div>
+    <div class="alert alert-primary mt-3 mb-0">
+      Ответ: <code>=RSQ(D2:D13,B2:B13)</code>
+    </div>
+  </div>
+</div>`,
+            text: "Рассчитайте квадрат коэффициента корреляции Пирсона по уравнению регрессии рекламный бюджет и продажи за месяц",
+            answer: "=RSQ(D2:D13,B2:B13)",
+        },
+        {
+            id: "statistics499",
+            type: "multiplechoices",
+            header: "Тест",
+            title: "Статистической зависимостью называется …",
+            theme: "Корреляционно-регрессионный анализ",
+            text: "Статистической зависимостью называется …",
+            choices: [
+                "точная формула, связывающая переменные",
+                "связь переменных без учета воздействия случайных факторов",
+                "связь переменных, на которую накладывается воздействие случайных факторов",
+                "любая связь переменных"
+            ],
+            answers: ["связь переменных, на которую накладывается воздействие случайных факторов"],
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">
+      Различают два вида зависимости:
+    </div>
+    <div class="mb-2">
+      <b>Функциональная</b> — каждому $x$ соответствует ровно один $y$:
+      $$y = f(x)$$
+    </div>
+    <div class="mb-2">
+      <b>Статистическая</b> — каждому $x$ соответствует множество $y$,
+      и связь проявляется «в среднем» с учётом случайных факторов:
+      $$M(Y \\mid X = x) = f(x)$$
+    </div>
+    <div class="alert alert-primary mt-3 mb-0">
+      Ответ: <b>связь переменных, на которую накладывается воздействие
+      случайных факторов</b>
+    </div>
+  </div>
+</div>`,
+        },
+    ];
+
+    // ===================== НАСТРОЙКИ РЕНДЕРА =====================
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const ROW_HEADER_W = 34;
+    const COL_HEADER_H = 24;
+    const MIN_COL_W = 56;
+    const MAX_COL_W = 130;
+    const MAX_COL_W_STRETCHED = 180;
+    const PADDING_X = 16;
+
+    const state = {
+        currentIndex: 0,
+        userAnswers: {},
+        userChoices: {},
+        results: {},
+    };
+
+    // ===================== УТИЛИТЫ =====================
+    function isMobile() { return window.innerWidth < 480; }
+
+    function measureText(str, fontSize) {
+        const svg = document.createElementNS(SVG_NS, "svg");
+        svg.setAttribute("width", 0);
+        svg.setAttribute("height", 0);
+        svg.style.position = "absolute";
+        svg.style.visibility = "hidden";
+        document.body.appendChild(svg);
+        const t = document.createElementNS(SVG_NS, "text");
+        t.setAttribute("font-family", "Calibri, Arial, sans-serif");
+        t.setAttribute("font-size", fontSize);
+        t.textContent = str;
+        svg.appendChild(t);
+        const w = t.getComputedTextLength();
+        document.body.removeChild(svg);
+        return w;
+    }
+
+    function normalizeFormula(s) {
+        let v = (s || "").trim().toUpperCase().replace(/\s+/g, "");
+        if (v.startsWith("=")) v = v.slice(1);
+        return v;
+    }
+
+    // Подстановка {varN} и {varN-op} из vars
+    function resolvePlaceholders(str, vars) {
+        if (!str) return str;
+        vars = vars || {};
+        return str.replace(/\{var([\w\-\+\*\/\(\)\.\s]*)\}/g, (_, expr) => {
+            // expr: "" | "1" | "1-10" | "1+2"
+            let resolved = expr.replace(/var(\w+)/g, (m, name) => name);
+            resolved = resolved.replace(/(\d+)/g, (m) => {
+                return vars[m] !== undefined ? String(vars[m]) : m;
+            });
+            try {
+                const val = Function('"use strict";return (' + resolved + ')')();
+                return Number.isInteger(val) ? String(val) : Number(val).toFixed(2);
+            } catch {
+                return "{" + "var" + expr + "}";
+            }
+        });
+    }
+
+    // ===================== HINT =====================
+    function buildHintElement(html, vars) {
+        const wrap = document.createElement("div");
+        wrap.className = "hint-wrap";
+        wrap.innerHTML = resolvePlaceholders(html, vars);
+
+        const tryRender = (attempt) => {
+            if (window.renderMathInElement) {
+                try {
+                    renderMathInElement(wrap, {
+                        delimiters: [
+                            { left: "$$", right: "$$", display: true },
+                            { left: "\\[", right: "\\]", display: true },
+                            { left: "$",  right: "$",  display: false },
+                            { left: "\\(", right: "\\)", display: false },
+                        ],
+                        throwOnError: false,
+                    });
+                } catch (e) {
+                    console.warn("KaTeX render error:", e);
+                }
+            } else if (attempt < 20) {
+                setTimeout(() => tryRender(attempt + 1), 50);
+            }
+        };
+        tryRender(0);
+
+        return wrap;
+    }
+
+    // ===================== SVG-ТАБЛИЦА =====================
+    function renderTable(data, shortHeaders, availableWidth) {
+        const mobile = isMobile();
+        const fontSize = mobile ? 11 : 13;
+        const cellH = mobile ? 32 : 26;
+        const headers = (mobile && shortHeaders) ? shortHeaders : data[0];
+        const renderData = data.map((row, idx) =>
+            idx === 0 ? headers.slice() : row
+        );
+        const cols = renderData[0].length;
+        const rows = renderData.length;
+
+        const colWidths = [];
+        for (let c = 0; c < cols; c++) {
+            let maxW = 0;
+            for (let r = 0; r < rows; r++) {
+                maxW = Math.max(maxW, measureText(String(renderData[r][c]), fontSize));
+            }
+            colWidths[c] = Math.min(MAX_COL_W,
+                Math.max(MIN_COL_W, Math.ceil(maxW + PADDING_X)));
+        }
+
+        const naturalW = ROW_HEADER_W + colWidths.reduce((a, b) => a + b, 0);
+        if (availableWidth && availableWidth > naturalW) {
+            const extra = availableWidth - naturalW;
+            const totalDataW = colWidths.reduce((a, b) => a + b, 0);
+            for (let c = 0; c < colWidths.length; c++) {
+                colWidths[c] = Math.min(MAX_COL_W_STRETCHED,
+                    Math.round(colWidths[c] + extra * (colWidths[c] / totalDataW)));
+            }
+            const finalW = ROW_HEADER_W + colWidths.reduce((a, b) => a + b, 0);
+            const diff = availableWidth - finalW;
+            if (diff > 0 && colWidths.length > 0) {
+                colWidths[colWidths.length - 1] += diff;
+            }
+        }
+
+        const totalW = ROW_HEADER_W + colWidths.reduce((a, b) => a + b, 0);
+        const totalH = COL_HEADER_H + rows * cellH;
+
+        const svg = document.createElementNS(SVG_NS, "svg");
+        svg.setAttribute("width", totalW);
+        svg.setAttribute("height", totalH);
+        svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
+        svg.style.fontSize = fontSize + "px";
+
+        const bg = document.createElementNS(SVG_NS, "rect");
+        bg.setAttribute("width", totalW);
+        bg.setAttribute("height", totalH);
+        bg.setAttribute("fill", "white");
+        svg.appendChild(bg);
+
+        const corner = document.createElementNS(SVG_NS, "rect");
+        corner.setAttribute("width", ROW_HEADER_W);
+        corner.setAttribute("height", COL_HEADER_H);
+        corner.setAttribute("fill", "#e6e6e6");
+        corner.setAttribute("stroke", "#b0b0b0");
+        svg.appendChild(corner);
+
+        let x = ROW_HEADER_W;
+        for (let c = 0; c < cols; c++) {
+            const w = colWidths[c];
+            const rect = document.createElementNS(SVG_NS, "rect");
+            rect.setAttribute("x", x); rect.setAttribute("y", 0);
+            rect.setAttribute("width", w); rect.setAttribute("height", COL_HEADER_H);
+            rect.setAttribute("fill", "#e6e6e6");
+            rect.setAttribute("stroke", "#b0b0b0");
+            svg.appendChild(rect);
+            const txt = document.createElementNS(SVG_NS, "text");
+            txt.setAttribute("x", x + w / 2);
+            txt.setAttribute("y", COL_HEADER_H / 2 + 4);
+            txt.setAttribute("text-anchor", "middle");
+            txt.setAttribute("fill", "#444");
+            txt.setAttribute("font-size", fontSize);
+            txt.textContent = String.fromCharCode(65 + c);
+            svg.appendChild(txt);
+            x += w;
+        }
+
+        for (let r = 0; r < rows; r++) {
+            const y = COL_HEADER_H + r * cellH;
+            const rect = document.createElementNS(SVG_NS, "rect");
+            rect.setAttribute("x", 0); rect.setAttribute("y", y);
+            rect.setAttribute("width", ROW_HEADER_W);
+            rect.setAttribute("height", cellH);
+            rect.setAttribute("fill", "#e6e6e6");
+            rect.setAttribute("stroke", "#b0b0b0");
+            svg.appendChild(rect);
+            const txt = document.createElementNS(SVG_NS, "text");
+            txt.setAttribute("x", ROW_HEADER_W / 2);
+            txt.setAttribute("y", y + cellH / 2 + 4);
+            txt.setAttribute("text-anchor", "middle");
+            txt.setAttribute("fill", "#444");
+            txt.setAttribute("font-size", fontSize);
+            txt.textContent = r + 1;
+            svg.appendChild(txt);
+        }
+
+        for (let r = 0; r < rows; r++) {
+            const y = COL_HEADER_H + r * cellH;
+            const isHeader = r === 0;
+            let cellX = ROW_HEADER_W;
+            for (let c = 0; c < cols; c++) {
+                const w = colWidths[c];
+                const rect = document.createElementNS(SVG_NS, "rect");
+                rect.setAttribute("x", cellX); rect.setAttribute("y", y);
+                rect.setAttribute("width", w); rect.setAttribute("height", cellH);
+                rect.setAttribute("fill", isHeader ? "#217346" : "white");
+                rect.setAttribute("stroke", "#c8c8c8");
+                svg.appendChild(rect);
+
+                const val = renderData[r][c];
+                const txt = document.createElementNS(SVG_NS, "text");
+                txt.setAttribute("y", y + cellH / 2 + 4);
+                txt.setAttribute("font-size", fontSize);
+                txt.setAttribute("fill", isHeader ? "white" : "#000");
+                if (isHeader) txt.setAttribute("font-weight", "bold");
+                if (typeof val === "number") {
+                    txt.setAttribute("x", cellX + w - 6);
+                    txt.setAttribute("text-anchor", "end");
+                } else {
+                    txt.setAttribute("x", cellX + 6);
+                }
+                txt.textContent = val;
+                svg.appendChild(txt);
+                cellX += w;
+            }
+        }
+
+        return svg;
+    }
+
+    function renderLegend(fullHeaders, shortHeaders, legendContainer) {
+        legendContainer.innerHTML = "";
+        legendContainer.className = "legend-box mb-2";
+        legendContainer.style.display = "";
+        for (let i = 1; i < fullHeaders.length; i++) {
+            const item = document.createElement("div");
+            item.className = "legend-item";
+            item.innerHTML =
+                `<span class="legend-key">${shortHeaders[i]}</span>` +
+                `<span class="legend-sep">—</span>` +
+                `<span class="legend-text">${fullHeaders[i]}</span>`;
+            legendContainer.appendChild(item);
+        }
+    }
+
+    // ===================== РЕНДЕР ТЕСТА =====================
+    function renderCaseWithRandomNumber(t) {
+        const taskContent = document.getElementById("taskContent");
+        const legendBox = document.getElementById("legendBox");
+        taskContent.innerHTML = "";
+
+        legendBox.innerHTML = "";
+        legendBox.style.display = "none";
+        if (isMobile() && t.shortHeaders) {
+            renderLegend(t.dataArray[0], t.shortHeaders, legendBox);
+        }
+
+        const tableWrap = document.createElement("div");
+        tableWrap.className = "table-scroll mb-3";
+        taskContent.appendChild(tableWrap);
+
+        const availableWidth = tableWrap.clientWidth
+            || tableWrap.parentElement.clientWidth;
+        tableWrap.appendChild(
+            renderTable(t.dataArray, t.shortHeaders, availableWidth)
+        );
+
+        const hintSlot = document.createElement("div");
+        hintSlot.id = "hintSlot";
+        taskContent.appendChild(hintSlot);
+
+        const p = document.createElement("p");
+        p.className = "mb-2";
+        p.textContent = t.text;
+        taskContent.appendChild(p);
+
+        const fg = document.createElement("div");
+        fg.className = "form-group mb-2";
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control formula-input";
+        input.placeholder = "например, =AVERAGE(D2:D13)";
+        input.autocomplete = "off";
+        input.autocapitalize = "off";
+        input.spellcheck = false;
+        input.id = "answerInput";
+        input.value = state.userAnswers[t.id] || "";
+        fg.appendChild(input);
+        taskContent.appendChild(fg);
+
+        const btnRow = document.createElement("div");
+        btnRow.className = "d-flex flex-wrap align-items-center";
+        btnRow.innerHTML = `
+            <button class="btn btn-success mr-2 mb-2" id="checkBtn">Проверить</button>
+            <button class="btn btn-outline-secondary mb-2" id="clearBtn">Очистить</button>
+            <span class="ml-sm-3 mb-2 font-weight-bold" id="resultMsg"></span>
+        `;
+        taskContent.appendChild(btnRow);
+
+        if (state.results[t.id]) {
+            showResult(t.id);
+            showHint(t.id);
+        }
+
+        input.addEventListener("input", () => {
+            state.userAnswers[t.id] = input.value;
+        });
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") document.getElementById("checkBtn").click();
+        });
+
+        document.getElementById("checkBtn").addEventListener("click", () => {
+            const val = input.value;
+            state.userAnswers[t.id] = val;
+            const user = normalizeFormula(val);
+            const correct = normalizeFormula(t.answer);
+            if (!user) {
+                state.results[t.id] = undefined;
+                showResult(t.id);
+                hideHint();
+                return;
+            }
+            state.results[t.id] = (user === correct) ? "correct" : "wrong";
+            showResult(t.id);
+            showHint(t.id);
+        });
+
+        document.getElementById("clearBtn").addEventListener("click", () => {
+            input.value = "";
+            state.userAnswers[t.id] = "";
+            state.results[t.id] = undefined;
+            showResult(t.id);
+            hideHint();
+        });
+    }
+
+    function renderMultipleChoices(t) {
+        const taskContent = document.getElementById("taskContent");
+        const legendBox = document.getElementById("legendBox");
+        taskContent.innerHTML = "";
+        legendBox.innerHTML = "";
+        legendBox.style.display = "none";
+
+        const p = document.createElement("p");
+        p.className = "mb-3 font-weight-bold";
+        p.textContent = t.text;
+        taskContent.appendChild(p);
+
+        const list = document.createElement("div");
+        list.className = "choices-list mb-3";
+        list.id = "choicesList";
+        const selected = state.userChoices[t.id] || new Set();
+
+        t.choices.forEach((choice, idx) => {
+            const wrap = document.createElement("div");
+            wrap.className = "custom-control custom-radio";
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.className = "custom-control-input";
+            radio.name = "choice_" + t.id;
+            radio.id = `choice_${t.id}_${idx}`;
+            radio.value = choice;
+            if (selected.has(choice)) radio.checked = true;
+            const label = document.createElement("label");
+            label.className = "custom-control-label";
+            label.setAttribute("for", radio.id);
+            label.textContent = choice;
+            wrap.appendChild(radio);
+            wrap.appendChild(label);
+            list.appendChild(wrap);
+        });
+        taskContent.appendChild(list);
+
+        const hintSlot = document.createElement("div");
+        hintSlot.id = "hintSlot";
+        taskContent.appendChild(hintSlot);
+
+        const btnRow = document.createElement("div");
+        btnRow.className = "d-flex flex-wrap align-items-center";
+        btnRow.innerHTML = `
+            <button class="btn btn-success mr-2 mb-2" id="checkBtn">Проверить</button>
+            <button class="btn btn-outline-secondary mb-2" id="clearBtn">Очистить</button>
+            <span class="ml-sm-3 mb-2 font-weight-bold" id="resultMsg"></span>
+        `;
+        taskContent.appendChild(btnRow);
+
+        if (state.results[t.id]) {
+            showResult(t.id);
+            showHint(t.id);
+        }
+
+        list.addEventListener("change", (e) => {
+            if (e.target.name === "choice_" + t.id) {
+                state.userChoices[t.id] = new Set([e.target.value]);
+            }
+        });
+
+        document.getElementById("checkBtn").addEventListener("click", () => {
+            const sel = state.userChoices[t.id] || new Set();
+            if (sel.size === 0) {
+                state.results[t.id] = undefined;
+                showResult(t.id);
+                hideHint();
+                return;
+            }
+            const correct = new Set(t.answers);
+            const same = sel.size === correct.size &&
+                         [...sel].every(v => correct.has(v));
+            state.results[t.id] = same ? "correct" : "wrong";
+            showResult(t.id);
+            showHint(t.id);
+        });
+
+        document.getElementById("clearBtn").addEventListener("click", () => {
+            state.userChoices[t.id] = new Set();
+            state.results[t.id] = undefined;
+            document.querySelectorAll(`input[name="choice_${t.id}"]`)
+                .forEach(r => (r.checked = false));
+            showResult(t.id);
+            hideHint();
+        });
+    }
+
+    function showResult(id) {
+        const msg = document.getElementById("resultMsg");
+        if (!msg) return;
+        const res = state.results[id];
+        if (res === "correct") {
+            msg.className = "ml-sm-3 mb-2 font-weight-bold text-success";
+            msg.textContent = "✔ Верно!";
+        } else if (res === "wrong") {
+            msg.className = "ml-sm-3 mb-2 font-weight-bold text-danger";
+            msg.textContent = "✘ Неверно, попробуйте ещё раз";
+        } else {
+            msg.className = "ml-sm-3 mb-2 font-weight-bold";
+            msg.textContent = "";
+        }
+    }
+
+    function showHint(id) {
+        const t = tests.find(x => x.id === id);
+        const slot = document.getElementById("hintSlot");
+        if (!t || !slot || !t.hint) return;
+        slot.innerHTML = "";
+        slot.appendChild(buildHintElement(t.hint, t.vars || {}));
+    }
+
+    function hideHint() {
+        const slot = document.getElementById("hintSlot");
+        if (slot) slot.innerHTML = "";
+    }
+
+    // ===================== ГЛАВНЫЙ РЕНДЕР =====================
+    function renderCurrentTest() {
+        const t = tests[state.currentIndex];
+        document.getElementById("cardTitle").textContent = t.title;
+        document.getElementById("cardTheme").textContent = t.theme;
+        document.getElementById("cardFooter").textContent =
+            `${t.header} · ${t.theme}`;
+        if (t.type === "casewithrandomnumber") {
+            renderCaseWithRandomNumber(t);
+        } else if (t.type === "multiplechoices") {
+            renderMultipleChoices(t);
+        }
+        renderPagination();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ===================== ПАГИНАЦИЯ =====================
+    function renderPagination() {
+        const ul = document.getElementById("paginationTop");
+        const counter = document.getElementById("pageCounter");
+        ul.innerHTML = "";
+        const total = tests.length;
+        const current = state.currentIndex;
+
+        const prev = document.createElement("li");
+        prev.className = "page-item" + (current === 0 ? " disabled" : "");
+        prev.innerHTML = `<a class="page-link" href="#">&laquo;</a>`;
+        prev.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (current > 0) goTo(current - 1);
+        });
+        ul.appendChild(prev);
+
+        buildPageList(current, total).forEach((p) => {
+            if (p === "…") {
+                const li = document.createElement("li");
+                li.className = "page-item disabled";
+                li.innerHTML = `<span class="page-link">…</span>`;
+                ul.appendChild(li);
+            } else {
+                const li = document.createElement("li");
+                li.className = "page-item" + (p === current ? " active" : "");
+                li.innerHTML = `<a class="page-link" href="#">${p + 1}</a>`;
+                li.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    goTo(p);
+                });
+                ul.appendChild(li);
+            }
+        });
+
+        const next = document.createElement("li");
+        next.className = "page-item" + (current === total - 1 ? " disabled" : "");
+        next.innerHTML = `<a class="page-link" href="#">&raquo;</a>`;
+        next.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (current < total - 1) goTo(current + 1);
+        });
+        ul.appendChild(next);
+
+        counter.textContent = `Тест ${current + 1} из ${total}`;
+    }
+
+    function buildPageList(current, total) {
+        if (total <= 7) return Array.from({ length: total }, (_, i) => i);
+        const result = [];
+        const from = Math.max(1, current - 1);
+        const to = Math.min(total - 2, current + 1);
+        result.push(0);
+        if (from > 1) result.push("…");
+        for (let i = from; i <= to; i++) result.push(i);
+        if (to < total - 2) result.push("…");
+        result.push(total - 1);
+        return result;
+    }
+
+    function goTo(index) {
+        if (index < 0 || index >= tests.length) return;
+        state.currentIndex = index;
+        renderCurrentTest();
+    }
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const t = tests[state.currentIndex];
+            if (t.type === "casewithrandomnumber") {
+                renderCaseWithRandomNumber(t);
+            }
+        }, 150);
+    });
+
+    // ===================== СТАРТ =====================
+    function boot() {
+        if (!window.renderMathInElement) {
+            return setTimeout(boot, 50);
+        }
+        renderCurrentTest();
+    }
+    window.addEventListener("DOMContentLoaded", boot);
+</script>
+
+</body>
+</html>

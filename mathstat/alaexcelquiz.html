@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кейс — Среднее значение продаж</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #eef1f5;
+            padding: 24px 12px;
+        }
+        .case-card {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .case-card .card-header {
+            background: #217346;
+            color: #fff;
+            font-weight: 600;
+        }
+        .case-card .badge-theme {
+            background: #e7f1ec;
+            color: #217346;
+        }
+        /* Горизонтальный скролл ТОЛЬКО внутри таблицы */
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+        }
+        .table-scroll svg {
+            display: block;
+        }
+        .table-scroll svg text {
+            font-family: Calibri, Arial, sans-serif;
+        }
+
+        /* ---------- Легенда (как у диаграмм) ---------- */
+        .legend-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            padding: 8px 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #217346;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .legend-key {
+            font-weight: 700;
+            color: #217346;
+            background: #e7f1ec;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+        .legend-sep { color: #999; }
+        .legend-text { color: #333; }
+
+        /* ---------- Остальное ---------- */
+        .hint-box {
+            background: #f8f9fa;
+            border-left: 3px solid #217346;
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .formula-input {
+            font-family: Consolas, "Courier New", monospace;
+        }
+        @media (max-width: 575.98px) {
+            body { padding: 12px 8px; }
+            .case-card .card-body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card case-card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+        <span id="cardTitle" class="mr-2">Среднее значение продаж за месяц</span>
+        <span class="badge badge-theme" id="cardTheme">Средние величины в статистике</span>
+    </div>
+
+    <div class="card-body">
+        <!-- Легенда (видна только на мобильных) -->
+        <div id="legendBox" class="mb-2" style="display:none;"></div>
+
+        <!-- Таблица -->
+        <div class="table-scroll mb-3" id="tableContainer"></div>
+
+        <!-- Подсказка -->
+        <div class="hint-box mb-3" id="hintBox"></div>
+
+        <!-- Текст задания + ввод -->
+        <p class="mb-2" id="taskText"></p>
+        <div class="form-group mb-2">
+            <label for="answerInput" class="sr-only">Формула</label>
+            <input type="text"
+                   class="form-control formula-input"
+                   id="answerInput"
+                   placeholder="например, =AVERAGE(D2:D13)"
+                   autocomplete="off"
+                   autocapitalize="off"
+                   spellcheck="false">
+        </div>
+        <div class="d-flex flex-wrap align-items-center">
+            <button class="btn btn-success mr-2 mb-2" id="checkBtn">Проверить</button>
+            <button class="btn btn-outline-secondary mb-2" id="clearBtn">Очистить</button>
+            <span class="ml-sm-3 mb-2 font-weight-bold" id="resultMsg"></span>
+        </div>
+    </div>
+
+    <div class="card-footer text-muted small" id="cardFooter"></div>
+</div>
+
+<script>
+    const test = {
+        id: "statistics525",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее значение продаж за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        // Короткие заголовки для мобильных экранов (по числу столбцов)
+        shortHeaders: ["Месяц", "РБ", "ЗК", "П"],
+        hint: `<a href="https://support.microsoft.com/ru-ru/office/срзнач-функция-срзнач-047bac88-d466-426c-a32b-8f33eb960cf6"
+                   class="link-primary" target="_blank" rel="noopener">
+                   СРЗНАЧ (функция СРЗНАЧ) = AVERAGE(A1:A20)</a>`,
+        text: "Введите формулу для расчета средних продаж за месяц",
+        answer: "AVERAGE(D2:D13)",
+    };
+
+    // ---------- Настройки рендера ----------
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const ROW_HEADER_W = 34;
+    const COL_HEADER_H = 24;
+    const MIN_COL_W = 56;
+    const MAX_COL_W = 130;            // натуральная ширина столбца по содержимому
+    const MAX_COL_W_STRETCHED = 180;  // предел растягивания на десктопе
+    const PADDING_X = 16;
+
+    function isMobile() {
+        return window.innerWidth < 480;
+    }
+
+    function measureText(str, fontSize) {
+        const svg = document.createElementNS(SVG_NS, "svg");
+        svg.setAttribute("width", 0);
+        svg.setAttribute("height", 0);
+        svg.style.position = "absolute";
+        svg.style.visibility = "hidden";
+        document.body.appendChild(svg);
+
+        const t = document.createElementNS(SVG_NS, "text");
+        t.setAttribute("font-family", "Calibri, Arial, sans-serif");
+        t.setAttribute("font-size", fontSize);
+        t.textContent = str;
+        svg.appendChild(t);
+        const w = t.getComputedTextLength();
+        document.body.removeChild(svg);
+        return w;
+    }
+
+    // ---------- Легенда ----------
+    function renderLegend(fullHeaders, shortHeaders, legendContainer) {
+        legendContainer.innerHTML = "";
+        legendContainer.className = "legend-box mb-2";
+        legendContainer.style.display = "";
+
+        for (let i = 1; i < fullHeaders.length; i++) {
+            const item = document.createElement("div");
+            item.className = "legend-item";
+
+            const key = document.createElement("span");
+            key.className = "legend-key";
+            key.textContent = shortHeaders[i];
+
+            const sep = document.createElement("span");
+            sep.className = "legend-sep";
+            sep.textContent = "—";
+
+            const text = document.createElement("span");
+            text.className = "legend-text";
+            text.textContent = fullHeaders[i];
+
+            item.appendChild(key);
+            item.appendChild(sep);
+            item.appendChild(text);
+            legendContainer.appendChild(item);
+        }
+    }
+
+    // ---------- Таблица ----------
+    function renderTable(data, shortHeaders, availableWidth) {
+        const mobile = isMobile();
+        const fontSize = mobile ? 11 : 13;
+        const cellH = mobile ? 32 : 26;
+
+        // На мобильных подменяем шапку короткими заголовками
+        const headers = (mobile && shortHeaders) ? shortHeaders : data[0];
+        const renderData = data.map((row, idx) =>
+            idx === 0 ? headers.slice() : row
+        );
+
+        const cols = renderData[0].length;
+        const rows = renderData.length;
+
+        // 1) Натуральная ширина столбцов по содержимому
+        const colWidths = [];
+        for (let c = 0; c < cols; c++) {
+            let maxW = 0;
+            for (let r = 0; r < rows; r++) {
+                maxW = Math.max(maxW, measureText(String(renderData[r][c]), fontSize));
+            }
+            colWidths[c] = Math.min(
+                MAX_COL_W,
+                Math.max(MIN_COL_W, Math.ceil(maxW + PADDING_X))
+            );
+        }
+
+        // 2) Растягиваем столбцы под доступную ширину контейнера
+        const naturalW = ROW_HEADER_W + colWidths.reduce((a, b) => a + b, 0);
+        if (availableWidth && availableWidth > naturalW) {
+            const extra = availableWidth - naturalW;
+            const totalDataW = colWidths.reduce((a, b) => a + b, 0);
+            for (let c = 0; c < colWidths.length; c++) {
+                const share = colWidths[c] / totalDataW;
+                colWidths[c] = Math.min(
+                    MAX_COL_W_STRETCHED,
+                    Math.round(colWidths[c] + extra * share)
+                );
+            }
+        }
+
+        const totalW = ROW_HEADER_W + colWidths.reduce((a, b) => a + b, 0);
+        const totalH = COL_HEADER_H + rows * cellH;
+
+        const svg = document.createElementNS(SVG_NS, "svg");
+        svg.setAttribute("width", totalW);
+        svg.setAttribute("height", totalH);
+        svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
+        svg.style.fontSize = fontSize + "px";
+
+        // фон
+        const bg = document.createElementNS(SVG_NS, "rect");
+        bg.setAttribute("width", totalW);
+        bg.setAttribute("height", totalH);
+        bg.setAttribute("fill", "white");
+        svg.appendChild(bg);
+
+        // угол
+        const corner = document.createElementNS(SVG_NS, "rect");
+        corner.setAttribute("width", ROW_HEADER_W);
+        corner.setAttribute("height", COL_HEADER_H);
+        corner.setAttribute("fill", "#e6e6e6");
+        corner.setAttribute("stroke", "#b0b0b0");
+        svg.appendChild(corner);
+
+        // заголовки колонок A, B, C...
+        let x = ROW_HEADER_W;
+        for (let c = 0; c < cols; c++) {
+            const w = colWidths[c];
+            const rect = document.createElementNS(SVG_NS, "rect");
+            rect.setAttribute("x", x);
+            rect.setAttribute("y", 0);
+            rect.setAttribute("width", w);
+            rect.setAttribute("height", COL_HEADER_H);
+            rect.setAttribute("fill", "#e6e6e6");
+            rect.setAttribute("stroke", "#b0b0b0");
+            svg.appendChild(rect);
+
+            const txt = document.createElementNS(SVG_NS, "text");
+            txt.setAttribute("x", x + w / 2);
+            txt.setAttribute("y", COL_HEADER_H / 2 + 4);
+            txt.setAttribute("text-anchor", "middle");
+            txt.setAttribute("fill", "#444");
+            txt.setAttribute("font-size", fontSize);
+            txt.textContent = String.fromCharCode(65 + c);
+            svg.appendChild(txt);
+
+            x += w;
+        }
+
+        // заголовки строк
+        for (let r = 0; r < rows; r++) {
+            const y = COL_HEADER_H + r * cellH;
+            const rect = document.createElementNS(SVG_NS, "rect");
+            rect.setAttribute("x", 0);
+            rect.setAttribute("y", y);
+            rect.setAttribute("width", ROW_HEADER_W);
+            rect.setAttribute("height", cellH);
+            rect.setAttribute("fill", "#e6e6e6");
+            rect.setAttribute("stroke", "#b0b0b0");
+            svg.appendChild(rect);
+
+            const txt = document.createElementNS(SVG_NS, "text");
+            txt.setAttribute("x", ROW_HEADER_W / 2);
+            txt.setAttribute("y", y + cellH / 2 + 4);
+            txt.setAttribute("text-anchor", "middle");
+            txt.setAttribute("fill", "#444");
+            txt.setAttribute("font-size", fontSize);
+            txt.textContent = r + 1;
+            svg.appendChild(txt);
+        }
+
+        // ячейки данных
+        for (let r = 0; r < rows; r++) {
+            const y = COL_HEADER_H + r * cellH;
+            const isHeader = r === 0;
+            let cellX = ROW_HEADER_W;
+
+            for (let c = 0; c < cols; c++) {
+                const w = colWidths[c];
+                const rect = document.createElementNS(SVG_NS, "rect");
+                rect.setAttribute("x", cellX);
+                rect.setAttribute("y", y);
+                rect.setAttribute("width", w);
+                rect.setAttribute("height", cellH);
+                rect.setAttribute("fill", isHeader ? "#217346" : "white");
+                rect.setAttribute("stroke", "#c8c8c8");
+                svg.appendChild(rect);
+
+                const val = renderData[r][c];
+                const txt = document.createElementNS(SVG_NS, "text");
+                txt.setAttribute("y", y + cellH / 2 + 4);
+                txt.setAttribute("font-size", fontSize);
+                txt.setAttribute("fill", isHeader ? "white" : "#000");
+                if (isHeader) txt.setAttribute("font-weight", "bold");
+
+                if (typeof val === "number") {
+                    txt.setAttribute("x", cellX + w - 6);
+                    txt.setAttribute("text-anchor", "end");
+                } else {
+                    txt.setAttribute("x", cellX + 6);
+                }
+                txt.textContent = val;
+                svg.appendChild(txt);
+
+                cellX += w;
+            }
+        }
+
+        return svg;
+    }
+
+    // ---------- Инициализация карточки ----------
+    function initCard(t) {
+        document.getElementById("cardTitle").textContent = t.title;
+        document.getElementById("cardTheme").textContent = t.theme;
+        document.getElementById("hintBox").innerHTML = t.hint;
+        document.getElementById("taskText").textContent = t.text;
+        document.getElementById("cardFooter").textContent =
+            `${t.header} · ${t.theme}`;
+    }
+
+    // ---------- Главный рендер ----------
+    function render() {
+        const container = document.getElementById("tableContainer");
+        const legendBox = document.getElementById("legendBox");
+        const mobile = isMobile();
+
+        // Замер ДО очистки — clientWidth не зависит от содержимого
+        const availableWidth = container.clientWidth
+            || container.getBoundingClientRect().width;
+
+        container.innerHTML = "";
+        legendBox.innerHTML = "";
+        legendBox.style.display = "none";
+
+        if (mobile && test.shortHeaders) {
+            renderLegend(test.dataArray[0], test.shortHeaders, legendBox);
+        }
+
+        container.appendChild(
+            renderTable(test.dataArray, test.shortHeaders, availableWidth)
+        );
+    }
+
+    // ---------- Проверка ответа ----------
+    function normalizeFormula(s) {
+        let v = (s || "").trim().toUpperCase().replace(/\s+/g, "");
+        if (v.startsWith("=")) v = v.slice(1);
+        return v;
+    }
+
+    document.getElementById("checkBtn").addEventListener("click", () => {
+        const input = document.getElementById("answerInput").value;
+        const msg = document.getElementById("resultMsg");
+        const user = normalizeFormula(input);
+        const correct = normalizeFormula(test.answer);
+
+        if (!user) {
+            msg.textContent = "";
+            return;
+        }
+        if (user === correct) {
+            msg.className = "ml-sm-3 mb-2 font-weight-bold text-success";
+            msg.textContent = "✔ Верно!";
+        } else {
+            msg.className = "ml-sm-3 mb-2 font-weight-bold text-danger";
+            msg.textContent = "✘ Неверно, попробуйте ещё раз";
+        }
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", () => {
+        document.getElementById("answerInput").value = "";
+        document.getElementById("resultMsg").textContent = "";
+    });
+
+    document.getElementById("answerInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") document.getElementById("checkBtn").click();
+    });
+
+    // ---------- Ре-рендер при resize ----------
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(render, 150);
+    });
+
+    // ---------- Старт ----------
+    initCard(test);
+    render();
+</script>
+
+</body>
+</html>

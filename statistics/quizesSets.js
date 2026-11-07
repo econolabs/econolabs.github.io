@@ -597,7 +597,8 @@ window.quizesSets = quizesSets;
 
 //let quizesSets = [
 
-    // {
+   
+// {
     //     id: "statistics729",
     //     header: "Кейс",
     //     type: "casewithrandomnumber",
