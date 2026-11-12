@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Корпоративные финансы</title>
+
+    <script src="../dist/formula-parser.min.js"></script>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Тесты -->
+    <script src="./quizesSets.js"></script>
+
+    <style>
+        :root {
+            --brand: #4a148c;
+            --brand-dark: #311b92;
+            --brand-light: #ede7f6;
+            --accent: #ff8f00;
+            --ink: #1d1d1f;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { color: var(--ink); }
+
+        .badge-method {
+            background-color: var(--brand);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background-color: var(--brand-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--brand-dark);
+        }
+
+        .list-group-item-action { cursor: pointer; }
+        .card-img-top { filter: grayscale(1); }
+
+        .theme-header {
+            border-left: 6px solid var(--brand);
+            padding-left: 1rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+
+        .corp-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        #reading-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        .svg-illustration {
+            background: #f7f3fc;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #e0d3f0;
+        }
+        .svg-illustration svg { max-width: 100%; height: auto; }
+
+        .reveal { opacity: 0; transform: translateY(24px); }
+
+        #backtop {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            z-index: 999;
+            display: none;
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .formula-card {
+            background: linear-gradient(180deg, #ede7f6 0%, #f3e5f5 100%);
+            border: 1px solid #b39ddb;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .formula-card h6 {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .formula-card .katex-display { margin: 0.5rem 0; }
+        .formula-card .formula-note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        .definition-card {
+            background: #faf8ff;
+            border-left: 4px solid var(--brand);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .definition-card h6 {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .verdict {
+            background: #fff8e1;
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+        }
+
+        .pros-cons-card {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 576px) {
+            .theme-header { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <div id="reading-progress"></div>
+
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="https://econolabs.github.io/">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item"><a class="nav-link active" href="#">Корпоративные финансы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quizblock">Тесты</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a href="https://vk.com/dmglvn">
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        <!-- ==================== ШАПКА ==================== -->
+        <header class="py-4">
+            <span class="corp-badge mb-2"><i class="fas fa-landmark me-1"></i> Президентская программа подготовки
+                управленческих кадров</span>
+            <h1 class="display-5 fw-bold mt-2" style="color: var(--brand);">
+                <i class="fas fa-landmark me-2"></i>Корпоративные финансы
+            </h1>
+            <p class="lead text-muted">8 тем: корпоративное управление, структура капитала, дивидендная политика, IPO,
+                M&A, стоимость компании, поведенческие финансы. Формулы через KaTeX.</p>
+
+            <!-- SVG: корпоративные решения -->
+            <div class="svg-illustration">
+                <svg viewBox="0 0 680 200" width="100%" style="max-width:680px" role="img"
+                    aria-label="Ключевые решения в корпоративных финансах">
+                    <g font-size="12" text-anchor="middle" font-weight="700">
+                        <rect x="20" y="40" width="200" height="120" rx="12" fill="#ede7f6" stroke="#4a148c"
+                            stroke-width="2" />
+                        <text x="120" y="70" fill="#311b92" font-size="14">Управление</text>
+                        <text x="120" y="95" fill="#555" font-size="11">Агентские конфликты</text>
+                        <text x="120" y="115" fill="#555" font-size="10">Совет директоров</text>
+                        <text x="120" y="135" fill="#555" font-size="10">Ковенанты</text>
+
+                        <rect x="240" y="40" width="200" height="120" rx="12" fill="#fff8e1" stroke="#ff8f00"
+                            stroke-width="2" />
+                        <text x="340" y="70" fill="#e65100" font-size="14">Капитал</text>
+                        <text x="340" y="95" fill="#555" font-size="11">Структура капитала</text>
+                        <text x="340" y="115" fill="#555" font-size="10">WACC, D/E, DFL</text>
+                        <text x="340" y="135" fill="#555" font-size="10">M&amp;M, trade-off</text>
+
+                        <rect x="460" y="40" width="200" height="120" rx="12" fill="#e8f5e9" stroke="#2e7d32"
+                            stroke-width="2" />
+                        <text x="560" y="70" fill="#1b5e20" font-size="14">Стоимость</text>
+                        <text x="560" y="95" fill="#555" font-size="11">EV, DCF, EVA</text>
+                        <text x="560" y="115" fill="#555" font-size="10">P/E, EV/EBITDA</text>
+                        <text x="560" y="135" fill="#555" font-size="10">MVA, IPO, M&amp;A</text>
+                    </g>
+                </svg>
+            </div>
+        </header>
+
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3 shadow-sm" style="max-width: 900px;">
+            <div class="card-body">
+                <h3 class="card-title mb-3"><i class="fas fa-list-ul me-2" style="color: var(--brand);"></i>Содержание
+                    дисциплины</h3>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-building me-2"></i> Тема 1. Корпорация и корпоративное
+                            управление</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Корпорация, агентская проблема, механизмы управления
+                                <span class="badge bg-primary">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Раскрытие информации, стейкхолдеры, конфликты
+                                <span class="badge bg-primary">theme1_2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-balance-scale me-2"></i> Тема 2. Структура капитала</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 Теорема M&amp;M,
+                                налоговый щит</a>
+                            <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Trade-off, pecking
+                                order, DFL, WACC</a>
+                            <a href="#theme2_3" class="list-group-item list-group-item-action">2.3 Ковенанты,
+                                оптимальная структура</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-coins me-2"></i> Тема 3. Дивидендная политика</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Типы политики,
+                                M&amp;M, сигнальная теория</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Байбэк,
+                                коэффициенты, клиентела</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i> Тема 4. IPO и эмиссии</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 IPO, underpricing,
+                                андеррайтер</a>
+                            <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 SPO, private
+                                placement, роуд-шоу</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-handshake me-2"></i> Тема 5. M&amp;A и реструктуризация</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 Синергия, типы
+                                интеграции, winner's curse</a>
+                            <a href="#theme5_2" class="list-group-item list-group-item-action">5.2 Due diligence,
+                                спин-офф, LBO</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-calculator me-2"></i> Тема 6. Стоимость компании и
+                            мультипликаторы</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 EV, DCF,
+                                терминальная стоимость</a>
+                            <a href="#theme6_2" class="list-group-item list-group-item-action">6.2 Мультипликаторы,
+                                EVA, MVA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-dark">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0"><i class="fas fa-brain me-2"></i> Тема 7. Поведенческие корпоративные финансы</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Оптимизм, market
+                                timing, стадное поведение</a>
+                            <a href="#theme7_2" class="list-group-item list-group-item-action">7.2 Эскалация,
+                                overconfidence, фрейминг, нарративы</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-flag-checkered me-2"></i> Тема 8. Итоговые и прикладные</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 CFO, КСО,
+                                корпоративный контроль, премии/скидки</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <h1 class="text-primary theme-header" id="theme1">Тема 1. Корпорация и корпоративное управление</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.1</span> Корпорация, агентская проблема,
+                    механизмы управления</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Корпорация</strong> — форма организации бизнеса с отделением собственности от управления,
+                        ограниченной ответственностью акционеров и бессрочным существованием.</p>
+                </div>
+
+                <p><strong>Агентская проблема:</strong> конфликт интересов между акционерами (принципалами) и
+                    менеджерами (агентами). Менеджеры могут преследовать личные цели (рост компании, бонусы, империя),
+                    а не максимизацию стоимости.</p>
+
+                <div class="formula-card">
+                    <h6>Агентские издержки</h6>
+                    \[
+                    A = M + B + R
+                    \]
+                    <p class="formula-note">\(M\) — затраты на мониторинг; \(B\) — затраты на стимулирование (bonding);
+                        \(R\) — остаточные потери.</p>
+                </div>
+
+                <p><strong>Механизмы корпоративного управления:</strong></p>
+                <ul>
+                    <li>совет директоров (включая независимых);</li>
+                    <li>внешний аудит;</li>
+                    <li>опционы на акции для менеджеров;</li>
+                    <li>раскрытие информации;</li>
+                    <li>рынок корпоративного контроля (M&amp;A);</li>
+                    <li>кодекс корпоративного управления.</li>
+                </ul>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> корпоративное управление —
+                    не «бюрократия», а <strong>инструмент снижения агентских издержек</strong> и стоимости капитала.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Корпоративное_управление" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Корпоративное управление (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.2</span> Раскрытие информации, стейкхолдеры,
+                    конфликты</h3>
+
+                <p><strong>Раскрытие информации</strong> снижает асимметрию и стоимость капитала. Компании обязаны
+                    публиковать отчётность, существенные факты, информацию о сделках с заинтересованностью.</p>
+
+                <p><strong>Стейкхолдеры:</strong> акционеры, кредиторы, сотрудники, клиенты, поставщики, государство.
+                    Стейкхолдерский подход учитывает интересы всех групп, а не только акционеров.</p>
+
+                <p><strong>Основные конфликты:</strong></p>
+                <ul>
+                    <li><strong>акционеры vs менеджеры</strong> — агентская проблема;</li>
+                    <li><strong>акционеры vs кредиторы</strong> — склонность к риску vs осторожность;</li>
+                    <li><strong>мажоритарии vs миноритарии</strong> — контроль vs защита прав;</li>
+                    <li><strong>акционеры vs стейкхолдеры</strong> — прибыль vs социальная ответственность.</li>
+                </ul>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> каждый конфликт — источник
+                    издержек. <strong>Прозрачность и справедливые правила</strong> снижают их остроту.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Стейкхолдер" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Стейкхолдер (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <h1 class="text-success theme-header" id="theme2">Тема 2. Структура капитала</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.1</span> Теорема M&amp;M, налоговый щит</h3>
+
+                <div class="formula-card">
+                    <h6>Теорема M&amp;M без налогов</h6>
+                    \[
+                    V_L = V_U
+                    \]
+                    <p class="formula-note">В идеальном рынке (без налогов, издержек банкротства, асимметрии информации)
+                        стоимость компании не зависит от структуры капитала.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Теорема M&amp;M с налогами (налоговый щит)</h6>
+                    \[
+                    V_L = V_U + T \times D
+                    \]
+                    <p class="formula-note">\(T\) — ставка налога на прибыль; \(D\) — величина долга. Долг выгоден за
+                        счёт экономии на налоге.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Стоимость собственного капитала с учётом долга (M&amp;M II)</h6>
+                    \[
+                    k_e = k_e^U + (k_e^U - k_d)(1-T)\frac{D}{E}
+                    \]
+                    <p class="formula-note">\(k_e^U\) — стоимость капитала без долга; \(k_d\) — стоимость долга.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> M&amp;M — <strong>базовая
+                        модель</strong>. В реальности нужно учитывать <strong>налоги и издержки финансовой
+                        неустойчивости</strong>.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Теорема_Модильяни_—_Миллера" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Теорема M&amp;M (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.2</span> Trade-off, pecking order, DFL, WACC</h3>
+
+                <div class="formula-card">
+                    <h6>WACC</h6>
+                    \[
+                    WACC = w_d k_d (1-T) + w_e k_e
+                    \]
+                    <p class="formula-note">\(w_d\), \(w_e\) — доли долга и собственного капитала; \(k_d\), \(k_e\) — их
+                        стоимости.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Эффект финансового рычага (DFL)</h6>
+                    \[
+                    DFL = \frac{EBIT}{EBIT - I}
+                    \]
+                    <p class="formula-note">\(I\) — проценты по долгу.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Финансовый рычаг (D/E)</h6>
+                    \[
+                    D/E = \frac{\text{Заёмный капитал}}{\text{Собственный капитал}}
+                    \]
+                </div>
+
+                <p><strong>Теории структуры капитала:</strong></p>
+                <ul>
+                    <li><strong>Trade-off theory</strong> — баланс между налоговым щитом и издержками финансовой
+                        неустойчивости;</li>
+                    <li><strong>Pecking order theory</strong> — внутренние источники → долг → акции;</li>
+                    <li><strong>Signaling theory</strong> — структура капитала как сигнал рынку.</li>
+                </ul>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> оптимальная структура
+                    <strong>минимизирует WACC</strong>. Не гонитесь за долгом ради «налогового щита» — учитывайте риск.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Структура_капитала" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Структура капитала (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.3</span> Ковенанты, оптимальная структура</h3>
+
+                <p><strong>Ковенанты</strong> — ограничения на действия заёмщика (например, на выплату дивидендов, рост
+                    долга, продажу активов). Защищают кредиторов от риска.</p>
+
+                <div class="formula-card">
+                    <h6>Оптимальная структура капитала</h6>
+                    \[
+                    WACC \to \min \Rightarrow V \to \max
+                    \]
+                    <p class="formula-note">Оптимум достигается при равенстве предельных выгод налогового щита и
+                        предельных издержек финансовой неустойчивости.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не «максимизируйте долг», а
+                    <strong>ищите баланс</strong>. Ковенанты — не «ограничение», а «цена» долга.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Ковенант" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Ковенант (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-warning theme-header" id="theme3">Тема 3. Дивидендная политика</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.1</span> Типы политики, M&amp;M, сигнальная
+                    теория</h3>
+
+                <p><strong>Типы дивидендной политики:</strong></p>
+                <ul>
+                    <li><strong>Остаточная</strong> — дивиденды = прибыль − инвестиции;</li>
+                    <li><strong>Стабильных дивидендов</strong> — фиксированные выплаты;</li>
+                    <li><strong>Постоянного коэффициента выплат</strong> — фиксированный % прибыли;</li>
+                    <li><strong>Растущих дивидендов</strong> — рост выплат.</li>
+                </ul>
+
+                <div class="formula-card">
+                    <h6>Теория иррелевантности (M&amp;M)</h6>
+                    \[
+                    V = f(\text{инвестиции, риск}) \quad \text{не зависит от } D
+                    \]
+                    <p class="formula-note">В идеальном рынке дивидендная политика не влияет на стоимость.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> в реальности дивиденды
+                    <strong>сигнализируют</strong> рынку об уверенности менеджмента. Снижение дивидендов — обычно
+                    негативный сигнал.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Дивидендная_политика" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Дивидендная политика (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.2</span> Байбэк, коэффициенты, клиентела</h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент выплат (payout ratio)</h6>
+                    \[
+                    PR = \frac{D}{E}
+                    \]
+                    <p class="formula-note">\(D\) — дивиденды; \(E\) — чистая прибыль.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Дивидендная доходность (dividend yield)</h6>
+                    \[
+                    DY = \frac{DPS}{P_0} \times 100\%
+                    \]
+                    <p class="formula-note">\(DPS\) — дивиденд на акцию; \(P_0\) — цена акции.</p>
+                </div>
+
+                <p><strong>Байбэк</strong> — обратный выкуп акций. Альтернатива дивидендам: уменьшает число акций,
+                    повышает EPS, может быть налогово эффективнее.</p>
+
+                <p><strong>Клиентела дивидендов</strong> — группа инвесторов, предпочитающих компании с определённой
+                    дивидендной политикой. Компания привлекает инвесторов, предпочитающих её политику.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Обратный_выкуп_акций" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Байбэк (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-danger theme-header" id="theme4">Тема 4. IPO и эмиссии</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.1</span> IPO, underpricing, андеррайтер</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>IPO (Initial Public Offering)</strong> — первичное публичное размещение акций на бирже.
+                        Привлекает капитал, повышает ликвидность, но требует раскрытия информации и затрат.</p>
+                </div>
+
+                <p><strong>IPO underpricing</strong> — систематическая недооценка акций при IPO относительно рыночной
+                    цены. Средняя недооценка — 10–20%.</p>
+
+                <div class="formula-card">
+                    <h6>Недооценка IPO</h6>
+                    \[
+                    UP = \frac{P_1 - P_0}{P_0} \times 100\%
+                    \]
+                    <p class="formula-note">\(P_0\) — цена размещения; \(P_1\) — цена в первый день торгов.</p>
+                </div>
+
+                <p><strong>Андеррайтер</strong> — инвестиционный банк, организующий размещение и гарантирующий выкуп
+                    части акций.</p>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> IPO — стратегическое
+                    решение, а не только финансирование. Учитывайте <strong>затраты, раскрытие и потерю
+                        контроля</strong>.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Публичное_размещение_акций" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> IPO (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.2</span> SPO, private placement, роуд-шоу</h3>
+
+                <p><strong>SPO (Secondary Public Offering)</strong> — дополнительный выпуск акций уже публичной
+                    компании. Проводится после IPO.</p>
+
+                <p><strong>Private placement</strong> — продажа акций ограниченному кругу инвесторов без публичного
+                    предложения. Дешевле IPO, но ограничивает ликвидность.</p>
+
+                <p><strong>Роуд-шоу</strong> — серия встреч с потенциальными инвесторами для презентации компании перед
+                    IPO.</p>
+
+                <p><strong>Зелёный башмак (greenshoe option)</strong> — опция андеррайтера на дополнительный выкуп
+                    акций при высоком спросе. Стабилизирует цену после IPO.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Дополнительное_размещение_акций" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> SPO (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <h1 class="text-info theme-header" id="theme5">Тема 5. M&amp;A и реструктуризация</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.1</span> Синергия, типы интеграции, winner's
+                    curse</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>M&amp;A (Mergers and Acquisitions)</strong> — слияния и поглощения компаний. Слияние —
+                        объединение, поглощение — приобретение одной компании другой.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Синергия</h6>
+                    \[
+                    S = V_{AB} - (V_A + V_B)
+                    \]
+                    <p class="formula-note">\(V_{AB}\) — стоимость объединённой компании; \(V_A\), \(V_B\) — стоимости
+                        по отдельности.</p>
+                </div>
+
+                <p><strong>Типы интеграции:</strong></p>
+                <ul>
+                    <li><strong>Горизонтальная</strong> — объединение конкурентов;</li>
+                    <li><strong>Вертикальная</strong> — объединение поставщика и покупателя;</li>
+                    <li><strong>Конгломератная</strong> — объединение компаний разных отраслей.</li>
+                </ul>
+
+                <p><strong>Winner's curse</strong> — систематическая переплата победителем аукциона. Победитель — тот,
+                    кто сильнее всех переоценил актив.</p>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> устанавливайте
+                    <strong>максимальную цену</strong> заранее и не повышайте её в процессе торгов. 50–70% сделок
+                    разрушают стоимость покупателя.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Слияния_и_поглощения" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> M&amp;A (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.2</span> Due diligence, спин-офф, LBO</h3>
+
+                <p><strong>Due diligence</strong> — комплексная проверка компании-цели перед сделкой (финансовая,
+                    юридическая, налоговая, операционная).</p>
+
+                <p><strong>Враждебное поглощение</strong> — поглощение без согласия менеджмента. Защита: «ядовитая
+                    пилюля», «золотой парашют», белый рыцарь.</p>
+
+                <p><strong>Спин-офф</strong> — выделение подразделения в отдельную публичную компанию. Акционеры
+                    материнской компании получают акции новой.</p>
+
+                <p><strong>LBO (Leveraged Buyout)</strong> — выкуп компании с использованием значительного долга.
+                    Типичная стратегия частных инвестиционных фондов (PE).</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Выкуп_с_использованием_заёмных_средств" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> LBO (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <h1 class="text-primary theme-header" id="theme6">Тема 6. Стоимость компании и мультипликаторы</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.1</span> EV, DCF, терминальная стоимость</h3>
+
+                <div class="formula-card">
+                    <h6>Enterprise Value (EV)</h6>
+                    \[
+                    EV = Market\ Cap + Debt - Cash
+                    \]
+                    <p class="formula-note">Рыночная капитализация + чистый долг.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>DCF-модель</h6>
+                    \[
+                    EV = \sum_{t=1}^{n} \frac{FCFF_t}{(1+WACC)^t} + \frac{TV}{(1+WACC)^n}
+                    \]
+                    <p class="formula-note">\(FCFF_t\) — свободный денежный поток фирмы; \(TV\) — терминальная
+                        стоимость.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Терминальная стоимость (модель Гордона)</h6>
+                    \[
+                    TV = \frac{FCFF_{n+1}}{WACC - g}
+                    \]
+                    <p class="formula-note">\(g\) — темп роста в постпрогнозном периоде.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> DCF чувствителен к ставке
+                    дисконтирования и темпу роста. Всегда делайте <strong>анализ чувствительности</strong>.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Дисконтированный_денежный_поток" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> DCF (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.2</span> Мультипликаторы, EVA, MVA</h3>
+
+                <div class="formula-card">
+                    <h6>Мультипликатор P/E</h6>
+                    \[
+                    P/E = \frac{P}{EPS}
+                    \]
+                    <p class="formula-note">\(P\) — цена акции; \(EPS\) — прибыль на акцию.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>EV/EBITDA</h6>
+                    \[
+                    EV/EBITDA = \frac{EV}{EBITDA}
+                    \]
+                    <p class="formula-note">Учитывает долговую нагрузку.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>P/B</h6>
+                    \[
+                    P/B = \frac{Market\ Cap}{Book\ Value}
+                    \]
+                    <p class="formula-note">Используется для банков и компаний с большими активами.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Экономическая добавленная стоимость (EVA)</h6>
+                    \[
+                    EVA = NOPAT - WACC \times IC
+                    \]
+                    <p class="formula-note">\(EVA > 0\) — компания создаёт стоимость.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>MVA</h6>
+                    \[
+                    MVA = Market\ Value - Invested\ Capital
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Экономическая_добавленная_стоимость" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> EVA (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <h1 class="text-dark theme-header" id="theme7">Тема 7. Поведенческие корпоративные финансы</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.1</span> Оптимизм, market timing, стадное
+                    поведение</h3>
+
+                <p><strong>Оптимизм менеджеров (Malmendier &amp; Tate):</strong> оптимистичные менеджеры переоценивают
+                    проекты и инвестируют больше, особенно при наличии свободных денежных потоков.</p>
+
+                <p><strong>Market timing (Baker &amp; Wurgler):</strong> компании выпускают акции при высоких ценах и
+                    выкупают при низких. Структура капитала отражает историю рыночных оценок.</p>
+
+                <p><strong>Стадное поведение (herding):</strong> компании копируют решения других, что усиливает пузыри
+                    и ошибки (например, волна M&amp;A в отрасли).</p>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> «все так делают» — не
+                    аргумент. Поведенческие искажения <strong>систематически разрушают стоимость</strong>.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Поведенческие_финансы" target="_blank"
+                    class="btn btn-sm btn-outline-dark mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Поведенческие финансы (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.2</span> Эскалация, overconfidence, фрейминг,
+                    нарративы</h3>
+
+                <p><strong>Эскалация обязательств (escalation of commitment):</strong> продолжение инвестиций в
+                    убыточный проект из-за нежелания признать ошибку. Связана с loss aversion.</p>
+
+                <p><strong>Overconfidence:</strong> чрезмерная уверенность менеджеров повышает вероятность переплаты в
+                    M&amp;A (Roll, «hubris hypothesis»).</p>
+
+                <p><strong>Фрейминг:</strong> формулировка выгод/потерь меняет выбор даже при одинаковых исходах
+                    (Канеман и Тверски, «азиатская болезнь»).</p>
+
+                <p><strong>Нарративы (Шиллер):</strong> экономические «истории» распространяются как эпидемии и
+                    усиливают пузыри. Примеры: «новая экономика» в 1999-м, «AI-бум» в 2024-м.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Эскалация_обязательств" target="_blank"
+                    class="btn btn-sm btn-outline-dark mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Эскалация обязательств (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <h1 class="text-success theme-header" id="theme8">Тема 8. Итоговые и прикладные</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.1</span> CFO, КСО, корпоративный контроль,
+                    премии/скидки</h3>
+
+                <p><strong>CFO</strong> — стратегический партнёр CEO, отвечающий за финансы, инвестиции и риски. Ключевая
+                    фигура в принятии стратегических решений.</p>
+
+                <p><strong>КСО (ESG):</strong> корпоративная социальная ответственность снижает риск и стоимость
+                    капитала, но требует инвестиций. ESG-факторы всё чаще учитываются инвесторами.</p>
+
+                <div class="formula-card">
+                    <h6>Премия за контроль</h6>
+                    \[
+                    CP = \frac{P_{\text{контр}} - P_{\text{рын}}}{P_{\text{рын}}} \times 100\%
+                    \]
+                    <p class="formula-note">Обычно 20–40% к рыночной цене акции.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Миноритарная скидка / скидка за неликвидность</h6>
+                    \[
+                    DL = \frac{P_{\text{контр}} - P_{\text{минор}}}{P_{\text{контр}}} \times 100\%
+                    \]
+                    <p class="formula-note">Миноритарный пакет стоит дешевле на единицу акции, чем контрольный.
+                        Непубличная компания — дешевле публичной.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Итоговый критерий качества корпоративных решений</h6>
+                    \[
+                    \Delta V = V_1 - V_0 \to \max \quad \text{при приемлемом риске}
+                    \]
+                    <p class="formula-note">Рост долгосрочной стоимости компании с учётом риска — главный критерий.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> корпоративные финансы — про
+                    <strong>долгосрочную стоимость</strong>, а не краткосрочную прибыль. Каждое решение оценивайте
+                    через призму риска, времени и интересов стейкхолдеров.
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Корпоративные_финансы" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Корпоративные финансы (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== КВИЗ ==================== -->
+        <h1 class="text-primary theme-header" id="quizblock">Тесты для самопроверки</h1>
+        <div class="card mb-1 shadow-sm" style="max-width: 900px;">
+            <img src="../quiz.avif" class="card-img-top" alt="quiz" />
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i><strong>Тесты по 8 темам:</strong> корпоративное управление,
+                    структура капитала, дивиденды, IPO, M&amp;A, стоимость, поведенческие финансы, итоговые.
+                </div>
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" />
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput" />
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <div id="box" class="jxgbox" style="width: 500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;"></div>
+                                <div id="quizformdataarray"></div>
+                                <input type="text" class="form-control form-control-sm" id="feedback"
+                                    placeholder="Числовой ответ" style="display: none;" />
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula" />
+                                </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
+
+    <button id="backtop" class="btn btn-primary" title="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ==================== СКРИПТЫ ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- KaTeX auto-render -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '\\[', right: '\\]', display: true },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
+
+    <!-- Анимации + прогресс -->
+    <script>
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.reveal').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+        }
+
+        const progressBar = document.getElementById('reading-progress');
+        const backtop = document.getElementById('backtop');
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+            backtop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+    <!-- Firebase + логика тестов -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+</body>
+
+</html>

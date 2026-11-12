@@ -1,0 +1,1719 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Психология для менеджеров</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Formula parser -->
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <!-- Тесты -->
+    <script src="./quizesSets.js"></script>
+
+    <style>
+        :root {
+            --brand: #00695c;
+            --brand-dark: #004d40;
+            --brand-light: #e0f2f1;
+            --accent: #ff6f00;
+            --ink: #1d1d1f;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body { color: var(--ink); }
+
+        .badge-method {
+            background-color: var(--brand);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background-color: var(--brand-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--brand-dark);
+        }
+
+        .list-group-item-action { cursor: pointer; }
+
+        .card-img-top { filter: grayscale(1); }
+
+        .theme-header {
+            border-left: 6px solid var(--brand);
+            padding-left: 1rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+
+        .psy-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Прогресс чтения */
+        #reading-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* SVG-обёртки */
+        .svg-illustration {
+            background: #f2f8f7;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #d6e9e7;
+        }
+
+        .svg-illustration svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ревил */
+        .reveal { opacity: 0; transform: translateY(24px); }
+
+        /* Кнопка наверх */
+        #backtop {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            z-index: 999;
+            display: none;
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Матрицы */
+        .matrix-label { font-size: 11px; fill: #333; font-weight: 600; }
+        .matrix-axis  { font-size: 11px; fill: #888; }
+
+        /* Секция продвинутых тестов */
+        .advanced-block {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+            border: 2px solid #ff6f00;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .advanced-block h3 { color: #e65100; }
+
+        /* Контекстная карточка исследования */
+        .research-context {
+            background: #fafcfc;
+            border-left: 4px solid var(--brand);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .research-context h6 {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .research-context p { margin-bottom: 0.75rem; }
+        .research-context p:last-child { margin-bottom: 0; }
+
+        .research-context .verdict {
+            background: #fff3e0;
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 576px) {
+            .theme-header { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <div id="reading-progress"></div>
+
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="https://econolabs.github.io/">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item"><a class="nav-link active" href="#">Психология для менеджеров</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quizblock">Тесты (149)</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a href="https://vk.com/dmglvn">
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        <!-- ==================== ШАПКА ==================== -->
+        <header class="py-4">
+            <span class="psy-badge mb-2"><i class="fas fa-brain me-1"></i> Президентская программа подготовки
+                управленческих кадров</span>
+            <h1 class="display-5 fw-bold mt-2" style="color: var(--brand);">
+                <i class="fas fa-brain me-2"></i>Психология для менеджеров
+            </h1>
+            <p class="lead text-muted">11 тем + блок «Поведенческие финансы». Каждая карточка — не конспект, а
+                <strong>история исследования</strong>: что изучали, что казалось очевидным, что оказалось на самом
+                деле, в чём критика. <strong>149 тестов</strong>.</p>
+
+            <div class="svg-illustration">
+                <svg viewBox="0 0 680 200" width="100%" style="max-width:680px" role="img"
+                    aria-label="Три уровня анализа в психологии менеджмента">
+                    <g font-size="12" text-anchor="middle" font-weight="700">
+                        <circle cx="120" cy="100" r="55" fill="#e0f2f1" stroke="#00695c" stroke-width="2" />
+                        <text x="120" y="95" fill="#004d40">Индивид</text>
+                        <text x="120" y="115" fill="#4a7c73" font-size="10">личность, мотивация,</text>
+                        <text x="120" y="128" fill="#4a7c73" font-size="10">когнитивные процессы</text>
+
+                        <circle cx="340" cy="100" r="55" fill="#e0f2f1" stroke="#00695c" stroke-width="2" />
+                        <text x="340" y="95" fill="#004d40">Группа</text>
+                        <text x="340" y="115" fill="#4a7c73" font-size="10">команды, лидерство,</text>
+                        <text x="340" y="128" fill="#4a7c73" font-size="10">конфликты, коммуникации</text>
+
+                        <circle cx="560" cy="100" r="55" fill="#00695c" />
+                        <text x="560" y="95" fill="white">Организация</text>
+                        <text x="560" y="115" fill="#e0f2f1" font-size="10">культура, изменения,</text>
+                        <text x="560" y="128" fill="#e0f2f1" font-size="10">поведенческие финансы</text>
+                    </g>
+                    <g stroke="#00695c" stroke-width="2" marker-end="url(#arrPsy)">
+                        <line x1="175" y1="100" x2="285" y2="100" />
+                        <line x1="395" y1="100" x2="505" y2="100" />
+                    </g>
+                    <defs>
+                        <marker id="arrPsy" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#00695c" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </header>
+
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3 shadow-sm" style="max-width: 900px;">
+            <div class="card-body">
+                <h3 class="card-title mb-3"><i class="fas fa-list-ul me-2" style="color: var(--brand);"></i>Содержание
+                    дисциплины</h3>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-flask me-2"></i> Тема 1. Методология и история психологии</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Парадигмы и Хоторнский эффект
+                                <span class="badge bg-primary">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Валидность и кризис репликации
+                                <span class="badge bg-primary">theme1_2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-user me-2"></i> Тема 2. Теории личности</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 «Большая пятёрка»:
+                                триумф и критика</a>
+                            <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Эффект
+                                сверхоправдания (Леппер, Грин, Нисбетт, 1973)</a>
+                            <a href="#theme2_3" class="list-group-item list-group-item-action">2.3 Темперамент:
+                                от Павлова к современной генетике</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-brain me-2"></i> Тема 3. Когнитивные процессы</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Эффект Струпа:
+                                автоматизм и пределы контроля</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Ограниченная
+                                рациональность Саймона</a>
+                            <a href="#theme3_3" class="list-group-item list-group-item-action">3.3 Теория перспектив:
+                                «другая рациональность»</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-heart me-2"></i> Тема 4. Эмоции, стресс, саморегуляция</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 Шехтер-Зингер и
+                                спор о двух факторах</a>
+                            <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 Выученная
+                                беспомощность: Селигман и критика</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-fire me-2"></i> Тема 5. Мотивация и воля</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 Маслоу: почему
+                                пирамида не подтвердилась</a>
+                            <a href="#theme5_2" class="list-group-item list-group-item-action">5.2 Теория ожидания
+                                Врума: успех и критика</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-secondary">
+                    <div class="card-header bg-secondary text-white">
+                        <h4 class="mb-0"><i class="fas fa-comments me-2"></i> Тема 6. Общение и коммуникации</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 Транзактный анализ
+                                Берна: жизнь и критика</a>
+                            <a href="#theme6_2" class="list-group-item list-group-item-action">6.2 Невербальное
+                                общение: миф о 93%</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-dark">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0"><i class="fas fa-users me-2"></i> Тема 7. Группы и команды</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Конформизм Аша:
+                                что исказили учебники</a>
+                            <a href="#theme7_2" class="list-group-item list-group-item-action">7.2 Robbers Cave и
+                                groupthink: скрытые данные</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-bullhorn me-2"></i> Тема 8. Управленческое общение</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 Стили Левина:
+                                что показали, что скрыли</a>
+                            <a href="#theme8_2" class="list-group-item list-group-item-action">8.2 BATNA и SBI:
+                                практика без мифов</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-bolt me-2"></i> Тема 9. Психология конфликтов</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme9_1" class="list-group-item list-group-item-action">9.1 Томас-Килмен:
+                                модель и критика</a>
+                            <a href="#theme9_2" class="list-group-item list-group-item-action">9.2 Медиация:
+                                доказательная база</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-crown me-2"></i> Тема 10. Психология влияния и власти</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme10_1" class="list-group-item list-group-item-action">10.1 Милгрэм:
+                                послушание и этика</a>
+                            <a href="#theme10_2" class="list-group-item list-group-item-action">10.2 Чалдини:
+                                принципы и критика</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-heartbeat me-2"></i> Тема 11. Психология здоровья</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme11_1" class="list-group-item list-group-item-action">11.1 Выгорание
+                                Маслач: конструкт и спор</a>
+                            <a href="#theme11_2" class="list-group-item list-group-item-action">11.2 Mindfulness:
+                                доказательства и ограничения</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i> Блок «Поведенческие финансы»</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme12_1" class="list-group-item list-group-item-action">12.1 Спор Фамы
+                                        и Шиллера</a>
+                                    <a href="#theme12_2" class="list-group-item list-group-item-action">12.2 Barber &
+                                        Odean: overconfidence</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme12_3" class="list-group-item list-group-item-action">12.3 Winner's
+                                        curse в M&A</a>
+                                    <a href="#theme12_4" class="list-group-item list-group-item-action">12.4 Парадокс
+                                        Истерлина: уточнения</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <h1 class="text-primary theme-header" id="theme1">Тема 1. Методология и история психологии</h1>
+
+        <!-- 1.1 Хоторн -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.1</span> Хоторнский эффект — «хорошая
+                    история», которая не подтвердилась</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1924–1932 гг. на заводе Hawthorne Works компании Western Electric (Чикаго) группа
+                        исследователей под руководством Элтона Мэйо изучала влияние освещения на производительность
+                        труда.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Рабочие трудятся лучше, когда знают, что за ними наблюдают. Так родился «Хоторнский эффект» —
+                        представление, что сам факт участия в эксперименте меняет поведение. Эта идея вошла во все
+                        учебники менеджмента и психологии.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Когда в 1980–2010-х годах исследователи подняли原始 данные и провели повторный анализ, выяснилось,
+                        что «эффект» в исходных экспериментах <strong>не был продемонстрирован</strong>. В исследованиях
+                        было слишком много неконтролируемых переменных, а поведение рабочих менялось по множеству причин,
+                        не связанных с наблюдением. В 13 специально спланированных исследованиях, пытавшихся воспроизвести
+                        Хоторнский эффект, только 4 (и только на взрослых выборках) дали хоть какой-то результат.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Сегодня многие методологи считают, что «Хоторнский эффект» — скорее <strong>красивая история, чем
+                        научный факт</strong>. Термин до сих пор используется, но скорее как метафора: люди реагируют на
+                        сам факт исследования, но механизм этой реакции сложен и не универсален. Критика также указывает,
+                        что оригинальные данные были утеряны или неполны, а интерпретации Мэйо были идеологически
+                        окрашены (он стремился показать ценность «человеческих отношений» на производстве).</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не думайте, что «эффект
+                        наблюдения» автоматически повысит производительность. Если сотрудники чувствуют, что их изучают,
+                        они могут вести себя иначе — но не обязательно лучше. Важнее создать условия, в которых они
+                        захотят работать хорошо, независимо от того, смотрят на них или нет.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Hawthorne_effect" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Hawthorne effect (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 1.2 Кризис репликации -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.2</span> Валидность и кризис репликации</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 2010-х годах психология столкнулась с «кризисом репликации»: при попытке воспроизвести
+                        классические эксперименты многие результаты не подтвердились. Крупнейший проект
+                        Reproducibility Project (2015) показал: из 100 известных исследований воспроизвелись менее
+                        половины.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>До 2010-х считалось, что если эксперимент опубликован в рецензируемом журнале — ему можно
+                        доверять. Учебники строились на единичных исследованиях.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Многие эффекты были <strong>слабее</strong>, чем заявлено, или исчезали при строгой проверке.
+                        Причины: «p-hacking» (подгонка данных под значимость), малые выборки, публикационное смещение
+                        (публикуют только положительные результаты), гибкость анализа.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что «кризис» касается в первую очередь социальной психологии, а не всей
+                        дисциплины. Сторонники движения за открытую науку (Open Science) требуют предрегистрации
+                        гипотез, открытых данных и отказа от «p &lt; 0.05» как единственного критерия.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не переносите
+                        лабораторный вывод на организацию без проверки. Спрашивайте: «На какой выборке это
+                        проверяли? Воспроизвели ли результат?» Пилот и A/B-тест — ваша защита от модных, но
+                        недоказанных практик.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Replication_crisis" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Replication crisis (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <h1 class="text-success theme-header" id="theme2">Тема 2. Теории личности</h1>
+
+        <!-- 2.1 Big Five -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.1</span> «Большая пятёрка»: триумф и критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1980–1990-х годах Льюис Голдберг, Пол Коста и Роберт МакКрэй обобщили тысячи личностных
+                        опросников и выявили пять устойчивых факторов: открытость, добросовестность, экстраверсию,
+                        доброжелательность, нейротизм (OCEAN).</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>До этого психологи спорили, сколько черт личности существует. «Большая пятёрка» казалась
+                        решением: универсальная структура, воспроизводимая в разных культурах.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Модель действительно хорошо воспроизводится, но <strong>не идеально</strong>. В незападных
+                        культурах структура может отличаться (например, в Китае выделяют «межличностную
+                        связанность»). Добросовестность — лучший предиктор успешности на работе, но эффект средний, а
+                        не «решающий». Кроме того, черты описывают <strong>поведение в среднем</strong>, а не конкретные
+                        поступки в конкретной ситуации.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики (например, Брент Робертс) указывают, что «Большая пятёрка» — это <strong>таксономия, а не
+                        теория</strong>: она описывает, но не объясняет. Опросники самоотчёта подвержены социальной
+                        желательности. Кроме того, с годами люди меняются — черты не настолько «стабильны», как
+                        считалось.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> «Большая пятёрка» полезна
+                        для профилирования должностей и командного баланса, но не для «отбора лучших». Добросовестность
+                        важна, но не заменяет навыки и опыт.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Big Five (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 2.2 Сверхоправдание -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.2</span> «Эффект сверхоправдания» — когда
+                    премия убивает мотивацию</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1973 году Марк Леппер, Дэвид Грин и Ричард Нисбетт провели эксперимент с детьми, которые любили
+                        рисовать. Одной группе пообещали награду за рисование, другой — нет.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Вознаграждение должно повышать мотивацию: если платить за то, что человек и так любит делать, он
+                        будет делать это ещё охотнее.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Дети, которым <strong>пообещали награду</strong>, после эксперимента <strong>потеряли
+                        интерес</strong> к рисованию. Те, кто рисовал без обещанной награды, сохранили внутреннюю
+                        мотивацию. Это назвали «эффектом сверхоправдания» (overjustification effect): внешняя награда
+                        «перекрывает» внутреннюю мотивацию, и человек начинает воспринимать своё действие как
+                        «сделанное ради денег», а не ради удовольствия.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Эффект <strong>не универсален</strong>. Он сильнее проявляется, когда награда ожидаема,
+                        контролируема и воспринимается как «плата за поведение», а не как «признание компетентности».
+                        Если награда неожиданна или подаётся как обратная связь о качестве, внутренняя мотивация может
+                        <strong>усилиться</strong>. Кроме того, в реальных организациях деньги имеют множество значений
+                        (статус, справедливость, безопасность), поэтому перенос лабораторных выводов на HR-практику
+                        требует осторожности.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> денежные бонусы за
+                        творческую, intrinsically-motivated работу могут навредить. Если сотрудник любит то, что делает,
+                        награждайте его автономией, признанием и развитием — а не только премией. Премия уместна там,
+                        где задача рутинна и неинтересна сама по себе.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Overjustification_effect" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Overjustification effect (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 2.3 Темперамент -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.3</span> Темперамент: от Павлова к современной
+                    генетике</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1920–1930-х годах И. П. Павлов на основе экспериментов с собаками выделил три свойства нервной
+                        системы: сила, уравновешенность, подвижность. На их основе — четыре типа темперамента
+                        (сангвиник, холерик, флегматик, меланхолик).</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Тип темперамента — врождённая и неизменная характеристика. Он определяет поведение человека в
+                        любых ситуациях.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Современные близнецовые исследования показывают: темперамент действительно имеет <strong>сильную
+                        генетическую основу</strong> (наследуемость 40–60%), но он <strong>не сводится к четырём
+                        типам</strong>. Более точная модель — три-четыре континуума (например, экстраверсия/нейротизм по
+                        Айзенку). И темперамент <strong>меняется</strong> с возрастом: дети более импульсивны, взрослые —
+                        более сдержанны.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Типология Павлова критиковалась за <strong>жёсткость</strong>: реальные люди редко принадлежат к
+                        «чистому» типу. Кроме того, эксперименты на собаках плохо переносятся на людей. Современная
+                        дифференциальная психология предпочитает <strong>континуальные модели</strong>, а не категории.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не «вешайте ярлык» на
+                        сотрудника по типу темперамента. Темперамент — это предрасположенность, а не приговор. Учитывайте
+                        его при подборе задач (например, холерику — динамичные проекты), но развивайте навыки
+                        саморегуляции.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Temperament" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Temperament (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-warning theme-header" id="theme3">Тема 3. Когнитивные процессы</h1>
+
+        <!-- 3.1 Струп -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.1</span> Эффект Струпа: автоматизм и пределы
+                    контроля</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1935 году Джон Ридли Струп опубликовал эксперимент: испытуемым показывали названия цветов,
+                        написанные чернилами другого цвета (например, слово «красный» — синими чернилами). Задача —
+                        назвать цвет чернил, игнорируя слово.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Чтение — автоматический процесс, но человек может его «отключить», если нужно. Задача казалась
+                        простой.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Испытуемые <strong>значительно медленнее</strong> называли цвет, когда слово ему противоречило.
+                        Это показало <strong>интерференцию</strong> автоматических и контролируемых процессов: чтение
+                        «включается» непроизвольно и мешает.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Эффект Струпа <strong>устойчив и воспроизводим</strong>, но его интерпретация менялась. Сначала
+                        считали, что это «конфликт» между двумя процессами. Современные модели (например,
+                        «атрибутный» Струп) показывают, что эффект зависит от контекста и тренировки. У билингвов
+                        эффект может быть слабее.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> многозадачность снижает
+                        эффективность, потому что конкурирующие процессы интерферируют. Фокусируйтесь на одной задаче,
+                        особенно в сложных решениях.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Stroop_effect" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Stroop effect (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 3.2 Саймон -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.2</span> Ограниченная рациональность Саймона
+                </h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1950–1970-х годах Герберт Саймон изучал, как люди принимают решения в организациях. В 1978 году
+                        получил Нобелевскую премию за «исследование процесса принятия решений в экономических
+                        организациях».</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Экономическая модель «homo economicus»: человек собирает всю информацию, оценивает все
+                        альтернативы и выбирает оптимальную.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Люди не могут обработать всю информацию. Они выбирают <strong>первое удовлетворительное</strong>
+                        решение (satisficing), а не оптимальное. Это не «глупость», а адаптация к ограниченным ресурсам:
+                        времени, вниманию, памяти.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики (например, из школы поведенческой экономики) указывали, что модель Саймона
+                        <strong>описательна</strong>, но не даёт точных предсказаний. Кроме того, границы
+                        «удовлетворительности» субъективны и зависят от контекста. Тем не менее, идея «ограниченной
+                        рациональности» стала основой поведенческой экономики.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> задавайте критерии
+                        «достаточно хорошо» и не тоните в анализе. «Паралич анализа» опаснее, чем неоптимальное, но
+                        быстрое решение.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Bounded_rationality" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Bounded rationality (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 3.3 Теория перспектив -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.3</span> Теория перспектив: «другая
+                    рациональность»</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1979 году Дэниел Канеман и Амос Тверски опубликовали статью, в которой предложили «теорию
+                        перспектив» как альтернативу теории ожидаемой полезности. За эту работу Канеман получил
+                        Нобелевскую премию в 2002 году.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Экономисты десятилетиями предполагали, что люди оценивают рискованные варианты через «ожидаемую
+                        полезность»: взвешивают вероятности исходов и максимизируют выигрыш.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Люди оценивают результаты <strong>относительно точки отсчёта</strong> (статус-кво), а не
+                        абсолютного богатства. Потери переживаются примерно <strong>вдвое сильнее</strong>, чем
+                        эквивалентные выигрыши (loss aversion). Малые вероятности переоцениваются, средние и высокие —
+                        недооцениваются.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Теория перспектив — <strong>описательная</strong>, а не нормативная: она не говорит, как «должно»
+                        быть, а объясняет, как есть. Критики указывали, что многие эксперименты были лабораторными, с
+                        гипотетическими деньгами, и возникал вопрос: переносится ли это на реальные решения с крупными
+                        ставками? Последующие исследования (в том числе самого Канемана) показали, что эффекты
+                        <strong>ослабевают</strong>, но не исчезают, когда речь идёт о реальных деньгах и опыте.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> люди не «глупы» — они
+                        оценивают изменения относительно того, что считают «нормальным». Если вы хотите мотивировать
+                        команду, не говорите «мы можем заработать больше». Говорите «мы можем потерять то, что имеем,
+                        если не изменимся». Но осторожно: страх потери может парализовать, а не мобилизовать.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Prospect_theory" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Prospect theory (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-info theme-header" id="theme4">Тема 4. Эмоции, стресс, саморегуляция</h1>
+
+        <!-- 4.1 Шехтер-Зингер -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.1</span> Шехтер-Зингер и спор о двух факторах
+                </h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1962 году Стэнли Шехтер и Джером Зингер провели эксперимент: испытуемым вводили адреналин (или
+                        плацебо), а затем помещали в ситуацию с «весёлым» или «злым» подставным участником. Испытуемые
+                        должны были объяснить своё возбуждение.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Эмоция — это просто физиологическая реакция. Стимул → возбуждение → эмоция.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Испытуемые, получившие адреналин, интерпретировали своё возбуждение в зависимости от контекста:
+                        рядом с «весёлым» — как эйфорию, рядом с «злым» — как гнев. Это подтвердило
+                        <strong>двухфакторную теорию</strong>: эмоция = физиологическое возбуждение + когнитивная
+                        интерпретация.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Репликации дали <strong>смешанные результаты</strong>. Метаанализ 2015 года показал, что эффект
+                        слабее, чем считалось, и сильно зависит от методологии. Некоторые исследователи (например, Лайза
+                        Фельдман Барретт) вообще оспаривают идею «базовых эмоций», утверждая, что эмоции — это
+                        <strong>конструкция</strong> мозга, а не фиксированные программы.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> контекст формирует эмоцию.
+                        Если вы создаёте «холодную» или «тревожную» атмосферу, люди будут интерпретировать своё
+                        возбуждение негативно. Спокойствие и ясность руководителя снижают тревогу команды.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Two-factor_theory_of_emotion" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Two-factor theory (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 4.2 Селигман -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.2</span> Выученная беспомощность: Селигман и
+                    критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1967 году Мартин Селигман и Стивен Майер проводили эксперименты с собаками, которых подвергали
+                        ударам тока. Часть собак могла избежать удара, нажав на панель; другие — нет. Позже всех
+                        помещали в условия, где можно было избежать удара, просто перепрыгнув барьер.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Животные и люди будут активно искать выход из неприятной ситуации.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Собаки, которые не могли контролировать удар, <strong>переставали пытаться</strong> избежать его
+                        даже тогда, когда возможность появлялась. Это назвали «выученной беспомощностью». Позже Селигман
+                        показал, что у людей аналогичный механизм связан с депрессией и «пессимистическим стилем
+                        объяснения».</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Эксперименты Селигмана подверглись <strong>жёсткой этической критике</strong>: животным
+                        причиняли страдания без должного обоснования. Методологически — результаты на собаках не всегда
+                        переносятся на людей. Кроме того, современные исследователи (например, Стивен Майер) показали,
+                        что «беспомощность» — не универсальный эффект: многое зависит от <strong>восприятия
+                        контроля</strong> и социальной поддержки.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> давайте сотрудникам
+                        достижимые задачи и автономию. Микроменеджмент и постоянная критика формируют «выученную
+                        беспомощность». Восстановление контроля — ключ к мотивации.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Learned_helplessness" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Learned helplessness (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <h1 class="text-danger theme-header" id="theme5">Тема 5. Мотивация и воля</h1>
+
+        <!-- 5.1 Маслоу -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.1</span> Маслоу: почему пирамида не
+                    подтвердилась</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1943 году Абрахам Маслоу предложил «иерархию потребностей»: физиологические → безопасность →
+                        социальные → признание → самоактуализация. Переход на следующий уровень возможен при
+                        удовлетворении предыдущего.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Пирамида выглядела логично и интуитивно понятно. Она быстро вошла в учебники и бизнес-тренинги.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Метаанализ Wahba и Bridwell (1976) <strong>не подтвердил строгую иерархию</strong>. Люди могут
+                        одновременно стремиться к разным уровням. Например, художник может голодать ради
+                        самоактуализации. Культурные различия ещё сильнее: в коллективистских культурах социальные
+                        потребности могут доминировать над индивидуальными.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Сам Маслоу <strong>не рисовал пирамиду</strong> — её популяризировали консультанты. Теория
+                        критиковалась за <strong>отсутствие эмпирической базы</strong> и этноцентризм (исследования
+                        проводились на западных выборках). Современные теории мотивации (самодетерминация, теория
+                        ожидания) объясняют поведение лучше.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не думайте, что «сначала
+                        зарплата, потом развитие». Сотрудники могут хотеть признания и роста даже при невысокой
+                        зарплате. Спрашивайте, что важно <strong>каждому</strong>, а не «среднему человеку».
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Maslow's hierarchy (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 5.2 Врум -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.2</span> Теория ожидания Врума: успех и
+                    критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1964 году Виктор Врум опубликовал книгу «Труд и мотивация», в которой предложил теорию
+                        ожидания: мотивация = ожидание × инструментальность × валентность.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Достаточно дать бонус — и сотрудник будет мотивирован.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Если хотя бы один множитель = 0, мотивация = 0. Недостаточно дать бонус — нужно объяснить,
+                        <strong>как</strong> его получить (ожидание), <strong>почему</strong> результат приведёт к
+                        бонусу (инструментальность) и <strong>почему</strong> бонус ценен (валентность).</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Теория <strong>сложна для эмпирической проверки</strong>: трудно измерить «валентность» и
+                        «ожидание» количественно. Кроме того, она предполагает рационального человека, который
+                        просчитывает вероятности — что не всегда верно (см. теорию перспектив). Тем не менее, это одна из
+                        самых влиятельных процессуальных теорий.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> при внедрении KPI
+                        проверяйте все три компонента: понятна ли цель? верите ли вы, что результат приведёт к награде?
+                        ценна ли награда для сотрудника?
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Expectancy_theory" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Expectancy theory (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <h1 class="text-secondary theme-header" id="theme6">Тема 6. Общение и коммуникации</h1>
+
+        <!-- 6.1 Берн -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.1</span> Транзактный анализ Берна: жизнь и
+                    критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1950–1960-х годах Эрик Берн разработал транзактный анализ — модель, описывающую общение через
+                        три эго-состояния: Родитель, Взрослый, Ребёнок. Книга «Игры, в которые играют люди» (1964) стала
+                        бестселлером.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Общение можно «разложить» на простые транзакции и научиться управлять им.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Модель <strong>популярна в практике</strong> (коучинг, тренинги), но её <strong>научная
+                        валидность ограничена</strong>. Эго-состояния трудно измерить объективно, а эмпирических
+                        исследований, подтверждающих эффективность транзактного анализа в сравнении с КПТ, мало.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что транзактный анализ — скорее <strong>философия общения</strong>, чем
+                        научная теория. Тем не менее, идея «Взрослый — Взрослый» как основа эффективной коммуникации
+                        остаётся полезной эвристикой.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> используйте модель как
+                        инструмент рефлексии, но не как «диагноз». В конфликте спросите себя: «Я сейчас говорю как
+                        Родитель, Взрослый или Ребёнок?»
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Transactional_analysis" target="_blank"
+                    class="btn btn-sm btn-outline-secondary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Transactional analysis (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 6.2 Мехрабиан -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.2</span> Невербальное общение: миф о 93%</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1967 году Альберт Мехрабиан опубликовал исследование, в котором оценивал, как люди передают
+                        эмоции через слова, тон и мимику. Знаменитая формула: 7% — слова, 38% — тон, 55% — мимика.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>«93% общения — невербальное». Эта цифра вошла в тренинги и книги.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Сам Мехрабиан <strong>не утверждал</strong>, что 93% <strong>всей</strong> информации передаётся
+                        невербально. Его результаты касались только <strong>эмоциональных сообщений</strong> в
+                        лабораторных условиях (одно слово, разные тона). Для передачи фактов, инструкций, данных слова
+                        критически важны.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Цифра 93% <strong>неверно цитируется</strong> и используется для преувеличения роли жестов.
+                        Критики (например, Филип Юри) подчёркивают: в деловом общении слова и логика важнее, а
+                        невербальные сигналы лишь дополняют их.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> невербальное общение
+                        важно, но не «отменяет» слова. В переговорах и презентациях следите и за содержанием, и за
+                        тоном/позой.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Albert_Mehrabian" target="_blank"
+                    class="btn btn-sm btn-outline-secondary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Albert Mehrabian (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <h1 class="text-dark theme-header" id="theme7">Тема 7. Группы и команды</h1>
+
+        <!-- 7.1 Аш -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.1</span> Конформизм Аша: что исказили
+                    учебники</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1951 году Соломон Аш провёл серию экспериментов, в которых испытуемые должны были сравнить
+                        длину линий. Подставные участники (конфедераты) единодушно давали неверный ответ. Настоящий
+                        испытуемый отвечал последним.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Аш ожидал, что люди будут независимы и не поддадутся явно неверному мнению большинства.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Результаты показались сенсационными: <strong>37% ответов были конформными</strong>, а 75%
+                        участников хотя бы раз согласились с очевидно неверным большинством.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Сам Аш интерпретировал данные иначе, чем последующие учебники: большинство участников
+                        <strong>не меняли своё восприятие</strong> — они видели линии правильно, но соглашались из
+                        страха «выглядеть глупо». Кроме того, историки психологии обнаружили, что учебники 1950–1980-х
+                        годов <strong>систематически искажали</strong> результаты Аша, преувеличивая роль конформизма.
+                        Методология Аша критиковалась: небольшие нерепрезентативные выборки, искусственность задачи.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> люди часто соглашаются с
+                        группой не потому, что верят в её правоту, а потому что боятся социальных последствий. Создайте
+                        культуру, где можно сказать «я вижу иначе» без риска. Один «союзник» в комнате переговоров может
+                        изменить исход.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Asch_conformity_experiments" target="_blank"
+                    class="btn btn-sm btn-outline-dark mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Asch conformity experiments (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 7.2 Robbers Cave -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.2</span> Robbers Cave и groupthink: скрытые
+                    данные</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1954 году Музафер Шериф провёл эксперимент в летнем лагере Robbers Cave (Оклахома). Мальчиков
+                        разделили на две группы («Орлы» и «Гремучие змеи»), затем стравили в конкурентных играх, а потом
+                        попытались примирить через «надцелевые» задачи.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Конкуренция за ограниченные ресурсы порождает вражду, а совместная деятельность ради общей цели —
+                        снижает её.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Шериф <strong>скрыл от публикации</strong> две предыдущие попытки провести тот же эксперимент,
+                        которые <strong>провалились</strong>. В одном из них мальчики не стали враждовать, а когда
+                        исследователи попытались подстроить конфликт, они разоблачили манипуляцию. В Robbers Cave
+                        исследователи активно <strong>подталкивали</strong> мальчиков к конфликту.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Главная критика — <strong>отсутствие информированного согласия и психологический вред</strong>:
+                        мальчикам не объяснили, что это эксперимент, их намеренно провоцировали на агрессию. Выборка была
+                        однородной, условия — искусственными.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> вражда между отделами
+                        редко возникает «естественно». Её часто <strong>создают</strong> условия: конкуренция за бюджет,
+                        нечёткие границы ответственности. Примирение через общую цель работает — но только если цель
+                        действительно общая и требует <strong>взаимозависимости</strong>.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Robbers_Cave_experiment" target="_blank"
+                    class="btn btn-sm btn-outline-dark mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Robbers Cave experiment (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <h1 class="text-primary theme-header" id="theme8">Тема 8. Управленческое общение</h1>
+
+        <!-- 8.1 Левин -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.1</span> Стили Левина: что показали, что скрыли
+                </h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1939 году Курт Левин с коллегами (Рональд Липпитт и Ральф Уайт) провёл эксперимент с
+                        подростками, которые под руководством взрослых делали маски. Лидеры демонстрировали три стиля:
+                        авторитарный, демократический, либеральный.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Авторитарный стиль даёт высокую производительность, демократический — удовлетворённость.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Авторитарный стиль действительно давал <strong>высокую производительность</strong>, но при
+                        <strong>низкой удовлетворённости</strong> и росте агрессии. Демократический — высокую
+                        удовлетворённость и качество. Либеральный — низкую эффективность.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Современные исследователи указывают, что <strong>«чистые» стили</strong> в реальности редки, а
+                        эффективность зависит от <strong>ситуации</strong> (см. Фидлер). Кроме того, эксперимент Левина
+                        был лабораторным, с подростками, а не с взрослыми сотрудниками. Перенос выводов на организации
+                        требует осторожности.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не существует
+                        «единственно правильного» стиля. В кризисе может быть уместен авторитарный, в развитии команды —
+                        демократический. Гибкость важнее догмы.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Kurt_Lewin" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Kurt Lewin (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 8.2 BATNA/SBI -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.2</span> BATNA и SBI: практика без мифов</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p><strong>BATNA</strong> (Best Alternative To a Negotiated Agreement) — концепция из книги
+                        «Переговоры без поражения» Роджера Фишера и Уильяма Юри (1981, Гарвардский проект по
+                        переговорам). <strong>SBI</strong> (Situation — Behavior — Impact) — модель обратной связи,
+                        популяризированная Center for Creative Leadership.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Достаточно знать «лучшую альтернативу» — и переговоры пойдут успешнее. Достаточно описать
+                        ситуацию, поведение и влияние — и обратная связь будет конструктивной.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>BATNA <strong>действительно повышает переговорную позицию</strong>, но требует честной оценки:
+                        многие переоценивают свою BATNA и проигрывают. SBI <strong>снижает защитную реакцию</strong>, но
+                        не гарантирует изменения поведения: нужны последующие шаги и поддержка.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Гарвардская модель переговоров критиковалась за <strong>культурную ограниченность</strong>: в
+                        коллективистских культурах «выиграл-выиграл» может не работать. SBI иногда воспринимается как
+                        «техника», а не как отношение — без эмпатии она превращается в манипуляцию.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> BATNA и SBI — полезные
+                        инструменты, но не «волшебные таблетки». Готовьтесь к переговорам и обратной связи, тренируйтесь
+                        и адаптируйте под культуру команды.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Best_alternative_to_a_negotiated_agreement" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> BATNA (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 9 ==================== -->
+        <h1 class="text-success theme-header" id="theme9">Тема 9. Психология конфликтов</h1>
+
+        <!-- 9.1 Томас-Килмен -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.1</span> Томас-Килмен: модель и критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1970-х годах Кеннет Томас и Ральф Килмен разработали модель стилей разрешения конфликтов на
+                        основе двух параметров: забота о себе и забота о других. Пять стилей: соперничество,
+                        сотрудничество, компромисс, избегание, приспособление.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Модель выглядела логично и быстро стала стандартом в тренингах.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Эмпирические исследования <strong>не подтвердили</strong>, что «сотрудничество» всегда лучше.
+                        Эффективность стиля зависит от <strong>ситуации</strong>: в кризисе соперничество может быть
+                        уместнее, в долгосрочных отношениях — сотрудничество.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Опросник Томаса-Килмена (TKI) критиковался за <strong>низкую предсказательную валидность</strong>:
+                        люди могут вести себя по-разному в разных ситуациях. Кроме того, модель описывает
+                        <strong>поведение</strong>, а не <strong>результат</strong> конфликта.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> используйте модель для
+                        рефлексии, а не для «диагноза». Спросите: «Что важно в этой ситуации — скорость, отношения или
+                        качество решения?»
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Thomas%E2%80%93Kilmann_Conflict_Mode_Instrument" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Thomas-Kilmann (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 9.2 Медиация -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.2</span> Медиация: доказательная база</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>Медиация как метод разрешения конфликтов активно развивается с 1970-х годов. В организациях
+                        используется для разрешения трудовых споров, конфликтов между отделами.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Медиация «гуманнее» суда и всегда эффективнее.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Метаанализы показывают: медиация <strong>эффективнее суда</strong> по удовлетворённости сторон и
+                        сохранению отношений, но <strong>не всегда</strong> приводит к соглашению. Эффективность зависит
+                        от квалификации медиатора и готовности сторон.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что медиация может <strong>усиливать неравенство</strong>, если одна сторона
+                        имеет больше власти. Кроме того, в некоторых культурах «прямой разговор» неприемлем.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> медиация — мощный
+                        инструмент, но требует добровольного участия и нейтрального посредника. Не используйте её как
+                        «способ избежать сложного разговора».
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Mediation" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Mediation (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 10 ==================== -->
+        <h1 class="text-warning theme-header" id="theme10">Тема 10. Психология влияния и власти</h1>
+
+        <!-- 10.1 Милгрэм -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.1</span> Милгрэм: послушание и этика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1961–1963 гг. Стэнли Милгрэм провёл серию экспериментов в Йельском университете. Испытуемые
+                        («учителя») должны были наказывать «учеников» ударами тока за ошибки. «Ученики» были
+                        подставными и имитировали боль.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Люди не будут причинять боль другим по приказу авторитета.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p><strong>65% испытуемых</strong> дошли до максимального напряжения (450 В), подчиняясь
+                        экспериментатору. Это показало силу <strong>послушания авторитету</strong> и стало одним из
+                        самых известных (и спорных) исследований в психологии.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Эксперимент подвергся <strong>жёсткой этической критике</strong>: испытуемые испытывали стресс,
+                        не были полностью информированы. Методология также критиковалась: результаты могли зависеть от
+                        контекста (Йель, авторитет экспериментатора). Репликации (например, Burger, 2009) дали
+                        <strong>сходные, но менее экстремальные</strong> результаты.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> люди склонны подчиняться
+                        авторитету, даже если это противоречит их ценностям. Создавайте культуру, где можно задать
+                        вопрос «почему?» и оспорить приказ.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Milgram_experiment" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Milgram experiment (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 10.2 Чалдини -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.2</span> Чалдини: принципы и критика</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1984 году Роберт Чалдини опубликовал книгу «Психология влияния», в которой выделил 6 принципов:
+                        взаимность, обязательство/последовательность, социальное доказательство, авторитет, симпатия,
+                        дефицит.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Принципы универсальны и работают на всех.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Принципы <strong>воспроизводятся</strong>, но с оговорками. Например, «социальное
+                        доказательство» сильнее, когда люди не уверены в себе. «Дефицит» работает, когда речь идёт о
+                        <strong>потере</strong>, а не о приобретении.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что многие исследования Чалдини были <strong>полевыми наблюдениями</strong>, а
+                        не строгими экспериментами. Кроме того, принципы могут использоваться для <strong>манипуляции</strong>,
+                        что ставит этические вопросы.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> принципы влияния — мощный
+                        инструмент, но их использование должно быть <strong>этичным</strong>. Не манипулируйте —
+                        создавайте условия для осознанного выбора.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Robert_Cialdini" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Robert Cialdini (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 11 ==================== -->
+        <h1 class="text-info theme-header" id="theme11">Тема 11. Психология здоровья</h1>
+
+        <!-- 11.1 Маслач -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.1</span> Выгорание Маслач: конструкт и спор
+                </h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1970–1980-х годах Кристина Маслач изучала эмоциональное состояние работников
+                        социальных служб. Она выделила три компонента выгорания: эмоциональное истощение,
+                        деперсонализация, редукция личных достижений. Опросник MBI стал стандартом диагностики.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Выгорание — это «профессиональный диагноз», который можно измерить и «вылечить».</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Современные исследователи (например, ВОЗ в 2019 году) признали выгорание
+                        <strong>феноменом, связанным с работой</strong>, но не медицинским диагнозом. MBI критиковался
+                        за то, что <strong>смешивает симптомы депрессии</strong> и собственно выгорания.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Метаанализы показывают, что выгорание <strong>сильно коррелирует с депрессией</strong>, и
+                        вопрос «отдельный ли это конструкт?» остаётся открытым. Кроме того, индивидуальные интервенции
+                        (тренинги, релаксация) <strong>менее эффективны</strong>, чем организационные изменения.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> выгорание — не «личная
+                        слабость». Бороться с ним нужно на уровне организации: нагрузка, автономия, поддержка.
+                        Индивидуальные тренинги — лишь дополнение.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Occupational_burnout" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Occupational burnout (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 11.2 Mindfulness -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.2</span> Mindfulness: доказательства и
+                    ограничения</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1979 году Джон Кабат-Зинн основал программу MBSR (Mindfulness-Based Stress Reduction) в
+                        Массачусетском университете. С тех пор mindfulness стало массовым движением.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Медитация «лечит всё»: стресс, тревогу, депрессию, улучшает внимание.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Метаанализы показывают: mindfulness <strong>эффективен</strong> для снижения стресса и тревоги,
+                        но эффект <strong>умеренный</strong> и сравним с другими активными интервенциями (например,
+                        релаксацией). Для депрессии эффективность ниже, чем у КПТ.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Многие исследования mindfulness имеют <strong>методологические ограничения</strong>: малые
+                        выборки, отсутствие активного контроля. Кроме того, mindfulness может быть
+                        <strong>небезопасен</strong> для людей с травмой (может усилить тревогу).</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> mindfulness — полезный
+                        инструмент, но не панацея. Не заменяйте им организационные изменения (нагрузка, автономия,
+                        поддержка).
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Mindfulness" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Mindfulness (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== БЛОК «ПОВЕДЕНЧЕСКИЕ ФИНАНСЫ» ==================== -->
+        <h1 class="text-danger theme-header" id="theme12">Блок «Поведенческие финансы»</h1>
+
+        <div class="advanced-block">
+            <h3><i class="fas fa-graduation-cap me-2"></i>50 тестов на основе нобелевских исследований</h3>
+            <p class="mb-2">Этот блок включает 50 тестов (`psy_bf_001`–`psy_bf_050`) с расширенными hint-карточками и
+                ссылками на Wikipedia. Ниже — 4 ключевые карточки с контекстом.</p>
+        </div>
+
+        <!-- 12.1 Фама vs Шиллер -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme12_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">12.1</span> Спор Фамы и Шиллера — почему
+                    Нобелевскую премию дали обоим</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 2013 году Нобелевская премия по экономике была вручена <strong>одновременно</strong> Юджину
+                        Фаме (гипотеза эффективных рынков) и Роберту Шиллеру (поведенческие финансы, «иррациональное
+                        изобилие»).</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Фама утверждал, что цены активов отражают всю доступную информацию, и «переиграть» рынок
+                        систематически невозможно. Шиллер показывал, что рынки подвержены пузырям, стадному поведению и
+                        нарративам, которые не имеют отношения к фундаментальным показателям.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Нобелевский комитет признал <strong>оба подхода частично верными</strong>. Рынки в целом
+                        эффективны (арбитраж быстро устраняет простые аномалии), но <strong>поведенческие отклонения
+                        реальны, систематичны и важны</strong> — особенно в периоды пузырей и кризисов. Это не «победа»
+                        одного над другим, а признание того, что <strong>эффективность и иррациональность
+                        сосуществуют</strong>.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики Фамы указывают, что «эффективность» — это тавтология: если цены «правильные», то любое
+                        движение можно объяснить «новой информацией». Критики Шиллера говорят, что его модели плохо
+                        предсказывают <strong>точное время</strong> пузырей: он предупреждал о доткомах в 1996-м, но
+                        крах случился в 2000-м. Для практика это означает: «рынок может быть иррационален дольше, чем вы
+                        платёжеспособны».</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не полагайтесь ни на
+                        «рынок всё знает», ни на «рынок безумен». Используйте фундаментальный анализ для оценки, но
+                        учитывайте поведенческие факторы (эйфорию, панику, нарративы) для <strong>тайминга</strong> и
+                        управления рисками.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Efficient-market_hypothesis" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> EMH (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 12.2 Barber & Odean -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme12_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">12.2</span> Barber & Odean: overconfidence</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 2000 году Брэд Барбер и Терранс О'Дин проанализировали счета 66 465 домохозяйств в США за
+                        1991–1996 гг.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Активная торговля должна повышать доходность: трейдер «использует информацию».</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Наиболее активные трейдеры получали доходность на <strong>11,4% ниже рынка</strong>. Причина —
+                        <strong>overconfidence</strong>: инвесторы переоценивают свою способность предсказывать рынок и
+                        торгуют слишком часто, неся издержки.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что выборка — <strong>домохозяйства</strong>, а не профессионалы. У
+                        профессионалов картина может быть иной (хотя overconfidence также встречается). Кроме того,
+                        «низкая доходность» может объясняться не только overconfidence, но и транзакционными издержками.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> чрезмерная уверенность
+                        руководителей ведёт к рискованным M&A и переоценке проектов. Структурированные процессы принятия
+                        решений (чек-листы, «адвокат дьявола») снижают риск.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Overconfidence_effect" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Overconfidence effect (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 12.3 Winner's curse -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme12_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">12.3</span> Winner's curse в M&A</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>Концепция «проклятия победителя» возникла в 1970-х годах в нефтяной отрасли (Capen, Clapp,
+                        Campbell, 1971), а затем была применена к M&A (Roll, 1986).</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Победитель аукциона — тот, кто лучше всех оценил актив.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Победитель — тот, кто <strong>сильнее всех переоценил</strong> актив. В аукционах с общей
+                        ценностью (M&A, нефтяные участки) победитель систематически <strong>переплачивает</strong>.
+                        Средняя переплата в M&A оценивается в 20–30%.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Не все M&A переплачивают: некоторые компании (например, Berkshire Hathaway) известны
+                        дисциплинированным подходом. Критики указывают, что «winner's curse» — не универсальный закон, а
+                        тенденция, которая усиливается при <strong>высокой конкуренции</strong> и <strong>неопределённости
+                        оценки</strong>.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> при M&A устанавливайте
+                        максимальную цену заранее и не повышайте её в процессе торгов. Привлекайте независимых
+                        оценщиков.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Winner%27s_curse" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Winner's curse (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- 12.4 Истерлин -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme12_4">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">12.4</span> Парадокс Истерлина: уточнения</h3>
+
+                <div class="research-context">
+                    <h6>Что и когда исследовали</h6>
+                    <p>В 1974 году Ричард Истерлин опубликовал исследование, показавшее: в краткосрочном периоде богатые
+                        люди счастливее бедных, но с ростом дохода страны в целом уровень счастья не растёт.</p>
+
+                    <h6>Что казалось очевидным</h6>
+                    <p>Экономический рост автоматически повышает счастье.</p>
+
+                    <h6>Что оказалось на самом деле</h6>
+                    <p>Парадокс <strong>подтверждён частично</strong>. Kahneman и Deaton (2010) показали: после
+                        определённого уровня дохода (~$75k) связь ослабевает. Killingsworth et al. (2023) уточнили:
+                        связь продолжается, но с <strong>убывающей отдачей</strong>.</p>
+
+                    <h6>В чём противоречие и критика</h6>
+                    <p>Критики указывают, что «счастье» измеряется субъективно, а культурные различия могут влиять на
+                        ответы. Кроме того, в бедных странах рост дохода <strong>действительно</strong> повышает
+                        счастье — парадокс касается в первую очередь богатых стран.</p>
+
+                    <div class="verdict">
+                        <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> повышение зарплаты
+                        мотивирует только до определённого уровня. Дальше важнее смысл, автономия, отношения. Не
+                        пытайтесь «купить» мотивацию деньгами.
+                    </div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Easterlin_paradox" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Easterlin paradox (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== КВИЗ ==================== -->
+        <h1 class="text-primary theme-header" id="quizblock">Тесты для самопроверки (149 заданий)</h1>
+        <div class="card mb-1 shadow-sm" style="max-width: 900px;">
+            <img src="../quiz.avif" class="card-img-top" alt="quiz" />
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i><strong>149 тестов:</strong> 99 базовых (научный уровень) +
+                    50 продвинутых (поведенческие финансы, нобелевские лауреаты, иррациональное поведение,
+                    оппортунизм, корпоративные финансы, феномены).
+                </div>
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" />
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput" />
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <div id="box" class="jxgbox" style="width: 500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;"></div>
+                                <div id="quizformdataarray"></div>
+                                <input type="text" class="form-control form-control-sm" id="feedback"
+                                    placeholder="Числовой ответ" style="display: none;" />
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula" />
+                                </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
+
+    <button id="backtop" class="btn btn-primary" title="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ==================== СКРИПТЫ ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Анимации + прогресс -->
+    <script>
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.reveal').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+        }
+
+        const progressBar = document.getElementById('reading-progress');
+        const backtop = document.getElementById('backtop');
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+            backtop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+    <!-- Firebase + логика тестов -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+</body>
+
+</html>

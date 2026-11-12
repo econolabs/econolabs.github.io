@@ -1,0 +1,1472 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Экономика предприятия</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Тесты -->
+    <script src="./quizesSets.js"></script>
+
+    <style>
+        :root {
+            --brand: #1b5e20;
+            --brand-dark: #0d3b12;
+            --brand-light: #e8f5e9;
+            --accent: #f9a825;
+            --ink: #1d1d1f;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { color: var(--ink); }
+
+        .badge-method {
+            background-color: var(--brand);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background-color: var(--brand-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--brand-dark);
+        }
+
+        .list-group-item-action { cursor: pointer; }
+        .card-img-top { filter: grayscale(1); }
+
+        .theme-header {
+            border-left: 6px solid var(--brand);
+            padding-left: 1rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+
+        .ent-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        #reading-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        .svg-illustration {
+            background: #f4f9f4;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #d7e9d8;
+        }
+        .svg-illustration svg { max-width: 100%; height: auto; }
+
+        .reveal { opacity: 0; transform: translateY(24px); }
+
+        #backtop {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            z-index: 999;
+            display: none;
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Блок формулы через KaTeX */
+        .formula-card {
+            background: linear-gradient(180deg, #f1f8e9 0%, #e8f5e9 100%);
+            border: 1px solid #c5e1a5;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .formula-card h6 {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .formula-card .katex-display { margin: 0.5rem 0; }
+        .formula-card .formula-note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        /* Определение */
+        .definition-card {
+            background: #fafcf9;
+            border-left: 4px solid var(--brand);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .definition-card h6 {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .verdict {
+            background: #fff8e1;
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+        }
+
+        @media (max-width: 576px) {
+            .theme-header { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+    <div id="reading-progress"></div>
+
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="https://econolabs.github.io/">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item"><a class="nav-link active" href="#">Экономика предприятия</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quizblock">Тесты (99)</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a href="https://vk.com/dmglvn">
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        <!-- ==================== ШАПКА ==================== -->
+        <header class="py-4">
+            <span class="ent-badge mb-2"><i class="fas fa-industry me-1"></i> Президентская программа подготовки
+                управленческих кадров</span>
+            <h1 class="display-5 fw-bold mt-2" style="color: var(--brand);">
+                <i class="fas fa-industry me-2"></i>Экономика предприятия
+            </h1>
+            <p class="lead text-muted">11 тем: ресурсы, издержки, прибыль, инвестиции, финансы. Формулы, SVG-схемы
+                и <strong>99 тестов</strong>.</p>
+
+            <!-- SVG: структура ресурсов -->
+            <div class="svg-illustration">
+                <svg viewBox="0 0 680 180" width="100%" style="max-width:680px" role="img"
+                    aria-label="Структура ресурсов предприятия">
+                    <g font-size="11" text-anchor="middle" font-weight="700">
+                        <rect x="20" y="30" width="150" height="120" rx="10" fill="#e8f5e9" stroke="#1b5e20"
+                            stroke-width="2" />
+                        <text x="95" y="55" fill="#0d3b12" font-size="13">Основные</text>
+                        <text x="95" y="72" fill="#0d3b12" font-size="13">средства</text>
+                        <text x="95" y="100" fill="#555" font-size="10">здания, оборудование</text>
+                        <text x="95" y="118" fill="#555" font-size="10">амортизация</text>
+                        <text x="95" y="136" fill="#555" font-size="10">фондоотдача</text>
+
+                        <rect x="185" y="30" width="150" height="120" rx="10" fill="#fff8e1" stroke="#f9a825"
+                            stroke-width="2" />
+                        <text x="260" y="55" fill="#e65100" font-size="13">Оборотные</text>
+                        <text x="260" y="72" fill="#e65100" font-size="13">средства</text>
+                        <text x="260" y="100" fill="#555" font-size="10">сырьё, запасы</text>
+                        <text x="260" y="118" fill="#555" font-size="10">оборачиваемость</text>
+                        <text x="260" y="136" fill="#555" font-size="10">ликвидность</text>
+
+                        <rect x="350" y="30" width="150" height="120" rx="10" fill="#e8f5e9" stroke="#1b5e20"
+                            stroke-width="2" />
+                        <text x="425" y="55" fill="#0d3b12" font-size="13">Трудовые</text>
+                        <text x="425" y="72" fill="#0d3b12" font-size="13">ресурсы</text>
+                        <text x="425" y="100" fill="#555" font-size="10">персонал</text>
+                        <text x="425" y="118" fill="#555" font-size="10">производительность</text>
+                        <text x="425" y="136" fill="#555" font-size="10">текучесть</text>
+
+                        <rect x="515" y="30" width="150" height="120" rx="10" fill="#fff8e1" stroke="#f9a825"
+                            stroke-width="2" />
+                        <text x="590" y="55" fill="#e65100" font-size="13">Финансовые</text>
+                        <text x="590" y="72" fill="#e65100" font-size="13">результаты</text>
+                        <text x="590" y="100" fill="#555" font-size="10">прибыль</text>
+                        <text x="590" y="118" fill="#555" font-size="10">рентабельность</text>
+                        <text x="590" y="136" fill="#555" font-size="10">инвестиции</text>
+                    </g>
+                </svg>
+            </div>
+        </header>
+
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3 shadow-sm" style="max-width: 900px;">
+            <div class="card-body">
+                <h3 class="card-title mb-3"><i class="fas fa-list-ul me-2" style="color: var(--brand);"></i>Содержание
+                    дисциплины</h3>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-building me-2"></i> Тема 1. Предприятие в рыночной экономике</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Понятие, классификация, организационно-правовые формы
+                                <span class="badge bg-success">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Внешняя среда, миссия, банкротство
+                                <span class="badge bg-success">theme1_2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-industry me-2"></i> Тема 2. Основные средства</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 Виды стоимостных
+                                оценок. Амортизация</a>
+                            <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Показатели движения
+                                и эффективности</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-sync me-2"></i> Тема 3. Оборотные средства</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Состав, структура,
+                                нормирование</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Оборачиваемость и
+                                эффективность</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-users me-2"></i> Тема 4. Трудовые ресурсы</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 Персонал,
+                                производительность, трудоёмкость</a>
+                            <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 Движение кадров,
+                                нормы труда, фондовооружённость</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-calculator me-2"></i> Тема 5. Себестоимость продукции</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 Понятие, виды,
+                                классификация затрат</a>
+                            <a href="#theme5_2" class="list-group-item list-group-item-action">5.2 Калькуляция и смета
+                                затрат</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-coins me-2"></i> Тема 6. Прибыль и рентабельность</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 Виды прибыли,
+                                факторы, распределение</a>
+                            <a href="#theme6_2" class="list-group-item list-group-item-action">6.2 Рентабельность и
+                                точка безубыточности</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i> Тема 7. Инвестиции и инновации</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Понятие инвестиций,
+                                NPV, IRR, PP</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-file-alt me-2"></i> Тема 8. Анализ финансовых результатов</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 Отчёт о финансовых
+                                результатах, виды прибыли</a>
+                            <a href="#theme8_2" class="list-group-item list-group-item-action">8.2 Горизонтальный,
+                                вертикальный, факторный анализ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-balance-scale me-2"></i> Тема 9. Финансовое состояние</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme9_1" class="list-group-item list-group-item-action">9.1 Ликвидность и
+                                платёжеспособность</a>
+                            <a href="#theme9_2" class="list-group-item list-group-item-action">9.2 Финансовая
+                                устойчивость, банкротство, деловая активность</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-cogs me-2"></i> Тема 10. Организация производства</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme10_1" class="list-group-item list-group-item-action">10.1 Производственный
+                                процесс, типы производства</a>
+                            <a href="#theme10_2" class="list-group-item list-group-item-action">10.2 Производственная
+                                мощность, бережливое производство</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-flag-checkered me-2"></i> Тема 11. Итоговые и прикладные
+                            тесты</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme11_1" class="list-group-item list-group-item-action">11.1 Эффективность,
+                                эффект, резервы роста</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <h1 class="text-success theme-header" id="theme1">Тема 1. Предприятие в рыночной экономике</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.1</span> Понятие, классификация,
+                    организационно-правовые формы</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Предприятие</strong> — самостоятельный хозяйствующий субъект с правами юридического
+                        лица, который на основе использования трудовых, материальных и финансовых ресурсов производит
+                        и реализует продукцию (услуги) для удовлетворения потребностей и получения прибыли.</p>
+                </div>
+
+                <p><strong>Классификация предприятий:</strong></p>
+                <ul>
+                    <li>по форме собственности: государственные, частные, смешанные, муниципальные;</li>
+                    <li>по отраслям: промышленные, сельскохозяйственные, транспортные, торговые и др.;</li>
+                    <li>по размеру: малые, средние, крупные;</li>
+                    <li>по организационно-правовой форме: ИП, ООО, АО, ПАО, унитарные предприятия и др.</li>
+                </ul>
+
+                <p><strong>Признаки юридического лица:</strong> имущественная обособленность, самостоятельная
+                    ответственность, государственная регистрация, выступление в суде от своего имени.</p>
+
+                <div class="formula-card">
+                    <h6>Размер предприятия</h6>
+                    <p>Критерии отнесения к малому бизнесу в РФ:</p>
+                    \[
+                    \text{Численность} \le 100\ \text{чел.},\quad \text{Выручка} \le \text{предельного значения}
+                    \]
+                    <p class="formula-note">Для микропредприятий: численность ≤ 15 чел. Предельные значения выручки
+                        устанавливаются Правительством РФ.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> выбор организационно-правовой
+                    формы влияет на ответственность, налоги и возможности привлечения капитала.
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.2</span> Внешняя среда, миссия, банкротство</h3>
+
+                <p><strong>Внешняя среда:</strong> макросреда (PEST: политика, экономика, социум, технологии) и
+                    микросреда (поставщики, клиенты, конкуренты, посредники).</p>
+                <p><strong>Миссия</strong> — причина существования предприятия. <strong>Цели</strong> — измеримые
+                    результаты (SMART).</p>
+
+                <div class="formula-card">
+                    <h6>Z-модель Альтмана (прогноз банкротства)</h6>
+                    \[
+                    Z = 1{,}2\,X_1 + 1{,}4\,X_2 + 3{,}3\,X_3 + 0{,}6\,X_4 + 1{,}0\,X_5
+                    \]
+                    <p class="formula-note">
+                        \(X_1 = \dfrac{\text{Оборотный капитал}}{\text{Активы}}\);
+                        \(X_2 = \dfrac{\text{Нераспределённая прибыль}}{\text{Активы}}\);
+                        \(X_3 = \dfrac{\text{EBIT}}{\text{Активы}}\);
+                        \(X_4 = \dfrac{\text{Рыночная стоимость акций}}{\text{Обязательства}}\);
+                        \(X_5 = \dfrac{\text{Выручка}}{\text{Активы}}\).
+                    </p>
+                    <p class="formula-note">Интерпретация: \(Z &lt; 1{,}81\) — высокая вероятность банкротства;
+                        \(Z &gt; 2{,}99\) — низкая.</p>
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> Z-модель — индикатор, а не
+                    приговор. Смотрите на тренды и качество управления.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <h1 class="text-primary theme-header" id="theme2">Тема 2. Основные средства</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.1</span> Виды стоимостных оценок. Амортизация
+                </h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Основные средства (ОС)</strong> — средства труда, которые многократно участвуют в
+                        производстве, сохраняют натуральную форму и переносят стоимость на продукцию по частям через
+                        амортизацию.</p>
+                </div>
+
+                <p><strong>Виды стоимостных оценок:</strong></p>
+                <ul>
+                    <li><strong>Полная первоначальная</strong> — затраты на приобретение, транспортировку и монтаж;</li>
+                    <li><strong>Остаточная</strong> — первоначальная минус накопленный износ;</li>
+                    <li><strong>Восстановительная</strong> — стоимость такого же объекта в современных условиях.</li>
+                </ul>
+
+                <div class="formula-card">
+                    <h6>Амортизация (линейный метод)</h6>
+                    \[
+                    A = \frac{S_{\text{перв}} - S_{\text{ликв}}}{T}
+                    \]
+                    <p class="formula-note">\(S_{\text{перв}}\) — первоначальная стоимость; \(S_{\text{ликв}}\) —
+                        ликвидационная стоимость; \(T\) — срок полезного использования.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Годовая норма амортизации</h6>
+                    \[
+                    N_a = \frac{1}{T} \times 100\%
+                    \]
+                </div>
+
+                <p><strong>Способы амортизации:</strong> линейный, уменьшаемого остатка, по сумме чисел лет срока
+                    полезного использования, пропорционально объёму продукции.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Амортизация" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Амортизация (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.2</span> Показатели движения и эффективности
+                </h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент ввода</h6>
+                    \[
+                    K_{\text{вв}} = \frac{OC_{\text{пост}}}{OC_{\text{кг}}}
+                    \]
+                    <p class="formula-note">\(OC_{\text{пост}}\) — стоимость поступивших ОС; \(OC_{\text{кг}}\) —
+                        стоимость ОС на конец года.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент обновления</h6>
+                    \[
+                    K_{\text{обн}} = \frac{OC_{\text{нов}}}{OC_{\text{кг}}}
+                    \]
+                    <p class="formula-note">\(OC_{\text{нов}}\) — стоимость новых поступивших ОС.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент выбытия</h6>
+                    \[
+                    K_{\text{выб}} = \frac{OC_{\text{выб}}}{OC_{\text{нг}}}
+                    \]
+                    <p class="formula-note">\(OC_{\text{выб}}\) — стоимость выбывших ОС; \(OC_{\text{нг}}\) —
+                        стоимость ОС на начало года.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Фондоотдача</h6>
+                    \[
+                    \Phi_O = \frac{Q}{\overline{OC}}
+                    \]
+                    <p class="formula-note">\(Q\) — объём реализованной продукции; \(\overline{OC}\) — среднегодовая
+                        стоимость ОС.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Фондоёмкость</h6>
+                    \[
+                    \Phi_E = \frac{\overline{OC}}{Q} = \frac{1}{\Phi_O}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Фондорентабельность</h6>
+                    \[
+                    R_{\text{ОС}} = \frac{\Pi}{\overline{OC}} \times 100\%
+                    \]
+                    <p class="formula-note">\(\Pi\) — прибыль (чистая или до налогообложения).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициенты использования оборудования</h6>
+                    \[
+                    K_{\text{экс}} = \frac{T_{\text{факт}}}{T_{\text{действ}}},\qquad
+                    K_{\text{инт}} = \frac{Q_{\text{факт}}}{M_{\text{обор}}},\qquad
+                    K_{\text{интегр}} = K_{\text{экс}} \times K_{\text{инт}}
+                    \]
+                    <p class="formula-note">\(T_{\text{факт}}\) — фактический фонд времени; \(T_{\text{действ}}\) —
+                        действительный фонд; \(M_{\text{обор}}\) — производственная мощность оборудования.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Фондоотдача" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Фондоотдача (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-warning theme-header" id="theme3">Тема 3. Оборотные средства</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.1</span> Состав, структура, нормирование</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Оборотные средства</strong> — сырьё, материалы, топливо, незавершённое производство,
+                        готовая продукция, дебиторская задолженность, денежные средства. Полностью переносят стоимость
+                        за один производственный цикл.</p>
+                </div>
+
+                <p><strong>Состав:</strong> производственные запасы, незавершённое производство, расходы будущих
+                    периодов, готовая продукция, дебиторская задолженность, денежные средства.</p>
+
+                <p><strong>Нормируемые:</strong> запасы, НЗП, готовая продукция, РБП. <strong>Ненормируемые:</strong>
+                    денежные средства, дебиторская задолженность.</p>
+
+                <div class="formula-card">
+                    <h6>Норматив оборотных средств по производственным запасам</h6>
+                    \[
+                    H_{\text{зап}} = \sum_{i} \left( N_{\text{дн},i} \times q_{\text{дн},i} \right)
+                    \]
+                    <p class="formula-note">\(N_{\text{дн},i}\) — норма запаса в днях по \(i\)-му материалу;
+                        \(q_{\text{дн},i}\) — среднедневной расход \(i\)-го материала.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Норматив по незавершённому производству</h6>
+                    \[
+                    H_{\text{НЗП}} = \frac{Q_{\text{себ}} \times T_{\text{ц}} \times K_{\text{нз}}}{T_{\text{пер}}}
+                    \]
+                    <p class="formula-note">\(Q_{\text{себ}}\) — себестоимость выпуска за период;
+                        \(T_{\text{ц}}\) — длительность цикла; \(K_{\text{нз}}\) — коэффициент нарастания затрат;
+                        \(T_{\text{пер}}\) — число дней в периоде.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Оборотные_средства" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Оборотные средства (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.2</span> Оборачиваемость и эффективность</h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент оборачиваемости</h6>
+                    \[
+                    K_{\text{об}} = \frac{Q}{\overline{OS_{\text{об}}}}
+                    \]
+                    <p class="formula-note">\(Q\) — выручка; \(\overline{OS_{\text{об}}}\) — среднегодовой остаток
+                        оборотных средств.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Длительность одного оборота</h6>
+                    \[
+                    T_{\text{об}} = \frac{T_{\text{пер}}}{K_{\text{об}}}
+                    \]
+                    <p class="formula-note">\(T_{\text{пер}}\) — число дней в периоде (365, 90, 30).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Финансовый цикл</h6>
+                    \[
+                    T_{\text{фц}} = T_{\text{зап}} + T_{\text{дз}} - T_{\text{кз}}
+                    \]
+                    <p class="formula-note">\(T_{\text{зап}}\) — период оборота запасов;
+                        \(T_{\text{дз}}\) — период оборота дебиторской задолженности;
+                        \(T_{\text{кз}}\) — период оборота кредиторской задолженности.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Высвобождение (привлечение) оборотных средств</h6>
+                    \[
+                    \Delta OS = Q_1 \times \frac{T_{\text{об1}} - T_{\text{об0}}}{T_{\text{пер}}}
+                    \]
+                    <p class="formula-note">Отрицательное значение — высвобождение, положительное — привлечение.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Оборачиваемость" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Оборачиваемость (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-danger theme-header" id="theme4">Тема 4. Трудовые ресурсы</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.1</span> Персонал, производительность,
+                    трудоёмкость</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Персонал</strong> — совокупность всех работников предприятия. Категории: руководители,
+                        специалисты, служащие, рабочие.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Выработка</h6>
+                    \[
+                    B = \frac{Q}{\overline{Ч}}
+                    \]
+                    <p class="formula-note">\(Q\) — объём продукции; \(\overline{Ч}\) — среднесписочная численность.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Трудоёмкость</h6>
+                    \[
+                    t = \frac{T}{Q} = \frac{1}{B}
+                    \]
+                    <p class="formula-note">\(T\) — затраты рабочего времени.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Фондовооружённость</h6>
+                    \[
+                    \Phi_B = \frac{\overline{OC}}{\overline{Ч}}
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Производительность_труда" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Производительность труда (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.2</span> Движение кадров, нормы труда,
+                    фондовооружённость</h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент оборота по приёму</h6>
+                    \[
+                    K_{\text{пр}} = \frac{Ч_{\text{прин}}}{\overline{Ч}}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент оборота по выбытию</h6>
+                    \[
+                    K_{\text{выб}} = \frac{Ч_{\text{выб}}}{\overline{Ч}}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент текучести кадров</h6>
+                    \[
+                    K_{\text{тек}} = \frac{Ч_{\text{ув.субъ}}}{\overline{Ч}}
+                    \]
+                    <p class="formula-note">\(Ч_{\text{ув.субъ}}\) — уволенные по собственному желанию и за нарушения
+                        дисциплины.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент постоянства кадров</h6>
+                    \[
+                    K_{\text{пост}} = \frac{Ч_{\text{отраб.год}}}{\overline{Ч}}
+                    \]
+                </div>
+
+                <p><strong>Нормы труда:</strong></p>
+                <ul>
+                    <li><strong>Норма времени</strong> — затраты времени на единицу продукции;</li>
+                    <li><strong>Норма выработки</strong> — количество продукции за единицу времени;</li>
+                    <li><strong>Норма обслуживания</strong> — число объектов, закреплённых за работником;</li>
+                    <li><strong>Норма численности</strong> — численность для выполнения объёма работ;</li>
+                    <li><strong>Норма управляемости</strong> — число подчинённых у одного руководителя.</li>
+                </ul>
+
+                <div class="formula-card">
+                    <h6>Связь нормы времени и нормы выработки</h6>
+                    \[
+                    H_{\text{выр}} = \frac{T_{\text{см}}}{H_{\text{вр}}}
+                    \]
+                    <p class="formula-note">\(T_{\text{см}}\) — продолжительность смены; \(H_{\text{вр}}\) — норма
+                        времени на единицу.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Текучесть_кадров" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Текучесть кадров (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <h1 class="text-info theme-header" id="theme5">Тема 5. Себестоимость продукции</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.1</span> Понятие, виды, классификация затрат
+                </h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Себестоимость</strong> — денежное выражение текущих затрат на производство и реализацию
+                        продукции.</p>
+                </div>
+
+                <p><strong>Виды себестоимости:</strong></p>
+                <ul>
+                    <li><strong>Цеховая</strong> — затраты цеха на производство;</li>
+                    <li><strong>Производственная</strong> — цеховая + общехозяйственные расходы;</li>
+                    <li><strong>Полная</strong> — производственная + коммерческие расходы.</li>
+                </ul>
+
+                <p><strong>Классификация затрат:</strong></p>
+                <ul>
+                    <li>по экономическим элементам (материальные, оплата труда, отчисления, амортизация, прочие);</li>
+                    <li>по статьям калькуляции;</li>
+                    <li>по отношению к объёму: постоянные и переменные;</li>
+                    <li>по способу отнесения: прямые и косвенные.</li>
+                </ul>
+
+                <div class="formula-card">
+                    <h6>Общие затраты</h6>
+                    \[
+                    TC = FC + VC
+                    \]
+                    <p class="formula-note">\(FC\) — постоянные; \(VC\) — переменные.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Средние и предельные затраты</h6>
+                    \[
+                    AC = \frac{TC}{Q},\qquad MC = \frac{\Delta TC}{\Delta Q}
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Себестоимость" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Себестоимость (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.2</span> Калькуляция и смета затрат</h3>
+
+                <p><strong>Калькуляция</strong> — расчёт себестоимости единицы продукции по статьям затрат.</p>
+
+                <div class="formula-card">
+                    <h6>Затраты на 1 рубль товарной продукции</h6>
+                    \[
+                    З_{\text{1р}} = \frac{\text{Полная себестоимость}}{\text{Объём товарной продукции}}
+                    \]
+                    <p class="formula-note">Показывает, сколько копеек затрат приходится на 1 рубль продукции. Чем
+                        ниже — тем эффективнее.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Снижение себестоимости</h6>
+                    \[
+                    \Delta C = \frac{C_1 - C_0}{C_0} \times 100\%
+                    \]
+                    <p class="formula-note">\(C_1\), \(C_0\) — себестоимость единицы в отчётном и базисном периодах.</p>
+                </div>
+
+                <p><strong>Методы калькуляции:</strong> нормативный, попередельный, позаказный, попроцессный.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Калькуляция" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Калькуляция (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <h1 class="text-primary theme-header" id="theme6">Тема 6. Прибыль и рентабельность</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.1</span> Виды прибыли, факторы, распределение
+                </h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Прибыль</strong> — разница между выручкой и затратами. Конечный финансовый результат
+                        деятельности предприятия.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Валовая прибыль</h6>
+                    \[
+                    \Pi_{\text{вал}} = Q - C_{\text{себ}}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Прибыль от продаж</h6>
+                    \[
+                    \Pi_{\text{пр}} = \Pi_{\text{вал}} - Р_{\text{ком}} - Р_{\text{упр}}
+                    \]
+                    <p class="formula-note">\(Р_{\text{ком}}\) — коммерческие расходы; \(Р_{\text{упр}}\) —
+                        управленческие расходы.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Прибыль до налогообложения</h6>
+                    \[
+                    \Pi_{\text{дон}} = \Pi_{\text{пр}} + \%_{\text{пол}} - \%_{\text{упл}} + Д_{\text{проч}} - Р_{\text{проч}}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Чистая прибыль</h6>
+                    \[
+                    \Pi_{\text{чист}} = \Pi_{\text{дон}} - H_{\text{пр}}
+                    \]
+                    <p class="formula-note">\(H_{\text{пр}}\) — налог на прибыль (в РФ — 25% с 2025 г.).</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Прибыль" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Прибыль (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.2</span> Рентабельность и точка
+                    безубыточности</h3>
+
+                <div class="formula-card">
+                    <h6>Рентабельность продаж</h6>
+                    \[
+                    ROS = \frac{\Pi_{\text{пр}}}{Q} \times 100\%
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Рентабельность активов (ROA)</h6>
+                    \[
+                    ROA = \frac{\Pi_{\text{чист}}}{\overline{A}} \times 100\%
+                    \]
+                    <p class="formula-note">\(\overline{A}\) — среднегодовая стоимость активов.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Рентабельность собственного капитала (ROE)</h6>
+                    \[
+                    ROE = \frac{\Pi_{\text{чист}}}{\overline{СК}} \times 100\%
+                    \]
+                    <p class="formula-note">\(\overline{СК}\) — среднегодовой собственный капитал.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Точка безубыточности (в натуральном выражении)</h6>
+                    \[
+                    Q^* = \frac{FC}{P - AVC}
+                    \]
+                    <p class="formula-note">\(FC\) — постоянные затраты; \(P\) — цена; \(AVC\) — средние переменные
+                        затраты.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Точка безубыточности (в стоимостном выражении)</h6>
+                    \[
+                    BEP = \frac{FC}{1 - \dfrac{VC}{Q}} = \frac{FC}{K_{\text{м}}}
+                    \]
+                    <p class="formula-note">\(K_{\text{м}}\) — коэффициент маржинальной прибыли.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Маржинальная прибыль</h6>
+                    \[
+                    MP = Q - VC
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Запас финансовой прочности</h6>
+                    \[
+                    ЗФП = \frac{Q_{\text{факт}} - Q^*}{Q_{\text{факт}}} \times 100\%
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Точка_безубыточности" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Точка безубыточности (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <h1 class="text-success theme-header" id="theme7">Тема 7. Инвестиции и инновации</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.1</span> Понятие инвестиций, NPV, IRR, PP</h3>
+
+                <div class="definition-card">
+                    <h6>Определение</h6>
+                    <p><strong>Инвестиции</strong> — долгосрочные вложения капитала для получения прибыли. Виды:
+                        реальные (капитальные вложения), финансовые (портфельные), интеллектуальные.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Чистая приведённая стоимость (NPV)</h6>
+                    \[
+                    NPV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0
+                    \]
+                    <p class="formula-note">\(CF_t\) — денежный поток в \(t\)-м году; \(r\) — ставка дисконтирования;
+                        \(I_0\) — первоначальные инвестиции.</p>
+                    <p class="formula-note">\(NPV &gt; 0\) — проект принимается.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Внутренняя норма доходности (IRR)</h6>
+                    \[
+                    NPV(IRR) = \sum_{t=1}^{n} \frac{CF_t}{(1+IRR)^t} - I_0 = 0
+                    \]
+                    <p class="formula-note">\(IRR &gt; r\) — проект эффективен.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Срок окупаемости (PP)</h6>
+                    \[
+                    PP = \frac{I_0}{\overline{CF}}
+                    \]
+                    <p class="formula-note">\(\overline{CF}\) — средний годовой денежный поток. Для дисконтированного
+                        срока окупаемости (DPP) используют дисконтированные потоки.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Индекс прибыльности (PI)</h6>
+                    \[
+                    PI = \frac{\sum_{t=1}^{n} \dfrac{CF_t}{(1+r)^t}}{I_0}
+                    \]
+                    <p class="formula-note">\(PI &gt; 1\) — проект эффективен.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Дисконтирование</h6>
+                    \[
+                    PV = \frac{FV}{(1+r)^n}
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Чистая_приведённая_стоимость" target="_blank"
+                    class="btn btn-sm btn-outline-success mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> NPV (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <h1 class="text-warning theme-header" id="theme8">Тема 8. Анализ финансовых результатов</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.1</span> Отчёт о финансовых результатах, виды
+                    прибыли</h3>
+
+                <p><strong>Отчёт о финансовых результатах</strong> (P&amp;L) показывает доходы, расходы и прибыль за
+                    период.</p>
+
+                <div class="formula-card">
+                    <h6>Структура P&amp;L (укрупнённо)</h6>
+                    \[
+                    Q - C_{\text{себ}} = \Pi_{\text{вал}}
+                    \]
+                    \[
+                    \Pi_{\text{вал}} - Р_{\text{ком}} - Р_{\text{упр}} = \Pi_{\text{пр}}
+                    \]
+                    \[
+                    \Pi_{\text{пр}} \pm \text{прочие} = \Pi_{\text{дон}}
+                    \]
+                    \[
+                    \Pi_{\text{дон}} - H_{\text{пр}} = \Pi_{\text{чист}}
+                    \]
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Отчёт_о_финансовых_результатах" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Отчёт о финансовых результатах (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.2</span> Горизонтальный, вертикальный,
+                    факторный анализ</h3>
+
+                <p><strong>Горизонтальный анализ</strong> — сравнение показателей с предыдущими периодами.
+                    <strong>Вертикальный</strong> — определение структуры (доля статьи в итоге).
+                    <strong>Факторный</strong> — выявление влияния факторов на результат.</p>
+
+                <div class="formula-card">
+                    <h6>Модель Дюпон (трёхфакторная)</h6>
+                    \[
+                    ROE = \frac{\Pi_{\text{чист}}}{Q} \times \frac{Q}{\overline{A}} \times \frac{\overline{A}}{\overline{СК}}
+                    \]
+                    <p class="formula-note">\(ROE = ROS \times \text{Оборачиваемость активов} \times
+                        \text{Финансовый рычаг}\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Метод цепных подстановок</h6>
+                    \[
+                    \Delta Y_{x_1} = Y(x_1^1, x_2^0) - Y(x_1^0, x_2^0)
+                    \]
+                    \[
+                    \Delta Y_{x_2} = Y(x_1^1, x_2^1) - Y(x_1^1, x_2^0)
+                    \]
+                    <p class="formula-note">Последовательная замена базисных значений факторов на отчётные.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Модель_Дюпон" target="_blank"
+                    class="btn btn-sm btn-outline-warning mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Модель Дюпон (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 9 ==================== -->
+        <h1 class="text-danger theme-header" id="theme9">Тема 9. Финансовое состояние</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.1</span> Ликвидность и платёжеспособность</h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент абсолютной ликвидности</h6>
+                    \[
+                    K_{\text{ал}} = \frac{DS + KFV}{KO}
+                    \]
+                    <p class="formula-note">\(DS\) — денежные средства; \(KFV\) — краткосрочные финансовые вложения;
+                        \(KO\) — краткосрочные обязательства. Норматив: \(\ge 0{,}2\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент быстрой ликвидности</h6>
+                    \[
+                    K_{\text{бл}} = \frac{DS + KFV + DZ}{KO}
+                    \]
+                    <p class="formula-note">\(DZ\) — дебиторская задолженность. Норматив: \(\ge 0{,}7\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент текущей ликвидности</h6>
+                    \[
+                    K_{\text{тл}} = \frac{OA}{KO}
+                    \]
+                    <p class="formula-note">\(OA\) — оборотные активы. Норматив: \(1{,}5 \le K_{\text{тл}} \le 2{,}5\).</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Ликвидность" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Ликвидность (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.2</span> Финансовая устойчивость, банкротство,
+                    деловая активность</h3>
+
+                <div class="formula-card">
+                    <h6>Коэффициент автономии</h6>
+                    \[
+                    K_{\text{авт}} = \frac{СК}{A}
+                    \]
+                    <p class="formula-note">Норматив: \(\ge 0{,}5\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент финансового рычага</h6>
+                    \[
+                    K_{\text{фр}} = \frac{ЗК}{СК}
+                    \]
+                    <p class="formula-note">\(ЗК\) — заёмный капитал. Норматив: \(\le 1{,}0\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Собственный оборотный капитал</h6>
+                    \[
+                    СОК = СК - ВА = ОА - КО
+                    \]
+                    <p class="formula-note">\(ВА\) — внеоборотные активы. Норматив: \(СОК \ge 0\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент обеспеченности собственными оборотными средствами</h6>
+                    \[
+                    K_{\text{сос}} = \frac{СОК}{ОА}
+                    \]
+                    <p class="formula-note">Норматив: \(\ge 0{,}1\).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Оборачиваемость активов (деловая активность)</h6>
+                    \[
+                    K_{\text{оа}} = \frac{Q}{\overline{A}}
+                    \]
+                </div>
+
+                <div class="formula-card">
+                    <h6>Z-модель Альтмана (для публичных компаний)</h6>
+                    \[
+                    Z = 1{,}2\,X_1 + 1{,}4\,X_2 + 3{,}3\,X_3 + 0{,}6\,X_4 + 1{,}0\,X_5
+                    \]
+                    <p class="formula-note">См. расшифровку в теме 1.2. Зоны: \(Z &lt; 1{,}81\) — риск банкротства;
+                        \(1{,}81 \le Z &lt; 2{,}99\) — серая зона; \(Z \ge 2{,}99\) — устойчивость.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Модель_Альтмана" target="_blank"
+                    class="btn btn-sm btn-outline-danger mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Модель Альтмана (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 10 ==================== -->
+        <h1 class="text-info theme-header" id="theme10">Тема 10. Организация производства</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.1</span> Производственный процесс, типы
+                    производства</h3>
+
+                <p><strong>Производственный процесс</strong> — совокупность взаимосвязанных действий по превращению
+                    сырья в готовую продукцию. Виды: основные, вспомогательные, обслуживающие.</p>
+
+                <p><strong>Типы производства:</strong></p>
+                <ul>
+                    <li><strong>Единичное</strong> — уникальные изделия, малый объём;</li>
+                    <li><strong>Серийное</strong> — партии, повторяемость;</li>
+                    <li><strong>Массовое</strong> — непрерывный выпуск однородной продукции.</li>
+                </ul>
+
+                <div class="formula-card">
+                    <h6>Длительность производственного цикла</h6>
+                    \[
+                    T_{\text{ц}} = T_{\text{тех}} + T_{\text{ест}} + T_{\text{пер}} + T_{\text{меж}}
+                    \]
+                    <p class="formula-note">\(T_{\text{тех}}\) — технологическое время; \(T_{\text{ест}}\) —
+                        естественные процессы; \(T_{\text{пер}}\) — перерывы; \(T_{\text{меж}}\) — межоперационное
+                        время.</p>
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Производственный_процесс" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Производственный процесс (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.2</span> Производственная мощность,
+                    бережливое производство</h3>
+
+                <div class="formula-card">
+                    <h6>Производственная мощность</h6>
+                    \[
+                    M = \frac{T_{\text{эф}} \times N}{t_{\text{ед}}}
+                    \]
+                    <p class="formula-note">\(T_{\text{эф}}\) — эффективный фонд времени; \(N\) — число единиц
+                        оборудования; \(t_{\text{ед}}\) — норма времени на единицу продукции.</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Коэффициент использования мощности</h6>
+                    \[
+                    K_{\text{им}} = \frac{Q_{\text{факт}}}{M}
+                    \]
+                </div>
+
+                <p><strong>Бережливое производство (Lean):</strong> устранение потерь (muda), just-in-time,
+                    автономизация, кайдзен. 7 видов потерь: перепроизводство, ожидание, транспортировка, излишняя
+                    обработка, запасы, движение, дефекты.</p>
+
+                <a href="https://ru.wikipedia.org/wiki/Бережливое_производство" target="_blank"
+                    class="btn btn-sm btn-outline-info mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Бережливое производство (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 11 ==================== -->
+        <h1 class="text-primary theme-header" id="theme11">Тема 11. Итоговые и прикладные тесты</h1>
+
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.1</span> Эффективность, эффект, резервы роста
+                </h3>
+
+                <div class="formula-card">
+                    <h6>Экономический эффект</h6>
+                    \[
+                    \text{Эффект} = \text{Результат} - \text{Затраты}
+                    \]
+                    <p class="formula-note">Абсолютный показатель (например, прибыль, экономия).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Экономическая эффективность</h6>
+                    \[
+                    \text{Эффективность} = \frac{\text{Результат}}{\text{Затраты}}
+                    \]
+                    <p class="formula-note">Относительный показатель (например, рентабельность, фондоотдача,
+                        производительность).</p>
+                </div>
+
+                <div class="formula-card">
+                    <h6>Общая рентабельность</h6>
+                    \[
+                    R_{\text{общ}} = \frac{\Pi_{\text{дон}}}{\overline{OC} + \overline{OS_{\text{об}}}} \times 100\%
+                    \]
+                </div>
+
+                <div class="verdict">
+                    <i class="fas fa-lightbulb me-1"></i> <strong>Для менеджера:</strong> не сводите эффективность к
+                    прибыли. Смотрите на баланс краткосрочных и долгосрочных показателей (Balanced Scorecard).
+                </div>
+
+                <a href="https://ru.wikipedia.org/wiki/Сбалансированная_система_показателей" target="_blank"
+                    class="btn btn-sm btn-outline-primary mt-2">
+                    <i class="fab fa-wikipedia-w me-1"></i> Balanced Scorecard (Wikipedia)
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== КВИЗ ==================== -->
+        <h1 class="text-primary theme-header" id="quizblock">Тесты для самопроверки (99 заданий)</h1>
+        <div class="card mb-1 shadow-sm" style="max-width: 900px;">
+            <img src="../quiz.avif" class="card-img-top" alt="quiz" />
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i><strong>99 тестов:</strong> 11 тем — от предприятия в
+                    рыночной экономике до анализа финансового состояния.
+                </div>
+                <div class="container" id="formcontainer" style="display: none;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" />
+                            <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ФИО Группа</label>
+                            <input type="text" class="form-control" id="userInput" />
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                            id="loginbutton">Сохранить</button>
+                    </form>
+                </div>
+                <div class="container my-1 d-flex flex-wrap" id="quizbuttonslist"></div>
+                <div class="container" id="quizcontainer" style="display: none;">
+                    <div class="card" style="min-height: 100px;">
+                        <div class="card-header" id="quizHeader"></div>
+                        <div class="card-body">
+                            <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
+                            <div class="card-text fade-in-div" id="quizString"></div>
+                            <div id="box" class="jxgbox" style="width: 500px; aspect-ratio: 1/1; display: none;"></div>
+                            <form id="quizform">
+                                <div id="quizChecks" class="m-1 p-1"></div>
+                                <div id="quizHint" class="m-1 p-1"></div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;"></div>
+                                <div id="quizformdataarray"></div>
+                                <input type="text" class="form-control form-control-sm" id="feedback"
+                                    placeholder="Числовой ответ" style="display: none;" />
+                                <div id="usercalculations" style="display: none;">
+                                    <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula" />
+                                </div>
+                                <textarea class="form-control my-3" id="userComment" rows="2"
+                                    style="display: none;">Мой комментарий</textarea>
+                                <button type="submit" class="btn btn-outline-primary m-3" id="answerButton"
+                                    style="display: none;">Ответить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
+
+    <button id="backtop" class="btn btn-primary" title="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ==================== СКРИПТЫ ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- KaTeX auto-render: формулы в \( ... \) и \[ ... \] -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '\\[', right: '\\]', display: true },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
+
+    <!-- Анимации + прогресс -->
+    <script>
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.reveal').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+        }
+
+        const progressBar = document.getElementById('reading-progress');
+        const backtop = document.getElementById('backtop');
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+            backtop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+    <!-- Firebase + логика тестов -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1695 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Маркетинг</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Formula parser (для квиза) -->
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+
+    <!-- Тесты -->
+    <script src="./quizesSets.js"></script>
+
+    <style>
+        :root {
+            --brand: #e85d04;
+            --brand-dark: #b84a03;
+            --brand-light: #fff3e8;
+            --ink: #1d1d1f;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--ink);
+        }
+
+        .badge-method {
+            background-color: var(--brand);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background-color: #eef2ff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #3730a3;
+        }
+
+        .list-group-item-action {
+            cursor: pointer;
+        }
+
+        .card-img-top {
+            filter: grayscale(1);
+        }
+
+        .theme-header {
+            border-left: 6px solid var(--brand);
+            padding-left: 1rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+
+        /* ---- Прогресс чтения ---- */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand), #ffba08);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* ---- Воронка-иллюстрация ---- */
+        .funnel-svg .stage {
+            transition: fill 0.3s ease;
+        }
+
+        .funnel-svg .stage:hover {
+            fill: var(--brand-dark) !important;
+        }
+
+        /* ---- SVG-обёртки ---- */
+        .svg-illustration {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .svg-illustration svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ---- Карточки ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        /* ---- Мини-навигация "наверх" ---- */
+        #backtop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            display: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ---- Стили для SVG-матриц ---- */
+        .matrix-label {
+            font-size: 11px;
+            fill: #333;
+            font-weight: 600;
+        }
+
+        .matrix-axis {
+            font-size: 11px;
+            fill: #888;
+        }
+
+        /* ---- Адаптив оглавления ---- */
+        @media (max-width: 576px) {
+            .theme-header {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
+
+  
+
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="https://econolabs.github.io/">Econolabs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item"><a class="nav-link active" href="#">Маркетинг</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quizblock">Тесты</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a href="https://vk.com/dmglvn">
+                        <img loading="lazy"
+                            src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
+                            style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container my-4">
+
+          <!-- Прогресс чтения -->
+    <div id="reading-progress"></div>
+
+        <!-- ==================== ЗАГОЛОВОК ==================== -->
+        <header class="py-4">
+            <h1 class="display-5 fw-bold" style="color: var(--brand);">
+                <i class="fas fa-bullhorn me-2"></i>Маркетинг
+            </h1>
+            <p class="lead text-muted">Курс из 11 тем: от базовых понятий до цифрового маркетинга. 99 тестов для
+                самопроверки.</p>
+
+            <!-- SVG-иллюстрация 4P -->
+            <div class="svg-illustration">
+                <svg viewBox="0 0 520 140" width="100%" style="max-width:520px" role="img"
+                    aria-label="Комплекс маркетинга 4P">
+                    <circle cx="260" cy="70" r="52" fill="#e85d04" opacity="0.12" />
+                    <circle cx="260" cy="70" r="40" fill="#e85d04" />
+                    <text x="260" y="76" text-anchor="middle" fill="white" font-size="18" font-weight="700">4P</text>
+                    <g font-size="13" font-weight="600" fill="#b84a03">
+                        <text x="90" y="45" text-anchor="middle">Product</text>
+                        <text x="90" y="100" text-anchor="middle">Товар</text>
+                        <text x="430" y="45" text-anchor="middle">Price</text>
+                        <text x="430" y="100" text-anchor="middle">Цена</text>
+                        <text x="90" y="120" text-anchor="middle" font-size="11" fill="#888">Place / Сбыт</text>
+                        <text x="430" y="120" text-anchor="middle" font-size="11" fill="#888">Promotion /
+                            Продвижение</text>
+                    </g>
+                    <line x1="130" y1="60" x2="220" y2="66" stroke="#e85d04" stroke-width="2" stroke-dasharray="4" />
+                    <line x1="300" y1="66" x2="390" y2="60" stroke="#e85d04" stroke-width="2" stroke-dasharray="4" />
+                    <line x1="130" y1="110" x2="220" y2="76" stroke="#e85d04" stroke-width="2" stroke-dasharray="4" />
+                    <line x1="300" y1="76" x2="390" y2="110" stroke="#e85d04" stroke-width="2" stroke-dasharray="4" />
+                </svg>
+            </div>
+        </header>
+
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3 shadow-sm" style="max-width: 900px;">
+            <div class="card-body">
+                <h3 class="card-title mb-3"><i class="fas fa-list-ul me-2" style="color: var(--brand);"></i>Содержание
+                    дисциплины</h3>
+
+                <!-- Тема 1 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-lightbulb me-2"></i> Тема 1. Сущность и основные понятия
+                            маркетинга</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Понятие, цели и функции маркетинга
+                                <span class="badge bg-primary">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Эволюция концепций маркетинга
+                                <span class="badge bg-primary">theme1_2</span>
+                            </a>
+                            <a href="#theme1_3"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.3 Маркетинговая среда
+                                <span class="badge bg-primary">theme1_3</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 2 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-search me-2"></i> Тема 2. Маркетинговые исследования</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 Цели и этапы
+                                        исследования</a>
+                                    <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Первичная и
+                                        вторичная информация</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme2_3" class="list-group-item list-group-item-action">2.3 Методы сбора
+                                        и анализа данных</a>
+                                    <a href="#theme2_4" class="list-group-item list-group-item-action">2.4
+                                        ABC-анализ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 3 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-crosshairs me-2"></i> Тема 3. Сегментирование,
+                            позиционирование (STP)</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Сегментирование
+                                рынка</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Выбор целевого
+                                сегмента</a>
+                            <a href="#theme3_3" class="list-group-item list-group-item-action">3.3 Позиционирование и
+                                карта восприятия</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 4 -->
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-box me-2"></i> Тема 4. Товарная политика</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 Товар и его
+                                        уровни</a>
+                                    <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 Жизненный
+                                        цикл товара</a>
+                                    <a href="#theme4_3" class="list-group-item list-group-item-action">4.3 Ассортимент и
+                                        бренд</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme4_4" class="list-group-item list-group-item-action">4.4 Упаковка и
+                                        сервис</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 5 -->
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-tag me-2"></i> Тема 5. Ценовая политика</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 Методы
+                                ценообразования</a>
+                            <a href="#theme5_2" class="list-group-item list-group-item-action">5.2 Ценовые
+                                стратегии</a>
+                            <a href="#theme5_3" class="list-group-item list-group-item-action">5.3 Эластичность и
+                                скидки</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 6 -->
+                <div class="card mt-3 border-secondary">
+                    <div class="card-header bg-secondary text-white">
+                        <h4 class="mb-0"><i class="fas fa-truck me-2"></i> Тема 6. Сбытовая политика</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 Каналы
+                                распределения</a>
+                            <a href="#theme6_2" class="list-group-item list-group-item-action">6.2 Типы
+                                распределения</a>
+                            <a href="#theme6_3" class="list-group-item list-group-item-action">6.3 Мерчандайзинг и
+                                логистика</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 7 -->
+                <div class="card mt-3 border-dark">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0"><i class="fas fa-bullhorn me-2"></i> Тема 7. Продвижение</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Комплекс
+                                продвижения</a>
+                            <a href="#theme7_2" class="list-group-item list-group-item-action">7.2 Реклама и PR</a>
+                            <a href="#theme7_3" class="list-group-item list-group-item-action">7.3 Стимулирование сбыта
+                                и личные продажи</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 8 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-database me-2"></i> Тема 8. Маркетинговая информация
+                            (МИС)</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 МИС и
+                                маркетинговая разведка</a>
+                            <a href="#theme8_2" class="list-group-item list-group-item-action">8.2 CRM, Big Data,
+                                бенчмаркинг</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 9 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-chess me-2"></i> Тема 9. Маркетинговая стратегия и план</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme9_1" class="list-group-item list-group-item-action">9.1 Матрица
+                                        Ансоффа</a>
+                                    <a href="#theme9_2" class="list-group-item list-group-item-action">9.2 Матрица
+                                        БКГ</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme9_3" class="list-group-item list-group-item-action">9.3 Стратегии
+                                        Портера и SWOT/PEST</a>
+                                    <a href="#theme9_4" class="list-group-item list-group-item-action">9.4
+                                        Маркетинговый план</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 10 -->
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-laptop me-2"></i> Тема 10. Цифровой маркетинг</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme10_1" class="list-group-item list-group-item-action">10.1 SEO,
+                                        контекст, SMM</a>
+                                    <a href="#theme10_2" class="list-group-item list-group-item-action">10.2
+                                        Email-маркетинг и контент</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme10_3" class="list-group-item list-group-item-action">10.3 Метрики:
+                                        CTR, CPC, CPM, конверсия</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 11 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-globe me-2"></i> Тема 11. Международный и отраслевой
+                            маркетинг</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme11_1" class="list-group-item list-group-item-action">11.1 Международный
+                                маркетинг и глокализация</a>
+                            <a href="#theme11_2" class="list-group-item list-group-item-action">11.2 B2B и маркетинг
+                                услуг</a>
+                            <a href="#theme11_3" class="list-group-item list-group-item-action">11.3 Маркетинг
+                                территорий и этика</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <h1 class="text-primary theme-header" id="theme1">Тема 1. Сущность и основные понятия маркетинга</h1>
+
+        <!-- 1.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.1</span> Понятие, цели и функции маркетинга
+                </h3>
+                <p><strong>Маркетинг</strong> (по Ф. Котлеру) — вид человеческой деятельности, направленный на
+                    удовлетворение нужд и потребностей посредством обмена.</p>
+
+                <!-- SVG: нужда → потребность → спрос -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 120" width="100%" style="max-width:520px" role="img"
+                        aria-label="Нужда, потребность, спрос">
+                        <g font-size="13" text-anchor="middle" font-weight="600">
+                            <rect x="10" y="30" width="140" height="60" rx="10" fill="#fff3e8" stroke="#e85d04" />
+                            <text x="80" y="55" fill="#b84a03">Нужда</text>
+                            <text x="80" y="75" font-size="11" fill="#888">чувство нехватки</text>
+
+                            <rect x="190" y="30" width="140" height="60" rx="10" fill="#fff3e8" stroke="#e85d04" />
+                            <text x="260" y="55" fill="#b84a03">Потребность</text>
+                            <text x="260" y="75" font-size="11" fill="#888">конкретная форма</text>
+
+                            <rect x="370" y="30" width="140" height="60" rx="10" fill="#e85d04" />
+                            <text x="440" y="55" fill="white">Спрос</text>
+                            <text x="440" y="75" font-size="11" fill="#ffe5d0">+ покупательная способность</text>
+                        </g>
+                        <g stroke="#e85d04" stroke-width="2" fill="none">
+                            <path d="M150 60 L190 60" marker-end="url(#arrow1)" />
+                            <path d="M330 60 L370 60" marker-end="url(#arrow1)" />
+                        </g>
+                        <defs>
+                            <marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#e85d04" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>Цели маркетинга:</strong> максимизация потребления, удовлетворённости потребителей, выбора
+                    товаров, качества жизни.</p>
+                <p><strong>Функции маркетинга:</strong> аналитическая, производственная, сбытовая, управления и
+                    контроля, коммуникативная.</p>
+                <div class="alert alert-success"><i class="fas fa-lightbulb me-2"></i><strong>Ключевая идея:</strong>
+                    маркетинг — это не «продать любой ценой», а понять потребность и удовлетворить её лучше конкурентов.
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.2</span> Эволюция концепций маркетинга</h3>
+
+                <!-- SVG: таймлайн концепций -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 160" width="100%" style="max-width:560px" role="img"
+                        aria-label="Эволюция концепций маркетинга">
+                        <line x1="20" y1="120" x2="540" y2="120" stroke="#ccc" stroke-width="3" />
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <circle cx="80" cy="120" r="8" fill="#e85d04" />
+                            <text x="80" y="100" fill="#b84a03">Производ-</text>
+                            <text x="80" y="85" fill="#b84a03">ственная</text>
+
+                            <circle cx="200" cy="120" r="8" fill="#e85d04" />
+                            <text x="200" y="100" fill="#b84a03">Товарная</text>
+
+                            <circle cx="320" cy="120" r="8" fill="#e85d04" />
+                            <text x="320" y="100" fill="#b84a03">Сбытовая</text>
+
+                            <circle cx="440" cy="120" r="8" fill="#e85d04" />
+                            <text x="440" y="100" fill="#b84a03">Маркетинговая</text>
+
+                            <circle cx="510" cy="120" r="8" fill="#1d1d1f" />
+                            <text x="510" y="100" fill="#1d1d1f">Соц.-этич.</text>
+                        </g>
+                        <g font-size="10" text-anchor="middle" fill="#888">
+                            <text x="80" y="140">до 1920-х</text>
+                            <text x="200" y="140">1920–1930-е</text>
+                            <text x="320" y="140">1930–1950-е</text>
+                            <text x="440" y="140">1950–1980-е</text>
+                            <text x="510" y="140">с 1980-х</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <ul>
+                    <li><strong>Производственная</strong> — потребители благосклонны к широко распространённым и
+                        дешёвым товарам.</li>
+                    <li><strong>Товарная</strong> — потребители благосклонны к товарам наивысшего качества.</li>
+                    <li><strong>Сбытовая</strong> — потребителей нужно активно побуждать к покупке.</li>
+                    <li><strong>Маркетинговая</strong> — удовлетворение потребностей целевых рынков лучше конкурентов.
+                    </li>
+                    <li><strong>Социально-этическая</strong> — прибыль + удовлетворённость + благополучие общества.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 1.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">1.3</span> Маркетинговая среда</h3>
+
+                <!-- SVG: микросреда и макросреда -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 260" width="100%" style="max-width:520px" role="img"
+                        aria-label="Маркетинговая среда">
+                        <rect x="10" y="10" width="500" height="240" rx="16" fill="#fff3e8" stroke="#e85d04"
+                            stroke-dasharray="6" />
+                        <text x="260" y="34" text-anchor="middle" font-size="13" font-weight="700"
+                            fill="#b84a03">МАКРОСРЕДА (PEST)</text>
+
+                        <rect x="60" y="55" width="400" height="170" rx="14" fill="white" stroke="#e85d04" />
+                        <text x="260" y="78" text-anchor="middle" font-size="12" font-weight="700"
+                            fill="#b84a03">МИКРОСРЕДА</text>
+
+                        <circle cx="260" cy="145" r="38" fill="#e85d04" />
+                        <text x="260" y="150" text-anchor="middle" fill="white" font-size="12"
+                            font-weight="700">Фирма</text>
+
+                        <g font-size="10" font-weight="600" fill="#333" text-anchor="middle">
+                            <circle cx="110" cy="115" r="24" fill="#fde2c8" />
+                            <text x="110" y="118">Постав-</text>
+                            <text x="110" y="130">щики</text>
+
+                            <circle cx="410" cy="115" r="24" fill="#fde2c8" />
+                            <text x="410" y="118">Клиенты</text>
+
+                            <circle cx="110" cy="190" r="24" fill="#fde2c8" />
+                            <text x="110" y="193">Конку-</text>
+                            <text x="110" y="205">ренты</text>
+
+                            <circle cx="410" cy="190" r="24" fill="#fde2c8" />
+                            <text x="410" y="193">Посред-</text>
+                            <text x="410" y="205">ники</text>
+                        </g>
+                        <g stroke="#e85d04" stroke-width="1.5" stroke-dasharray="3">
+                            <line x1="134" y1="115" x2="222" y2="135" />
+                            <line x1="386" y1="115" x2="298" y2="135" />
+                            <line x1="134" y1="190" x2="222" y2="155" />
+                            <line x1="386" y1="190" x2="298" y2="155" />
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Макросреда (PEST):</strong> политические, экономические, социальные, технологические
+                    факторы.</p>
+                <p><strong>Микросреда:</strong> поставщики, клиенты, конкуренты, посредники, контактные аудитории.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <h1 class="text-success theme-header" id="theme2">Тема 2. Маркетинговые исследования</h1>
+
+        <!-- 2.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.1</span> Цели и этапы исследования</h3>
+
+                <!-- SVG: этапы -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 100" width="100%" style="max-width:560px" role="img"
+                        aria-label="Этапы маркетингового исследования">
+                        <g font-size="10" text-anchor="middle" font-weight="600" fill="white">
+                            <rect x="10" y="25" width="95" height="50" rx="8" fill="#198754" />
+                            <text x="57" y="55">Проблема</text>
+                            <rect x="120" y="25" width="95" height="50" rx="8" fill="#198754" />
+                            <text x="167" y="55">План</text>
+                            <rect x="230" y="25" width="95" height="50" rx="8" fill="#198754" />
+                            <text x="277" y="55">Сбор</text>
+                            <rect x="340" y="25" width="95" height="50" rx="8" fill="#198754" />
+                            <text x="387" y="55">Анализ</text>
+                            <rect x="450" y="25" width="100" height="50" rx="8" fill="#146c43" />
+                            <text x="500" y="55">Отчёт</text>
+                        </g>
+                        <g stroke="#198754" stroke-width="2" marker-end="url(#arrow2)">
+                            <line x1="105" y1="50" x2="120" y2="50" />
+                            <line x1="215" y1="50" x2="230" y2="50" />
+                            <line x1="325" y1="50" x2="340" y2="50" />
+                            <line x1="435" y1="50" x2="450" y2="50" />
+                        </g>
+                        <defs>
+                            <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#198754" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>Главная цель</strong> — снижение неопределённости при принятии управленческих решений.</p>
+                <p><strong>Этапы:</strong> определение проблемы и целей → разработка плана → сбор информации → анализ →
+                    презентация результатов.</p>
+            </div>
+        </div>
+
+        <!-- 2.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.2</span> Первичная и вторичная информация</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card border-success h-100">
+                            <div class="card-body">
+                                <h5 class="text-success"><i class="fas fa-seedling me-2"></i>Первичная</h5>
+                                <p>Собрана специально для конкретного исследования.</p>
+                                <ul class="mb-0">
+                                    <li>опросы;</li>
+                                    <li>наблюдения;</li>
+                                    <li>эксперименты;</li>
+                                    <li>фокус-группы.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-secondary h-100">
+                            <div class="card-body">
+                                <h5 class="text-secondary"><i class="fas fa-book me-2"></i>Вторичная</h5>
+                                <p>Уже собрана ранее для других целей.</p>
+                                <ul class="mb-0">
+                                    <li>статистика;</li>
+                                    <li>годовые отчёты;</li>
+                                    <li>публикации в СМИ;</li>
+                                    <li>отраслевые обзоры.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.3</span> Методы сбора и анализа данных</h3>
+                <p><strong>Количественные:</strong> массовые опросы, панели, регрессионный и корреляционный
+                    анализ.</p>
+                <p><strong>Качественные:</strong> фокус-группы, глубинные интервью, наблюдения.</p>
+                <p><strong>Регрессионный анализ</strong> показывает, как изменится продажа товара при изменении фактора
+                    на одну единицу.</p>
+            </div>
+        </div>
+
+        <!-- 2.4 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_4">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">2.4</span> ABC-анализ</h3>
+
+                <!-- SVG: ABC-анализ -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 180" width="100%" style="max-width:560px" role="img"
+                        aria-label="ABC-анализ: распределение 80/15/5">
+                        <g font-size="12" text-anchor="middle" font-weight="700">
+                            <rect x="20" y="40" width="400" height="45" rx="6" fill="#e85d04" />
+                            <text x="220" y="68" fill="white">A — 80% результата (20% объектов)</text>
+
+                            <rect x="20" y="95" width="300" height="35" rx="6" fill="#ffba08" />
+                            <text x="170" y="118" fill="#7a4b00">B — 15% (30% объектов)</text>
+
+                            <rect x="20" y="140" width="200" height="25" rx="6" fill="#adb5bd" />
+                            <text x="120" y="158" fill="#333">C — 5% (50% объектов)</text>
+                        </g>
+                        <g font-size="11" fill="#888" text-anchor="middle">
+                            <text x="450" y="68">← ключевые товары</text>
+                            <text x="350" y="118">← средние</text>
+                            <text x="250" y="158">← хвост</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p>ABC-анализ помогает выявить приоритетные для бизнеса товары, рынки и клиентов.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-warning theme-header" id="theme3">Тема 3. Сегментирование, позиционирование (STP)</h1>
+
+        <!-- 3.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.1</span> Сегментирование рынка</h3>
+
+                <!-- SVG: STP -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 140" width="100%" style="max-width:520px" role="img"
+                        aria-label="STP-маркетинг">
+                        <g font-size="13" text-anchor="middle" font-weight="700">
+                            <circle cx="100" cy="70" r="50" fill="#fff3e8" stroke="#e85d04" stroke-width="2" />
+                            <text x="100" y="60" fill="#b84a03">S</text>
+                            <text x="100" y="80" font-size="11" fill="#888">Segmentation</text>
+
+                            <circle cx="260" cy="70" r="50" fill="#fff3e8" stroke="#e85d04" stroke-width="2" />
+                            <text x="260" y="60" fill="#b84a03">T</text>
+                            <text x="260" y="80" font-size="11" fill="#888">Targeting</text>
+
+                            <circle cx="420" cy="70" r="50" fill="#e85d04" />
+                            <text x="420" y="60" fill="white">P</text>
+                            <text x="420" y="80" font-size="11" fill="#ffe5d0">Positioning</text>
+                        </g>
+                        <g stroke="#e85d04" stroke-width="2" marker-end="url(#arrow3)">
+                            <line x1="155" y1="70" x2="205" y2="70" />
+                            <line x1="315" y1="70" x2="365" y2="70" />
+                        </g>
+                        <defs>
+                            <marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#e85d04" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>Сегментирование</strong> — разделение рынка на группы потребителей с похожими
+                    потребностями.</p>
+                <p><strong>Критерии для потребительского рынка:</strong> географические, демографические,
+                    психографические, поведенческие.</p>
+            </div>
+        </div>
+
+        <!-- 3.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.2</span> Выбор целевого сегмента</h3>
+                <p><strong>Целевой сегмент</strong> — сегмент, выбранный фирмой для активной маркетинговой работы.</p>
+                <ul>
+                    <li><strong>Массовый маркетинг</strong> — весь рынок, один товар, одна программа.</li>
+                    <li><strong>Дифференцированный</strong> — несколько сегментов, разные предложения.</li>
+                    <li><strong>Концентрированный</strong> — один или несколько сегментов, глубокая специализация.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.3</span> Позиционирование и карта восприятия</h3>
+
+                <!-- SVG: карта позиционирования -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 420 260" width="100%" style="max-width:420px" role="img"
+                        aria-label="Карта позиционирования: цена vs качество">
+                        <line x1="60" y1="220" x2="390" y2="220" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="220" x2="60" y2="20" stroke="#888" stroke-width="2" />
+                        <text x="225" y="245" text-anchor="middle" font-size="11" fill="#888">Цена →</text>
+                        <text x="25" y="120" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 120)">Качество →</text>
+
+                        <circle cx="110" cy="180" r="10" fill="#adb5bd" />
+                        <text x="125" y="184" font-size="10" fill="#555">Бренд A</text>
+
+                        <circle cx="200" cy="120" r="10" fill="#ffba08" />
+                        <text x="215" y="124" font-size="10" fill="#555">Бренд B</text>
+
+                        <circle cx="310" cy="60" r="10" fill="#e85d04" />
+                        <text x="325" y="64" font-size="10" fill="#555">Бренд C</text>
+
+                        <circle cx="280" cy="150" r="10" fill="#198754" stroke="#0f5132" stroke-width="2" />
+                        <text x="295" y="154" font-size="10" fill="#0f5132" font-weight="700">Свободная ниша</text>
+
+                        <rect x="250" y="130" width="60" height="40" fill="none" stroke="#198754" stroke-dasharray="4" />
+                    </svg>
+                </div>
+
+                <p><strong>Позиционирование</strong> — обеспечение товару чёткого, отличного от конкурентов места на
+                    рынке и в сознании потребителей.</p>
+                <p><strong>Карта позиционирования</strong> — двумерная схема по двум ключевым параметрам (например,
+                    цена/качество).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-info theme-header" id="theme4">Тема 4. Товарная политика</h1>
+
+        <!-- 4.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.1</span> Товар и его уровни</h3>
+
+                <!-- SVG: три уровня товара -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 180" width="100%" style="max-width:520px" role="img"
+                        aria-label="Три уровня товара по Котлеру">
+                        <g font-size="12" text-anchor="middle" font-weight="600">
+                            <circle cx="260" cy="90" r="80" fill="#e0f2fe" />
+                            <circle cx="260" cy="90" r="55" fill="#7dd3fc" />
+                            <circle cx="260" cy="90" r="30" fill="#0284c7" />
+
+                            <text x="260" y="95" fill="white" font-size="10">Замысел</text>
+                            <text x="340" y="50" fill="#075985">Реальное</text>
+                            <text x="340" y="65" fill="#075985">исполнение</text>
+                            <text x="150" y="150" fill="#0369a1">Подкрепление</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <ul>
+                    <li><strong>Товар по замыслу</strong> — какую проблему решает.</li>
+                    <li><strong>Товар в реальном исполнении</strong> — качество, дизайн, упаковка.</li>
+                    <li><strong>Товар с подкреплением</strong> — доставка, гарантия, сервис.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.2</span> Жизненный цикл товара</h3>
+
+                <!-- SVG: ЖЦТ -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 220" width="100%" style="max-width:520px" role="img"
+                        aria-label="Жизненный цикл товара">
+                        <line x1="50" y1="180" x2="490" y2="180" stroke="#888" stroke-width="2" />
+                        <line x1="50" y1="180" x2="50" y2="20" stroke="#888" stroke-width="2" />
+                        <text x="270" y="205" text-anchor="middle" font-size="11" fill="#888">Время →</text>
+                        <text x="20" y="100" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 20 100)">Продажи / Прибыль →</text>
+
+                        <path d="M50 175 Q120 170 160 120 Q200 70 260 60 Q340 50 400 90 Q450 120 490 170"
+                            fill="none" stroke="#e85d04" stroke-width="3" />
+                        <path d="M50 178 Q140 178 180 160 Q220 140 260 130 Q340 110 400 140 Q450 160 490 175"
+                            fill="none" stroke="#198754" stroke-width="3" stroke-dasharray="6" />
+
+                        <g font-size="10" text-anchor="middle" fill="#555" font-weight="600">
+                            <text x="100" y="30">Внедрение</text>
+                            <text x="200" y="30">Рост</text>
+                            <text x="310" y="30">Зрелость</text>
+                            <text x="430" y="30">Спад</text>
+                        </g>
+                        <g stroke="#ccc" stroke-width="1" stroke-dasharray="3">
+                            <line x1="150" y1="20" x2="150" y2="180" />
+                            <line x1="250" y1="20" x2="250" y2="180" />
+                            <line x1="370" y1="20" x2="370" y2="180" />
+                        </g>
+                        <text x="130" y="200" font-size="9" fill="#e85d04">— продажи</text>
+                        <text x="240" y="200" font-size="9" fill="#198754">--- прибыль</text>
+                    </svg>
+                </div>
+
+                <p><strong>Этапы:</strong> внедрение → рост → зрелость → спад.</p>
+                <ul>
+                    <li><strong>Внедрение</strong> — высокие затраты, убытки.</li>
+                    <li><strong>Рост</strong> — рост продаж, появление конкурентов.</li>
+                    <li><strong>Зрелость</strong> — максимальная прибыль, стабильные продажи.</li>
+                    <li><strong>Спад</strong> — падение продаж, уход с рынка.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.3</span> Ассортимент и бренд</h3>
+                <p><strong>Ассортимент</strong> — совокупность всех товаров фирмы.</p>
+                <ul>
+                    <li><strong>Широта</strong> — число товарных категорий.</li>
+                    <li><strong>Глубина</strong> — число вариантов в категории.</li>
+                    <li><strong>Насыщенность</strong> — общее число товаров.</li>
+                    <li><strong>Гармоничность</strong> — близость товаров по назначению.</li>
+                </ul>
+                <p><strong>Бренд</strong> — имя, знак, символ, идентифицирующие товар и создающие его образ.</p>
+                <p><strong>Марочное название</strong> — произносимая часть марки; <strong>марочный знак</strong> —
+                    узнаваемый символ.</p>
+            </div>
+        </div>
+
+        <!-- 4.4 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_4">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.4</span> Упаковка и сервис</h3>
+                <p><strong>Упаковка</strong> выполняет функции: защита, транспортировка, информирование,
+                    продвижение.</p>
+                <p><strong>Сервис</strong> — комплекс услуг, связанных со сбытом и эксплуатацией товара
+                    (предпродажный, гарантийный, послегарантийный).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <h1 class="text-danger theme-header" id="theme5">Тема 5. Ценовая политика</h1>
+
+        <!-- 5.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.1</span> Методы ценообразования</h3>
+
+                <!-- SVG: три метода -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 160" width="100%" style="max-width:560px" role="img"
+                        aria-label="Методы ценообразования">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="20" y="30" width="160" height="100" rx="10" fill="#fff3e8" stroke="#e85d04" />
+                            <text x="100" y="55" fill="#b84a03" font-size="12">Затратный</text>
+                            <text x="100" y="78" fill="#555">Себестоимость</text>
+                            <text x="100" y="93" fill="#555">+ наценка</text>
+                            <text x="100" y="115" fill="#888" font-size="10">простой, но не учитывает спрос</text>
+
+                            <rect x="200" y="30" width="160" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="280" y="55" fill="#075985" font-size="12">Ценностный</text>
+                            <text x="280" y="78" fill="#555">Ценность → Цена</text>
+                            <text x="280" y="93" fill="#555">→ Издержки</text>
+                            <text x="280" y="115" fill="#888" font-size="10">учитывает восприятие</text>
+
+                            <rect x="380" y="30" width="160" height="100" rx="10" fill="#e0fbe8" stroke="#198754" />
+                            <text x="460" y="55" fill="#0f5132" font-size="12">Конкурентный</text>
+                            <text x="460" y="78" fill="#555">Цены конкурентов</text>
+                            <text x="460" y="115" fill="#888" font-size="10">ориентация на рынок</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Затратный</strong> — цена = себестоимость + наценка.</p>
+                <p><strong>Ценностный</strong> — в основе воспринимаемая потребителем ценность.</p>
+                <p><strong>Конкурентный</strong> — ориентация на цены конкурентов.</p>
+            </div>
+        </div>
+
+        <!-- 5.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.2</span> Ценовые стратегии</h3>
+
+                <!-- SVG: снятие сливок vs проникновение -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 180" width="100%" style="max-width:520px" role="img"
+                        aria-label="Стратегии снятия сливок и проникновения">
+                        <line x1="40" y1="150" x2="490" y2="150" stroke="#888" stroke-width="2" />
+                        <line x1="40" y1="150" x2="40" y2="20" stroke="#888" stroke-width="2" />
+                        <text x="265" y="172" text-anchor="middle" font-size="10" fill="#888">Время →</text>
+                        <text x="18" y="90" text-anchor="middle" font-size="10" fill="#888"
+                            transform="rotate(-90 18 90)">Цена →</text>
+
+                        <path d="M60 50 Q200 55 480 130" fill="none" stroke="#e85d04" stroke-width="3" />
+                        <text x="300" y="80" fill="#e85d04" font-size="11" font-weight="700">Снятие сливок</text>
+
+                        <path d="M60 135 Q200 130 480 50" fill="none" stroke="#198754" stroke-width="3" />
+                        <text x="300" y="120" fill="#198754" font-size="11" font-weight="700">Проникновение</text>
+                    </svg>
+                </div>
+
+                <p><strong>«Снятие сливок»</strong> — высокая цена на новинку для ранних покупателей.</p>
+                <p><strong>Проникновение (прорыв)</strong> — низкая цена для захвата доли рынка.</p>
+            </div>
+        </div>
+
+        <!-- 5.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.3</span> Эластичность и скидки</h3>
+                <p><strong>Ценовая эластичность спроса</strong> — степень изменения спроса при изменении цены на
+                    1%.</p>
+                <ul>
+                    <li><strong>Эластичный спрос</strong> — покупатели чувствительны к цене.</li>
+                    <li><strong>Неэластичный</strong> — не чувствительны (товары первой необходимости).</li>
+                </ul>
+                <p><strong>Виды скидок:</strong> сезонные, за объём, за предоплату, бонусные, дилерские.</p>
+                <p><strong>Психологическое ценообразование</strong> — 999 вместо 1000.</p>
+                <p><strong>Ценовая дискриминация</strong> — один товар разным покупателям по разным ценам.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <h1 class="text-secondary theme-header" id="theme6">Тема 6. Сбытовая политика</h1>
+
+        <!-- 6.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.1</span> Каналы распределения</h3>
+
+                <!-- SVG: каналы -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 200" width="100%" style="max-width:560px" role="img"
+                        aria-label="Каналы распределения">
+                        <g font-size="10" text-anchor="middle" font-weight="600">
+                            <rect x="10" y="20" width="110" height="40" rx="6" fill="#e85d04" />
+                            <text x="65" y="44" fill="white">Производитель</text>
+
+                            <rect x="10" y="80" width="110" height="40" rx="6" fill="#e85d04" />
+                            <text x="65" y="104" fill="white">Производитель</text>
+
+                            <rect x="10" y="140" width="110" height="40" rx="6" fill="#e85d04" />
+                            <text x="65" y="164" fill="white">Производитель</text>
+
+                            <rect x="200" y="80" width="110" height="40" rx="6" fill="#ffba08" />
+                            <text x="255" y="104" fill="#7a4b00">Оптовик</text>
+
+                            <rect x="200" y="140" width="110" height="40" rx="6" fill="#ffba08" />
+                            <text x="255" y="164" fill="#7a4b00">Оптовик</text>
+
+                            <rect x="380" y="140" width="110" height="40" rx="6" fill="#198754" />
+                            <text x="435" y="164" fill="white">Розница</text>
+
+                            <rect x="440" y="20" width="110" height="40" rx="6" fill="#1d1d1f" />
+                            <text x="495" y="44" fill="white">Потребитель</text>
+                            <rect x="440" y="80" width="110" height="40" rx="6" fill="#1d1d1f" />
+                            <text x="495" y="104" fill="white">Потребитель</text>
+                            <rect x="440" y="140" width="110" height="40" rx="6" fill="#1d1d1f" />
+                            <text x="495" y="164" fill="white">Потребитель</text>
+                        </g>
+                        <g stroke="#888" stroke-width="2" marker-end="url(#arrow4)">
+                            <line x1="120" y1="40" x2="440" y2="40" />
+                            <line x1="120" y1="100" x2="200" y2="100" />
+                            <line x1="310" y1="100" x2="440" y2="100" />
+                            <line x1="120" y1="160" x2="200" y2="160" />
+                            <line x1="310" y1="160" x2="380" y2="160" />
+                            <line x1="490" y1="160" x2="490" y2="140" />
+                        </g>
+                        <defs>
+                            <marker id="arrow4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#888" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>Канал распределения</strong> — совокупность фирм и лиц, принимающих право собственности
+                    на товар на пути к потребителю.</p>
+                <ul>
+                    <li><strong>Нулевой (прямой)</strong> — производитель → потребитель.</li>
+                    <li><strong>Одноуровневый</strong> — производитель → розница → потребитель.</li>
+                    <li><strong>Двухуровневый</strong> — производитель → опт → розница → потребитель.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.2</span> Типы распределения</h3>
+                <ul>
+                    <li><strong>Интенсивное</strong> — максимальное число точек (товары повседневного спроса).</li>
+                    <li><strong>Селективное</strong> — ограниченное число посредников.</li>
+                    <li><strong>Эксклюзивное</strong> — один посредник на регион (люкс).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.3</span> Мерчандайзинг и логистика</h3>
+                <p><strong>Мерчандайзинг</strong> — комплекс мер по стимулированию продаж в торговой точке (выкладка,
+                    оформление, POS-материалы).</p>
+                <p><strong>Маркетинговая логистика</strong> — планирование и управление движением товаров от
+                    производителя к потребителю (транспортировка, складирование, запасы).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <h1 class="text-dark theme-header" id="theme7">Тема 7. Продвижение</h1>
+
+        <!-- 7.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.1</span> Комплекс продвижения</h3>
+
+                <!-- SVG: 5 инструментов -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 120" width="100%" style="max-width:560px" role="img"
+                        aria-label="Пять инструментов продвижения">
+                        <g font-size="10" text-anchor="middle" font-weight="700">
+                            <rect x="10" y="30" width="100" height="60" rx="8" fill="#e85d04" />
+                            <text x="60" y="58" fill="white">Реклама</text>
+                            <text x="60" y="74" fill="#ffe5d0">paid, non-personal</text>
+
+                            <rect x="120" y="30" width="100" height="60" rx="8" fill="#ffba08" />
+                            <text x="170" y="58" fill="#7a4b00">Стимулирование</text>
+                            <text x="170" y="74" fill="#7a4b00">sales promo</text>
+
+                            <rect x="230" y="30" width="100" height="60" rx="8" fill="#198754" />
+                            <text x="280" y="58" fill="white">PR</text>
+                            <text x="280" y="74" fill="#d1fae5">имидж</text>
+
+                            <rect x="340" y="30" width="100" height="60" rx="8" fill="#0284c7" />
+                            <text x="390" y="58" fill="white">Личные</text>
+                            <text x="390" y="74" fill="#dbeafe">продажи</text>
+
+                            <rect x="450" y="30" width="100" height="60" rx="8" fill="#1d1d1f" />
+                            <text x="500" y="58" fill="white">Прямой</text>
+                            <text x="500" y="74" fill="#ccc">маркетинг</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p>Комплекс продвижения (promotion mix): реклама, стимулирование сбыта, PR, личные продажи, прямой
+                    маркетинг.</p>
+            </div>
+        </div>
+
+        <!-- 7.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.2</span> Реклама и PR</h3>
+                <p><strong>Реклама</strong> — платное, неличное, одностороннее обращение к аудитории.</p>
+                <p><strong>PR</strong> — деятельность по формированию положительного имиджа компании (не платное
+                    размещение, а работа с репутацией).</p>
+            </div>
+        </div>
+
+        <!-- 7.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.3</span> Стимулирование сбыта и личные
+                    продажи</h3>
+                <p><strong>Стимулирование сбыта</strong> — краткосрочные меры: скидки, купоны, конкурсы, дегустации,
+                    бонусы.</p>
+                <p><strong>Личные продажи</strong> — устное представление товара в ходе беседы с покупателем (самый
+                    дорогой, но эффективный инструмент в B2B).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <h1 class="text-primary theme-header" id="theme8">Тема 8. Маркетинговая информация (МИС)</h1>
+
+        <!-- 8.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.1</span> МИС и маркетинговая разведка</h3>
+
+                <!-- SVG: МИС -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 140" width="100%" style="max-width:560px" role="img"
+                        aria-label="Маркетинговая информационная система">
+                        <g font-size="10" text-anchor="middle" font-weight="700">
+                            <rect x="10" y="50" width="120" height="40" rx="8" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="70" y="68" fill="#075985">Внутренняя</text>
+                            <text x="70" y="82" fill="#075985">отчётность</text>
+
+                            <rect x="145" y="50" width="120" height="40" rx="8" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="205" y="68" fill="#075985">Разведка</text>
+                            <text x="205" y="82" fill="#075985">(внешняя среда)</text>
+
+                            <rect x="280" y="50" width="120" height="40" rx="8" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="340" y="68" fill="#075985">Исследования</text>
+                            <text x="340" y="82" fill="#075985">(ad hoc)</text>
+
+                            <rect x="415" y="50" width="135" height="40" rx="8" fill="#0284c7" />
+                            <text x="482" y="68" fill="white">Аналитическая</text>
+                            <text x="482" y="82" fill="white">система</text>
+                        </g>
+                        <g stroke="#0284c7" stroke-width="2" marker-end="url(#arrow5)">
+                            <line x1="130" y1="70" x2="145" y2="70" />
+                            <line x1="265" y1="70" x2="280" y2="70" />
+                            <line x1="400" y1="70" x2="415" y2="70" />
+                        </g>
+                        <defs>
+                            <marker id="arrow5" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#0284c7" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>МИС</strong> — совокупность процедур и методов сбора, анализа и распространения информации
+                    для принятия решений.</p>
+                <p><strong>Маркетинговая разведка</strong> — сбор текущей информации о внешней среде из открытых
+                    источников.</p>
+            </div>
+        </div>
+
+        <!-- 8.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.2</span> CRM, Big Data, бенчмаркинг</h3>
+                <p><strong>CRM</strong> — система управления взаимоотношениями с клиентами.</p>
+                <p><strong>Big Data</strong> — большие объёмы данных, анализируемые для выявления закономерностей.</p>
+                <p><strong>Бенчмаркинг</strong> — сравнение показателей компании с лучшими практиками конкурентов.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 9 ==================== -->
+        <h1 class="text-success theme-header" id="theme9">Тема 9. Маркетинговая стратегия и план</h1>
+
+        <!-- 9.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.1</span> Матрица Ансоффа</h3>
+
+                <!-- SVG: матрица Ансоффа -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 420 280" width="100%" style="max-width:420px" role="img"
+                        aria-label="Матрица Ансоффа">
+                        <text x="210" y="20" text-anchor="middle" class="matrix-axis" font-weight="700">Товары</text>
+                        <text x="120" y="45" text-anchor="middle" class="matrix-axis">Существующие</text>
+                        <text x="320" y="45" text-anchor="middle" class="matrix-axis">Новые</text>
+                        <text x="25" y="150" text-anchor="middle" class="matrix-axis" font-weight="700"
+                            transform="rotate(-90 25 150)">Рынки</text>
+                        <text x="70" y="110" text-anchor="middle" class="matrix-axis">Существующие</text>
+                        <text x="70" y="220" text-anchor="middle" class="matrix-axis">Новые</text>
+
+                        <rect x="90" y="60" width="160" height="90" fill="#fff3e8" stroke="#e85d04" stroke-width="2"
+                            rx="4" />
+                        <text x="170" y="100" text-anchor="middle" class="matrix-label">Проникновение</text>
+                        <text x="170" y="118" text-anchor="middle" font-size="10" fill="#888">старый товар — старый
+                            рынок</text>
+
+                        <rect x="250" y="60" width="160" height="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"
+                            rx="4" />
+                        <text x="330" y="100" text-anchor="middle" class="matrix-label">Развитие товара</text>
+                        <text x="330" y="118" text-anchor="middle" font-size="10" fill="#888">новый товар — старый
+                            рынок</text>
+
+                        <rect x="90" y="150" width="160" height="90" fill="#e0fbe8" stroke="#198754" stroke-width="2"
+                            rx="4" />
+                        <text x="170" y="190" text-anchor="middle" class="matrix-label">Развитие рынка</text>
+                        <text x="170" y="208" text-anchor="middle" font-size="10" fill="#888">старый товар — новый
+                            рынок</text>
+
+                        <rect x="250" y="150" width="160" height="90" fill="#fef3c7" stroke="#d97706" stroke-width="2"
+                            rx="4" />
+                        <text x="330" y="190" text-anchor="middle" class="matrix-label">Диверсификация</text>
+                        <text x="330" y="208" text-anchor="middle" font-size="10" fill="#888">новый товар — новый
+                            рынок</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.2</span> Матрица БКГ</h3>
+
+                <!-- SVG: БКГ -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 420 280" width="100%" style="max-width:420px" role="img"
+                        aria-label="Матрица БКГ">
+                        <text x="210" y="20" text-anchor="middle" class="matrix-axis" font-weight="700">Темп роста
+                            рынка</text>
+                        <text x="120" y="45" text-anchor="middle" class="matrix-axis">Высокий</text>
+                        <text x="320" y="45" text-anchor="middle" class="matrix-axis">Низкий</text>
+                        <text x="25" y="150" text-anchor="middle" class="matrix-axis" font-weight="700"
+                            transform="rotate(-90 25 150)">Доля рынка</text>
+                        <text x="70" y="110" text-anchor="middle" class="matrix-axis">Высокая</text>
+                        <text x="70" y="220" text-anchor="middle" class="matrix-axis">Низкая</text>
+
+                        <rect x="90" y="60" width="160" height="90" fill="#fef3c7" stroke="#d97706" stroke-width="2"
+                            rx="4" />
+                        <text x="170" y="100" text-anchor="middle" class="matrix-label">⭐ Звёзды</text>
+                        <text x="170" y="118" text-anchor="middle" font-size="10" fill="#888">рост + высокая доля</text>
+
+                        <rect x="250" y="60" width="160" height="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"
+                            rx="4" />
+                        <text x="330" y="100" text-anchor="middle" class="matrix-label">❓ Трудные дети</text>
+                        <text x="330" y="118" text-anchor="middle" font-size="10" fill="#888">рост + низкая доля</text>
+
+                        <rect x="90" y="150" width="160" height="90" fill="#e0fbe8" stroke="#198754" stroke-width="2"
+                            rx="4" />
+                        <text x="170" y="190" text-anchor="middle" class="matrix-label">🐄 Дойные коровы</text>
+                        <text x="170" y="208" text-anchor="middle" font-size="10" fill="#888">стабильность + высокая
+                            доля</text>
+
+                        <rect x="250" y="150" width="160" height="90" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"
+                            rx="4" />
+                        <text x="330" y="190" text-anchor="middle" class="matrix-label">🐕 Собаки</text>
+                        <text x="330" y="208" text-anchor="middle" font-size="10" fill="#888">стабильность + низкая
+                            доля</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.3</span> Стратегии Портера и SWOT/PEST</h3>
+                <p><strong>Стратегии Портера:</strong> лидерство по издержкам, дифференциация, фокусирование.</p>
+                <p><strong>SWOT:</strong> Strengths, Weaknesses (внутри), Opportunities, Threats (вне).</p>
+                <p><strong>PEST:</strong> политические, экономические, социальные, технологические факторы.</p>
+            </div>
+        </div>
+
+        <!-- 9.4 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_4">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.4</span> Маркетинговый план</h3>
+                <p>Включает: анализ рынка, цели, стратегии, бюджет, план мероприятий, контроль.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 10 ==================== -->
+        <h1 class="text-info theme-header" id="theme10">Тема 10. Цифровой маркетинг</h1>
+
+        <!-- 10.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.1</span> SEO, контекст, SMM</h3>
+
+                <!-- SVG: инструменты цифрового маркетинга -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 140" width="100%" style="max-width:560px" role="img"
+                        aria-label="Инструменты цифрового маркетинга">
+                        <g font-size="11" text-anchor="middle" font-weight="700">
+                            <rect x="10" y="40" width="125" height="60" rx="10" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="72" y="65" fill="#075985">SEO</text>
+                            <text x="72" y="82" fill="#555" font-size="9">бесплатный трафик</text>
+
+                            <rect x="145" y="40" width="125" height="60" rx="10" fill="#fef3c7" stroke="#d97706" />
+                            <text x="207" y="65" fill="#92400e">Контекст</text>
+                            <text x="207" y="82" fill="#555" font-size="9">реклама по запросу</text>
+
+                            <rect x="280" y="40" width="125" height="60" rx="10" fill="#e0fbe8" stroke="#198754" />
+                            <text x="342" y="65" fill="#0f5132">SMM</text>
+                            <text x="342" y="82" fill="#555" font-size="9">соцсети</text>
+
+                            <rect x="415" y="40" width="125" height="60" rx="10" fill="#f3e8ff" stroke="#7c3aed" />
+                            <text x="477" y="65" fill="#5b21b6">Email</text>
+                            <text x="477" y="82" fill="#555" font-size="9">рассылки</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>SEO</strong> — оптимизация сайта для повышения позиций в поисковой выдаче.</p>
+                <p><strong>Контекстная реклама</strong> — реклама по запросу пользователя (Яндекс.Директ, Google
+                    Ads).</p>
+                <p><strong>SMM</strong> — маркетинг в социальных сетях.</p>
+            </div>
+        </div>
+
+        <!-- 10.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.2</span> Email-маркетинг и контент</h3>
+                <p><strong>Email-маркетинг</strong> — продвижение через электронную почту (рассылки, сегментация
+                    базы, A/B-тесты).</p>
+                <p><strong>Контент-маркетинг</strong> — создание и распространение полезного контента для привлечения
+                    аудитории.</p>
+            </div>
+        </div>
+
+        <!-- 10.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.3</span> Метрики: CTR, CPC, CPM, конверсия</h3>
+
+                <!-- SVG: воронка конверсии -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 240" width="100%" style="max-width:520px" role="img"
+                        aria-label="Воронка конверсии">
+                        <g class="funnel-svg">
+                            <path d="M20 20 L500 20 L440 70 L80 70 Z" fill="#e85d04" class="stage" />
+                            <text x="260" y="50" text-anchor="middle" fill="white" font-size="12"
+                                font-weight="700">Показы (impressions)</text>
+
+                            <path d="M85 75 L435 75 L390 125 L130 125 Z" fill="#f48c06" class="stage" />
+                            <text x="260" y="105" text-anchor="middle" fill="white" font-size="12"
+                                font-weight="700">Клики (CTR = клики / показы)</text>
+
+                            <path d="M135 130 L385 130 L340 180 L180 180 Z" fill="#ffba08" class="stage" />
+                            <text x="260" y="160" text-anchor="middle" fill="#7a4b00" font-size="12"
+                                font-weight="700">Лиды / конверсия</text>
+
+                            <path d="M185 185 L335 185 L300 225 L220 225 Z" fill="#198754" class="stage" />
+                            <text x="260" y="212" text-anchor="middle" fill="white" font-size="11"
+                                font-weight="700">Продажи</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <ul>
+                    <li><strong>CTR</strong> = клики / показы × 100%.</li>
+                    <li><strong>CPC</strong> — цена за клик; <strong>CPM</strong> — цена за 1000 показов.</li>
+                    <li><strong>Конверсия</strong> = целевые действия / посещения × 100%.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 11 ==================== -->
+        <h1 class="text-warning theme-header" id="theme11">Тема 11. Международный и отраслевой маркетинг</h1>
+
+        <!-- 11.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.1</span> Международный маркетинг и
+                    глокализация</h3>
+
+                <!-- SVG: стратегии выхода -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 160" width="100%" style="max-width:560px" role="img"
+                        aria-label="Стратегии выхода на внешний рынок">
+                        <g font-size="10" text-anchor="middle" font-weight="600">
+                            <rect x="10" y="50" width="95" height="50" rx="8" fill="#e0fbe8" stroke="#198754" />
+                            <text x="57" y="80" fill="#0f5132">Экспорт</text>
+
+                            <rect x="120" y="50" width="95" height="50" rx="8" fill="#fef3c7" stroke="#d97706" />
+                            <text x="167" y="80" fill="#92400e">Лицензия</text>
+
+                            <rect x="230" y="50" width="95" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" />
+                            <text x="277" y="80" fill="#075985">Франшиза</text>
+
+                            <rect x="340" y="50" width="95" height="50" rx="8" fill="#f3e8ff" stroke="#7c3aed" />
+                            <text x="387" y="80" fill="#5b21b6">СП</text>
+
+                            <rect x="450" y="50" width="100" height="50" rx="8" fill="#fee2e2" stroke="#dc2626" />
+                            <text x="500" y="80" fill="#991b1b">Инвестиции</text>
+                        </g>
+                        <path d="M20 130 L530 130" stroke="#888" stroke-width="2" marker-end="url(#arrow6)" />
+                        <text x="60" y="148" font-size="10" fill="#888">низкий риск</text>
+                        <text x="470" y="148" font-size="10" fill="#888">высокий риск</text>
+                        <defs>
+                            <marker id="arrow6" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#888" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <p><strong>Международный маркетинг</strong> — маркетинговая деятельность за пределами страны
+                    базирования.</p>
+                <p><strong>Глокализация</strong> — сочетание глобального подхода с адаптацией к местным условиям
+                    («мысли глобально — действуй локально»).</p>
+            </div>
+        </div>
+
+        <!-- 11.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.2</span> B2B и маркетинг услуг</h3>
+                <p><strong>B2B</strong> — покупатели-организации; более сложный процесс принятия решений;
+                    закупочный центр (decision-making unit).</p>
+                <p><strong>Услуги:</strong> неосязаемость, неотделимость от источника, непостоянство качества,
+                    несохраняемость.</p>
+            </div>
+        </div>
+
+        <!-- 11.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme11_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">11.3</span> Маркетинг территорий и этика</h3>
+                <p><strong>Маркетинг территорий</strong> — продвижение территории (города, региона, страны) для
+                    привлечения инвестиций и туристов.</p>
+                <p><strong>Этика маркетинга</strong> — соблюдение моральных норм: честная реклама, отсутствие
+                    манипуляций, уважение к потребителю.</p>
+
+                <div class="alert alert-success">
+                    <i class="fas fa-graduation-cap me-2"></i><strong>Итог курса:</strong> маркетинг — это система,
+                    связывающая потребности клиента, ценность продукта и прибыль компании.
+                </div>
+            </div>
+        </div>
+
+           <button id="backtop" class="btn btn-primary" title="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+           <!-- ==================== БЛОК С ТЕСТАМИ ==================== -->
+      <div class="card mb-1" style="max-width: 800px">
+        <img
+          src="../quiz.avif"
+          class="card-img-top"
+          style="filter: grayscale(1)"
+          alt="quiz"
+        />
+        <div class="card-body">
+          <div class="container" id="formcontainer" style="display: none">
+            <form>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                  Email может быть фиктивный. Пароль НЕ требуется
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="user" class="form-label">ФИО Группа</label>
+                <input type="text" class="form-control" id="userInput" />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
+                id="loginbutton"
+              >
+                Сохранить
+              </button>
+            </form>
+          </div>
+          <div
+            class="container my-1 d-flex flex-wrap"
+            id="quizbuttonslist"
+          ></div>
+          <div class="container" id="quizcontainer" style="display: none">
+            <div class="card" style="min-height: 100px">
+              <div class="card-header" id="quizHeader"></div>
+              <div class="card-body">
+                <h5 class="card-title fade-in-div" id="quizTitle">
+                  Выберите тестовое задание
+                </h5>
+                <div class="card-text fade-in-div" id="quizString"></div>
+                <div
+                  id="box"
+                  class="jxgbox"
+                  style="width: 500px; aspect-ratio: 1/1; display: none"
+                ></div>
+                <form id="quizform">
+                  <div id="quizChecks" class="m-1 p-1"></div>
+                  <div id="quizHint" class="m-1 p-1"></div>
+                  <div
+                    class="container p-1 m-1"
+                    id="accountingblock"
+                    style="display: none"
+                  ></div>
+                  <div id="quizformdataarray"></div>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="feedback"
+                    placeholder="Числовой ответ"
+                    style="display: none"
+                  />
+                  <div id="usercalculations" style="display: none">
+                    <label
+                      for="inputFormula"
+                      class="col-form-label"
+                      id="resformula"
+                      >Калькулятор</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="inputFormula"
+                    />
+                  </div>
+                  <textarea
+                    class="form-control my-3"
+                    id="userComment"
+                    rows="2"
+                    style="display: none"
+                  >
+Мой комментарий</textarea
+                  >
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary m-3"
+                    id="answerButton"
+                    style="display: none"
+                  >
+                    Ответить
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+   
+
+    <!-- ==================== СКРИПТЫ ==================== -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Firebase + логика тестов -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
+    <!-- Анимации -->
+    <script>
+        // ===== GSAP =====
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Появление карточек при скролле
+            gsap.utils.toArray('.reveal').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+
+            // Анимация воронки
+            gsap.utils.toArray('.funnel-svg .stage').forEach((el, i) => {
+                gsap.from(el, {
+                    scaleX: 0.6,
+                    opacity: 0,
+                    transformOrigin: 'center',
+                    duration: 0.6,
+                    delay: i * 0.15,
+                    ease: 'back.out(1.7)',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 90%'
+                    }
+                });
+            });
+        }
+
+        // ===== Прогресс чтения =====
+        const progressBar = document.getElementById('reading-progress');
+        const backtop = document.getElementById('backtop');
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+            backtop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+
+
+</body>
+
+</html>

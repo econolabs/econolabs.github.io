@@ -4,404 +4,1280 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Экономика для юристов</title>
+    <title>Экономика — Президентская программа</title>
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Formula parser -->
     <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
 
+    <!-- Тесты -->
     <script src="./quizesSets.js"></script>
 
+    <style>
+        :root {
+            --brand: #0b3d91;
+            --brand-dark: #082a66;
+            --brand-light: #e8eefb;
+            --accent: #c8a24a;
+            --ink: #1d1d1f;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body { color: var(--ink); }
+
+        .badge-method {
+            background-color: var(--brand);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background-color: var(--brand-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--brand-dark);
+        }
+
+        .list-group-item-action { cursor: pointer; }
+
+        .card-img-top { filter: grayscale(1); }
+
+        .theme-header {
+            border-left: 6px solid var(--brand);
+            padding-left: 1rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+
+        .president-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Прогресс чтения */
+        #reading-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* SVG-обёртки */
+        .svg-illustration {
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #e3e8f0;
+        }
+
+        .svg-illustration svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ревил */
+        .reveal { opacity: 0; transform: translateY(24px); }
+
+        /* Кнопка наверх */
+        #backtop {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            z-index: 999;
+            display: none;
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Матрицы */
+        .matrix-label { font-size: 11px; fill: #333; font-weight: 600; }
+        .matrix-axis  { font-size: 11px; fill: #888; }
+
+        @media (max-width: 576px) {
+            .theme-header { font-size: 1.25rem; }
+        }
+    </style>
 </head>
 
 <body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
     data-app="1:892270777573:web:bdc13e9b47334b4319700c">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="reading-progress"></div>
+
+    <!-- ==================== НАВИГАЦИЯ ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="econolabs.github.io">Econolabs</a>
+            <a class="navbar-brand fw-bold" href="https://econolabs.github.io/">Econolabs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="econolabs.github.io"></a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Экономика</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quizblock">Тесты</a></li>
                 </ul>
                 <form class="d-flex">
-
                     <a href="https://vk.com/dmglvn">
-
                         <img loading="lazy"
                             src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" alt=""
-                            style="
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            filter: grayscale(100%);
-                            object-fit: cover;" />
+                            style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
                     </a>
                 </form>
             </div>
         </div>
     </nav>
 
+    <div class="container my-4">
 
+        <!-- ==================== ШАПКА ==================== -->
+        <header class="py-4">
+            <span class="president-badge mb-2"><i class="fas fa-landmark me-1"></i> Президентская программа
+                подготовки управленческих кадров</span>
+            <h1 class="display-5 fw-bold mt-2" style="color: var(--brand);">
+                <i class="fas fa-chart-line me-2"></i>Экономика
+            </h1>
+            <p class="lead text-muted">Курс для руководителей: микро- и макроэкономика, финансы, инвестиции,
+                экономическая политика. 10 тем, SVG-слайды и тесты для самопроверки.</p>
 
-    <div class="container">
+            <!-- SVG-слайд: макроэкономический кругооборот -->
+            <div class="svg-illustration">
+                <svg viewBox="0 0 620 260" width="100%" style="max-width:620px" role="img"
+                    aria-label="Макроэкономический кругооборот">
+                    <defs>
+                        <marker id="arrFlow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#0b3d91" />
+                        </marker>
+                        <marker id="arrMoney" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#c8a24a" />
+                        </marker>
+                    </defs>
 
-        <h1 class="display-5">Экономика для юристов</h1>
-        <h5 class="display-6">Содержание дисциплины</h5>
+                    <!-- Домохозяйства -->
+                    <rect x="30" y="90" width="150" height="80" rx="12" fill="#e8eefb" stroke="#0b3d91" stroke-width="2" />
+                    <text x="105" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d91">Домохозяйства</text>
+                    <text x="105" y="145" text-anchor="middle" font-size="10" fill="#666">потребление, труд</text>
 
+                    <!-- Фирмы -->
+                    <rect x="440" y="90" width="150" height="80" rx="12" fill="#e8eefb" stroke="#0b3d91" stroke-width="2" />
+                    <text x="515" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d91">Фирмы</text>
+                    <text x="515" y="145" text-anchor="middle" font-size="10" fill="#666">производство, инвестиции</text>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 1. Предмет и метод экономической науки</h5>
-                Экономика как наука и хозяйство<br>
-                Потребности и блага<br>
-                Факторы производства<br>
-                Ограниченность ресурсов
+                    <!-- Государство -->
+                    <rect x="230" y="10" width="160" height="60" rx="12" fill="#fff7e6" stroke="#c8a24a" stroke-width="2" />
+                    <text x="310" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d1f">Государство</text>
+                    <text x="310" y="56" text-anchor="middle" font-size="10" fill="#8a6d1f">налоги, расходы</text>
+
+                    <!-- Внешний мир -->
+                    <rect x="230" y="190" width="160" height="60" rx="12" fill="#f0f4f0" stroke="#4c7a4c" stroke-width="2" />
+                    <text x="310" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#2f5d2f">Внешний мир</text>
+                    <text x="310" y="236" text-anchor="middle" font-size="10" fill="#2f5d2f">экспорт, импорт</text>
+
+                    <!-- Потоки ресурсов и денег -->
+                    <path d="M180 115 Q310 60 440 115" fill="none" stroke="#0b3d91" stroke-width="2" stroke-dasharray="6" marker-end="url(#arrFlow)" />
+                    <path d="M440 145 Q310 200 180 145" fill="none" stroke="#c8a24a" stroke-width="2" marker-end="url(#arrMoney)" />
+                    <text x="310" y="95" text-anchor="middle" font-size="10" fill="#0b3d91">товары и услуги →</text>
+                    <text x="310" y="185" text-anchor="middle" font-size="10" fill="#c8a24a">← деньги (оплата)</text>
+
+                    <!-- Стрелки к государству -->
+                    <line x1="270" y1="70" x2="240" y2="90" stroke="#c8a24a" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arrMoney)" />
+                    <line x1="350" y1="70" x2="380" y2="90" stroke="#c8a24a" stroke-width="1.5" stroke-dasharray="3" marker-end="url(#arrMoney)" />
+                    <line x1="270" y1="190" x2="240" y2="170" stroke="#4c7a4c" stroke-width="1.5" stroke-dasharray="3" />
+                    <line x1="350" y1="190" x2="380" y2="170" stroke="#4c7a4c" stroke-width="1.5" stroke-dasharray="3" />
+                </svg>
             </div>
-        </div>
+        </header>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3 shadow-sm" style="max-width: 900px;">
             <div class="card-body">
-                <h5 class="card-title">Тема 2. Экономические системы</h5>
-                Главные вопросы экономики<br>
-                Типы экономических систем<br>
-                Смешанная экономическая система
-            </div>
-        </div>
+                <h3 class="card-title mb-3"><i class="fas fa-list-ul me-2" style="color: var(--brand);"></i>Содержание
+                    дисциплины</h3>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://www.vincenzomusumeci.com/wp-content/uploads/2017/09/cropped-invisible_hand.jpg" alt="1"
-                    style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 3. Спрос, предложение и рыночное равновесие</h5>
-                Спрос и величина спроса<br>
-                Неценовые факторы спроса <br>
-                Закон предложения<br>
-                Предложение и величина предложения<br>
-                Неценовые факторы предложения <br>
-                Равновесная цена и равновесное количество<br>
-                Нарушение рыночного равновесия
+                <!-- Тема 1 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-balance-scale me-2"></i> Тема 1. Предмет и метод экономической
+                            теории</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Экономика как наука. Потребности и ресурсы
+                                <span class="badge bg-primary">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Экономические системы и собственность
+                                <span class="badge bg-primary">theme1_2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-            </div>
-        </div>
+                <!-- Тема 2 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-chart-area me-2"></i> Тема 2. Рыночный механизм: спрос и
+                            предложение</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 Спрос,
+                                        предложение, равновесие</a>
+                                    <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Эластичность
+                                        спроса и предложения</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme2_3" class="list-group-item list-group-item-action">2.3
+                                        Потребительский выбор и полезность</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://sproutsschools.com/wp-content/uploads/2022/06/Opportunity-cost-cover-image.jpg" alt="1"
-                    style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 4. Поведение потребителя</h5>
-                Рациональное поведение людей в экономике<br>
-                Альтернативная стоимость<br>
-                Производственные возможности<br>
-            </div>
-        </div>
+                <!-- Тема 3 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-industry me-2"></i> Тема 3. Теория фирмы: издержки и прибыль</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Издержки
+                                производства. Виды и структура</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Прибыль, точка
+                                безубыточности, эффект масштаба</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800&auto=format&fit=crop"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 5. Фирма. Производство и издержки</h5>
-                Бизнес и предпринимательство<br>
-                Индивидуальная деятельности<br>
-                Хозяйственные товарищества и общества<br>
-                Акционерное общество<br>
-                Выручка, издержки и прибыль фирмы<br>
-                Виды издержек фирмы<br>
-                Средние издержки
-            </div>
-        </div>
+                <!-- Тема 4 -->
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-sitemap me-2"></i> Тема 4. Рыночные структуры и конкуренция</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 Совершенная и
+                                несовершенная конкуренция</a>
+                            <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 Монополия,
+                                олигополия, монополистическая конкуренция</a>
+                            <a href="#theme4_3" class="list-group-item list-group-item-action">4.3 Антимонопольное
+                                регулирование</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 6. Конкуренция и рыночные структуры</h5>
+                <!-- Тема 5 -->
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-users me-2"></i> Тема 5. Рынки факторов производства и
+                            распределение доходов</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 Рынок труда.
+                                Заработная плата</a>
+                            <a href="#theme5_2" class="list-group-item list-group-item-action">5.2 Рынок капитала и
+                                земли. Процент, рента</a>
+                            <a href="#theme5_3" class="list-group-item list-group-item-action">5.3 Неравенство доходов.
+                                Кривая Лоренца</a>
+                        </div>
+                    </div>
+                </div>
 
-                Совершенная конкуренция<br>
-                Монополистическая конкуренция<br>
-                Олигополия<br>
-                Монополия
-            </div>
-        </div>
+                <!-- Тема 6 -->
+                <div class="card mt-3 border-secondary">
+                    <div class="card-header bg-secondary text-white">
+                        <h4 class="mb-0"><i class="fas fa-globe-europe me-2"></i> Тема 6. Макроэкономика: основные
+                            показатели</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 ВВП, ВНП,
+                                        методы расчёта</a>
+                                    <a href="#theme6_2" class="list-group-item list-group-item-action">6.2
+                                        Национальное богатство и структура экономики</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-flush">
+                                    <a href="#theme6_3" class="list-group-item list-group-item-action">6.3
+                                        Экономический рост</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 7. Рынки факторов производства и распределение доходов</h5>
-                Факторы производства и их рынки<br>
-                Распределение доходов
-            </div>
-        </div>
+                <!-- Тема 7 -->
+                <div class="card mt-3 border-dark">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0"><i class="fas fa-wave-square me-2"></i> Тема 7. Макроэкономическая
+                            нестабильность</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Экономический цикл и
+                                кризисы</a>
+                            <a href="#theme7_2" class="list-group-item list-group-item-action">7.2 Безработица: виды,
+                                последствия</a>
+                            <a href="#theme7_3" class="list-group-item list-group-item-action">7.3 Инфляция: причины,
+                                виды, последствия</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1614449224974-c98c0b0b0d22?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 8. Деньги и банковская система</h5>
-                Возникновение денег и виды денег<br>
-                Функции денег<br>
-                Ликвидность <br>
-                Из истории банковского дела<br>
-                Коммерческие банки<br>
-                Банк России<br>
-                Монетарная политика Банка России<br>
-                Другие финансовые организации<br>
-                Виды ценных бумаг<br>
-                Надежность и доходность ценных бумаг
-            </div>
-        </div>
+                <!-- Тема 8 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-landmark me-2"></i> Тема 8. Государственное регулирование
+                            экономики</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 Фискальная политика.
+                                Налоги и бюджет</a>
+                            <a href="#theme8_2" class="list-group-item list-group-item-action">8.2 Денежно-кредитная
+                                политика. Банковская система</a>
+                            <a href="#theme8_3" class="list-group-item list-group-item-action">8.3 Кривая Лаффера и
+                                государственный долг</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1592996522990-65ccd3032a61?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 9. Менеджмент и маркетинг. Банкротство фирмы</h5>
-                Особенности рынка труда<br>
-                Заработная плата<br>
-                Производительность труда<br>
-                Банкротство фирмы
-            </div>
-        </div>
+                <!-- Тема 9 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-exchange-alt me-2"></i> Тема 9. Мировая экономика и
+                            международные отношения</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme9_1" class="list-group-item list-group-item-action">9.1 Международная
+                                торговля. Платёжный баланс</a>
+                            <a href="#theme9_2" class="list-group-item list-group-item-action">9.2 Валютный курс.
+                                Валютная политика</a>
+                            <a href="#theme9_3" class="list-group-item list-group-item-action">9.3 Глобализация и
+                                интеграция</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1682332322118-75312faae724?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 10. Государственные финансы</h5>
-                Экономическая функции государства<br>
-                Государственный бюджет<br>
-                Бюджетно-налоговая политика государства<br>
-                <a target="_blank" href="https://econolabs.github.io/publicfinance/"
-                    class="link-secondary">Государственные и муниципальные финансы</a>
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1658937764757-1217285660bd?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 11. Государство и экономика</h5>
-                Экономическая функции государства<br>
-                Что включается в состав ВВП<br>
-                Измерение ВВП<br>
-                Номинальный и реальный ВВП
-                <br>
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/guide/fiscal-rules/'>
-                    Что такое бюджетные правила
-                </a>
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1622128124312-7b5f7d08126a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 12. Основные макроэкономические показатели</h5>
-                Макроэкономические агенты<br>
-                Макроэкономические рынки<br>
-                Экономический кругооборот<br>
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/short/economics-abc/'>
-                    5 важных макроэко­номических индика­торов, которые помогают оценить состояние экономики
-                </a>
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1554902843-260acd0993f8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 13. Макроэкономическое равновесие</h5>
-                Содержание макроэкономического равновесия<br>
-                Факторы макроэкономического равновесия<br>
-                Влияние макроэкономического равновесия на экономику
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1628655501160-323860eab1ec?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 14. Экономический рост</h5>
-                Содержание экономического роста<br>
-                Факторы экономического роста<br>
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/economic-growth/'>
-                    Что такое экономический рост
-                </a>
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1630673394533-b13bef31abf2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 15. Цикличность развития экономики</h5>
-                Фазы экономического цикла<br>
-                Причины экономически циклов<br>
-                Виды экономических циклов<br>
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/guide/bezrabotitsa/'>
-                    Что такое безработица и как она влияет на экономику
-                </a>
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h5 class="card-title">Тема 16. Инфляция</h5>
-                Сущность инфляции<br>
-                Виды и причины инфляции<br>
-                Социально-экономические последствия инфляции<br>
-
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/inflation-invest/'>
-                    Как устроена инфляция и что делать инвестору?
-                </a>
+                <!-- Тема 10 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-briefcase me-2"></i> Тема 10. Экономика предприятия и
+                            управленческие решения</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme10_1" class="list-group-item list-group-item-action">10.1 Предприятие в
+                                рыночной среде. Основной и оборотный капитал</a>
+                            <a href="#theme10_2" class="list-group-item list-group-item-action">10.2 Инвестиции и
+                                оценка эффективности проектов</a>
+                            <a href="#theme10_3" class="list-group-item list-group-item-action">10.3 Управленческая
+                                экономика: маржинальный анализ, рычаги</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1616587226157-48e49175ee20?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <h1 class="text-primary theme-header" id="theme1">Тема 1. Предмет и метод экономической теории</h1>
+
+        <!-- 1.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_1">
             <div class="card-body">
-                <h5 class="card-title">Тема 17. Международная торговля. Валютные курсы</h5>
-                Современные тенденции развития мирового хозяйства<br>
-                Государственная политика в области международной торговли<br>
-                Валютные курсы
+                <h3 class="card-title"><span class="badge-method me-2">1.1</span> Экономика как наука. Потребности и
+                    ресурсы</h3>
+                <p><strong>Экономика</strong> — наука о выборе наилучшего способа использования ограниченных ресурсов
+                    для удовлетворения неограниченных потребностей.</p>
+
+                <!-- SVG: пирамида потребностей / ограниченность ресурсов -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 200" width="100%" style="max-width:560px" role="img"
+                        aria-label="Потребности и ограниченность ресурсов">
+                        <g font-size="12" text-anchor="middle" font-weight="600">
+                            <!-- Потребности -->
+                            <polygon points="80,170 200,170 170,140 110,140" fill="#e8eefb" stroke="#0b3d91" />
+                            <polygon points="110,135 170,135 145,105 135,105" fill="#c7d6f3" stroke="#0b3d91" />
+                            <polygon points="135,100 145,100 140,75" fill="#0b3d91" />
+                            <text x="140" y="190" fill="#0b3d91" font-size="11">Потребности ↑</text>
+
+                            <!-- Ресурсы -->
+                            <rect x="330" y="50" width="180" height="120" rx="10" fill="#fff7e6" stroke="#c8a24a"
+                                stroke-width="2" />
+                            <text x="420" y="80" fill="#8a6d1f" font-size="12">Ограниченные</text>
+                            <text x="420" y="100" fill="#8a6d1f" font-size="12">ресурсы:</text>
+                            <text x="420" y="125" fill="#555" font-size="10">труд, земля, капитал,</text>
+                            <text x="420" y="140" fill="#555" font-size="10">предпринимательство, информация</text>
+                        </g>
+                        <path d="M200 120 Q300 80 330 100" stroke="#c8a24a" stroke-width="2" fill="none"
+                            marker-end="url(#arrE1)" />
+                        <defs>
+                            <marker id="arrE1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#c8a24a" />
+                            </marker>
+                        </defs>
+                        <text x="265" y="90" font-size="11" fill="#8a6d1f">выбор</text>
+                    </svg>
+                </div>
+
+                <p><strong>Проблема выбора:</strong> что, как и для кого производить.</p>
+                <p><strong>Альтернативные издержки</strong> — ценность лучшей упущенной альтернативы.</p>
+                <div class="alert alert-success"><i class="fas fa-lightbulb me-2"></i><strong>Ключевая идея:</strong>
+                    экономика начинается там, где ресурсы ограничены, а потребности — нет.</div>
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- 1.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme1_2">
             <div class="card-body">
-                <h5 class="card-title">Тема 18. Международное движение капиталов. Платежный баланс. Экономическая
-                    интеграция</h5>
-                Международное движение капиталов.<br>
-                Платежный баланс.<br>
-                Экономическая интеграция
+                <h3 class="card-title"><span class="badge-method me-2">1.2</span> Экономические системы и
+                    собственность</h3>
+
+                <!-- SVG: типы экономических систем -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 620 180" width="100%" style="max-width:620px" role="img"
+                        aria-label="Типы экономических систем">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="10" y="30" width="190" height="120" rx="10" fill="#f3f4f6" stroke="#6b7280" />
+                            <text x="105" y="55" fill="#374151">Традиционная</text>
+                            <text x="105" y="80" fill="#555" font-size="10">обычаи, традиции</text>
+                            <text x="105" y="100" fill="#555" font-size="10">натуральное хозяйство</text>
+
+                            <rect x="215" y="30" width="190" height="120" rx="10" fill="#e8eefb" stroke="#0b3d91" />
+                            <text x="310" y="55" fill="#0b3d91">Командная</text>
+                            <text x="310" y="80" fill="#555" font-size="10">государственная собственность</text>
+                            <text x="310" y="100" fill="#555" font-size="10">центральное планирование</text>
+
+                            <rect x="420" y="30" width="190" height="120" rx="10" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="515" y="55" fill="#8a6d1f">Рыночная</text>
+                            <text x="515" y="80" fill="#555" font-size="10">частная собственность</text>
+                            <text x="515" y="100" fill="#555" font-size="10">конкуренция, цены</text>
+
+                            <text x="515" y="165" fill="#0b3d91" font-size="10">+ смешанная экономика</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Собственность</strong> — отношения между людьми по поводу присвоения благ (владение,
+                    пользование, распоряжение).</p>
+                <p><strong>Смешанная экономика</strong> — сочетание рынка и государственного регулирования (большинство
+                    современных стран).</p>
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <h1 class="text-success theme-header" id="theme2">Тема 2. Рыночный механизм: спрос и предложение</h1>
+
+        <!-- 2.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_1">
             <div class="card-body">
-                <h5 class="card-title">Тема 19. Альтернативные системы и модели современной экономики</h5>
-                Альтернативные системы современной экономики <br>
-                Альтернативные модели современной экономики<br>
+                <h3 class="card-title"><span class="badge-method me-2">2.1</span> Спрос, предложение, равновесие</h3>
+
+                <!-- SVG: кривые спроса и предложения -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 480 300" width="100%" style="max-width:480px" role="img"
+                        aria-label="Кривые спроса и предложения, рыночное равновесие">
+                        <!-- Оси -->
+                        <line x1="60" y1="260" x2="440" y2="260" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="260" x2="60" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="250" y="290" text-anchor="middle" font-size="11" fill="#888">Q (количество) →</text>
+                        <text x="25" y="145" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 145)">P (цена) →</text>
+
+                        <!-- Спрос -->
+                        <line x1="100" y1="70" x2="400" y2="230" stroke="#0b3d91" stroke-width="3" />
+                        <text x="410" y="225" fill="#0b3d91" font-size="12" font-weight="700">D</text>
+                        <text x="410" y="240" fill="#0b3d91" font-size="10">спрос</text>
+
+                        <!-- Предложение -->
+                        <line x1="100" y1="230" x2="400" y2="70" stroke="#c8a24a" stroke-width="3" />
+                        <text x="410" y="80" fill="#8a6d1f" font-size="12" font-weight="700">S</text>
+                        <text x="410" y="95" fill="#8a6d1f" font-size="10">предложение</text>
+
+                        <!-- Равновесие -->
+                        <circle cx="250" cy="150" r="6" fill="#e63946" />
+                        <line x1="60" y1="150" x2="250" y2="150" stroke="#e63946" stroke-width="1" stroke-dasharray="4" />
+                        <line x1="250" y1="260" x2="250" y2="150" stroke="#e63946" stroke-width="1" stroke-dasharray="4" />
+                        <text x="45" y="155" text-anchor="end" font-size="10" fill="#e63946">P*</text>
+                        <text x="250" y="278" text-anchor="middle" font-size="10" fill="#e63946">Q*</text>
+                        <text x="270" y="140" font-size="11" fill="#e63946" font-weight="700">E (равновесие)</text>
+                    </svg>
+                </div>
+
+                <p><strong>Закон спроса:</strong> чем выше цена, тем ниже величина спроса (при прочих равных).</p>
+                <p><strong>Закон предложения:</strong> чем выше цена, тем выше величина предложения.</p>
+                <p><strong>Равновесие</strong> — ситуация, когда величина спроса равна величине предложения.</p>
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1586892477838-2b96e85e0f96?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- 2.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_2">
             <div class="card-body">
-                <h5 class="card-title">Тема 20. Российская Федерация в системе мирового хозяйства</h5>
-                Российская Федерация в системе мирового хозяйства<br>
-                Внешнеэкономические союзы и Россия
-                <br>
-                <a target="_blank" class='link-primary my-3' href='https://journal.tinkoff.ru/guide/fiscal-rules/'>
-                    Что такое бюджетные правила
-                </a>
+                <h3 class="card-title"><span class="badge-method me-2">2.2</span> Эластичность спроса и предложения</h3>
+
+                <!-- SVG: эластичный vs неэластичный спрос -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 240" width="100%" style="max-width:560px" role="img"
+                        aria-label="Эластичный и неэластичный спрос">
+                        <!-- Эластичный -->
+                        <line x1="30" y1="200" x2="240" y2="200" stroke="#888" stroke-width="1.5" />
+                        <line x1="30" y1="200" x2="30" y2="30" stroke="#888" stroke-width="1.5" />
+                        <line x1="40" y1="40" x2="230" y2="190" stroke="#0b3d91" stroke-width="3" />
+                        <text x="140" y="220" text-anchor="middle" font-size="11" fill="#0b3d91"
+                            font-weight="700">Эластичный (|E|&gt;1)</text>
+                        <text x="140" y="235" text-anchor="middle" font-size="10" fill="#888">пологая кривая</text>
+
+                        <!-- Неэластичный -->
+                        <line x1="310" y1="200" x2="530" y2="200" stroke="#888" stroke-width="1.5" />
+                        <line x1="310" y1="200" x2="310" y2="30" stroke="#888" stroke-width="1.5" />
+                        <line x1="330" y1="40" x2="370" y2="190" stroke="#c8a24a" stroke-width="3" />
+                        <text x="420" y="220" text-anchor="middle" font-size="11" fill="#8a6d1f"
+                            font-weight="700">Неэластичный (|E|&lt;1)</text>
+                        <text x="420" y="235" text-anchor="middle" font-size="10" fill="#888">крутая кривая</text>
+                    </svg>
+                </div>
+
+                <p><strong>Эластичность</strong> — степень реакции спроса/предложения на изменение цены или дохода.</p>
+                <ul>
+                    <li><strong>Эластичный</strong> — |E| &gt; 1 (предметы роскоши).</li>
+                    <li><strong>Неэластичный</strong> — |E| &lt; 1 (товары первой необходимости).</li>
+                    <li><strong>Единичная</strong> — |E| = 1.</li>
+                </ul>
+                <p><strong>Факторы эластичности:</strong> наличие заменителей, доля в бюджете, срочность,
+                    длительность периода.</p>
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top"
-                    src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- 2.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme2_3">
             <div class="card-body">
-                <h5 class="card-title">Тема 21. Глобальные экономические проблемы</h5>
-                Глобальные экономические проблемы Индекс развития человеческого потенциала
+                <h3 class="card-title"><span class="badge-method me-2">2.3</span> Потребительский выбор и полезность</h3>
+
+                <!-- SVG: кривая безразличия -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 420 260" width="100%" style="max-width:420px" role="img"
+                        aria-label="Кривая безразличия и бюджетная линия">
+                        <line x1="50" y1="220" x2="390" y2="220" stroke="#888" stroke-width="2" />
+                        <line x1="50" y1="220" x2="50" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="220" y="245" text-anchor="middle" font-size="11" fill="#888">Товар X →</text>
+                        <text x="20" y="125" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 20 125)">Товар Y →</text>
+
+                        <path d="M80 60 Q200 90 340 200" fill="none" stroke="#0b3d91" stroke-width="3" />
+                        <text x="345" y="205" fill="#0b3d91" font-size="11" font-weight="700">U₁</text>
+
+                        <path d="M120 55 Q240 80 370 190" fill="none" stroke="#0b3d91" stroke-width="2"
+                            stroke-dasharray="5" />
+                        <text x="375" y="195" fill="#0b3d91" font-size="11">U₂</text>
+
+                        <line x1="50" y1="60" x2="370" y2="220" stroke="#c8a24a" stroke-width="2.5" />
+                        <text x="300" y="110" fill="#8a6d1f" font-size="11" font-weight="700">Бюджетная линия</text>
+
+                        <circle cx="200" cy="140" r="5" fill="#e63946" />
+                        <text x="210" y="135" fill="#e63946" font-size="10">оптимум</text>
+                    </svg>
+                </div>
+
+                <p><strong>Полезность</strong> — удовлетворение от потребления блага. <strong>Предельная
+                        полезность</strong> убывает с каждой новой единицей.</p>
+                <p><strong>Кривая безразличия</strong> — наборы благ с одинаковой полезностью.</p>
+                <p><strong>Оптимум потребителя</strong> — точка касания бюджетной линии и кривой безразличия.</p>
             </div>
         </div>
 
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <h1 class="text-warning theme-header" id="theme3">Тема 3. Теория фирмы: издержки и прибыль</h1>
 
-        <div class="card mb-1" style="max-width:800px;">
-            <img src="https://images.unsplash.com/photo-1707999558198-d5f93aafa75b?q=80&w=600&auto=format&fit=crop"
-                class="card-img-top" style="filter: grayscale(1);" alt="quiz">
+        <!-- 3.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.1</span> Издержки производства. Виды и
+                    структура</h3>
+
+                <!-- SVG: структура издержек -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 220" width="100%" style="max-width:560px" role="img"
+                        aria-label="Постоянные, переменные и общие издержки">
+                        <line x1="50" y1="190" x2="520" y2="190" stroke="#888" stroke-width="2" />
+                        <line x1="50" y1="190" x2="50" y2="20" stroke="#888" stroke-width="2" />
+                        <text x="285" y="212" text-anchor="middle" font-size="11" fill="#888">Q (объём) →</text>
+                        <text x="20" y="105" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 20 105)">Издержки →</text>
+
+                        <line x1="50" y1="150" x2="500" y2="150" stroke="#c8a24a" stroke-width="3" />
+                        <text x="510" y="155" fill="#8a6d1f" font-size="10" font-weight="700">FC</text>
+
+                        <line x1="50" y1="190" x2="500" y2="50" stroke="#0b3d91" stroke-width="3" />
+                        <text x="510" y="55" fill="#0b3d91" font-size="10" font-weight="700">VC</text>
+
+                        <line x1="50" y1="150" x2="500" y2="20" stroke="#e63946" stroke-width="3" />
+                        <text x="510" y="25" fill="#e63946" font-size="10" font-weight="700">TC</text>
+                    </svg>
+                </div>
+
+                <ul>
+                    <li><strong>Постоянные (FC)</strong> — не зависят от объёма (аренда, зарплата АУП).</li>
+                    <li><strong>Переменные (VC)</strong> — зависят от объёма (сырьё, сдельная зарплата).</li>
+                    <li><strong>Общие (TC)</strong> = FC + VC.</li>
+                    <li><strong>Средние (AC)</strong> = TC / Q.</li>
+                    <li><strong>Предельные (MC)</strong> = ΔTC / ΔQ.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme3_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">3.2</span> Прибыль, точка безубыточности,
+                    эффект масштаба</h3>
+
+                <!-- SVG: точка безубыточности -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 280" width="100%" style="max-width:520px" role="img"
+                        aria-label="Точка безубыточности">
+                        <line x1="50" y1="230" x2="490" y2="230" stroke="#888" stroke-width="2" />
+                        <line x1="50" y1="230" x2="50" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="270" y="255" text-anchor="middle" font-size="11" fill="#888">Q →</text>
+                        <text x="22" y="130" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 22 130)">Выручка / затраты →</text>
+
+                        <!-- Выручка -->
+                        <line x1="50" y1="230" x2="480" y2="60" stroke="#0b3d91" stroke-width="3" />
+                        <text x="460" y="50" fill="#0b3d91" font-size="11" font-weight="700">Выручка (TR)</text>
+
+                        <!-- Общие затраты -->
+                        <line x1="50" y1="180" x2="480" y2="100" stroke="#e63946" stroke-width="3" />
+                        <text x="440" y="125" fill="#e63946" font-size="11" font-weight="700">Затраты (TC)</text>
+
+                        <!-- Точка безубыточности -->
+                        <circle cx="270" cy="130" r="6" fill="#198754" />
+                        <line x1="50" y1="130" x2="270" y2="130" stroke="#198754" stroke-dasharray="4" />
+                        <line x1="270" y1="230" x2="270" y2="130" stroke="#198754" stroke-dasharray="4" />
+                        <text x="278" y="122" fill="#198754" font-size="11" font-weight="700">ТБУ</text>
+                        <text x="270" y="248" text-anchor="middle" font-size="10" fill="#198754">Q*</text>
+
+                        <!-- Области -->
+                        <text x="390" y="170" fill="#198754" font-size="10">прибыль</text>
+                        <text x="120" y="220" fill="#e63946" font-size="10">убыток</text>
+                    </svg>
+                </div>
+
+                <p><strong>Прибыль</strong> = Выручка − Издержки.</p>
+                <p><strong>Точка безубыточности:</strong> Q* = FC / (P − AVC).</p>
+                <p><strong>Эффект масштаба:</strong> положительный — издержки на единицу снижаются; отрицательный —
+                    растут.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <h1 class="text-info theme-header" id="theme4">Тема 4. Рыночные структуры и конкуренция</h1>
+
+        <!-- 4.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.1</span> Совершенная и несовершенная
+                    конкуренция</h3>
+
+                <!-- SVG: спектр конкуренции -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 620 120" width="100%" style="max-width:620px" role="img"
+                        aria-label="Спектр рыночных структур">
+                        <line x1="30" y1="70" x2="590" y2="70" stroke="#ccc" stroke-width="3" />
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <circle cx="80" cy="70" r="10" fill="#0b3d91" />
+                            <text x="80" y="45" fill="#0b3d91">Совершенная</text>
+                            <text x="80" y="100" fill="#888" font-size="9">много фирм</text>
+
+                            <circle cx="230" cy="70" r="10" fill="#3b6fd4" />
+                            <text x="230" y="45" fill="#3b6fd4">Монопол.</text>
+                            <text x="230" y="100" fill="#888" font-size="9">конкуренция</text>
+
+                            <circle cx="380" cy="70" r="10" fill="#c8a24a" />
+                            <text x="380" y="45" fill="#8a6d1f">Олигополия</text>
+                            <text x="380" y="100" fill="#888" font-size="9">несколько фирм</text>
+
+                            <circle cx="530" cy="70" r="10" fill="#e63946" />
+                            <text x="530" y="45" fill="#e63946">Монополия</text>
+                            <text x="530" y="100" fill="#888" font-size="9">одна фирма</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Совершенная конкуренция:</strong> много продавцов, однородный товар, свободный вход, полная
+                    информация.</p>
+                <p><strong>Несовершенная:</strong> монополия, олигополия, монополистическая конкуренция.</p>
+            </div>
+        </div>
+
+        <!-- 4.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.2</span> Монополия, олигополия,
+                    монополистическая конкуренция</h3>
+                <ul>
+                    <li><strong>Монополия</strong> — одна фирма, уникальный товар, барьеры входа.</li>
+                    <li><strong>Олигополия</strong> — несколько крупных фирм, взаимозависимость.</li>
+                    <li><strong>Монополистическая конкуренция</strong> — много фирм, дифференцированный товар.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme4_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">4.3</span> Антимонопольное регулирование</h3>
+                <p>Государство ограничивает монополистическую власть: контроль слияний, запрет картелей, регулирование
+                    естественных монополий (ФАС России).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <h1 class="text-danger theme-header" id="theme5">Тема 5. Рынки факторов производства и распределение
+            доходов</h1>
+
+        <!-- 5.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.1</span> Рынок труда. Заработная плата</h3>
+
+                <!-- SVG: равновесие на рынке труда -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 460 260" width="100%" style="max-width:460px" role="img"
+                        aria-label="Равновесие на рынке труда">
+                        <line x1="60" y1="220" x2="430" y2="220" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="220" x2="60" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="245" y="245" text-anchor="middle" font-size="11" fill="#888">L (труд) →</text>
+                        <text x="25" y="125" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 125)">W (зарплата) →</text>
+
+                        <line x1="100" y1="60" x2="380" y2="200" stroke="#0b3d91" stroke-width="3" />
+                        <text x="390" y="205" fill="#0b3d91" font-size="11" font-weight="700">D (спрос на труд)</text>
+
+                        <line x1="100" y1="200" x2="380" y2="60" stroke="#c8a24a" stroke-width="3" />
+                        <text x="390" y="65" fill="#8a6d1f" font-size="11" font-weight="700">S (предложение)</text>
+
+                        <circle cx="240" cy="130" r="6" fill="#e63946" />
+                        <text x="255" y="125" fill="#e63946" font-size="11" font-weight="700">W*</text>
+                    </svg>
+                </div>
+
+                <p><strong>Заработная плата</strong> — цена труда. Определяется спросом и предложением на рынке
+                    труда.</p>
+                <p><strong>Формы:</strong> повременная, сдельная, премиальная.</p>
+            </div>
+        </div>
+
+        <!-- 5.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.2</span> Рынок капитала и земли. Процент,
+                    рента</h3>
+                <p><strong>Процент</strong> — цена капитала. <strong>Рента</strong> — цена земли.</p>
+                <p><strong>Дисконтирование:</strong> PV = FV / (1 + r)^n.</p>
+            </div>
+        </div>
+
+        <!-- 5.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme5_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">5.3</span> Неравенство доходов. Кривая Лоренца</h3>
+
+                <!-- SVG: кривая Лоренца -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 420 300" width="100%" style="max-width:420px" role="img"
+                        aria-label="Кривая Лоренца">
+                        <rect x="60" y="30" width="300" height="220" fill="none" stroke="#888" stroke-width="1.5" />
+                        <line x1="60" y1="250" x2="360" y2="250" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="250" x2="60" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="210" y="285" text-anchor="middle" font-size="11" fill="#888">Доля населения →</text>
+                        <text x="25" y="140" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 140)">Доля доходов →</text>
+
+                        <line x1="60" y1="250" x2="360" y2="30" stroke="#0b3d91" stroke-width="2"
+                            stroke-dasharray="5" />
+                        <text x="200" y="130" fill="#0b3d91" font-size="11">идеальное равенство</text>
+
+                        <path d="M60 250 Q200 240 360 30" fill="none" stroke="#e63946" stroke-width="3" />
+                        <text x="150" y="200" fill="#e63946" font-size="11" font-weight="700">кривая Лоренца</text>
+
+                        <path d="M60 250 Q200 240 360 30 L360 250 Z" fill="#e63946" fill-opacity="0.08" />
+                    </svg>
+                </div>
+
+                <p><strong>Кривая Лоренца</strong> показывает неравенство распределения доходов.</p>
+                <p><strong>Коэффициент Джини</strong> — численная мера неравенства (0 — равенство, 1 — полное
+                    неравенство).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <h1 class="text-secondary theme-header" id="theme6">Тема 6. Макроэкономика: основные показатели</h1>
+
+        <!-- 6.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.1</span> ВВП, ВНП, методы расчёта</h3>
+
+                <!-- SVG: методы расчёта ВВП -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 220" width="100%" style="max-width:560px" role="img"
+                        aria-label="Три метода расчёта ВВП">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="20" y="30" width="160" height="160" rx="12" fill="#e8eefb" stroke="#0b3d91" />
+                            <text x="100" y="55" fill="#0b3d91" font-size="12">По расходам</text>
+                            <text x="100" y="85" fill="#555">C + I + G + NX</text>
+                            <text x="100" y="110" fill="#666" font-size="10">потребление</text>
+                            <text x="100" y="125" fill="#666" font-size="10">инвестиции</text>
+                            <text x="100" y="140" fill="#666" font-size="10">госрасходы</text>
+                            <text x="100" y="155" fill="#666" font-size="10">чистый экспорт</text>
+
+                            <rect x="200" y="30" width="160" height="160" rx="12" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="280" y="55" fill="#8a6d1f" font-size="12">По доходам</text>
+                            <text x="280" y="85" fill="#555">W + рента + % + прибыль</text>
+                            <text x="280" y="110" fill="#666" font-size="10">зарплата</text>
+                            <text x="280" y="125" fill="#666" font-size="10">рента</text>
+                            <text x="280" y="140" fill="#666" font-size="10">процент</text>
+                            <text x="280" y="155" fill="#666" font-size="10">прибыль</text>
+
+                            <rect x="380" y="30" width="160" height="160" rx="12" fill="#e0fbe8" stroke="#198754" />
+                            <text x="460" y="55" fill="#0f5132" font-size="12">По добавленной</text>
+                            <text x="460" y="75" fill="#0f5132" font-size="12">стоимости</text>
+                            <text x="460" y="105" fill="#555" font-size="10">Σ (выпуск −</text>
+                            <text x="460" y="120" fill="#555" font-size="10">промежуточное</text>
+                            <text x="460" y="135" fill="#555" font-size="10">потребление)</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>ВВП</strong> — стоимость конечных товаров и услуг, произведённых на территории страны за
+                    год.</p>
+                <p><strong>ВНП</strong> — стоимость конечных товаров и услуг, произведённых резидентами страны, где бы
+                    они ни находились.</p>
+            </div>
+        </div>
+
+        <!-- 6.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.2</span> Национальное богатство и структура
+                    экономики</h3>
+                <p><strong>Национальное богатство</strong> — совокупность материальных и нематериальных активов
+                    страны.</p>
+                <p><strong>Структура экономики:</strong> сектора (промышленность, сельское хозяйство, услуги),
+                    регионы, формы собственности.</p>
+            </div>
+        </div>
+
+        <!-- 6.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme6_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">6.3</span> Экономический рост</h3>
+                <p><strong>Экстенсивный рост</strong> — за счёт увеличения ресурсов.</p>
+                <p><strong>Интенсивный рост</strong> — за счёт повышения производительности.</p>
+                <p><strong>Темп роста ВВП</strong> = (ВВП₁ − ВВП₀) / ВВП₀ × 100%.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <h1 class="text-dark theme-header" id="theme7">Тема 7. Макроэкономическая нестабильность</h1>
+
+        <!-- 7.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.1</span> Экономический цикл и кризисы</h3>
+
+                <!-- SVG: экономический цикл -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 600 240" width="100%" style="max-width:600px" role="img"
+                        aria-label="Экономический цикл">
+                        <line x1="30" y1="200" x2="580" y2="200" stroke="#888" stroke-width="2" />
+                        <line x1="30" y1="200" x2="30" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="305" y="225" text-anchor="middle" font-size="11" fill="#888">Время →</text>
+                        <text x="18" y="115" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 18 115)">ВВП →</text>
+
+                        <path d="M30 150 Q80 50 140 90 Q200 130 250 80 Q300 30 360 120 Q420 190 480 140 Q530 100 580 160"
+                            fill="none" stroke="#0b3d91" stroke-width="3" />
+                        <line x1="30" y1="150" x2="580" y2="150" stroke="#888" stroke-width="1" stroke-dasharray="4" />
+                        <text x="550" y="145" font-size="10" fill="#888">тренд</text>
+
+                        <g font-size="10" text-anchor="middle" fill="#0b3d91" font-weight="700">
+                            <text x="100" y="35">пик</text>
+                            <text x="220" y="160">спад</text>
+                            <text x="330" y="30">дно</text>
+                            <text x="470" y="200">подъём</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Экономический цикл:</strong> подъём → пик → спад (рецессия) → дно → оживление.</p>
+                <p><strong>Кризис</strong> — резкое падение производства, рост безработицы.</p>
+            </div>
+        </div>
+
+        <!-- 7.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.2</span> Безработица: виды, последствия</h3>
+
+                <!-- SVG: виды безработицы -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 160" width="100%" style="max-width:560px" role="img"
+                        aria-label="Виды безработицы">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="10" y="30" width="125" height="100" rx="10" fill="#e8eefb" stroke="#0b3d91" />
+                            <text x="72" y="55" fill="#0b3d91">Фрикционная</text>
+                            <text x="72" y="80" fill="#666" font-size="10">поиск работы</text>
+                            <text x="72" y="100" fill="#666" font-size="10">краткосрочная</text>
+
+                            <rect x="145" y="30" width="125" height="100" rx="10" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="207" y="55" fill="#8a6d1f">Структурная</text>
+                            <text x="207" y="80" fill="#666" font-size="10">изменение</text>
+                            <text x="207" y="100" fill="#666" font-size="10">структуры экономики</text>
+
+                            <rect x="280" y="30" width="125" height="100" rx="10" fill="#e0fbe8" stroke="#198754" />
+                            <text x="342" y="55" fill="#0f5132">Циклическая</text>
+                            <text x="342" y="80" fill="#666" font-size="10">в период спада</text>
+                            <text x="342" y="100" fill="#666" font-size="10">самая опасная</text>
+
+                            <rect x="415" y="30" width="125" height="100" rx="10" fill="#f3f4f6" stroke="#6b7280" />
+                            <text x="477" y="55" fill="#374151">Сезонная</text>
+                            <text x="477" y="80" fill="#666" font-size="10">колебания</text>
+                            <text x="477" y="100" fill="#666" font-size="10">по сезонам</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Уровень безработицы</strong> = (число безработных / рабочая сила) × 100%.</p>
+                <p><strong>Естественный уровень</strong> = фрикционная + структурная.</p>
+            </div>
+        </div>
+
+        <!-- 7.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme7_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">7.3</span> Инфляция: причины, виды,
+                    последствия</h3>
+
+                <!-- SVG: виды инфляции -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 160" width="100%" style="max-width:560px" role="img"
+                        aria-label="Виды инфляции по темпам">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="20" y="40" width="160" height="80" rx="10" fill="#e0fbe8" stroke="#198754" />
+                            <text x="100" y="70" fill="#0f5132">Умеренная</text>
+                            <text x="100" y="95" fill="#555" font-size="10">до 10% в год</text>
+
+                            <rect x="200" y="40" width="160" height="80" rx="10" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="280" y="70" fill="#8a6d1f">Галопирующая</text>
+                            <text x="280" y="95" fill="#555" font-size="10">10–100% в год</text>
+
+                            <rect x="380" y="40" width="160" height="80" rx="10" fill="#fee2e2" stroke="#dc2626" />
+                            <text x="460" y="70" fill="#991b1b">Гиперинфляция</text>
+                            <text x="460" y="95" fill="#555" font-size="10">свыше 100% в год</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Инфляция</strong> — устойчивый рост общего уровня цен.</p>
+                <ul>
+                    <li><strong>Инфляция спроса</strong> — «слишком много денег на слишком мало товаров».</li>
+                    <li><strong>Инфляция издержек</strong> — рост затрат производителей.</li>
+                </ul>
+                <p><strong>Последствия:</strong> обесценивание сбережений, снижение реальных доходов, неопределённость
+                    для бизнеса.</p>
+                <p><strong>Кривая Филлипса:</strong> обратная связь между инфляцией и безработицей в краткосрочном
+                    периоде.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <h1 class="text-primary theme-header" id="theme8">Тема 8. Государственное регулирование экономики</h1>
+
+        <!-- 8.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.1</span> Фискальная политика. Налоги и
+                    бюджет</h3>
+
+                <!-- SVG: структура налогов -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 200" width="100%" style="max-width:560px" role="img"
+                        aria-label="Прямые и косвенные налоги">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="20" y="40" width="240" height="120" rx="12" fill="#e8eefb" stroke="#0b3d91" />
+                            <text x="140" y="65" fill="#0b3d91" font-size="12">Прямые налоги</text>
+                            <text x="140" y="95" fill="#555" font-size="10">НДФЛ</text>
+                            <text x="140" y="115" fill="#555" font-size="10">налог на прибыль</text>
+                            <text x="140" y="135" fill="#555" font-size="10">налог на имущество</text>
+
+                            <rect x="300" y="40" width="240" height="120" rx="12" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="420" y="65" fill="#8a6d1f" font-size="12">Косвенные налоги</text>
+                            <text x="420" y="95" fill="#555" font-size="10">НДС</text>
+                            <text x="420" y="115" fill="#555" font-size="10">акцизы</text>
+                            <text x="420" y="135" fill="#555" font-size="10">таможенные пошлины</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Фискальная политика:</strong> стимулирующая (рост расходов, снижение налогов) и
+                    сдерживающая (обратное).</p>
+                <p><strong>Госбюджет:</strong> доходы (налоги) − расходы (социальные, оборонные, инвестиционные).</p>
+                <p><strong>Дефицит бюджета</strong> — расходы превышают доходы; <strong>профицит</strong> — наоборот.</p>
+            </div>
+        </div>
+
+        <!-- 8.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.2</span> Денежно-кредитная политика. Банковская
+                    система</h3>
+                <p><strong>Центральный банк</strong> регулирует денежную массу и ключевую ставку.</p>
+                <ul>
+                    <li><strong>Процентная ставка</strong> — повышение сдерживает инфляцию, понижение стимулирует
+                        рост.</li>
+                    <li><strong>Норма обязательных резервов</strong>.</li>
+                    <li><strong>Операции на открытом рынке</strong> (покупка/продажа ценных бумаг).</li>
+                </ul>
+                <p><strong>Денежные агрегаты:</strong> M0, M1, M2.</p>
+            </div>
+        </div>
+
+        <!-- 8.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme8_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">8.3</span> Кривая Лаффера и государственный
+                    долг</h3>
+
+                <!-- SVG: кривая Лаффера -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 460 260" width="100%" style="max-width:460px" role="img"
+                        aria-label="Кривая Лаффера">
+                        <line x1="60" y1="220" x2="430" y2="220" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="220" x2="60" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="245" y="245" text-anchor="middle" font-size="11" fill="#888">Налоговая ставка →</text>
+                        <text x="25" y="125" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 125)">Доходы бюджета →</text>
+
+                        <path d="M60 220 Q180 40 250 80 Q320 120 430 220" fill="none" stroke="#0b3d91"
+                            stroke-width="3" />
+                        <circle cx="210" cy="75" r="6" fill="#e63946" />
+                        <line x1="210" y1="220" x2="210" y2="75" stroke="#e63946" stroke-dasharray="4" />
+                        <text x="200" y="60" fill="#e63946" font-size="11" font-weight="700">оптимум</text>
+                        <text x="210" y="240" text-anchor="middle" font-size="10" fill="#e63946">ставка*</text>
+                    </svg>
+                </div>
+
+                <p><strong>Кривая Лаффера:</strong> при слишком высокой налоговой ставке доходы бюджета падают (уход в
+                    тень).</p>
+                <p><strong>Государственный долг</strong> — накопленная задолженность государства (внутренняя и
+                    внешняя).</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 9 ==================== -->
+        <h1 class="text-success theme-header" id="theme9">Тема 9. Мировая экономика и международные отношения</h1>
+
+        <!-- 9.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.1</span> Международная торговля. Платёжный
+                    баланс</h3>
+                <p><strong>Международная торговля</strong> — обмен товарами и услугами между странами.</p>
+                <p><strong>Теории:</strong> абсолютных преимуществ (Смит), сравнительных преимуществ (Рикардо),
+                    Хекшера-Олина.</p>
+                <p><strong>Платёжный баланс:</strong> счёт текущих операций + счёт операций с капиталом.</p>
+            </div>
+        </div>
+
+        <!-- 9.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.2</span> Валютный курс. Валютная политика</h3>
+
+                <!-- SVG: спрос и предложение валюты -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 460 240" width="100%" style="max-width:460px" role="img"
+                        aria-label="Равновесие на валютном рынке">
+                        <line x1="60" y1="200" x2="430" y2="200" stroke="#888" stroke-width="2" />
+                        <line x1="60" y1="200" x2="60" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="245" y="225" text-anchor="middle" font-size="11" fill="#888">Объём валюты →</text>
+                        <text x="25" y="115" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 25 115)">Курс →</text>
+
+                        <line x1="100" y1="60" x2="380" y2="180" stroke="#0b3d91" stroke-width="3" />
+                        <text x="385" y="185" fill="#0b3d91" font-size="10" font-weight="700">D</text>
+
+                        <line x1="100" y1="180" x2="380" y2="60" stroke="#c8a24a" stroke-width="3" />
+                        <text x="385" y="65" fill="#8a6d1f" font-size="10" font-weight="700">S</text>
+
+                        <circle cx="240" cy="120" r="6" fill="#e63946" />
+                        <text x="252" y="115" fill="#e63946" font-size="11">E*</text>
+                    </svg>
+                </div>
+
+                <p><strong>Валютный курс</strong> — цена одной валюты в другой.</p>
+                <ul>
+                    <li><strong>Девальвация</strong> — снижение курса национальной валюты.</li>
+                    <li><strong>Ревальвация</strong> — повышение.</li>
+                    <li><strong>Плавающий курс</strong> vs <strong>фиксированный</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 9.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme9_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">9.3</span> Глобализация и интеграция</h3>
+                <p><strong>Глобализация</strong> — усиление взаимосвязей национальных экономик.</p>
+                <p><strong>Интеграция:</strong> зона свободной торговли → таможенный союз → общий рынок →
+                    экономический союз.</p>
+                <p><strong>Международные организации:</strong> ВТО, МВФ, Всемирный банк.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 10 ==================== -->
+        <h1 class="text-warning theme-header" id="theme10">Тема 10. Экономика предприятия и управленческие решения</h1>
+
+        <!-- 10.1 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_1">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.1</span> Предприятие в рыночной среде.
+                    Основной и оборотный капитал</h3>
+
+                <!-- SVG: структура капитала -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 560 200" width="100%" style="max-width:560px" role="img"
+                        aria-label="Основной и оборотный капитал">
+                        <g font-size="11" text-anchor="middle" font-weight="600">
+                            <rect x="20" y="40" width="240" height="120" rx="12" fill="#e8eefb" stroke="#0b3d91" />
+                            <text x="140" y="65" fill="#0b3d91" font-size="12">Основной капитал</text>
+                            <text x="140" y="95" fill="#555" font-size="10">здания, оборудование</text>
+                            <text x="140" y="115" fill="#555" font-size="10">переносится по частям</text>
+                            <text x="140" y="135" fill="#555" font-size="10">через амортизацию</text>
+
+                            <rect x="300" y="40" width="240" height="120" rx="12" fill="#fff7e6" stroke="#c8a24a" />
+                            <text x="420" y="65" fill="#8a6d1f" font-size="12">Оборотный капитал</text>
+                            <text x="420" y="95" fill="#555" font-size="10">сырьё, материалы</text>
+                            <text x="420" y="115" fill="#555" font-size="10">переносится целиком</text>
+                            <text x="420" y="135" fill="#555" font-size="10">за один цикл</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p><strong>Амортизация</strong> — перенос стоимости основных средств на себестоимость.</p>
+                <p><strong>Показатели эффективности:</strong> фондоотдача, фондоёмкость, материалоёмкость.</p>
+            </div>
+        </div>
+
+        <!-- 10.2 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_2">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.2</span> Инвестиции и оценка эффективности
+                    проектов</h3>
+                <p><strong>Инвестиции</strong> — долгосрочные вложения для получения прибыли.</p>
+                <p><strong>Показатели:</strong></p>
+                <ul>
+                    <li><strong>NPV</strong> — чистая приведённая стоимость (NPV &gt; 0 — проект эффективен).</li>
+                    <li><strong>IRR</strong> — внутренняя норма доходности (IRR &gt; ставки дисконтирования).</li>
+                    <li><strong>PI</strong> — индекс прибыльности.</li>
+                    <li><strong>PP</strong> — срок окупаемости.</li>
+                </ul>
+                <p><strong>Дисконтирование:</strong> PV = FV / (1 + r)^n.</p>
+            </div>
+        </div>
+
+        <!-- 10.3 -->
+        <div class="card my-3 reveal shadow-sm" style="max-width: 900px;" id="theme10_3">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method me-2">10.3</span> Управленческая экономика:
+                    маржинальный анализ, рычаги</h3>
+
+                <!-- SVG: операционный рычаг -->
+                <div class="svg-illustration">
+                    <svg viewBox="0 0 520 220" width="100%" style="max-width:520px" role="img"
+                        aria-label="Операционный рычаг">
+                        <line x1="50" y1="190" x2="490" y2="190" stroke="#888" stroke-width="2" />
+                        <line x1="50" y1="190" x2="50" y2="30" stroke="#888" stroke-width="2" />
+                        <text x="270" y="212" text-anchor="middle" font-size="11" fill="#888">Выручка →</text>
+                        <text x="20" y="110" text-anchor="middle" font-size="11" fill="#888"
+                            transform="rotate(-90 20 110)">Прибыль →</text>
+
+                        <line x1="50" y1="170" x2="480" y2="60" stroke="#0b3d91" stroke-width="3" />
+                        <text x="390" y="50" fill="#0b3d91" font-size="11" font-weight="700">прибыль</text>
+                        <line x1="50" y1="170" x2="250" y2="170" stroke="#e63946" stroke-width="2"
+                            stroke-dasharray="4" />
+                        <text x="160" y="185" fill="#e63946" font-size="10">точка безубыточности</text>
+                    </svg>
+                </div>
+
+                <p><strong>Маржинальный анализ:</strong> маржа = выручка − переменные затраты; маржинальная прибыль
+                    идёт на покрытие постоянных затрат и формирование прибыли.</p>
+                <p><strong>Операционный рычаг (DOL)</strong> = маржа / прибыль. Показывает, на сколько % изменится
+                    прибыль при изменении выручки на 1%.</p>
+                <p><strong>Финансовый рычаг (DFL)</strong> — чувствительность чистой прибыли к изменению операционной
+                    прибыли.</p>
+                <p><strong>Совокупный рычаг (DTL)</strong> = DOL × DFL.</p>
+            </div>
+        </div>
+
+        <!-- ==================== КВИЗ ==================== -->
+        <h1 class="text-primary theme-header" id="quizblock">Тесты для самопроверки</h1>
+        <div class="card mb-1 shadow-sm" style="max-width: 900px;">
+            <img src="../quiz.avif" class="card-img-top" alt="quiz" />
             <div class="card-body">
                 <div class="container" id="formcontainer" style="display: none;">
                     <form>
                         <div class="mb-3">
                             <label for="emailInput" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" />
                             <div id="emailHelp" class="form-text">Email может быть фиктивный. Пароль НЕ требуется</div>
                         </div>
                         <div class="mb-3">
                             <label for="user" class="form-label">ФИО Группа</label>
-                            <input type="text" class="form-control" id="userInput">
+                            <input type="text" class="form-control" id="userInput" />
                         </div>
-
                         <button type="submit" class="btn btn-outline-secondary btn-sm m-2 align-text-bottom"
                             id="loginbutton">Сохранить</button>
                     </form>
@@ -413,15 +1289,17 @@
                         <div class="card-body">
                             <h5 class="card-title fade-in-div" id="quizTitle">Выберите тестовое задание</h5>
                             <div class="card-text fade-in-div" id="quizString"></div>
+                            <div id="box" class="jxgbox" style="width: 500px; aspect-ratio: 1/1; display: none;"></div>
                             <form id="quizform">
                                 <div id="quizChecks" class="m-1 p-1"></div>
                                 <div id="quizHint" class="m-1 p-1"></div>
-                                <div class="container p-1 m-1" id="accountingblock" style="display: none;">
-                                </div>
+                                <div class="container p-1 m-1" id="accountingblock" style="display: none;"></div>
                                 <div id="quizformdataarray"></div>
+                                <input type="text" class="form-control form-control-sm" id="feedback"
+                                    placeholder="Числовой ответ" style="display: none;" />
                                 <div id="usercalculations" style="display: none;">
                                     <label for="inputFormula" class="col-form-label" id="resformula">Калькулятор</label>
-                                    <input type="text" class="form-control form-control-sm" id="inputFormula">
+                                    <input type="text" class="form-control form-control-sm" id="inputFormula" />
                                 </div>
                                 <textarea class="form-control my-3" id="userComment" rows="2"
                                     style="display: none;">Мой комментарий</textarea>
@@ -431,22 +1309,55 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
-
-
     </div>
+    <!-- /container -->
 
+    <button id="backtop" class="btn btn-primary" title="Наверх"><i class="fas fa-arrow-up"></i></button>
 
-
-
+    <!-- ==================== СКРИПТЫ ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script type="module" src="../dist/quizcardwithstorage.js"></script>
+    <!-- Анимации + прогресс -->
+    <script>
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.reveal').forEach((el) => {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+        }
+
+        const progressBar = document.getElementById('reading-progress');
+        const backtop = document.getElementById('backtop');
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+            backtop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+    <!-- Firebase + логика тестов -->
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
+    <script src="../dist/vanillajsquizcardwithstorage2026.js"></script>
+
 </body>
 
 </html>
