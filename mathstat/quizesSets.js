@@ -466,6 +466,178 @@ let quizesSets = [
         "randomfrom": [1, 2, 3, 4, 5, 10]
     },
 
+    
+  {
+    "id": "comb_permutations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно расставить <strong>{var1-10}</strong> различных книг на полке?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки — упорядочиваем все n элементов:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6, 7]
+  },
+  {
+    "id": "comb_arrangements",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Размещения",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Размещения</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько <strong>{= {var1-10} - 2}</strong>-значных чисел можно составить из <strong>{var1-10}</strong> различных цифр без повторений (порядок важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Размещения — выбираем k из n и упорядочиваем:</div>
+    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10} - 2}:</div>
+    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+  },
+  {
+    "id": "comb_combinations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно выбрать <strong>3</strong> книги из <strong>{var1-10}</strong> (порядок не важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания — выбираем k из n, порядок не важен:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9]
+  },
+  {
+    "id": "comb_perm_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько различных слов можно составить из букв «МАМА», если добавить <strong>{= {var1-10} - 4}</strong> различных букв (всего {var1-10} букв: 2 «М», 2 «А» и {= {var1-10} - 4} уникальных)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT(2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки с повторениями — делим на факториалы повторяющихся групп:</div>
+    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!}$$</div>
+    <div class="mt-3 mb-2">Здесь n = {var1-10}, повторяются «М» (2 раза) и «А» (2 раза):</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT(2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7]
+  },
+  {
+    "id": "comb_comb_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько наборов из <strong>3</strong> пирожных можно купить, если есть <strong>{var1-10}</strong> видов (вид можно брать несколько раз)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания с повторениями — «звёзды и перегородки»:</div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7]
+  },
+  {
+    "id": "comb_symmetry",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Симметрия сочетаний",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Симметрия сочетаний</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>C({var1-10}, 2)</strong>. Сравните с C({var1-10}, {= {var1-10} - 2}).</div>
+    <div class="mt-3 mb-2">Введите значение C({var1-10}, 2).</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула сочетаний:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 2:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="mt-3 mb-2">Проверка симметрии: C({var1-10}, {= {var1-10} - 2}) даёт то же число, т.к. <strong>Cₙᵏ = Cₙⁿ⁻ᵏ</strong>.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
+
+
         // =====================================================================
     // ==================== ДОСКА ГАЛЬТОНА ====================
     // =====================================================================
@@ -641,11 +813,11 @@ let quizesSets = [
     Доска Гальтона: математическое ожидание
   </div>
   <div class="card-body">
-    <div class="mb-3">На доске Гальтона <strong>{var1-10}</strong> рядов штырьков, вероятность поворота направо p = 0.5. Номер ячейки = число поворотов направо.</div>
+    <div class="mb-3">На доске Гальтона <strong>{={var1-10}*2}</strong> рядов штырьков, вероятность поворота направо p = 0.5. Номер ячейки = число поворотов направо.</div>
     <div class="mt-3 mb-2">Найдите математическое ожидание номера ячейки <em>M(X) = n·p</em>.</div>
   </div>
 </div>`,
-        "answer": "{var1-10} / 2",
+        "answer": "{var1-10}",
         "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
@@ -653,69 +825,74 @@ let quizesSets = [
     <div class="mb-2">Для биномиального распределения:</div>
     <div class="text-center">$$M(X) = n \\cdot p$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
-    <div class="text-center">$$M(X) = {var1-10} \\cdot 0.5 = {= {var1-10} / 2}$$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} / 2}</strong></div>
+    <div class="text-center">$$ M(X) = {={var1-10}*2} \cdot 0.5 = {={var1-10}} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{={var1-10}}</strong></div>
   </div>
 </div>`,
         "randomfrom": [10, 20, 30, 40]
     },
-    {
-        "id": "galton_012_central_prob",
-        "type": "mathwithrandomnumber",
-        "header": "Доска Гальтона",
-        "title": "Вероятность центральной ячейки",
-        "theme": "Доска Гальтона",
-        "text": `
+  {
+    "id": "galton_012_central_prob",
+    "type": "mathwithrandomnumber",
+    "header": "Доска Гальтона",
+    "title": "Вероятность центральной ячейки",
+    "theme": "Доска Гальтона",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Доска Гальтона: центральная ячейка
   </div>
   <div class="card-body">
-    <div class="mb-3">На доске <strong>4</strong> ряда штырьков, p = 0.5. Какова вероятность попасть в ячейку k = 2 (центральную)?</div>
-    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+    <div class="mb-3">На доске <strong>{var1-10}</strong> рядов штырьков, p = 0.5. Какова вероятность попасть в центральную ячейку k = {= {var1-10}/2}?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью (округлите до 4 знаков).</div>
   </div>
 </div>`,
-        "answer": "0.375",
-        "hint": `
+    "answer": "{= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Формула Бернулли при p = 0.5:</div>
-    <div class="text-center">$$P_4(2) = C_4^2 \\cdot 0.5^2 \\cdot 0.5^2 = \\frac{6}{16} = 0.375$$</div>
-    <div class="mt-3 mb-2">Число путей C(4, 2) = 6, всего путей 2⁴ = 16.</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>0.375</strong></div>
+    <div class="text-center">$$P_n(k) = \\frac{C_n^k}{2^n}$$</div>
+    <div class="mt-3 mb-2">Число сочетаний выражаем через факториалы:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10}/2}:</div>
+    <div class="text-center">$$P = \\frac{\\frac{ {var1-10}! }{ {= {var1-10}/2}! \\cdot {= {var1-10}/2}! }}{2^{ {var1-10} }} = {= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}</strong></div>
   </div>
 </div>`,
-        "randomfrom": [4]
-    },
-    {
-        "id": "galton_013_paths",
-        "type": "mathwithrandomnumber",
-        "header": "Доска Гальтона",
-        "title": "Число путей в ячейку",
-        "theme": "Доска Гальтона",
-        "text": `
+    "randomfrom": [2, 4, 6, 8]
+},
+   {
+    "id": "galton_013_paths",
+    "type": "mathwithrandomnumber",
+    "header": "Доска Гальтона",
+    "title": "Число путей в ячейку",
+    "theme": "Доска Гальтона",
+    "text": `
 <div class="card">
   <div class="card-header bg-primary text-white">
     Доска Гальтона: число путей
   </div>
   <div class="card-body">
-    <div class="mb-3">На доске Гальтона <strong>5</strong> рядов. Сколько различных путей ведёт в ячейку k = 2?</div>
+    <div class="mb-3">На доске Гальтона <strong>{var1-10}</strong> рядов. Сколько различных путей ведёт в ячейку k = 2?</div>
     <div class="mt-3 mb-2">Введите число.</div>
   </div>
 </div>`,
-        "answer": "10",
-        "hint": `
+    "answer": "{var1-10}*({var1-10} - 1) / 2",
+    "hint": `
 <div class="card">
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Число путей = число сочетаний:</div>
-    <div class="text-center">$$C_5^2 = \\frac{5!}{2! \\cdot 3!} = 10$$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>10</strong></div>
+    <div class="text-center">$$C_n^2 = \\frac{n!}{2! \\cdot (n-2)!} = \\frac{n(n-1)}{2}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= {var1-10} * ({var1-10} - 1) / 2}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * ({var1-10} - 1) / 2}</strong></div>
   </div>
 </div>`,
-        "randomfrom": [5]
-    },
+    "randomfrom": [4, 5, 6, 7, 8]
+},
     {
         "id": "galton_014_extreme_prob",
         "type": "mathwithrandomnumber",

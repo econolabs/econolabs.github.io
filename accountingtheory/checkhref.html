@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ссылки для проверки — Теория бухгалтерского учета</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f7f7f7;
+            color: #222;
+        }
+        h1 {
+            font-size: 1.4em;
+            margin-bottom: 4px;
+        }
+        .hint {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,.08);
+            font-size: 0.88em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px 8px;
+            vertical-align: top;
+            text-align: left;
+        }
+        th {
+            background: #eee;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) td {
+            background: #fafafa;
+        }
+        a {
+            color: #0645ad;
+            word-break: break-all;
+        }
+        a:visited {
+            color: #0b0080;
+        }
+        .status-ok { color: #1a7f37; font-weight: 600; }
+        .status-fail { color: #c0392b; font-weight: 600; }
+        .status-todo { color: #b8860b; font-weight: 600; }
+        .tag {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .tag-risky { background: #fff3cd; color: #856404; }
+        .tag-relative { background: #f8d7da; color: #721c24; }
+        .tag-pdf { background: #d1ecf1; color: #0c5460; }
+        .tag-ok { background: #d4edda; color: #155724; }
+        .counter {
+            font-weight: 600;
+        }
+        button {
+            padding: 6px 14px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-bottom: 14px;
+            border: 1px solid #bbb;
+            background: #fff;
+            border-radius: 4px;
+        }
+        button:hover { background: #eee; }
+        .row-num { width: 36px; text-align: center; color: #888; }
+        .col-status { width: 90px; }
+        .col-comment { width: 220px; }
+        .col-where { width: 130px; }
+    </style>
+</head>
+
+<body>
+
+    <h1>Ссылки для ручной проверки</h1>
+    <p class="hint">
+        Откройте эту страницу в браузере и щёлкайте по ссылкам вручную. После проверки можно отмечать статус
+        (OK / FAIL) в колонке «Статус» — изменения сохраняются только в этой сессии, без сервера.
+        Всего ссылок: <span class="counter" id="total">0</span>.
+    </p>
+
+    <button type="button" onclick="resetStatuses()">Сбросить статусы</button>
+
+    <table id="linksTable">
+        <thead>
+            <tr>
+                <th class="row-num">#</th>
+                <th>Где в лекции</th>
+                <th>Текст ссылки</th>
+                <th>URL</th>
+                <th>Тип</th>
+                <th class="col-status">Статус</th>
+                <th class="col-comment">Комментарий</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ============ НАВИГАЦИЯ ============ -->
+            <tr>
+                <td class="row-num">1</td>
+                <td>Navbar / логотип</td>
+                <td>Econolabs</td>
+                <td><a href="https://econolabs.ru/" target="_blank">https://econolabs.ru/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">2</td>
+                <td>Navbar / аватар</td>
+                <td>ВК</td>
+                <td><a href="https://vk.com/dmglvn" target="_blank">https://vk.com/dmglvn</a></td>
+                <td><span class="tag tag-ok">соцсеть</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">3</td>
+                <td>Navbar / аватар (картинка)</td>
+                <td>sun9-37.userapi.com/...jpg</td>
+                <td><a href="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1" target="_blank">https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1</a></td>
+                <td><span class="tag tag-risky">хрупкая</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 2 ============ -->
+            <tr>
+                <td class="row-num">4</td>
+                <td>Тема 2</td>
+                <td>minfin.gov.ru/ru/document/</td>
+                <td><a href="https://minfin.gov.ru/ru/document/" target="_blank">https://minfin.gov.ru/ru/document/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 3 ============ -->
+            <tr>
+                <td class="row-num">5</td>
+                <td>Тема 3</td>
+                <td>minfin.gov.ru/ru/perfomance/accounting/</td>
+                <td><a href="https://minfin.gov.ru/ru/perfomance/accounting/" target="_blank">https://minfin.gov.ru/ru/perfomance/accounting/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 3 (устаревшие документы) ============ -->
+            <tr>
+                <td class="row-num">6</td>
+                <td>Тема 3 / таблица, п.1</td>
+                <td>Методические указания по реорганизации</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2307" target="_blank">https://minfin.gov.ru/ru/document?id_4=2307</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">7</td>
+                <td>Тема 3 / таблица, п.2</td>
+                <td>Указания по доверительному управлению</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2296" target="_blank">https://minfin.gov.ru/ru/document?id_4=2296</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">8</td>
+                <td>Тема 3 / таблица, п.3</td>
+                <td>План счетов (94н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">https://minfin.gov.ru/ru/document?id_4=2293</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">9</td>
+                <td>Тема 3 / таблица, п.4</td>
+                <td>Инструкция по применению Плана счетов</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">https://minfin.gov.ru/ru/document?id_4=2293</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">10</td>
+                <td>Тема 3 / таблица, п.5</td>
+                <td>Методические рекомендации по прибыли на акцию</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2305" target="_blank">https://minfin.gov.ru/ru/document?id_4=2305</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">11</td>
+                <td>Тема 3 / таблица, п.6</td>
+                <td>Указания по соглашениям о разделе продукции</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2292" target="_blank">https://minfin.gov.ru/ru/document?id_4=2292</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">12</td>
+                <td>Тема 3 / таблица, п.7</td>
+                <td>Типовые рекомендации для малого предпринимательства</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2291" target="_blank">https://minfin.gov.ru/ru/document?id_4=2291</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">13</td>
+                <td>Тема 3 / таблица, п.8</td>
+                <td>Положение по ведению бухучета (34н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2304" target="_blank">https://minfin.gov.ru/ru/document?id_4=2304</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">14</td>
+                <td>Тема 3 / таблица, п.9</td>
+                <td>Порядок пересчета статей баланса</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2290" target="_blank">https://minfin.gov.ru/ru/document?id_4=2290</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">15</td>
+                <td>Тема 3 / таблица, п.10</td>
+                <td>О ведении учета садоводческими товариществами</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2288" target="_blank">https://minfin.gov.ru/ru/document?id_4=2288</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">16</td>
+                <td>Тема 3 / таблица, п.11</td>
+                <td>О порядке отражения операций с векселями</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2285" target="_blank">https://minfin.gov.ru/ru/document?id_4=2285</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">17</td>
+                <td>Тема 3 / таблица, п.12</td>
+                <td>Об отражении операций в ЖКХ</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2283" target="_blank">https://minfin.gov.ru/ru/document?id_4=2283</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">18</td>
+                <td>Тема 3 / таблица, п.13</td>
+                <td>Об отражении операций приватизации</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2282" target="_blank">https://minfin.gov.ru/ru/document?id_4=2282</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">19</td>
+                <td>Тема 3 / таблица, п.14</td>
+                <td>Рекомендации по учетным регистрам</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2281" target="_blank">https://minfin.gov.ru/ru/document?id_4=2281</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">20</td>
+                <td>Тема 3 / презентация</td>
+                <td>Презентация «Упрощенная система...»</td>
+                <td><a href="https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/docs?id_57=120315-prezentatsiya_uproshchennaya_sistema_bukhgalterskogo_ucheta_i_otchetnosti_subektov_malogo_predprinimatelstva" target="_blank">https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/docs?id_57=...</a></td>
+                <td><span class="tag tag-risky">длинная</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">21</td>
+                <td>Тема 3 / малый бизнес</td>
+                <td>Бухучёт субъектов малого предпринимательства</td>
+                <td><a href="https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/" target="_blank">https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 5 (планы счетов) ============ -->
+            <tr>
+                <td class="row-num">22</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов 94н (п.1)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">https://minfin.gov.ru/ru/document?id_4=2293</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">23</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов АПК (654)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=11785" target="_blank">https://minfin.gov.ru/ru/document?id_4=11785</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">24</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Единый план счетов (157н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank">https://minfin.gov.ru/ru/document?id_4=452238</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">25</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов бюджетного учета (162н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451227" target="_blank">https://minfin.gov.ru/ru/document?id_4=451227</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">26</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Инструкция 162н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451226" target="_blank">https://minfin.gov.ru/ru/document?id_4=451226</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">27</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Приказ 162н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451228" target="_blank">https://minfin.gov.ru/ru/document?id_4=451228</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">28</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов бюджетных учреждений (174н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451414" target="_blank">https://minfin.gov.ru/ru/document?id_4=451414</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">29</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Инструкция 174н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451415" target="_blank">https://minfin.gov.ru/ru/document?id_4=451415</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">30</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Приказ 174н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=451416" target="_blank">https://minfin.gov.ru/ru/document?id_4=451416</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">31</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов автономных учреждений (183н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=452111" target="_blank">https://minfin.gov.ru/ru/document?id_4=452111</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">32</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Инструкция 183н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=452110" target="_blank">https://minfin.gov.ru/ru/document?id_4=452110</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">33</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Приказ 183н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=452118" target="_blank">https://minfin.gov.ru/ru/document?id_4=452118</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">34</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов казначейского учета (184н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=450529" target="_blank">https://minfin.gov.ru/ru/document?id_4=450529</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">35</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов НФО (803-П)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank">https://minfin.gov.ru/ru/document?id_4=489573</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">36</td>
+                <td>Тема 5 / план счетов</td>
+                <td>План счетов кредитных организаций (809-П)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank">https://minfin.gov.ru/ru/document?id_4=491219</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+            <tr>
+                <td class="row-num">37</td>
+                <td>Тема 5 / план счетов</td>
+                <td>Рабочий план счетов централизованного учета (2н)</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank">https://minfin.gov.ru/ru/document?id_4=474619</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 5 (международная) ============ -->
+            <tr>
+                <td class="row-num">38</td>
+                <td>Тема 5 / международная</td>
+                <td>Международная деятельность</td>
+                <td><a href="https://minfin.gov.ru/ru/perfomance/accounting/" target="_blank">https://minfin.gov.ru/ru/perfomance/accounting/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 7 ============ -->
+            <tr>
+                <td class="row-num">39</td>
+                <td>Тема 7</td>
+                <td>ФСБУ 1/2020 (PDF)</td>
+                <td><a href="https://minfin.gov.ru/common/upload/library/2020/11/main/FSBU_1_2020.pdf" target="_blank">https://minfin.gov.ru/common/upload/library/2020/11/main/FSBU_1_2020.pdf</a></td>
+                <td><span class="tag tag-pdf">PDF</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 8 ============ -->
+            <tr>
+                <td class="row-num">40</td>
+                <td>Тема 8</td>
+                <td>ФСБУ 27/2021 (PDF)</td>
+                <td><a href="https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf" target="_blank">https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf</a></td>
+                <td><span class="tag tag-pdf">PDF</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ТЕМА 9 ============ -->
+            <tr>
+                <td class="row-num">41</td>
+                <td>Тема 9</td>
+                <td>Отчётность Газпрома</td>
+                <td><a href="https://www.gazprom.ru/investors/disclosure/reports/2025/" target="_blank">https://www.gazprom.ru/investors/disclosure/reports/2025/</a></td>
+                <td><span class="tag tag-ok">сайт</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+
+            <!-- ============ ДОМАШНЕЕ ЗАДАНИЕ ============ -->
+            <tr>
+                <td class="row-num">42</td>
+                <td>Домашнее задание</td>
+                <td>План счетов 94н</td>
+                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">https://minfin.gov.ru/ru/document?id_4=2293</a></td>
+                <td><span class="tag tag-risky">id_4</span></td>
+                <td class="col-status"><select class="status"><option value="">—</option><option>OK</option><option>FAIL</option></select></td>
+                <td class="col-comment"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Подсчёт общего числа ссылок
+        document.addEventListener('DOMContentLoaded', function () {
+            var rows = document.querySelectorAll('#linksTable tbody tr');
+            document.getElementById('total').textContent = rows.length;
+
+            // Восстановление статусов из localStorage
+            rows.forEach(function (row, i) {
+                var select = row.querySelector('.status');
+                if (!select) return;
+                var saved = localStorage.getItem('link_status_' + i);
+                if (saved) select.value = saved;
+
+                select.addEventListener('change', function () {
+                    localStorage.setItem('link_status_' + i, select.value);
+                });
+            });
+        });
+
+        function resetStatuses() {
+            document.querySelectorAll('#linksTable .status').forEach(function (select, i) {
+                select.value = '';
+                localStorage.removeItem('link_status_' + i);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

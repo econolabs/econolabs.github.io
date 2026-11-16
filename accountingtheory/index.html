@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     -->
     <link rel="stylesheet" href="./original.css" />
-    <script src="https://unpkg.com/immer@6.0.3/dist/immer.umd.production.min.js"></script>
+    <script src="../dist/immer6.0.3.umd.production.min.js"></script>
     <title>Теория бухгалтерского учета</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a target="_blank" class="navbar-brand" href="/">Econolabs</a>
+        <a target="_blank" class="navbar-brand" href="./">Econolabs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -157,80 +157,85 @@
                 <div class="alert alert-success mb-3">
                     <strong>Ключевое изменение:</strong> С 2011 года Россия переходит на Федеральные стандарты
                     бухгалтерского учета (ФСБУ), которые постепенно заменяют Положения по бухгалтерскому учету (ПБУ). На
-                    ноябрь 2025 года процесс перехода продолжается.
+                    2027 год ключевые стандарты по доходам и расходам уже вступили в силу; продолжают действовать
+                    переходные положения по отдельным объектам учета.
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-sm">
+                    <table class="table  table-hover table-sm">
                         <thead class="table-light">
                             <tr>
-                                <th style="width: 25%">Утратившее силу ПБУ</th>
+                                <th style="width: 25%" class="text-danger">Утратившее силу ПБУ</th>
                                 <th style="width: 30%">Действующий ФСБУ (аналог/замена)</th>
                                 <th style="width: 25%">Период изменений</th>
-                                <th style="width: 20%">Статус на ноябрь 2025</th>
+                                <th style="width: 20%">Статус на 2027 год</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>ПБУ 1/2008</strong><br>Учетная политика</td>
+                                <td class="text-danger"><strong>ПБУ 1/2008</strong><br>Учетная политика</td>
                                 <td><strong>ФСБУ 1/2020</strong><br>"Концептуальные основы бухучета"</td>
                                 <td>2020-2022<br><small>Приказ Минфина № 64н от 31.03.2020</small></td>
                                 <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
                                         2022</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 2/2008</strong><br>Учет договоров строительного подряда</td>
-                                <td><strong>ФСБУ 2/2023</strong><br>"Договоры строительства"</td>
-                                <td>2023-2025<br><small>Приказ Минфина № 126н от 17.08.2023</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Обязателен с
+                                <td class="text-danger"><strong>ПБУ 2/2008</strong><br>Учет договоров строительного подряда</td>
+                                <td><strong>ФСБУ 2/2023</strong><br>"Договоры строительства"<br><strong>ФСБУ
+                                        9/2025</strong><br>в части доходов по договорам</td>
+                                <td>2023-2025<br><small>Приказ Минфина № 126н от 17.08.2023; № 56н от 16.05.2025</small>
+                                </td>
+                                <td><span class="badge bg-success">Полностью заменено</span><br><small>ФСБУ 2/2023 — с
+                                        2025, ФСБУ 9/2025 — с 2027</small></td>
+                            </tr>
+                            <tr>
+                                <td class="text-danger"><strong>ПБУ 4/99</strong><br>Бухгалтерская отчетность</td>
+                                <td><strong>ФСБУ 4/2023</strong><br>"Бухгалтерская (финансовая) отчетность"<br><small>с
+                                        изменениями 2025 г.</small></td>
+                                <td>2023-2025<br><small>Приказ Минфина № 4н от 04.10.2023; изменения — № 159н от
+                                        2025</small></td>
+                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
                                         2025</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 4/99</strong><br>Бухгалтерская отчетность</td>
-                                <td><strong>ФСБУ 25/2018</strong><br>"Бухгалтерский отчет"<br><strong>ФСБУ
-                                        6/2020</strong><br>"Финансовые инструменты"</td>
-                                <td>2018-2020<br><small>Приказы Минфина № 236н, 204н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2020</small></td>
-                            </tr>
-                            <tr>
-                                <td><strong>ПБУ 5/01</strong><br>Учет МПЗ</td>
+                                <td class="text-danger"><strong>ПБУ 5/01</strong><br>Учет МПЗ</td>
                                 <td><strong>ФСБУ 5/2019</strong><br>"Запасы"</td>
                                 <td>2019-2021<br><small>Приказ Минфина № 180н от 15.11.2019</small></td>
                                 <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
                                         2021</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 6/01</strong><br>Учет ОС</td>
+                                <td class="text-danger"><strong>ПБУ 6/01</strong><br>Учет ОС</td>
                                 <td><strong>ФСБУ 6/2020</strong><br>"Основные средства"</td>
                                 <td>2020-2022<br><small>Приказ Минфина № 204н от 17.09.2020</small></td>
                                 <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
                                         2022</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 9/99, 10/99</strong><br>Доходы и расходы</td>
-                                <td><strong>ФСБУ 5/2019</strong><br>"Доходы"<br><strong>ФСБУ
-                                        6/2020</strong><br>"Расходы"</td>
-                                <td>2019-2022<br><small>Приказы Минфина № 180н, 204н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2022</small></td>
+                                <td class="text-danger"><strong>ПБУ 9/99, 10/99</strong><br>Доходы и расходы</td>
+                                <td><strong>ФСБУ 9/2025</strong><br>"Доходы"<br><strong>ФСБУ 10/2026</strong><br>"Расходы"
+                                </td>
+                                <td>2025-2027<br><small>Приказы Минфина № 56н от 16.05.2025; № 53н от 24.04.2026</small>
+                                </td>
+                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Обязательны с
+                                        отчетности за 2027 год</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 14/2007</strong><br>Нематериальные активы</td>
+                                <td class="text-danger"><strong>ПБУ 14/2007</strong><br>Нематериальные активы</td>
                                 <td><strong>ФСБУ 14/2024</strong><br>"Нематериальные активы"</td>
                                 <td>2024-2025<br><small>Приказ Минфина № 130н от 30.08.2024</small></td>
-                                <td><span class="badge bg-success text-dark">Переходный
-                                        период</span><br><small>Обязателен с 01.01.2026</small></td>
+                                <td><span class="badge bg-success">Действует</span><br><small class="text-danger">Обязателен с 01.01.2026,
+                                        переходный период завершен</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 15/2008</strong><br>Учет расходов по займам</td>
+                                <td class="text-danger"><strong>ПБУ 15/2008</strong><br>Учет расходов по займам</td>
                                 <td><strong>ФСБУ 6/2020</strong><br>"Финансовые инструменты"</td>
                                 <td>2020-2022<br><small>Приказ Минфина № 204н</small></td>
                                 <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
                                         2022</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 18/02</strong><br>Учет расчетов по налогу на прибыль</td>
+                                <td class="text-danger"><strong>ПБУ 18/02</strong><br>Учет расчетов по налогу на прибыль</td>
                                 <td><strong>ФСБУ 18/02</strong><br>"Учет расчетов по налогу на прибыль"<br><em>(сохранен
                                         номер, полностью переработан)</em></td>
                                 <td>2019-2020<br><small>Приказ Минфина № 236н от 19.11.2019</small></td>
@@ -238,15 +243,15 @@
                                         2020</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 19/02</strong><br>Финансовые вложения</td>
+                                <td class="text-danger"><strong>ПБУ 19/02</strong><br>Финансовые вложения</td>
                                 <td><strong>ФСБУ 6/2020</strong><br>"Финансовые инструменты"<br><strong>ФСБУ
                                         14/2024</strong><br>для долей в бизнесе</td>
                                 <td>2020-2024<br><small>Приказы Минфина № 204н, 130н</small></td>
-                                <td><span class="badge bg-success text-dark">Частично
-                                        заменено</span><br><small>Окончательно с 2026</small></td>
+                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
+                                        2026</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 8/2010</strong><br>Оценочные обязательства</td>
+                                <td class="text-danger"><strong>ПБУ 8/2010</strong><br>Оценочные обязательства</td>
                                 <td><strong>ФСБУ 8/2023</strong><br>"Оценочные обязательства, условные обязательства и
                                     активы"</td>
                                 <td>2023-2025<br><small>Приказ Минфина № 126н</small></td>
@@ -254,7 +259,7 @@
                                         2025</small></td>
                             </tr>
                             <tr>
-                                <td><strong>ПБУ 11/2008, 12/2010</strong><br>Информация по сегментам, госпомощь</td>
+                                <td class="text-danger"><strong>ПБУ 11/2008, 12/2010</strong><br>Информация по сегментам, госпомощь</td>
                                 <td><strong>ФСБУ 23/2023</strong><br>"Сегментная отчетность"<br><strong>ФСБУ
                                         24/2023</strong><br>"Государственная помощь"</td>
                                 <td>2023-2025<br><small>Приказ Минфина № 126н</small></td>
@@ -265,13 +270,13 @@
                     </table>
                 </div>
 
-                <h5>Ключевые нововведения 2024-2025:</h5>
+                <h5>Ключевые изменения 2027 года:</h5>
                 <ul>
-                    <li><strong>ФСБУ 14/2024 "Нематериальные активы"</strong> - обязателен с 2026 года, но добровольное
-                        применение с 2025</li>
-                    <li><strong>ФСБУ 2/2023 "Договоры строительства"</strong> - полный переход завершен в 2025</li>
-                    <li><strong>Новые проекты ФСБУ</strong> в разработке: по аренде, выручке от оказания услуг,
-                        недропользованию</li>
+                    <li><strong>ФСБУ 9/2025 "Доходы"</strong> — обязателен с отчетности за 2027 год, заменил ПБУ 9/99 и
+                        частично ПБУ 2/2008</li>
+                    <li><strong>ФСБУ 10/2026 "Расходы"</strong> — обязателен с отчетности за 2027 год, заменил ПБУ 10/99
+                    </li>
+                    <li><strong>ФСБУ 14/2024 "Нематериальные активы"</strong> — действует, переходный период завершен</li>
                 </ul>
 
                 <div class="alert alert-secondary mt-3">
@@ -289,10 +294,10 @@
                 <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="1" style="filter: grayscale(1);">
             </p>
             <div class="card-body">
-                <h3 class="card-title">Существенно устаревшие Правила и указания</h3>
+                <h3 class="card-title text-danger">Существенно устаревшие Правила и указания</h3>
                 <div class="text_wrapper">
 
-                    <p>Помимо федеральных стандартов для регулирования порядка ведения бухгалтерского учета применяются
+                    <p class="text-danger">Помимо федеральных стандартов для регулирования порядка ведения бухгалтерского учета применяются
                         перечисленные ниже документы, утвержденные Министерством финансов Российской Федерации до 1
                         января 2013 г.</p>
 
@@ -477,130 +482,130 @@
                                 Утверждающий НПА</td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=101061#l10"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=2293"
                                     target="_blank" rel="noopener">План</a> счетов бухгалтерского
                                 учета финансово-хозяйственной деятельности организаций с <a
-                                    href="/document?moduleId=1&amp;documentId=101061#l50" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank"
                                     rel="noopener">Инструкцией</a> по применению</td>
                             <td  width="30%">Приказ Минфина РФ <a
-                                    href="/document?moduleId=1&amp;documentId=101061#l524" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank"
                                     rel="noopener">от 31.10.2000 N
                                     94н</a></td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=11785#l9"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=11785"
                                     target="_blank" rel="noopener">План</a> счетов бухгалтерского
                                 учета финансово-хозяйственной деятельности предприятий и организаций
-                                агропромышленного комплекса с <a href="/document?moduleId=1&amp;documentId=11785#l4238"
+                                агропромышленного комплекса с <a href="https://minfin.gov.ru/ru/document?id_4=11785"
                                     target="_blank" rel="noopener">Методическими рекомендациями</a>
                                 по применению</td>
                             <td  width="30%">Приказ Минсельхоза РФ <a
-                                    href="/document?moduleId=1&amp;documentId=11785#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=11785" target="_blank"
                                     rel="noopener">от 13.06.2001 N
                                     654</a></td>
                         </tr>
                         <tr>
                             <td  width="70%"><a name="l5"></a><a
-                                    href="/document?moduleId=1&amp;documentId=452238#l2611" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
                                     rel="noopener">Единый план</a>
                                 счетов бухгалтерского учета для органов государственной власти
                                 (государственных органов), органов местного самоуправления, органов
                                 управления государственными внебюджетными фондами, государственных
                                 академий наук, государственных (муниципальных) учреждений с <a
-                                    href="/document?moduleId=1&amp;documentId=452238#l2161" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
                                     rel="noopener">Инструкцией</a> по
                                 применению</td>
                             <td  width="30%">Приказ Минфина РФ <a
-                                    href="/document?moduleId=1&amp;documentId=452238#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
                                     rel="noopener">от 01.12.2010 N
                                     157н</a></td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=451227#l2"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=451227"
                                     target="_blank" rel="noopener">План</a> счетов бюджетного учета с
-                                <a href="/document?moduleId=1&amp;documentId=451226#l11" target="_blank"
+                                <a href="https://minfin.gov.ru/ru/document?id_4=451226" target="_blank"
                                     rel="noopener">Инструкцией</a> по
                                 применению
                             </td>
                             <td  width="30%">Приказ Минфина РФ <a
-                                    href="/document?moduleId=1&amp;documentId=451228#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=451228" target="_blank"
                                     rel="noopener">от 06.12.2010 N
                                     162н</a></td>
                         </tr>
                         <tr>
                             <td  width="70%"><a name="l25"></a><a
-                                    href="/document?moduleId=1&amp;documentId=451414#l963" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=451414" target="_blank"
                                     rel="noopener">План</a> счетов
                                 бухгалтерского учета бюджетных учреждений с <a
-                                    href="/document?moduleId=1&amp;documentId=451415#l1143" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=451415" target="_blank"
                                     rel="noopener">Инструкцией</a> по
                                 применению</td>
                             <td  width="30%">Приказ Минфина РФ <a
-                                    href="/document?moduleId=1&amp;documentId=451416#l3" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=451416" target="_blank"
                                     rel="noopener">от 16.12.2010 N
                                     174н</a></td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=452111#l310"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=452111"
                                     target="_blank" rel="noopener">План</a> счетов бухгалтерского
-                                учета автономных учреждений с <a href="/document?moduleId=1&amp;documentId=452110#l704"
+                                учета автономных учреждений с <a href="https://minfin.gov.ru/ru/document?id_4=452110"
                                     target="_blank" rel="noopener">Инструкцией</a> по применению</td>
                             <td  width="30%"><a name="l6"></a>Приказ
-                                Минфина РФ <a href="/document?moduleId=1&amp;documentId=452118#l3" target="_blank"
+                                Минфина РФ <a href="https://minfin.gov.ru/ru/document?id_4=452118" target="_blank"
                                     rel="noopener">от 23.12.2010 N 183н</a></td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=450529#l20"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=450529"
                                     target="_blank" rel="noopener">План</a> счетов казначейского
-                                учета с <a href="/document?moduleId=1&amp;documentId=450529#l35" target="_blank"
+                                учета с <a href="https://minfin.gov.ru/ru/document?id_4=450529" target="_blank"
                                     rel="noopener">Инструкцией</a> по применению</td>
                             <td  width="30%">Приказ Минфина РФ <a
-                                    href="/document?moduleId=1&amp;documentId=450529#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=450529" target="_blank"
                                     rel="noopener">от 30.11.2015 N
                                     184н</a></td>
                         </tr>
                         <tr>
-                            <td  width="70%"><a href="/document?moduleId=1&amp;documentId=489573#l3426"
+                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=489573"
                                     target="_blank" rel="noopener">План</a> счетов
                                 бухгалтерского учета для некредитных финансовых организаций, бюро
                                 кредитных историй, кредитных рейтинговых агентств и <a
-                                    href="/document?moduleId=1&amp;documentId=489573#l341" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
                                     rel="noopener">Порядок</a> применения (документ
-                                <a name="l55"></a>вступает в силу с 01.01.2025 (<a
-                                    href="/document?moduleId=1&amp;documentId=489573#l22" target="_blank"
+                                <a name="l55"></a><span class="text-danger">вступает в силу с 01.01.2025</span> (<a
+                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
                                     rel="noopener">пункт 2</a> Положения))
                             </td>
                             <td  width="30%">Положение ЦБ РФ <a
-                                    href="/document?moduleId=1&amp;documentId=489573#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
                                     rel="noopener">от 01.08.2022 N
                                     803-П</a></td>
                         </tr>
                         <tr>
                             <td  width="70%"><a name="l52"></a><a
-                                    href="/document?moduleId=1&amp;documentId=491219#l23" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
                                     rel="noopener">План</a> счетов
                                 бухгалтерского учета для кредитных организаций с <a
-                                    href="/document?moduleId=1&amp;documentId=491219#l2691" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
                                     rel="noopener">Порядком</a>
                                 применения</td>
                             <td  width="30%">Положение ЦБ РФ <a
-                                    href="/document?moduleId=1&amp;documentId=491219#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
                                     rel="noopener">от 24.11.2022 N
                                     809-П</a></td>
                         </tr>
                         <tr>
                             <td  width="70%"><a name="l7"></a>Рабоий
-                                <a href="/document?moduleId=1&amp;documentId=474619#l7" target="_blank"
+                                <a href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
                                     rel="noopener">план</a> счетов
                                 централизованного бухгалтерскоо учета с <a
-                                    href="/document?moduleId=1&amp;documentId=474619#l2680" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
                                     rel="noopener">Правилами</a>
                                 формирования номера счета бухгалтерского учета, а также порядок внесения
                                 изменений в Рабочий план счетов централизованного бухгалтерского учета в
                                 рамках единой учетной политики при централизации учета
                             </td>
                             <td  width="30%">Приказ Казначейства РФ <a
-                                    href="/document?moduleId=1&amp;documentId=474619#l0" target="_blank"
+                                    href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
                                     rel="noopener">от 07.05.2024 N
                                     2н</a></td>
                         </tr>
@@ -718,7 +723,7 @@
                 <ul>
                     <li>Статья 10 Федерального закона № 402-ФЗ "О бухгалтерском учете"</li>
                     <li>ФСБУ 27/2021 "Документы и документооборот" (введен Приказом Минфина от 25.11.2021 № 193н)</li>
-                    <li>Приказ Минфина России от 30.03.2015 № 52н "Об утверждении форм регистров бухгалтерского учета"
+                    <li class="text-danger">Приказ Минфина России от 30.03.2015 № 52н "Об утверждении форм регистров бухгалтерского учета"
                     </li>
                 </ul>
 
@@ -865,7 +870,7 @@
 
 
                 <br>
-                <p><a href="https://www.gazprom.ru/f/posts/44/479056/gazprom-accounting-report-2024.pdf">Отчетность
+                <p class="text-danger"><a class="text-danger" href="https://www.gazprom.ru/investors/disclosure/reports/2025/">Отчетность
                         Газпрома</a></p>
 
                 <br>
@@ -1080,7 +1085,6 @@
 
 
 
-
             </div>
         </div>
 
@@ -1134,7 +1138,7 @@
                 <p>Учитывают как активы, так и обязательства. Могут иметь два сальдо.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-sm table-bordered">
+                    <table class="table table-sm ">
                         <thead class="table-light">
                             <tr>
                                 <th>Счет</th>
@@ -1220,7 +1224,7 @@
                 <p>Корректируют оценку основных счетов. Уменьшают стоимость активов.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-sm table-bordered">
+                    <table class="table table-sm ">
                         <thead class="table-light">
                             <tr>
                                 <th>Основной счет</th>
@@ -1309,7 +1313,7 @@
                 <p>Принцип "двойной записи" в табличной форме: дебет одного счета = кредиту другого.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-sm text-center">
+                    <table class="table  table-sm text-center">
                         <thead class="table-light">
                             <tr>
                                 <th rowspan="2">Счет кредита →<br>Счет дебета ↓</th>
@@ -1367,7 +1371,7 @@
                 <p>Показывает начальные остатки, обороты и конечные остатки по счетам.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-sm text-center">
+                    <table class="table  table-sm text-center">
                         <thead class="table-light">
                             <tr>
                                 <th>№ счета</th>
@@ -1505,12 +1509,12 @@
 
    Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="../dist/babel.standalone7.27.6.min.js"></script>
 
-    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="../dist/react18.3.1.production.min.js" ></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
 
-    <script src="https://unpkg.com/react-bootstrap@1.6.8/dist/react-bootstrap.min.js" crossorigin></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
 
     <!--   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
