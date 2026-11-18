@@ -1,3 +1,4 @@
+ // ---- mathwithrandomnumber ----
 let quizesSets = [
 
  
@@ -179,6 +180,671 @@ let quizesSets = [
         "answers": ["Размещения (A₅³)"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Размещения</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок ВАЖЕН</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> A₅³ = 5! / (5-3)! = 5! / 2! = <span class='badge badge-success'>60 чисел</span></p></div>"
     },
+
+     // ============================================================
+  //  КОМБИНАТОРИКА
+  // ============================================================
+  {
+    "id": "comb_permutations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно расставить <strong>{var1-10}</strong> различных книг на полке?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки — упорядочиваем все n элементов:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6]
+  },
+  {
+    "id": "comb_arrangements",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Размещения",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Размещения</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько <strong>{= {var1-10} - 2}</strong>-значных чисел можно составить из <strong>{var1-10}</strong> различных цифр без повторений (порядок важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Размещения — выбираем k из n и упорядочиваем:</div>
+    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10} - 2}:</div>
+    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6]
+  },
+  {
+    "id": "comb_combinations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно выбрать <strong>3</strong> книги из <strong>{var1-10}</strong> (порядок не важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания — выбираем k из n, порядок не важен:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
+  {
+    "id": "comb_perm_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько различных слов можно составить из букв «МАМА», если добавить <strong>{= {var1-10} - 4}</strong> различных букв (всего {var1-10} букв: 2 «М», 2 «А» и {= {var1-10} - 4} уникальных)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT(2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки с повторениями — делим на факториалы повторяющихся групп:</div>
+    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!}$$</div>
+    <div class="mt-3 mb-2">Здесь n = {var1-10}, повторяются «М» (2 раза) и «А» (2 раза):</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT(2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6]
+  },
+  {
+    "id": "comb_comb_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько наборов из <strong>3</strong> пирожных можно купить, если есть <strong>{var1-10}</strong> видов (вид можно брать несколько раз)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания с повторениями — «звёзды и перегородки»:</div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+  },
+  {
+    "id": "comb_symmetry",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Симметрия сочетаний",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Симметрия сочетаний</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>C({var1-10}, 2)</strong>. Сравните с C({var1-10}, {= {var1-10} - 2}).</div>
+    <div class="mt-3 mb-2">Введите значение C({var1-10}, 2).</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула сочетаний:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 2:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="mt-3 mb-2">Проверка симметрии: C({var1-10}, {= {var1-10} - 2}) даёт то же число, т.к. <strong>Cₙᵏ = Cₙⁿ⁻ᵏ</strong>.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
+
+    // ============================================================
+  //  ФАКТОРИАЛЫ И ВЫРАЖЕНИЯ С НИМИ
+  // ============================================================
+  {
+    "id": "fact_direct",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Вычисление факториала",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Вычисление факториала</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>{var1-10}!</strong></div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Факториал — произведение всех чисел от 1 до n:</div>
+    <div class="text-center">$$n! = 1 \\cdot 2 \\cdot 3 \\cdots n$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$ {var1-10}! = {= FACT({var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6]
+  },
+  {
+    "id": "fact_div_same",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Отношение факториалов",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Отношение факториалов</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>{var1-10}! / ({= {var1-10} - 2})!</strong></div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / FACT({var1-10} - 2)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Факториалы сокращаются — остаётся произведение двух последних множителей:</div>
+    <div class="text-center">$$\\frac{n!}{(n-2)!} = n \\cdot (n-1)$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 2}! } = {var1-10} \\cdot {= {var1-10} - 1} = {= FACT({var1-10}) / FACT({var1-10} - 2)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 2)}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+  },
+  {
+    "id": "fact_div_by_fact",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Факториал делить на факториал",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Факториал делить на факториал</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>{var1-10}! / ({= {var1-10} - 3})!</strong></div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / FACT({var1-10} - 3)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сокращаем «хвост» (n−3)! в знаменателе:</div>
+    <div class="text-center">$$\\frac{n!}{(n-3)!} = n \\cdot (n-1) \\cdot (n-2)$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 3}! } = {var1-10} \\cdot {= {var1-10} - 1} \\cdot {= {var1-10} - 2} = {= FACT({var1-10}) / FACT({var1-10} - 3)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 3)}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7]
+  },
+  {
+    "id": "fact_zero",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Факториал нуля",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Факториал нуля</div>
+  <div class="card-body">
+    <div class="mb-3">Чему равно <strong>0!</strong>? (Проверьте себя, затем введите ответ.)</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "1 * {var1-10} / {var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">По определению факториала:</div>
+    <div class="text-center">$$0! = 1$$</div>
+    <div class="mt-3 mb-2">Это соглашение нужно, чтобы формулы (например, Cₙ⁰ = 1) работали корректно.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>1</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [1]
+  },
+  {
+    "id": "fact_simplify_product",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Упрощение выражения",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Упрощение выражения</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>({var1-10} + 1)! / {var1-10}!</strong></div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10} + 1) / FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Используем свойство (n+1)! = n! · (n+1):</div>
+    <div class="text-center">$$\\frac{(n+1)!}{n!} = n + 1$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$\\frac{ {= {var1-10} + 1}! }{ {var1-10}! } = {= {var1-10} + 1}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 1}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6, 7]
+  },
+  {
+    "id": "fact_equation",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Найти n из уравнения",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Найти n из уравнения</div>
+  <div class="card-body">
+    <div class="mb-3">Известно, что <strong>n! / (n−2)! = {= {var1-10} * ({var1-10} - 1)}</strong>. Найдите <strong>n</strong>.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Упрощаем левую часть:</div>
+    <div class="text-center">$$\\frac{n!}{(n-2)!} = n(n-1)$$</div>
+    <div class="mt-3 mb-2">Получаем уравнение:</div>
+    <div class="text-center">$$n(n-1) = {= {var1-10} * ({var1-10} - 1)}$$</div>
+    <div class="mt-3 mb-2">Подбором: n = {var1-10}, так как {var1-10} · {= {var1-10} - 1} = {= {var1-10} * ({var1-10} - 1)}.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>n = {var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+  },
+  {
+    "id": "fact_count_zeroes",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Нули в конце факториала",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Нули в конце факториала</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько нулей в конце записи числа <strong>{var1-10}!</strong>?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FLOOR({var1-10} / 5)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Нули в конце дают множители 10 = 2 · 5. Двоек всегда больше, поэтому считаем пятёрки:</div>
+    <div class="text-center">$$\\text{нули} = \\left\\lfloor \\frac{n}{5} \\right\\rfloor + \\left\\lfloor \\frac{n}{25} \\right\\rfloor + \\cdots$$</div>
+    <div class="mt-3 mb-2">Для n = {var1-10} (меньше 25) достаточно первого слагаемого:</div>
+    <div class="text-center">$$\\left\\lfloor \\frac{ {var1-10} }{5} \\right\\rfloor = {= FLOOR({var1-10} / 5)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FLOOR({var1-10} / 5)}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 10, 15, 20]
+  },
+  {
+    "id": "fact_double_factorial_small",
+    "type": "mathwithrandomnumber",
+    "header": "Факториалы",
+    "title": "Произведение чётных чисел",
+    "theme": "Факториал и его свойства",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Произведение чётных чисел</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>2 · 4 · 6 · … · {= 2 * {var1-10}}</strong> (произведение первых {var1-10} чётных чисел).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(2, {var1-10}) * FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Выносим двойку из каждого множителя:</div>
+    <div class="text-center">$$2 \\cdot 4 \\cdot 6 \\cdots (2n) = 2^n \\cdot (1 \\cdot 2 \\cdot 3 \\cdots n) = 2^n \\cdot n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$2^{ {var1-10} } \\cdot {var1-10}! = {= POWER(2, {var1-10})} \\cdot {= FACT({var1-10})} = {= POWER(2, {var1-10}) * FACT({var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10}) * FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5]
+  },
+
+    // ============================================================
+  //  КОМБИНАТОРИКА В КРИПТОГРАФИИ И ИНФОРМАТИКЕ
+  // ============================================================
+  {
+    "id": "crypto_pin_bruteforce",
+    "type": "mathwithrandomnumber",
+    "header": "Криптография",
+    "title": "PIN-код: перебор",
+    "theme": "Комбинаторика в криптографии",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">PIN-код: перебор</div>
+  <div class="card-body">
+    <div class="mb-3">PIN-код банковской карты состоит из <strong>{var1-10}</strong> цифр (каждая от 0 до 9). Сколько существует различных PIN-кодов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(10, {var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">На каждую позицию — 10 вариантов (цифры 0–9), позиции независимы. По правилу произведения:</div>
+    <div class="text-center">$$10 \\cdot 10 \\cdots 10 = 10^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$10^{ {var1-10} } = {= POWER(10, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(10, {var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4]
+  },
+  {
+    "id": "crypto_byte_states",
+    "type": "mathwithrandomnumber",
+    "header": "Информатика",
+    "title": "Байт: число состояний",
+    "theme": "Комбинаторика в информатике",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Байт: число состояний</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько различных значений можно закодировать с помощью <strong>{var1-10}</strong> бит (каждый бит — 0 или 1)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(2, {var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Каждый бит имеет 2 состояния, биты независимы. По правилу произведения:</div>
+    <div class="text-center">$$2 \\cdot 2 \\cdots 2 = 2^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6, 7, 8]
+  },
+  {
+    "id": "crypto_password_letters",
+    "type": "mathwithrandomnumber",
+    "header": "Криптография",
+    "title": "Пароль из букв",
+    "theme": "Комбинаторика в криптографии",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Пароль из букв</div>
+  <div class="card-body">
+    <div class="mb-3">Пароль состоит из <strong>{var1-10}</strong> букв латинского алфавита (26 букв), буквы могут повторяться. Сколько различных паролей существует?</div>
+    <div class="mt-3 mb-2">Ответ округлите до целого числа.</div>
+  </div>
+</div>`,
+    "answer": "ROUND(POWER(26, {var1-10}), 0)",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">На каждую позицию — 26 вариантов, позиции независимы:</div>
+    <div class="text-center">$$26^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$26^{ {var1-10} } = {= POWER(26, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(POWER(26, {var1-10}), 0)}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [1, 2, 3]
+  },
+  {
+    "id": "crypto_ip_subnet",
+    "type": "mathwithrandomnumber",
+    "header": "Информатика",
+    "title": "IP-адреса в подсети",
+    "theme": "Комбинаторика в информатике",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">IP-адреса в подсети</div>
+  <div class="card-body">
+    <div class="mb-3">В подсети для адресов устройств отведено <strong>{var1-10}</strong> бит. Сколько различных адресов можно назначить устройствам?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(2, {var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Каждый бит адреса — 0 или 1, всего комбинаций:</div>
+    <div class="text-center">$$2^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5, 6, 7, 8]
+  },
+
+  // ============================================================
+  //  КОМБИНАТОРИКА В БИОЛОГИИ (ДНК)
+  // ============================================================
+  {
+    "id": "bio_dna_codons",
+    "type": "mathwithrandomnumber",
+    "header": "Биология",
+    "title": "ДНК: число кодонов",
+    "theme": "Комбинаторика в биологии",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">ДНК: число кодонов</div>
+  <div class="card-body">
+    <div class="mb-3">Кодон состоит из <strong>{var1-10}</strong> нуклеотидов. Каждый нуклеотид — один из 4 типов (A, T, G, C). Сколько различных кодонов существует?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(4, {var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">На каждую позицию — 4 варианта, позиции независимы:</div>
+    <div class="text-center">$$4^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(4, {var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [1, 2, 3, 4]
+  },
+  {
+    "id": "bio_dna_sequences",
+    "type": "mathwithrandomnumber",
+    "header": "Биология",
+    "title": "ДНК: число последовательностей",
+    "theme": "Комбинаторика в биологии",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">ДНК: число последовательностей</div>
+  <div class="card-body">
+    <div class="mb-3">Фрагмент ДНК длиной <strong>{var1-10}</strong> нуклеотидов. Сколько различных последовательностей такой длины можно составить (4 типа нуклеотидов)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "POWER(4, {var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Каждая позиция — 4 варианта, всего:</div>
+    <div class="text-center">$$4^{ {var1-10} }$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(4, {var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5]
+  },
+
+  // ============================================================
+  //  КОМБИНАТОРИКА В ЭКОНОМИКЕ И ЛОГИСТИКЕ
+  // ============================================================
+  {
+    "id": "econ_routes",
+    "type": "mathwithrandomnumber",
+    "header": "Логистика",
+    "title": "Маршрут доставки",
+    "theme": "Комбинаторика в экономике",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Маршрут доставки</div>
+  <div class="card-body">
+    <div class="mb-3">Курьер должен посетить <strong>{var1-10}</strong> разных городов, порядок важен. Сколько существует различных маршрутов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Это перестановки — упорядочиваем все n городов:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6]
+  },
+  {
+    "id": "econ_choose_suppliers",
+    "type": "mathwithrandomnumber",
+    "header": "Экономика",
+    "title": "Выбор поставщиков",
+    "theme": "Комбинаторика в экономике",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Выбор поставщиков</div>
+  <div class="card-body">
+    <div class="mb-3">Компания выбирает <strong>2</strong> поставщиков из <strong>{var1-10}</strong> кандидатов (порядок не важен). Сколько вариантов выбора?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок не важен — это сочетания:</div>
+    <div class="text-center">$$C_n^2 = \\frac{n(n-1)}{2}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
+  {
+    "id": "econ_choose_team",
+    "type": "mathwithrandomnumber",
+    "header": "Менеджмент",
+    "title": "Формирование команды",
+    "theme": "Комбинаторика в экономике",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Формирование команды</div>
+  <div class="card-body">
+    <div class="mb-3">Из <strong>{var1-10}</strong> сотрудников нужно выбрать команду из <strong>3</strong> человек (роли не распределены). Сколько вариантов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок не важен — сочетания:</div>
+    <div class="text-center">$$C_n^3 = \\frac{n!}{3!\\,(n-3)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
 
     // =====================================================================
     // ==================== ТЕМА 1.3: Случайные события и операции ====================
@@ -3294,685 +3960,7 @@ let quizesSets = [
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило сложения</h5><p class='mb-1'>Ровно один раз = (П + Пр) ИЛИ (Пр + П).</p><hr class='my-2'><p class='mb-1'>Считаем по ветвям:</p><p class='mb-1'>• П + Пр: $$0.7 \\times 0.2 = 0.14$$</p><p class='mb-1'>• Пр + П: $$0.3 \\times 0.6 = 0.18$$</p><p class='mb-0'>Сумма: $$0.14 + 0.18 = 0.32$$</p></div>"
     },
 
-{
-    id: "excel016_rand",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "МОДА: самое частое значение",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: функция МОДА
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан фрагмент листа Excel с оценками студентов:</div>
-    <svg viewBox="0 0 480 250" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="250" fill="#ffffff" stroke="#adb5bd"/>
 
-      <!-- Заголовки столбцов -->
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <!-- Строки -->
-      <g font-size="13" fill="#1f1f1f">
-        <!-- номера строк -->
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
-
-        <!-- шапка -->
-        <text x="48" y="44">Студент</text>
-        <text x="248" y="44">Оценка</text>
-
-        <!-- данные -->
-        <text x="48" y="70">Анна</text>
-        <text x="248" y="70">{var1-10}</text>
-        <text x="48" y="96">Борис</text>
-        <text x="248" y="96">{= {var1-10} + 5}</text>
-        <text x="48" y="122">Вера</text>
-        <text x="248" y="122">{var1-10}</text>
-        <text x="48" y="148">Глеб</text>
-        <text x="248" y="148">{var1-10}</text>
-        <text x="48" y="174">Даша</text>
-        <text x="248" y="174">{= {var1-10} - 5}</text>
-      </g>
-
-      <!-- Сетка -->
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="182"/>
-        <line x1="240" y1="0" x2="240" y2="182"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-        <line x1="0" y1="182" x2="360" y2="182"/>
-      </g>
-
-      <!-- Строка формул -->
-      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="224" font-size="13" fill="#1f1f1f">=МОДА(B2:B6)</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=МОДА(B2:B6)</code>? Введите только число.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
-    <div class="mt-3 mb-2">Оценки в диапазоне B2:B6:</div>
-    <div class="text-center fs-5 mb-2">
-      {var1-10}, &nbsp; {= {var1-10} + 5}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {= {var1-10} - 5}
-    </div>
-    <div class="mt-3 mb-2">Считаем частоты:</div>
-    <ul class="mb-2">
-      <li>«{var1-10}» — <strong>3 раза</strong></li>
-      <li>«{= {var1-10} + 5}» — 1 раз</li>
-      <li>«{= {var1-10} - 5}» — 1 раз</li>
-    </ul>
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
-  </div>
-</div>`,
-    randomfrom: [10, 15, 20, 25, 30]
-},
-
-{
-    id: "excel020_disp_excel",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "ДИСП.Г: дисперсия по генеральной совокупности",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: функция ДИСП.Г
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
-    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
-
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <g font-size="13" fill="#1f1f1f">
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
-        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
-
-        <text x="48" y="44">Измерение</text>
-        <text x="248" y="44">Значение</text>
-
-        <text x="48" y="70">1</text>
-        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="96">2</text>
-        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="122">3</text>
-        <text x="248" y="122">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="148">4</text>
-        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="174">5</text>
-        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="200">6</text>
-        <text x="248" y="200">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
-      </g>
-
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="208"/>
-        <line x1="240" y1="0" x2="240" y2="208"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-        <line x1="0" y1="182" x2="360" y2="182"/>
-        <line x1="0" y1="208" x2="360" y2="208"/>
-      </g>
-
-      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="250" font-size="13" fill="#1f1f1f">=ДИСП.Г(B2:B7)</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.Г(B2:B7)</code>? Введите только число.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
-    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
-    <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
-    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
-    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
-    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
-    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
-
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
-  </div>
-</div>`,
-    randomfrom: [4, 9, 16, 25]
-},
-
-{
-    id: "excel019_avedev_excel",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "СРОТКЛ: среднее абсолютное отклонение",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: функция СРОТКЛ
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан фрагмент листа Excel с отклонениями показателя:</div>
-    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
-
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <g font-size="13" fill="#1f1f1f">
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
-        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
-
-        <text x="48" y="44">Измерение</text>
-        <text x="248" y="44">Значение</text>
-
-        <text x="48" y="70">1</text>
-        <text x="248" y="70">0</text>
-        <text x="48" y="96">2</text>
-        <text x="248" y="96">0</text>
-        <text x="48" y="122">3</text>
-        <text x="248" y="122">0</text>
-        <text x="48" y="148">4</text>
-        <text x="248" y="148">{= 2 * {var1-10}}</text>
-        <text x="48" y="174">5</text>
-        <text x="248" y="174">{= 2 * {var1-10}}</text>
-        <text x="48" y="200">6</text>
-        <text x="248" y="200">{= 2 * {var1-10}}</text>
-      </g>
-
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="208"/>
-        <line x1="240" y1="0" x2="240" y2="208"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-        <line x1="0" y1="182" x2="360" y2="182"/>
-        <line x1="0" y1="208" x2="360" y2="208"/>
-      </g>
-
-      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="250" font-size="13" fill="#1f1f1f">=СРОТКЛ(B2:B7)</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СРОТКЛ(B2:B7)</code>? Введите только число.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
-    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
-    <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
-    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
-    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
-    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
-    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
-    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
-
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
-  </div>
-</div>`,
-    randomfrom: [2, 3, 4, 5]
-},
-    
-{
-    id: "excel021_dispv_excel",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "ДИСП.В: дисперсия по выборке",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: функция ДИСП.В
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан фрагмент листа Excel с измерениями:</div>
-    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
-
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <g font-size="13" fill="#1f1f1f">
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
-
-        <text x="48" y="44">Измерение</text>
-        <text x="248" y="44">Значение</text>
-
-        <text x="48" y="70">1</text>
-        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="96">2</text>
-        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="122">3</text>
-        <text x="248" y="122">{var1-10}</text>
-
-        <text x="48" y="148">4</text>
-        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
-
-        <text x="48" y="174">5</text>
-        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
-      </g>
-
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="182"/>
-        <line x1="240" y1="0" x2="240" y2="182"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-        <line x1="0" y1="182" x2="360" y2="182"/>
-      </g>
-
-      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="224" font-size="13" fill="#1f1f1f">=ДИСП.В(B2:B6)</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.В(B2:B6)</code>? Введите только число.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
-    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
-    <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
-    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
-    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
-    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
-    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
-    <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
-    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
-
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
-  </div>
-</div>`,
-    randomfrom: [4, 9, 16, 25]
-},
-
-{
-    id: "excel023_cv_excel",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "Коэффициент вариации",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: коэффициент вариации
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
-    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="260" fill="#ffffff" stroke="#adb5bd"/>
-
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <g font-size="13" fill="#1f1f1f">
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-
-        <text x="48" y="44">Измерение</text>
-        <text x="248" y="44">Значение</text>
-
-        <text x="48" y="70">1</text>
-        <text x="248" y="70">{= 100 - {var1-10}}</text>
-
-        <text x="48" y="96">2</text>
-        <text x="248" y="96">{= 100 - {var1-10}}</text>
-
-        <text x="48" y="122">3</text>
-        <text x="248" y="122">{= 100 + {var1-10}}</text>
-
-        <text x="48" y="148">4</text>
-        <text x="248" y="148">{= 100 + {var1-10}}</text>
-      </g>
-
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="156"/>
-        <line x1="240" y1="0" x2="240" y2="156"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-      </g>
-
-      <rect x="0" y="174" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="198" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="198" font-size="13" fill="#1f1f1f">=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</code>? Введите только число (в процентах, без знака %).
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>Коэффициент вариации</strong> — относительная мера разброса:</div>
-    <div class="text-center">$$ CV = \\frac{ \\sigma }{ \\bar{x} } \\cdot 100\\% $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
-    <div class="mb-2">В данных два значения «{= 100 - {var1-10}}» и два значения «{= 100 + {var1-10}}». Симметричные отклонения компенсируются:</div>
-    <div class="text-center">$$ \\bar{x} = \\frac{ {= 100 - {var1-10}} + {= 100 - {var1-10}} + {= 100 + {var1-10}} + {= 100 + {var1-10}} }{4} = 100 $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
-    <div class="text-center">$$ -{var1-10}, \\; -{var1-10}, \\; +{var1-10}, \\; +{var1-10} $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
-    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{= {var1-10} * {var1-10}}</strong>:</div>
-    <div class="text-center">$$ {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}} $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 4. Дисперсия по генеральной совокупности.</strong></div>
-    <div class="text-center">$$ \\sigma^2 = \\frac{ 4 \\cdot {= {var1-10} * {var1-10}} }{4} = {= {var1-10} * {var1-10}} $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 5. Стандартное отклонение.</strong></div>
-    <div class="text-center">$$ \\sigma = \\sqrt{ {= {var1-10} * {var1-10}} } = {var1-10} $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 6. Коэффициент вариации.</strong></div>
-    <div class="text-center">$$ CV = \\frac{ {var1-10} }{ 100 } \\cdot 100\\% = {var1-10}\\% $$</div>
-
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong>%</div>
-  </div>
-</div>`,
-    randomfrom: [5, 10, 15, 20, 25]
-},
-
-{
-    id: "excel024_quartile_excel",
-    type: "mathwithrandomnumber",
-    header: "Excel для устного счёта · Описательная статистика",
-    title: "КВАРТИЛЬ: первый квартиль Q1",
-    theme: "Описательная статистика",
-    text: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Excel: функция КВАРТИЛЬ.ВКЛ
-  </div>
-  <div class="card-body">
-    <div class="mb-3">Дан упорядоченный фрагмент листа Excel:</div>
-    <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
-      <rect x="0" y="0" width="480" height="340" fill="#ffffff" stroke="#adb5bd"/>
-
-      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
-      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
-      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
-
-      <g font-size="13" fill="#1f1f1f">
-        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="182" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="208" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="234" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-        <rect x="0" y="260" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
-
-        <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
-        <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
-        <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
-        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
-        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
-        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
-        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
-        <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
-        <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
-        <text x="20" y="278" text-anchor="middle" fill="#595959">10</text>
-
-        <text x="48" y="44">№</text>
-        <text x="248" y="44">Значение</text>
-
-        <text x="48" y="70">1</text>
-        <text x="248" y="70">{= {var1-10} - 4}</text>
-        <text x="48" y="96">2</text>
-        <text x="248" y="96">{= {var1-10} - 2}</text>
-        <text x="48" y="122">3</text>
-        <text x="248" y="122">{var1-10}</text>
-        <text x="48" y="148">4</text>
-        <text x="248" y="148">{= {var1-10} + 2}</text>
-        <text x="48" y="174">5</text>
-        <text x="248" y="174">{= {var1-10} + 4}</text>
-        <text x="48" y="200">6</text>
-        <text x="248" y="200">{= {var1-10} + 6}</text>
-        <text x="48" y="226">7</text>
-        <text x="248" y="226">{= {var1-10} + 8}</text>
-        <text x="48" y="252">8</text>
-        <text x="248" y="252">{= {var1-10} + 10}</text>
-        <text x="48" y="278">9</text>
-        <text x="248" y="278">{= {var1-10} + 12}</text>
-      </g>
-
-      <g stroke="#d9d9d9">
-        <line x1="40" y1="0" x2="40" y2="286"/>
-        <line x1="240" y1="0" x2="240" y2="286"/>
-        <line x1="0" y1="26" x2="360" y2="26"/>
-        <line x1="0" y1="52" x2="360" y2="52"/>
-        <line x1="0" y1="78" x2="360" y2="78"/>
-        <line x1="0" y1="104" x2="360" y2="104"/>
-        <line x1="0" y1="130" x2="360" y2="130"/>
-        <line x1="0" y1="156" x2="360" y2="156"/>
-        <line x1="0" y1="182" x2="360" y2="182"/>
-        <line x1="0" y1="208" x2="360" y2="208"/>
-        <line x1="0" y1="234" x2="360" y2="234"/>
-        <line x1="0" y1="260" x2="360" y2="260"/>
-        <line x1="0" y1="286" x2="360" y2="286"/>
-      </g>
-
-      <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
-      <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
-      <text x="40" y="328" font-size="13" fill="#1f1f1f">=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</text>
-    </svg>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
-    </div>
-  </div>
-</div>`,
-    answer: "{var1-10}",
-    hint: `
-<div class="card">
-  <div class="card-header bg-success text-white">
-    Решение
-  </div>
-  <div class="card-body">
-    <div class="mb-2"><strong>КВАРТИЛЬ.ВКЛ</strong> — квартиль с включением границ (метод, аналогичный Excel).</div>
-    <div class="text-center">$$ Q_1 = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
-    <div class="text-center">$$ n = 9 $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q1.</strong></div>
-    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 1 + 2 = 3 $$</div>
-
-    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
-    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
-    <div class="text-center">
-      {= {var1-10} - 4}, {= {var1-10} - 2}, <strong>{var1-10}</strong>, {= {var1-10} + 2}, {= {var1-10} + 4}, …
-    </div>
-    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
-
-    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
-  </div>
-</div>`,
-    randomfrom: [10, 15, 20, 25, 30]
-},
 
 // {
 //     id: "excel025_iqr_excel",
@@ -5853,6 +5841,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
           class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
@@ -5882,6 +5871,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
           class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
@@ -5911,6 +5901,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
           class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
@@ -5965,6 +5956,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BC%D0%B5%D0%B4%D0%B8%D0%B0%D0%BD%D0%B0-d0916313-4753-414c-8537-ce85bdd967d2'
           class='link-primary'>МЕДИАНА(MEDIAN) - Находит медиану заданных чисел</a>`,
@@ -5993,6 +5985,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/en-us/office/stdev-s-function-7d69cf97-0c1f-4acf-be27-f3e83904cc23'
          class='link-primary'>СТАНДОТКЛОН(STDEV.S) - Оценивает стандартное отклонение по выборке</a>`,
@@ -6021,6 +6014,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D1%82%D0%BA%D0%BB-8b739616-8376-4df5-8bd0-cfe0a6caf444'
           class='link-primary'>КВАДРОТКЛ(DEVSQ) - Вычисляет сумму квадратов отклонений</a>
@@ -6051,6 +6045,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
           class='link-primary'>=СРОТКЛ =AVEDEV является мерой разброса множества данных</a>`,
@@ -6080,6 +6075,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
           class='link-primary'>СРОТКЛ AVEDEV является мерой разброса множества данных</a>`,
@@ -6108,6 +6104,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
           class='link-primary'>СРОТКЛ AVEDEV является мерой разброса множества данных</a>`,
@@ -6138,6 +6135,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BD%D0%B0%D0%BA%D0%BB%D0%BE%D0%BD-11fb8f97-3117-4813-98aa-61d7e01276b9'
           class='link-primary'>=Наклон =SLOPE</a><br>
@@ -6171,6 +6169,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BE%D1%82%D1%80%D0%B5%D0%B7%D0%BE%D0%BA-2a9b74e2-9d47-4772-b663-3bca70bf63ef'
           class='link-primary'>INTERCEPT ОТРЕЗОК</a>
@@ -6202,6 +6201,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D0%BE%D0%B7-%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D0%BE%D0%B7-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8-linear-50ca49c9-7b40-4892-94e4-7ad38bbeda99'
           class='link-primary'>Функция =ПРОГНОЗ =FORECAST</a>
@@ -6232,6 +6232,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D0%BA%D0%BE%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D1%8F-%D0%B3-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D1%8F-%D0%B3-6f0e1e6d-956d-4e4b-9943-cfef0bf9edfc'
           class='link-primary'>COVARIANCE.P</a>
@@ -6274,6 +6275,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB-995dcef7-0c0a-4bed-a3fb-239d7b68ca92'
           class='link-primary'>
@@ -6312,6 +6314,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB-995dcef7-0c0a-4bed-a3fb-239d7b68ca92'
           class='link-primary'>
@@ -6350,6 +6353,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%B2%D0%BF%D0%B8%D1%80%D1%81%D0%BE%D0%BD-d7161715-250d-4a01-b80d-a8364f2be08f'
           class='link-primary'>
@@ -6383,6 +6387,7 @@ let quizesSets = [
             ["ноябрь", 16, 34, 75],
             ["декабрь", 17, 36, 80],
         ],
+         shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
         hint: `<a
          href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%82%D0%BE%D1%88yx-6ce74b2c-449d-4a6e-b9ac-f9cef5ba48ab'
           class='link-primary'>Функция СТОШYX STEYX 
@@ -6393,6 +6398,510 @@ let quizesSets = [
         answer: "STEYX(D2:D13,B2:B13)",
     },
 
+     {
+            id: "statistics525",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Среднее значение продаж за месяц",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
+            hint: `
+                <div class="card">
+                  <div class="card-header bg-primary text-white">Решение</div>
+                  <div class="card-body">
+                    <div class="mb-2">Формула среднего арифметического:</div>
+                    <div class="text-center">$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$$</div>
+                    <div class="mt-3 mb-2">Подставляем значения столбца «Продажи» (D2:D13):</div>
+                    <div class="text-center">$$\\bar{x} = \\frac{52 + 55 + \\dots + 80}{12}$$</div>
+                    <div class="alert alert-primary mt-3 mb-0">
+                      Ответ: <code>=AVERAGE(D2:D13)</code>
+                    </div>
+                  </div>
+                </div>
+            `,
+            text: "Введите формулу для расчета средних продаж за месяц",
+            answer: "AVERAGE(D2:D13)",
+        },
+        {
+            id: "statistics309",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Ковариация между количеством звонков и продажами",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
+            vars: { "1": 100 },
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула ковариации через моменты:</div>
+    <div class="text-center">$$\\mathrm{Cov}(X, Y) = M(XY) - M(X) \\cdot M(Y)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$\\mathrm{Cov}(X, Y) = {var1-10} - 10 \\cdot 10 = {var1-10} - 100 = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3 mb-0">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+            text: "Введите формулу для расчета ковариации между количеством звонков и продажами",
+            answer: "COVAR(D2:D13,C2:C13)",
+        },
+        {
+            id: "statistics729",
+            header: "Кейс",
+            type: "casewithrandomnumber",
+            title: "Квадрат коэффициента корреляции Пирсона",
+            theme: "Средние величины в статистике",
+            dataArray: [
+                ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+                ["январь", 8, 20, 52], ["февраль", 9, 22, 55], ["март", 10, 18, 53],
+                ["апрель", 11, 25, 60], ["май", 12, 27, 62], ["июнь", 10, 21, 58],
+                ["июль", 13, 29, 65], ["август", 14, 30, 68], ["сентябрь", 13, 26, 66],
+                ["октябрь", 15, 32, 72], ["ноябрь", 16, 34, 75], ["декабрь", 17, 36, 80],
+            ],
+            shortHeaders: ["Месяц", "РБ", "ЗК", "П"], colWidths: [70, 34, 34, 34], 
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Квадрат коэффициента корреляции Пирсона:</div>
+    <div class="text-center">$$R^2 = \\left( \\frac{\\mathrm{Cov}(X,Y)}{\\sigma_X \\sigma_Y} \\right)^2$$</div>
+    <div class="mt-3 mb-2">В Excel — функция <code>КВПИРСОН</code> (RSQ):</div>
+    <div class="text-center">$$R^2 = \\mathrm{RSQ}(y, x)$$</div>
+    <div class="alert alert-primary mt-3 mb-0">
+      Ответ: <code>=RSQ(D2:D13,B2:B13)</code>
+    </div>
+  </div>
+</div>`,
+            text: "Рассчитайте квадрат коэффициента корреляции Пирсона по уравнению регрессии рекламный бюджет и продажи за месяц",
+            answer: "=RSQ(D2:D13,B2:B13)",
+        },
+        {
+            id: "statistics499",
+            type: "multiplechoices",
+            header: "Тест",
+            title: "Статистической зависимостью называется …",
+            theme: "Корреляционно-регрессионный анализ",
+            text: "Статистической зависимостью называется …",
+            choices: [
+                "точная формула, связывающая переменные",
+                "связь переменных без учета воздействия случайных факторов",
+                "связь переменных, на которую накладывается воздействие случайных факторов",
+                "любая связь переменных"
+            ],
+            answers: ["связь переменных, на которую накладывается воздействие случайных факторов"],
+            hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">
+      Различают два вида зависимости:
+    </div>
+    <div class="mb-2">
+      <b>Функциональная</b> — каждому $x$ соответствует ровно один $y$:
+      $$y = f(x)$$
+    </div>
+    <div class="mb-2">
+      <b>Статистическая</b> — каждому $x$ соответствует множество $y$,
+      и связь проявляется «в среднем» с учётом случайных факторов:
+      $$M(Y \\mid X = x) = f(x)$$
+    </div>
+    <div class="alert alert-primary mt-3 mb-0">
+      Ответ: <b>связь переменных, на которую накладывается воздействие
+      случайных факторов</b>
+    </div>
+  </div>
+</div>`,
+        },
+
+       
+{
+    "id": "excel020_disp_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "ДИСП.Г: дисперсия по генеральной совокупности",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.Г
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.Г(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["2", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["3", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["4", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["5", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["6", "{= {var1-10} + POWER({var1-10}, 1/2)}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 110],
+    "sandbox": false
+}
+,
+
+{
+    "id": "excel019_avedev_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "СРОТКЛ: среднее абсолютное отклонение",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция СРОТКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с отклонениями показателя:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СРОТКЛ(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
+    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
+    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "0"],
+      ["2", "0"],
+      ["3", "0"],
+      ["4", "{= 2 * {var1-10}}"],
+      ["5", "{= 2 * {var1-10}}"],
+      ["6", "{= 2 * {var1-10}}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 70],
+    "sandbox": false
+}
+,
+    
+{
+    "id": "excel021_dispv_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "ДИСП.В: дисперсия по выборке",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.В
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с измерениями:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.В(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
+    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
+    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
+    <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
+    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["2", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["3", "{var1-10}"],
+      ["4", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["5", "{= {var1-10} + POWER({var1-10}, 1/2)}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 110],
+    "sandbox": false
+}
+,
+
+{
+    "id": "excel023_cv_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "Коэффициент вариации",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: коэффициент вариации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</code>? Введите только число (в процентах, без знака %).
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>Коэффициент вариации</strong> — относительная мера разброса:</div>
+    <div class="text-center">$$ CV = \\frac{ \\sigma }{ \\bar{x} } \\cdot 100\\% $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= 100 - {var1-10}}» и два значения «{= 100 + {var1-10}}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$ \\bar{x} = \\frac{ {= 100 - {var1-10}} + {= 100 - {var1-10}} + {= 100 + {var1-10}} + {= 100 + {var1-10}} }{4} = 100 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$ -{var1-10}, \\; -{var1-10}, \\; +{var1-10}, \\; +{var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{= {var1-10} * {var1-10}}</strong>:</div>
+    <div class="text-center">$$ {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Дисперсия по генеральной совокупности.</strong></div>
+    <div class="text-center">$$ \\sigma^2 = \\frac{ 4 \\cdot {= {var1-10} * {var1-10}} }{4} = {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Стандартное отклонение.</strong></div>
+    <div class="text-center">$$ \\sigma = \\sqrt{ {= {var1-10} * {var1-10}} } = {var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Коэффициент вариации.</strong></div>
+    <div class="text-center">$$ CV = \\frac{ {var1-10} }{ 100 } \\cdot 100\\% = {var1-10}\\% $$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong>%</div>
+  </div>
+</div>`,
+    "randomfrom": [5, 10, 15, 20, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= 100 - {var1-10}}"],
+      ["2", "{= 100 - {var1-10}}"],
+      ["3", "{= 100 + {var1-10}}"],
+      ["4", "{= 100 + {var1-10}}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 70],
+    "sandbox": false
+},
+
+
+{
+    "id": "excel024_quartile_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "КВАРТИЛЬ: первый квартиль Q1",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция КВАРТИЛЬ.ВКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан набор значений в столбце B:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>КВАРТИЛЬ.ВКЛ</strong> — квартиль с включением границ (метод, аналогичный Excel).</div>
+    <div class="text-center">$$ Q_1 = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
+    <div class="text-center">$$ n = 9 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q1.</strong></div>
+    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 1 + 2 = 3 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
+    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
+    <div class="text-center fs-5 mb-2">
+      {= {var1-10} - 4},&nbsp; {= {var1-10} - 2},&nbsp; <strong>{var1-10}</strong>,&nbsp; {= {var1-10} + 2},&nbsp; {= {var1-10} + 4},&nbsp; {= {var1-10} + 6},&nbsp; {= {var1-10} + 8},&nbsp; {= {var1-10} + 10},&nbsp; {= {var1-10} + 12}
+    </div>
+    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [10, 15, 20, 25, 30],
+    "dataArray": [
+      ["№", "Значение"],
+      ["1", "{= {var1-10} - 4}"],
+      ["2", "{= {var1-10} - 2}"],
+      ["3", "{var1-10}"],
+      ["4", "{= {var1-10} + 2}"],
+      ["5", "{= {var1-10} + 4}"],
+      ["6", "{= {var1-10} + 6}"],
+      ["7", "{= {var1-10} + 8}"],
+      ["8", "{= {var1-10} + 10}"],
+      ["9", "{= {var1-10} + 12}"]
+    ],
+    "shortHeaders": ["№", "Значение"],
+    "colWidths": [40, 80],
+    "sandbox": false
+},
+
+
+ {
+    id: "excel016_rand",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "Excel: функция МОДА",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция МОДА
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с оценками студентов:</div>
+    
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=МОДА(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
+    <div class="mt-3 mb-2">Оценки в диапазоне B2:B6:</div>
+    <div class="text-center fs-5 mb-2">
+      {var1-10}, &nbsp; {= {var1-10} + 5}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {= {var1-10} - 5}
+    </div>
+    <div class="mt-3 mb-2">Считаем частоты:</div>
+    <ul class="mb-2">
+      <li>«{var1-10}» — <strong>3 раза</strong></li>
+      <li>«{= {var1-10} + 5}» — 1 раз</li>
+      <li>«{= {var1-10} - 5}» — 1 раз</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30],
+    dataArray: [
+      ["Студент", "Оценка"],
+      ["Анна",   "{var1-10}"],
+      ["Борис",  "{= {var1-10} + 5}"],
+      ["Вера",   "{var1-10}"],
+      ["Глеб",   "{var1-10}"],
+      ["Даша",   "{= {var1-10} - 5}"]
+    ],
+    shortHeaders: ["Студент", "Оценка"],
+    colWidths:    [110, 70],
+    sandbox: false
+},
 
 
 ];

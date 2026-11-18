@@ -1,0 +1,6400 @@
+let quizesSets = [
+
+ 
+
+      {
+        "id": "fipi_taxi_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Такси",
+        "theme": "Классическое определение вероятности",
+        "text": "В фирме такси свободно 10 машин: 5 чёрных, 1 жёлтая и 4 зелёных. По вызову выехала одна из машин, случайно оказавшаяся ближе всего к заказчику. Найдите вероятность того, что к нему приедет жёлтое такси.",
+        "choices": ["0.1", "0.2", "0.4", "0.5"],
+        "answers": ["0.1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🚕 Классическая вероятность</h5><p class='mb-1'>$$P = \\frac{m}{n}$$</p><hr class='my-2'><p class='mb-1'>Жёлтых: 1. Всего: 10.</p><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
+    },
+    {
+        "id": "fipi_cups_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Чашки",
+        "theme": "Классическое определение вероятности",
+        "text": "У бабушки 20 чашек: 10 с красными цветами, остальные с синими. Бабушка наливает чай в случайно выбранную чашку. Найдите вероятность того, что это будет чашка с синими цветами.",
+        "choices": ["0.1", "0.3", "0.5", "0.7"],
+        "answers": ["0.5"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>☕ Классическая вероятность</h5><p class='mb-1'>Синих: 20 − 10 = 10. Всего: 20.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{10}{20} = 0.5$$</p></div>"
+    },
+    {
+        "id": "fipi_bulbs_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Фонарики",
+        "theme": "Классическое определение вероятности",
+        "text": "В среднем из 100 карманных фонариков, поступивших в продажу, девять неисправных. Найдите вероятность того, что выбранный наудачу фонарик окажется исправен.",
+        "choices": ["0.09", "0.9", "0.91", "0.99"],
+        "answers": ["0.91"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔦 Классическая вероятность</h5><p class='mb-1'>Исправных: 100 − 9 = 91. Всего: 100.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{91}{100} = 0.91$$</p></div>"
+    },
+    {
+        "id": "fipi_skiers_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Лыжники",
+        "theme": "Классическое определение вероятности",
+        "text": "В лыжных гонках участвуют 7 спортсменов из России, 1 из Швеции и 2 из Норвегии. Порядок старта определяется жребием. Найдите вероятность того, что первым будет стартовать спортсмен из Швеции.",
+        "choices": ["0.1", "0.2", "0.3", "0.7"],
+        "answers": ["0.1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⛷️ Классическая вероятность</h5><p class='mb-1'>Всего: 7 + 1 + 2 = 10. Из Швеции: 1.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
+    },
+    {
+        "id": "fipi_pens_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Ручки",
+        "theme": "Классическое определение вероятности",
+        "text": "В магазине 100 ручек: 37 красных, 8 зелёных, 17 фиолетовых, остальные синие и чёрные, их поровну. Найдите вероятность того, что случайно выбранная ручка окажется красной или чёрной.",
+        "choices": ["0.37", "0.46", "0.5", "0.56"],
+        "answers": ["0.56"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🖊️ Классическая вероятность</h5><p class='mb-1'>Остальные: 100 − 37 − 8 − 17 = 38. Порівну: синих 19, чёрных 19.</p><hr class='my-2'><p class='mb-1'>Красных или чёрных: 37 + 19 = 56.</p><p class='mb-0'>$$P = \\frac{56}{100} = 0.56$$</p></div>"
+    },
+
+
+    // =====================================================================
+    // ==================== ТЕМА 1.1: Основные понятия комбинаторики ====================
+    // =====================================================================
+    {
+        "id": "tv_001",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Основной принцип комбинаторики",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Сколько существует способов выбрать один напиток из 5 видов и один десерт из 4 видов?",
+        "choices": ["9", "20", "5", "4"],
+        "answers": ["20"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из первого множества</span> И <span class='badge badge-info'>один элемент из второго множества</span>, количества вариантов перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 5 видов напитка × 4 вида десерта = <span class='badge badge-success'>20 способов</span></p></div>"
+    },
+    {
+        "id": "tv_101",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Правило суммы или произведения?",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Выбор напитка из 3 видов чая и 2 видов кофе. Сколько всего вариантов напитка?",
+        "choices": [
+            "Правило суммы (5 вариантов)",
+            "Правило произведения (6 вариантов)",
+            "Перестановки (120 вариантов)",
+            "Сочетания (10 вариантов)"
+        ],
+        "answers": ["Правило суммы (5 вариантов)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило суммы</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из нескольких непересекающихся множеств</span>, количества вариантов складываются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 вида чая + 2 вида кофе = <span class='badge badge-success'>5 вариантов напитка</span></p></div>"
+    },
+    {
+        "id": "tv_102",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Правило суммы или произведения?",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Выбор напитка (3 вида) и десерта (4 вида). Сколько всего вариантов пары?",
+        "choices": [
+            "Правило суммы (7 вариантов)",
+            "Правило произведения (12 вариантов)",
+            "Перестановки (24 варианта)",
+            "Сочетания (6 вариантов)"
+        ],
+        "answers": ["Правило произведения (12 вариантов)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать последовательно <span class='badge badge-info'>элемент из первого множества</span> И <span class='badge badge-info'>элемент из второго множества</span>, варианты перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 напитка × 4 десерта = <span class='badge badge-success'>12 вариантов пары</span></p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.2: Перестановки, размещения, сочетания ====================
+    // =====================================================================
+    {
+        "id": "tv_002",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Сочетания",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно выбрать 2 книги из 5?",
+        "choices": ["20", "10", "120", "5"],
+        "answers": ["10"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Выбираем <span class='badge badge-info'>неупорядоченный</span> набор элементов. Порядок НЕ важен.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> C₅² = 5! / (2! × 3!) = <span class='badge badge-success'>10 способов</span></p></div>"
+    },
+    {
+        "id": "tv_003",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно расставить 4 книги на полке?",
+        "choices": ["4", "16", "24", "8"],
+        "answers": ["24"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Упорядочиваем <span class='badge badge-info'>все</span> элементы. Порядок ВАЖЕН.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P₄ = 4! = 4×3×2×1 = <span class='badge badge-success'>24 способа</span></p></div>"
+    },
+    {
+        "id": "tv_103",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно расставить 5 книг на полке?",
+        "choices": [
+            "Перестановки (5!)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило суммы"
+        ],
+        "answers": ["Перестановки (5!)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>все элементы участвуют</span> и <span class='badge badge-info'>порядок важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> P₅ = 5! = 5×4×3×2×1 = <span class='badge badge-success'>120 способов</span></p></div>"
+    },
+    {
+        "id": "tv_104",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно выбрать 3 книги из 5 (порядок не важен)?",
+        "choices": [
+            "Перестановки (P₅)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило произведения"
+        ],
+        "answers": ["Сочетания (C₅³)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок НЕ важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> C₅³ = 5! / (3! × 2!) = <span class='badge badge-success'>10 способов</span></p></div>"
+    },
+    {
+        "id": "tv_105",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколько 3-значных чисел можно составить из 5 цифр (порядок важен)?",
+        "choices": [
+            "Перестановки (P₅)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило суммы"
+        ],
+        "answers": ["Размещения (A₅³)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Размещения</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок ВАЖЕН</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> A₅³ = 5! / (5-3)! = 5! / 2! = <span class='badge badge-success'>60 чисел</span></p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.3: Случайные события и операции ====================
+    // =====================================================================
+    {
+        "id": "tv_106",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Тип события",
+        "theme": "Случайные события и операции над ними",
+        "text": "При бросании кубика выпадет число от 1 до 6. Это событие...",
+        "choices": ["Достоверное", "Невозможное", "Случайное", "Зависимое"],
+        "answers": ["Достоверное"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Достоверное событие</h5><p class='mb-1'>Событие, которое <span class='badge badge-info'>происходит всегда</span> в данном эксперименте.</p><hr class='my-2'><p class='mb-0'><strong>Почему?</strong> На кубике только числа 1, 2, 3, 4, 5, 6 — других вариантов нет, значит, это событие <span class='badge badge-success'>обязательно произойдёт</span>.</p></div>"
+    },
+    {
+        "id": "tv_107",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Тип события",
+        "theme": "Случайные события и операции над ними",
+        "text": "При бросании кубика выпадет 7. Это событие...",
+        "choices": ["Достоверное", "Невозможное", "Случайное", "Независимое"],
+        "answers": ["Невозможное"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Невозможное событие</h5><p class='mb-1'>Событие, которое <span class='badge badge-info'>не может произойти</span> в данном эксперименте.</p><hr class='my-2'><p class='mb-0'><strong>Почему?</strong> На кубике нет грани с числом 7, поэтому это событие <span class='badge badge-danger'>никогда не произойдёт</span>.</p></div>"
+    },
+    {
+        "id": "tv_108",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Тип события",
+        "theme": "Случайные события и операции над ними",
+        "text": "При бросании кубика выпадет 5. Это событие...",
+        "choices": ["Достоверное", "Невозможное", "Случайное", "Дополнительное"],
+        "answers": ["Случайное"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Случайное событие</h5><p class='mb-1'>Событие, которое <span class='badge badge-info'>может произойти, а может и не произойти</span>.</p><hr class='my-2'><p class='mb-0'><strong>Почему?</strong> При бросании кубика может выпасть 5, а может выпасть другое число — это <span class='badge badge-warning'>зависит от случая</span>.</p></div>"
+    },
+
+        {
+        "id": "tv_109",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Операции над событиями",
+        "theme": "Случайные события и операции над ними",
+        "text": "Событие 'произошло A или B' — это...",
+        "choices": [
+            "Объединение (A ∪ B)",
+            "Пересечение (A ∩ B)",
+            "Дополнение (¬A)",
+            "Условная вероятность"
+        ],
+        "answers": ["Объединение (A ∪ B)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔗 Объединение событий</h5><p class='mb-1'>Объединение A ∪ B — это событие, которое происходит, когда <span class='badge badge-info'>происходит A ИЛИ B</span>.</p><hr class='my-2'><p class='mb-0'><strong>Ключевое слово:</strong> <span class='badge badge-success'>«ИЛИ»</span> — достаточно, чтобы произошло хотя бы одно из событий.</p></div>"
+    },
+    {
+        "id": "tv_110",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Операции над событиями",
+        "theme": "Случайные события и операции над ними",
+        "text": "Событие 'произошло A и B' — это...",
+        "choices": [
+            "Объединение (A ∪ B)",
+            "Пересечение (A ∩ B)",
+            "Дополнение (¬A)",
+            "Несовместные события"
+        ],
+        "answers": ["Пересечение (A ∩ B)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔗 Пересечение событий</h5><p class='mb-1'>Пересечение A ∩ B — это событие, которое происходит, когда <span class='badge badge-info'>происходит A И B ОДНОВРЕМЕННО</span>.</p><hr class='my-2'><p class='mb-0'><strong>Ключевое слово:</strong> <span class='badge badge-success'>«И»</span> — должны произойти оба события.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.4: Классическое определение ====================
+    // =====================================================================
+    {
+        "id": "tv_004",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Классическая вероятность",
+        "theme": "Классическое и статистическое определение вероятности",
+        "text": "Какова вероятность выпадения чётного числа при бросании игрального кубика?",
+        "choices": ["1/6", "1/3", "1/2", "2/3"],
+        "answers": ["1/2"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎯 Классическая вероятность</h5><p class='mb-1'>P(A) = <span class='badge badge-info'>число благоприятных исходов</span> / <span class='badge badge-info'>общее число исходов</span></p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> Чётные числа на кубике: <span class='badge badge-success'>2, 4, 6</span> (3 исхода). Всего исходов: 6. P = 3/6 = <span class='badge badge-success'>1/2</span></p></div>"
+    },
+    {
+        "id": "tv_111",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Определение вероятности",
+        "theme": "Классическое и статистическое определение вероятности",
+        "text": "Вероятность выпадения орла = 1/2 = 0.5. Это пример...",
+        "choices": [
+            "Классической вероятности",
+            "Статистической вероятности",
+            "Геометрической вероятности",
+            "Условной вероятности"
+        ],
+        "answers": ["Классической вероятности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎯 Классическая вероятность</h5><p class='mb-1'>Используется, когда все исходы <span class='badge badge-info'>равновозможны</span> и их <span class='badge badge-info'>конечное число</span>.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> У монеты 2 равновозможных исхода (орёл/решка), благоприятных — 1, значит P = <span class='badge badge-success'>1/2</span></p></div>"
+    },
+    {
+        "id": "ege004",
+        "type": "multiplechoices",
+        "header": "Теория вероятностей",
+        "title": "Классическая вероятность",
+        "theme": "Классическое и статистическое определение вероятности",
+        "text": "В сборнике билетов по биологии всего 15 билетов, в 9 из них встречается вопрос по разделу «Ботаника». Найдите вероятность того, что в случайно выбранном на экзамене билете школьнику достанется вопрос по разделу «Ботаника».",
+        "choices": ["0.3", "0.4", "0.5", "0.6", "0.7"],
+        "answers": ["0.6"],
+        "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Классическое определение вероятности:</strong> $$P = \\frac{m}{n}$$</p><p>где $$n$$ — общее число исходов, $$m$$ — число благоприятных исходов</p><p>$$n = 15$$ (всего билетов)</p><p>$$m = 9$$ (билетов с ботаникой)</p><p>$$P = \\frac{9}{15} = \\frac{3}{5} = 0.6 = 60\\%$$</p></div></div></div></div></div>`
+    },
+    {
+        "id": "tv_160_prob_classic",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Классическая вероятность (расчёт)",
+        "theme": "Классическое и статистическое определение вероятности",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Классическая вероятность
+  </div>
+  <div class="card-body">
+    <div class="mb-3">В урне <strong>100</strong> шаров, из них <strong>{={var1-10}}</strong> — красные, остальные — синие. Наугад вынимают один шар.</div>
+    <div class="mt-3 mb-2">Какова вероятность (в процентах), что он окажется красным?</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Классическое определение вероятности:</div>
+    <div class="text-center">$$P(A) = \\frac{m}{n}$$</div>
+    <div class="mb-2">где <em>m</em> — число благоприятных исходов, <em>n</em> — общее число исходов.</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$P = \\frac{{var1-10}}{100} = {= {var1-10}/100} = {var1-10}\\%$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}%</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40, 50, 60]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.5: Геометрическая вероятность ====================
+    // =====================================================================
+    {
+        "id": "tv_112",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Определение вероятности",
+        "theme": "Геометрическая вероятность",
+        "text": "Вероятность попадания точки в круг радиуса r внутри круга радиуса R: P = r²/R². Это пример...",
+        "choices": [
+            "Классической вероятности",
+            "Статистической вероятности",
+            "Геометрической вероятности",
+            "Условной вероятности"
+        ],
+        "answers": ["Геометрической вероятности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Геометрическая вероятность</h5><p class='mb-1'>Используется, когда пространство исходов <span class='badge badge-info'>непрерывно</span> (точки, линии, фигуры).</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P(A) = <span class='badge badge-info'>мера области A</span> / <span class='badge badge-info'>мера всей области</span>. Для кругов: P = (πr²)/(πR²) = <span class='badge badge-success'>r²/R²</span></p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.6: Теоремы сложения и умножения ====================
+    // =====================================================================
+    {
+        "id": "tv_005",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Теорема умножения",
+        "theme": "Теоремы сложения и умножения вероятностей",
+        "text": "Какова вероятность выпадения орла дважды подряд при двух бросках монеты?",
+        "choices": ["1/4", "1/2", "1/3", "1"],
+        "answers": ["1/4"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>✖️ Теорема умножения</h5><p class='mb-1'>Для <span class='badge badge-info'>независимых</span> событий: P(A ∩ B) = P(A) × P(B)</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> P(орёл) = 1/2. События независимы. P = 1/2 × 1/2 = <span class='badge badge-success'>1/4</span></p></div>"
+    },
+    {
+        "id": "ege005",
+        "type": "multiplechoices",
+        "header": "Теория вероятностей",
+        "title": "Вероятность независимых событий",
+        "theme": "Теоремы сложения и умножения вероятностей",
+        "text": "В магазине три продавца. Каждый из них занят с клиентом с вероятностью 0,2 независимо от других продавцов. Найдите вероятность того, что в случайный момент времени все три продавца заняты одновременно.",
+        "choices": ["0.008", "0.04", "0.2", "0.4", "0.6"],
+        "answers": ["0.008"],
+        "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Для независимых событий:</strong> $$P(A \\cap B \\cap C) = P(A) \\cdot P(B) \\cdot P(C)$$</p><p>Вероятность, что один продавец занят: $$p = 0.2$$</p><p>События независимы, значит:</p><p>$$P(\\text{все три заняты}) = 0.2 \\cdot 0.2 \\cdot 0.2 = 0.008$$</p><p>Проверка: $$0.2^3 = 0.008$$</p></div></div></div></div></div>`
+    },
+    {
+        "id": "tv_006",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Условная вероятность",
+        "theme": "Условная вероятность и независимость событий",
+        "text": "Из колоды в 36 карт вытягивают одну. Какова вероятность, что это туз, если известно, что это карта красной масти?",
+        "choices": ["1/18", "1/9", "1/36", "1/4"],
+        "answers": ["1/9"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>❓ Условная вероятность</h5><p class='mb-1'>P(B|A) = P(A∩B) / P(A) — вероятность события B при условии, что A уже произошло.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> Красных карт 18, из них тузов 2. P = <span class='badge badge-success'>2/18 = 1/9</span></p></div>"
+    },
+
+        {
+        "id": "tv_163_conditional",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Условная вероятность (расчёт)",
+        "theme": "Условная вероятность и независимость событий",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Условная вероятность
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Известно: <em>P(A)</em> = 0.5, <em>P(A ∩ B)</em> = {= {var1-10}/200}.</div>
+    <div class="mt-3 mb-2">Найдите <em>P(B | A)</em> в процентах.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула условной вероятности:</div>
+    <div class="text-center">$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$P(B|A) = \\frac{{= {var1-10}/200}}{0.5} = \\frac{{var1-10}}{100} = {var1-10}\\%$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}%</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40, 50, 60]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.8: Формула полной вероятности ====================
+    // =====================================================================
+    {
+        "id": "tv_007",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Формула полной вероятности",
+        "theme": "Формула полной вероятности",
+        "text": "На складе 3 поставщика с долями 50%, 30%, 20% и браком 1%, 2%, 3%. Какова общая вероятность брака?",
+        "choices": ["0.5%", "1.7%", "2.0%", "3.0%"],
+        "answers": ["1.7%"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Формула полной вероятности</h5><p class='mb-1'>P(A) = Σ P(Hᵢ) × P(A|Hᵢ) — сумма произведений вероятностей гипотез на условные вероятности.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 0.5×0.01 + 0.3×0.02 + 0.2×0.03 = 0.005 + 0.006 + 0.006 = <span class='badge badge-success'>0.017 = 1.7%</span></p></div>"
+    },
+    {
+        "id": "tv_161_total_prob",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Формула полной вероятности (расчёт)",
+        "theme": "Формула полной вероятности",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Формула полной вероятности
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На складе товар от двух поставщиков. Доли поставок: <strong>50%</strong> и <strong>50%</strong>. Вероятность брака у обоих поставщиков одинакова и равна <strong>{={var1-10}}%</strong>.</div>
+    <div class="mt-3 mb-2">Какова общая вероятность (в процентах) купить бракованный товар?</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула полной вероятности:</div>
+    <div class="text-center">$$P(A) = \\sum_i P(H_i) \\cdot P(A|H_i)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$P(A) = 0.5 \\cdot \\frac{{var1-10}}{100} + 0.5 \\cdot \\frac{{var1-10}}{100} = \\frac{{var1-10}}{100} = {var1-10}\\%$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}%</div>
+  </div>
+</div>`,
+        "randomfrom": [1, 2, 3, 4, 5, 10]
+    },
+
+    
+  {
+    "id": "comb_permutations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно расставить <strong>{var1-10}</strong> различных книг на полке?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10})",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки — упорядочиваем все n элементов:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [3, 4, 5, 6, 7]
+  },
+  {
+    "id": "comb_arrangements",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Размещения",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Размещения</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько <strong>{= {var1-10} - 2}</strong>-значных чисел можно составить из <strong>{var1-10}</strong> различных цифр без повторений (порядок важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Размещения — выбираем k из n и упорядочиваем:</div>
+    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10} - 2}:</div>
+    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+  },
+  {
+    "id": "comb_combinations",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания</div>
+  <div class="card-body">
+    <div class="mb-3">Сколькими способами можно выбрать <strong>3</strong> книги из <strong>{var1-10}</strong> (порядок не важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания — выбираем k из n, порядок не важен:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9]
+  },
+  {
+    "id": "comb_perm_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Перестановки с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Перестановки с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько различных слов можно составить из букв «МАМА», если добавить <strong>{= {var1-10} - 4}</strong> различных букв (всего {var1-10} букв: 2 «М», 2 «А» и {= {var1-10} - 4} уникальных)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT(2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Перестановки с повторениями — делим на факториалы повторяющихся групп:</div>
+    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!}$$</div>
+    <div class="mt-3 mb-2">Здесь n = {var1-10}, повторяются «М» (2 раза) и «А» (2 раза):</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT(2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7]
+  },
+  {
+    "id": "comb_comb_repetition",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Сочетания с повторениями",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сочетания с повторениями</div>
+  <div class="card-body">
+    <div class="mb-3">Сколько наборов из <strong>3</strong> пирожных можно купить, если есть <strong>{var1-10}</strong> видов (вид можно брать несколько раз)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания с повторениями — «звёзды и перегородки»:</div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7]
+  },
+  {
+    "id": "comb_symmetry",
+    "type": "mathwithrandomnumber",
+    "header": "Комбинаторика",
+    "title": "Симметрия сочетаний",
+    "theme": "Перестановки, размещения, сочетания",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Симметрия сочетаний</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>C({var1-10}, 2)</strong>. Сравните с C({var1-10}, {= {var1-10} - 2}).</div>
+    <div class="mt-3 mb-2">Введите значение C({var1-10}, 2).</div>
+  </div>
+</div>`,
+    "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула сочетаний:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 2:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="mt-3 mb-2">Проверка симметрии: C({var1-10}, {= {var1-10} - 2}) даёт то же число, т.к. <strong>Cₙᵏ = Cₙⁿ⁻ᵏ</strong>.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [5, 6, 7, 8, 9, 10]
+  },
+
+
+        // =====================================================================
+    // ==================== ДОСКА ГАЛЬТОНА ====================
+    // =====================================================================
+    {
+        "id": "galton_001_qual",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Что моделирует доска Гальтона?",
+        "theme": "Доска Гальтона",
+        "text": "Какое распределение моделирует доска Гальтона при большом числе шариков?",
+        "choices": [
+            "Равномерное",
+            "Биномиальное (при малом числе рядов) и нормальное (при большом)",
+            "Только распределение Пуассона",
+            "Экспоненциальное"
+        ],
+        "answers": ["Биномиальное (при малом числе рядов) и нормальное (при большом)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Доска Гальтона</h5><p class='mb-1'>Каждое столкновение шарика со штырьком — это <span class='badge badge-info'>испытание Бернулли</span> (влево/вправо с вероятностью 0.5).</p><hr class='my-2'><p class='mb-1'>Число поворотов направо — это <span class='badge badge-info'>число успехов</span> в схеме Бернулли.</p><p class='mb-0'>При малом числе рядов распределение <span class='badge badge-success'>биномиальное</span>, при большом — приближается к <span class='badge badge-success'>нормальному</span> (ЦПТ).</p></div>"
+    },
+    {
+        "id": "galton_002_bernoulli",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Связь со схемой Бернулли",
+        "theme": "Доска Гальтона",
+        "text": "Что соответствует одному столкновению шарика со штырьком в доске Гальтона?",
+        "choices": [
+            "Одно испытание Бернулли",
+            "Одно сочетание C(n,k)",
+            "Одна перестановка",
+            "Один биномиальный коэффициент"
+        ],
+        "answers": ["Одно испытание Бернулли"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Испытание Бернулли</h5><p class='mb-1'>У шарика <span class='badge badge-info'>два исхода</span> при ударе о штырёк: поворот налево или направо.</p><hr class='my-2'><p class='mb-1'>Вероятность каждого — 0.5 (если доска идеальная).</p><p class='mb-0'>Это в точности <span class='badge badge-success'>испытание Бернулли</span> с p = 0.5.</p></div>"
+    },
+    {
+        "id": "galton_003_pascal",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Число путей в ячейку",
+        "theme": "Доска Гальтона",
+        "text": "Если шарик прошёл n рядов штырьков и попал в k-ю ячейку (повернул направо k раз), сколько существует путей, ведущих в эту ячейку?",
+        "choices": [
+            "n!",
+            "C(n, k)",
+            "k!",
+            "(n − k)!"
+        ],
+        "answers": ["C(n, k)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Число путей</h5><p class='mb-1'>Нужно выбрать, <span class='badge badge-info'>в каких k рядах</span> из n шарик повернул направо. Порядок не важен.</p><hr class='my-2'><p class='mb-0'>Это число сочетаний: $$C_n^k = \\binom{n}{k}$$ Именно эти числа образуют <span class='badge badge-success'>треугольник Паскаля</span> на доске Гальтона.</p></div>"
+    },
+    {
+        "id": "galton_004_prob_formula",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Формула вероятности",
+        "theme": "Доска Гальтона",
+        "text": "По какой формуле вычисляется вероятность попадания шарика в k-ю ячейку после n рядов?",
+        "choices": [
+            "P(X = k) = C(n, k) · pᵏ · (1−p)ⁿ⁻ᵏ",
+            "P(X = k) = λᵏ e⁻λ / k!",
+            "P(X = k) = 1 / n",
+            "P(X = k) = k / n"
+        ],
+        "answers": ["P(X = k) = C(n, k) · pᵏ · (1−p)ⁿ⁻ᵏ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Бернулли</h5><p class='mb-1'>Доска Гальтона — это <span class='badge badge-info'>схема Бернулли</span>: n независимых испытаний, в каждом успех (направо) с вероятностью p.</p><hr class='my-2'><p class='mb-0'>Вероятность ровно k успехов: $$P_n(k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}$$ При p = 0.5 формула упрощается до $$C_n^k / 2^n$$</p></div>"
+    },
+    {
+        "id": "galton_005_symmetric",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Симметрия распределения",
+        "theme": "Доска Гальтона",
+        "text": "При p = 0.5 распределение шариков по ячейкам симметрично. Какая ячейка самая вероятная (при чётном n)?",
+        "choices": [
+            "Самая левая",
+            "Самая правая",
+            "Центральная (k = n/2)",
+            "Крайние ячейки равновероятны и максимальны"
+        ],
+        "answers": ["Центральная (k = n/2)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Центральная ячейка</h5><p class='mb-1'>В центральную ячейку ведёт <span class='badge badge-info'>больше всего путей</span> — можно повернуть направо ровно n/2 раз многими способами.</p><hr class='my-2'><p class='mb-0'>При p = 0.5: $$k_0 = \\frac{n}{2}$$ — самая вероятная ячейка. При нечётном n максимум достигается в двух соседних ячейках.</p></div>"
+    },
+    {
+        "id": "galton_006_extreme",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Крайняя ячейка",
+        "theme": "Доска Гальтона",
+        "text": "Почему в крайние ячейки доски Гальтона попадает очень мало шариков?",
+        "choices": [
+            "К ним ведёт только один путь (все повороты в одну сторону)",
+            "Они находятся далеко от входа",
+            "Шарики отскакивают от стенок",
+            "В них слишком мало места"
+        ],
+        "answers": ["К ним ведёт только один путь (все повороты в одну сторону)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Один-единственный путь</h5><p class='mb-1'>Чтобы попасть в самую левую ячейку, шарик должен повернуть налево <span class='badge badge-info'>во всех n рядах</span>.</p><hr class='my-2'><p class='mb-0'>Вероятность этого: $$(0.5)^n$$ — очень мала при больших n. Аналогично для крайней правой. Поэтому «колокол» имеет <span class='badge badge-success'>тонкие хвосты</span>.</p></div>"
+    },
+    {
+        "id": "galton_007_asymmetric",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Смещённая доска",
+        "theme": "Доска Гальтона",
+        "text": "Что произойдёт с распределением шариков, если доска наклонена так, что вероятность поворота направо p = 0.7?",
+        "choices": [
+            "Распределение останется симметричным",
+            "«Колокол» сместится вправо, распределение станет асимметричным",
+            "Шарики перестанут попадать в ячейки",
+            "Все шарики попадут в центральную ячейку"
+        ],
+        "answers": ["«Колокол» сместится вправо, распределение станет асимметричным"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Смещённая доска</h5><p class='mb-1'>Если p ≠ 0.5, то <span class='badge badge-info'>максимум</span> распределения смещается к ячейке с номером ≈ n·p.</p><hr class='my-2'><p class='mb-1'>При p = 0.7 шарики чаще поворачивают направо, значит «горб» смещается <span class='badge badge-info'>вправо</span>.</p><p class='mb-0'>Форма остаётся <span class='badge badge-success'>биномиальной</span>, но становится асимметричной.</p></div>"
+    },
+    {
+        "id": "galton_008_many_balls",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Много шариков",
+        "theme": "Доска Гальтона",
+        "text": "Что произойдёт с гистограммой шариков, если увеличивать их число?",
+        "choices": [
+            "Она станет более гладкой и приблизится к теоретическому распределению",
+            "Она станет хаотичнее",
+            "Все шарики соберутся в одной ячейке",
+            "Она превратится в прямую линию"
+        ],
+        "answers": ["Она станет более гладкой и приблизится к теоретическому распределению"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Закон больших чисел</h5><p class='mb-1'>Чем больше шариков, тем <span class='badge badge-info'>ближе эмпирические частоты</span> к теоретическим вероятностям.</p><hr class='my-2'><p class='mb-0'>Это прямое следствие <span class='badge badge-success'>закона больших чисел</span> (тема 3.2): относительная частота сходится к вероятности.</p></div>"
+    },
+    {
+        "id": "galton_009_normal",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Форма при большом числе рядов",
+        "theme": "Доска Гальтона",
+        "text": "К какой форме стремится гистограмма шариков при увеличении числа рядов штырьков n?",
+        "choices": [
+            "К прямоугольнику",
+            "К треугольнику",
+            "К колоколообразной кривой (нормальное распределение)",
+            "К пиле"
+        ],
+        "answers": ["К колоколообразной кривой (нормальное распределение)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема</h5><p class='mb-1'>Биномиальное распределение при больших n <span class='badge badge-info'>приближается нормальным</span> — это следствие ЦПТ (тема 3.3).</p><hr class='my-2'><p class='mb-0'>Поэтому гистограмма шариков на доске Гальтона при большом числе рядов имеет форму <span class='badge badge-success'>колокола</span>.</p></div>"
+    },
+    {
+        "id": "galton_010_qual_hard",
+        "type": "multiplechoices",
+        "header": "Доска Гальтона",
+        "title": "Число ячеек",
+        "theme": "Доска Гальтона",
+        "text": "Если на доске Гальтона n рядов штырьков, сколько ячеек внизу?",
+        "choices": [
+            "n",
+            "n − 1",
+            "n + 1",
+            "2n"
+        ],
+        "answers": ["n + 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Число ячеек</h5><p class='mb-1'>Номер ячейки определяется числом поворотов направо: k = 0, 1, 2, …, n.</p><hr class='my-2'><p class='mb-0'>Значит, всего возможно <span class='badge badge-success'>n + 1</span> значений (от 0 до n включительно) — столько и ячеек.</p></div>"
+    },
+    {
+        "id": "galton_011_mean",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Математическое ожидание номера ячейки",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: математическое ожидание
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске Гальтона <strong>{={var1-10}*2}</strong> рядов штырьков, вероятность поворота направо p = 0.5. Номер ячейки = число поворотов направо.</div>
+    <div class="mt-3 mb-2">Найдите математическое ожидание номера ячейки <em>M(X) = n·p</em>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для биномиального распределения:</div>
+    <div class="text-center">$$M(X) = n \\cdot p$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$ M(X) = {={var1-10}*2} \cdot 0.5 = {={var1-10}} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{={var1-10}}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40]
+    },
+  {
+    "id": "galton_012_central_prob",
+    "type": "mathwithrandomnumber",
+    "header": "Доска Гальтона",
+    "title": "Вероятность центральной ячейки",
+    "theme": "Доска Гальтона",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: центральная ячейка
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске <strong>{var1-10}</strong> рядов штырьков, p = 0.5. Какова вероятность попасть в центральную ячейку k = {= {var1-10}/2}?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью (округлите до 4 знаков).</div>
+  </div>
+</div>`,
+    "answer": "{= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Формула Бернулли при p = 0.5:</div>
+    <div class="text-center">$$P_n(k) = \\frac{C_n^k}{2^n}$$</div>
+    <div class="mt-3 mb-2">Число сочетаний выражаем через факториалы:</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10}/2}:</div>
+    <div class="text-center">$$P = \\frac{\\frac{ {var1-10}! }{ {= {var1-10}/2}! \\cdot {= {var1-10}/2}! }}{2^{ {var1-10} }} = {= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 4, 6, 8]
+},
+   {
+    "id": "galton_013_paths",
+    "type": "mathwithrandomnumber",
+    "header": "Доска Гальтона",
+    "title": "Число путей в ячейку",
+    "theme": "Доска Гальтона",
+    "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: число путей
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске Гальтона <strong>{var1-10}</strong> рядов. Сколько различных путей ведёт в ячейку k = 2?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+    "answer": "{var1-10}*({var1-10} - 1) / 2",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Число путей = число сочетаний:</div>
+    <div class="text-center">$$C_n^2 = \\frac{n!}{2! \\cdot (n-2)!} = \\frac{n(n-1)}{2}$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= {var1-10} * ({var1-10} - 1) / 2}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * ({var1-10} - 1) / 2}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 5, 6, 7, 8]
+},
+    {
+        "id": "galton_014_extreme_prob",
+        "type": "mathwithrandomnumber",
+        "header": "Доска Гальтона",
+        "title": "Вероятность крайней ячейки",
+        "theme": "Доска Гальтона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Доска Гальтона: крайняя ячейка
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На доске <strong>{var1-10}</strong> рядов, p = 0.5. Какова вероятность попасть в самую левую ячейку (k = 0)?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+        "answer": "ROUND(1 / POWER(2, {var1-10}), 6)",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">В самую левую ячейку ведёт <strong>только один путь</strong> — все повороты налево.</div>
+    <div class="mb-2">Вероятность:</div>
+    <div class="text-center">$$P = (0.5)^{{var1-10}} = \\frac{1}{2^{{var1-10}}} = {= ROUND(1 / POWER(2, {var1-10}), 6)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(1 / POWER(2, {var1-10}), 6)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [3, 4, 5, 6]
+    },
+
+    // =====================================================================
+    // ==================== БИНОМ НЬЮТОНА ====================
+    // =====================================================================
+    {
+        "id": "newton_001_formula",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Формула бинома Ньютона",
+        "theme": "Бином Ньютона",
+        "text": "Какая формула выражает бином Ньютона?",
+        "choices": [
+            "(a+b)ⁿ = Σ C(n,k) · aⁿ⁻ᵏ · bᵏ",
+            "(a+b)ⁿ = aⁿ + bⁿ",
+            "(a+b)ⁿ = n·a·b",
+            "(a+b)ⁿ = a·b·n"
+        ],
+        "answers": ["(a+b)ⁿ = Σ C(n,k) · aⁿ⁻ᵏ · bᵏ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона</h5><p class='mb-1'>Разложение степени суммы через <span class='badge badge-info'>биномиальные коэффициенты</span>:</p><hr class='my-2'><p class='mb-0'>$$(a+b)^n = \\sum_{k=0}^{n} C_n^k \\, a^{n-k} b^k$$ Коэффициенты C(n,k) образуют <span class='badge badge-success'>треугольник Паскаля</span>.</p></div>"
+    },
+    {
+        "id": "newton_002_pascal",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Треугольник Паскаля",
+        "theme": "Бином Ньютона",
+        "text": "Какое правило построения треугольника Паскаля?",
+        "choices": [
+            "Каждое число = сумма двух чисел над ним",
+            "Каждое число = произведение двух чисел над ним",
+            "Все числа равны 1",
+            "Каждое число = предыдущее + 1"
+        ],
+        "answers": ["Каждое число = сумма двух чисел над ним"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Треугольник Паскаля</h5><p class='mb-1'>Главное правило:</p><p class='text-center'>$$C_n^k = C_{n-1}^{k-1} + C_{n-1}^{k}$$</p><hr class='my-2'><p class='mb-0'>Крайние числа всегда <span class='badge badge-info'>1</span>. Внутренние — сумма двух соседних в предыдущей строке.</p></div>"
+    },
+    {
+        "id": "newton_003_sum_row",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Сумма строки Паскаля",
+        "theme": "Бином Ньютона",
+        "text": "Чему равна сумма всех коэффициентов в строке n треугольника Паскаля?",
+        "choices": [
+            "n",
+            "2ⁿ",
+            "n!",
+            "n²"
+        ],
+        "answers": ["2ⁿ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Сумма строки</h5><p class='mb-1'>Подставим в бином Ньютона a = 1, b = 1:</p><p class='text-center'>$$(1+1)^n = \\sum_{k=0}^{n} C_n^k = 2^n$$</p><hr class='my-2'><p class='mb-0'>Это <span class='badge badge-success'>мощная проверка</span> при разложении: сумма коэффициентов всегда 2ⁿ.</p></div>"
+    },
+    {
+        "id": "newton_004_degree2",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)²",
+        "theme": "Бином Ньютона",
+        "text": "Как выглядит разложение (a+b)²?",
+        "choices": [
+            "a² + 2ab + b²",
+            "a² + b²",
+            "a² − 2ab + b²",
+            "a² + ab + b²"
+        ],
+        "answers": ["a² + 2ab + b²"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)²</h5><p class='mb-1'>Коэффициенты: C(2,0)=1, C(2,1)=2, C(2,2)=1.</p><hr class='my-2'><p class='mb-0'>$$(a+b)^2 = a^2 + 2ab + b^2$$ Строка <span class='badge badge-success'>1, 2, 1</span> из треугольника Паскаля.</p></div>"
+    },
+    {
+        "id": "newton_005_degree3",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)³",
+        "theme": "Бином Ньютона",
+        "text": "Какой коэффициент при a²b в разложении (a+b)³?",
+        "choices": ["1", "2", "3", "6"],
+        "answers": ["3"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)³</h5><p class='mb-1'>Строка Паскаля для n = 3:</p><p class='text-center'><span class='badge badge-info'>1, 3, 3, 1</span></p><hr class='my-2'><p class='mb-0'>$$(a+b)^3 = a^3 + 3a^2 b + 3ab^2 + b^3$$ Коэффициент при a²b = <span class='badge badge-success'>3</span>.</p></div>"
+    },
+    {
+        "id": "newton_006_coeff",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Биномиальный коэффициент",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Биномиальный коэффициент
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите коэффициент при a⁴b² в разложении (a+b)⁶ (это C(6, 2)).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "15",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Коэффициент при aⁿ⁻ᵏbᵏ равен C(n,k). Здесь n = 6, k = 2:</div>
+    <div class="text-center">$$C_6^2 = \\frac{6!}{2! \\cdot 4!} = \\frac{6 \\cdot 5}{2} = 15$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>15</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [6]
+    },
+    {
+        "id": "newton_007_row_sum",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Сумма коэффициентов строки",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сумма коэффициентов
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Чему равна сумма всех коэффициентов в разложении (a+b)^{var1-10}?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "POWER(2, {var1-10})",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Подставим a = 1, b = 1:</div>
+    <div class="text-center">$$(1+1)^{{var1-10}} = 2^{{var1-10}} = {= POWER(2, {var1-10})}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [3, 4, 5, 6]
+    },
+    {
+        "id": "newton_008_alternating",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Знакочередующаяся сумма",
+        "theme": "Бином Ньютона",
+        "text": "Чему равна знакочередующаяся сумма C(n,0) − C(n,1) + C(n,2) − … ?",
+        "choices": ["0", "1", "2ⁿ", "n!"],
+        "answers": ["0"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Знакочередующаяся сумма</h5><p class='mb-1'>Подставим в бином Ньютона a = 1, b = −1:</p><p class='text-center'>$$(1 - 1)^n = 0$$</p><hr class='my-2'><p class='mb-0'>Значит, <span class='badge badge-success'>Σ(−1)ᵏ C(n,k) = 0</span> для любого n ≥ 1.</p></div>"
+    },
+    {
+        "id": "newton_009_bernoulli_link",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Связь с Бернулли",
+        "theme": "Бином Ньютона",
+        "text": "Почему сумма всех вероятностей в формуле Бернулли равна 1?",
+        "choices": [
+            "Это следствие бинома Ньютона: (p + (1−p))ⁿ = 1",
+            "Это случайность",
+            "Это следует из нормального распределения",
+            "Это постулат теории вероятностей"
+        ],
+        "answers": ["Это следствие бинома Ньютона: (p + (1−p))ⁿ = 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона ↔ Бернулли</h5><p class='mb-1'>Сумма вероятностей в схеме Бернулли:</p><p class='text-center'>$$\\sum_{k=0}^n C_n^k p^k (1-p)^{n-k}$$</p><hr class='my-2'><p class='mb-1'>По биному Ньютона это:</p><p class='text-center'>$$(p + (1-p))^n = 1^n = 1$$</p><p class='mb-0'>Вот почему вероятности в сумме дают <span class='badge badge-success'>ровно 1</span>.</p></div>"
+    },
+    {
+        "id": "newton_010_pascal_row4",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Строка Паскаля для n = 4",
+        "theme": "Бином Ньютона",
+        "text": "Какая строка треугольника Паскаля соответствует n = 4?",
+        "choices": [
+            "1, 4, 6, 4, 1",
+            "1, 3, 3, 1",
+            "1, 5, 10, 10, 5, 1",
+            "1, 4, 4, 1"
+        ],
+        "answers": ["1, 4, 6, 4, 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Строка n = 4</h5><p class='mb-1'>Считаем по правилу: каждое число = сумма двух над ним.</p><hr class='my-2'><p class='mb-0'>Строка для n = 4: <span class='badge badge-success'>1, 4, 6, 4, 1</span><br>Проверка: 1+4+6+4+1 = 16 = 2⁴ ✓</p></div>"
+    },
+    {
+        "id": "newton_011_specific_term",
+        "type": "mathwithrandomnumber",
+        "header": "Бином Ньютона",
+        "title": "Член разложения",
+        "theme": "Бином Ньютона",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Член разложения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">В разложении (a+b)⁵ найдите коэффициент при a³b².</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+        "answer": "10",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Член aⁿ⁻ᵏbᵏ соответствует коэффициенту C(n,k). Здесь n = 5, k = 2:</div>
+    <div class="text-center">$$C_5^2 = \\frac{5!}{2! \\cdot 3!} = 10$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>10</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [5]
+    },
+    {
+        "id": "newton_012_symmetry",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Симметрия коэффициентов",
+        "theme": "Бином Ньютона",
+        "text": "Почему строка треугольника Паскаля симметрична?",
+        "choices": [
+            "Потому что C(n,k) = C(n,n−k)",
+            "Потому что все коэффициенты равны",
+            "Потому что строка чётная",
+            "Это случайность"
+        ],
+        "answers": ["Потому что C(n,k) = C(n,n−k)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Симметрия</h5><p class='mb-1'>Свойство сочетаний:</p><p class='text-center'>$$C_n^k = C_n^{\\,n-k}$$</p><hr class='my-2'><p class='mb-0'>Выбрать k элементов из n — то же, что <span class='badge badge-info'>оставить n − k</span>. Поэтому строка Паскаля читается одинаково слева и справа.</p></div>"
+    },
+    {
+        "id": "newton_013_degree4_expand",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Разложение (a+b)⁴",
+        "theme": "Бином Ньютона",
+        "text": "Какой коэффициент при a²b² в разложении (a+b)⁴?",
+        "choices": ["4", "6", "8", "12"],
+        "answers": ["6"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 (a+b)⁴</h5><p class='mb-1'>Строка Паскаля для n = 4:</p><p class='text-center'><span class='badge badge-info'>1, 4, 6, 4, 1</span></p><hr class='my-2'><p class='mb-0'>$$(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$$ Коэффициент при a²b² = <span class='badge badge-success'>6</span> = C(4,2).</p></div>"
+    },
+    {
+        "id": "newton_014_binomial_dist_link",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Связь с биномиальным распределением",
+        "theme": "Бином Ньютона",
+        "text": "Почему распределение числа успехов в схеме Бернулли называется биномиальным?",
+        "choices": [
+            "Потому что вероятности — это члены разложения бинома (p + q)ⁿ",
+            "Потому что оно имеет два параметра",
+            "Потому что оно связано с двумя исходами",
+            "Потому что оно бинарное"
+        ],
+        "answers": ["Потому что вероятности — это члены разложения бинома (p + q)ⁿ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Почему «биномиальное»</h5><p class='mb-1'>Вероятности P(X=k) = C(n,k)pᵏqⁿ⁻ᵏ — это <span class='badge badge-info'>члены разложения бинома</span>:</p><p class='text-center'>$$(p+q)^n = \\sum_{k=0}^{n} C_n^k p^k q^{n-k}$$</p><hr class='my-2'><p class='mb-0'>Отсюда и название — <span class='badge badge-success'>биномиальное распределение</span> (от «бином» — двучлен).</p></div>"
+    },
+    {
+        "id": "newton_015_qual_sum",
+        "type": "multiplechoices",
+        "header": "Бином Ньютона",
+        "title": "Проверка разложения",
+        "theme": "Бином Ньютона",
+        "text": "Вы разложили (a+b)⁵ и получили коэффициенты 1, 5, 10, 10, 5, 1. Как быстро проверить, что не ошиблись?",
+        "choices": [
+            "Сумма коэффициентов должна быть 2⁵ = 32",
+            "Сумма коэффициентов должна быть 5",
+            "Коэффициенты должны быть равны",
+            "Первый коэффициент должен быть 5"
+        ],
+        "answers": ["Сумма коэффициентов должна быть 2⁵ = 32"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>✅ Быстрая проверка</h5><p class='mb-1'>Сумма коэффициентов строки n всегда равна 2ⁿ:</p><p class='text-center'>$$1 + 5 + 10 + 10 + 5 + 1 = 32 = 2^5$$</p><hr class='my-2'><p class='mb-0'>Если сумма не равна 2ⁿ — <span class='badge badge-danger'>ошибка в разложении</span>.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.9: Формула Байеса ====================
+    // =====================================================================
+    {
+        "id": "tv_139_bayes_qual",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Формула Байеса: назначение",
+        "theme": "Формула Байеса",
+        "text": "Что позволяет вычислить формула Байеса?",
+        "choices": [
+            "Вероятность события A при условии, что произошло B",
+            "Вероятность гипотезы после того, как произошло событие",
+            "Полную вероятность события",
+            "Вероятность пересечения двух событий"
+        ],
+        "answers": ["Вероятность гипотезы после того, как произошло событие"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Байеса</h5><p class='mb-1'>Позволяет <span class='badge badge-info'>пересчитать вероятности гипотез</span> после того, как стало известно, что событие <em>A</em> произошло.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P(Hᵢ|A) = P(Hᵢ)·P(A|Hᵢ) / P(A). <span class='badge badge-success'>Априорные</span> вероятности превращаются в <span class='badge badge-success'>апостериорные</span>.</p></div>"
+    },
+    {
+        "id": "tv_140_bayes",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Формула Байеса (расчёт)",
+        "theme": "Формула Байеса",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Формула Байеса
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Болезнь встречается у <strong>{={var1-10}}%</strong> людей. Тест у больных показывает болезнь в <strong>90%</strong> случаев, у здоровых ошибочно — в <strong>10%</strong> случаев. Человек прошёл тест, и он оказался <strong>положительным</strong>.</div>
+    <div class="mb-2">Какова вероятность (в %), что человек действительно болен?</div>
+    <div class="text-muted small">Ответ округлите до целого числа процентов.</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND(100 * ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)), 0)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Обозначим: <em>H</em> = «болен», <em>A</em> = «тест положительный».</div>
+    <div class="mb-2">Дано: <em>P(H)</em> = {var1-10}/100, <em>P(A|H)</em> = 0.9, <em>P(A|не H)</em> = 0.1.</div>
+    <div class="mt-3 mb-2">Полная вероятность положительного теста:</div>
+    <div class="text-center">$$P(A) = \\frac{{var1-10}}{100} \\cdot 0.9 + \\frac{{= 100-{var1-10}}}{100} \\cdot 0.1 = {= ({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)}$$</div>
+    <div class="mt-3 mb-2">Формула Байеса:</div>
+    <div class="text-center">$$P(H|A) = \\frac{P(H) \\cdot P(A|H)}{P(A)} = {= ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1))}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(100 * ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)), 0)}%</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40, 50, 60]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.10: Схема Бернулли ====================
+    // =====================================================================
+    {
+        "id": "tv_008",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Формула Бернулли",
+        "theme": "Схема Бернулли. Формула Бернулли",
+        "text": "По какой формуле вычисляется вероятность ровно k успехов в n независимых испытаниях?",
+        "choices": [
+            "Cₙᵏ × pᵏ × (1−p)ⁿ⁻ᵏ",
+            "n! × pᵏ",
+            "pᵏ × (1−p)ⁿ",
+            "k! × p × (1−p)"
+        ],
+        "answers": ["Cₙᵏ × pᵏ × (1−p)ⁿ⁻ᵏ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Бернулли</h5><p class='mb-1'>Вероятность <span class='badge badge-info'>ровно k успехов</span> в n независимых испытаниях.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> Pₙ(k) = <span class='badge badge-info'>Cₙᵏ</span> × <span class='badge badge-info'>pᵏ</span> × <span class='badge badge-info'>(1−p)ⁿ⁻ᵏ</span>, где p — вероятность успеха в одном испытании.</p></div>"
+    },
+    {
+        "id": "tv_162_bernoulli",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Схема Бернулли: сочетания",
+        "theme": "Схема Бернулли. Формула Бернулли",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Схема Бернулли
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Вероятность успеха в одном испытании <strong>p = 0.5</strong>. Проводится <strong>n = {={var1-10}}</strong> независимых испытаний.</div>
+    <div class="mt-3 mb-2">Сколько существует способов выбрать <strong>ровно одно</strong> испытание, в котором произошёл успех? (Найдите <em>C(n, 1)</em>.)</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Число сочетаний из <em>n</em> по 1:</div>
+    <div class="text-center">$$C_n^1 = \\frac{n!}{1! \\cdot (n-1)!} = n$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$C_{{var1-10}}^1 = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [3, 4, 5, 6, 7, 8]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.1: Понятие случайной величины ====================
+    // =====================================================================
+    {
+        "id": "tv_009",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Типы случайных величин",
+        "theme": "Понятие случайной величины",
+        "text": "Какая случайная величина является непрерывной?",
+        "choices": [
+            "Количество выпавших орлов",
+            "Рост человека",
+            "Число очков на кубике",
+            "Количество книг на полке"
+        ],
+        "answers": ["Рост человека"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Непрерывная случайная величина</h5><p class='mb-1'>Принимает <span class='badge badge-info'>любые значения</span> из некоторого промежутка.</p><hr class='my-2'><p class='mb-0'><strong>Примеры:</strong> рост, вес, время, температура. Рост человека может быть 170.5 см, 170.55 см, 170.555 см и т.д. — <span class='badge badge-success'>непрерывная величина</span></p></div>"
+    },
+    {
+        "id": "tv_113",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Тип случайной величины",
+        "theme": "Понятие случайной величины",
+        "text": "Количество выпавших орлов при подбрасывании монеты 10 раз. Это...",
+        "choices": [
+            "Дискретная случайная величина",
+            "Непрерывная случайная величина",
+            "Неслучайная величина",
+            "Постоянная величина"
+        ],
+        "answers": ["Дискретная случайная величина"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Дискретная случайная величина</h5><p class='mb-1'>Принимает <span class='badge badge-info'>конечное или счётное</span> множество значений.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> При 10 бросках может выпасть 0, 1, 2, ..., 10 орлов — всего <span class='badge badge-success'>11 возможных значений</span>, это дискретная величина.</p></div>"
+    },
+
+
+        {
+        "id": "tv_114",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Тип случайной величины",
+        "theme": "Понятие случайной величины",
+        "text": "Рост человека. Это...",
+        "choices": [
+            "Дискретная случайная величина",
+            "Непрерывная случайная величина",
+            "Неслучайная величина",
+            "Постоянная величина"
+        ],
+        "answers": ["Непрерывная случайная величина"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Непрерывная случайная величина</h5><p class='mb-1'>Принимает <span class='badge badge-info'>любые значения</span> из некоторого промежутка.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> Рост может быть 170 см, 170.5 см, 170.55 см и т.д. — <span class='badge badge-success'>непрерывная величина</span></p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.2: Дискретные случайные величины ====================
+    // =====================================================================
+    {
+        "id": "tv_143_discrete",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Ряд распределения",
+        "theme": "Дискретные случайные величины",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Ряд распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан ряд распределения дискретной случайной величины <em>X</em>:</div>
+    <div class="text-center fs-5 mb-2">
+      P(X = 1) = 0.2, &nbsp; P(X = 2) = 0.{var1-10}, &nbsp; P(X = 3) = 0.3
+    </div>
+    <div class="mt-3 mb-2">Найдите недостающую вероятность <em>P</em>(X = 4).</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND(0.5 - {var1-10}/100, 2)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Сумма всех вероятностей в ряду распределения равна 1:</div>
+    <div class="text-center">$$\\sum_i P_i = 1$$</div>
+    <div class="mt-3 mb-2">Складываем известные вероятности:</div>
+    <div class="text-center">$$0.2 + 0.{var1-10} + 0.3 = {= ROUND(0.5 + {var1-10}/100, 2)}$$</div>
+    <div class="mt-3 mb-2">Находим неизвестную:</div>
+    <div class="text-center">$$P(X=4) = 1 - {= ROUND(0.5 + {var1-10}/100, 2)} = {= ROUND(0.5 - {var1-10}/100, 2)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(0.5 - {var1-10}/100, 2)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.3: Непрерывные случайные величины ====================
+    // =====================================================================
+    {
+        "id": "tv_147_continuous_qual",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Непрерывные случайные величины",
+        "theme": "Непрерывные случайные величины",
+        "text": "Какое из следующих утверждений о непрерывной случайной величине верно?",
+        "choices": [
+            "Вероятность любого конкретного значения равна нулю",
+            "Она принимает только целые значения",
+            "Сумма вероятностей всех значений равна 1",
+            "Её нельзя описать функцией распределения"
+        ],
+        "answers": ["Вероятность любого конкретного значения равна нулю"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Непрерывная случайная величина</h5><p class='mb-1'>Принимает <span class='badge badge-info'>любые значения</span> из промежутка. Для неё вероятность отдельной точки равна нулю.</p><hr class='my-2'><p class='mb-0'><strong>Смысл:</strong> говорить можно только о вероятности попадания в <span class='badge badge-success'>интервал</span>: P(a &lt; X &lt; b).</p></div>"
+    },
+    {
+        "id": "tv_148_continuous_pdf",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Плотность vs вероятность",
+        "theme": "Непрерывные случайные величины",
+        "text": "Чему равно значение плотности распределения f(x) в конкретной точке?",
+        "choices": [
+            "Вероятности попасть в эту точку",
+            "Может быть больше 1",
+            "Всегда меньше 1",
+            "Всегда равно 1"
+        ],
+        "answers": ["Может быть больше 1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Плотность f(x)</h5><p class='mb-1'>Плотность — это <span class='badge badge-info'>не вероятность</span>, а «вероятность на единицу длины».</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> f(x) <span class='badge badge-success'>может быть больше 1</span>, если x измеряется в маленьких единицах. Вероятность же всегда ≤ 1.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.4: Функция распределения ====================
+    // =====================================================================
+    {
+        "id": "tv_141_cdf",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Функция распределения",
+        "theme": "Функция распределения и её свойства",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Функция распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Функция распределения случайной величины задана значениями:</div>
+    <div class="text-center fs-5">F(2) = 0.2, &nbsp; F(5) = 0.{var1-10}, &nbsp; F(8) = 0.9</div>
+    <div class="mt-3 mb-2">Найдите вероятность <em>P</em>(5 &lt; <em>X</em> &lt; 8).</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND(0.9 - {var1-10}/100, 2)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Используем свойство функции распределения:</div>
+    <div class="text-center">$$P(a < X < b) = F(b) - F(a)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$P(5 < X < 8) = F(8) - F(5) = 0.9 - 0.{var1-10} = {= ROUND(0.9 - {var1-10}/100, 2)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(0.9 - {var1-10}/100, 2)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [30, 40, 50, 60]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.5: Плотность распределения ====================
+    // =====================================================================
+    {
+        "id": "tv_142_pdf",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Плотность распределения",
+        "theme": "Плотность распределения вероятностей",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Плотность распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Непрерывная случайная величина <em>X</em> имеет постоянную плотность <em>f(x) = c</em> на отрезке <strong>[0; {var1-10}]</strong> и <em>f(x) = 0</em> вне этого отрезка.</div>
+    <div class="mt-3 mb-2">Найдите значение <em>c</em>. Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND(1/{var1-10}, 4)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Используем свойство нормировки плотности:</div>
+    <div class="text-center">$$\\int_{-\\infty}^{+\\infty} f(x)\\,dx = 1$$</div>
+    <div class="mt-3 mb-2">Так как <em>f(x) = 0</em> вне [0; {var1-10}], интеграл сводится к:</div>
+    <div class="text-center">$$\\int_0^{{var1-10}} c\\,dx = c \\cdot {var1-10} = 1$$</div>
+    <div class="mt-3 mb-2">Отсюда:</div>
+    <div class="text-center">$$c = \\frac{1}{{var1-10}} = {= ROUND(1/{var1-10}, 4)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(1/{var1-10}, 4)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [2, 4, 5, 8, 10, 20]
+    },
+    {
+        "id": "tv_164_pdf_area",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Плотность: вероятность попадания",
+        "theme": "Плотность распределения вероятностей",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Плотность распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Случайная величина <em>X</em> равномерно распределена на отрезке <strong>[0; 100]</strong>, то есть <em>f(x) = 0.01</em> на этом отрезке.</div>
+    <div class="mt-3 mb-2">Найдите вероятность <em>P</em>(0 &lt; <em>X</em> &lt; {var1-10}) в процентах.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Вероятность попадания в интервал:</div>
+    <div class="text-center">$$P(a < X < b) = \\int_a^b f(x)\\,dx$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$P(0 < X < {var1-10}) = \\int_0^{{var1-10}} 0.01\\,dx = 0.01 \\cdot {var1-10} = {= {var1-10}/100}$$
+    </div>
+    <div class="mt-3 mb-2">В процентах:</div>
+    <div class="text-center">$$ {={var1-10}/100} \\cdot 100\\% = {var1-10}\\%$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}%</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.6: Математическое ожидание ====================
+    // =====================================================================
+    {
+        "id": "tv_010",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Математическое ожидание",
+        "theme": "Математическое ожидание",
+        "text": "Чему равно математическое ожидание числа очков при бросании кубика?",
+        "choices": ["3", "3.5", "4", "2.5"],
+        "answers": ["3.5"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Математическое ожидание</h5><p class='mb-1'>Среднее значение случайной величины: <span class='badge badge-info'>M(X) = Σ xᵢ × P(xᵢ)</span></p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> (1+2+3+4+5+6)/6 = <span class='badge badge-success'>3.5</span> — это среднее значение, к которому стремится сумма очков при большом числе бросков.</p></div>"
+    },
+    {
+        "id": "tv_115",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Характеристика случайной величины",
+        "theme": "Математическое ожидание",
+        "text": "Среднее значение случайной величины — это...",
+        "choices": [
+            "Дисперсия",
+            "Математическое ожидание",
+            "Среднее квадратическое отклонение",
+            "Мода"
+        ],
+        "answers": ["Математическое ожидание"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Математическое ожидание</h5><p class='mb-1'>Это <span class='badge badge-info'>средневзвешенное значение</span> случайной величины.</p><hr class='my-2'><p class='mb-0'><strong>Обозначение:</strong> M(X) или E(X). Показывает, какое значение в среднем принимает случайная величина <span class='badge badge-success'>при многократном повторении эксперимента</span>.</p></div>"
+    },
+    {
+        "id": "tv_153_expectation_sym",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Математическое ожидание (расчёт)",
+        "theme": "Математическое ожидание",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Математическое ожидание
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дискретная случайная величина <em>X</em> принимает три значения с вероятностями:</div>
+    <div class="text-center fs-5 mb-2">
+      P(X = {= {var1-10} - 2}) = 0.25, &nbsp;
+      P(X = {var1-10}) = 0.5, &nbsp;
+      P(X = {= {var1-10} + 2}) = 0.25
+    </div>
+    <div class="mt-3 mb-2">Найдите математическое ожидание <em>M(X)</em>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула математического ожидания:</div>
+    <div class="text-center">$$M(X) = \\sum_i x_i \\cdot P(x_i)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$M(X) = {= {var1-10} - 2} \\cdot 0.25 + {var1-10} \\cdot 0.5 + {= {var1-10} + 2} \\cdot 0.25$$
+    </div>
+    <div class="text-center mt-2">
+      $$= {= ({var1-10} - 2) * 0.25} + {= {var1-10} * 0.5} + {= ({var1-10} + 2) * 0.25} = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 15, 20, 25, 30]
+    },
+
+        {
+        "id": "tv_014",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Свойства дисперсии",
+        "theme": "Дисперсия и среднее квадратическое отклонение",
+        "text": "Чему равна дисперсия суммы двух независимых случайных величин X и Y?",
+        "choices": [
+            "D(X) + D(Y)",
+            "D(X) − D(Y)",
+            "D(X) × D(Y)",
+            "D(X) / D(Y)"
+        ],
+        "answers": ["D(X) + D(Y)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Свойство дисперсии</h5><p class='mb-1'>Для <span class='badge badge-info'>независимых</span> случайных величин дисперсия суммы равна сумме дисперсий.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> D(X+Y) = <span class='badge badge-success'>D(X) + D(Y)</span>, если X и Y независимы.</p></div>"
+    },
+    {
+        "id": "tv_116",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Характеристика случайной величины",
+        "theme": "Дисперсия и среднее квадратическое отклонение",
+        "text": "Мера разброса случайной величины относительно её среднего значения — это...",
+        "choices": [
+            "Математическое ожидание",
+            "Дисперсия",
+            "Медиана",
+            "Мода"
+        ],
+        "answers": ["Дисперсия"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Дисперсия</h5><p class='mb-1'>Показывает, <span class='badge badge-info'>насколько сильно значения разбросаны</span> относительно среднего.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> D(X) = M(X²) − (M(X))². Чем больше дисперсия, тем <span class='badge badge-success'>больше разброс</span> значений.</p></div>"
+    },
+    {
+        "id": "tv_151_var_sym",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Дисперсия (расчёт)",
+        "theme": "Дисперсия и среднее квадратическое отклонение",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое (симметрия слагаемых):</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ (по три раза каждое)</div>
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">5. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [4, 9, 16, 25]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.8: Биномиальное распределение ====================
+    // =====================================================================
+    {
+        "id": "tv_011",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Биномиальное распределение",
+        "theme": "Биномиальное распределение",
+        "text": "Какие параметры характеризуют биномиальное распределение?",
+        "choices": ["λ", "n и p", "μ и σ²", "a и b"],
+        "answers": ["n и p"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Биномиальное распределение</h5><p class='mb-1'>Задаётся двумя параметрами: <span class='badge badge-info'>n</span> — число испытаний, <span class='badge badge-info'>p</span> — вероятность успеха.</p><hr class='my-2'><p class='mb-0'><strong>Обозначение:</strong> X ~ Bin(n, p). Пример: число орлов при 10 бросках монеты — это <span class='badge badge-success'>Bin(10, 0.5)</span></p></div>"
+    },
+    {
+        "id": "tv_117",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Распределение",
+        "theme": "Биномиальное распределение",
+        "text": "Распределение числа успехов в серии из n независимых испытаний с вероятностью успеха p — это...",
+        "choices": [
+            "Нормальное распределение",
+            "Распределение Пуассона",
+            "Биномиальное распределение",
+            "Равномерное распределение"
+        ],
+        "answers": ["Биномиальное распределение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Биномиальное распределение</h5><p class='mb-1'>Моделирует <span class='badge badge-info'>число успехов</span> в серии независимых испытаний.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P(X=k) = <span class='badge badge-success'>Cₙᵏ pᵏ (1-p)ⁿ⁻ᵏ</span>. Используется, когда есть только два исхода: успех/неудача.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.9: Распределение Пуассона ====================
+    // =====================================================================
+    {
+        "id": "tv_012",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Распределение Пуассона",
+        "theme": "Распределение Пуассона",
+        "text": "В каких случаях используется распределение Пуассона?",
+        "choices": [
+            "Для описания редких событий при большом числе испытаний",
+            "Для нормальных величин",
+            "Для равномерного распределения",
+            "Для непрерывных данных"
+        ],
+        "answers": ["Для описания редких событий при большом числе испытаний"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Распределение Пуассона</h5><p class='mb-1'>Используется для <span class='badge badge-info'>редких событий</span> при большом числе испытаний, когда p мало, а n велико.</p><hr class='my-2'><p class='mb-0'><strong>Примеры:</strong> число вызовов на станцию за час, число ошибок в тексте, число посетителей сайта в минуту — <span class='badge badge-success'>Pois(λ)</span></p></div>"
+    },
+    {
+        "id": "tv_118",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Распределение",
+        "theme": "Распределение Пуассона",
+        "text": "Распределение, используемое для моделирования редких событий при большом числе испытаний — это...",
+        "choices": [
+            "Нормальное распределение",
+            "Распределение Пуассона",
+            "Биномиальное распределение",
+            "Распределение Бернулли"
+        ],
+        "answers": ["Распределение Пуассона"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Распределение Пуассона</h5><p class='mb-1'>Предельный случай биномиального при <span class='badge badge-info'>n→∞</span>, <span class='badge badge-info'>p→0</span>, <span class='badge badge-info'>np=λ</span>.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P(X=k) = <span class='badge badge-success'>λᵏ e⁻λ / k!</span>. Параметр λ — среднее число событий за интервал.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 2.10: Нормальное распределение ====================
+    // =====================================================================
+    {
+        "id": "tv_013",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Нормальное распределение",
+        "theme": "Нормальное распределение",
+        "text": "Какой вид имеет плотность нормального распределения?",
+        "choices": [
+            "Прямоугольник",
+            "Колоколообразная кривая",
+            "Треугольник",
+            "Ступенчатая функция"
+        ],
+        "answers": ["Колоколообразная кривая"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Нормальное распределение</h5><p class='mb-1'>Плотность имеет форму <span class='badge badge-info'>колокола</span> — симметрична относительно среднего.</p><hr class='my-2'><p class='mb-0'><strong>Характеристики:</strong> задаётся параметрами <span class='badge badge-success'>μ</span> (среднее) и <span class='badge badge-success'>σ</span> (СКО). Большинство значений сосредоточено около среднего.</p></div>"
+    },
+    {
+        "id": "tv_119",
+        "type": "multiplechoices",
+        "header": "Тема 2. Случайные величины и их распределения",
+        "title": "Распределение",
+        "theme": "Нормальное распределение",
+        "text": "Распределение, имеющее колоколообразную форму и задаваемое параметрами μ и σ² — это...",
+        "choices": [
+            "Нормальное распределение",
+            "Распределение Пуассона",
+            "Биномиальное распределение",
+            "Распределение Коши"
+        ],
+        "answers": ["Нормальное распределение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Нормальное распределение</h5><p class='mb-1'>Самое распространённое непрерывное распределение. Обозначается <span class='badge badge-info'>N(μ, σ²)</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> по <span class='badge badge-success'>правилу трёх сигм</span> — P(μ−3σ < X < μ+3σ) ≈ 0.997. Почти все значения лежат в интервале [μ−3σ, μ+3σ].</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 3.1: Неравенство Чебышева ====================
+    // =====================================================================
+    {
+        "id": "tv_122",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Неравенство Чебышева",
+        "theme": "Неравенство Чебышева",
+        "text": "Оценка вероятности отклонения случайной величины от её математического ожидания: P(|X-M(X)| ≥ ε) ≤ D(X)/ε² — это...",
+        "choices": [
+            "Закон больших чисел",
+            "Центральная предельная теорема",
+            "Неравенство Чебышева",
+            "Теорема Бернулли"
+        ],
+        "answers": ["Неравенство Чебышева"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Неравенство Чебышева</h5><p class='mb-1'>Даёт <span class='badge badge-info'>верхнюю оценку</span> вероятности того, что случайная величина отклонится от среднего.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P(|X − M(X)| ≥ ε) ≤ <span class='badge badge-success'>D(X) / ε²</span>. Оценка часто завышена, но работает для любых распределений.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 3.2: Закон больших чисел ====================
+    // =====================================================================
+    {
+        "id": "tv_015",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Закон больших чисел",
+        "theme": "Закон больших чисел",
+        "text": "Что утверждает закон больших чисел?",
+        "choices": [
+            "Среднее арифметическое сходится к математическому ожиданию",
+            "Сумма сходится к нормальному распределению",
+            "Дисперсия стремится к нулю",
+            "Вероятность стремится к единице"
+        ],
+        "answers": ["Среднее арифметическое сходится к математическому ожиданию"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>При увеличении числа испытаний <span class='badge badge-info'>среднее арифметическое</span> стремится к <span class='badge badge-info'>математическому ожиданию</span>.</p><hr class='my-2'><p class='mb-0'><strong>Смысл:</strong> чем больше наблюдений, тем точнее оценка. Например, при 1000 бросках монеты доля орлов будет <span class='badge badge-success'>≈ 0.5</span>.</p></div>"
+    },
+
+        {
+        "id": "tv_120",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Закон больших чисел",
+        "theme": "Закон больших чисел",
+        "text": "Утверждение о том, что среднее арифметическое случайных величин сходится к их математическому ожиданию — это...",
+        "choices": [
+            "Закон больших чисел",
+            "Центральная предельная теорема",
+            "Неравенство Чебышева",
+            "Теорема Муавра-Лапласа"
+        ],
+        "answers": ["Закон больших чисел"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Закон больших чисел</h5><p class='mb-1'>(1/n)ΣXᵢ → <span class='badge badge-info'>M(X)</span> при n → ∞ <span class='badge badge-info'>по вероятности</span>.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> обосновывает <span class='badge badge-success'>метод Монте-Карло</span> и практическую оценку вероятностей через частоты.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 3.3: Центральная предельная теорема ====================
+    // =====================================================================
+    {
+        "id": "tv_016",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Центральная предельная теорема",
+        "theme": "Центральная предельная теорема",
+        "text": "К какому распределению стремится сумма большого числа независимых случайных величин?",
+        "choices": [
+            "К биномиальному",
+            "К пуассоновскому",
+            "К нормальному",
+            "К равномерному"
+        ],
+        "answers": ["К нормальному"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема</h5><p class='mb-1'>Сумма большого числа независимых случайных величин имеет распределение, <span class='badge badge-info'>близкое к нормальному</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важность:</strong> объясняет, почему нормальное распределение так часто встречается в природе и <span class='badge badge-success'>в статистике</span>.</p></div>"
+    },
+    {
+        "id": "tv_121",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Центральная предельная теорема",
+        "theme": "Центральная предельная теорема",
+        "text": "Утверждение о том, что сумма большого числа независимых случайных величин имеет распределение, близкое к нормальному — это...",
+        "choices": [
+            "Закон больших чисел",
+            "Центральная предельная теорема",
+            "Неравенство Чебышева",
+            "Теорема Пуассона"
+        ],
+        "answers": ["Центральная предельная теорема"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Центральная предельная теорема (ЦПТ)</h5><p class='mb-1'><span class='badge badge-info'>Ключевой результат</span> теории вероятностей.</p><hr class='my-2'><p class='mb-0'><strong>Значение:</strong> позволяет <span class='badge badge-success'>использовать нормальное распределение</span> для приближённых вычислений даже когда исходные распределения неизвестны.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 3.4: Теоремы Муавра-Лапласа ====================
+    // =====================================================================
+    {
+        "id": "tv_144_moivre",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Теорема Муавра-Лапласа",
+        "theme": "Теоремы Муавра-Лапласа",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Локальная теорема Муавра-Лапласа
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Проводится <strong>n = 100</strong> независимых испытаний с вероятностью успеха <strong>p = 0.5</strong>. Наблюдается ровно <strong>k = {= 50 + {var1-10}}</strong> успехов.</div>
+    <div class="mt-3 mb-2">Найдите стандартизированное значение <em>x</em> для локальной теоремы Муавра-Лапласа:</div>
+    <div class="text-center">$$x = \\frac{k - np}{\\sqrt{npq}}$$</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND({var1-10}/5, 2)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Дано: <em>n</em> = 100, <em>p</em> = 0.5, <em>q</em> = 0.5, <em>k</em> = {= 50 + {var1-10}}.</div>
+    <div class="mt-3 mb-2">Считаем <em>np</em> и <em>√(npq)</em>:</div>
+    <div class="text-center">$$np = 100 \\cdot 0.5 = 50, \\quad \\sqrt{npq} = \\sqrt{100 \\cdot 0.5 \\cdot 0.5} = 5$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$x = \\frac{{= 50 + {var1-10}} - 50}{5} = \\frac{{var1-10}}{5} = {= ROUND({var1-10}/5, 2)}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND({var1-10}/5, 2)}</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [5, 10, 15, 20]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 3.5: Сходимость ====================
+    // =====================================================================
+    {
+        "id": "tv_149_convergence_prob",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Сходимость по вероятности",
+        "theme": "Сходимость по вероятности и по распределению",
+        "text": "Что означает сходимость последовательности случайных величин Xₙ → X по вероятности?",
+        "choices": [
+            "Xₙ совпадает с X при всех n",
+            "Для любого ε > 0 вероятность P(|Xₙ − X| ≥ ε) → 0",
+            "Функции распределения Xₙ сходятся к F(x)",
+            "Математические ожидания Xₙ сходятся к M(X)"
+        ],
+        "answers": ["Для любого ε > 0 вероятность P(|Xₙ − X| ≥ ε) → 0"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Сходимость по вероятности</h5><p class='mb-1'>Xₙ → X <span class='badge badge-info'>по вероятности</span>, если вероятность больших отклонений стремится к нулю.</p><hr class='my-2'><p class='mb-0'><strong>Формально:</strong> ∀ ε &gt; 0: P(|Xₙ − X| ≥ ε) → 0 при n → ∞. Это <span class='badge badge-success'>более сильный</span> вид сходимости, чем сходимость по распределению.</p></div>"
+    },
+    {
+        "id": "tv_149b_convergence_dist",
+        "type": "multiplechoices",
+        "header": "Тема 3. Предельные теоремы и закон больших чисел",
+        "title": "Сходимость по распределению",
+        "theme": "Сходимость по вероятности и по распределению",
+        "text": "Сходимость по распределению Xₙ → X означает, что:",
+        "choices": [
+            "Значения Xₙ стремятся к значениям X",
+            "Функции распределения Fₙ(x) → F(x) во всех точках непрерывности F",
+            "Дисперсии Xₙ стремятся к дисперсии X",
+            "Xₙ и X независимы"
+        ],
+        "answers": ["Функции распределения Fₙ(x) → F(x) во всех точках непрерывности F"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Сходимость по распределению</h5><p class='mb-1'>Xₙ → X <span class='badge badge-info'>по распределению</span>, если функции распределения сходятся поточечно.</p><hr class='my-2'><p class='mb-0'><strong>Связь:</strong> из сходимости по вероятности <span class='badge badge-success'>следует</span> сходимость по распределению. Обратное в общем случае неверно. ЦПТ — пример сходимости по распределению.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.1: Генеральная совокупность и выборка ====================
+    // =====================================================================
+    {
+        "id": "tv_145_sample",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Генеральная совокупность и выборка",
+        "theme": "Генеральная совокупность и выборка",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Выборка
+  </div>
+  <div class="card-body">
+    <div class="mb-3">В генеральной совокупности <strong>{var1-10}00</strong> объектов. Для исследования случайным образом отобрали <strong>{= {var1-10} * 5}</strong> объектов.</div>
+    <div class="mt-3 mb-2">Какой процент генеральной совокупности составляет выборка?</div>
+  </div>
+</div>`,
+        "answer": "{= ROUND({var1-10} * 5 / ({var1-10} * 100) * 100, 2)}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Объём генеральной совокупности: <em>N</em> = {var1-10}00</div>
+    <div class="mb-2">Объём выборки: <em>n</em> = {= {var1-10} * 5}</div>
+    <div class="mt-3 mb-2">Доля выборки:</div>
+    <div class="text-center">$$\\frac{n}{N} \\cdot 100\\% = \\frac{{= {var1-10} * 5}}{{var1-10}00} \\cdot 100\\% = {= ROUND({var1-10} * 5 / ({var1-10} * 100) * 100, 2)}\\%$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND({var1-10} * 5 / ({var1-10} * 100) * 100, 2)}%</strong></div>
+  </div>
+</div>`,
+        "randomfrom": [1, 2, 3, 4, 5]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.2: Вариационные ряды ====================
+    // =====================================================================
+    {
+        "id": "tv_146_range",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Размах вариации",
+        "theme": "Вариационные ряды и гистограммы",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Размах вариации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан вариационный ряд значений:</div>
+    <div class="text-center fs-5 mb-2">
+      0, &nbsp; 5, &nbsp; {= {var1-10} / 2}, &nbsp; {var1-10}
+    </div>
+    <div class="mt-3 mb-2">Найдите размах вариации <em>R</em> = <em>x</em><sub>max</sub> − <em>x</em><sub>min</sub>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Наименьшее значение: <em>x</em><sub>min</sub> = 0</div>
+    <div class="mb-2">Наибольшее значение: <em>x</em><sub>max</sub> = {var1-10}</div>
+    <div class="mt-3 mb-2">Размах:</div>
+    <div class="text-center">$$R = x_{max} - x_{min} = {var1-10} - 0 = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 15, 20, 25, 30]
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.3: Числовые характеристики выборки ====================
+    // =====================================================================
+    {
+        "id": "tv_017",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочное среднее",
+        "theme": "Числовые характеристики выборки",
+        "text": "Как вычисляется выборочное среднее?",
+        "choices": [
+            "Сумма всех значений / количество значений",
+            "Произведение всех значений",
+            "Максимальное значение",
+            "Медиана"
+        ],
+        "answers": ["Сумма всех значений / количество значений"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Выборочное среднее</h5><p class='mb-1'>Оценка математического ожидания по выборке: <span class='badge badge-info'>x̄ = (1/n) Σ xᵢ</span></p><hr class='my-2'><p class='mb-0'><strong>Свойства:</strong> несмещённая и состоятельная оценка. Чем больше выборка, тем <span class='badge badge-success'>точнее оценка</span> среднего.</p></div>"
+    },
+
+        {
+        "id": "tv_130",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочные характеристики",
+        "theme": "Числовые характеристики выборки",
+        "text": "Наиболее часто встречающееся значение в выборке — это...",
+        "choices": ["Среднее", "Медиана", "Мода", "Дисперсия"],
+        "answers": ["Мода"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Мода</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>встречается чаще всего</span> в выборке.</p><hr class='my-2'><p class='mb-0'><strong>Пример:</strong> в выборке 1, 2, 2, 3, 4 мода = <span class='badge badge-success'>2</span>. Может быть несколько мод (мультимодальное распределение).</p></div>"
+    },
+    {
+        "id": "tv_131",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Выборочные характеристики",
+        "theme": "Числовые характеристики выборки",
+        "text": "Среднее значение в упорядоченном ряду данных — это...",
+        "choices": ["Среднее арифметическое", "Медиана", "Мода", "Дисперсия"],
+        "answers": ["Медиана"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Медиана</h5><p class='mb-1'>Значение, которое <span class='badge badge-info'>делит упорядоченный ряд пополам</span>.</p><hr class='my-2'><p class='mb-0'><strong>Особенность:</strong> устойчива к выбросам. В выборке 1, 2, 3, 100, 200 медиана = <span class='badge badge-success'>3</span>, а среднее сильно завышено.</p></div>"
+    },
+    {
+        "id": "tv_155_mode",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Мода (расчёт)",
+        "theme": "Числовые характеристики выборки",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Мода
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дана выборка:</div>
+    <div class="text-center fs-5 mb-2">
+      2, &nbsp; 7, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; 9, &nbsp; 3
+    </div>
+    <div class="mt-3 mb-2">Найдите моду выборки.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Мода — это значение, которое встречается в выборке чаще всего.</div>
+    <div class="mt-3 mb-2">Подсчитаем частоты:</div>
+    <div class="text-center">
+      2 — 1 раз, 7 — 1 раз, 9 — 1 раз, 3 — 1 раз,<br>
+      <strong>{var1-10} — 3 раза</strong>
+    </div>
+    <div class="mt-3 mb-2">Наибольшая частота — у значения {var1-10}.</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 15, 20, 25, 30]
+    },
+    {
+        "id": "tv_156_median",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Медиана (расчёт)",
+        "theme": "Числовые характеристики выборки",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Медиана
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан упорядоченный вариационный ряд:</div>
+    <div class="text-center fs-5 mb-2">
+      {= {var1-10} - 8}, &nbsp; {= {var1-10} - 3}, &nbsp; {var1-10}, &nbsp; {= {var1-10} + 4}, &nbsp; {= {var1-10} + 11}
+    </div>
+    <div class="mt-3 mb-2">Найдите медиану.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">В ряду <strong>5 чисел</strong> (нечётное количество). Медиана — это <strong>центральный элемент</strong>, то есть 3-й по счёту.</div>
+    <div class="mt-3 mb-2">Ряд уже упорядочен по возрастанию:</div>
+    <div class="text-center">
+      {= {var1-10} - 8} &lt; {= {var1-10} - 3} &lt; <strong>{var1-10}</strong> &lt; {= {var1-10} + 4} &lt; {= {var1-10} + 11}
+    </div>
+    <div class="mt-3 mb-2">Центральный (3-й) элемент — это {var1-10}.</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [20, 25, 30, 35, 40]
+    },
+    {
+        "id": "statistics542",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистическая оценка",
+        "theme": "Числовые характеристики выборки",
+        "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
+        "answers": ["Среднего арифметического"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> x̄ = (x₁ + x₂ + … + xₙ) / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма всех значений</span>, в знаменателе — <span class='badge badge-info'>количество значений</span>.</p><p class='mb-0'>Это формула <span class='badge badge-success'>среднего арифметического</span>.</p></div>"
+    },
+    {
+        "id": "statistics543",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Описательная статистика",
+        "theme": "Числовые характеристики выборки",
+        "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+        "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
+        "answers": ["Медианы"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Me = (x_{n/2} + x_{n/2+1}) / 2.</p><hr class='my-2'><p class='mb-1'>Формула берёт <span class='badge badge-info'>два центральных элемента</span> упорядоченного ряда и делит их сумму на 2.</p><p class='mb-0'>Это <span class='badge badge-success'>медиана</span> для чётного количества наблюдений.</p></div>"
+    },
+    {
+        "id": "statistics551",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Количественная оценка",
+        "theme": "Числовые характеристики выборки",
+        "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
+        "answers": ["Первого квартиля (25-го процентиля)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Q1 = x₀.₂₅.</p><hr class='my-2'><p class='mb-1'>Q1 — <span class='badge badge-info'>первый квартиль</span>, x₀.₂₅ — <span class='badge badge-info'>25-й процентиль</span>.</p><p class='mb-0'>Это значение, ниже которого находятся <span class='badge badge-success'>25% данных</span>.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.4: Точечные оценки параметров ====================
+    // =====================================================================
+    {
+        "id": "tv_018",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Несмещённость оценки",
+        "theme": "Точечные оценки параметров",
+        "text": "Какая оценка называется несмещённой?",
+        "choices": [
+            "M(θ̂) = θ",
+            "θ̂ → θ при n→∞",
+            "D(θ̂) минимальна",
+            "θ̂ является константой"
+        ],
+        "answers": ["M(θ̂) = θ"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Несмещённая оценка</h5><p class='mb-1'>Оценка, у которой <span class='badge badge-info'>математическое ожидание равно оцениваемому параметру</span>.</p><hr class='my-2'><p class='mb-0'><strong>Свойство:</strong> M(θ̂) = θ. Пример: выборочное среднее — <span class='badge badge-success'>несмещённая оценка</span> для математического ожидания.</p></div>"
+    },
+    {
+        "id": "tv_123",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Оценка параметров",
+        "theme": "Точечные оценки параметров",
+        "text": "Оценка, математическое ожидание которой равно оцениваемому параметру — это...",
+        "choices": [
+            "Несмещённая оценка",
+            "Состоятельная оценка",
+            "Эффективная оценка",
+            "Метод моментов"
+        ],
+        "answers": ["Несмещённая оценка"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Несмещённая оценка</h5><p class='mb-1'>Важное свойство хорошей оценки: <span class='badge badge-info'>отсутствие систематической ошибки</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> в отличие от состоятельности (сходимость при n→∞), несмещённость — <span class='badge badge-success'>свойство при любом объёме выборки</span>.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.5: Метод моментов ====================
+    // =====================================================================
+    {
+        "id": "tv_125",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Метод оценивания",
+        "theme": "Метод моментов",
+        "text": "Метод, основанный на приравнивании теоретических и выборочных моментов — это...",
+        "choices": [
+            "Метод моментов",
+            "Метод максимального правдоподобия",
+            "Метод наименьших квадратов",
+            "Метод доверительных интервалов"
+        ],
+        "answers": ["Метод моментов"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Метод моментов</h5><p class='mb-1'>Приравниваем <span class='badge badge-info'>теоретические моменты</span> к <span class='badge badge-info'>выборочным моментам</span>.</p><hr class='my-2'><p class='mb-0'><strong>Алгоритм:</strong> 1) вычисляем выборочные моменты; 2) записываем теоретические как функции параметров; 3) решаем систему. <span class='badge badge-success'>Простой, но не всегда эффективный</span> метод.</p></div>"
+    },
+
+        {
+        "id": "tv_021",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Метод максимального правдоподобия",
+        "theme": "Метод максимального правдоподобия",
+        "text": "В чём суть метода максимального правдоподобия?",
+        "choices": [
+            "Найти параметры, при которых данные наиболее вероятны",
+            "Найти среднее значение выборки",
+            "Построить гистограмму",
+            "Проверить гипотезу о нормальности"
+        ],
+        "answers": ["Найти параметры, при которых данные наиболее вероятны"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Метод максимального правдоподобия (ММП)</h5><p class='mb-1'>Находит параметры, <span class='badge badge-info'>максимизирующие функцию правдоподобия</span>.</p><hr class='my-2'><p class='mb-0'><strong>Функция:</strong> L(θ) = Π f(xᵢ; θ). ММП — <span class='badge badge-success'>основной метод оценивания</span> в статистике, обладает хорошими свойствами.</p></div>"
+    },
+    {
+        "id": "tv_124",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Оценка параметров",
+        "theme": "Метод максимального правдоподобия",
+        "text": "Метод оценивания, основанный на максимизации функции L(θ) = Π f(xᵢ; θ) — это...",
+        "choices": [
+            "Метод моментов",
+            "Метод максимального правдоподобия",
+            "Метод наименьших квадратов",
+            "Байесовский метод"
+        ],
+        "answers": ["Метод максимального правдоподобия"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Метод максимального правдоподобия</h5><p class='mb-1'>Широко используется в <span class='badge badge-info'>машинном обучении</span> и статистике.</p><hr class='my-2'><p class='mb-0'><strong>Преимущества:</strong> асимптотически несмещённые и <span class='badge badge-success'>эффективные оценки</span>. Недостаток: может требовать сложных вычислений.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.7: Доверительные интервалы ====================
+    // =====================================================================
+    {
+        "id": "tv_019",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Доверительный интервал",
+        "theme": "Доверительные интервалы",
+        "text": "Для чего используется доверительный интервал?",
+        "choices": [
+            "Для точечной оценки параметра",
+            "Для интервальной оценки параметра с заданной вероятностью",
+            "Для проверки гипотез",
+            "Для построения гистограммы"
+        ],
+        "answers": ["Для интервальной оценки параметра с заданной вероятностью"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Доверительный интервал</h5><p class='mb-1'>Даёт <span class='badge badge-info'>интервал</span>, который с заданной вероятностью <span class='badge badge-info'>содержит истинный параметр</span>.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> x̄ ± z(α/2) × σ/√n. Чем выше доверительная вероятность, тем <span class='badge badge-success'>шире интервал</span>.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.8: Проверка гипотез ====================
+    // =====================================================================
+    {
+        "id": "tv_128",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Проверка гипотез",
+        "theme": "Проверка статистических гипотез",
+        "text": "Вероятность ошибки I рода (отклонить верную нулевую гипотезу) — это...",
+        "choices": [
+            "Уровень значимости α",
+            "p-значение",
+            "Мощность критерия",
+            "Доверительная вероятность"
+        ],
+        "answers": ["Уровень значимости α"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Уровень значимости α</h5><p class='mb-1'>Вероятность <span class='badge badge-danger'>ошибки I рода</span> — отклонить H₀, когда она верна.</p><hr class='my-2'><p class='mb-0'><strong>Стандартное значение:</strong> α = <span class='badge badge-success'>0.05</span> (5%). Чем меньше α, тем строже критерий.</p></div>"
+    },
+    {
+        "id": "tv_129",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Проверка гипотез",
+        "theme": "Проверка статистических гипотез",
+        "text": "Минимальный уровень значимости, при котором нулевая гипотеза отклоняется — это...",
+        "choices": [
+            "Уровень значимости α",
+            "p-значение",
+            "Мощность критерия",
+            "Критическое значение"
+        ],
+        "answers": ["p-значение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 p-значение</h5><p class='mb-1'>Минимальный уровень значимости, при котором <span class='badge badge-info'>H₀ отклоняется</span>.</p><hr class='my-2'><p class='mb-0'><strong>Правило:</strong> если p < α, то <span class='badge badge-success'>отклоняем H₀</span>. Если p ≥ α, то нет оснований отклонять H₀.</p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 4.9: Корреляционный анализ ====================
+    // =====================================================================
+    {
+        "id": "tv_020",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Коэффициент корреляции",
+        "theme": "Корреляционный анализ",
+        "text": "В каком диапазоне находятся значения коэффициента корреляции Пирсона?",
+        "choices": [
+            "[0, 1]",
+            "[-1, 1]",
+            "[−∞, +∞]",
+            "[0, +∞]"
+        ],
+        "answers": ["[-1, 1]"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции</h5><p class='mb-1'>Измеряет <span class='badge badge-info'>силу и направление</span> линейной связи между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Значения:</strong> r = 1 — полная положительная связь; r = −1 — полная отрицательная; r = 0 — <span class='badge badge-success'>нет линейной связи</span>.</p></div>"
+    },
+    {
+        "id": "tv_126",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Связь между переменными",
+        "theme": "Корреляционный анализ",
+        "text": "Мера линейной связи между двумя переменными, принимающая значения от -1 до 1 — это...",
+        "choices": [
+            "Коэффициент корреляции Пирсона",
+            "Коэффициент детерминации",
+            "Ковариация",
+            "Регрессия"
+        ],
+        "answers": ["Коэффициент корреляции Пирсона"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции Пирсона</h5><p class='mb-1'>Наиболее распространённая <span class='badge badge-info'>мера линейной зависимости</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> корреляция <span class='badge badge-warning'>не означает причинно-следственную связь</span>. r² (коэффициент детерминации) показывает долю объяснённой дисперсии.</p></div>"
+    },
+    {
+        "id": "tv_165_covariance",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Ковариация",
+        "theme": "Корреляционный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Ковариация
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Известны характеристики двух случайных величин:</div>
+    <div class="text-center fs-5 mb-2">
+      M(X) = 10, &nbsp; M(Y) = 10, &nbsp; M(XY) = {= 100 + {var1-10}}
+    </div>
+    <div class="mt-3 mb-2">Найдите ковариацию <em>Cov(X, Y)</em>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула ковариации через моменты:</div>
+    <div class="text-center">$$\\mathrm{Cov}(X, Y) = M(XY) - M(X) \\cdot M(Y)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$\\mathrm{Cov}(X, Y) = {= 100 + {var1-10}} - 10 \\cdot 10 = {= 100 + {var1-10}} - 100 = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [5, 10, 15, 20, 25, 30]
+    },
+    {
+        "id": "statistics546",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Количественная оценка",
+        "theme": "Корреляционный анализ",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
+        "answers": ["Коэффициента корреляции Пирсона"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> r = Cov(X,Y) / (σ_X · σ_Y).</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>ковариация</span>, в знаменателе — <span class='badge badge-info'>произведение СКО</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>коэффициент корреляции Пирсона</span>. Принимает значения от −1 до 1.</p></div>"
+    },
+    {
+        "id": "statistics547",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Описательная статистика",
+        "theme": "Корреляционный анализ",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
+        "answers": ["Ковариации по генеральной совокупности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Cov(X,Y) = Σ(xᵢ − x̄)(yᵢ − ȳ) / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма произведений отклонений</span>, в знаменателе — <span class='badge badge-info'>n</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>ковариация по генеральной совокупности</span> (COVARIANCE.P). Для выборки делят на (n−1).</p></div>"
+    },
+
+        {
+        "id": "tv_127",
+        "type": "multiplechoices",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Моделирование зависимости",
+        "theme": "Регрессионный анализ",
+        "text": "Модель зависимости одной переменной от другой вида y = a + bx — это...",
+        "choices": [
+            "Корреляционный анализ",
+            "Линейная регрессия",
+            "Дисперсионный анализ",
+            "Кластерный анализ"
+        ],
+        "answers": ["Линейная регрессия"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Линейная регрессия</h5><p class='mb-1'>Моделирует <span class='badge badge-info'>линейную зависимость</span> между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Уравнение:</strong> y = <span class='badge badge-info'>a</span> + <span class='badge badge-info'>b</span>x. Коэффициенты находят <span class='badge badge-success'>методом наименьших квадратов</span> (минимизация суммы квадратов ошибок).</p></div>"
+    },
+    {
+        "id": "statistics548",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистическая оценка",
+        "theme": "Регрессионный анализ",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
+        "answers": ["Углового коэффициента (наклона) регрессии"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> b = Σ(xᵢ − x̄)(yᵢ − ȳ) / Σ(xᵢ − x̄)².</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>ковариация</span>, в знаменателе — <span class='badge badge-info'>дисперсия X</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>угловой коэффициент (наклон) регрессии</span> (SLOPE).</p></div>"
+    },
+    {
+        "id": "statistics549",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Анализ данных",
+        "theme": "Регрессионный анализ",
+        "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
+        "answers": ["Свободного члена (пересечения) регрессии"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> b₀ = ȳ − a · x̄.</p><hr class='my-2'><p class='mb-1'>Из среднего Y вычитается <span class='badge badge-info'>произведение наклона на среднее X</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>свободный член (пересечение) регрессии</span> (INTERCEPT).</p></div>"
+    },
+    {
+        "id": "tv_166_r2",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Коэффициент детерминации",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Коэффициент детерминации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">По результатам регрессионного анализа известны:</div>
+    <div class="text-center fs-5 mb-2">
+      SS<sub>tot</sub> = 100, &nbsp; SS<sub>res</sub> = {= 100 - {var1-10}}
+    </div>
+    <div class="mt-3 mb-2">Найдите коэффициент детерминации <em>R²</em> в процентах.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Формула коэффициента детерминации:</div>
+    <div class="text-center">$$R^2 = 1 - \\frac{SS_{res}}{SS_{tot}}$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">
+      $$R^2 = 1 - \\frac{{= 100 - {var1-10}}}{100} = \\frac{{var1-10}}{100} = {= {var1-10}/100}$$
+    </div>
+    <div class="mt-3 mb-2">В процентах:</div>
+    <div class="text-center">$$ {={var1-10}/100} \\cdot 100\\% = {var1-10}\\%$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}%</div>
+  </div>
+</div>`,
+        "randomfrom": [60, 70, 75, 80, 85, 90, 95]
+    },
+    {
+        "id": "tv_170_reg_const",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Регрессия: постоянные затраты",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Постоянные затраты
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость затрат предприятия <em>y</em> (млн руб.) от выручки <em>x</em> (млн руб.) линейна: <em>y = a + b·x</em>.</div>
+    <div class="mb-2">Известны две точки:</div>
+    <div class="text-center fs-5 mb-2">
+      при x = 100: y = {= {var1-10} + 100}<br>
+      при x = 200: y = {= {var1-10} + 200}
+    </div>
+    <div class="mt-3 mb-2">Найдите <strong>постоянные затраты</strong> <em>a</em> (свободный член уравнения).</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Наклон прямой:</div>
+    <div class="text-center">
+      $$b = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{{= {var1-10} + 200} - {= {var1-10} + 100}}{200 - 100} = \\frac{100}{100} = 1$$
+    </div>
+    <div class="mt-3 mb-2">2. Свободный член:</div>
+    <div class="text-center">
+      $$a = y_1 - b \\cdot x_1 = {= {var1-10} + 100} - 1 \\cdot 100 = {var1-10}$$
+    </div>
+    <div class="mt-3 mb-2">Уравнение регрессии: <em>y</em> = {var1-10} + 1·<em>x</em>.</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [100, 200, 300, 400, 500]
+    },
+    {
+        "id": "tv_171_reg_forecast",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Регрессия: прогноз затрат",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Прогноз затрат
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость затрат предприятия <em>y</em> (млн руб.) от выручки <em>x</em> (млн руб.) линейна.</div>
+    <div class="mb-2">Известны две точки:</div>
+    <div class="text-center fs-5 mb-2">
+      при x = 100: y = {= {var1-10} - 200}<br>
+      при x = 200: y = {= {var1-10} - 100}
+    </div>
+    <div class="mt-3 mb-2">Найдите затраты <em>y</em> при выручке <strong>x = 300</strong>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Наклон прямой:</div>
+    <div class="text-center">
+      $$b = \\frac{{= {var1-10} - 100} - ({= {var1-10} - 200})}{200 - 100} = \\frac{100}{100} = 1$$
+    </div>
+    <div class="mt-3 mb-2">2. Свободный член:</div>
+    <div class="text-center">
+      $$a = ({= {var1-10} - 200}) - 1 \\cdot 100 = {= {var1-10} - 300}$$
+    </div>
+    <div class="mt-3 mb-2">3. Уравнение регрессии: <em>y</em> = {= {var1-10} - 300} + <em>x</em>.</div>
+    <div class="mt-3 mb-2">4. Прогноз при x = 300:</div>
+    <div class="text-center">
+      $$y(300) = {= {var1-10} - 300} + 300 = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [400, 500, 600, 700, 800]
+    },
+    {
+        "id": "tv_172_reg_elasticity",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Коэффициент реагирования затрат",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Коэффициент реагирования затрат
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость затрат <em>y</em> от выручки <em>x</em> линейна. Известны две точки:</div>
+    <div class="text-center fs-5 mb-2">
+      при x = {= 100 * {var1-10}}: y = 100<br>
+      при x = {= 100 * {var1-10} + 100}: y = 200
+    </div>
+    <div class="mt-3 mb-2">Найдите коэффициент реагирования затрат в первой точке:</div>
+    <div class="text-center">$$K = \\frac{\\Delta y}{\\Delta x} \\cdot \\frac{x}{y}$$</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Наклон прямой:</div>
+    <div class="text-center">
+      $$\\frac{\\Delta y}{\\Delta x} = \\frac{200 - 100}{{= 100 * {var1-10} + 100} - {= 100 * {var1-10}}} = \\frac{100}{100} = 1$$
+    </div>
+    <div class="mt-3 mb-2">2. Коэффициент реагирования в первой точке (x = {= 100 * {var1-10}}, y = 100):</div>
+    <div class="text-center">
+      $$K = 1 \\cdot \\frac{{= 100 * {var1-10}}}{100} = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [2, 3, 4, 5, 6]
+    },
+    {
+        "id": "tv_173_reg_negative",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Регрессия: убывающая зависимость",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Убывающая зависимость
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость показателя <em>y</em> от фактора <em>x</em> линейна и убывает. Известны две точки:</div>
+    <div class="text-center fs-5 mb-2">
+      при x = 100: y = {= {var1-10} - 100}<br>
+      при x = 200: y = {= {var1-10} - 200}
+    </div>
+    <div class="mt-3 mb-2">Найдите свободный член уравнения регрессии <em>y = a + b·x</em>.</div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Наклон прямой:</div>
+    <div class="text-center">
+      $$b = \\frac{{= {var1-10} - 200} - ({= {var1-10} - 100})}{200 - 100} = \\frac{-100}{100} = -1$$
+    </div>
+    <div class="mt-3 mb-2">2. Свободный член:</div>
+    <div class="text-center">
+      $$a = ({= {var1-10} - 100}) - (-1) \\cdot 100 = {= {var1-10} - 100} + 100 = {var1-10}$$
+    </div>
+    <div class="mt-3 mb-2">Уравнение регрессии: <em>y</em> = {var1-10} − <em>x</em>.</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [300, 400, 500, 600, 700]
+    },
+    {
+        "id": "tv_174_reg_slope",
+        "type": "mathwithrandomnumber",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Регрессия: угловой коэффициент",
+        "theme": "Регрессионный анализ",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Угловой коэффициент регрессии
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость <em>y</em> от <em>x</em> линейна. Известны две точки:</div>
+    <div class="text-center fs-5 mb-2">
+      при x = 100: y = 100<br>
+      при x = 200: y = {= 100 + {var1-10}}
+    </div>
+    <div class="mt-3 mb-2">Найдите угловой коэффициент регрессии <em>b</em> (наклон прямой).</div>
+  </div>
+</div>`,
+        "answer": "{= {var1-10}/100}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Наклон прямой по двум точкам:</div>
+    <div class="text-center">
+      $$b = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{{= 100 + {var1-10}} - 100}{200 - 100} = \\frac{{var1-10}}{100} = {= {var1-10}/100}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {= {var1-10}/100}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 20, 30, 40, 50]
+    },
+    
+        // =====================================================================
+    // ==================== ОБЩАЯ СТАТИСТИКА ====================
+    // =====================================================================
+    {
+        "id": "statistics_mean_mixed001",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Среднее арифметическое",
+        "theme": "Средние величины",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Среднее арифметическое
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите среднее арифметическое чисел:</div>
+    <div class="text-center fs-3">
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+      <div>{={var1-10} + 4}</div>
+      <div>{={var1-10} - 4}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">Сумма чисел:</div>
+    <div class="text-center">
+      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= 6 * {var1-10}}$$
+    </div>
+    <div class="mt-3 mb-2">Количество чисел: 6</div>
+    <div class="mb-2">Среднее арифметическое:</div>
+    <div class="text-center">
+      $$\\bar{x} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$
+    </div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [10, 15, 20, 25, 30, 35]
+    },
+    {
+        "id": "statistics_var_mixed005",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Дисперсия",
+        "theme": "Меры разброса",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Дисперсия
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите дисперсию (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} + POWER({var1-10}, 1/2)}</div>
+      <div>{= {var1-10} - POWER({var1-10}, 1/2)}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="mt-3 mb-2">2. Отклонения:</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$</div>
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
+    <div class="text-center">$$6 \\times {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">5. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [4, 9, 16, 25]
+    },
+    {
+        "id": "statistics_stdev_mixed005",
+        "type": "mathwithrandomnumber",
+        "header": "Статистика",
+        "title": "Стандартное отклонение",
+        "theme": "Меры разброса",
+        "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Стандартное отклонение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Найдите стандартное отклонение (по генеральной совокупности) чисел:</div>
+    <div class="text-center fs-3">
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+      <div>{=20+{var1-10}}</div>
+      <div>{=20-{var1-10}}</div>
+    </div>
+  </div>
+</div>`,
+        "answer": "{var1-10}",
+        "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2">1. Среднее арифметическое:</div>
+    <div class="text-center">$$\\bar{x} = 20$$ (симметрия слагаемых)</div>
+    <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
+    <div class="text-center">$$\\pm {var1-10}$$ (по три раза каждое)</div>
+    <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
+    <div class="text-center">$$({var1-10})^2 = {= {var1-10} * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">4. Дисперсия:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{6 \\cdot {= {var1-10} * {var1-10}}}{6} = {= {var1-10} * {var1-10}}$$</div>
+    <div class="mt-3 mb-2">5. Стандартное отклонение:</div>
+    <div class="text-center">$$\\sigma = \\sqrt{{= {var1-10} * {var1-10}}} = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
+  </div>
+</div>`,
+        "randomfrom": [2, 3, 4, 5]
+    },
+    {
+        "id": "statistics544",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Анализ данных",
+        "theme": "Меры разброса",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
+        "answers": ["Дисперсии по генеральной совокупности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ² = Σ(xᵢ − x̄)² / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма квадратов отклонений</span> от среднего, в знаменателе — <span class='badge badge-info'>n</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>дисперсия по генеральной совокупности</span> (VAR.P). Для выборки делят на (n−1).</p></div>"
+    },
+    {
+        "id": "statistics545",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистический показатель",
+        "theme": "Меры разброса",
+        "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
+        "answers": ["Стандартного отклонения по генеральной совокупности"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ = √(Σ(xᵢ − x̄)² / n).</p><hr class='my-2'><p class='mb-1'>Это <span class='badge badge-info'>квадратный корень из дисперсии</span>. Результат — в тех же единицах, что и данные.</p><p class='mb-0'>Это <span class='badge badge-success'>стандартное отклонение по генеральной совокупности</span> (STDEV.P).</p></div>"
+    },
+    {
+        "id": "statistics552",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Описательная статистика",
+        "theme": "Меры формы распределения",
+        "text": "$$\\text{Skewness} = \\frac{n}{(n-1)(n-2)} \\cdot \\sum_{i=1}^{n} \\left(\\frac{x_i - \\bar{x}}{s}\\right)^3$$\n\nДанная формула используется для расчёта:",
+        "choices": ["Эксцесса", "Асимметрии (коэффициента скошенности)", "Коэффициента вариации", "Медианы"],
+        "answers": ["Асимметрии (коэффициента скошенности)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Skewness = [n / ((n−1)(n−2))] · Σ((xᵢ − x̄)/s)³.</p><hr class='my-2'><p class='mb-1'>Это <span class='badge badge-info'>третий стандартизированный момент</span>. Использует <span class='badge badge-info'>куб</span> нормированных отклонений.</p><p class='mb-0'>Это <span class='badge badge-success'>коэффициент асимметрии (SKEW)</span>. Положительное значение → правый хвост длиннее.</p></div>"
+    },
+    {
+        "id": "statistics553",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистическая оценка",
+        "theme": "Законы распределения",
+        "text": "$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nДанная формула описывает:",
+        "choices": [
+            "Равномерное распределение",
+            "Распределение Пуассона",
+            "Нормальное распределение (распределение Гаусса)",
+            "Биномиальное распределение"
+        ],
+        "answers": ["Нормальное распределение (распределение Гаусса)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О каком распределении идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> f(x) = 1/(σ√(2π)) · e^(−(x−μ)²/(2σ²)).</p><hr class='my-2'><p class='mb-1'>Содержит <span class='badge badge-info'>π</span> и <span class='badge badge-info'>e</span>. Параметры: <span class='badge badge-info'>μ</span> (среднее) и <span class='badge badge-info'>σ</span> (СКО). Симметрична относительно μ.</p><p class='mb-0'>Это <span class='badge badge-success'>нормальное распределение (Гаусса)</span> — классическая «колоколообразная» кривая.</p></div>"
+    },
+    {
+        "id": "statistics554",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Описательная статистика",
+        "theme": "Законы распределения",
+        "text": "$$P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}, \\quad k = 0,1,2,\\dots$$\n\nДанная формула описывает:",
+        "choices": [
+            "Нормальное распределение",
+            "Равномерное распределение",
+            "Распределение Пуассона",
+            "Геометрическое распределение"
+        ],
+        "answers": ["Распределение Пуассона"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О каком распределении идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> P(X=k) = λᵏ e^(−λ) / k!.</p><hr class='my-2'><p class='mb-1'>Содержит <span class='badge badge-info'>e^(−λ)</span> и <span class='badge badge-info'>k!</span>. Параметр — <span class='badge badge-info'>λ</span> (интенсивность).</p><p class='mb-0'>Это <span class='badge badge-success'>распределение Пуассона</span> — моделирует число редких событий за интервал.</p></div>"
+    },
+    {
+        "id": "statistics555",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Анализ данных",
+        "theme": "Законы распределения",
+        "text": "$$P(X=k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}, \\quad k = 0,1,\\dots,n$$\n\nДанная формула описывает:",
+        "choices": [
+            "Распределение Пуассона",
+            "Нормальное распределение",
+            "Биномиальное распределение",
+            "Распределение Коши"
+        ],
+        "answers": ["Биномиальное распределение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О каком распределении идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> P(X=k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ.</p><hr class='my-2'><p class='mb-1'>Содержит <span class='badge badge-info'>C(n,k)</span> (число сочетаний). Параметры: <span class='badge badge-info'>n</span> (испытания), <span class='badge badge-info'>p</span> (вероятность успеха).</p><p class='mb-0'>Это <span class='badge badge-success'>биномиальное распределение</span> — число успехов в серии испытаний.</p></div>"
+    },
+    {
+        "id": "statistics556",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Статистический показатель",
+        "theme": "Законы распределения",
+        "text": "$$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b$$\n\nДанная формула описывает:",
+        "choices": [
+            "Нормальное распределение",
+            "Равномерное распределение",
+            "Экспоненциальное распределение",
+            "Распределение Стьюдента"
+        ],
+        "answers": ["Равномерное распределение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О каком распределении идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> f(x) = 1/(b−a), a ≤ x ≤ b.</p><hr class='my-2'><p class='mb-1'>Плотность <span class='badge badge-info'>постоянна</span> на [a,b] и не зависит от x. Параметры: <span class='badge badge-info'>a</span>, <span class='badge badge-info'>b</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>равномерное распределение</span> — все значения равновероятны.</p></div>"
+    },
+    {
+        "id": "statistics557",
+        "type": "multiplechoices",
+        "header": "Тест",
+        "title": "Количественная оценка",
+        "theme": "Законы распределения",
+        "text": "$$f(x) = \\lambda e^{-\\lambda x}, \\quad x \\ge 0$$\n\nДанная формула описывает:",
+        "choices": [
+            "Нормальное распределение",
+            "Распределение Пуассона",
+            "Экспоненциальное распределение",
+            "Равномерное распределение"
+        ],
+        "answers": ["Экспоненциальное распределение"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О каком распределении идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> f(x) = λ e^(−λx), x ≥ 0.</p><hr class='my-2'><p class='mb-1'>Содержит <span class='badge badge-info'>e^(−λx)</span> (экспоненциальное затухание). Определена только при <span class='badge badge-info'>x ≥ 0</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>экспоненциальное распределение</span> — моделирует время между событиями.</p></div>"
+    },
+
+
+        {
+        "id": "fipi_abstract_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Абстрактная вероятность",
+        "theme": "Классическое определение вероятности",
+        "text": "В случайном опыте N = 30 равновозможных элементарных событий, из них N(A) = 27 благоприятствуют событию A. Вычислите вероятность события A.",
+        "choices": ["0.7", "0.8", "0.9", "0.95"],
+        "answers": ["0.9"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>Формула классической вероятности:</p><p class='mb-2'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{27}{30} = \\frac{9}{10} = 0.9$$</p></div>"
+    },
+    
+        {
+        "id": "fipi_euler_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Диаграмма Эйлера: пересечение",
+        "theme": "Операции над событиями",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Диаграмма Эйлера</div>
+  <div class='card-body'>
+    <p>На диаграмме для событий A и B указаны вероятности в каждой из четырёх областей. Найдите вероятность события <strong>A ∩ B</strong>.</p>
+    <svg viewBox='0 0 400 260' width='100%' style='max-width:400px; display:block; margin:0 auto;'>
+      <rect x='10' y='10' width='380' height='240' fill='#f8f9fa' stroke='#adb5bd' stroke-width='1' rx='8'/>
+      <circle cx='160' cy='130' r='80' fill='rgba(13,110,253,0.15)' stroke='#0d6efd' stroke-width='2'/>
+      <circle cx='240' cy='130' r='80' fill='rgba(253,126,20,0.15)' stroke='#fd7e14' stroke-width='2'/>
+      <text x='100' y='55' font-size='18' font-weight='bold' fill='#0d6efd'>A</text>
+      <text x='285' y='55' font-size='18' font-weight='bold' fill='#fd7e14'>B</text>
+      <text x='105' y='125' font-size='13' fill='#333'>0.3</text>
+      <text x='188' y='125' font-size='13' fill='#333'>0.1</text>
+      <text x='265' y='125' font-size='13' fill='#333'>0.4</text>
+      <text x='188' y='215' font-size='13' fill='#333'>0.2</text>
+    </svg>
+  </div>
+</div>`,
+        "choices": ["0.1", "0.3", "0.4", "0.5"],
+        "answers": ["0.1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Диаграмма Эйлера</h5><p class='mb-1'>Пересечение A ∩ B — это область, где происходят <strong>оба события</strong> одновременно.</p><hr class='my-2'><p class='mb-0'>По диаграмме: $$P(A \\cap B) = 0.1$$</p></div>"
+    },
+    {
+        "id": "fipi_euler_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Диаграмма Эйлера: объединение",
+        "theme": "Операции над событиями",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Диаграмма Эйлера</div>
+  <div class='card-body'>
+    <p>На диаграмме для событий A и B указаны вероятности. Найдите вероятность события <strong>A ∪ B</strong>.</p>
+    <svg viewBox='0 0 400 260' width='100%' style='max-width:400px; display:block; margin:0 auto;'>
+      <rect x='10' y='10' width='380' height='240' fill='#f8f9fa' stroke='#adb5bd' stroke-width='1' rx='8'/>
+      <circle cx='160' cy='130' r='80' fill='rgba(13,110,253,0.15)' stroke='#0d6efd' stroke-width='2'/>
+      <circle cx='240' cy='130' r='80' fill='rgba(253,126,20,0.15)' stroke='#fd7e14' stroke-width='2'/>
+      <text x='100' y='55' font-size='18' font-weight='bold' fill='#0d6efd'>A</text>
+      <text x='285' y='55' font-size='18' font-weight='bold' fill='#fd7e14'>B</text>
+      <text x='105' y='125' font-size='13' fill='#333'>0.3</text>
+      <text x='188' y='125' font-size='13' fill='#333'>0.1</text>
+      <text x='265' y='125' font-size='13' fill='#333'>0.4</text>
+      <text x='188' y='215' font-size='13' fill='#333'>0.2</text>
+    </svg>
+  </div>
+</div>`,
+        "choices": ["0.4", "0.6", "0.8", "0.9"],
+        "answers": ["0.8"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Диаграмма Эйлера</h5><p class='mb-1'>Объединение A ∪ B — это области, где происходит <strong>хотя бы одно</strong> из событий.</p><hr class='my-2'><p class='mb-1'>Складываем три области:</p><p class='mb-0'>$$P(A \\cup B) = 0.3 + 0.1 + 0.4 = 0.8$$</p></div>"
+    },
+    {
+        "id": "fipi_euler_003",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Диаграмма Эйлера: дополнение",
+        "theme": "Операции над событиями",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Диаграмма Эйлера</div>
+  <div class='card-body'>
+    <p>На диаграмме для событий A и B указаны вероятности. Найдите вероятность события <strong>Ā ∩ B</strong> (происходит B, но не происходит A).</p>
+    <svg viewBox='0 0 400 260' width='100%' style='max-width:400px; display:block; margin:0 auto;'>
+      <rect x='10' y='10' width='380' height='240' fill='#f8f9fa' stroke='#adb5bd' stroke-width='1' rx='8'/>
+      <circle cx='160' cy='130' r='80' fill='rgba(13,110,253,0.15)' stroke='#0d6efd' stroke-width='2'/>
+      <circle cx='240' cy='130' r='80' fill='rgba(253,126,20,0.15)' stroke='#fd7e14' stroke-width='2'/>
+      <text x='100' y='55' font-size='18' font-weight='bold' fill='#0d6efd'>A</text>
+      <text x='285' y='55' font-size='18' font-weight='bold' fill='#fd7e14'>B</text>
+      <text x='105' y='125' font-size='13' fill='#333'>0.3</text>
+      <text x='188' y='125' font-size='13' fill='#333'>0.1</text>
+      <text x='265' y='125' font-size='13' fill='#333'>0.4</text>
+      <text x='188' y='215' font-size='13' fill='#333'>0.2</text>
+    </svg>
+  </div>
+</div>`,
+        "choices": ["0.1", "0.2", "0.3", "0.4"],
+        "answers": ["0.4"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Диаграмма Эйлера</h5><p class='mb-1'>Событие Ā ∩ B — это область, где происходит <strong>B, но не происходит A</strong>. Это правая часть диаграммы.</p><hr class='my-2'><p class='mb-0'>По диаграмме: $$P(\\bar{A} \\cap B) = 0.4$$</p></div>"
+    },
+    {
+        "id": "fipi_euler_004",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Диаграмма Эйлера: дополнение объединения",
+        "theme": "Операции над событиями",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Диаграмма Эйлера</div>
+  <div class='card-body'>
+    <p>На диаграмме для событий A и B указаны вероятности. Найдите вероятность события <strong>(A ∪ B)̄</strong> (не происходит ни A, ни B).</p>
+    <svg viewBox='0 0 400 260' width='100%' style='max-width:400px; display:block; margin:0 auto;'>
+      <rect x='10' y='10' width='380' height='240' fill='#f8f9fa' stroke='#adb5bd' stroke-width='1' rx='8'/>
+      <circle cx='160' cy='130' r='80' fill='rgba(13,110,253,0.15)' stroke='#0d6efd' stroke-width='2'/>
+      <circle cx='240' cy='130' r='80' fill='rgba(253,126,20,0.15)' stroke='#fd7e14' stroke-width='2'/>
+      <text x='100' y='55' font-size='18' font-weight='bold' fill='#0d6efd'>A</text>
+      <text x='285' y='55' font-size='18' font-weight='bold' fill='#fd7e14'>B</text>
+      <text x='105' y='125' font-size='13' fill='#333'>0.3</text>
+      <text x='188' y='125' font-size='13' fill='#333'>0.1</text>
+      <text x='265' y='125' font-size='13' fill='#333'>0.4</text>
+      <text x='188' y='215' font-size='13' fill='#333'>0.2</text>
+    </svg>
+  </div>
+</div>`,
+        "choices": ["0.1", "0.2", "0.3", "0.4"],
+        "answers": ["0.2"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Диаграмма Эйлера</h5><p class='mb-1'>(A ∪ B)̄ — событие, которое <strong>не происходит ни A, ни B</strong>. Это внешняя область.</p><hr class='my-2'><p class='mb-0'>По диаграмме: $$P(\\overline{A \\cup B}) = P(\\bar{A} \\cap \\bar{B}) = 0.2$$</p></div>"
+    },
+    {
+        "id": "fipi_euler_005",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Диаграмма Эйлера: только A",
+        "theme": "Операции над событиями",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Диаграмма Эйлера</div>
+  <div class='card-body'>
+    <p>На диаграмме для событий A и B указаны вероятности. Найдите вероятность события <strong>A ∩ B̄</strong> (происходит A, но не происходит B).</p>
+    <svg viewBox='0 0 400 260' width='100%' style='max-width:400px; display:block; margin:0 auto;'>
+      <rect x='10' y='10' width='380' height='240' fill='#f8f9fa' stroke='#adb5bd' stroke-width='1' rx='8'/>
+      <circle cx='160' cy='130' r='80' fill='rgba(13,110,253,0.15)' stroke='#0d6efd' stroke-width='2'/>
+      <circle cx='240' cy='130' r='80' fill='rgba(253,126,20,0.15)' stroke='#fd7e14' stroke-width='2'/>
+      <text x='100' y='55' font-size='18' font-weight='bold' fill='#0d6efd'>A</text>
+      <text x='285' y='55' font-size='18' font-weight='bold' fill='#fd7e14'>B</text>
+      <text x='105' y='125' font-size='13' fill='#333'>0.5</text>
+      <text x='188' y='125' font-size='13' fill='#333'>0.2</text>
+      <text x='265' y='125' font-size='13' fill='#333'>0.1</text>
+      <text x='188' y='215' font-size='13' fill='#333'>0.2</text>
+    </svg>
+  </div>
+</div>`,
+        "choices": ["0.1", "0.2", "0.5", "0.7"],
+        "answers": ["0.5"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Диаграмма Эйлера</h5><p class='mb-1'>A ∩ B̄ — область, где происходит <strong>только A</strong>, но не B. Это левая часть диаграммы.</p><hr class='my-2'><p class='mb-0'>По диаграмме: $$P(A \\cap \\bar{B}) = 0.5$$</p></div>"
+    },
+
+        {
+        "id": "fipi_conditional_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Условная вероятность: карандаши",
+        "theme": "Условная вероятность",
+        "text": "В ящике 21 жёлтый и 10 зелёных карандашей. Не глядя достали два карандаша. Первый оказался зелёным. Найдите вероятность того, что второй карандаш тоже зелёный.",
+        "choices": ["9/30", "10/31", "10/30", "21/30"],
+        "answers": ["9/30"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Условная вероятность</h5><p class='mb-1'>После первого зелёного карандаша в ящике осталось:</p><ul class='mb-2'><li>зелёных: 10 − 1 = <strong>9</strong></li><li>всего: 31 − 1 = <strong>30</strong></li></ul><hr class='my-2'><p class='mb-0'>$$P = \\frac{9}{30} = 0.3$$</p></div>"
+    },
+    {
+        "id": "fipi_conditional_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Условная вероятность: монеты",
+        "theme": "Условная вероятность",
+        "text": "Монету бросили 25 раз. Известно, что орёл выпал 14 раз. Найдите вероятность того, что при третьем броске выпала решка.",
+        "choices": ["11/25", "14/25", "1/2", "11/14"],
+        "answers": ["11/25"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Условная вероятность</h5><p class='mb-1'>Всего 25 бросков, орёл — 14 раз, значит решка — 25 − 14 = <strong>11</strong> раз.</p><hr class='my-2'><p class='mb-1'>Вероятность, что конкретный бросок — решка:</p><p class='mb-0'>$$P = \\frac{11}{25} = 0.44$$</p></div>"
+    },
+
+        {
+        "id": "fipi_tree_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Дерево опыта: два попадания",
+        "theme": "Схема Бернулли",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Дерево случайного опыта</div>
+  <div class='card-body'>
+    <p>Баскетболист бросает мяч дважды.</p>
+    <ul>
+      <li>Вероятность попадания при первом броске: <strong>0.7</strong>.</li>
+      <li>Если попал первый раз — вероятность попасть второй раз: <strong>0.8</strong>.</li>
+      <li>Если промахнулся первый раз — вероятность попасть второй раз: <strong>0.6</strong>.</li>
+    </ul>
+    <p>Найдите вероятность того, что баскетболист <strong>попадёт оба раза</strong>.</p>
+   <svg viewBox='0 0 500 340' width='100%' style='max-width:500px; display:block; margin:0 auto;'>
+  <!-- Корень -->
+  <text x='250' y='25' font-size='14' font-weight='bold' fill='#333' text-anchor='middle'>Начало</text>
+
+  <!-- Ветви 1-го броска -->
+  <line x1='250' y1='35' x2='130' y2='110' stroke='#0d6efd' stroke-width='2'/>
+  <line x1='250' y1='35' x2='370' y2='110' stroke='#dc3545' stroke-width='2'/>
+
+  <text x='165' y='80' font-size='13' fill='#0d6efd' text-anchor='middle'>0.7 (попал)</text>
+  <text x='335' y='80' font-size='13' fill='#dc3545' text-anchor='middle'>0.3 (промах)</text>
+
+  <!-- Узлы 1-го броска -->
+  <circle cx='130' cy='110' r='6' fill='#0d6efd'/>
+  <circle cx='370' cy='110' r='6' fill='#dc3545'/>
+
+  <text x='130' y='135' font-size='12' fill='#0d6efd' text-anchor='middle'>П</text>
+  <text x='370' y='135' font-size='12' fill='#dc3545' text-anchor='middle'>Пр</text>
+
+  <!-- Ветви 2-го броска от «попал» -->
+  <line x1='130' y1='120' x2='60' y2='215' stroke='#198754' stroke-width='2'/>
+  <line x1='130' y1='120' x2='200' y2='215' stroke='#6c757d' stroke-width='2'/>
+
+  <text x='70' y='175' font-size='12' fill='#198754' text-anchor='middle'>0.8 (попал)</text>
+  <text x='190' y='175' font-size='12' fill='#6c757d' text-anchor='middle'>0.2 (промах)</text>
+
+  <!-- Ветви 2-го броска от «промах» -->
+  <line x1='370' y1='120' x2='300' y2='215' stroke='#198754' stroke-width='2'/>
+  <line x1='370' y1='120' x2='440' y2='215' stroke='#6c757d' stroke-width='2'/>
+
+  <text x='310' y='175' font-size='12' fill='#198754' text-anchor='middle'>0.6 (попал)</text>
+  <text x='430' y='175' font-size='12' fill='#6c757d' text-anchor='middle'>0.4 (промах)</text>
+
+  <!-- Листья -->
+  <circle cx='60' cy='215' r='6' fill='#198754'/>
+  <circle cx='200' cy='215' r='6' fill='#6c757d'/>
+  <circle cx='300' cy='215' r='6' fill='#198754'/>
+  <circle cx='440' cy='215' r='6' fill='#6c757d'/>
+
+  <rect x='25' y='240' width='70' height='30' rx='6' fill='rgba(25,135,84,0.12)' stroke='#198754'/>
+  <text x='60' y='260' font-size='13' font-weight='bold' fill='#198754' text-anchor='middle'>П + П</text>
+
+  <rect x='165' y='240' width='70' height='30' rx='6' fill='rgba(108,117,125,0.12)' stroke='#6c757d'/>
+  <text x='200' y='260' font-size='13' font-weight='bold' fill='#6c757d' text-anchor='middle'>П + Пр</text>
+
+  <rect x='265' y='240' width='70' height='30' rx='6' fill='rgba(25,135,84,0.12)' stroke='#198754'/>
+  <text x='300' y='260' font-size='13' font-weight='bold' fill='#198754' text-anchor='middle'>Пр + П</text>
+
+  <rect x='405' y='240' width='70' height='30' rx='6' fill='rgba(108,117,125,0.12)' stroke='#6c757d'/>
+  <text x='440' y='260' font-size='13' font-weight='bold' fill='#6c757d' text-anchor='middle'>Пр + Пр</text>
+
+  <!-- Подписи вероятностей исходов -->
+  <text x='60' y='295' font-size='11' fill='#198754' text-anchor='middle'>0.56</text>
+  <text x='200' y='295' font-size='11' fill='#6c757d' text-anchor='middle'>0.14</text>
+  <text x='300' y='295' font-size='11' fill='#198754' text-anchor='middle'>0.18</text>
+  <text x='440' y='295' font-size='11' fill='#6c757d' text-anchor='middle'>0.12</text>
+
+  <text x='250' y='325' font-size='12' fill='#6c757d' text-anchor='middle'>Сумма вероятностей: 0.56 + 0.14 + 0.18 + 0.12 = 1</text>
+</svg>
+  </div>
+</div>`,
+        "choices": ["0.48", "0.56", "0.42", "0.7"],
+        "answers": ["0.56"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило умножения</h5><p class='mb-1'>Идём по верхней ветви дерева:</p><p class='mb-1'>П(попал 1-й) × П(попал 2-й | попал 1-й)</p><hr class='my-2'><p class='mb-0'>$$P = 0.7 \\times 0.8 = 0.56$$</p></div>"
+    },
+    {
+        "id": "fipi_tree_002",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ 2026",
+        "title": "Дерево опыта: ровно одно попадание",
+        "theme": "Схема Бернулли",
+        "text": `
+<div class='card'>
+  <div class='card-header bg-primary text-white'>Дерево случайного опыта</div>
+  <div class='card-body'>
+    <p>Баскетболист бросает мяч дважды. Вероятности указаны на дереве.</p>
+    <p>Найдите вероятность того, что баскетболист <strong>попадёт ровно один раз</strong>.</p>
+    <svg viewBox='0 0 500 340' width='100%' style='max-width:500px; display:block; margin:0 auto;'>
+  <!-- Корень -->
+  <text x='250' y='25' font-size='14' font-weight='bold' fill='#333' text-anchor='middle'>Начало</text>
+
+  <!-- Ветви 1-го броска -->
+  <line x1='250' y1='35' x2='130' y2='110' stroke='#0d6efd' stroke-width='2'/>
+  <line x1='250' y1='35' x2='370' y2='110' stroke='#dc3545' stroke-width='2'/>
+
+  <text x='165' y='80' font-size='13' fill='#0d6efd' text-anchor='middle'>0.7 (попал)</text>
+  <text x='335' y='80' font-size='13' fill='#dc3545' text-anchor='middle'>0.3 (промах)</text>
+
+  <!-- Узлы 1-го броска -->
+  <circle cx='130' cy='110' r='6' fill='#0d6efd'/>
+  <circle cx='370' cy='110' r='6' fill='#dc3545'/>
+
+  <text x='130' y='135' font-size='12' fill='#0d6efd' text-anchor='middle'>П</text>
+  <text x='370' y='135' font-size='12' fill='#dc3545' text-anchor='middle'>Пр</text>
+
+  <!-- Ветви 2-го броска от «попал» -->
+  <line x1='130' y1='120' x2='60' y2='215' stroke='#198754' stroke-width='2'/>
+  <line x1='130' y1='120' x2='200' y2='215' stroke='#6c757d' stroke-width='2'/>
+
+  <text x='70' y='175' font-size='12' fill='#198754' text-anchor='middle'>0.8 (попал)</text>
+  <text x='190' y='175' font-size='12' fill='#6c757d' text-anchor='middle'>0.2 (промах)</text>
+
+  <!-- Ветви 2-го броска от «промах» -->
+  <line x1='370' y1='120' x2='300' y2='215' stroke='#198754' stroke-width='2'/>
+  <line x1='370' y1='120' x2='440' y2='215' stroke='#6c757d' stroke-width='2'/>
+
+  <text x='310' y='175' font-size='12' fill='#198754' text-anchor='middle'>0.6 (попал)</text>
+  <text x='430' y='175' font-size='12' fill='#6c757d' text-anchor='middle'>0.4 (промах)</text>
+
+  <!-- Листья -->
+  <circle cx='60' cy='215' r='6' fill='#198754'/>
+  <circle cx='200' cy='215' r='6' fill='#6c757d'/>
+  <circle cx='300' cy='215' r='6' fill='#198754'/>
+  <circle cx='440' cy='215' r='6' fill='#6c757d'/>
+
+  <rect x='25' y='240' width='70' height='30' rx='6' fill='rgba(25,135,84,0.12)' stroke='#198754'/>
+  <text x='60' y='260' font-size='13' font-weight='bold' fill='#198754' text-anchor='middle'>П + П</text>
+
+  <rect x='165' y='240' width='70' height='30' rx='6' fill='rgba(108,117,125,0.12)' stroke='#6c757d'/>
+  <text x='200' y='260' font-size='13' font-weight='bold' fill='#6c757d' text-anchor='middle'>П + Пр</text>
+
+  <rect x='265' y='240' width='70' height='30' rx='6' fill='rgba(25,135,84,0.12)' stroke='#198754'/>
+  <text x='300' y='260' font-size='13' font-weight='bold' fill='#198754' text-anchor='middle'>Пр + П</text>
+
+  <rect x='405' y='240' width='70' height='30' rx='6' fill='rgba(108,117,125,0.12)' stroke='#6c757d'/>
+  <text x='440' y='260' font-size='13' font-weight='bold' fill='#6c757d' text-anchor='middle'>Пр + Пр</text>
+
+  <!-- Подписи вероятностей исходов -->
+  <text x='60' y='295' font-size='11' fill='#198754' text-anchor='middle'>0.56</text>
+  <text x='200' y='295' font-size='11' fill='#6c757d' text-anchor='middle'>0.14</text>
+  <text x='300' y='295' font-size='11' fill='#198754' text-anchor='middle'>0.18</text>
+  <text x='440' y='295' font-size='11' fill='#6c757d' text-anchor='middle'>0.12</text>
+
+  <text x='250' y='325' font-size='12' fill='#6c757d' text-anchor='middle'>Сумма вероятностей: 0.56 + 0.14 + 0.18 + 0.12 = 1</text>
+</svg>
+  </div>
+</div>`,
+        "choices": ["0.14", "0.18", "0.32", "0.42"],
+        "answers": ["0.32"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило сложения</h5><p class='mb-1'>Ровно один раз = (П + Пр) ИЛИ (Пр + П).</p><hr class='my-2'><p class='mb-1'>Считаем по ветвям:</p><p class='mb-1'>• П + Пр: $$0.7 \\times 0.2 = 0.14$$</p><p class='mb-1'>• Пр + П: $$0.3 \\times 0.6 = 0.18$$</p><p class='mb-0'>Сумма: $$0.14 + 0.18 = 0.32$$</p></div>"
+    },
+
+{
+    id: "excel016_rand",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "МОДА: самое частое значение",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция МОДА
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с оценками студентов:</div>
+    <svg viewBox="0 0 480 250" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="250" fill="#ffffff" stroke="#adb5bd"/>
+
+      <!-- Заголовки столбцов -->
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <!-- Строки -->
+      <g font-size="13" fill="#1f1f1f">
+        <!-- номера строк -->
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+
+        <!-- шапка -->
+        <text x="48" y="44">Студент</text>
+        <text x="248" y="44">Оценка</text>
+
+        <!-- данные -->
+        <text x="48" y="70">Анна</text>
+        <text x="248" y="70">{var1-10}</text>
+        <text x="48" y="96">Борис</text>
+        <text x="248" y="96">{= {var1-10} + 5}</text>
+        <text x="48" y="122">Вера</text>
+        <text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">Глеб</text>
+        <text x="248" y="148">{var1-10}</text>
+        <text x="48" y="174">Даша</text>
+        <text x="248" y="174">{= {var1-10} - 5}</text>
+      </g>
+
+      <!-- Сетка -->
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+
+      <!-- Строка формул -->
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=МОДА(B2:B6)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=МОДА(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
+    <div class="mt-3 mb-2">Оценки в диапазоне B2:B6:</div>
+    <div class="text-center fs-5 mb-2">
+      {var1-10}, &nbsp; {= {var1-10} + 5}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {= {var1-10} - 5}
+    </div>
+    <div class="mt-3 mb-2">Считаем частоты:</div>
+    <ul class="mb-2">
+      <li>«{var1-10}» — <strong>3 раза</strong></li>
+      <li>«{= {var1-10} + 5}» — 1 раз</li>
+      <li>«{= {var1-10} - 5}» — 1 раз</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30]
+},
+
+{
+    id: "excel020_disp_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "ДИСП.Г: дисперсия по генеральной совокупности",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.Г
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="208"/>
+        <line x1="240" y1="0" x2="240" y2="208"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+      </g>
+
+      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="250" font-size="13" fill="#1f1f1f">=ДИСП.Г(B2:B7)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.Г(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [4, 9, 16, 25]
+},
+
+{
+    id: "excel019_avedev_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "СРОТКЛ: среднее абсолютное отклонение",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция СРОТКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с отклонениями показателя:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">0</text>
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">0</text>
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">0</text>
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= 2 * {var1-10}}</text>
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= 2 * {var1-10}}</text>
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= 2 * {var1-10}}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="208"/>
+        <line x1="240" y1="0" x2="240" y2="208"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+      </g>
+
+      <rect x="0" y="226" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="250" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="250" font-size="13" fill="#1f1f1f">=СРОТКЛ(B2:B7)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СРОТКЛ(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
+    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
+    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5]
+},
+    
+{
+    id: "excel021_dispv_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "ДИСП.В: дисперсия по выборке",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.В
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с измерениями:</div>
+    <svg viewBox="0 0 480 290" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="290" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{var1-10}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + POWER({var1-10}, 1/2)}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="182"/>
+        <line x1="240" y1="0" x2="240" y2="182"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+      </g>
+
+      <rect x="0" y="200" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="224" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="224" font-size="13" fill="#1f1f1f">=ДИСП.В(B2:B6)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.В(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
+    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
+    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
+    <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
+    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [4, 9, 16, 25]
+},
+
+{
+    id: "excel023_cv_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "Коэффициент вариации",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: коэффициент вариации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <svg viewBox="0 0 480 260" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="260" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <text x="20" y="44" text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70" text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96" text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+
+        <text x="48" y="44">Измерение</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= 100 - {var1-10}}</text>
+
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= 100 - {var1-10}}</text>
+
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{= 100 + {var1-10}}</text>
+
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= 100 + {var1-10}}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="156"/>
+        <line x1="240" y1="0" x2="240" y2="156"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+      </g>
+
+      <rect x="0" y="174" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="198" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="198" font-size="13" fill="#1f1f1f">=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</code>? Введите только число (в процентах, без знака %).
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>Коэффициент вариации</strong> — относительная мера разброса:</div>
+    <div class="text-center">$$ CV = \\frac{ \\sigma }{ \\bar{x} } \\cdot 100\\% $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= 100 - {var1-10}}» и два значения «{= 100 + {var1-10}}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$ \\bar{x} = \\frac{ {= 100 - {var1-10}} + {= 100 - {var1-10}} + {= 100 + {var1-10}} + {= 100 + {var1-10}} }{4} = 100 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$ -{var1-10}, \\; -{var1-10}, \\; +{var1-10}, \\; +{var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{= {var1-10} * {var1-10}}</strong>:</div>
+    <div class="text-center">$$ {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Дисперсия по генеральной совокупности.</strong></div>
+    <div class="text-center">$$ \\sigma^2 = \\frac{ 4 \\cdot {= {var1-10} * {var1-10}} }{4} = {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Стандартное отклонение.</strong></div>
+    <div class="text-center">$$ \\sigma = \\sqrt{ {= {var1-10} * {var1-10}} } = {var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Коэффициент вариации.</strong></div>
+    <div class="text-center">$$ CV = \\frac{ {var1-10} }{ 100 } \\cdot 100\\% = {var1-10}\\% $$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong>%</div>
+  </div>
+</div>`,
+    randomfrom: [5, 10, 15, 20, 25]
+},
+
+{
+    id: "excel024_quartile_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "КВАРТИЛЬ: первый квартиль Q1",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция КВАРТИЛЬ.ВКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан упорядоченный фрагмент листа Excel:</div>
+    <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="340" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="182" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="208" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="234" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="260" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+        <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+        <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
+        <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
+        <text x="20" y="278" text-anchor="middle" fill="#595959">10</text>
+
+        <text x="48" y="44">№</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - 4}</text>
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - 2}</text>
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + 2}</text>
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + 4}</text>
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= {var1-10} + 6}</text>
+        <text x="48" y="226">7</text>
+        <text x="248" y="226">{= {var1-10} + 8}</text>
+        <text x="48" y="252">8</text>
+        <text x="248" y="252">{= {var1-10} + 10}</text>
+        <text x="48" y="278">9</text>
+        <text x="248" y="278">{= {var1-10} + 12}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="286"/>
+        <line x1="240" y1="0" x2="240" y2="286"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+        <line x1="0" y1="234" x2="360" y2="234"/>
+        <line x1="0" y1="260" x2="360" y2="260"/>
+        <line x1="0" y1="286" x2="360" y2="286"/>
+      </g>
+
+      <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="328" font-size="13" fill="#1f1f1f">=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>КВАРТИЛЬ.ВКЛ</strong> — квартиль с включением границ (метод, аналогичный Excel).</div>
+    <div class="text-center">$$ Q_1 = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
+    <div class="text-center">$$ n = 9 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q1.</strong></div>
+    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 1 + 2 = 3 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
+    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
+    <div class="text-center">
+      {= {var1-10} - 4}, {= {var1-10} - 2}, <strong>{var1-10}</strong>, {= {var1-10} + 2}, {= {var1-10} + 4}, …
+    </div>
+    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30]
+},
+
+// {
+//     id: "excel025_iqr_excel",
+//     type: "mathwithrandomnumber",
+//     header: "Excel для устного счёта · Описательная статистика",
+//     title: "Интерквартильный размах",
+//     theme: "Описательная статистика",
+//     text: `
+// <div class="card">
+//   <div class="card-header bg-success text-white">
+//     Excel: интерквартильный размах
+//   </div>
+//   <div class="card-body">
+//     <div class="mb-3">Дан упорядоченный фрагмент листа Excel:</div>
+//     <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+//       <rect x="0" y="0" width="480" height="340" fill="#ffffff" stroke="#adb5bd"/>
+
+//       <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//       <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//       <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+//       <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+//       <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+//       <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+//       <g font-size="13" fill="#1f1f1f">
+//         <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="182" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="208" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="234" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+//         <rect x="0" y="260" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+//         <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
+//         <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
+//         <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
+//         <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+//         <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+//         <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+//         <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+//         <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
+//         <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
+//         <text x="20" y="278" text-anchor="middle" fill="#595959">10</text>
+
+//         <text x="48" y="44">№</text>
+//         <text x="248" y="44">Значение</text>
+
+//         <text x="48" y="70">1</text>
+//         <text x="248" y="70">0</text>
+//         <text x="48" y="96">2</text>
+//         <text x="248" y="96">0</text>
+//         <text x="48" y="122">3</text>
+//         <text x="248" y="122">0</text>
+//         <text x="48" y="148">4</text>
+//         <text x="248" y="148">0</text>
+//         <text x="48" y="174">5</text>
+//         <text x="248" y="174">{= {var1-10} / 2}</text>
+//         <text x="48" y="200">6</text>
+//         <text x="248" y="200">{var1-10}</text>
+//         <text x="48" y="226">7</text>
+//         <text x="248" y="226">{var1-10}</text>
+//         <text x="48" y="252">8</text>
+//         <text x="248" y="252">{var1-10}</text>
+//         <text x="48" y="278">9</text>
+//         <text x="248" y="278">{var1-10}</text>
+//       </g>
+
+//       <g stroke="#d9d9d9">
+//         <line x1="40" y1="0" x2="40" y2="286"/>
+//         <line x1="240" y1="0" x2="240" y2="286"/>
+//         <line x1="0" y1="26" x2="360" y2="26"/>
+//         <line x1="0" y1="52" x2="360" y2="52"/>
+//         <line x1="0" y1="78" x2="360" y2="78"/>
+//         <line x1="0" y1="104" x2="360" y2="104"/>
+//         <line x1="0" y1="130" x2="360" y2="130"/>
+//         <line x1="0" y1="156" x2="360" y2="156"/>
+//         <line x1="0" y1="182" x2="360" y2="182"/>
+//         <line x1="0" y1="208" x2="360" y2="208"/>
+//         <line x1="0" y1="234" x2="360" y2="234"/>
+//         <line x1="0" y1="260" x2="360" y2="260"/>
+//         <line x1="0" y1="286" x2="360" y2="286"/>
+//       </g>
+
+//       <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+//       <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+//       <text x="40" y="328" font-size="13" fill="#1f1f1f">=КВАРТИЛЬ.ВКЛ(B2:B10; 3) - КВАРТИЛЬ.ВКЛ(B2:B10; 1)</text>
+//     </svg>
+
+//     <div class="alert alert-success mt-3 mb-0">
+//       <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 3) - КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
+//     </div>
+//   </div>
+// </div>`,
+//     answer: "{var1-10}",
+//     hint: `
+// <div class="card">
+//   <div class="card-header bg-success text-white">
+//     Решение
+//   </div>
+//   <div class="card-body">
+//     <div class="mb-2"><strong>Интерквартильный размах</strong> — разность между третьим и первым квартилями:</div>
+//     <div class="text-center">$$ IQR = Q_3 - Q_1 $$</div>
+
+//     <div class="mt-3 mb-2"><strong>Шаг 1. Позиция Q1.</strong></div>
+//     <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 3 $$</div>
+//     <div class="mb-2">3-й элемент = <strong>0</strong>, значит Q1 = 0.</div>
+
+//     <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q3.</strong></div>
+//     <div class="text-center">$$ 1 + 0.75 \\cdot (9 - 1) = 7 $$</div>
+//     <div class="mb-2">7-й элемент = <strong>{var1-10}</strong>, значит Q3 = {var1-10}.</div>
+
+//     <div class="mt-3 mb-2"><strong>Шаг 3. Интерквартильный размах.</strong></div>
+//     <div class="text-center">$$ IQR = {var1-10} - 0 = {var1-10} $$</div>
+
+//     <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+//   </div>
+// </div>`,
+//     randomfrom: [10, 20, 30, 40, 50]
+// },
+
+{
+    id: "excel026_percentile_excel",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "ПРОЦЕНТИЛЬ: 25-й процентиль",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ПРОЦЕНТИЛЬ.ВКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан упорядоченный фрагмент листа Excel:</div>
+    <svg viewBox="0 0 480 340" width="100%" style="max-width:480px; display:block; margin:0 auto; font-family:Calibri, 'Segoe UI', Arial, sans-serif;">
+      <rect x="0" y="0" width="480" height="340" fill="#ffffff" stroke="#adb5bd"/>
+
+      <rect x="0" y="0" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="40" y="0" width="200" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <rect x="240" y="0" width="120" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+      <text x="20" y="18" text-anchor="middle" font-size="12" fill="#404040">A</text>
+      <text x="140" y="18" text-anchor="middle" font-size="12" fill="#404040">B</text>
+      <text x="300" y="18" text-anchor="middle" font-size="12" fill="#404040">C</text>
+
+      <g font-size="13" fill="#1f1f1f">
+        <rect x="0" y="26" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="52" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="78" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="104" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="130" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="156" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="182" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="208" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="234" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+        <rect x="0" y="260" width="40" height="26" fill="#f2f2f2" stroke="#bfbfbf"/>
+
+        <text x="20" y="44"  text-anchor="middle" fill="#595959">1</text>
+        <text x="20" y="70"  text-anchor="middle" fill="#595959">2</text>
+        <text x="20" y="96"  text-anchor="middle" fill="#595959">3</text>
+        <text x="20" y="122" text-anchor="middle" fill="#595959">4</text>
+        <text x="20" y="148" text-anchor="middle" fill="#595959">5</text>
+        <text x="20" y="174" text-anchor="middle" fill="#595959">6</text>
+        <text x="20" y="200" text-anchor="middle" fill="#595959">7</text>
+        <text x="20" y="226" text-anchor="middle" fill="#595959">8</text>
+        <text x="20" y="252" text-anchor="middle" fill="#595959">9</text>
+        <text x="20" y="278" text-anchor="middle" fill="#595959">10</text>
+
+        <text x="48" y="44">№</text>
+        <text x="248" y="44">Значение</text>
+
+        <text x="48" y="70">1</text>
+        <text x="248" y="70">{= {var1-10} - 4}</text>
+        <text x="48" y="96">2</text>
+        <text x="248" y="96">{= {var1-10} - 2}</text>
+        <text x="48" y="122">3</text>
+        <text x="248" y="122">{var1-10}</text>
+        <text x="48" y="148">4</text>
+        <text x="248" y="148">{= {var1-10} + 2}</text>
+        <text x="48" y="174">5</text>
+        <text x="248" y="174">{= {var1-10} + 4}</text>
+        <text x="48" y="200">6</text>
+        <text x="248" y="200">{= {var1-10} + 6}</text>
+        <text x="48" y="226">7</text>
+        <text x="248" y="226">{= {var1-10} + 8}</text>
+        <text x="48" y="252">8</text>
+        <text x="248" y="252">{= {var1-10} + 10}</text>
+        <text x="48" y="278">9</text>
+        <text x="248" y="278">{= {var1-10} + 12}</text>
+      </g>
+
+      <g stroke="#d9d9d9">
+        <line x1="40" y1="0" x2="40" y2="286"/>
+        <line x1="240" y1="0" x2="240" y2="286"/>
+        <line x1="0" y1="26" x2="360" y2="26"/>
+        <line x1="0" y1="52" x2="360" y2="52"/>
+        <line x1="0" y1="78" x2="360" y2="78"/>
+        <line x1="0" y1="104" x2="360" y2="104"/>
+        <line x1="0" y1="130" x2="360" y2="130"/>
+        <line x1="0" y1="156" x2="360" y2="156"/>
+        <line x1="0" y1="182" x2="360" y2="182"/>
+        <line x1="0" y1="208" x2="360" y2="208"/>
+        <line x1="0" y1="234" x2="360" y2="234"/>
+        <line x1="0" y1="260" x2="360" y2="260"/>
+        <line x1="0" y1="286" x2="360" y2="286"/>
+      </g>
+
+      <rect x="0" y="304" width="480" height="36" fill="#f2f2f2" stroke="#bfbfbf"/>
+      <text x="12" y="328" font-size="13" font-weight="bold" fill="#217346" font-style="italic">fx</text>
+      <text x="40" y="328" font-size="13" fill="#1f1f1f">=ПРОЦЕНТИЛЬ.ВКЛ(B2:B10; 0.25)</text>
+    </svg>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ПРОЦЕНТИЛЬ.ВКЛ(B2:B10; 0.25)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ПРОЦЕНТИЛЬ.ВКЛ</strong> — значение, ниже которого находится заданная доля данных.</div>
+    <div class="text-center">$$ P_{25} = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
+    <div class="text-center">$$ n = 9 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция 25-го процентиля.</strong></div>
+    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 3 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
+    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
+    <div class="text-center">
+      {= {var1-10} - 4}, {= {var1-10} - 2}, <strong>{var1-10}</strong>, {= {var1-10} + 2}, {= {var1-10} + 4}, …
+    </div>
+    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30]
+},
+
+
+{
+    id: "binom_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: биномиальное распределение",
+    title: "Математическое ожидание по графику",
+    theme: "Биномиальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Биномиальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение числа успехов в <strong>{var1-10}</strong> независимых испытаниях с вероятностью успеха <strong>p = 0.5</strong>.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно математическое ожидание <em>M(X) = n · p</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}/2",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для биномиального распределения:</div>
+    <div class="text-center">$$ M(X) = n \\cdot p $$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$ M(X) = {var1-10} \\cdot 0.5 = {= {var1-10} / 2} $$</div>
+    <div class="alert alert-success mt-3">Ответ: <strong>{= {var1-10} / 2}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 20, 30, 40],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "{var1-10}",
+        p: "0.5"
+    }
+},
+
+{
+    id: "poisson_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: распределение Пуассона",
+    title: "Математическое ожидание по графику",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Распределение Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение Пуассона с интенсивностью <strong>λ = {var1-10}</strong>.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно математическое ожидание <em>M(X)</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для распределения Пуассона:</div>
+    <div class="text-center">$$ M(X) = \\lambda $$</div>
+    <div class="mt-3 mb-2">По условию λ = {var1-10}, значит:</div>
+    <div class="text-center">$$ M(X) = {var1-10} $$</div>
+    <div class="alert alert-warning mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5, 6],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "{var1-10}"
+    }
+},
+
+{
+    id: "normal_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: нормальное распределение",
+    title: "Найдите σ по графику",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Нормальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность нормального распределения с μ = 0 и неизвестным σ.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему равно <em>σ</em>?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}/10",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Чем больше σ, тем шире и ниже колокол. Чем меньше σ, тем уже и выше.</div>
+    <div class="mt-3 mb-2">По форме кривой на графике видно σ:</div>
+    <div class="text-center">$$ \\sigma = {= {var1-10} / 10} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} / 10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [5, 10, 15, 20],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "{= {var1-10} / 10}"
+    }
+},
+
+{
+    id: "normal_area_chart_001",
+    type: "mathwithrandomnumber",
+    header: "График: площадь под кривой",
+    title: "Вероятность попадания в интервал",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Площадь под кривой нормального распределения
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность стандартного нормального распределения (μ = 0, σ = 1). Закрашенная область — интервал <strong>[−{var1-10}, +{var1-10}]</strong>.</div>
+
+    <div class="chart-wrap" style="height: 340px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-2" id="chartResult">
+      P(a &lt; X &lt; b) = ...
+    </div>
+
+    <div class="alert alert-success mt-2 mb-0">
+      <strong>Вопрос:</strong> Чему равна вероятность <em>P(−{var1-10} &lt; X &lt; {var1-10})</em>?
+      Введите число, округлив до 4 знаков после запятой (например, 0.9545).
+    </div>
+  </div>
+</div>`,
+    answer: "ROUND(POWER(2, 1) * 1, 4)",
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для стандартного нормального распределения площадь под кривой между a и b — это вероятность P(a &lt; X &lt; b).</div>
+    <div class="mt-3 mb-2">По графику закрашенная область равна:</div>
+    <div class="text-center">$$ P(-{var1-10} < X < {var1-10}) $$</div>
+    <div class="mt-3 mb-2">Точное значение показано под графиком.</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>смотрите число под графиком</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1, 2, 3],
+    chartjs: "normalArea",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1",
+        a: "{= -{var1-10}}",
+        b: "{var1-10}"
+    },
+    chartjsResultId: "chartResult"
+},
+
+{
+    id: "normal_chart_002",
+    type: "multiplechoices",
+    header: "График: нормальное распределение",
+    title: "Какой σ больше?",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Нормальное распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показаны две плотности нормального распределения с одинаковым μ = 0, но разными σ.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какой кривой σ больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У синей (широкой)",
+        "У красной (узкой)",
+        "Они одинаковы",
+        "Нельзя определить"
+    ],
+    answers: ["У синей (широкой)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Правило формы:</div>
+    <ul class="mb-2">
+      <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong></li>
+      <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong></li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>у синей (широкой) кривой σ больше</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1, 2, 3],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1"
+    }
+},
+
+{
+    id: "poisson_chart_002",
+    type: "mathwithrandomnumber",
+    header: "График: распределение Пуассона",
+    title: "Максимум графика",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Распределение Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение Пуассона с интенсивностью λ = {var1-10}. Найдите значение k, при котором вероятность максимальна (то есть положение вершины графика).</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> При каком <em>k</em> вероятность максимальна?
+      Введите целое число.
+    </div>
+  </div>
+</div>`,
+    answer: "ROUND({var1-10}, 0)",
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для распределения Пуассона максимум достигается при k, ближайшем к λ:</div>
+    <div class="text-center">$$ k_{max} \\approx \\lambda $$</div>
+    <div class="mt-3 mb-2">По условию λ = {var1-10}, значит:</div>
+    <div class="text-center">$$ k_{max} = {= ROUND({var1-10}, 0)} $$</div>
+    <div class="alert alert-warning mt-3">Ответ: <strong>{= ROUND({var1-10}, 0)}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2, 3, 4, 5, 6],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "{var1-10}"
+    }
+},
+
+{
+    id: "charttype_001",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Симметричный колокол из столбиков",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки биномиального распределения на графике:</div>
+    <ul class="mb-2">
+      <li><strong>Столбики</strong> (дискретное)</li>
+      <li>Симметричная форма при <em>p = 0.5</em></li>
+      <li>По горизонтали — целые числа от 0 до n</li>
+      <li>Форма близка к колоколу, но не непрерывная</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [20],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "20",
+        p: "0.5"
+    }
+},
+
+{
+    id: "charttype_002",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Столбики со скошенным хвостом",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Пуассона"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки распределения Пуассона:</div>
+    <ul class="mb-2">
+      <li><strong>Столбики</strong> (дискретное)</li>
+      <li>Максимум смещён влево (в начало координат)</li>
+      <li>Длинный <strong>правый хвост</strong></li>
+      <li>Число событий целое: 0, 1, 2, 3, …</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>распределение Пуассона</strong></div>
+  </div>
+</div>`,
+    randomfrom: [2],
+    chartjs: "poisson",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        lambda: "2"
+    }
+},
+
+{
+    id: "charttype_003",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Гладкая непрерывная кривая",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность распределения. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Нормальное (Гаусса)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки нормального распределения:</div>
+    <ul class="mb-2">
+      <li><strong>Непрерывная гладкая кривая</strong> (не столбики)</li>
+      <li>Симметрична относительно среднего</li>
+      <li>Имеет форму <strong>колокола</strong></li>
+      <li>По горизонтали — любое вещественное число</li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>нормальное (Гаусса)</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: "normal",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        mu: "0",
+        sigma: "1"
+    }
+},
+
+{
+    id: "charttype_004",
+    type: "multiplechoices",
+    header: "Определите тип распределения по графику",
+    title: "Асимметричные столбики",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+
+    <div class="chart-wrap" style="height: 320px;">
+      <canvas id="quizChart"></canvas>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как отличить биномиальное от Пуассона?</div>
+    <ul class="mb-2">
+      <li>Число столбиков <strong>ограничено</strong> (от 0 до n) — это <em>биномиальное</em>.</li>
+      <li>У Пуассона число столбиков может быть неограниченным справа (теоретически).</li>
+      <li>Асимметрия при <em>p &ne; 0.5</em> — нормальна для биномиального.</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: "binom",
+    chartjsId: "quizChart",
+    chartjsConfig: {
+        n: "20",
+        p: "0.2"
+    }
+},
+
+{
+    id: "charttype_005",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      В среднем за минуту на сервер приходит <strong>5 запросов</strong>. Запросы независимы, вероятность каждого мала, а их общее возможное число очень велико.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>числа запросов за 1 минуту</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Пуассона"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«редкие события»</strong></li>
+      <li><strong>«за фиксированный интервал»</strong></li>
+      <li><strong>«средняя интенсивность λ»</strong></li>
+      <li><strong>«число событий»</strong></li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>распределения Пуассона</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>Пуассона</strong></div>
+  </div>
+</div>`,
+    randomfrom: [5]
+},
+
+{
+    id: "charttype_006",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Рост взрослых мужчин в городе имеет <strong>среднее 175 см</strong> и <strong>стандартное отклонение 7 см</strong>. Большинство значений сосредоточено около среднего, крайние значения встречаются редко.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>роста</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Нормальное (Гаусса)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«среднее μ»</strong> и <strong>«стандартное отклонение σ»</strong></li>
+      <li><strong>«большинство около среднего»</strong></li>
+      <li><strong>«крайние значения редки»</strong></li>
+      <li>Непрерывная величина (рост, а не счёт)</li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>нормального распределения</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>нормальное (Гаусса)</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1]
+},
+
+{
+    id: "charttype_007",
+    type: "multiplechoices",
+    header: "Определите распределение по описанию",
+    title: "Какое распределение выбрать?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Монету подбрасывают <strong>10 раз</strong>. Нас интересует <strong>число выпавших орлов</strong>. Каждый бросок независим, вероятность орла <strong>p = 0.5</strong>.
+    </div>
+    <div class="mb-3">
+      Какое распределение описывает <strong>число орлов</strong>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "Биномиальное (Бернулли)",
+        "Пуассона",
+        "Нормальное (Гаусса)",
+        "Равномерное"
+    ],
+    answers: ["Биномиальное (Бернулли)"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Ключевые слова в условии:</div>
+    <ul class="mb-2">
+      <li><strong>«фиксированное число испытаний n»</strong></li>
+      <li><strong>«два исхода»</strong> (орёл / решка)</li>
+      <li><strong>«независимые испытания»</strong></li>
+      <li><strong>«вероятность p одинакова»</strong></li>
+      <li>Считаем <strong>число успехов</strong></li>
+    </ul>
+    <div class="mb-2">Всё это — признаки <strong>биномиального распределения</strong>.</div>
+    <div class="alert alert-info mt-3">Ответ: <strong>биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10]
+},
+
+
+{
+    id: "twochart_001",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого графика σ больше?",
+    theme: "Нормальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сравнение двух нормальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны плотности нормального распределения. У обоих одинаковое среднее μ = 0.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>σ</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика А"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Правило формы нормальной кривой:</div>
+    <ul class="mb-2">
+      <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong></li>
+      <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong></li>
+    </ul>
+    <div class="alert alert-primary mt-3">Ответ: <strong>у графика А</strong> — он шире и ниже, значит σ больше</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "normal",
+            id: "quizChartA",
+            config: { mu: "0", sigma: "2" }
+        },
+        {
+            type: "normal",
+            id: "quizChartB",
+            config: { mu: "0", sigma: "0.7" }
+        }
+    ]
+},
+
+{
+    id: "twochart_002",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого графика больше n?",
+    theme: "Биномиальное распределение",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковая вероятность успеха p = 0.5, но разное число испытаний n.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>n</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как читать биномиальное распределение:</div>
+    <ul class="mb-2">
+      <li>По горизонтали — <strong>число успехов k</strong> от 0 до n.</li>
+      <li><strong>Чем больше n</strong>, тем больше диапазон по горизонтали.</li>
+      <li>Чем больше n, тем уже и «колоколообразнее» форма.</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>у графика Б</strong> — у него больше столбиков</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "binom",
+            id: "quizChartA",
+            config: { n: "10", p: "0.5" }
+        },
+        {
+            type: "binom",
+            id: "quizChartB",
+            config: { n: "40", p: "0.5" }
+        }
+    ]
+},
+
+{
+    id: "twochart_003",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "Биномиальное или Пуассон?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны дискретные распределения. Оба — с длинным правым хвостом.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какой график соответствует <em>распределению Пуассона</em>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "График А — Пуассон, Б — биномиальное",
+        "График А — биномиальное, Б — Пуассон",
+        "Оба — Пуассон",
+        "Оба — биномиальные"
+    ],
+    answers: ["График А — Пуассон, Б — биномиальное"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Признаки <strong>Пуассона</strong>:</div>
+    <ul class="mb-2">
+      <li>Максимум смещён к нулю.</li>
+      <li>Длинный правый хвост.</li>
+      <li>Число значений неограничено (в теории).</li>
+    </ul>
+    <div class="mb-2">Признаки <strong>биномиального</strong>:</div>
+    <ul class="mb-2">
+      <li>Число значений ограничено: от 0 до n.</li>
+      <li>При p &lt; 0.5 форма скошена вправо, но обрывается на n.</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>А — Пуассон, Б — биномиальное</strong></div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "3" }
+        },
+        {
+            type: "binom",
+            id: "quizChartB",
+            config: { n: "20", p: "0.15" }
+        }
+    ]
+},
+
+{
+    id: "twochart_004",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "Непрерывное или дискретное?",
+    theme: "Распознавание распределений",
+    text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения с похожей формой. Одно из них — непрерывное, другое — дискретное.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-info mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое из них <em>непрерывное</em>?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "График А",
+        "График Б",
+        "Оба непрерывные",
+        "Оба дискретные"
+    ],
+    answers: ["График Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-info text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как отличить непрерывное от дискретного:</div>
+    <ul class="mb-2">
+      <li><strong>Непрерывное</strong> — гладкая кривая без разрывов.</li>
+      <li><strong>Дискретное</strong> — отдельные столбики, между которыми пусто.</li>
+    </ul>
+    <div class="alert alert-info mt-3">Ответ: <strong>график Б</strong> — гладкая непрерывная кривая</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "10" }
+        },
+        {
+            type: "normal",
+            id: "quizChartB",
+            config: { mu: "10", sigma: "3" }
+        }
+    ]
+},
+
+{
+    id: "twochart_005",
+    type: "multiplechoices",
+    header: "Сравнение двух распределений",
+    title: "У какого Пуассона больше λ?",
+    theme: "Распределение Пуассона",
+    text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения Пуассона с разными интенсивностями λ.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartA"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div class="chart-wrap" style="height: 260px;">
+          <canvas id="quizChartB"></canvas>
+        </div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>λ</em> больше?
+    </div>
+  </div>
+</div>`,
+    choices: [
+        "У графика А",
+        "У графика Б",
+        "Одинаковые",
+        "Нельзя определить"
+    ],
+    answers: ["У графика Б"],
+    hint: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Как читать λ на графике Пуассона:</div>
+    <ul class="mb-2">
+      <li>Положение максимума ≈ λ.</li>
+      <li>Чем <strong>правее</strong> максимум, тем <strong>больше λ</strong>.</li>
+      <li>Чем больше λ, тем симметричнее форма (ближе к нормальному).</li>
+    </ul>
+    <div class="alert alert-warning mt-3">Ответ: <strong>у графика Б</strong> — его максимум правее</div>
+  </div>
+</div>`,
+    randomfrom: [1],
+    chartjs: [
+        {
+            type: "poisson",
+            id: "quizChartA",
+            config: { lambda: "2" }
+        },
+        {
+            type: "poisson",
+            id: "quizChartB",
+            config: { lambda: "10" }
+        }
+    ]
+},
+
+    // ============================================================
+    // ================ JSXGRAPH: ОПРЕДЕЛИТЬ ТИП РАСПРЕДЕЛЕНИЯ =====
+    // ============================================================
+    {
+        id: "jsx_charttype_001",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Симметричные столбики",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <ul class='mb-0'>
+            <li>Отдельные <strong>столбики</strong> (дискретное)</li>
+            <li>Симметричная форма при <em>p = 0.5</em></li>
+            <li>Ограниченное число значений: от 0 до n</li>
+            <li>Форма напоминает колокол, но не непрерывная</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "binom",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            n: "20",
+            p: "0.5"
+        }
+    },
+    {
+        id: "jsx_charttype_002",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Столбики с длинным правым хвостом",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Пуассона"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Распределение Пуассона</h5>
+          <ul class='mb-0'>
+            <li>Отдельные <strong>столбики</strong> (дискретное)</li>
+            <li>Максимум смещён влево</li>
+            <li>Длинный <strong>правый хвост</strong></li>
+            <li>Число событий — целое: 0, 1, 2, 3, …</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "poisson",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            lambda: "2"
+        }
+    },
+    {
+        id: "jsx_charttype_003",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Гладкая непрерывная кривая",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показана плотность распределения. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Нормальное (Гаусса)"],
+        hint: `<div class='alert alert-primary'>
+          <h5 class='mb-2'>📊 Нормальное распределение</h5>
+          <ul class='mb-0'>
+            <li>Гладкая <strong>непрерывная кривая</strong></li>
+            <li>Симметрична относительно среднего</li>
+            <li>Форма <strong>колокола</strong></li>
+            <li>По горизонтали — любое вещественное число</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "normal",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            mu: "0",
+            sigma: "1"
+        }
+    },
+    {
+        id: "jsx_charttype_004",
+        type: "multiplechoices",
+        header: "Определите тип распределения по графику",
+        title: "Асимметричные столбики",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">На графике показано распределение. Определите, к какому типу оно относится.</div>
+    <div id="quizJsxGraph" class="jxgbox" style="width:100%; aspect-ratio:16/9; max-width:600px; margin:0 auto;"></div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое это распределение?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <p class='mb-1'>Как отличить биномиальное от Пуассона:</p>
+          <ul class='mb-0'>
+            <li>Число столбиков <strong>ограничено</strong> (от 0 до n) — это биномиальное.</li>
+            <li>У Пуассона число столбиков теоретически неограничено справа.</li>
+            <li>Асимметрия при <em>p &ne; 0.5</em> нормальна для биномиального.</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: "binom",
+        jsxgraphId: "quizJsxGraph",
+        jsxgraphConfig: {
+            n: "20",
+            p: "0.2"
+        }
+    },
+    {
+        id: "jsx_charttype_005",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Запросы на сервер",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      В среднем за минуту на сервер приходит <strong>5 запросов</strong>. Запросы независимы, вероятность каждого мала, а их общее возможное число очень велико.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>числа запросов за 1 минуту</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Пуассона"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Распределение Пуассона</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«редкие события»</strong></li>
+            <li><strong>«за фиксированный интервал»</strong></li>
+            <li><strong>«средняя интенсивность λ»</strong></li>
+            <li>Считаем <strong>число событий</strong></li>
+          </ul>
+        </div>`,
+        randomfrom: [5]
+    },
+    {
+        id: "jsx_charttype_006",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Рост взрослых мужчин",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Рост взрослых мужчин в городе имеет <strong>среднее 175 см</strong> и <strong>стандартное отклонение 7 см</strong>. Большинство значений сосредоточено около среднего, крайние значения встречаются редко.
+    </div>
+    <div class="mb-3">
+      Какое распределение лучше всего подходит для моделирования <strong>роста</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Нормальное (Гаусса)"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Нормальное распределение</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«среднее μ»</strong> и <strong>«стандартное отклонение σ»</strong></li>
+            <li><strong>«большинство около среднего»</strong></li>
+            <li><strong>«крайние значения редки»</strong></li>
+            <li>Непрерывная величина (рост, а не счёт)</li>
+          </ul>
+        </div>`,
+        randomfrom: [1]
+    },
+    {
+        id: "jsx_charttype_007",
+        type: "multiplechoices",
+        header: "Определите распределение по описанию",
+        title: "Подбрасывание монеты",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Определите распределение
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      Монету подбрасывают <strong>10 раз</strong>. Нас интересует <strong>число выпавших орлов</strong>. Каждый бросок независим, вероятность орла <strong>p = 0.5</strong>.
+    </div>
+    <div class="mb-3">
+      Какое распределение описывает <strong>число орлов</strong>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "Биномиальное (Бернулли)",
+            "Пуассона",
+            "Нормальное (Гаусса)",
+            "Равномерное"
+        ],
+        answers: ["Биномиальное (Бернулли)"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <p class='mb-1'>Ключевые слова в условии:</p>
+          <ul class='mb-0'>
+            <li><strong>«фиксированное число испытаний n»</strong></li>
+            <li><strong>«два исхода»</strong> (орёл / решка)</li>
+            <li><strong>«независимые испытания»</strong></li>
+            <li>Вероятность <strong>p одинакова</strong></li>
+            <li>Считаем <strong>число успехов</strong></li>
+          </ul>
+        </div>`,
+        randomfrom: [10]
+    },
+
+    // ============================================================
+    // ================ JSXGRAPH: СРАВНЕНИЕ ДВУХ ГРАФИКОВ ==========
+    // ============================================================
+    {
+        id: "jsx_twochart_001",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика σ больше?",
+        theme: "Нормальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Сравнение двух нормальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны плотности нормального распределения. У обоих одинаковое среднее μ = 0.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-primary mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>σ</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика А"],
+        hint: `<div class='alert alert-primary'>
+          <h5 class='mb-2'>📊 Форма нормальной кривой</h5>
+          <ul class='mb-0'>
+            <li><strong>Больше σ</strong> → колокол <strong>шире и ниже</strong>.</li>
+            <li><strong>Меньше σ</strong> → колокол <strong>уже и выше</strong>.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика А σ больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "normal", id: "quizJsxGraphA", config: { mu: "0", sigma: "2" } },
+            { type: "normal", id: "quizJsxGraphB", config: { mu: "0", sigma: "0.7" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_002",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика больше n?",
+        theme: "Биномиальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковая вероятность успеха p = 0.5, но разное число испытаний n.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>n</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Биномиальное распределение</h5>
+          <ul class='mb-0'>
+            <li>По горизонтали — <strong>число успехов k</strong> от 0 до n.</li>
+            <li><strong>Чем больше n</strong>, тем больше диапазон по горизонтали.</li>
+            <li>Чем больше n, тем «колоколообразнее» форма.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б n больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "binom", id: "quizJsxGraphA", config: { n: "10", p: "0.5" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "40", p: "0.5" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_003",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "Биномиальное или Пуассон?",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны дискретные распределения. Оба — с длинным правым хвостом.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> Какой график соответствует <em>распределению Пуассона</em>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "График А — Пуассон, Б — биномиальное",
+            "График А — биномиальное, Б — Пуассон",
+            "Оба — Пуассон",
+            "Оба — биномиальные"
+        ],
+        answers: ["График А — Пуассон, Б — биномиальное"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Как отличить?</h5>
+          <p class='mb-1'><strong>Пуассон:</strong></p>
+          <ul class='mb-2'>
+            <li>Максимум смещён к нулю.</li>
+            <li>Длинный правый хвост.</li>
+            <li>Число значений теоретически неограничено.</li>
+          </ul>
+          <p class='mb-1'><strong>Биномиальное:</strong></p>
+          <ul class='mb-0'>
+            <li>Число значений ограничено: от 0 до n.</li>
+            <li>При p &lt; 0.5 форма скошена вправо, но обрывается на n.</li>
+          </ul>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "3" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "20", p: "0.15" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_004",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "Непрерывное или дискретное?",
+        theme: "Распознавание распределений",
+        text: `
+<div class="card">
+  <div class="card-header bg-info text-white">
+    Сравнение двух распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения с похожей формой. Одно из них — непрерывное, другое — дискретное.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-info mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое из них <em>непрерывное</em>?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "График А",
+            "График Б",
+            "Оба непрерывные",
+            "Оба дискретные"
+        ],
+        answers: ["График Б"],
+        hint: `<div class='alert alert-info'>
+          <h5 class='mb-2'>📊 Как отличить?</h5>
+          <ul class='mb-0'>
+            <li><strong>Непрерывное</strong> — гладкая кривая без разрывов.</li>
+            <li><strong>Дискретное</strong> — отдельные столбики, между которыми пусто.</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: график Б — гладкая непрерывная кривая.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "10" } },
+            { type: "normal", id: "quizJsxGraphB", config: { mu: "10", sigma: "3" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_005",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого Пуассона больше λ?",
+        theme: "Распределение Пуассона",
+        text: `
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    Сравнение двух распределений Пуассона
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны распределения Пуассона с разными интенсивностями λ.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>λ</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-warning'>
+          <h5 class='mb-2'>📊 Как читать λ на графике Пуассона</h5>
+          <ul class='mb-0'>
+            <li>Положение максимума ≈ λ.</li>
+            <li>Чем <strong>правее</strong> максимум, тем <strong>больше λ</strong>.</li>
+            <li>Чем больше λ, тем симметричнее форма (ближе к нормальному).</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б λ больше.</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "poisson", id: "quizJsxGraphA", config: { lambda: "2" } },
+            { type: "poisson", id: "quizJsxGraphB", config: { lambda: "10" } }
+        ]
+    },
+    {
+        id: "jsx_twochart_006",
+        type: "multiplechoices",
+        header: "Сравнение двух распределений",
+        title: "У какого графика p больше?",
+        theme: "Биномиальное распределение",
+        text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Сравнение двух биномиальных распределений
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      На двух графиках показаны биномиальные распределения. У обоих одинаковое число испытаний n = 20, но разная вероятность успеха p.
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="quizJsxGraphA" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График А</strong></div>
+      </div>
+      <div class="col-md-6">
+        <div id="quizJsxGraphB" class="jxgbox" style="width:100%; aspect-ratio:1/1;"></div>
+        <div class="text-center mt-2"><strong>График Б</strong></div>
+      </div>
+    </div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> У какого графика <em>p</em> больше?
+    </div>
+  </div>
+</div>`,
+        choices: [
+            "У графика А",
+            "У графика Б",
+            "Одинаковые",
+            "Нельзя определить"
+        ],
+        answers: ["У графика Б"],
+        hint: `<div class='alert alert-success'>
+          <h5 class='mb-2'>📊 Как определить p по графику</h5>
+          <ul class='mb-0'>
+            <li>Максимум распределения находится около <em>n · p</em>.</li>
+            <li>Чем <strong>правее</strong> смещён максимум, тем <strong>больше p</strong>.</li>
+            <li>При <em>p = 0.5</em> максимум ровно в середине (k = n/2).</li>
+          </ul>
+          <p class='mt-2 mb-0'>Ответ: у графика Б p больше (максимум правее).</p>
+        </div>`,
+        randomfrom: [1],
+        jsxgraph: [
+            { type: "binom", id: "quizJsxGraphA", config: { n: "20", p: "0.2" } },
+            { type: "binom", id: "quizJsxGraphB", config: { n: "20", p: "0.7" } }
+        ]
+    },
+
+     {
+        id: "statistics520",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее значение количества звонков",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
+          class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
+        text: `Введите формулу для расчета среднего количества звонков за месяц`,
+        answer: "AVERAGE(C2:C13)",
+
+    },
+
+    {
+        id: "statistics525",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее значение продаж за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
+          class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
+        text: `Введите формулу для расчета средних продаж за месяц`,
+        answer: "AVERAGE(D2:D13)",
+
+    },
+
+    {
+        id: "statistics530",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее значение рекламного бюджета за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%B7%D0%BD%D0%B0%D1%87-047bac88-d466-426c-a32b-8f33eb960cf6'
+          class='link-primary'>СРЗНАЧ (функция СРЗНАЧ) =AVERAGE(A1:A20)</a>`,
+        text: `Введите формулу для расчета среднего рекламного бюджета за месяц`,
+        answer: "AVERAGE(B2:B13)",
+        hint: `Среднее это...`
+    },
+
+    {
+        id: "statistics530",
+        header: "Типовая задача",
+        type: "quizwithrandomnumber",
+        title: "Чему равна мода этой совокупности?",
+        theme: "Задачи и виды статистической сводки",
+        text: `
+        Найдите моду для статистической совокупности<br>
+        <div>{=5000-4*{var1-10}*100}</div>              
+        <div>{=5000-2*{var1-10}*100}</div>
+        <div>{=5000-5*{var1-10}*100}</div>
+        <div>{=5000-4*{var1-10}*100}</div>               
+        <div>{=5000-3*{var1-10}*100}</div>
+        <div>{=5000-1*{var1-10}*100}</div>
+        <div>{=5000-4*{var1-10}*100}</div>
+        <div>{=5000-1*{var1-10}*100}</div>
+        `,
+        answer: "5000-4*{var1-10}*100",
+        hint: `
+        <a
+         href='https://support.microsoft.com/en-us/office/mode-function-e45192ce-9122-4980-82ed-4bdc34973120'
+         class='link-primary'>MODE.SNGL</a><br>
+        Мода - значение, которое встречается в выборке чаще всего`
+    },
+
+    {
+        id: "statistics535",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Введите формулу для расчета медианы по рекламному бюджету за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BC%D0%B5%D0%B4%D0%B8%D0%B0%D0%BD%D0%B0-d0916313-4753-414c-8537-ce85bdd967d2'
+          class='link-primary'>МЕДИАНА(MEDIAN) - Находит медиану заданных чисел</a>`,
+        text: `Введите формулу для расчета медианы по рекламному бюджету за месяц`,
+        answer: "MEDIAN(B2:B13)",
+    },
+
+    {
+        id: "statistics540",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Введите формулу для расчета стандартное отклонение по рекламному бюджету за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/en-us/office/stdev-s-function-7d69cf97-0c1f-4acf-be27-f3e83904cc23'
+         class='link-primary'>СТАНДОТКЛОН(STDEV.S) - Оценивает стандартное отклонение по выборке</a>`,
+        text: `Введите формулу для расчета стандартное отклонение по по рекламному бюджету за месяц`,
+        answer: "STDEV.S(B2:B13)",
+    },
+
+    {
+        id: "statistics545",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Сумма квадратов отклонений по продажам за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D1%82%D0%BA%D0%BB-8b739616-8376-4df5-8bd0-cfe0a6caf444'
+          class='link-primary'>КВАДРОТКЛ(DEVSQ) - Вычисляет сумму квадратов отклонений</a>
+          <br>
+          <img src="https://support.content.office.net/ru-ru/media/a9363129-a835-4993-a78c-5501269f3447.gif" />
+         ` ,
+        text: `Введите формулу для расчета суммы квадратов отклонений по продажам за месяц`,
+        answer: "DEVSQ(D2:D13)",
+    },
+    {
+        id: "statistics550",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее абсолютных значений отклонений точек данных от среднего по количеству звонков за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
+          class='link-primary'>=СРОТКЛ =AVEDEV является мерой разброса множества данных</a>`,
+        text: `Введите формулу для расчета среднего абсолютных значений отклонений точек данных от среднего по количеству звонков за месяц<br>`,
+        answer: "AVEDEV(C2:C13)",
+    },
+
+
+    {
+        id: "statistics555",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Среднее абсолютных значений отклонений точек данных от среднего по рекламному бюджету за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
+          class='link-primary'>СРОТКЛ AVEDEV является мерой разброса множества данных</a>`,
+        text: `Введите формулу для расчета среднего абсолютных значений отклонений точек данных от среднего по рекламному бюджету за месяц`,
+        answer: "AVEDEV(B2:B13)",
+    },
+
+    {
+        id: "statistics560",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Расчет среднего абсолютных значений отклонений точек данных от среднего по продажам за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%80%D0%BE%D1%82%D0%BA%D0%BB-58fe8d65-2a84-4dc7-8052-f3f87b5c6639'
+          class='link-primary'>СРОТКЛ AVEDEV является мерой разброса множества данных</a>`,
+        text: `Введите формулу для расчета среднего абсолютных значений отклонений точек данных от среднего по продажам за месяц`,
+        answer: "AVEDEV(D2:D13)",
+
+    },
+
+
+     {
+        id: "statistics748",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Наклон линии линейной регрессии для точек данных по уравнению регрессии рекламный бюджет и продажи за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BD%D0%B0%D0%BA%D0%BB%D0%BE%D0%BD-11fb8f97-3117-4813-98aa-61d7e01276b9'
+          class='link-primary'>=Наклон =SLOPE</a><br>
+          Возвращает наклон линии линейной регрессии для точек данных в аргументах известные_значения_y и известные_значения_x.<br>
+          Наклон определяется как частное от деления расстояния по вертикали на расстояние по горизонтали между двумя любыми точками прямой;<br>
+          иными словами, наклон — это скорость изменения значений вдоль прямой<br>
+          Например, можно вычислить насколько изменяются продажи в млн. руб. при изменении бюджета рекламы на 1 млн. руб.
+          `,
+        text: `Рассчитайте наклон линии линейной регрессии для точек данных по уравнению регрессии рекламный бюджет и продажи за месяц`,
+        answer: "SLOPE(D2:D13,B2:B13)",
+    },
+
+    {
+        id: "statistics743",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Отрезок, отсекаемый на оси линией линейной регрессии за месяц по уравнению регрессии рекламный бюджет и продажи за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BE%D1%82%D1%80%D0%B5%D0%B7%D0%BE%D0%BA-2a9b74e2-9d47-4772-b663-3bca70bf63ef'
+          class='link-primary'>INTERCEPT ОТРЕЗОК</a>
+          Вычисляет точку пересечения линии с осью y, используя значения аргументов "известные_значения_x" и "известные_значения_y".<br>
+          Точка пересечения находится на оптимальной линии регрессии, проведенной через точки, заданные аргументами "известные_значения_x" и "известные_значения_y". Функция ОТРЕЗОК используется, если нужно определить значение зависимой переменной при нулевом значении независимой переменной.<br>
+           Например, в нвшем случае это продажи при нулевом рекламном бюджете`,
+        text: `Рассчитайте отрезок, отсекаемый на оси линией линейной регрессии за месяц по уравнению регрессии рекламный бюджет и продажи за месяцу для расчета суммы квадратов отклонений по продажам за месяц`,
+        answer: "INTERCEPT(D2:D13,B2:B13)",
+    },
+
+    {
+        id: "statistics792",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Вычислите значение продаж при количестве звонков, равном 10",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D0%BE%D0%B7-%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D0%BE%D0%B7-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8-linear-50ca49c9-7b40-4892-94e4-7ad38bbeda99'
+          class='link-primary'>Функция =ПРОГНОЗ =FORECAST</a>
+          Вычислите или спрогнозируйте будущее значение с помощью существующих значений. Будущее значение является значением y для заданного X-значения. Существующие значения являются известными значениями x и y, а будущее значение прогнозируется с помощью линейной регрессии. Эти функции можно использовать для прогнозирования будущих продаж, требований к запасам или потребительских тенденций.`,
+        text: `Вычислите значение продаж при количестве звонков, равном 10`,
+        answer: "FORECAST(10,D2:D13,C2:C13)",
+    },
+
+   
+    {
+        id: "statistics309",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Найдите ковариацию между количеством звонков и продажами",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D0%BA%D0%BE%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D1%8F-%D0%B3-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D1%8F-%D0%B3-6f0e1e6d-956d-4e4b-9943-cfef0bf9edfc'
+          class='link-primary'>COVARIANCE.P</a>
+          <br>
+          <img src="https://support.content.office.net/ru-ru/media/b5051bb7-e20d-4b81-867f-080decc48390.gif" />
+          <br>
+          Ковариация, то есть среднее произведений отклонений для каждой пары точек
+          В теории вероятностей и статистике ковариация является мерой совместной изменчивости двух случайных величин.<br>
+          Если большие значения одной переменной в основном соответствуют большим значениям другой переменной,<br>
+          и то же самое верно для меньших значений (то есть переменные имеют тенденцию одинаковой направленности)<br>
+           — ковариация положительна.
+           <br> При отрицательной ковариации большие значения одной переменной в основном соответствуют меньшим значениям другой и наоборот<br>
+           (то есть переменные имеют тенденцию противоположной направленности).<br>
+            Величину ковариации труднее интерпретировать, поскольку она не нормирована и, следовательно,<br>
+            зависит от размерности величин. <br>
+            Нормализованная версия ковариации — коэффициент корреляции — своей величиной показывает силу линейной зависимости
+          `,
+        text: `Введите формулу для расчета ковариации между количеством звонков и продажами`,
+        answer: "COVARIANCE.P(D2:D13,C2:C13)",
+    },
+
+    {
+        id: "statistics905",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Найдите коэффициент корреляции между количеством звонков и продажами",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB-995dcef7-0c0a-4bed-a3fb-239d7b68ca92'
+          class='link-primary'>
+          Функция CORREL возвращает коэффициент корреляции двух диапазонов ячеек.<br>
+          Коэффициент корреляции используется для определения взаимосвязи между двумя свойствами.<br>
+          Например, можно установить зависимость между средней температурой в помещении и использованием кондиционера
+          </a>
+          <br>
+          <img class='m-3' src="https://support.content.office.net/ru-ru/media/20801406-bfa6-4991-b08f-ebdc0c76af8c.gif" class="img-fluid" alt="...">
+          <br>
+          <a class="m-2" href="https://journal.tinkoff.ru/correlation/">Что такое корреляция акций и облигаций?</a>
+          
+          `,
+        text: `Введите формулу для расчета коэффициента корреляции между количеством звонков и продажами`,
+        answer: "CORREL(D2:D13,C2:C13)",
+    },
+
+    {
+        id: "statistics908",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Найдите коэффициент корреляции между рекламным бюджетом и продажами",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB-995dcef7-0c0a-4bed-a3fb-239d7b68ca92'
+          class='link-primary'>
+          Функция CORREL возвращает коэффициент корреляции двух диапазонов ячеек.<br>
+          Коэффициент корреляции используется для определения взаимосвязи между двумя свойствами.<br>
+          Например, можно установить зависимость между средней температурой в помещении и использованием кондиционера
+          </a>
+          <br>
+          <img class='m-3' src="https://support.content.office.net/ru-ru/media/20801406-bfa6-4991-b08f-ebdc0c76af8c.gif" class="img-fluid" alt="...">
+          <br>
+          <a class="m-2" href="https://journal.tinkoff.ru/correlation/">Что такое корреляция акций и облигаций?</a>
+     
+          `,
+        text: `Введите формулу для расчета коэффициента корреляции между рекламным бюджетом и продажами`,
+        answer: "CORREL(D2:D13,B2:B13)",
+    },
+
+     {
+        id: "statistics729",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Квадрат коэффициента корреляции Пирсона по уравнению регрессии рекламный бюджет и продажи за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BA%D0%B2%D0%BF%D0%B8%D1%80%D1%81%D0%BE%D0%BD-d7161715-250d-4a01-b80d-a8364f2be08f'
+          class='link-primary'>
+КВПИРСОН RSQ 
+          <a>
+          Возвращает квадрат коэффициента корреляции Пирсона для точек данных в аргументах "известные_значения_y" и "известные_значения_x". <br>
+          Значение квадрата R показывает, насколько дисперсии y связана с дисперсией x.
+          `,
+        text: `Рассчитайте квадрат коэффициента корреляции Пирсона по уравнению регрессии рекламный бюджет и продажи за месяц`,
+        answer: "RSQ(D2:D13,B2:B13)",
+    },
+
+    {
+        id: "statistics727",
+        header: "Кейс",
+        type: "casewithrandomnumber",
+        title: "Стандартная ошибка предсказанных значений y для каждого значения x в регрессии по уравнению регрессии рекламный бюджет и продажи за месяц",
+        theme: "Средние величины в статистике",
+        dataArray: [
+            ["Месяц", "Рекл. бюдж. (X1)", "Звонки кл. (X2)", "Продажи (Y)"],
+            ["январь", 8, 20, 52],
+            ["февраль", 9, 22, 55],
+            ["март", 10, 18, 53],
+            ["апрель", 11, 25, 60],
+            ["май", 12, 27, 62],
+            ["июнь", 10, 21, 58],
+            ["июль", 13, 29, 65],
+            ["август", 14, 30, 68],
+            ["сентябрь", 13, 26, 66],
+            ["октябрь", 15, 32, 72],
+            ["ноябрь", 16, 34, 75],
+            ["декабрь", 17, 36, 80],
+        ],
+        hint: `<a
+         href='https://support.microsoft.com/ru-ru/office/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D1%82%D0%BE%D1%88yx-6ce74b2c-449d-4a6e-b9ac-f9cef5ba48ab'
+          class='link-primary'>Функция СТОШYX STEYX 
+           </a>
+         Возвращает стандартную ошибку предсказанных значений y для каждого значения x в регрессии. Стандартная ошибка — это мера ошибки предсказанного значения y для отдельного значения x.
+         `,
+        text: `Рассчитайте стандартную ошибку предсказанных значений y для каждого значения x в регрессии по уравнению регрессии рекламный бюджет и продажи за месяц`,
+        answer: "STEYX(D2:D13,B2:B13)",
+    },
+
+
+
+];
+
+window.quizesSets = quizesSets;
