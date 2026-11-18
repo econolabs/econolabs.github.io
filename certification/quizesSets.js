@@ -134,6 +134,1390 @@ let quizesSets = [
 </div>`,
         "randomfrom": [2, 3, 4, 5]
     },
+
+    {
+    "id": "excel020_disp_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "ДИСП.Г: дисперсия по генеральной совокупности",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.Г
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.Г(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["2", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["3", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["4", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["5", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["6", "{= {var1-10} + POWER({var1-10}, 1/2)}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 110],
+    "sandbox": false
+}
+,
+
+{
+    "id": "excel019_avedev_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "СРОТКЛ: среднее абсолютное отклонение",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция СРОТКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с отклонениями показателя:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СРОТКЛ(B2:B7)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
+    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
+    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [2, 3, 4, 5],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "0"],
+      ["2", "0"],
+      ["3", "0"],
+      ["4", "{= 2 * {var1-10}}"],
+      ["5", "{= 2 * {var1-10}}"],
+      ["6", "{= 2 * {var1-10}}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 70],
+    "sandbox": false
+}
+,
+    
+{
+    "id": "excel021_dispv_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "ДИСП.В: дисперсия по выборке",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция ДИСП.В
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с измерениями:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=ДИСП.В(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
+    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
+    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
+    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
+    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
+    <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
+    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [4, 9, 16, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["2", "{= {var1-10} - POWER({var1-10}, 1/2)}"],
+      ["3", "{var1-10}"],
+      ["4", "{= {var1-10} + POWER({var1-10}, 1/2)}"],
+      ["5", "{= {var1-10} + POWER({var1-10}, 1/2)}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 110],
+    "sandbox": false
+}
+,
+
+{
+    "id": "excel023_cv_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "Коэффициент вариации",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: коэффициент вариации
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с результатами измерений:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=СТАНДОТКЛОН.Г(B2:B5) / СРЗНАЧ(B2:B5) * 100</code>? Введите только число (в процентах, без знака %).
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>Коэффициент вариации</strong> — относительная мера разброса:</div>
+    <div class="text-center">$$ CV = \\frac{ \\sigma }{ \\bar{x} } \\cdot 100\\% $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
+    <div class="mb-2">В данных два значения «{= 100 - {var1-10}}» и два значения «{= 100 + {var1-10}}». Симметричные отклонения компенсируются:</div>
+    <div class="text-center">$$ \\bar{x} = \\frac{ {= 100 - {var1-10}} + {= 100 - {var1-10}} + {= 100 + {var1-10}} + {= 100 + {var1-10}} }{4} = 100 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
+    <div class="text-center">$$ -{var1-10}, \\; -{var1-10}, \\; +{var1-10}, \\; +{var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
+    <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{= {var1-10} * {var1-10}}</strong>:</div>
+    <div class="text-center">$$ {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}}, \\; {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 4. Дисперсия по генеральной совокупности.</strong></div>
+    <div class="text-center">$$ \\sigma^2 = \\frac{ 4 \\cdot {= {var1-10} * {var1-10}} }{4} = {= {var1-10} * {var1-10}} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 5. Стандартное отклонение.</strong></div>
+    <div class="text-center">$$ \\sigma = \\sqrt{ {= {var1-10} * {var1-10}} } = {var1-10} $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 6. Коэффициент вариации.</strong></div>
+    <div class="text-center">$$ CV = \\frac{ {var1-10} }{ 100 } \\cdot 100\\% = {var1-10}\\% $$</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong>%</div>
+  </div>
+</div>`,
+    "randomfrom": [5, 10, 15, 20, 25],
+    "dataArray": [
+      ["Измерение", "Значение"],
+      ["1", "{= 100 - {var1-10}}"],
+      ["2", "{= 100 - {var1-10}}"],
+      ["3", "{= 100 + {var1-10}}"],
+      ["4", "{= 100 + {var1-10}}"]
+    ],
+    "shortHeaders": ["Измерение", "Значение"],
+    "colWidths": [90, 70],
+    "sandbox": false
+},
+
+
+{
+    "id": "excel024_quartile_excel_v2",
+    "type": "mathwithrandomnumber",
+    "header": "Excel для устного счёта · Описательная статистика",
+    "title": "КВАРТИЛЬ: первый квартиль Q1",
+    "theme": "Описательная статистика",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция КВАРТИЛЬ.ВКЛ
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан набор значений в столбце B:</div>
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=КВАРТИЛЬ.ВКЛ(B2:B10; 1)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    "answer": "{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>КВАРТИЛЬ.ВКЛ</strong> — квартиль с включением границ (метод, аналогичный Excel).</div>
+    <div class="text-center">$$ Q_1 = x_{ 1 + 0.25 \\cdot (n - 1) } $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 1. Количество элементов.</strong></div>
+    <div class="text-center">$$ n = 9 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 2. Позиция Q1.</strong></div>
+    <div class="text-center">$$ 1 + 0.25 \\cdot (9 - 1) = 1 + 2 = 3 $$</div>
+
+    <div class="mt-3 mb-2"><strong>Шаг 3. Значение 3-го элемента.</strong></div>
+    <div class="mb-2">Ряд упорядочен по возрастанию:</div>
+    <div class="text-center fs-5 mb-2">
+      {= {var1-10} - 4},&nbsp; {= {var1-10} - 2},&nbsp; <strong>{var1-10}</strong>,&nbsp; {= {var1-10} + 2},&nbsp; {= {var1-10} + 4},&nbsp; {= {var1-10} + 6},&nbsp; {= {var1-10} + 8},&nbsp; {= {var1-10} + 10},&nbsp; {= {var1-10} + 12}
+    </div>
+    <div class="mb-2 mt-2">3-й элемент = <strong>{var1-10}</strong>.</div>
+
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    "randomfrom": [10, 15, 20, 25, 30],
+    "dataArray": [
+      ["№", "Значение"],
+      ["1", "{= {var1-10} - 4}"],
+      ["2", "{= {var1-10} - 2}"],
+      ["3", "{var1-10}"],
+      ["4", "{= {var1-10} + 2}"],
+      ["5", "{= {var1-10} + 4}"],
+      ["6", "{= {var1-10} + 6}"],
+      ["7", "{= {var1-10} + 8}"],
+      ["8", "{= {var1-10} + 10}"],
+      ["9", "{= {var1-10} + 12}"]
+    ],
+    "shortHeaders": ["№", "Значение"],
+    "colWidths": [40, 80],
+    "sandbox": false
+},
+
+
+ {
+    id: "excel016_rand",
+    type: "mathwithrandomnumber",
+    header: "Excel для устного счёта · Описательная статистика",
+    title: "Excel: функция МОДА",
+    theme: "Описательная статистика",
+    text: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Excel: функция МОДА
+  </div>
+  <div class="card-body">
+    <div class="mb-3">Дан фрагмент листа Excel с оценками студентов:</div>
+    
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Какое значение вернёт формула <code>=МОДА(B2:B6)</code>? Введите только число.
+    </div>
+  </div>
+</div>`,
+    answer: "{var1-10}",
+    hint: `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Решение
+  </div>
+  <div class="card-body">
+    <div class="mb-2"><strong>МОДА</strong> возвращает самое частое значение в диапазоне.</div>
+    <div class="mt-3 mb-2">Оценки в диапазоне B2:B6:</div>
+    <div class="text-center fs-5 mb-2">
+      {var1-10}, &nbsp; {= {var1-10} + 5}, &nbsp; {var1-10}, &nbsp; {var1-10}, &nbsp; {= {var1-10} - 5}
+    </div>
+    <div class="mt-3 mb-2">Считаем частоты:</div>
+    <ul class="mb-2">
+      <li>«{var1-10}» — <strong>3 раза</strong></li>
+      <li>«{= {var1-10} + 5}» — 1 раз</li>
+      <li>«{= {var1-10} - 5}» — 1 раз</li>
+    </ul>
+    <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+    randomfrom: [10, 15, 20, 25, 30],
+    dataArray: [
+      ["Студент", "Оценка"],
+      ["Анна",   "{var1-10}"],
+      ["Борис",  "{= {var1-10} + 5}"],
+      ["Вера",   "{var1-10}"],
+      ["Глеб",   "{var1-10}"],
+      ["Даша",   "{= {var1-10} - 5}"]
+    ],
+    shortHeaders: ["Студент", "Оценка"],
+    colWidths:    [110, 70],
+    sandbox: false
+},
+
+
+// qa_certification_tests.js
+// Дисциплина: «Обеспечение качества и сертификация информационных систем»
+// Тип кейсов: casewithrandomnumber
+// Формулы не повторяются: каждая функция используется ровно один раз.
+
+  // ============================================================
+  // БЛОК 1. МЕТРИКИ КАЧЕСТВА ПО
+  // ============================================================
+
+  {
+    id: "qa001",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Среднее количество дефектов на релиз",
+    theme: "Метрики качества ПО",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧ</strong> — среднее арифметическое
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Сумма значений, делённая на их количество.</p>
+    <p class="mb-1"><code>СРЗНАЧ(диапазон)</code> / <code>AVERAGE(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧ(B2:B13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего количества дефектов на релиз (столбец «Дефекты»)`,
+    answer: "AVERAGE(B2:B13)",
+  },
+
+  {
+    id: "qa002",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Суммарное количество критичных дефектов",
+    theme: "Метрики качества ПО",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СУММ</strong> — сумма значений
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Складывает все числа в указанном диапазоне.</p>
+    <p class="mb-1"><code>СУММ(диапазон)</code> / <code>SUM(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СУММ(C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта суммарного количества критичных дефектов (столбец «Критичные»)`,
+    answer: "SUM(C2:C13)",
+  },
+
+  {
+    id: "qa003",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Среднее количество тест-кейсов на релиз",
+    theme: "Тестирование и верификация",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧ</strong> — среднее арифметическое
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Используется для оценки среднего объёма тест-кейсов на релиз.</p>
+    <p class="mb-1"><code>СРЗНАЧ(диапазон)</code> / <code>AVERAGE(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧ(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего количества тест-кейсов на релиз (столбец «Тест-кейсы»)`,
+    answer: "AVERAGE(D2:D13)",
+  },
+
+  {
+    id: "qa004",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Максимальное число дефектов среди релизов",
+    theme: "Метрики качества ПО",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>МАКС</strong> — максимальное значение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Возвращает наибольшее число в диапазоне.</p>
+    <p class="mb-1"><code>МАКС(диапазон)</code> / <code>MAX(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=МАКС(B2:B13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для определения максимального количества дефектов в одном релизе (столбец «Дефекты»)`,
+    answer: "MAX(B2:B13)",
+  },
+
+  {
+    id: "qa005",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Количество релизов с критичными дефектами",
+    theme: "Метрики качества ПО",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СЧЁТЕСЛИ</strong> — подсчёт по условию
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Считает количество ячеек, удовлетворяющих условию.</p>
+    <p class="mb-1"><code>СЧЁТЕСЛИ(диапазон; условие)</code> / <code>COUNTIF(range; criteria)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СЧЁТЕСЛИ(C2:C13;">=2")</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для подсчёта количества релизов, в которых было не менее 2 критичных дефектов (столбец «Критичные»)`,
+    answer: "COUNTIF(C2:C13;\">=2\")",
+  },
+
+  {
+    id: "qa006",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Минимальное число тест-кейсов",
+    theme: "Тестирование и верификация",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>МИН</strong> — минимальное значение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Возвращает наименьшее число в диапазоне.</p>
+    <p class="mb-1"><code>МИН(диапазон)</code> / <code>MIN(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=МИН(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для определения минимального количества тест-кейсов среди релизов (столбец «Тест-кейсы»)`,
+    answer: "MIN(D2:D13)",
+  },
+
+  {
+    id: "qa007",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Общее число тест-кейсов по всем релизам",
+    theme: "Тестирование и верификация",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СУММ</strong> — сумма значений
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Суммирует объём тест-кейсов по всем релизам.</p>
+    <p class="mb-1"><code>СУММ(диапазон)</code> / <code>SUM(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СУММ(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта общего числа тест-кейсов по всем релизам (столбец «Тест-кейсы»)`,
+    answer: "SUM(D2:D13)",
+  },
+
+  {
+    id: "qa008",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Среднее число критичных дефектов",
+    theme: "Метрики качества ПО",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Критичные (X2)", "Тест-кейсы (Y)"],
+      ["R-1.0", 12, 2, 120],
+      ["R-1.1", 9, 1, 135],
+      ["R-1.2", 15, 3, 140],
+      ["R-2.0", 20, 4, 180],
+      ["R-2.1", 11, 2, 160],
+      ["R-2.2", 8, 1, 150],
+      ["R-3.0", 18, 3, 200],
+      ["R-3.1", 14, 2, 190],
+      ["R-3.2", 10, 1, 175],
+      ["R-4.0", 22, 5, 220],
+      ["R-4.1", 16, 2, 205],
+      ["R-4.2", 13, 1, 195],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "КРИТ", "ТК"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧ</strong> — среднее арифметическое
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Среднее число критичных дефектов на релиз.</p>
+    <p class="mb-1"><code>СРЗНАЧ(диапазон)</code> / <code>AVERAGE(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧ(C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего числа критичных дефектов на релиз (столбец «Критичные»)`,
+    answer: "AVERAGE(C2:C13)",
+  },
+
+  // ============================================================
+  // БЛОК 2. СЕРТИФИКАЦИОННЫЕ ИСПЫТАНИЯ ИС
+  // ============================================================
+
+  {
+    id: "qa009",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Среднее время прохождения испытаний",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧ</strong> — среднее арифметическое
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Среднее количество дней на одно испытание.</p>
+    <p class="mb-1"><code>СРЗНАЧ(диапазон)</code> / <code>AVERAGE(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧ(C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего количества дней на одно испытание (столбец «Дней на испыт.»)`,
+    answer: "AVERAGE(C2:C13)",
+  },
+
+  {
+    id: "qa010",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Суммарное число замечаний по всем системам",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СУММ</strong> — сумма значений
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Общее число замечаний по всем системам.</p>
+    <p class="mb-1"><code>СУММ(диапазон)</code> / <code>SUM(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СУММ(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта суммарного количества замечаний по всем системам (столбец «Замечаний»)`,
+    answer: "SUM(D2:D13)",
+  },
+
+  {
+    id: "qa011",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Среднее число испытаний на систему",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧ</strong> — среднее арифметическое
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Среднее количество испытаний на одну систему.</p>
+    <p class="mb-1"><code>СРЗНАЧ(диапазон)</code> / <code>AVERAGE(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧ(B2:B13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего количества испытаний на одну систему (столбец «Испытаний»)`,
+    answer: "AVERAGE(B2:B13)",
+  },
+
+  {
+    id: "qa012",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Минимальное число замечаний",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>МИН</strong> — минимальное значение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Наименьшее число замечаний среди систем.</p>
+    <p class="mb-1"><code>МИН(диапазон)</code> / <code>MIN(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=МИН(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для определения минимального количества замечаний среди систем (столбец «Замечаний»)`,
+    answer: "MIN(D2:D13)",
+  },
+
+  {
+    id: "qa013",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Количество систем с числом испытаний больше 3",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СЧЁТЕСЛИ</strong> — подсчёт по условию
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Считает системы с числом испытаний больше 3.</p>
+    <p class="mb-1"><code>СЧЁТЕСЛИ(диапазон; условие)</code> / <code>COUNTIF(range; criteria)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СЧЁТЕСЛИ(B2:B13;">3")</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для подсчёта количества систем, для которых проведено более 3 испытаний (столбец «Испытаний»)`,
+    answer: "COUNTIF(B2:B13;\">3\")",
+  },
+
+  {
+    id: "qa014",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Максимальное число дней на испытание",
+    theme: "Сертификация информационных систем",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Дней на испыт. (X2)", "Замечаний (Y)"],
+      ["ИС-А", 4, 12, 7],
+      ["ИС-Б", 3, 15, 5],
+      ["ИС-В", 5, 10, 9],
+      ["ИС-Г", 2, 20, 3],
+      ["ИС-Д", 6, 8, 11],
+      ["ИС-Е", 4, 14, 6],
+      ["ИС-Ж", 3, 18, 4],
+      ["ИС-З", 5, 11, 8],
+      ["ИС-И", 2, 22, 2],
+      ["ИС-К", 6, 9, 10],
+      ["ИС-Л", 4, 13, 6],
+      ["ИС-М", 3, 16, 5],
+    ],
+    shortHeaders: ["Система", "ИСП", "ДНИ", "ЗАМ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>МАКС</strong> — максимальное значение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Максимальное количество дней на одно испытание.</p>
+    <p class="mb-1"><code>МАКС(диапазон)</code> / <code>MAX(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=МАКС(C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для определения максимального количества дней на одно испытание (столбец «Дней на испыт.»)`,
+    answer: "MAX(C2:C13)",
+  },
+
+  // ============================================================
+  // БЛОК 3. СТАТИСТИЧЕСКИЙ И КОРРЕЛЯЦИОННЫЙ АНАЛИЗ
+  // ============================================================
+
+  {
+    id: "qa015",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Стандартное отклонение числа дефектов",
+    theme: "Статистический анализ метрик качества",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СТАНДОТКЛОН</strong> — выборочное стандартное отклонение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Показывает разброс числа дефектов относительно среднего.</p>
+    <p class="mb-1"><code>СТАНДОТКЛОН(диапазон)</code> / <code>STDEV(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СТАНДОТКЛОН(B2:B13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта выборочного стандартного отклонения числа дефектов по релизам (столбец «Дефекты»)`,
+    answer: "STDEV(B2:B13)",
+  },
+
+  {
+    id: "qa016",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Корреляция дефектов и трудозатрат",
+    theme: "Корреляционный анализ метрик",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>КОРРЕЛ</strong> — коэффициент корреляции Пирсона
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Оценивает линейную связь между двумя наборами (от −1 до 1).</p>
+    <p class="mb-1"><code>КОРРЕЛ(диапазон1; диапазон2)</code> / <code>CORREL(range1; range2)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=КОРРЕЛ(B2:B13;D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта коэффициента корреляции Пирсона между числом дефектов (столбец «Дефекты») и трудозатратами (столбец «Трудозатраты»)`,
+    answer: "CORREL(B2:B13;D2:D13)",
+  },
+
+  {
+    id: "qa017",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Средние дефекты только при трудозатратах > 400 ч",
+    theme: "Условные статистические метрики",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СРЗНАЧЕСЛИ</strong> — среднее по условию
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Усредняет значения одного диапазона, если в другом выполнено условие.</p>
+    <p class="mb-1"><code>СРЗНАЧЕСЛИ(диапазон_условия; условие; диапазон_усреднения)</code><br>
+       <code>AVERAGEIF(criteria_range; criteria; average_range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СРЗНАЧЕСЛИ(D2:D13;">400";B2:B13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта среднего числа дефектов только по релизам, у которых трудозатраты превышают 400 ч (диапазон условия — «Трудозатраты», диапазон усреднения — «Дефекты»)`,
+    answer: "AVERAGEIF(D2:D13;\">400\";B2:B13)",
+  },
+
+  {
+    id: "qa018",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Релизы с дефектами > 12 и тест-кейсами > 150",
+    theme: "Многокритериальный подсчёт",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СЧЁТЕСЛИМН</strong> — подсчёт по нескольким условиям
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Считает строки, где одновременно выполнены все условия (логика И).</p>
+    <p class="mb-1"><code>СЧЁТЕСЛИМН(диапазон1; условие1; диапазон2; условие2; …)</code><br>
+       <code>COUNTIFS(range1; crit1; range2; crit2; …)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СЧЁТЕСЛИМН(B2:B13;">12";C2:C13;">150")</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для подсчёта количества релизов, у которых одновременно число дефектов больше 12 и число тест-кейсов больше 150`,
+    answer: "COUNTIFS(B2:B13;\">12\";C2:C13;\">150\")",
+  },
+
+  {
+    id: "qa019",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Суммарные трудозатраты на релизы с дефектами > 15",
+    theme: "Взвешенные суммы по условию",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СУММПРОИЗВ</strong> — сумма произведений массивов
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Перемножает массивы поэлементно и суммирует. Удобно для сумм по условию без СУММЕСЛИ.</p>
+    <p class="mb-1"><code>СУММПРОИЗВ(массив1; массив2; …)</code> / <code>SUMPRODUCT(array1; array2; …)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СУММПРОИЗВ((B2:B13>15)*D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу (без СУММЕСЛИ) для расчёта суммарных трудозатрат только по релизам, у которых число дефектов больше 15`,
+    answer: "SUMPRODUCT((B2:B13>15)*D2:D13)",
+  },
+
+  {
+    id: "qa020",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Медиана трудозатрат по релизам",
+    theme: "Робастные оценки метрик",
+    dataArray: [
+      ["Релиз", "Дефекты (X1)", "Тест-кейсы (X2)", "Трудозатраты ч (Y)"],
+      ["R-1.0", 12, 120, 340],
+      ["R-1.1", 9, 135, 310],
+      ["R-1.2", 15, 140, 380],
+      ["R-2.0", 20, 180, 450],
+      ["R-2.1", 11, 160, 360],
+      ["R-2.2", 8, 150, 300],
+      ["R-3.0", 18, 200, 430],
+      ["R-3.1", 14, 190, 400],
+      ["R-3.2", 10, 175, 350],
+      ["R-4.0", 22, 220, 480],
+      ["R-4.1", 16, 205, 420],
+      ["R-4.2", 13, 195, 390],
+    ],
+    shortHeaders: ["Релиз", "ДЕФ", "ТК", "ТРУД"],
+    colWidths: [70, 34, 34, 40],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>МЕДИАНА</strong> — медиана набора
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Значение, делящее упорядоченный набор пополам. Устойчива к выбросам.</p>
+    <p class="mb-1"><code>МЕДИАНА(диапазон)</code> / <code>MEDIAN(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=МЕДИАНА(D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта медианы трудозатрат по всем релизам (столбец «Трудозатраты»)`,
+    answer: "MEDIAN(D2:D13)",
+  },
+
+  {
+    id: "qa021",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Дисперсия числа замечаний",
+    theme: "Статистический анализ результатов сертификации",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>ДИСП</strong> — выборочная дисперсия
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Квадрат стандартного отклонения; мера разброса числа замечаний.</p>
+    <p class="mb-1"><code>ДИСП(диапазон)</code> / <code>VAR(range)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=ДИСП(C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта выборочной дисперсии числа замечаний по системам (столбец «Замечаний»)`,
+    answer: "VAR(C2:C13)",
+  },
+
+  {
+    id: "qa022",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Корреляция числа испытаний и числа замечаний",
+    theme: "Корреляционный анализ результатов сертификации",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>КОРРЕЛ</strong> — коэффициент корреляции Пирсона
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Проверяет, связаны ли число испытаний и число замечаний линейно.</p>
+    <p class="mb-1"><code>КОРРЕЛ(диапазон1; диапазон2)</code> / <code>CORREL(range1; range2)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=КОРРЕЛ(B2:B13;C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта коэффициента корреляции между числом испытаний (столбец «Испытаний») и числом замечаний (столбец «Замечаний»)`,
+    answer: "CORREL(B2:B13;C2:C13)",
+  },
+
+  {
+    id: "qa023",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Коэффициент детерминации R²",
+    theme: "Регрессионный анализ метрик",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>КВПИРСОН</strong> — коэффициент детерминации R²
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Квадрат коэффициента корреляции; доля дисперсии Y, объяснённая X.</p>
+    <p class="mb-1"><code>КВПИРСОН(Y; X)</code> / <code>RSQ(known_y; known_x)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=КВПИРСОН(C2:C13;D2:D13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта коэффициента детерминации R² между числом замечаний (столбец «Замечаний») и числом дней (столбец «Дней»)`,
+    answer: "RSQ(C2:C13;D2:D13)",
+  },
+
+  {
+    id: "qa024",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Наклон линии регрессии «замечания – дни»",
+    theme: "Регрессионный анализ метрик",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>НАКЛОН</strong> — наклон линии линейной регрессии
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Скорость изменения Y при изменении X на единицу. Первый аргумент — Y, второй — X.</p>
+    <p class="mb-1"><code>НАКЛОН(известные_Y; известные_X)</code> / <code>SLOPE(known_y; known_x)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=НАКЛОН(D2:D13;C2:C13)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для расчёта наклона линейной регрессии, где Y — число дней (столбец «Дней»), X — число замечаний (столбец «Замечаний»)`,
+    answer: "SLOPE(D2:D13;C2:C13)",
+  },
+
+  {
+    id: "qa025",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Второе по величине число замечаний",
+    theme: "Ранжирование результатов",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>НАИБОЛЬШИЙ</strong> — k-е наибольшее значение
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Возвращает k-й по величине элемент; <code>k=1</code> — максимум, <code>k=2</code> — второй по величине.</p>
+    <p class="mb-1"><code>НАИБОЛЬШИЙ(диапазон; k)</code> / <code>LARGE(range; k)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=НАИБОЛЬШИЙ(C2:C13;2)</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для определения второго по величине числа замечаний среди всех систем (столбец «Замечаний»)`,
+    answer: "LARGE(C2:C13;2)",
+  },
+
+  {
+    id: "qa026",
+    header: "Кейс",
+    type: "casewithrandomnumber",
+    title: "Системы с днями ≤ 48 и испытаниями ≥ 3",
+    theme: "Многокритериальный подсчёт",
+    dataArray: [
+      ["Система", "Испытаний (X1)", "Замечаний (X2)", "Дней (Y)"],
+      ["ИС-А", 4, 7, 48],
+      ["ИС-Б", 3, 5, 45],
+      ["ИС-В", 5, 9, 50],
+      ["ИС-Г", 2, 3, 40],
+      ["ИС-Д", 6, 11, 48],
+      ["ИС-Е", 4, 6, 56],
+      ["ИС-Ж", 3, 4, 54],
+      ["ИС-З", 5, 8, 55],
+      ["ИС-И", 2, 2, 44],
+      ["ИС-К", 6, 10, 54],
+      ["ИС-Л", 4, 6, 52],
+      ["ИС-М", 3, 5, 48],
+    ],
+    shortHeaders: ["Система", "ИСП", "ЗАМ", "ДНИ"],
+    colWidths: [70, 34, 34, 34],
+    hint: `
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white py-1">
+    <strong>СЧЁТЕСЛИМН</strong> — подсчёт по нескольким условиям
+  </div>
+  <div class="card-body py-2">
+    <p class="card-text mb-1">Считает строки, где выполнены все условия одновременно.</p>
+    <p class="mb-1"><code>СЧЁТЕСЛИМН(диапазон1; условие1; диапазон2; условие2; …)</code><br>
+       <code>COUNTIFS(range1; crit1; range2; crit2; …)</code></p>
+    <p class="mb-0 text-muted small">Пример: <code>=СЧЁТЕСЛИМН(D2:D13;"<=48";B2:B13;">=3")</code></p>
+  </div>
+</div>`,
+    text: `Введите формулу для подсчёта количества систем, у которых число дней не превышает 48 и при этом проведено не менее 3 испытаний`,
+    answer: "COUNTIFS(D2:D13;\"<=48\";B2:B13;\">=3\")",
+  },
+
+
+
     {
         "id": "statistics544",
         "type": "multiplechoices",
