@@ -12,7 +12,7 @@ let quizesSets = [
         "text": "В фирме такси свободно 10 машин: 5 чёрных, 1 жёлтая и 4 зелёных. По вызову выехала одна из машин, случайно оказавшаяся ближе всего к заказчику. Найдите вероятность того, что к нему приедет жёлтое такси.",
         "choices": ["0.1", "0.2", "0.4", "0.5"],
         "answers": ["0.1"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🚕 Классическая вероятность</h5><p class='mb-1'>$$P = \\frac{m}{n}$$</p><hr class='my-2'><p class='mb-1'>Жёлтых: 1. Всего: 10.</p><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🚕 Классическая вероятность</h5><p class='mb-1'>$$P = \\frac{m}{n} $$</p><hr class='my-2'><p class='mb-1'>Жёлтых: 1. Всего: 10.</p><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
     },
     {
         "id": "fipi_cups_001",
@@ -206,7 +206,7 @@ let quizesSets = [
     <div class="mb-2">Перестановки — упорядочиваем все n элементов:</div>
     <div class="text-center">$$P_n = n!$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
   </div>
 </div>`,
@@ -232,9 +232,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Размещения — выбираем k из n и упорядочиваем:</div>
-    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!}$$</div>
+    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10} - 2}:</div>
-    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}$$</div>
+    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}</strong></div>
   </div>
 </div>`,
@@ -260,9 +260,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Сочетания — выбираем k из n, порядок не важен:</div>
-    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
-    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
   </div>
 </div>`,
@@ -285,13 +285,56 @@ let quizesSets = [
     "answer": "FACT({var1-10}) / (FACT(2) * FACT(2))",
     "hint": `
 <div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-header bg-primary text-white">Подробнее</div>
   <div class="card-body">
-    <div class="mb-2">Перестановки с повторениями — делим на факториалы повторяющихся групп:</div>
-    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!}$$</div>
-    <div class="mt-3 mb-2">Здесь n = {var1-10}, повторяются «М» (2 раза) и «А» (2 раза):</div>
-    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))}$$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT(2))}</strong></div>
+
+    <div class="mb-2"><strong>1. Откуда берётся формула</strong></div>
+    <div class="mb-2">
+      Если бы все <em>n</em> букв были различны, число слов было бы <em>n</em>! — каждую из <em>n</em> букв можно поставить на любое из <em>n</em> мест.
+      Но когда буквы повторяются, часть слов совпадает: перестановка одинаковых букв между собой не даёт нового слова. Поэтому делим на число таких «незаметных» перестановок внутри каждой группы.
+    </div>
+
+    <hr>
+
+    <div class="mb-2"><strong>2. Простой пример: «АА»</strong></div>
+    <div class="mb-2">Две одинаковые буквы. Различных слов всего одно: <strong>АА</strong>.</div>
+    <div class="text-center mb-3">$$\\frac{2!}{2!} = \\frac{2}{2} = 1$$</div>
+    <div class="mb-3">Если бы не делили, получили бы 2! = 2 «слова» (АА и АА), но они одинаковые.</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>3. Пример: «ААБ»</strong></div>
+    <div class="mb-2">Буквы: А, А, Б. Всего 3! = 6 перестановок, но пары с переставленными «А» совпадают:</div>
+    <div class="mb-2" style="font-family: monospace;">
+      ААБ, ААБ &nbsp;→&nbsp; ААБ<br>
+      АБА, АБА &nbsp;→&nbsp; АБА<br>
+      БАА, БАА &nbsp;→&nbsp; БАА
+    </div>
+    <div class="text-center mb-3">$$\\frac{3!}{2!} = \\frac{6}{2} = 3$$</div>
+    <div class="mb-3">Различных слов: <strong>ААБ, АБА, БАА</strong> — действительно 3.</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>4. Пример: «ААББ»</strong></div>
+    <div class="mb-2">Две группы повторов: «А» (2 раза) и «Б» (2 раза).</div>
+    <div class="text-center mb-3">$$\\frac{4!}{2! \\cdot 2!} = \\frac{24}{2 \\cdot 2} = 6$$</div>
+    <div class="mb-3">Слова: ААББ, АБАБ, АББА, БААБ, БАБА, ББАА — ровно 6.</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>5. Наша задача</strong></div>
+    <div class="mb-2">Всего букв: <strong>{var1-10}</strong>. Повторяются:</div>
+    <ul class="mb-3">
+      <li>«М» — 2 раза,</li>
+      <li>«А» — 2 раза,</li>
+      <li>остальные <strong>{= {var1-10} - 4}</strong> букв — уникальные (каждая по 1 разу).</li>
+    </ul>
+    <div class="mb-2">Подставляем в формулу:</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! \\cdot \\underbrace{1! \\cdots 1!}_{{= {var1-10} - 4}} } = \\frac{ {var1-10}! }{ 2! \\cdot 2! } $$</div>
+    <div class="alert alert-info mt-3 mb-0">
+      Так как <strong>1! = 1</strong>, множители от уникальных букв ничего не меняют — их можно опустить. Поэтому в знаменателе остаются только <strong>2! · 2!</strong>.
+    </div>
+
   </div>
 </div>`,
     "randomfrom": [4, 5, 6]
@@ -316,13 +359,13 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Сочетания с повторениями — «звёзды и перегородки»:</div>
-    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!}$$</div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
-    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}$$</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}</strong></div>
   </div>
 </div>`,
-    "randomfrom": [4, 5, 6, 7, 8]
+    "randomfrom": [4, 5, 6]
   },
   {
     "id": "comb_symmetry",
@@ -341,14 +384,59 @@ let quizesSets = [
     "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
     "hint": `
 <div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-header bg-primary text-white">Подробнее</div>
   <div class="card-body">
-    <div class="mb-2">Формула сочетаний:</div>
-    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
-    <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 2:</div>
-    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
-    <div class="mt-3 mb-2">Проверка симметрии: C({var1-10}, {= {var1-10} - 2}) даёт то же число, т.к. <strong>Cₙᵏ = Cₙⁿ⁻ᵏ</strong>.</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+
+    <div class="mb-2"><strong>1. Откуда берётся формула</strong></div>
+    <div class="mb-2">
+      Порядок пирожных в наборе не важен, а виды могут повторяться. Такой набор удобно закодировать «звёздами и перегородками»:
+      каждое купленное пирожное — это <strong>звезда</strong> ★, а чтобы отделить один вид от другого, ставим <strong>перегородку</strong> |.
+    </div>
+    <div class="mb-2">
+      Если видов <em>n</em>, то перегородок нужно <strong>n − 1</strong> (между видами). Всего позиций: <strong>k</strong> звёзд + <strong>(n − 1)</strong> перегородок.
+      Остаётся выбрать, где стоят звёзды (или перегородки):
+    </div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!} $$</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>2. Простой пример: 2 вида, набор из 2 пирожных</strong></div>
+    <div class="mb-2">Виды: А, Б. Наборы: АА, АБ, ББ — всего <strong>3</strong>.</div>
+    <div class="mb-2">Кодировка (★★ и одна перегородка |):</div>
+    <div class="mb-2" style="font-family: monospace;">
+      ★★| &nbsp;→&nbsp; АА<br>
+      ★|★ &nbsp;→&nbsp; АБ<br>
+      |★★ &nbsp;→&nbsp; ББ
+    </div>
+    <div class="text-center mb-3">$$\\bar{C}_2^2 = C_{2+2-1}^{2} = C_3^2 = \\frac{3!}{2!\\,1!} = 3$$</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>3. Пример: 3 вида, набор из 2 пирожных</strong></div>
+    <div class="mb-2">Виды: А, Б, В. Наборы: АА, АБ, АВ, ББ, БВ, ВВ — всего <strong>6</strong>.</div>
+    <div class="mb-2">Две перегородки (n − 1 = 2), две звезды:</div>
+    <div class="mb-2" style="font-family: monospace;">
+      ★★|| &nbsp;→&nbsp; АА<br>
+      ★|★| &nbsp;→&nbsp; АБ<br>
+      ★||★ &nbsp;→&nbsp; АВ<br>
+      |★★| &nbsp;→&nbsp; ББ<br>
+      |★|★ &nbsp;→&nbsp; БВ<br>
+      ||★★ &nbsp;→&nbsp; ВВ
+    </div>
+    <div class="text-center mb-3">$$\\bar{C}_3^2 = C_{3+2-1}^{2} = C_4^2 = \\frac{4!}{2!\\,2!} = 6$$</div>
+
+    <hr>
+
+    <div class="mb-2"><strong>4. Наша задача</strong></div>
+    <div class="mb-2">Видов <strong>n = {var1-10}</strong>, пирожных в наборе <strong>k = 3</strong>.</div>
+    <div class="mb-2">Перегородок нужно <strong>n − 1 = {= {var1-10} - 1}</strong>, звёзд — <strong>3</strong>. Всего позиций:</div>
+    <div class="text-center mb-2">$$3 + {= {var1-10} - 1} = {= {var1-10} + 2} $$</div>
+    <div class="mb-2">Выбираем, где стоят 3 звезды:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))} $$</div>
+    <div class="alert alert-info mt-3 mb-0">
+      Формула читается так: из <strong>{= {var1-10} + 2}</strong> позиций выбираем <strong>3</strong> под звёзды, остальные автоматически становятся перегородками.
+    </div>
+
   </div>
 </div>`,
     "randomfrom": [5, 6, 7, 8, 9, 10]
@@ -407,7 +495,7 @@ let quizesSets = [
     <div class="mb-2">Факториалы сокращаются — остаётся произведение двух последних множителей:</div>
     <div class="text-center">$$\\frac{n!}{(n-2)!} = n \\cdot (n-1)$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 2}! } = {var1-10} \\cdot {= {var1-10} - 1} = {= FACT({var1-10}) / FACT({var1-10} - 2)}$$</div>
+    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 2}! } = {var1-10} \\cdot {= {var1-10} - 1} = {= FACT({var1-10}) / FACT({var1-10} - 2)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 2)}</strong></div>
   </div>
 </div>`,
@@ -435,7 +523,7 @@ let quizesSets = [
     <div class="mb-2">Сокращаем «хвост» (n−3)! в знаменателе:</div>
     <div class="text-center">$$\\frac{n!}{(n-3)!} = n \\cdot (n-1) \\cdot (n-2)$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 3}! } = {var1-10} \\cdot {= {var1-10} - 1} \\cdot {= {var1-10} - 2} = {= FACT({var1-10}) / FACT({var1-10} - 3)}$$</div>
+    <div class="text-center">$$\\frac{ {var1-10}! }{ {= {var1-10} - 3}! } = {var1-10} \\cdot {= {var1-10} - 1} \\cdot {= {var1-10} - 2} = {= FACT({var1-10}) / FACT({var1-10} - 3)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 3)}</strong></div>
   </div>
 </div>`,
@@ -490,7 +578,7 @@ let quizesSets = [
     <div class="mb-2">Используем свойство (n+1)! = n! · (n+1):</div>
     <div class="text-center">$$\\frac{(n+1)!}{n!} = n + 1$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$\\frac{ {= {var1-10} + 1}! }{ {var1-10}! } = {= {var1-10} + 1}$$</div>
+    <div class="text-center">$$\\frac{ {= {var1-10} + 1}! }{ {var1-10}! } = {= {var1-10} + 1} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 1}</strong></div>
   </div>
 </div>`,
@@ -518,7 +606,7 @@ let quizesSets = [
     <div class="mb-2">Упрощаем левую часть:</div>
     <div class="text-center">$$\\frac{n!}{(n-2)!} = n(n-1)$$</div>
     <div class="mt-3 mb-2">Получаем уравнение:</div>
-    <div class="text-center">$$n(n-1) = {= {var1-10} * ({var1-10} - 1)}$$</div>
+    <div class="text-center">$$n(n-1) = {= {var1-10} * ({var1-10} - 1)} $$</div>
     <div class="mt-3 mb-2">Подбором: n = {var1-10}, так как {var1-10} · {= {var1-10} - 1} = {= {var1-10} * ({var1-10} - 1)}.</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>n = {var1-10}</strong></div>
   </div>
@@ -547,7 +635,7 @@ let quizesSets = [
     <div class="mb-2">Нули в конце дают множители 10 = 2 · 5. Двоек всегда больше, поэтому считаем пятёрки:</div>
     <div class="text-center">$$\\text{нули} = \\left\\lfloor \\frac{n}{5} \\right\\rfloor + \\left\\lfloor \\frac{n}{25} \\right\\rfloor + \\cdots$$</div>
     <div class="mt-3 mb-2">Для n = {var1-10} (меньше 25) достаточно первого слагаемого:</div>
-    <div class="text-center">$$\\left\\lfloor \\frac{ {var1-10} }{5} \\right\\rfloor = {= FLOOR({var1-10} / 5)}$$</div>
+    <div class="text-center">$$\\left\\lfloor \\frac{ {var1-10} }{5} \\right\\rfloor = {= FLOOR({var1-10} / 5)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FLOOR({var1-10} / 5)}</strong></div>
   </div>
 </div>`,
@@ -575,12 +663,591 @@ let quizesSets = [
     <div class="mb-2">Выносим двойку из каждого множителя:</div>
     <div class="text-center">$$2 \\cdot 4 \\cdot 6 \\cdots (2n) = 2^n \\cdot (1 \\cdot 2 \\cdot 3 \\cdots n) = 2^n \\cdot n!$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$2^{ {var1-10} } \\cdot {var1-10}! = {= POWER(2, {var1-10})} \\cdot {= FACT({var1-10})} = {= POWER(2, {var1-10}) * FACT({var1-10})}$$</div>
+    <div class="text-center">$$2^{ {var1-10} } \\cdot {var1-10}! = {= POWER(2, {var1-10})} \\cdot {= FACT({var1-10})} = {= POWER(2, {var1-10}) * FACT({var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10}) * FACT({var1-10})}</strong></div>
   </div>
 </div>`,
-    "randomfrom": [2, 3, 4, 5]
+    "randomfrom": [2, 3, 4]
   },
+
+  {
+  "id": "oral_perm_people",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Перестановки: очередь",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Очередь в столовую</div>
+  <div class="card-body">
+    <div class="mb-3">В очереди стоят <strong>{var1-10}</strong> человек. Сколькими способами их можно упорядочить?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Упорядочиваем все n элементов — это перестановки:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5, 6]
+},
+{
+  "id": "oral_perm_colors",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Перестановки: флажки",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Гирлянда из флажков</div>
+  <div class="card-body">
+    <div class="mb-3">Есть <strong>{var1-10}</strong> флажков разных цветов. Сколько различных гирлянд из них можно собрать, если важен порядок?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Все флажки используются, порядок важен → перестановки:</div>
+    <div class="text-center">$$P_n = n!$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5]
+},
+
+{
+  "id": "oral_arrange_podium",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Размещения: пьедестал",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Пьедестал почёта</div>
+  <div class="card-body">
+    <div class="mb-3">В забеге участвуют <strong>{var1-10}</strong> спортсменов. Сколькими способами могут распределиться золото, серебро и бронза?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / FACT({var1-10} - 3)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Выбираем 3 из n, порядок важен (кто золото, кто серебро) → размещения:</div>
+    <div class="text-center">$$A_n^3 = \\frac{n!}{(n-3)!} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$A_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ {= {var1-10} - 3}! } = {= FACT({var1-10}) / FACT({var1-10} - 3)} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 3)}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6]
+},
+{
+  "id": "oral_arrange_codes",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Размещения: кодовый замок",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Кодовый замок</div>
+  <div class="card-body">
+    <div class="mb-3">Код замка состоит из <strong>2</strong> различных цифр, выбранных из <strong>{var1-10}</strong> доступных. Сколько кодов существует?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / FACT({var1-10} - 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок цифр важен (12 ≠ 21), повторений нет → размещения:</div>
+    <div class="text-center">$$A_n^2 = \\frac{n!}{(n-2)!} = n(n-1)$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$A_{ {var1-10} }^2 = {var1-10} \\cdot {= {var1-10} - 1} = {= FACT({var1-10}) / FACT({var1-10} - 2)} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - 2)}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6, 7, 8]
+},
+
+{
+  "id": "oral_comb_pizza",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сочетания: начинки для пиццы",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Пицца</div>
+  <div class="card-body">
+    <div class="mb-3">В меню <strong>{var1-10}</strong> видов топпинга. Сколькими способами можно выбрать <strong>2</strong> разных топпинга для пиццы (порядок не важен)?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок не важен → сочетания. При k = 2 работает простая формула:</div>
+    <div class="text-center">$$C_n^2 = \\frac{n(n-1)}{2} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6, 7, 8]
+},
+{
+  "id": "oral_comb_handshake",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сочетания: рукопожатия",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Рукопожатия</div>
+  <div class="card-body">
+    <div class="mb-3">В комнате <strong>{var1-10}</strong> человек. Каждый пожал руку каждому. Сколько всего было рукопожатий?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Рукопожатие — это неупорядоченная пара людей (A с B = B с A) → сочетания:</div>
+    <div class="text-center">$$C_n^2 = \\frac{n(n-1)}{2} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6, 7, 8, 9, 10]
+},
+{
+  "id": "oral_comb_team",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сочетания: команда из 3",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Команда</div>
+  <div class="card-body">
+    <div class="mb-3">Из <strong>{var1-10}</strong> игроков нужно выбрать <strong>3</strong> в команду (роли внутри не важны). Сколько есть способов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок не важен → сочетания:</div>
+    <div class="text-center">$$C_n^3 = \\frac{n(n-1)(n-2)}{6} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} \\cdot {= {var1-10} - 2} }{6} = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [5, 6, 7, 8]
+},
+
+{
+  "id": "oral_permrep_balls",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Перестановки с повторениями: шары",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Шары в ряд</div>
+  <div class="card-body">
+    <div class="mb-3">В ряд выкладывают <strong>2</strong> красных и <strong>{= {var1-10} - 2}</strong> синих шара одного размера. Сколько различных раскрасок ряда возможно?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Синие шары между собой неразличимы, красные — тоже → перестановки с повторениями:</div>
+    <div class="text-center">$$P = \\frac{n!}{2! \\cdot (n-2)!} = C_n^2$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6]
+},
+
+{
+  "id": "oral_combrep_candy",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сочетания с повторениями: конфеты",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Конфеты</div>
+  <div class="card-body">
+    <div class="mb-3">В магазине <strong>{var1-10}</strong> видов конфет. Нужно купить набор из <strong>2</strong> конфет (виды могут повторяться). Сколько наборов возможно?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сочетания с повторениями при k = 2 дают простую формулу:</div>
+    <div class="text-center">$$\\bar{C}_n^2 = C_{n+1}^2 = \\frac{n(n+1)}{2} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} + 1} }{2} = {= FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6, 7, 8]
+},
+{
+  "id": "oral_combrep_icecream",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сочетания с повторениями: мороженое",
+  "theme": "Перестановки, размещения, сочетания",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Мороженое</div>
+  <div class="card-body">
+    <div class="mb-3">Есть <strong>{var1-10}</strong> вкусов мороженого. Нужно выбрать <strong>2</strong> шарика (вкусы могут совпадать). Сколько вариантов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Порядок не важен, повторения разрешены → сочетания с повторениями:</div>
+    <div class="text-center">$$\\bar{C}_n^2 = C_{n+1}^2 = \\frac{n(n+1)}{2} $$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} + 1} }{2} = {= FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 2 - 1) / (FACT(2) * FACT({var1-10} - 1))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [4, 5, 6, 7]
+},
+
+{
+  "id": "oral_fact_div",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Сокращение факториалов",
+  "theme": "Факториал и его свойства",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Сокращение факториалов</div>
+  <div class="card-body">
+    <div class="mb-3">Вычислите <strong>{var1-10}! / ({= {var1-10} - 1})!</strong></div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сокращаем (n−1)!:</div>
+    <div class="text-center">$$\\frac{n!}{(n-1)!} = n$$</div>
+    <div class="mt-3 mb-2">Ответ при n = {var1-10}: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5, 6, 7, 8]
+},
+{
+  "id": "oral_fact_product",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Факториал и произведение",
+  "theme": "Факториал и его свойства",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Факториал и произведение</div>
+  <div class="card-body">
+    <div class="mb-3">Известно, что <strong>{var1-10}! = {= FACT({var1-10})}</strong>. Чему равно <strong>{= {var1-10} + 1}!</strong>?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "FACT({var1-10}) * ({var1-10} + 1)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Используем свойство:</div>
+    <div class="text-center">$$(n+1)! = n! \\cdot (n+1)$$</div>
+    <div class="mt-3 mb-2">Подставляем:</div>
+    <div class="text-center">$$ {= {var1-10} + 1}! = {= FACT({var1-10})} \\cdot {= {var1-10} + 1} = {= FACT({var1-10}) * ({var1-10} + 1)} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) * ({var1-10} + 1)}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5]
+},
+
+{
+  "id": "oral_product_menu",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Правило произведения: обед",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Комплексный обед</div>
+  <div class="card-body">
+    <div class="mb-3">В кафе <strong>{var1-10}</strong> первых блюд и <strong>3</strong> вторых. Сколько вариантов обеда «первое + второе»?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} * 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Выбираем И первое, И второе → правило произведения:</div>
+    <div class="text-center">$$ {var1-10} \\cdot 3 = {= {var1-10} * 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5, 6]
+},
+{
+  "id": "oral_product_outfits",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Правило произведения: outfit",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Комплект одежды</div>
+  <div class="card-body">
+    <div class="mb-3">У Пети <strong>{var1-10}</strong> футболок и <strong>2</strong> пары шорт. Сколько разных комплектов он может составить?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} * 2",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Футболка И шорты → перемножаем:</div>
+    <div class="text-center">$$ {var1-10} \\cdot 2 = {= {var1-10} * 2} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * 2}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5, 6, 7]
+},
+{
+  "id": "oral_product_doors",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Правило произведения: двери",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Входы и выходы</div>
+  <div class="card-body">
+    <div class="mb-3">В здании <strong>{var1-10}</strong> входов и <strong>4</strong> выхода. Сколькими способами можно войти и выйти?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} * 4",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Выбираем вход И выход независимо → правило произведения:</div>
+    <div class="text-center">$$ {var1-10} \\cdot 4 = {= {var1-10} * 4} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * 4}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5]
+},
+
+{
+  "id": "oral_sum_menu",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Правило суммы: напиток",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Напиток на выбор</div>
+  <div class="card-body">
+    <div class="mb-3">В автомате <strong>{var1-10}</strong> видов сока и <strong>3</strong> вида воды. Сколько всего вариантов одного напитка?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} + 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Выбираем ИЛИ сок, ИЛИ воду → правило суммы:</div>
+    <div class="text-center">$$ {var1-10} + 3 = {= {var1-10} + 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [3, 4, 5, 6, 7]
+},
+
+{
+  "id": "oral_power_choices",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Степени: варианты ответов",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Тест</div>
+  <div class="card-body">
+    <div class="mb-3">Тест состоит из <strong>{var1-10}</strong> вопросов, на каждый — 2 варианта ответа. Сколько различных вариантов ответить на весь тест?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "POWER(2, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">На каждый вопрос 2 варианта, вопросы независимы:</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5, 6]
+},
+{
+  "id": "oral_power_lock",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Степени: кодовый замок",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Замок с кнопками</div>
+  <div class="card-body">
+    <div class="mb-3">Код состоит из <strong>{var1-10}</strong> цифр, каждая — от 0 до 9 (повторения разрешены). Сколько кодов возможно?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "POWER(10, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">На каждую позицию 10 вариантов:</div>
+    <div class="text-center">$$10^{ {var1-10} } = {= POWER(10, {var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(10, {var1-10})}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4]
+},
+{
+  "id": "oral_power_truefalse",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Степени: верно/неверно",
+  "theme": "Основные понятия комбинаторики",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Верно или неверно</div>
+  <div class="card-body">
+    <div class="mb-3">Нужно ответить «да/нет» на <strong>{var1-10}</strong> утверждений. Сколько различных комбинаций ответов?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "POWER(2, {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">По 2 варианта на каждое утверждение:</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5]
+},
+
+{
+  "id": "oral_prob_dice",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Вероятность: кубик",
+  "theme": "Классическое и статистическое определение вероятности",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Кубик</div>
+  <div class="card-body">
+    <div class="mb-3">Бросают игральный кубик. Какова вероятность, что выпадет число <strong>больше {var1-6}</strong>?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+  "answer": "(6 - {var1-6}) / 6",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Благоприятные исходы: числа {= {var1-6} + 1}, …, 6 — их {= 6 - {var1-6}}.</div>
+    <div class="mb-2">Всего исходов: 6.</div>
+    <div class="text-center">$$P = \\frac{ {= 6 - {var1-6}} }{6} = {= ({var1-6}) / 6} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-6}) / 6}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4]
+},
+{
+  "id": "oral_prob_balls",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт",
+  "title": "Вероятность: шары",
+  "theme": "Классическое и статистическое определение вероятности",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Шары в урне</div>
+  <div class="card-body">
+    <div class="mb-3">В урне <strong>10</strong> шаров: <strong>{var1-8}</strong> белых и остальные чёрные. Вынимают один шар. Какова вероятность, что он белый?</div>
+    <div class="mt-3 mb-2">Ответ введите десятичной дробью.</div>
+  </div>
+</div>`,
+  "answer": "{var1-8} / 10",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Классическая вероятность:</div>
+    <div class="text-center">$$P = \\frac{ {var1-8} }{10} = {= {var1-8}/10} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-8}/10}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5, 6, 7, 8]
+},
 
     // ============================================================
   //  КОМБИНАТОРИКА В КРИПТОГРАФИИ И ИНФОРМАТИКЕ
@@ -605,9 +1272,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">На каждую позицию — 10 вариантов (цифры 0–9), позиции независимы. По правилу произведения:</div>
-    <div class="text-center">$$10 \\cdot 10 \\cdots 10 = 10^{ {var1-10} }$$</div>
+    <div class="text-center">$$10 \\cdot 10 \\cdots 10 = 10^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$10^{ {var1-10} } = {= POWER(10, {var1-10})}$$</div>
+    <div class="text-center">$$10^{ {var1-10} } = {= POWER(10, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(10, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -633,9 +1300,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Каждый бит имеет 2 состояния, биты независимы. По правилу произведения:</div>
-    <div class="text-center">$$2 \\cdot 2 \\cdots 2 = 2^{ {var1-10} }$$</div>
+    <div class="text-center">$$2 \\cdot 2 \\cdots 2 = 2^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})}$$</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -661,13 +1328,13 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">На каждую позицию — 26 вариантов, позиции независимы:</div>
-    <div class="text-center">$$26^{ {var1-10} }$$</div>
+    <div class="text-center">$$26^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$26^{ {var1-10} } = {= POWER(26, {var1-10})}$$</div>
+    <div class="text-center">$$26^{ {var1-10} } = {= POWER(26, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(POWER(26, {var1-10}), 0)}</strong></div>
   </div>
 </div>`,
-    "randomfrom": [1, 2, 3]
+    "randomfrom": [1, 2]
   },
   {
     "id": "crypto_ip_subnet",
@@ -689,9 +1356,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Каждый бит адреса — 0 или 1, всего комбинаций:</div>
-    <div class="text-center">$$2^{ {var1-10} }$$</div>
+    <div class="text-center">$$2^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})}$$</div>
+    <div class="text-center">$$2^{ {var1-10} } = {= POWER(2, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -721,9 +1388,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">На каждую позицию — 4 варианта, позиции независимы:</div>
-    <div class="text-center">$$4^{ {var1-10} }$$</div>
+    <div class="text-center">$$4^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})}$$</div>
+    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(4, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -749,9 +1416,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Каждая позиция — 4 варианта, всего:</div>
-    <div class="text-center">$$4^{ {var1-10} }$$</div>
+    <div class="text-center">$$4^{ {var1-10} } $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})}$$</div>
+    <div class="text-center">$$4^{ {var1-10} } = {= POWER(4, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(4, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -783,7 +1450,7 @@ let quizesSets = [
     <div class="mb-2">Это перестановки — упорядочиваем все n городов:</div>
     <div class="text-center">$$P_n = n!$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
   </div>
 </div>`,
@@ -809,9 +1476,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Порядок не важен — это сочетания:</div>
-    <div class="text-center">$$C_n^2 = \\frac{n(n-1)}{2}$$</div>
+    <div class="text-center">$$C_n^2 = \\frac{n(n-1)}{2} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
   </div>
 </div>`,
@@ -837,9 +1504,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Порядок не важен — сочетания:</div>
-    <div class="text-center">$$C_n^3 = \\frac{n!}{3!\\,(n-3)!}$$</div>
+    <div class="text-center">$$C_n^3 = \\frac{n!}{3!\\,(n-3)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
   </div>
 </div>`,
@@ -955,7 +1622,7 @@ let quizesSets = [
         "text": "В сборнике билетов по биологии всего 15 билетов, в 9 из них встречается вопрос по разделу «Ботаника». Найдите вероятность того, что в случайно выбранном на экзамене билете школьнику достанется вопрос по разделу «Ботаника».",
         "choices": ["0.3", "0.4", "0.5", "0.6", "0.7"],
         "answers": ["0.6"],
-        "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Классическое определение вероятности:</strong> $$P = \\frac{m}{n}$$</p><p>где $$n$$ — общее число исходов, $$m$$ — число благоприятных исходов</p><p>$$n = 15$$ (всего билетов)</p><p>$$m = 9$$ (билетов с ботаникой)</p><p>$$P = \\frac{9}{15} = \\frac{3}{5} = 0.6 = 60\\%$$</p></div></div></div></div></div>`
+        "hint": `<div class="container"><div class="row"><div class="col-md-12"><div class="card"><div class="card-body"><p class="alert alert-success"><strong>Классическое определение вероятности:</strong> $$P = \\frac{m}{n} $$</p><p>где $$n$$ — общее число исходов, $$m$$ — число благоприятных исходов</p><p>$$n = 15$$ (всего билетов)</p><p>$$m = 9$$ (билетов с ботаникой)</p><p>$$P = \\frac{9}{15} = \\frac{3}{5} = 0.6 = 60\\%$$</p></div></div></div></div></div>`
     },
     {
         "id": "tv_160_prob_classic",
@@ -981,7 +1648,7 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2">Классическое определение вероятности:</div>
-    <div class="text-center">$$P(A) = \\frac{m}{n}$$</div>
+    <div class="text-center">$$P(A) = \\frac{m}{n} $$</div>
     <div class="mb-2">где <em>m</em> — число благоприятных исходов, <em>n</em> — общее число исходов.</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">$$P = \\frac{{var1-10}}{100} = {= {var1-10}/100} = {var1-10}\\%$$</div>
@@ -1072,7 +1739,7 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2">Формула условной вероятности:</div>
-    <div class="text-center">$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$</div>
+    <div class="text-center">$$P(B|A) = \\frac{P(A \\cap B)}{P(A)} $$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">
       $$P(B|A) = \\frac{{= {var1-10}/200}}{0.5} = \\frac{{var1-10}}{100} = {var1-10}\\%$$
@@ -1155,7 +1822,7 @@ let quizesSets = [
     <div class="mb-2">Перестановки — упорядочиваем все n элементов:</div>
     <div class="text-center">$$P_n = n!$$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})}$$</div>
+    <div class="text-center">$$P_{ {var1-10} } = {var1-10}! = {= FACT({var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10})}</strong></div>
   </div>
 </div>`,
@@ -1181,9 +1848,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Размещения — выбираем k из n и упорядочиваем:</div>
-    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!}$$</div>
+    <div class="text-center">$$A_n^k = \\frac{n!}{(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10} - 2}:</div>
-    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}$$</div>
+    <div class="text-center">$$A_{ {var1-10} }^{ {= {var1-10} - 2} } = \\frac{ {var1-10}! }{ {= {var1-10} - ({var1-10} - 2)}! } = {= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / FACT({var1-10} - ({var1-10} - 2))}</strong></div>
   </div>
 </div>`,
@@ -1209,13 +1876,13 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Сочетания — выбираем k из n, порядок не важен:</div>
-    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
-    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^3 = \\frac{ {var1-10}! }{ 3! \\cdot {= {var1-10} - 3}! } = {= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(3) * FACT({var1-10} - 3))}</strong></div>
   </div>
 </div>`,
-    "randomfrom": [5, 6, 7, 8, 9]
+    "randomfrom": [5, 6, 7, 8]
   },
   {
     "id": "comb_perm_repetition",
@@ -1237,9 +1904,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Перестановки с повторениями — делим на факториалы повторяющихся групп:</div>
-    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!}$$</div>
+    <div class="text-center">$$P_n(n_1,\\ldots,n_k) = \\frac{n!}{n_1! \\cdots n_k!} $$</div>
     <div class="mt-3 mb-2">Здесь n = {var1-10}, повторяются «М» (2 раза) и «А» (2 раза):</div>
-    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))}$$</div>
+    <div class="text-center">$$P = \\frac{ {var1-10}! }{ 2! \\cdot 2! } = {= FACT({var1-10}) / (FACT(2) * FACT(2))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT(2))}</strong></div>
   </div>
 </div>`,
@@ -1265,9 +1932,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Сочетания с повторениями — «звёзды и перегородки»:</div>
-    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!}$$</div>
+    <div class="text-center">$$\\bar{C}_n^k = C_{n+k-1}^{k} = \\frac{(n+k-1)!}{k!\\,(n-1)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 3:</div>
-    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}$$</div>
+    <div class="text-center">$$\\bar{C}_{ {var1-10} }^3 = C_{ {= {var1-10} + 2} }^3 = \\frac{ {= {var1-10} + 2}! }{ 3! \\cdot {= {var1-10} - 1}! } = {= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10} + 3 - 1) / (FACT(3) * FACT({var1-10} - 1))}</strong></div>
   </div>
 </div>`,
@@ -1293,9 +1960,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Формула сочетаний:</div>
-    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = 2:</div>
-    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10}! }{ 2! \\cdot {= {var1-10} - 2}! } = {= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))} $$</div>
     <div class="mt-3 mb-2">Проверка симметрии: C({var1-10}, {= {var1-10} - 2}) даёт то же число, т.к. <strong>Cₙᵏ = Cₙⁿ⁻ᵏ</strong>.</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= FACT({var1-10}) / (FACT(2) * FACT({var1-10} - 2))}</strong></div>
   </div>
@@ -1353,7 +2020,7 @@ let quizesSets = [
             "(n − k)!"
         ],
         "answers": ["C(n, k)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Число путей</h5><p class='mb-1'>Нужно выбрать, <span class='badge badge-info'>в каких k рядах</span> из n шарик повернул направо. Порядок не важен.</p><hr class='my-2'><p class='mb-0'>Это число сочетаний: $$C_n^k = \\binom{n}{k}$$ Именно эти числа образуют <span class='badge badge-success'>треугольник Паскаля</span> на доске Гальтона.</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Число путей</h5><p class='mb-1'>Нужно выбрать, <span class='badge badge-info'>в каких k рядах</span> из n шарик повернул направо. Порядок не важен.</p><hr class='my-2'><p class='mb-0'>Это число сочетаний: $$C_n^k = \\binom{n}{k} $$ Именно эти числа образуют <span class='badge badge-success'>треугольник Паскаля</span> на доске Гальтона.</p></div>"
     },
     {
         "id": "galton_004_prob_formula",
@@ -1369,7 +2036,7 @@ let quizesSets = [
             "P(X = k) = k / n"
         ],
         "answers": ["P(X = k) = C(n, k) · pᵏ · (1−p)ⁿ⁻ᵏ"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Бернулли</h5><p class='mb-1'>Доска Гальтона — это <span class='badge badge-info'>схема Бернулли</span>: n независимых испытаний, в каждом успех (направо) с вероятностью p.</p><hr class='my-2'><p class='mb-0'>Вероятность ровно k успехов: $$P_n(k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k}$$ При p = 0.5 формула упрощается до $$C_n^k / 2^n$$</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Формула Бернулли</h5><p class='mb-1'>Доска Гальтона — это <span class='badge badge-info'>схема Бернулли</span>: n независимых испытаний, в каждом успех (направо) с вероятностью p.</p><hr class='my-2'><p class='mb-0'>Вероятность ровно k успехов: $$P_n(k) = C_n^k \\cdot p^k \\cdot (1-p)^{n-k} $$ При p = 0.5 формула упрощается до $$C_n^k / 2^n$$</p></div>"
     },
     {
         "id": "galton_005_symmetric",
@@ -1385,7 +2052,7 @@ let quizesSets = [
             "Крайние ячейки равновероятны и максимальны"
         ],
         "answers": ["Центральная (k = n/2)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Центральная ячейка</h5><p class='mb-1'>В центральную ячейку ведёт <span class='badge badge-info'>больше всего путей</span> — можно повернуть направо ровно n/2 раз многими способами.</p><hr class='my-2'><p class='mb-0'>При p = 0.5: $$k_0 = \\frac{n}{2}$$ — самая вероятная ячейка. При нечётном n максимум достигается в двух соседних ячейках.</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Центральная ячейка</h5><p class='mb-1'>В центральную ячейку ведёт <span class='badge badge-info'>больше всего путей</span> — можно повернуть направо ровно n/2 раз многими способами.</p><hr class='my-2'><p class='mb-0'>При p = 0.5: $$k_0 = \\frac{n}{2} $$ — самая вероятная ячейка. При нечётном n максимум достигается в двух соседних ячейках.</p></div>"
     },
     {
         "id": "galton_006_extreme",
@@ -1519,15 +2186,15 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Формула Бернулли при p = 0.5:</div>
-    <div class="text-center">$$P_n(k) = \\frac{C_n^k}{2^n}$$</div>
+    <div class="text-center">$$P_n(k) = \\frac{C_n^k}{2^n} $$</div>
     <div class="mt-3 mb-2">Число сочетаний выражаем через факториалы:</div>
-    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!}$$</div>
+    <div class="text-center">$$C_n^k = \\frac{n!}{k!\\,(n-k)!} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}, k = {= {var1-10}/2}:</div>
-    <div class="text-center">$$P = \\frac{\\frac{ {var1-10}! }{ {= {var1-10}/2}! \\cdot {= {var1-10}/2}! }}{2^{ {var1-10} }} = {= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}$$</div>
+    <div class="text-center">$$P = \\frac{\\frac{ {var1-10}! }{ {= {var1-10}/2}! \\cdot {= {var1-10}/2}! }}{2^{ {var1-10} }} = {= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND((FACT({var1-10}) / (FACT({var1-10}/2) * FACT({var1-10}/2))) / POWER(2, {var1-10}), 4)}</strong></div>
   </div>
 </div>`,
-    "randomfrom": [2, 4, 6, 8]
+    "randomfrom": [2, 4]
 },
    {
     "id": "galton_013_paths",
@@ -1551,9 +2218,9 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Число путей = число сочетаний:</div>
-    <div class="text-center">$$C_n^2 = \\frac{n!}{2! \\cdot (n-2)!} = \\frac{n(n-1)}{2}$$</div>
+    <div class="text-center">$$C_n^2 = \\frac{n!}{2! \\cdot (n-2)!} = \\frac{n(n-1)}{2} $$</div>
     <div class="mt-3 mb-2">Подставляем n = {var1-10}:</div>
-    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= {var1-10} * ({var1-10} - 1) / 2}$$</div>
+    <div class="text-center">$$C_{ {var1-10} }^2 = \\frac{ {var1-10} \\cdot {= {var1-10} - 1} }{2} = {= {var1-10} * ({var1-10} - 1) / 2} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} * ({var1-10} - 1) / 2}</strong></div>
   </div>
 </div>`,
@@ -1582,7 +2249,7 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-2">В самую левую ячейку ведёт <strong>только один путь</strong> — все повороты налево.</div>
     <div class="mb-2">Вероятность:</div>
-    <div class="text-center">$$P = (0.5)^{{var1-10}} = \\frac{1}{2^{{var1-10}}} = {= ROUND(1 / POWER(2, {var1-10}), 6)}$$</div>
+    <div class="text-center">$$P = (0.5)^{{var1-10}} = \\frac{1}{2^{{var1-10}}} = {= ROUND(1 / POWER(2, {var1-10}), 6)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(1 / POWER(2, {var1-10}), 6)}</strong></div>
   </div>
 </div>`,
@@ -1622,7 +2289,7 @@ let quizesSets = [
             "Каждое число = предыдущее + 1"
         ],
         "answers": ["Каждое число = сумма двух чисел над ним"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Треугольник Паскаля</h5><p class='mb-1'>Главное правило:</p><p class='text-center'>$$C_n^k = C_{n-1}^{k-1} + C_{n-1}^{k}$$</p><hr class='my-2'><p class='mb-0'>Крайние числа всегда <span class='badge badge-info'>1</span>. Внутренние — сумма двух соседних в предыдущей строке.</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Треугольник Паскаля</h5><p class='mb-1'>Главное правило:</p><p class='text-center'>$$C_n^k = C_{n-1}^{k-1} + C_{n-1}^{k} $$</p><hr class='my-2'><p class='mb-0'>Крайние числа всегда <span class='badge badge-info'>1</span>. Внутренние — сумма двух соседних в предыдущей строке.</p></div>"
     },
     {
         "id": "newton_003_sum_row",
@@ -1717,7 +2384,7 @@ let quizesSets = [
   <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
     <div class="mb-2">Подставим a = 1, b = 1:</div>
-    <div class="text-center">$$(1+1)^{{var1-10}} = 2^{{var1-10}} = {= POWER(2, {var1-10})}$$</div>
+    <div class="text-center">$$(1+1)^{{var1-10}} = 2^{{var1-10}} = {= POWER(2, {var1-10})} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= POWER(2, {var1-10})}</strong></div>
   </div>
 </div>`,
@@ -1748,7 +2415,7 @@ let quizesSets = [
             "Это постулат теории вероятностей"
         ],
         "answers": ["Это следствие бинома Ньютона: (p + (1−p))ⁿ = 1"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона ↔ Бернулли</h5><p class='mb-1'>Сумма вероятностей в схеме Бернулли:</p><p class='text-center'>$$\\sum_{k=0}^n C_n^k p^k (1-p)^{n-k}$$</p><hr class='my-2'><p class='mb-1'>По биному Ньютона это:</p><p class='text-center'>$$(p + (1-p))^n = 1^n = 1$$</p><p class='mb-0'>Вот почему вероятности в сумме дают <span class='badge badge-success'>ровно 1</span>.</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Бином Ньютона ↔ Бернулли</h5><p class='mb-1'>Сумма вероятностей в схеме Бернулли:</p><p class='text-center'>$$\\sum_{k=0}^n C_n^k p^k (1-p)^{n-k} $$</p><hr class='my-2'><p class='mb-1'>По биному Ньютона это:</p><p class='text-center'>$$(p + (1-p))^n = 1^n = 1$$</p><p class='mb-0'>Вот почему вероятности в сумме дают <span class='badge badge-success'>ровно 1</span>.</p></div>"
     },
     {
         "id": "newton_010_pascal_row4",
@@ -1808,7 +2475,7 @@ let quizesSets = [
             "Это случайность"
         ],
         "answers": ["Потому что C(n,k) = C(n,n−k)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Симметрия</h5><p class='mb-1'>Свойство сочетаний:</p><p class='text-center'>$$C_n^k = C_n^{\\,n-k}$$</p><hr class='my-2'><p class='mb-0'>Выбрать k элементов из n — то же, что <span class='badge badge-info'>оставить n − k</span>. Поэтому строка Паскаля читается одинаково слева и справа.</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔺 Симметрия</h5><p class='mb-1'>Свойство сочетаний:</p><p class='text-center'>$$C_n^k = C_n^{\\,n-k} $$</p><hr class='my-2'><p class='mb-0'>Выбрать k элементов из n — то же, что <span class='badge badge-info'>оставить n − k</span>. Поэтому строка Паскаля читается одинаково слева и справа.</p></div>"
     },
     {
         "id": "newton_013_degree4_expand",
@@ -1835,7 +2502,7 @@ let quizesSets = [
             "Потому что оно бинарное"
         ],
         "answers": ["Потому что вероятности — это члены разложения бинома (p + q)ⁿ"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Почему «биномиальное»</h5><p class='mb-1'>Вероятности P(X=k) = C(n,k)pᵏqⁿ⁻ᵏ — это <span class='badge badge-info'>члены разложения бинома</span>:</p><p class='text-center'>$$(p+q)^n = \\sum_{k=0}^{n} C_n^k p^k q^{n-k}$$</p><hr class='my-2'><p class='mb-0'>Отсюда и название — <span class='badge badge-success'>биномиальное распределение</span> (от «бином» — двучлен).</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Почему «биномиальное»</h5><p class='mb-1'>Вероятности P(X=k) = C(n,k)pᵏqⁿ⁻ᵏ — это <span class='badge badge-info'>члены разложения бинома</span>:</p><p class='text-center'>$$(p+q)^n = \\sum_{k=0}^{n} C_n^k p^k q^{n-k} $$</p><hr class='my-2'><p class='mb-0'>Отсюда и название — <span class='badge badge-success'>биномиальное распределение</span> (от «бином» — двучлен).</p></div>"
     },
     {
         "id": "newton_015_qual_sum",
@@ -1900,9 +2567,9 @@ let quizesSets = [
     <div class="mb-2">Обозначим: <em>H</em> = «болен», <em>A</em> = «тест положительный».</div>
     <div class="mb-2">Дано: <em>P(H)</em> = {var1-10}/100, <em>P(A|H)</em> = 0.9, <em>P(A|не H)</em> = 0.1.</div>
     <div class="mt-3 mb-2">Полная вероятность положительного теста:</div>
-    <div class="text-center">$$P(A) = \\frac{{var1-10}}{100} \\cdot 0.9 + \\frac{{= 100-{var1-10}}}{100} \\cdot 0.1 = {= ({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)}$$</div>
+    <div class="text-center">$$P(A) = \\frac{{var1-10}}{100} \\cdot 0.9 + \\frac{{= 100-{var1-10}}}{100} \\cdot 0.1 = {= ({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)} $$</div>
     <div class="mt-3 mb-2">Формула Байеса:</div>
-    <div class="text-center">$$P(H|A) = \\frac{P(H) \\cdot P(A|H)}{P(A)} = {= ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1))}$$</div>
+    <div class="text-center">$$P(H|A) = \\frac{P(H) \\cdot P(A|H)}{P(A)} = {= ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1))} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(100 * ({var1-10}/100 * 0.9) / (({var1-10}/100 * 0.9) + ((100-{var1-10})/100 * 0.1)), 0)}%</strong></div>
   </div>
 </div>`,
@@ -1954,7 +2621,7 @@ let quizesSets = [
     <div class="mb-2">Число сочетаний из <em>n</em> по 1:</div>
     <div class="text-center">$$C_n^1 = \\frac{n!}{1! \\cdot (n-1)!} = n$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
-    <div class="text-center">$$C_{{var1-10}}^1 = {var1-10}$$</div>
+    <div class="text-center">$$C_{{var1-10}}^1 = {var1-10} $$</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
@@ -2047,9 +2714,9 @@ let quizesSets = [
     <div class="mb-2">Сумма всех вероятностей в ряду распределения равна 1:</div>
     <div class="text-center">$$\\sum_i P_i = 1$$</div>
     <div class="mt-3 mb-2">Складываем известные вероятности:</div>
-    <div class="text-center">$$0.2 + 0.{var1-10} + 0.3 = {= ROUND(0.5 + {var1-10}/100, 2)}$$</div>
+    <div class="text-center">$$0.2 + 0.{var1-10} + 0.3 = {= ROUND(0.5 + {var1-10}/100, 2)} $$</div>
     <div class="mt-3 mb-2">Находим неизвестную:</div>
-    <div class="text-center">$$P(X=4) = 1 - {= ROUND(0.5 + {var1-10}/100, 2)} = {= ROUND(0.5 - {var1-10}/100, 2)}$$</div>
+    <div class="text-center">$$P(X=4) = 1 - {= ROUND(0.5 + {var1-10}/100, 2)} = {= ROUND(0.5 - {var1-10}/100, 2)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(0.5 - {var1-10}/100, 2)}</strong></div>
   </div>
 </div>`,
@@ -2122,7 +2789,7 @@ let quizesSets = [
     <div class="mb-2">Используем свойство функции распределения:</div>
     <div class="text-center">$$P(a < X < b) = F(b) - F(a)$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
-    <div class="text-center">$$P(5 < X < 8) = F(8) - F(5) = 0.9 - 0.{var1-10} = {= ROUND(0.9 - {var1-10}/100, 2)}$$</div>
+    <div class="text-center">$$P(5 < X < 8) = F(8) - F(5) = 0.9 - 0.{var1-10} = {= ROUND(0.9 - {var1-10}/100, 2)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(0.9 - {var1-10}/100, 2)}</strong></div>
   </div>
 </div>`,
@@ -2160,7 +2827,7 @@ let quizesSets = [
     <div class="mt-3 mb-2">Так как <em>f(x) = 0</em> вне [0; {var1-10}], интеграл сводится к:</div>
     <div class="text-center">$$\\int_0^{{var1-10}} c\\,dx = c \\cdot {var1-10} = 1$$</div>
     <div class="mt-3 mb-2">Отсюда:</div>
-    <div class="text-center">$$c = \\frac{1}{{var1-10}} = {= ROUND(1/{var1-10}, 4)}$$</div>
+    <div class="text-center">$$c = \\frac{1}{{var1-10}} = {= ROUND(1/{var1-10}, 4)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND(1/{var1-10}, 4)}</strong></div>
   </div>
 </div>`,
@@ -2193,7 +2860,7 @@ let quizesSets = [
     <div class="text-center">$$P(a < X < b) = \\int_a^b f(x)\\,dx$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">
-      $$P(0 < X < {var1-10}) = \\int_0^{{var1-10}} 0.01\\,dx = 0.01 \\cdot {var1-10} = {= {var1-10}/100}$$
+      $$P(0 < X < {var1-10}) = \\int_0^{{var1-10}} 0.01\\,dx = 0.01 \\cdot {var1-10} = {= {var1-10}/100} $$
     </div>
     <div class="mt-3 mb-2">В процентах:</div>
     <div class="text-center">$$ {={var1-10}/100} \\cdot 100\\% = {var1-10}\\%$$</div>
@@ -2268,7 +2935,7 @@ let quizesSets = [
       $$M(X) = {= {var1-10} - 2} \\cdot 0.25 + {var1-10} \\cdot 0.5 + {= {var1-10} + 2} \\cdot 0.25$$
     </div>
     <div class="text-center mt-2">
-      $$= {= ({var1-10} - 2) * 0.25} + {= {var1-10} * 0.5} + {= ({var1-10} + 2) * 0.25} = {var1-10}$$
+      $$= {= ({var1-10} - 2) * 0.25} + {= {var1-10} * 0.5} + {= ({var1-10} + 2) * 0.25} = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
@@ -2339,15 +3006,15 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2">1. Среднее арифметическое (симметрия слагаемых):</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="text-center">$$\\bar{x} = {var1-10} $$</div>
     <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
-    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ (по три раза каждое)</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)} $$ (по три раза каждое)</div>
     <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
-    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10} $$ (каждое по 3 раза)</div>
     <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
-    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}} $$</div>
     <div class="mt-3 mb-2">5. Дисперсия:</div>
-    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10} $$</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
@@ -2567,7 +3234,7 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-3">Проводится <strong>n = 100</strong> независимых испытаний с вероятностью успеха <strong>p = 0.5</strong>. Наблюдается ровно <strong>k = {= 50 + {var1-10}}</strong> успехов.</div>
     <div class="mt-3 mb-2">Найдите стандартизированное значение <em>x</em> для локальной теоремы Муавра-Лапласа:</div>
-    <div class="text-center">$$x = \\frac{k - np}{\\sqrt{npq}}$$</div>
+    <div class="text-center">$$x = \\frac{k - np}{\\sqrt{npq}} $$</div>
   </div>
 </div>`,
         "answer": "{= ROUND({var1-10}/5, 2)}",
@@ -2581,7 +3248,7 @@ let quizesSets = [
     <div class="mt-3 mb-2">Считаем <em>np</em> и <em>√(npq)</em>:</div>
     <div class="text-center">$$np = 100 \\cdot 0.5 = 50, \\quad \\sqrt{npq} = \\sqrt{100 \\cdot 0.5 \\cdot 0.5} = 5$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
-    <div class="text-center">$$x = \\frac{{= 50 + {var1-10}} - 50}{5} = \\frac{{var1-10}}{5} = {= ROUND({var1-10}/5, 2)}$$</div>
+    <div class="text-center">$$x = \\frac{{= 50 + {var1-10}} - 50}{5} = \\frac{{var1-10}}{5} = {= ROUND({var1-10}/5, 2)} $$</div>
     <div class="alert alert-primary mt-3">Ответ: <strong>{= ROUND({var1-10}/5, 2)}</strong></div>
   </div>
 </div>`,
@@ -2692,7 +3359,7 @@ let quizesSets = [
     <div class="mb-2">Наименьшее значение: <em>x</em><sub>min</sub> = 0</div>
     <div class="mb-2">Наибольшее значение: <em>x</em><sub>max</sub> = {var1-10}</div>
     <div class="mt-3 mb-2">Размах:</div>
-    <div class="text-center">$$R = x_{max} - x_{min} = {var1-10} - 0 = {var1-10}$$</div>
+    <div class="text-center">$$R = x_{max} - x_{min} = {var1-10} - 0 = {var1-10} $$</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
@@ -2822,7 +3489,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Статистическая оценка",
         "theme": "Числовые характеристики выборки",
-        "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\frac{x_1 + x_2 + \\dots + x_n}{n} = \\frac{\\sum_{i=1}^{n} x_i}{n} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Медианы", "Среднего арифметического", "Дисперсии", "Стандартного отклонения"],
         "answers": ["Среднего арифметического"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> x̄ = (x₁ + x₂ + … + xₙ) / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма всех значений</span>, в знаменателе — <span class='badge badge-info'>количество значений</span>.</p><p class='mb-0'>Это формула <span class='badge badge-success'>среднего арифметического</span>.</p></div>"
@@ -2833,7 +3500,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Описательная статистика",
         "theme": "Числовые характеристики выборки",
-        "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}$$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
+        "text": "$$\\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2} $$\n\nДанная формула используется для расчёта (при чётном количестве наблюдений):",
         "choices": ["Среднего арифметического", "Моды", "Медианы", "Квартиля"],
         "answers": ["Медианы"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Me = (x_{n/2} + x_{n/2+1}) / 2.</p><hr class='my-2'><p class='mb-1'>Формула берёт <span class='badge badge-info'>два центральных элемента</span> упорядоченного ряда и делит их сумму на 2.</p><p class='mb-0'>Это <span class='badge badge-success'>медиана</span> для чётного количества наблюдений.</p></div>"
@@ -2844,7 +3511,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Количественная оценка",
         "theme": "Числовые характеристики выборки",
-        "text": "$$Q1 = x_{0.25}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$Q1 = x_{0.25} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Медианы", "Среднего арифметического", "Первого квартиля (25-го процентиля)", "Третьего квартиля"],
         "answers": ["Первого квартиля (25-го процентиля)"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Q1 = x₀.₂₅.</p><hr class='my-2'><p class='mb-1'>Q1 — <span class='badge badge-info'>первый квартиль</span>, x₀.₂₅ — <span class='badge badge-info'>25-й процентиль</span>.</p><p class='mb-0'>Это значение, ниже которого находятся <span class='badge badge-success'>25% данных</span>.</p></div>"
@@ -2998,6 +3665,363 @@ let quizesSets = [
     // =====================================================================
     // ==================== ТЕМА 4.9: Корреляционный анализ ====================
     // =====================================================================
+
+    {
+  "id": "oral_corr_sign",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Знак корреляции",
+  "theme": "Корреляция и регрессия",
+  "text": "Если с ростом x величина y в среднем убывает, то коэффициент корреляции r…",
+  "choices": ["r > 0", "r < 0", "r = 0", "r = 1"],
+  "answers": ["r < 0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📉 Знак r</h5><p class='mb-1'>r ∈ [−1; 1]. Знак совпадает с направлением связи:</p><ul class='mb-1'><li>r > 0 — прямая (обе растут),</li><li>r < 0 — обратная (одна растёт, другая падает),</li><li>r = 0 — линейной связи нет.</li></ul></div>"
+},
+{
+  "id": "oral_corr_bounds",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Границы r",
+  "theme": "Корреляция и регрессия",
+  "text": "В каких пределах может находиться коэффициент корреляции r?",
+  "choices": ["0 ≤ r ≤ 1", "−1 ≤ r ≤ 1", "−∞ < r < +∞", "0 ≤ r ≤ 100"],
+  "answers": ["−1 ≤ r ≤ 1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Границы r</h5><p class='mb-1'>Коэффициент корреляции Пирсона всегда лежит в отрезке <span class='badge badge-info'>[−1; 1]</span>.</p><hr class='my-2'><p class='mb-0'>|r| = 1 — точки лежат точно на прямой; r = 0 — линейной связи нет.</p></div>"
+},
+{
+  "id": "oral_corr_perfect",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Идеальная связь",
+  "theme": "Корреляция и регрессия",
+  "text": "Все точки лежат точно на прямой, идущей вверх. Чему равен r?",
+  "choices": ["−1", "0", "0.5", "1"],
+  "answers": ["1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 r = 1</h5><p class='mb-1'>Точки точно на прямой, связь прямая (обе величины растут вместе) → <span class='badge badge-info'>r = 1</span>.</p><hr class='my-2'><p class='mb-0'>Если бы прямая шла вниз — было бы r = −1.</p></div>"
+},
+{
+  "id": "oral_corr_none",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Нет линейной связи",
+  "theme": "Корреляция и регрессия",
+  "text": "Облако точек имеет форму круга (без наклона). Каково примерное значение r?",
+  "choices": ["−1", "0", "0.9", "1"],
+  "answers": ["0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⭕ r ≈ 0</h5><p class='mb-1'>Если облако точек симметрично и не вытянуто вдоль наклонной прямой, <span class='badge badge-info'>линейной связи нет</span>.</p><hr class='my-2'><p class='mb-0'>Формально r ≈ 0. При этом нелинейная связь может быть — r ловит только линейную.</p></div>"
+},
+
+{
+  "id": "oral_reg_mean_xy",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Среднее значение",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Среднее арифметическое</div>
+  <div class="card-body">
+    <div class="mb-3">Даны значения x: <strong>{var1-10}, {= {var1-10} + 2}, {= {var1-10} + 4}</strong>. Найдите x̄.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Среднее — сумма, делённая на количество:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{ {var1-10} + {= {var1-10} + 2} + {= {var1-10} + 4} }{3} = {= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 4, 6, 8]
+},
+{
+  "id": "oral_reg_slope_two_points",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Наклон по двум точкам",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Наклон прямой</div>
+  <div class="card-body">
+    <div class="mb-3">Прямая проходит через точки (1; {var1-10}) и (3; {= {var1-10} + 4}). Найдите угловой коэффициент b = Δy/Δx.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "(({var1-10} + 4) - {var1-10}) / (3 - 1)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Наклон = изменение y на изменение x:</div>
+    <div class="text-center">$$b = \\frac{\\Delta y}{\\Delta x} = \\frac{ {= {var1-10} + 4} - {var1-10} }{3 - 1} = \\frac{4}{2} = 2$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>2</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5]
+},
+{
+  "id": "oral_reg_sum_residuals",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Сумма остатков МНК",
+  "theme": "Линейная регрессия",
+  "text": "Чему равна сумма остатков eᵢ = yᵢ − ŷᵢ для линии, построенной методом наименьших квадратов (с константой)?",
+  "choices": ["Всегда 0", "Всегда 1", "Равна среднему y", "Нельзя определить"],
+  "answers": ["Всегда 0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⚖️ Сумма остатков = 0</h5><p class='mb-1'>Одно из свойств МНК-прямой с константой: положительные и отрицательные отклонения <span class='badge badge-info'>уравновешивают друг друга</span>.</p><hr class='my-2'><p class='mb-0'>Поэтому Σeᵢ = 0, а среднее остатков тоже 0. Это используют для проверки расчётов.</p></div>"
+},
+
+{
+  "id": "oral_reg_collinear_yes",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Три точки на одной прямой?",
+  "theme": "Линейная регрессия",
+  "text": "Лежат ли точки A(1; 2), B(2; 4), C(3; 6) на одной прямой?",
+  "choices": [
+    "Да, лежат",
+    "Нет, не лежат",
+    "Нельзя определить",
+    "Только A и B"
+  ],
+  "answers": ["Да, лежат"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Точки лежат на одной прямой, если наклоны отрезков AB и AC совпадают:</p><p class='text-center'>$$\\frac{y_B-y_A}{x_B-x_A} = \\frac{y_C-y_A}{x_C-x_A} $$</p><hr class='my-2'><p class='mb-1'>AB: (4−2)/(2−1) = 2/1 = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−2)/(3−1) = 4/2 = <span class='badge badge-info'>2</span></p><p class='mb-0'>Наклоны равны → точки на одной прямой <span class='badge badge-success'>y = 2x</span>.</p></div>"
+},
+{
+  "id": "oral_reg_collinear_no",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Три точки на одной прямой?",
+  "theme": "Линейная регрессия",
+  "text": "Лежат ли точки A(1; 1), B(2; 3), C(3; 6) на одной прямой?",
+  "choices": [
+    "Да, лежат",
+    "Нет, не лежат",
+    "Нельзя определить",
+    "Только B и C"
+  ],
+  "answers": ["Нет, не лежат"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Сравниваем наклоны AB и AC:</p><p class='mb-1'>AB: (3−1)/(2−1) = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−1)/(3−1) = 5/2 = <span class='badge badge-info'>2.5</span></p><hr class='my-2'><p class='mb-0'>2 ≠ 2.5 → точки <span class='badge badge-danger'>не лежат</span> на одной прямой (через них проходит «излом»).</p></div>"
+},
+
+{
+  "id": "oral_reg_missing_y",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Достройте точку до прямой",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Точка на прямой</div>
+  <div class="card-body">
+    <div class="mb-3">Точки A(1; {var1-10}) и B(2; {= {var1-10} + 3}) лежат на прямой. Какая ордината у точки C с x = 3, чтобы она тоже лежала на этой прямой?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} + 2 * 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Наклон прямой:</div>
+    <div class="text-center">$$b = \\frac{ {= {var1-10} + 3} - {var1-10} }{2 - 1} = 3$$</div>
+    <div class="mb-2">Уравнение: y = {var1-10} + 3(x − 1). При x = 3:</div>
+    <div class="text-center">$$y = {var1-10} + 3 \\cdot 2 = {= {var1-10} + 2 * 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 2 * 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4, 5]
+},
+{
+  "id": "oral_reg_collinear_qual",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Что значит «лежат на одной прямой»?",
+  "theme": "Линейная регрессия",
+  "text": "Три точки лежат на одной прямой. Что это означает для линейной регрессии по этим точкам?",
+  "choices": [
+    "r = ±1, остатки равны 0, прямая проходит точно через все точки",
+    "r = 0",
+    "Регрессию построить нельзя",
+    "Средние не определены"
+  ],
+  "answers": ["r = ±1, остатки равны 0, прямая проходит точно через все точки"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 Идеальная линейная связь</h5><p class='mb-1'>Если все точки на одной прямой:</p><ul class='mb-1'><li>|r| = <span class='badge badge-info'>1</span> (связь функциональная),</li><li>все остатки eᵢ = <span class='badge badge-info'>0</span>,</li><li>МНК-прямая совпадает с этой прямой.</li></ul><hr class='my-2'><p class='mb-0'>Знак r: +1, если прямая идёт вверх, −1 — если вниз.</p></div>"
+},
+
+{
+  "id": "oral_reg_cost_predict",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Затраты при заданной выручке",
+  "theme": "Линейная регрессия в экономике",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Затраты и выручка</div>
+  <div class="card-body">
+    <div class="mb-3">Зависимость затрат от выручки: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong> (в тыс. руб.). Чему равны затраты при выручке <strong>{= {var1-10} * 2}</strong> тыс. руб.?</div>
+    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} + 0.5 * ({var1-10} * 2)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Подставляем выручку в уравнение:</div>
+    <div class="text-center">$$\\text{Затраты} = {var1-10} + 0.5 \\cdot {= {var1-10} * 2} = {var1-10} + {var1-10} = {= {var1-10} + 0.5 * ({var1-10} * 2)} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 0.5 * ({var1-10} * 2)}</strong> тыс. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40, 50]
+},
+{
+  "id": "oral_reg_cost_fixed",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Постоянные затраты",
+  "theme": "Линейная регрессия в экономике",
+  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент a — это…",
+  "choices": [
+    "Постоянные затраты (при нулевой выручке)",
+    "Переменные затраты на 1 рубль выручки",
+    "Средняя выручка",
+    "Прибыль"
+  ],
+  "answers": ["Постоянные затраты (при нулевой выручке)"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Свободный член a</h5><p class='mb-1'>При выручке = 0: Затраты = a. Это <span class='badge badge-info'>постоянные затраты</span> — аренда, зарплата администрации и т.п.</p><hr class='my-2'><p class='mb-0'>Коэффициент b — <span class='badge badge-info'>переменные затраты</span> на единицу выручки.</p></div>"
+},
+{
+  "id": "oral_reg_cost_variable",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Переменные затраты",
+  "theme": "Линейная регрессия в экономике",
+  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент b показывает…",
+  "choices": [
+    "На сколько растут затраты при росте выручки на 1",
+    "Постоянные затраты",
+    "Среднюю выручку",
+    "Рентабельность"
+  ],
+  "answers": ["На сколько растут затраты при росте выручки на 1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Коэффициент b</h5><p class='mb-1'>b — <span class='badge badge-info'>переменные затраты на единицу выручки</span>.</p><hr class='my-2'><p class='mb-0'>Например, b = 0.5 означает: с каждым рублём выручки затраты растут на 50 копеек.</p></div>"
+},
+{
+  "id": "oral_reg_cost_profit",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Прибыль при заданной выручке",
+  "theme": "Линейная регрессия в экономике",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Прибыль = Выручка − Затраты</div>
+  <div class="card-body">
+    <div class="mb-3">Затраты: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. Чему равна прибыль при выручке <strong>{= {var1-10} * 4}</strong> тыс. руб.?</div>
+    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
+  </div>
+</div>`,
+  "answer": "({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Сначала затраты:</div>
+    <div class="text-center">$$\\text{Затраты} = {var1-10} + 0.5 \\cdot {= {var1-10} * 4} = {= {var1-10} + 0.5 * ({var1-10} * 4)} $$</div>
+    <div class="mt-2 mb-2">Прибыль:</div>
+    <div class="text-center">$$\\Pi = {= {var1-10} * 4} - {= {var1-10} + 0.5 * ({var1-10} * 4)} = {= ({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))}</strong> тыс. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40]
+},
+{
+  "id": "oral_reg_cost_breakeven",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Точка безубыточности",
+  "theme": "Линейная регрессия в экономике",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Когда прибыль равна нулю?</div>
+  <div class="card-body">
+    <div class="mb-3">Затраты: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. При какой выручке прибыль равна нулю (Выручка = Затраты)?</div>
+    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
+  </div>
+</div>`,
+  "answer": "2 * {var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Приравниваем выручку и затраты:</div>
+    <div class="text-center">$$V = {var1-10} + 0.5V$$</div>
+    <div class="mb-2">Переносим:</div>
+    <div class="text-center">$$0.5V = {var1-10} \\quad\\Rightarrow\\quad V = 2 \\cdot {var1-10} = {= 2 * {var1-10}} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= 2 * {var1-10}}</strong> тыс. руб.</div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40, 50]
+},
+{
+  "id": "oral_reg_cost_residual",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Отклонение от прогноза",
+  "theme": "Линейная регрессия в экономике",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Остаток по затратам</div>
+  <div class="card-body">
+    <div class="mb-3">Прогноз: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. Фактические затраты при выручке {= {var1-10} * 2} тыс. руб. оказались равны <strong>{= {var1-10} * 2}</strong> тыс. руб. Найдите остаток (факт − прогноз).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Прогноз затрат:</div>
+    <div class="text-center">$$\\hat{y} = {var1-10} + 0.5 \\cdot {= {var1-10} * 2} = {= {var1-10} + 0.5 * ({var1-10} * 2)} $$</div>
+    <div class="mt-2 mb-2">Остаток:</div>
+    <div class="text-center">$$e = {= {var1-10} * 2} - {= {var1-10} + 0.5 * ({var1-10} * 2)} = {= ({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40]
+},
+{
+  "id": "oral_reg_cost_two_points",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Найти переменные затраты",
+  "theme": "Линейная регрессия в экономике",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Переменные затраты по двум точкам</div>
+  <div class="card-body">
+    <div class="mb-3">При выручке <strong>{var1-10}</strong> тыс. руб. затраты равны <strong>{= {var1-10} + 10}</strong> тыс. руб., а при выручке <strong>{= {var1-10} * 2}</strong> тыс. руб. — <strong>{= {var1-10} * 2 + 10}</strong> тыс. руб. Найдите переменные затраты на 1 рубль выручки (угловой коэффициент).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "(({var1-10} * 2 + 10) - ({var1-10} + 10)) / (({var1-10} * 2) - {var1-10})",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Угловой коэффициент — это ΔЗатрат / ΔВыручки:</div>
+    <div class="text-center">$$b = \\frac{ {= {var1-10} * 2 + 10} - {= {var1-10} + 10} }{ {= {var1-10} * 2} - {var1-10} } = \\frac{ {var1-10} }{ {var1-10} } = 1$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>1</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [10, 20, 30, 40, 50]
+},
+
     {
         "id": "tv_020",
         "type": "multiplechoices",
@@ -3060,7 +4084,7 @@ let quizesSets = [
     <div class="text-center">$$\\mathrm{Cov}(X, Y) = M(XY) - M(X) \\cdot M(Y)$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">
-      $$\\mathrm{Cov}(X, Y) = {= 100 + {var1-10}} - 10 \\cdot 10 = {= 100 + {var1-10}} - 100 = {var1-10}$$
+      $$\\mathrm{Cov}(X, Y) = {= 100 + {var1-10}} - 10 \\cdot 10 = {= 100 + {var1-10}} - 100 = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
@@ -3073,7 +4097,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Количественная оценка",
         "theme": "Корреляционный анализ",
-        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} \\cdot \\sqrt{\\sum_{i=1}^{n} (y_i - \\bar{y})^2}} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Коэффициента детерминации", "Ковариации", "Коэффициента корреляции Пирсона", "Наклона регрессии"],
         "answers": ["Коэффициента корреляции Пирсона"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> r = Cov(X,Y) / (σ_X · σ_Y).</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>ковариация</span>, в знаменателе — <span class='badge badge-info'>произведение СКО</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>коэффициент корреляции Пирсона</span>. Принимает значения от −1 до 1.</p></div>"
@@ -3084,7 +4108,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Описательная статистика",
         "theme": "Корреляционный анализ",
-        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Коэффициента корреляции", "Ковариации по генеральной совокупности", "Ковариации по выборке", "Коэффициента детерминации"],
         "answers": ["Ковариации по генеральной совокупности"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> Cov(X,Y) = Σ(xᵢ − x̄)(yᵢ − ȳ) / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма произведений отклонений</span>, в знаменателе — <span class='badge badge-info'>n</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>ковариация по генеральной совокупности</span> (COVARIANCE.P). Для выборки делят на (n−1).</p></div>"
@@ -3112,7 +4136,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Статистическая оценка",
         "theme": "Регрессионный анализ",
-        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Свободного члена регрессии", "Коэффициента корреляции", "Углового коэффициента (наклона) регрессии", "Коэффициента детерминации"],
         "answers": ["Углового коэффициента (наклона) регрессии"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> b = Σ(xᵢ − x̄)(yᵢ − ȳ) / Σ(xᵢ − x̄)².</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>ковариация</span>, в знаменателе — <span class='badge badge-info'>дисперсия X</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>угловой коэффициент (наклон) регрессии</span> (SLOPE).</p></div>"
@@ -3123,7 +4147,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Анализ данных",
         "theme": "Регрессионный анализ",
-        "text": "$$\\bar{y} - a \\cdot \\bar{x}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\bar{y} - a \\cdot \\bar{x} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Углового коэффициента регрессии", "Коэффициента корреляции", "Свободного члена (пересечения) регрессии", "Коэффициента детерминации"],
         "answers": ["Свободного члена (пересечения) регрессии"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> b₀ = ȳ − a · x̄.</p><hr class='my-2'><p class='mb-1'>Из среднего Y вычитается <span class='badge badge-info'>произведение наклона на среднее X</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>свободный член (пересечение) регрессии</span> (INTERCEPT).</p></div>"
@@ -3155,10 +4179,10 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2">Формула коэффициента детерминации:</div>
-    <div class="text-center">$$R^2 = 1 - \\frac{SS_{res}}{SS_{tot}}$$</div>
+    <div class="text-center">$$R^2 = 1 - \\frac{SS_{res}}{SS_{tot}} $$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">
-      $$R^2 = 1 - \\frac{{= 100 - {var1-10}}}{100} = \\frac{{var1-10}}{100} = {= {var1-10}/100}$$
+      $$R^2 = 1 - \\frac{{= 100 - {var1-10}}}{100} = \\frac{{var1-10}}{100} = {= {var1-10}/100} $$
     </div>
     <div class="mt-3 mb-2">В процентах:</div>
     <div class="text-center">$$ {={var1-10}/100} \\cdot 100\\% = {var1-10}\\%$$</div>
@@ -3201,7 +4225,7 @@ let quizesSets = [
     </div>
     <div class="mt-3 mb-2">2. Свободный член:</div>
     <div class="text-center">
-      $$a = y_1 - b \\cdot x_1 = {= {var1-10} + 100} - 1 \\cdot 100 = {var1-10}$$
+      $$a = y_1 - b \\cdot x_1 = {= {var1-10} + 100} - 1 \\cdot 100 = {var1-10} $$
     </div>
     <div class="mt-3 mb-2">Уравнение регрессии: <em>y</em> = {var1-10} + 1·<em>x</em>.</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
@@ -3243,12 +4267,12 @@ let quizesSets = [
     </div>
     <div class="mt-3 mb-2">2. Свободный член:</div>
     <div class="text-center">
-      $$a = ({= {var1-10} - 200}) - 1 \\cdot 100 = {= {var1-10} - 300}$$
+      $$a = ({= {var1-10} - 200}) - 1 \\cdot 100 = {= {var1-10} - 300} $$
     </div>
     <div class="mt-3 mb-2">3. Уравнение регрессии: <em>y</em> = {= {var1-10} - 300} + <em>x</em>.</div>
     <div class="mt-3 mb-2">4. Прогноз при x = 300:</div>
     <div class="text-center">
-      $$y(300) = {= {var1-10} - 300} + 300 = {var1-10}$$
+      $$y(300) = {= {var1-10} - 300} + 300 = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
@@ -3273,7 +4297,7 @@ let quizesSets = [
       при x = {= 100 * {var1-10} + 100}: y = 200
     </div>
     <div class="mt-3 mb-2">Найдите коэффициент реагирования затрат в первой точке:</div>
-    <div class="text-center">$$K = \\frac{\\Delta y}{\\Delta x} \\cdot \\frac{x}{y}$$</div>
+    <div class="text-center">$$K = \\frac{\\Delta y}{\\Delta x} \\cdot \\frac{x}{y} $$</div>
   </div>
 </div>`,
         "answer": "{var1-10}",
@@ -3289,7 +4313,7 @@ let quizesSets = [
     </div>
     <div class="mt-3 mb-2">2. Коэффициент реагирования в первой точке (x = {= 100 * {var1-10}}, y = 100):</div>
     <div class="text-center">
-      $$K = 1 \\cdot \\frac{{= 100 * {var1-10}}}{100} = {var1-10}$$
+      $$K = 1 \\cdot \\frac{{= 100 * {var1-10}}}{100} = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
@@ -3329,7 +4353,7 @@ let quizesSets = [
     </div>
     <div class="mt-3 mb-2">2. Свободный член:</div>
     <div class="text-center">
-      $$a = ({= {var1-10} - 100}) - (-1) \\cdot 100 = {= {var1-10} - 100} + 100 = {var1-10}$$
+      $$a = ({= {var1-10} - 100}) - (-1) \\cdot 100 = {= {var1-10} - 100} + 100 = {var1-10} $$
     </div>
     <div class="mt-3 mb-2">Уравнение регрессии: <em>y</em> = {var1-10} − <em>x</em>.</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
@@ -3366,7 +4390,7 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-2">Наклон прямой по двум точкам:</div>
     <div class="text-center">
-      $$b = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{{= 100 + {var1-10}} - 100}{200 - 100} = \\frac{{var1-10}}{100} = {= {var1-10}/100}$$
+      $$b = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{{= 100 + {var1-10}} - 100}{200 - 100} = \\frac{{var1-10}}{100} = {= {var1-10}/100} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {= {var1-10}/100}</div>
   </div>
@@ -3409,12 +4433,12 @@ let quizesSets = [
   <div class="card-body">
     <div class="mb-2">Сумма чисел:</div>
     <div class="text-center">
-      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= 6 * {var1-10}}$$
+      $$({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) + ({= {var1-10} + 4}) + ({= {var1-10} - 4}) = {= 6 * {var1-10}} $$
     </div>
     <div class="mt-3 mb-2">Количество чисел: 6</div>
     <div class="mb-2">Среднее арифметическое:</div>
     <div class="text-center">
-      $$\\bar{x} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$
+      $$\\bar{x} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
@@ -3452,15 +4476,15 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2">1. Среднее арифметическое:</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="text-center">$$\\bar{x} = {var1-10} $$</div>
     <div class="mt-3 mb-2">2. Отклонения:</div>
-    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)} $$</div>
     <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
-    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ (каждое по 3 раза)</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10} $$ (каждое по 3 раза)</div>
     <div class="mt-3 mb-2">4. Сумма квадратов отклонений:</div>
-    <div class="text-center">$$6 \\times {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="text-center">$$6 \\times {var1-10} = {= 6 * {var1-10}} $$</div>
     <div class="mt-3 mb-2">5. Дисперсия:</div>
-    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10} $$</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
@@ -3499,13 +4523,13 @@ let quizesSets = [
     <div class="mb-2">1. Среднее арифметическое:</div>
     <div class="text-center">$$\\bar{x} = 20$$ (симметрия слагаемых)</div>
     <div class="mt-3 mb-2">2. Отклонения от среднего:</div>
-    <div class="text-center">$$\\pm {var1-10}$$ (по три раза каждое)</div>
+    <div class="text-center">$$\\pm {var1-10} $$ (по три раза каждое)</div>
     <div class="mt-3 mb-2">3. Квадраты отклонений:</div>
-    <div class="text-center">$$({var1-10})^2 = {= {var1-10} * {var1-10}}$$</div>
+    <div class="text-center">$$({var1-10})^2 = {= {var1-10} * {var1-10}} $$</div>
     <div class="mt-3 mb-2">4. Дисперсия:</div>
-    <div class="text-center">$$\\sigma^2 = \\frac{6 \\cdot {= {var1-10} * {var1-10}}}{6} = {= {var1-10} * {var1-10}}$$</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{6 \\cdot {= {var1-10} * {var1-10}}}{6} = {= {var1-10} * {var1-10}} $$</div>
     <div class="mt-3 mb-2">5. Стандартное отклонение:</div>
-    <div class="text-center">$$\\sigma = \\sqrt{{= {var1-10} * {var1-10}}} = {var1-10}$$</div>
+    <div class="text-center">$$\\sigma = \\sqrt{{= {var1-10} * {var1-10}}} = {var1-10} $$</div>
     <div class="alert alert-primary mt-3">Ответ: {var1-10}</div>
   </div>
 </div>`,
@@ -3517,7 +4541,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Анализ данных",
         "theme": "Меры разброса",
-        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Стандартного отклонения", "Дисперсии по выборке", "Дисперсии по генеральной совокупности", "Среднего абсолютного отклонения"],
         "answers": ["Дисперсии по генеральной совокупности"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ² = Σ(xᵢ − x̄)² / n.</p><hr class='my-2'><p class='mb-1'>В числителе — <span class='badge badge-info'>сумма квадратов отклонений</span> от среднего, в знаменателе — <span class='badge badge-info'>n</span>.</p><p class='mb-0'>Это <span class='badge badge-success'>дисперсия по генеральной совокупности</span> (VAR.P). Для выборки делят на (n−1).</p></div>"
@@ -3528,7 +4552,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Статистический показатель",
         "theme": "Меры разброса",
-        "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}}$$\n\nДанная формула используется для расчёта:",
+        "text": "$$\\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n}} $$\n\nДанная формула используется для расчёта:",
         "choices": ["Дисперсии", "Стандартного отклонения по генеральной совокупности", "Среднего абсолютного отклонения", "Размаха вариации"],
         "answers": ["Стандартного отклонения по генеральной совокупности"],
         "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 О какой формуле идёт речь?</h5><p class='mb-1'><strong>Дана формула:</strong> σ = √(Σ(xᵢ − x̄)² / n).</p><hr class='my-2'><p class='mb-1'>Это <span class='badge badge-info'>квадратный корень из дисперсии</span>. Результат — в тех же единицах, что и данные.</p><p class='mb-0'>Это <span class='badge badge-success'>стандартное отклонение по генеральной совокупности</span> (STDEV.P).</p></div>"
@@ -3550,7 +4574,7 @@ let quizesSets = [
         "header": "Тест",
         "title": "Статистическая оценка",
         "theme": "Законы распределения",
-        "text": "$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nДанная формула описывает:",
+        "text": "$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}} $$\n\nДанная формула описывает:",
         "choices": [
             "Равномерное распределение",
             "Распределение Пуассона",
@@ -3635,7 +4659,7 @@ let quizesSets = [
         "text": "В случайном опыте N = 30 равновозможных элементарных событий, из них N(A) = 27 благоприятствуют событию A. Вычислите вероятность события A.",
         "choices": ["0.7", "0.8", "0.9", "0.95"],
         "answers": ["0.9"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>Формула классической вероятности:</p><p class='mb-2'>$$P(A) = \\frac{N(A)}{N}$$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{27}{30} = \\frac{9}{10} = 0.9$$</p></div>"
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Абстрактная вероятность</h5><p class='mb-1'>Формула классической вероятности:</p><p class='mb-2'>$$P(A) = \\frac{N(A)}{N} $$</p><hr class='my-2'><p class='mb-0'>$$P(A) = \\frac{27}{30} = \\frac{9}{10} = 0.9$$</p></div>"
     },
     
         {
@@ -5196,6 +6220,204 @@ let quizesSets = [
     ]
 },
 
+{
+  "id": "oral_dist_bernoulli",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "Монету бросают один раз. Случайная величина X = 1, если выпал орёл, и X = 0, если решка. Какое это распределение?",
+  "choices": ["Бернулли", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Бернулли"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Распределение Бернулли</h5><p class='mb-1'>Одно испытание с двумя исходами: <span class='badge badge-info'>успех (1)</span> или <span class='badge badge-info'>неудача (0)</span>.</p><hr class='my-2'><p class='mb-0'>Параметр — вероятность успеха p. Примеры: бросок монеты, ответ «да/нет», попадание/промах.</p></div>"
+},
+{
+  "id": "oral_dist_binomial",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "Монету бросают 10 раз, X — число выпавших орлов. Какое это распределение?",
+  "choices": ["Бернулли", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Биномиальное"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Биномиальное распределение</h5><p class='mb-1'><span class='badge badge-info'>n независимых испытаний Бернулли</span>, X — число успехов.</p><hr class='my-2'><p class='mb-0'>Параметры: n (число испытаний) и p (вероятность успеха). Пример: число орлов при 10 бросках, число бракованных деталей в партии.</p></div>"
+},
+{
+  "id": "oral_dist_poisson",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "X — число звонков, поступающих на станцию за минуту (в среднем 3 звонка в минуту). Какое это распределение?",
+  "choices": ["Бернулли", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Пуассона"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📞 Распределение Пуассона</h5><p class='mb-1'>Число <span class='badge badge-info'>редких событий</span> за фиксированный интервал времени/площади.</p><hr class='my-2'><p class='mb-0'>Параметр λ — среднее число событий. Примеры: звонки, аварии, ошибки в тексте, посетители за час.</p></div>"
+},
+{
+  "id": "oral_dist_normal",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "X — рост случайно выбранного взрослого мужчины. Какое распределение лучше всего описывает X?",
+  "choices": ["Бернулли", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Нормальное"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Нормальное распределение</h5><p class='mb-1'>Непрерывная величина, «колокол»: большинство значений <span class='badge badge-info'>около среднего</span>, крайние — редко.</p><hr class='my-2'><p class='mb-0'>Параметры: μ (среднее) и σ (разброс). Примеры: рост, вес, ошибки измерений, результаты тестов.</p></div>"
+},
+{
+  "id": "oral_dist_uniform",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "X — число, выпавшее на игральном кубике. Какое это распределение?",
+  "choices": ["Равномерное", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Равномерное"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Равномерное распределение</h5><p class='mb-1'>Все исходы <span class='badge badge-info'>равновероятны</span>.</p><hr class='my-2'><p class='mb-0'>Дискретное: кубик (1–6), случайная цифра. Непрерывное: точка на отрезке (любое значение равновозможно).</p></div>"
+},
+{
+  "id": "oral_dist_geometric",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какое распределение?",
+  "theme": "Виды распределений",
+  "text": "Монету бросают до первого орла. X — номер броска, на котором выпал орёл. Какое это распределение?",
+  "choices": ["Геометрическое", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Геометрическое"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Геометрическое распределение</h5><p class='mb-1'>Число испытаний <span class='badge badge-info'>до первого успеха</span> в схеме Бернулли.</p><hr class='my-2'><p class='mb-0'>Параметр — p. Примеры: бросания до первого орла, попытки до первого попадания.</p></div>"
+},
+{
+  "id": "oral_dist_binomial_mean",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Распределения",
+  "title": "Среднее биномиального",
+  "theme": "Виды распределений",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Математическое ожидание</div>
+  <div class="card-body">
+    <div class="mb-3">Монету бросают <strong>{var1-10}</strong> раз, p = 0.5. Найдите среднее число орлов M(X) = n·p.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "0.5 * {var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для биномиального распределения:</div>
+    <div class="text-center">$$M(X) = n \\cdot p$$</div>
+    <div class="mt-3 mb-2">Подставляем n = {var1-10}, p = 0.5:</div>
+    <div class="text-center">$$M(X) = {var1-10} \\cdot 0.5 = {= 0.5 * {var1-10}}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= 0.5 * {var1-10}}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 4, 6, 8, 10]
+},
+{
+  "id": "oral_dist_poisson_mean",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Распределения",
+  "title": "Среднее Пуассона",
+  "theme": "Виды распределений",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Математическое ожидание</div>
+  <div class="card-body">
+    <div class="mb-3">Число звонков за минуту имеет распределение Пуассона с λ = <strong>{var1-10}</strong>. Найдите среднее число звонков M(X).</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10}",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Для Пуассона среднее равно параметру λ:</div>
+    <div class="text-center">$$M(X) = \\lambda = {var1-10}$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{var1-10}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4, 5]
+},
+{
+  "id": "oral_dist_normal_rule",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Правило трёх сигм",
+  "theme": "Виды распределений",
+  "text": "Для нормального распределения примерно какая доля значений лежит в пределах μ ± σ?",
+  "choices": ["≈ 50%", "≈ 68%", "≈ 95%", "≈ 99.7%"],
+  "answers": ["≈ 68%"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Правило трёх сигм</h5><ul class='mb-1'><li>μ ± σ — около <span class='badge badge-info'>68%</span></li><li>μ ± 2σ — около <span class='badge badge-info'>95%</span></li><li>μ ± 3σ — около <span class='badge badge-info'>99.7%</span></li></ul><hr class='my-2'><p class='mb-0'>Полезно для быстрой оценки: почти все значения укладываются в 3σ от среднего.</p></div>"
+},
+{
+  "id": "oral_dist_normal_2sigma",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Две сигмы",
+  "theme": "Виды распределений",
+  "text": "Для нормального распределения примерно какая доля значений лежит в пределах μ ± 2σ?",
+  "choices": ["≈ 50%", "≈ 68%", "≈ 95%", "≈ 99.7%"],
+  "answers": ["≈ 95%"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Правило трёх сигм</h5><ul class='mb-1'><li>μ ± σ — 68%</li><li>μ ± 2σ — <span class='badge badge-info'>95%</span></li><li>μ ± 3σ — 99.7%</li></ul><hr class='my-2'><p class='mb-0'>Запомни «68–95–99.7» — это очень экономит время.</p></div>"
+},
+{
+  "id": "oral_dist_binomial_to_normal",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "К чему стремится биномиальное?",
+  "theme": "Виды распределений",
+  "text": "Биномиальное распределение при большом числе испытаний n приближается к…",
+  "choices": ["Нормальному", "Пуассона", "Равномерному", "Геометрическому"],
+  "answers": ["Нормальному"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Центральная предельная теорема</h5><p class='mb-1'>При больших n биномиальное распределение <span class='badge badge-info'>приближается нормальным</span> с μ = np и σ = √(np(1−p)).</p><hr class='my-2'><p class='mb-0'>Именно поэтому гистограмма на доске Гальтона при многих рядах имеет форму колокола.</p></div>"
+},
+{
+  "id": "oral_dist_poisson_to_normal",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Большое λ",
+  "theme": "Виды распределений",
+  "text": "Распределение Пуассона при большом λ приближается к…",
+  "choices": ["Нормальному", "Бернулли", "Равномерному", "Геометрическому"],
+  "answers": ["Нормальному"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Большое λ</h5><p class='mb-1'>При больших λ распределение Пуассона <span class='badge badge-info'>становится симметричным</span> и приближается нормальным с μ = λ и σ = √λ.</p><hr class='my-2'><p class='mb-0'>Это следствие ЦПТ: сумма многих редких событий ведёт себя как нормальная величина.</p></div>"
+},
+{
+  "id": "oral_dist_binomial_poisson",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Редкие события",
+  "theme": "Виды распределений",
+  "text": "Биномиальное распределение при большом n и малом p (np = λ) приближается к…",
+  "choices": ["Пуассона", "Нормальному", "Равномерному", "Геометрическому"],
+  "answers": ["Пуассона"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📞 Предельная теорема Пуассона</h5><p class='mb-1'>Если n велико, p мало, а np = λ конечно, то биномиальное распределение <span class='badge badge-info'>приближается распределением Пуассона</span> с параметром λ.</p><hr class='my-2'><p class='mb-0'>Это «закон редких событий»: много испытаний, но успех маловероятен.</p></div>"
+},
+{
+  "id": "oral_dist_support",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Какие значения принимает?",
+  "theme": "Виды распределений",
+  "text": "Какое из распределений принимает только два значения?",
+  "choices": ["Бернулли", "Биномиальное", "Пуассона", "Нормальное"],
+  "answers": ["Бернулли"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🎲 Два значения</h5><p class='mb-1'>Бернулли: X ∈ <span class='badge badge-info'>{0, 1}</span> — только успех/неудача.</p><hr class='my-2'><p class='mb-0'>Биномиальное: 0…n; Пуассона: 0, 1, 2, …; нормальное: любое действительное число.</p></div>"
+},
+{
+  "id": "oral_dist_discrete_continuous",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Распределения",
+  "title": "Дискретное или непрерывное?",
+  "theme": "Виды распределений",
+  "text": "Какое из распределений является непрерывным?",
+  "choices": ["Нормальное", "Биномиальное", "Пуассона", "Бернулли"],
+  "answers": ["Нормальное"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Непрерывное</h5><p class='mb-1'>Нормальное распределение <span class='badge badge-info'>непрерывно</span>: величина может принимать любое значение на интервале.</p><hr class='my-2'><p class='mb-0'>Бернулли, биномиальное и Пуассона — <span class='badge badge-info'>дискретные</span> (счётные значения).</p></div>"
+},
+
     // ============================================================
     // ================ JSXGRAPH: ОПРЕДЕЛИТЬ ТИП РАСПРЕДЕЛЕНИЯ =====
     // ============================================================
@@ -6419,7 +7641,7 @@ let quizesSets = [
                     <div class="mb-2">Формула среднего арифметического:</div>
                     <div class="text-center">$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$$</div>
                     <div class="mt-3 mb-2">Подставляем значения столбца «Продажи» (D2:D13):</div>
-                    <div class="text-center">$$\\bar{x} = \\frac{52 + 55 + \\dots + 80}{12}$$</div>
+                    <div class="text-center">$$\\bar{x} = \\frac{52 + 55 + \\dots + 80}{12} $$</div>
                     <div class="alert alert-primary mt-3 mb-0">
                       Ответ: <code>=AVERAGE(D2:D13)</code>
                     </div>
@@ -6454,7 +7676,7 @@ let quizesSets = [
     <div class="text-center">$$\\mathrm{Cov}(X, Y) = M(XY) - M(X) \\cdot M(Y)$$</div>
     <div class="mt-3 mb-2">Подставляем:</div>
     <div class="text-center">
-      $$\\mathrm{Cov}(X, Y) = {var1-10} - 10 \\cdot 10 = {var1-10} - 100 = {var1-10}$$
+      $$\\mathrm{Cov}(X, Y) = {var1-10} - 10 \\cdot 10 = {var1-10} - 100 = {var1-10} $$
     </div>
     <div class="alert alert-primary mt-3 mb-0">Ответ: {var1-10}</div>
   </div>
@@ -6557,23 +7779,23 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2"><strong>ДИСП.Г</strong> — дисперсия по генеральной совокупности:</div>
-    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}$$</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
     <div class="mb-2">В данных три значения «{= {var1-10} - POWER({var1-10}, 1/2)}» и три значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметричные отклонения компенсируются:</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="text-center">$$\\bar{x} = {var1-10} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
-    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)}$$ — по три раза каждое</div>
+    <div class="text-center">$$\\pm {= POWER({var1-10}, 1/2)} $$ — по три раза каждое</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
-    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10}$$ — каждое значение повторяется 3 раза</div>
+    <div class="text-center">$$({= POWER({var1-10}, 1/2)})^2 = {var1-10} $$ — каждое значение повторяется 3 раза</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
-    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 5. Дисперсия.</strong></div>
-    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="text-center">$$\\sigma^2 = \\frac{{= 6 * {var1-10}}}{6} = {var1-10} $$</div>
 
     <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
   </div>
@@ -6620,21 +7842,21 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2"><strong>СРОТКЛ</strong> — среднее абсолютных отклонений от среднего:</div>
-    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n}$$</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{\\sum |x_i - \\bar{x}|}{n} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
     <div class="mb-2">В данных три нуля и три значения «{= 2 * {var1-10}}»:</div>
-    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="text-center">$$\\bar{x} = \\frac{0 + 0 + 0 + {= 2 * {var1-10}} + {= 2 * {var1-10}} + {= 2 * {var1-10}}}{6} = {var1-10} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 2. Абсолютные отклонения.</strong></div>
-    <div class="text-center">$$|0 - {var1-10}| = {var1-10}$$ — три раза</div>
-    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10}$$ — три раза</div>
+    <div class="text-center">$$|0 - {var1-10}| = {var1-10} $$ — три раза</div>
+    <div class="text-center">$$|{= 2 * {var1-10}} - {var1-10}| = {var1-10} $$ — три раза</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 3. Сумма абсолютных отклонений.</strong></div>
-    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}}$$</div>
+    <div class="text-center">$$6 \\cdot {var1-10} = {= 6 * {var1-10}} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 4. СРОТКЛ.</strong></div>
-    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10}$$</div>
+    <div class="text-center">$$\\text{СРОТКЛ} = \\frac{{= 6 * {var1-10}}}{6} = {var1-10} $$</div>
 
     <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
   </div>
@@ -6681,27 +7903,27 @@ let quizesSets = [
   </div>
   <div class="card-body">
     <div class="mb-2"><strong>ДИСП.В</strong> — выборочная дисперсия (делим на <em>n − 1</em>, а не на <em>n</em>):</div>
-    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}$$</div>
+    <div class="text-center">$$s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 1. Среднее арифметическое.</strong></div>
     <div class="mb-2">В данных два значения «{= {var1-10} - POWER({var1-10}, 1/2)}», одно «{var1-10}» и два значения «{= {var1-10} + POWER({var1-10}, 1/2)}». Симметрия вокруг центрального значения:</div>
-    <div class="text-center">$$\\bar{x} = {var1-10}$$</div>
+    <div class="text-center">$$\\bar{x} = {var1-10} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 2. Отклонения от среднего.</strong></div>
-    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)}$$</div>
+    <div class="text-center">$$-{= POWER({var1-10}, 1/2)}, \\; -{= POWER({var1-10}, 1/2)}, \\; 0, \\; +{= POWER({var1-10}, 1/2)}, \\; +{= POWER({var1-10}, 1/2)} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 3. Квадраты отклонений.</strong></div>
     <div class="mb-2">Каждое отклонение в квадрате даёт <strong>{var1-10}</strong>:</div>
-    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10}$$</div>
+    <div class="text-center">$$ {var1-10}, \\; {var1-10}, \\; 0, \\; {var1-10}, \\; {var1-10} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 4. Сумма квадратов отклонений.</strong></div>
-    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}}$$</div>
+    <div class="text-center">$$\\sum (x_i - \\bar{x})^2 = 4 \\cdot {var1-10} = {= 4 * {var1-10}} $$</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 5. Число степеней свободы.</strong></div>
     <div class="mb-2">В диапазоне <strong>5</strong> значений, значит <em>n − 1</em> = 4.</div>
 
     <div class="mt-3 mb-2"><strong>Шаг 6. Выборочная дисперсия.</strong></div>
-    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10}$$</div>
+    <div class="text-center">$$s^2 = \\frac{{= 4 * {var1-10}}}{4} = {var1-10} $$</div>
 
     <div class="alert alert-success mt-3">Ответ: <strong>{var1-10}</strong></div>
   </div>
