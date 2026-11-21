@@ -2,18 +2,49 @@
 <html lang="ru">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    -->
-    <link rel="stylesheet" href="./original.css" />
-    <script src="../dist/immer6.0.3.umd.production.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="../dist/original.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/hot-formula-parser@4.0.0/dist/formula-parser.min.js"></script>
+    <script src="../dist/react18.3.1.production.min.js"></script>
+    <script src="../dist/react-dom18.3.1.production.min.js"></script>
+    <script src="../dist/redux-toolkit.umd.min.js"></script>
+    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <title>Теория бухгалтерского учета</title>
+
+    <style>
+        .badge-method {
+            background-color: #217346;
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .keyword {
+            background-color: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .list-group-item-action {
+            cursor: pointer;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
-<body>
+<body data-api="AIzaSyDUamZR2aXuP2rFG1AFpb1Ni8aZA5uhSj4" data-base="fincalculations"
+    data-app="1:892270777573:web:bdc13e9b47334b4319700c">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a target="_blank" class="navbar-brand" href="./">Econolabs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,147 +57,321 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span class="sr-only"></span></a>
                 </li>
-
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <a href="https://vk.com/dmglvn">
                     <img loading="lazy" src="https://sun9-37.userapi.com/c317630/v317630439/76a0/Bz6QTfBog0I.jpg?ava=1"
-                        alt="" style="
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                filter: grayscale(100%);
-                object-fit: cover;
-              " />
+                        alt=""
+                        style="width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); object-fit: cover;" />
                 </a>
             </form>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container my-4">
 
-        <h1 class="text-secondary">Теория бухгалтерского учета</h1>
-        <h5 class="text-secondary">Лекции 2 часа</h5>
+        <h1 style="color: #217346; font-weight: 600;" class="mb-4">
+            <i class="fas fa-calculator mr-2"></i>Теория бухгалтерского учета
+        </h1>
+        <h5 class="text-secondary mb-4">Лекции 2 часа</h5>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <h1 class="text-primary">Оглавление</h1>
+
+        <!-- ==================== ОГЛАВЛЕНИЕ ==================== -->
+        <div class="card my-3" style="max-width: 900px;">
+            <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Содержание дисциплины"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 1. Бухгалтерский учет в системе управления</h3>
+                <h3 class="card-title">Теория бухгалтерского учета</h3>
 
-                <div>
-                    <p><strong>Бухгалтерский учёт</strong> – формирование документированной
-                        систематизированной информации об объектах, предусмотренных Федеральным законом «О бухгалтерском
-                        учёте», в соответствии с требованиями, установленными указанным Федеральным законом, и
-                        составление на ее основе бухгалтерской (финансовой) отчётности.<br>
-                        <br>
-                        <strong>Бухгалтерская (финансовая) отчётность</strong> – информация о финансовом положении
-                        экономического субъекта на отчётную дату, финансовом результате его деятельности и движении
-                        денежных средств за отчётный период, систематизированная в соответствии с требованиями,
-                        установленными Федеральным законом «О бухгалтерском учёте».
-                        Консолидированная финансовая отчётность – систематизированная информация, отражающая финансовое
-                        положение, финансовые результаты деятельности и изменения финансового положения организации,
-                        которая вместе с другими организациями и (или) иностранными организациями в соответствии с
-                        Международными стандартами финансовой отчётности определяется как группа.
-                    </p>
-                </div>
-
-                Управление: сущность и функции. Учет как функция управления.<br>
-                Сущность и основные задачи бухгалтерского учета.<br>
-                Внутренние и внешние пользователи бухгалтерской информации, специфика их потребностей в бухгалтерской
-                информации.<br>
-                Требования к информации, формируемой в бухгалтерском учете.<br>
-                Состав информации, формируемой в бухгалтерском учете для внешних пользователей.<br>
-                Основные принципы бухгалтерского учета (допущения и требования).<br>
-                Допущения бухгалтерского учета: имущественная обособленность; непрерывность деятельности организации;
-                последовательность применения учетной политики; временная определенность фактов хозяйственной
-                деятельности (метод начисления).
-                <br>
-                Требования бухгалтерского учета: полнота учета; осмотрительность; приоритет содержания над формой;
-                непротиворечивость; рациональность.<br>
-                Правила ведения бухгалтерского учета: двойная запись; первичные учетные документы; денежная оценка;
-                инвентаризация; учетная политика.<br>
-                Критерии признания активов, обязательств, доходов и расходов в бухгалтерской отчетности.<br>
-                Оценка активов, обязательств, доходов и расходов.<br>
-                Финансовый учет; финансовая и налоговая отчетность.<br>
-                Управленческий учет: содержание, основные требования, внутренняя отчетность.
-
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h3 class="card-title">Тема 2. Федеральный закон и стандарты</h3>
-
-                <div class="block_container">
-
-                    <div class="styled_text">
-                        <div class="text_wrapper">
-
-
-                            <h3 class="text-secondary">ФЗ 402-ФЗ «О бухгалтерском учете» (2012 г.)</h3>
-
-                            <h3 class="text-secondary">Федеральные стандарты бухгалтерского учета</h3>
-
-                            <p>Федеральный стандарт бухгалтерского учета – документ, устанавливающий минимально
-                                необходимые требования к бухгалтерскому учету, а также допустимые способы ведения
-                                бухгалтерского учета для экономических субъектов, за исключением организаций бюджетной
-                                сферы.</p>
-
-                            <p>Федеральные стандарты являются обязательными к применению независимо от вида
-                                экономической деятельности, если иное не установлено этими стандартами или Федеральным
-                                законом «О бухгалтерском учете».</p>
-
-                            <p>К федеральным стандартам бухгалтерского учета относятся:</p>
-
-                            <ul>
-                                <li>документы, принимаемые с 2018 г. под названием «Федеральные стандарты бухгалтерского
-                                    учета»;</li>
-                                <li>положения по бухгалтерскому учету (ПБУ), утвержденные Министерством финансов
-                                    Российской Федерации в период с 1 октября 1998 г. до 1 января 2013 г.</li>
-                            </ul>
-
-                            <p>Федеральные стандарты бухгалтерского учета утверждаются Министерством финансов Российской
-                                Федерации.</p>
-
-                            <p>Нормативные правовые документы размещены по ссылке <a
-                                    href="https://minfin.gov.ru/ru/document/"
-                                    target="_blank">https://minfin.gov.ru/ru/document/</a></p>
-
+                <!-- Тема 1 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-chart-line mr-2"></i> Тема 1. Бухгалтерский учет в системе
+                            управления</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme1_1"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.1 Сущность и задачи бухгалтерского учета
+                                <span class="badge badge-primary badge-pill">theme1_1</span>
+                            </a>
+                            <a href="#theme1_2"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.2 Пользователи бухгалтерской информации
+                                <span class="badge badge-primary badge-pill">theme1_2</span>
+                            </a>
+                            <a href="#theme1_3"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                1.3 Требования к информации и принципы учета
+                                <span class="badge badge-primary badge-pill">theme1_3</span>
+                            </a>
                         </div>
-
-
-
                     </div>
                 </div>
+
+                <!-- Тема 2 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-gavel mr-2"></i> Тема 2. Федеральный закон и стандарты</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme2_1" class="list-group-item list-group-item-action">2.1 ФЗ 402-ФЗ «О
+                                бухгалтерском учете»</a>
+                            <a href="#theme2_2" class="list-group-item list-group-item-action">2.2 Федеральные стандарты
+                                бухгалтерского учета</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 3 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-exchange-alt mr-2"></i> Тема 3. Переход от ПБУ к ФСБУ</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme3_1" class="list-group-item list-group-item-action">3.1 Сравнительная таблица
+                                ПБУ → ФСБУ</a>
+                            <a href="#theme3_2" class="list-group-item list-group-item-action">3.2 Ключевые изменения
+                                2027 года</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 4 -->
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-book mr-2"></i> Тема 4. Организация бухгалтерского учета</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme4_1" class="list-group-item list-group-item-action">4.1 Система счетов и
+                                учетная политика</a>
+                            <a href="#theme4_2" class="list-group-item list-group-item-action">4.2 План счетов и
+                                инструкции</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 5 -->
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-globe mr-2"></i> Тема 5. Международная гармонизация учета</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme5_1" class="list-group-item list-group-item-action">5.1 МСФО и национальные
+                                стандарты</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 6 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-balance-scale mr-2"></i> Тема 6. Допущения и принципы
+                            бухгалтерского учета</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme6_1" class="list-group-item list-group-item-action">6.1 Допущения (ФСБУ
+                                1/2020)</a>
+                            <a href="#theme6_2" class="list-group-item list-group-item-action">6.2 Качественные
+                                характеристики и принципы</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 7 -->
+                <div class="card mt-3 border-success">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-folder-open mr-2"></i> Тема 7. Регистры бухгалтерского учета
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme7_1" class="list-group-item list-group-item-action">7.1 Определение, функции
+                                и виды регистров</a>
+                            <a href="#theme7_2" class="list-group-item list-group-item-action">7.2 Требования ФСБУ
+                                27/2021</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 8 -->
+                <div class="card mt-3 border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-file-invoice-dollar mr-2"></i> Тема 8. Двойная запись и
+                            отчетность</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme8_1" class="list-group-item list-group-item-action">8.1 Баланс и типы
+                                операций</a>
+                            <a href="#theme8_2" class="list-group-item list-group-item-action">8.2 Отчет о финансовых
+                                результатах и ОДДС</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 9 -->
+                <div class="card mt-3 border-info">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-sitemap mr-2"></i> Тема 9. Система счетов: классификация и
+                            структура</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme9_1" class="list-group-item list-group-item-action">9.1 Активные, пассивные и
+                                активно-пассивные счета</a>
+                            <a href="#theme9_2" class="list-group-item list-group-item-action">9.2 Субконто, контрарные
+                                и сопоставляющие счета</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 10 -->
+                <div class="card mt-3 border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0"><i class="fas fa-table mr-2"></i> Тема 10. Шахматная и оборотно-сальдовая
+                            ведомости</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme10_1" class="list-group-item list-group-item-action">10.1 Шахматная
+                                ведомость</a>
+                            <a href="#theme10_2" class="list-group-item list-group-item-action">10.2 ОСВ и проверочные
+                                равенства</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тема 11 -->
+                <div class="card mt-3 border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-tasks mr-2"></i> Самостоятельная работа</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#theme11_1" class="list-group-item list-group-item-action">Домашнее задание: План
+                                счетов № 94н</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title14.jpg" alt="Переход от ПБУ к ФСБУ"
-                    style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 1 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme1_1">
+            <img loading="lazy" class="card-img-top" src="../h1title.jpg" alt="Бухгалтерский учет в системе управления"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 3. Переход от ПБУ к ФСБУ: сравнительная таблица</h3>
-
-                <div class="alert alert-success mb-3">
-                    <strong>Ключевое изменение:</strong> С 2011 года Россия переходит на Федеральные стандарты
-                    бухгалтерского учета (ФСБУ), которые постепенно заменяют Положения по бухгалтерскому учету (ПБУ). На
-                    2027 год ключевые стандарты по доходам и расходам уже вступили в силу; продолжают действовать
-                    переходные положения по отдельным объектам учета.
+                <h3 class="card-title"><span class="badge-method mr-2">1.1</span> Сущность и задачи бухгалтерского учета
+                </h3>
+                <p><strong>Бухгалтерский учёт</strong> – формирование документированной систематизированной информации
+                    об объектах, предусмотренных Федеральным законом «О бухгалтерском учёте», и составление на ее основе
+                    бухгалтерской (финансовой) отчётности.</p>
+                <p><strong>Бухгалтерская (финансовая) отчётность</strong> – информация о финансовом положении
+                    экономического субъекта на отчётную дату, финансовом результате его деятельности и движении денежных
+                    средств за отчётный период.</p>
+                <div class="alert alert-success">
+                    <i class="fas fa-lightbulb"></i> <strong>Ключевая идея:</strong> Учет — это функция управления,
+                    обеспечивающая информацией внутренних и внешних пользователей.
                 </div>
+                <h5>Внутренние и внешние пользователи</h5>
+                <ul>
+                    <li><strong>Внутренние:</strong> руководство, менеджеры, собственники.</li>
+                    <li><strong>Внешние:</strong> инвесторы, кредиторы, налоговые органы, контрагенты.</li>
+                </ul>
+            </div>
+        </div>
 
+        <div class="card my-3" style="max-width: 900px;" id="theme1_2">
+            <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="Пользователи информации"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">1.2</span> Пользователи бухгалтерской информации
+                </h3>
+                <p>Специфика потребностей разных групп пользователей:</p>
+                <ul>
+                    <li><strong>Инвесторы</strong> — оценка доходности и рисков.</li>
+                    <li><strong>Кредиторы</strong> — платежеспособность и ликвидность.</li>
+                    <li><strong>Налоговые органы</strong> — правильность исчисления налогов.</li>
+                    <li><strong>Менеджмент</strong> — эффективность управления ресурсами.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width: 900px;" id="theme1_3">
+            <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Требования и принципы"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">1.3</span> Требования к информации и принципы
+                    учета</h3>
+                <p><strong>Требования:</strong> полнота, осмотрительность, приоритет содержания над формой,
+                    непротиворечивость, рациональность.</p>
+                <p><strong>Допущения:</strong> имущественная обособленность, непрерывность деятельности,
+                    последовательность применения учетной политики, временная определенность фактов (метод начисления).
+                </p>
+                <p><strong>Правила ведения:</strong> двойная запись, первичные документы, денежная оценка,
+                    инвентаризация, учетная политика.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 2 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme2_1">
+            <img loading="lazy" class="card-img-top" src="../h1title2.jpg" alt="ФЗ 402-ФЗ"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">2.1</span> ФЗ 402-ФЗ «О бухгалтерском учете»
+                    (2012 г.)</h3>
+                <p>Устанавливает единые требования к бухгалтерскому учету и отчетности, определяет объекты учета,
+                    обязанности экономических субъектов.</p>
+                <p class="mt-3">
+                    <a class="link-opacity-100" href="https://minfin.gov.ru/ru/document/" target="_blank">
+                        Нормативные документы Минфина РФ
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card my-3" style="max-width: 900px;" id="theme2_2">
+            <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Федеральные стандарты"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">2.2</span> Федеральные стандарты бухгалтерского
+                    учета</h3>
+                <p><strong>ФСБУ</strong> – документ, устанавливающий минимально необходимые требования к бухгалтерскому
+                    учету, а также допустимые способы ведения учета.</p>
+                <p>К федеральным стандартам относятся:</p>
+                <ul>
+                    <li>документы с 2018 г. под названием «Федеральные стандарты бухгалтерского учета»;</li>
+                    <li>ПБУ, утвержденные Минфином РФ с 1 октября 1998 г. до 1 января 2013 г.</li>
+                </ul>
+                <p>Утверждаются Министерством финансов РФ.</p>
+            </div>
+        </div>
+
+        <!-- ==================== ТЕМА 3 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme3_1">
+            <img loading="lazy" class="card-img-top" src="../h1title14.jpg" alt="Переход от ПБУ к ФСБУ"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">3.1</span> Сравнительная таблица ПБУ → ФСБУ</h3>
+                <div class="alert alert-success mb-3">
+                    <strong>Ключевое изменение:</strong> С 2011 года Россия переходит на ФСБУ, которые постепенно
+                    заменяют ПБУ. На 2027 год ключевые стандарты по доходам и расходам уже вступили в силу.
+                </div>
                 <div class="table-responsive">
-                    <table class="table  table-hover table-sm">
+                    <table class="table table-hover table-sm">
                         <thead class="table-light">
                             <tr>
                                 <th style="width: 25%" class="text-danger">Утратившее силу ПБУ</th>
-                                <th style="width: 30%">Действующий ФСБУ (аналог/замена)</th>
+                                <th style="width: 30%">Действующий ФСБУ</th>
                                 <th style="width: 25%">Период изменений</th>
                                 <th style="width: 20%">Статус на 2027 год</th>
                             </tr>
@@ -176,488 +381,178 @@
                                 <td class="text-danger"><strong>ПБУ 1/2008</strong><br>Учетная политика</td>
                                 <td><strong>ФСБУ 1/2020</strong><br>"Концептуальные основы бухучета"</td>
                                 <td>2020-2022<br><small>Приказ Минфина № 64н от 31.03.2020</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2022</small></td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                             <tr>
-                                <td class="text-danger"><strong>ПБУ 2/2008</strong><br>Учет договоров строительного подряда</td>
-                                <td><strong>ФСБУ 2/2023</strong><br>"Договоры строительства"<br><strong>ФСБУ
-                                        9/2025</strong><br>в части доходов по договорам</td>
-                                <td>2023-2025<br><small>Приказ Минфина № 126н от 17.08.2023; № 56н от 16.05.2025</small>
+                                <td class="text-danger"><strong>ПБУ 2/2008</strong><br>Договоры строительного подряда
                                 </td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>ФСБУ 2/2023 — с
-                                        2025, ФСБУ 9/2025 — с 2027</small></td>
+                                <td><strong>ФСБУ 2/2023</strong><br>"Договоры строительства"</td>
+                                <td>2023-2025</td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                             <tr>
                                 <td class="text-danger"><strong>ПБУ 4/99</strong><br>Бухгалтерская отчетность</td>
-                                <td><strong>ФСБУ 4/2023</strong><br>"Бухгалтерская (финансовая) отчетность"<br><small>с
-                                        изменениями 2025 г.</small></td>
-                                <td>2023-2025<br><small>Приказ Минфина № 4н от 04.10.2023; изменения — № 159н от
-                                        2025</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2025</small></td>
+                                <td><strong>ФСБУ 4/2023</strong><br>"Бухгалтерская (финансовая) отчетность"</td>
+                                <td>2023-2025</td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                             <tr>
                                 <td class="text-danger"><strong>ПБУ 5/01</strong><br>Учет МПЗ</td>
                                 <td><strong>ФСБУ 5/2019</strong><br>"Запасы"</td>
-                                <td>2019-2021<br><small>Приказ Минфина № 180н от 15.11.2019</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2021</small></td>
+                                <td>2019-2021</td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                             <tr>
                                 <td class="text-danger"><strong>ПБУ 6/01</strong><br>Учет ОС</td>
                                 <td><strong>ФСБУ 6/2020</strong><br>"Основные средства"</td>
-                                <td>2020-2022<br><small>Приказ Минфина № 204н от 17.09.2020</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2022</small></td>
+                                <td>2020-2022</td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                             <tr>
                                 <td class="text-danger"><strong>ПБУ 9/99, 10/99</strong><br>Доходы и расходы</td>
-                                <td><strong>ФСБУ 9/2025</strong><br>"Доходы"<br><strong>ФСБУ 10/2026</strong><br>"Расходы"
-                                </td>
-                                <td>2025-2027<br><small>Приказы Минфина № 56н от 16.05.2025; № 53н от 24.04.2026</small>
-                                </td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Обязательны с
-                                        отчетности за 2027 год</small></td>
+                                <td><strong>ФСБУ 9/2025</strong><br>"Доходы"<br><strong>ФСБУ
+                                        10/2026</strong><br>"Расходы"</td>
+                                <td>2025-2027</td>
+                                <td><span class="badge bg-success">Обязательны с 2027</span></td>
                             </tr>
                             <tr>
                                 <td class="text-danger"><strong>ПБУ 14/2007</strong><br>Нематериальные активы</td>
                                 <td><strong>ФСБУ 14/2024</strong><br>"Нематериальные активы"</td>
-                                <td>2024-2025<br><small>Приказ Минфина № 130н от 30.08.2024</small></td>
-                                <td><span class="badge bg-success">Действует</span><br><small class="text-danger">Обязателен с 01.01.2026,
-                                        переходный период завершен</small></td>
+                                <td>2024-2025</td>
+                                <td><span class="badge bg-success">Действует с 01.01.2026</span></td>
                             </tr>
                             <tr>
-                                <td class="text-danger"><strong>ПБУ 15/2008</strong><br>Учет расходов по займам</td>
-                                <td><strong>ФСБУ 6/2020</strong><br>"Финансовые инструменты"</td>
-                                <td>2020-2022<br><small>Приказ Минфина № 204н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2022</small></td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><strong>ПБУ 18/02</strong><br>Учет расчетов по налогу на прибыль</td>
-                                <td><strong>ФСБУ 18/02</strong><br>"Учет расчетов по налогу на прибыль"<br><em>(сохранен
-                                        номер, полностью переработан)</em></td>
-                                <td>2019-2020<br><small>Приказ Минфина № 236н от 19.11.2019</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2020</small></td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><strong>ПБУ 19/02</strong><br>Финансовые вложения</td>
-                                <td><strong>ФСБУ 6/2020</strong><br>"Финансовые инструменты"<br><strong>ФСБУ
-                                        14/2024</strong><br>для долей в бизнесе</td>
-                                <td>2020-2024<br><small>Приказы Минфина № 204н, 130н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2026</small></td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><strong>ПБУ 8/2010</strong><br>Оценочные обязательства</td>
-                                <td><strong>ФСБУ 8/2023</strong><br>"Оценочные обязательства, условные обязательства и
-                                    активы"</td>
-                                <td>2023-2025<br><small>Приказ Минфина № 126н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2025</small></td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><strong>ПБУ 11/2008, 12/2010</strong><br>Информация по сегментам, госпомощь</td>
-                                <td><strong>ФСБУ 23/2023</strong><br>"Сегментная отчетность"<br><strong>ФСБУ
-                                        24/2023</strong><br>"Государственная помощь"</td>
-                                <td>2023-2025<br><small>Приказ Минфина № 126н</small></td>
-                                <td><span class="badge bg-success">Полностью заменено</span><br><small>Действует с
-                                        2025</small></td>
+                                <td class="text-danger"><strong>ПБУ 18/02</strong><br>Налог на прибыль</td>
+                                <td><strong>ФСБУ 18/02</strong><br>(переработан)</td>
+                                <td>2019-2020</td>
+                                <td><span class="badge bg-success">Полностью заменено</span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
-                <h5>Ключевые изменения 2027 года:</h5>
-                <ul>
-                    <li><strong>ФСБУ 9/2025 "Доходы"</strong> — обязателен с отчетности за 2027 год, заменил ПБУ 9/99 и
-                        частично ПБУ 2/2008</li>
-                    <li><strong>ФСБУ 10/2026 "Расходы"</strong> — обязателен с отчетности за 2027 год, заменил ПБУ 10/99
-                    </li>
-                    <li><strong>ФСБУ 14/2024 "Нематериальные активы"</strong> — действует, переходный период завершен</li>
-                </ul>
-
-                <div class="alert alert-secondary mt-3">
-                    <small><strong>Источник актуальной информации:</strong> Официальный сайт Минфина РФ, раздел
-                        "Бухгалтерский учет" - <a href="https://minfin.gov.ru/ru/perfomance/accounting/"
-                            target="_blank">minfin.gov.ru</a>. Для работы используйте исключительно действующие редакции
-                        ФСБУ.</small>
-                </div>
-
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <div class="card my-3" style="max-width: 900px;" id="theme3_2">
+            <img loading="lazy" class="card-img-top" src="../h1title3.jpg" alt="Изменения 2027"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title text-danger">Существенно устаревшие Правила и указания</h3>
-                <div class="text_wrapper">
+                <h3 class="card-title"><span class="badge-method mr-2">3.2</span> Ключевые изменения 2027 года</h3>
+                <ul>
+                    <li><strong>ФСБУ 9/2025 "Доходы"</strong> — обязателен с отчетности за 2027 год.</li>
+                    <li><strong>ФСБУ 10/2026 "Расходы"</strong> — обязателен с отчетности за 2027 год.</li>
+                    <li><strong>ФСБУ 14/2024 "Нематериальные активы"</strong> — переходный период завершен.</li>
+                </ul>
+                <div class="alert alert-secondary mt-3">
+                    <small><strong>Источник:</strong> <a href="https://minfin.gov.ru/ru/perfomance/accounting/"
+                            target="_blank">minfin.gov.ru</a></small>
+                </div>
+            </div>
+        </div>
 
-                    <p class="text-danger">Помимо федеральных стандартов для регулирования порядка ведения бухгалтерского учета применяются
-                        перечисленные ниже документы, утвержденные Министерством финансов Российской Федерации до 1
-                        января 2013 г.</p>
+        <!-- ==================== ТЕМА 4 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme4_1">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Организация учета"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">4.1</span> Система счетов и учетная политика</h3>
+                <p>Система бухгалтерского учета включает: рабочий план счетов, регистры, синтетические и аналитические
+                    счета, первичные документы, инвентаризацию, документооборот.</p>
+                <p><strong>Учетная политика</strong> — совокупность способов ведения учета, выбранных организацией.
+                    Включает формирование, оформление, раскрытие и порядок изменения.</p>
+                <p>Система внутреннего контроля обеспечивает достоверность отчетности и сохранность активов.</p>
+            </div>
+        </div>
 
-                    <p>Содержащиеся в этих документах положения подлежат применению в части, не противоречащей
-                        Федеральному закону<br>
-                        «О бухгалтерском учете», федеральным и отраслевым стандартам бухгалтерского учета.</p>
-
-                    <p>Документы размещены по ссылке <a href="https://minfin.gov.ru/ru/document/"
-                            target="_blank">https://minfin.gov.ru/ru/document</a></p>
-
+        <div class="card my-3" style="max-width: 900px;" id="theme4_2">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="План счетов"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">4.2</span> План счетов и инструкции</h3>
+                <div class="table-responsive">
                     <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <nobr>№ п/п</nobr>
-                                </th>
-                                <th>Наименование документа</th>
-                                <th>Акт, которым утвержден документ (документ опубликован)</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2307" target="_blank">Методические
-                                        указания по
-                                        формированию бухгалтерской отчетности при осуществлении реорганизации
-                                        организаций</a></td>
-                                <td>Приказ Минфина России от 20.05.2003 № 44н</td>
+                                <td width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=2293"
+                                        target="_blank">План счетов</a> финансово-хозяйственной деятельности организаций
+                                    с Инструкцией</td>
+                                <td width="30%">Приказ Минфина РФ от 31.10.2000 N 94н</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2296" target="_blank">Указания по
-                                        отражению в
-                                        бухгалтерском учете организаций операций, связанных с осуществлением договора
-                                        доверительного управления имуществом</a></td>
-                                <td>Приказ Минфина России от 28.11.2001 № 97н</td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=11785" target="_blank">План
+                                        счетов</a> для агропромышленного комплекса</td>
+                                <td>Приказ Минсельхоза РФ от 13.06.2001 N 654</td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
-                                        бухгалтерского учета
-                                        финансово-хозяйственной деятельности организаций</a></td>
-                                <td>Приказ Минфина России от 31.10.2000 № 94н</td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank">Единый план
+                                        счетов</a> для госучреждений</td>
+                                <td>Приказ Минфина РФ от 01.12.2010 N 157н</td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">Инструкция по
-                                        применению Плана
-                                        счетов бухгалтерского учета финансово-хозяйственной деятельности организаций</a>
-                                </td>
-                                <td>Приказ Минфина России от 31.10.2000 № 94н</td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=451227" target="_blank">План
+                                        счетов</a> бюджетного учета</td>
+                                <td>Приказ Минфина РФ от 06.12.2010 N 162н</td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2305" target="_blank">Методические
-                                        рекомендации по
-                                        раскрытию информации о прибыли, приходящейся на одну акцию</a></td>
-                                <td>Приказ Минфина России от 21.03.2000 № 29н</td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=451414" target="_blank">План
+                                        счетов</a> бюджетных учреждений</td>
+                                <td>Приказ Минфина РФ от 16.12.2010 N 174н</td>
                             </tr>
                             <tr>
-                                <td>6</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2292" target="_blank">Указания по
-                                        отражению в
-                                        бухгалтерском учете и отчетности операций при исполнении соглашений о разделе
-                                        продукции</a></td>
-                                <td>Приказ Минфина России от 11.08.1999 № 53н</td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=452111" target="_blank">План
+                                        счетов</a> автономных учреждений</td>
+                                <td>Приказ Минфина РФ от 23.12.2010 N 183н</td>
                             </tr>
                             <tr>
-                                <td>7</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2291" target="_blank">Типовые
-                                        рекомендации по организации
-                                        бухгалтерского учета для субъектов малого предпринимательства</a></td>
-                                <td>Приказ Минфина России от 21.12.1998 № 64н</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2304" target="_blank">Положение по
-                                        ведению бухгалтерского
-                                        учета и бухгалтерской отчетности в Российской Федерации</a></td>
-                                <td>Приказ Минфина России от 29.07.1998 № 34н</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2290" target="_blank">Порядок
-                                        пересчета статей
-                                        бухгалтерского баланса в связи с изменением нарицательной стоимости российских
-                                        денежных знаков и масштаба цен</a></td>
-                                <td>Приказ Минфина России от 31.10.1997 № 76н</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2288" target="_blank">О ведении
-                                        бухгалтерского учета и
-                                        отчетности садоводческими товариществами</a></td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2288" target="_blank">Письмо Минфина
-                                        России от 25.10.1996
-                                        № 92</a></td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2285" target="_blank">О порядке
-                                        отражения в бухгалтерском
-                                        учете и отчетности операций с векселями, применяемыми при расчетах организациями
-                                        за поставку товаров, выполненные работы и оказанные услуги</a></td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2285" target="_blank">Письмо Минфина
-                                        России от 31.10.1994
-                                        № 142</a></td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2283" target="_blank">Об отражении в
-                                        бухгалтерском учете
-                                        отдельных операций в жилищно-коммунальном хозяйстве</a></td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2283" target="_blank">Письмо Минфина
-                                        России от 29.10.1993
-                                        № 118</a></td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2282" target="_blank">Об отражении в
-                                        бухгалтерском учете
-                                        и отчетности операций, связанных с приватизацией предприятий</a></td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2282" target="_blank">Письмо Минфина
-                                        России от 23.12.1992
-                                        № 117</a></td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2281" target="_blank">Рекомендации
-                                        по применению учетных
-                                        регистров бухгалтерского учета на предприятиях</a></td>
-                                <td><a href="https://minfin.gov.ru/ru/document?id_4=2281" target="_blank">Письмо Минфина
-                                        России от 24.07.1992
-                                        № 59</a></td>
+                                <td><a href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank">План
+                                        счетов</a> для кредитных организаций</td>
+                                <td>Положение ЦБ РФ от 24.11.2022 N 809-П</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <br>
-
-                <p>
-                    <a class="link-opacity-100"
-                        href="https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/docs?id_57=120315-prezentatsiya_uproshchennaya_sistema_bukhgalterskogo_ucheta_i_otchetnosti_subektov_malogo_predprinimatelstva">
-                        Презентация «Упрощенная система бухгалтерского учета и отчетности субъектов малого
-                        предпринимательства» (2024)
-                    </a>
-                </p>
-
-                <p>
-                    <a class="link-opacity-100" href="https://minfin.gov.ru/ru/perfomance/accounting/buh-otch_mp/">
-                        Бухгалтерский учёт и отчётность субъектов малого предпринимательства
-                    </a>
-                </p>
-
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 5 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme5_1">
+            <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="МСФО" style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 5. Организация бухгалтерского учета в организациях</h3>
-                Система бухгалтерского учета; рабочий план счетов бухгалтерского учета; регистры бухгалтерского учета;
-                синтетические и аналитические счета; первичные учетные документы; учетные регистры; внутренняя
-                бухгалтерская отчетность; инвентаризация; формы бухгалтерского учета; оценка имущества и обязательств;
-                документооборот.<br>
-                Учетная политика организации: формирование и оформление учетной политики; раскрытие учетной политики;
-                порядок изменения учетной политики.<br>
-                Система внутреннего контроля в организации.
-                <br>
-                <br>
-                <br>
-
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <td  width="70%"><a name="l4"></a>План счетов бухгалтерского
-                                учета и инструкции по их
-                                применению</td>
-                            <td  width="30%">
-                                Утверждающий НПА</td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=2293"
-                                    target="_blank" rel="noopener">План</a> счетов бухгалтерского
-                                учета финансово-хозяйственной деятельности организаций с <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank"
-                                    rel="noopener">Инструкцией</a> по применению</td>
-                            <td  width="30%">Приказ Минфина РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank"
-                                    rel="noopener">от 31.10.2000 N
-                                    94н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=11785"
-                                    target="_blank" rel="noopener">План</a> счетов бухгалтерского
-                                учета финансово-хозяйственной деятельности предприятий и организаций
-                                агропромышленного комплекса с <a href="https://minfin.gov.ru/ru/document?id_4=11785"
-                                    target="_blank" rel="noopener">Методическими рекомендациями</a>
-                                по применению</td>
-                            <td  width="30%">Приказ Минсельхоза РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=11785" target="_blank"
-                                    rel="noopener">от 13.06.2001 N
-                                    654</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a name="l5"></a><a
-                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
-                                    rel="noopener">Единый план</a>
-                                счетов бухгалтерского учета для органов государственной власти
-                                (государственных органов), органов местного самоуправления, органов
-                                управления государственными внебюджетными фондами, государственных
-                                академий наук, государственных (муниципальных) учреждений с <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
-                                    rel="noopener">Инструкцией</a> по
-                                применению</td>
-                            <td  width="30%">Приказ Минфина РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=452238" target="_blank"
-                                    rel="noopener">от 01.12.2010 N
-                                    157н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=451227"
-                                    target="_blank" rel="noopener">План</a> счетов бюджетного учета с
-                                <a href="https://minfin.gov.ru/ru/document?id_4=451226" target="_blank"
-                                    rel="noopener">Инструкцией</a> по
-                                применению
-                            </td>
-                            <td  width="30%">Приказ Минфина РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=451228" target="_blank"
-                                    rel="noopener">от 06.12.2010 N
-                                    162н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a name="l25"></a><a
-                                    href="https://minfin.gov.ru/ru/document?id_4=451414" target="_blank"
-                                    rel="noopener">План</a> счетов
-                                бухгалтерского учета бюджетных учреждений с <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=451415" target="_blank"
-                                    rel="noopener">Инструкцией</a> по
-                                применению</td>
-                            <td  width="30%">Приказ Минфина РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=451416" target="_blank"
-                                    rel="noopener">от 16.12.2010 N
-                                    174н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=452111"
-                                    target="_blank" rel="noopener">План</a> счетов бухгалтерского
-                                учета автономных учреждений с <a href="https://minfin.gov.ru/ru/document?id_4=452110"
-                                    target="_blank" rel="noopener">Инструкцией</a> по применению</td>
-                            <td  width="30%"><a name="l6"></a>Приказ
-                                Минфина РФ <a href="https://minfin.gov.ru/ru/document?id_4=452118" target="_blank"
-                                    rel="noopener">от 23.12.2010 N 183н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=450529"
-                                    target="_blank" rel="noopener">План</a> счетов казначейского
-                                учета с <a href="https://minfin.gov.ru/ru/document?id_4=450529" target="_blank"
-                                    rel="noopener">Инструкцией</a> по применению</td>
-                            <td  width="30%">Приказ Минфина РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=450529" target="_blank"
-                                    rel="noopener">от 30.11.2015 N
-                                    184н</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a href="https://minfin.gov.ru/ru/document?id_4=489573"
-                                    target="_blank" rel="noopener">План</a> счетов
-                                бухгалтерского учета для некредитных финансовых организаций, бюро
-                                кредитных историй, кредитных рейтинговых агентств и <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
-                                    rel="noopener">Порядок</a> применения (документ
-                                <a name="l55"></a><span class="text-danger">вступает в силу с 01.01.2025</span> (<a
-                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
-                                    rel="noopener">пункт 2</a> Положения))
-                            </td>
-                            <td  width="30%">Положение ЦБ РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=489573" target="_blank"
-                                    rel="noopener">от 01.08.2022 N
-                                    803-П</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a name="l52"></a><a
-                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
-                                    rel="noopener">План</a> счетов
-                                бухгалтерского учета для кредитных организаций с <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
-                                    rel="noopener">Порядком</a>
-                                применения</td>
-                            <td  width="30%">Положение ЦБ РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=491219" target="_blank"
-                                    rel="noopener">от 24.11.2022 N
-                                    809-П</a></td>
-                        </tr>
-                        <tr>
-                            <td  width="70%"><a name="l7"></a>Рабоий
-                                <a href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
-                                    rel="noopener">план</a> счетов
-                                централизованного бухгалтерскоо учета с <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
-                                    rel="noopener">Правилами</a>
-                                формирования номера счета бухгалтерского учета, а также порядок внесения
-                                изменений в Рабочий план счетов централизованного бухгалтерского учета в
-                                рамках единой учетной политики при централизации учета
-                            </td>
-                            <td  width="30%">Приказ Казначейства РФ <a
-                                    href="https://minfin.gov.ru/ru/document?id_4=474619" target="_blank"
-                                    rel="noopener">от 07.05.2024 N
-                                    2н</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 class="card-title"><span class="badge-method mr-2">5.1</span> МСФО и национальные стандарты</h3>
+                <p>Необходимость и предпосылки международной стандартизации учета. Международные стандарты финансовой
+                    отчетности (МСФО) и национальные бухгалтерские стандарты.</p>
+                <p><a class="link-opacity-100" href="https://minfin.gov.ru/ru/perfomance/accounting/"
+                        target="_blank">Международная деятельность в области бухгалтерского учёта и аудита</a></p>
             </div>
         </div>
 
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title6.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 6 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme6_1">
+            <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Допущения"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 5. Регулирование и гармонизация бухгалтерского учета и отчетности на
-                    международном уровне</h3>
-                Необходимость и предпосылки международной стандартизации бухгалтерского учета.<br>
-                Международные стандарты финансовой отчетности.<br>
-                Национальные бухгалтерские стандарты.<br>
-                <p>
-                    <a class="link-opacity-100" href="https://minfin.gov.ru/ru/perfomance/accounting/">
-                        Международная деятельность в области бухгалтерского учёта и аудита
-                    </a>
-                </p>
-
-            </div>
-        </div>
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title4.jpg"
-                    alt="Допущения и принципы бухгалтерского учета" style="filter: grayscale(1);">
-            </p>
-            <div class="card-body">
-                <h3 class="card-title">Тема 7. Допущения и принципы бухгалтерского учета</h3>
-
+                <h3 class="card-title"><span class="badge-method mr-2">6.1</span> Допущения (ФСБУ 1/2020)</h3>
                 <div class="alert alert-secondary mb-3">
-                    <strong>Современный подход:</strong> С 2020 года в России действуют <strong>ФСБУ 1/2020
-                        "Концептуальные основы бухгалтерского учета"</strong>, которые заменили ПБУ 1/2008
+                    <strong>Современный подход:</strong> С 2020 года действует <strong>ФСБУ 1/2020 "Концептуальные
+                        основы"</strong>, заменившее ПБУ 1/2008.
                 </div>
-
-                <h5>Основные допущения (предпосылки):</h5>
                 <ul>
-                    <li><strong>Непрерывность деятельности</strong> - организация будет продолжать деятельность в
-                        обозримом будущем</li>
-                    <li><strong>Имущественная обособленность</strong> - активы и обязательства организации существуют
-                        отдельно от активов и обязательств собственников</li>
-                    <li><strong>Временная определенность фактов хозяйственной жизни</strong> - они отражаются в том
-                        отчетном периоде, в котором совершены</li>
-                    <li><strong>Последовательность применения учетной политики</strong></li>
+                    <li><strong>Непрерывность деятельности</strong> — организация будет продолжать деятельность в
+                        обозримом будущем.</li>
+                    <li><strong>Имущественная обособленность</strong> — активы и обязательства организации отделены от
+                        собственников.</li>
+                    <li><strong>Временная определенность фактов</strong> — отражение в том периоде, в котором совершены.
+                    </li>
+                    <li><strong>Последовательность применения учетной политики</strong>.</li>
                 </ul>
+            </div>
+        </div>
 
+        <div class="card my-3" style="max-width: 900px;" id="theme6_2">
+            <img loading="lazy" class="card-img-top" src="../h1title4.jpg" alt="Принципы" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">6.2</span> Качественные характеристики и принципы
+                </h3>
                 <h5>Качественные характеристики информации:</h5>
                 <div class="row">
                     <div class="col-md-6">
@@ -677,649 +572,275 @@
                         </ul>
                     </div>
                 </div>
-
-                <h5>Принципы (основополагающие допущения):</h5>
+                <h5>Принципы:</h5>
                 <ul>
-                    <li><strong>Принцип начисления</strong> - факты хозяйственной жизни отражаются по мере их
-                        возникновения</li>
-                    <li><strong>Принцип приоритета содержания перед формой</strong> - отражение в учете исходя из
-                        экономической сущности</li>
-                    <li><strong>Принцип осмотрительности</strong> - большая готовность к признанию расходов и
-                        обязательств, чем возможных доходов</li>
-                    <li><strong>Принцип нейтральности</strong> - отсутствие преднамеренного акцента на интересах
-                        отдельных пользователей</li>
+                    <li><strong>Принцип начисления</strong> — факты отражаются по мере возникновения.</li>
+                    <li><strong>Приоритет содержания перед формой</strong> — отражение исходя из экономической сущности.
+                    </li>
+                    <li><strong>Осмотрительность</strong> — большая готовность к признанию расходов, чем доходов.</li>
+                    <li><strong>Нейтральность</strong> — отсутствие акцента на интересах отдельных пользователей.</li>
                 </ul>
-
                 <p class="mt-3">
                     <a class="link-opacity-100"
                         href="https://minfin.gov.ru/common/upload/library/2020/11/main/FSBU_1_2020.pdf" target="_blank">
-                        ФСБУ 1/2020 "Концептуальные основы бухгалтерского учета и отчетности"
+                        ФСБУ 1/2020 "Концептуальные основы"
                     </a>
                 </p>
-
-                <div class="alert alert-success mt-2">
-                    <small>Согласно ФСБУ 1/2020, эти принципы обязательны для всех организаций, кроме тех, кто вправе
-                        применять упрощенные способы ведения бухгалтерского учета</small>
-                </div>
-
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Регистры бухгалтерского учета"
-                    style="filter: grayscale(1);">
-            </p>
+        <!-- ==================== ТЕМА 7 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme7_1">
+            <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="Регистры" style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 8. Регистры бухгалтерского учета</h3>
-
+                <h3 class="card-title"><span class="badge-method mr-2">7.1</span> Определение, функции и виды регистров
+                </h3>
                 <div class="alert alert-secondary mb-3">
                     <strong>Важно:</strong> С 2023 года действует <strong>ФСБУ 27/2021 "Документы и
-                        документооборот"</strong>, который устанавливает современные требования к регистрам
-                    бухгалтерского учета
+                        документооборот"</strong>.
                 </div>
-
-                <h5>Правовая основа:</h5>
-                <ul>
-                    <li>Статья 10 Федерального закона № 402-ФЗ "О бухгалтерском учете"</li>
-                    <li>ФСБУ 27/2021 "Документы и документооборот" (введен Приказом Минфина от 25.11.2021 № 193н)</li>
-                    <li class="text-danger">Приказ Минфина России от 30.03.2015 № 52н "Об утверждении форм регистров бухгалтерского учета"
-                    </li>
-                </ul>
-
-                <h5>Определение и основные функции:</h5>
-                <p>Регистры бухгалтерского учета — это документы (бумажные или электронные), предназначенные для
-                    систематизации и накопления информации из первичных документов с целью ее отражения в бухгалтерском
-                    учете и отчетности.</p>
-
-                <h5>Основные функции регистров:</h5>
-                <ul>
-                    <li><strong>Систематизация и накопление данных:</strong> Сбор информации из первичных документов и
-                        группировка по определенным признакам</li>
-                    <li><strong>Отражение информации:</strong> Формирование бухгалтерских проводок и отчетности</li>
-                    <li><strong>Контроль и анализ:</strong> Контроль состояния и движения имущества, расчетов и других
-                        объектов учета</li>
-                </ul>
-
+                <p><strong>Регистры бухгалтерского учета</strong> — документы (бумажные или электронные) для
+                    систематизации и накопления информации из первичных документов.</p>
                 <h5>Виды регистров:</h5>
-
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>По назначению:</strong>
-                        <ul class="small">
-                            <li><strong>Хронологические:</strong> Журнал хозяйственных операций</li>
-                            <li><strong>Систематические:</strong> Оборотно-сальдовая ведомость</li>
-                            <li><strong>Синхронистические:</strong> Комбинированные регистры</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <strong>По объему содержания:</strong>
-                        <ul class="small">
-                            <li><strong>Синтетические:</strong> Главная книга, обобщенные данные</li>
-                            <li><strong>Аналитические:</strong> Ведомости по конкретным объектам</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <strong>По способу ведения:</strong>
-                        <ul class="small">
-                            <li>Бумажные</li>
-                            <li>Электронные (с ЭП)</li>
-                            <li>Смешанные</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h5>Современные требования к ведению:</h5>
                 <ul>
-                    <li><strong>Электронные регистры:</strong> Равноправны с бумажными при наличии усиленной
-                        квалифицированной электронной подписи</li>
-                    <li><strong>Формат:</strong> Должны соответствовать требованиям учетной политики организации</li>
-                    <li><strong>Исправления:</strong>
-                        <ul>
-                            <li>В бумажных — санкционируются ответственными лицами с указанием даты</li>
-                            <li>В электронных — выполняются на основании бухгалтерской справки с объяснением причин</li>
-                        </ul>
-                    </li>
-                    <li><strong>Обязательные реквизиты</strong> (ст. 10 Закона № 402-ФЗ):
-                        <ul class="small">
-                            <li>Наименование регистра и экономического субъекта</li>
-                            <li>Дата начала и окончания ведения</li>
-                            <li>Хронологическая и/или систематическая группировка</li>
-                            <li>Денежное измерение с указанием единицы</li>
-                            <li>Должности и подписи ответственных лиц</li>
-                        </ul>
-                    </li>
-                    <li><strong>Хранение:</strong> Не менее 5 лет, обеспечение неизменности электронных регистров в
-                        течение всего срока</li>
+                    <li><strong>По назначению:</strong> хронологические, систематические, синхронистические.</li>
+                    <li><strong>По объему:</strong> синтетические, аналитические.</li>
+                    <li><strong>По способу ведения:</strong> бумажные, электронные (с ЭП), смешанные.</li>
                 </ul>
-
-                <h5>Новое в электронных регистрах (ФСБУ 27/2021):</h5>
-                <ul>
-                    <li>Использование квалифицированной электронной подписи</li>
-                    <li>Обязательная защита от несанкционированных изменений</li>
-                    <li>Автоматическое формирование из ERP-систем</li>
-                    <li>Требования к хранению и архивированию</li>
-                    <li>Возможность применения блокчейн-технологий для обеспечения неизменности</li>
-                </ul>
-
-                <p class="mt-3">
-                    <a class="link-opacity-100"
-                        href="https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf"
-                        target="_blank">
-                        ФСБУ 27/2021 "Документы и документооборот в бухгалтерском учете"
-                    </a>
-                </p>
-
-                <div class="alert alert-success mt-2">
-                    <small><strong>Практическое применение:</strong> Регистры группируют хозяйственные операции по
-                        счетам и могут вестись как в хронологическом, так и в систематическом порядке, например, в форме
-                        журналов, ведомостей или книг.</small>
-                </div>
-
+                <p>Обязательные реквизиты (ст. 10 Закона № 402-ФЗ): наименование регистра, дата начала и окончания,
+                    хронологическая/систематическая группировка, денежное измерение, должности и подписи.</p>
             </div>
         </div>
 
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="1" style="filter: grayscale(1);">
-            </p>
+        <div class="card my-3" style="max-width: 900px;" id="theme7_2">
+            <img loading="lazy" class="card-img-top" src="../h1title7.jpg" alt="ФСБУ 27/2021"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 9. Двойная запись и бухгалтерская отчетность</h3>
+                <h3 class="card-title"><span class="badge-method mr-2">7.2</span> Требования ФСБУ 27/2021</h3>
+                <ul>
+                    <li>Использование квалифицированной электронной подписи.</li>
+                    <li>Защита от несанкционированных изменений.</li>
+                    <li>Автоматическое формирование из ERP-систем.</li>
+                    <li>Хранение не менее 5 лет, обеспечение неизменности.</li>
+                </ul>
+                <p><a class="link-opacity-100"
+                        href="https://minfin.gov.ru/common/upload/library/2021/12/main/FSBU_27_2021.pdf"
+                        target="_blank">ФСБУ 27/2021 "Документы и документооборот"</a></p>
+            </div>
+        </div>
 
-                <h3 class="text-secondary">Баланс</h3>
-
+        <!-- ==================== ТЕМА 8 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme8_1">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="Баланс" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">8.1</span> Баланс и типы операций</h3>
                 <table class="table table-sm">
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>АКТИВЫ</th>
-                            <th scope="col" style="text-align:center">ПАССИВЫ</th>
+                            <th style="text-align:center">ПАССИВЫ</th>
                         </tr>
-                    </tbody>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>Основные средства</td>
                             <td>Уставный капитал</td>
                         </tr>
                         <tr>
-                            <td></td>
+                            <td>Материалы</td>
                             <td>Нераспределенная прибыль</td>
                         </tr>
                         <tr>
-                            <td>Материалы</td>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td>Незавершенное производство</td>
-                            <td>Долгосрочный банковский кредит</td>
+                            <td>Долгосрочный кредит</td>
                         </tr>
                         <tr>
                             <td>Готовая продукция</td>
-                            <td></td>
+                            <td>Краткосрочный кредит</td>
                         </tr>
                         <tr>
                             <td>Дебиторская задолженность</td>
-                            <td>Краткосрочный банковский кредит</td>
+                            <td>Кредиторская задолженность</td>
                         </tr>
                         <tr>
                             <td>Деньги</td>
-                            <td>Кредиторская задолженность</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
+                <p><strong>Типы операций:</strong> А+Х, А-Х; А+Х, П+Х; А-Х, П-Х; П+Х, П-Х.</p>
+                <p>Слева — увеличение активов / уменьшение пассивов. Справа — уменьшение активов / увеличение пассивов.
+                </p>
+                <p><a class="text-danger" href="https://www.gazprom.ru/investors/disclosure/reports/2025/"
+                        target="_blank">Отчетность Газпрома (пример)</a></p>
+            </div>
+        </div>
 
-
-                <br>
-                <p class="text-danger"><a class="text-danger" href="https://www.gazprom.ru/investors/disclosure/reports/2025/">Отчетность
-                        Газпрома</a></p>
-
-                <br>
-
-                <p>Что может случиться с балансом?</p>
-
-                <ul>
-                    <li>А+Х, А-Х</li>
-                    <li>А+Х, П+X</li>
-                    <li>А-Х, П-Х</li>
-                    <li>П+Х, П-Х</li>
-                </ul>
-
-                <p>Практика</p>
-
-                <p>Слева - увеличение активов, уменьшение пассивов
-                    Справа - уменьшение активов, увеличение пассивов</p>
-
-
-                <br>
-
-                <div id="root" class="container"></div>
-
-
-                <h3 class="text-secondary">Прогноз финансовых результатов</h3>
-
-                <p>Обороты за период</p>
-
+        <div class="card my-3" style="max-width: 900px;" id="theme8_2">
+            <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="ОДДС" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">8.2</span> Отчет о финансовых результатах и ОДДС
+                </h3>
+                <h5>Прогноз финансовых результатов</h5>
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th>Доходы и расходы по обычным видам деятельности</th>
+                            <th>Доходы и расходы по обычным видам</th>
                             <th>Прочие доходы и расходы</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>регулярные, основные, прогнозируемые</td>
-                            <td>случайность</td>
-                        </tr>
-                        <tr>
-                            <td>Выручка - Себестоимость - Коммерческие расходы - Управленческие расходы</td>
-                            <td>Продажа основных средств, потери по форс-мажорным обстоятельствам, проценты кредиторам
-                            </td>
+                            <td>Выручка — Себестоимость — Коммерческие — Управленческие</td>
+                            <td>Продажа ОС, форс-мажор, проценты кредиторам</td>
                         </tr>
                     </tbody>
                 </table>
-
-                <h3 class="text-secondary">Отчет об изменении денежных средств</h3>
-
-                <p>Обороты за период</p>
-
-                <h4 class="text-secondary">Прямой метод анализа</h4>
-
-                <h5 class="text-secondary">Движение денежных средств по текущей деятельности</h5>
-
-
+                <h5>Отчет об изменении денежных средств (прямой метод)</h5>
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th>Приток средств</th>
-                            <th>Отток средств</th>
+                            <th>Приток</th>
+                            <th>Отток</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Покупатели</td>
-                            <td>Поставщикам оборотных активов</td>
+                            <td>Поставщикам</td>
                         </tr>
                         <tr>
-                            <td>-</td>
+                            <td>—</td>
                             <td>Оплата труда</td>
                         </tr>
                         <tr>
-                            <td>-</td>
-                            <td>Налоги...</td>
+                            <td>—</td>
+                            <td>Налоги</td>
                         </tr>
                     </tbody>
                 </table>
-
-                <h5 class="text-secondary">Движение денежных средств по инвестиционной деятельности</h5>
-
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>Приток средств</th>
-                            <th>Отток средств</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Продажа внеоборотных активов</td>
-                            <td>Покупка внеоборотных активов</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h5 class="text-secondary">Движение денежных средств по финансовой деятельности</h5>
-
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>Приток средств</th>
-                            <th>Отток средств</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Выпуск акций</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>Получение кредитов</td>
-                            <td>Погашение кредитов</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Спорные вопросы в классификации денежных средств</p>
-
-                <ul>
-                    <li>Проценты по кредитам</li>
-                    <li>Дивиденды</li>
-                </ul>
-
-                <p>Логика развития компании</p>
-
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>Показатели</th>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                            <th>5</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Текущая деятельность</td>
-                            <td>-</td>
-                            <td>+</td>
-                            <td>++</td>
-                            <td>+++</td>
-                            <td>++</td>
-                        </tr>
-                        <tr>
-                            <td>Инвестиционная деятельность</td>
-                            <td>---</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Финансовая деятельность</td>
-                            <td>++++</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>--</td>
-                            <td>--</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="text-secondary">Косвенный метод анализа</h2>
-
-                    <p>Как влияет на изменение денежных средств ceteris paribus?</p>
-
-                    <ul>
-                        <li>Получение прибыли ?</li>
-                        <li>Увеличение одного из активов?</li>
-                        <li>Уменьшение одного из активов?</li>
-                        <li>Увеличение конкретного долга?</li>
-                        <li>Уменьшение конкретного долга?</li>
-                    </ul>
-
-                    <h4 class="text-secondary">Отчет об изменении капитала</h4>
-
-                    <p>Обороты за период</p>
-
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>Увеличение капитала</th>
-                                <th>Уменьшение капитала</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Прибыль</td>
-                                <td>Дивиденды</td>
-                            </tr>
-                            <tr>
-                                <td>Выпуск акций</td>
-                                <td>---</td>
-                            </tr>
-                            <tr>
-                                <td>Разница между номинальной и рыночной стоимостью</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Дооценка основных средств</td>
-                                <td>Уценка основных средств</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-
-
-
-
+                <h5>Косвенный метод</h5>
+                <p>Влияние на денежные средства: получение прибыли, увеличение/уменьшение активов, увеличение/уменьшение
+                    долга.</p>
             </div>
         </div>
 
-
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title16.jpg"
-                    alt="Система счетов бухгалтерского учета" style="filter: grayscale(1);">
-            </p>
-
-
+        <!-- ==================== ТЕМА 9 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme9_1">
+            <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Система счетов"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 10. Система счетов бухгалтерского учета: классификация и структура</h3>
-
-                <div class="alert alert-secondary mb-3">
-                    <strong>Современная основа:</strong> Работа ведется согласно Плану счетов (Приказ Минфина № 94н от
-                    31.10.2000 в актуальной редакции) с применением ФСБУ
-                </div>
-
-                <h5>1. Классификация счетов по экономическому содержанию</h5>
+                <h3 class="card-title"><span class="badge-method mr-2">9.1</span> Активные, пассивные и
+                    активно-пассивные счета</h3>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card mb-2">
                             <div class="card-body p-2">
-                                <h6 class="card-title mb-1">Активные счета</h6>
-                                <p class="small mb-1">Учет активов (имущества)</p>
-                                <ul class="small mb-0">
-                                    <li><strong>Схема:</strong> Д-т: Увеличение, К-т: Уменьшение</li>
-                                    <li><strong>Пример:</strong> 01 "Основные средства", 10 "Материалы"</li>
-                                    <li><strong>Сальдо:</strong> Только дебетовое или нулевое</li>
-                                </ul>
+                                <h6>Активные счета</h6>
+                                <p class="small mb-1">Учет активов. Д-т: увеличение, К-т: уменьшение. Сальдо дебетовое.
+                                </p>
+                                <p class="small mb-0">Пример: 01, 10.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card mb-2">
                             <div class="card-body p-2">
-                                <h6 class="card-title mb-1">Пассивные счета</h6>
-                                <p class="small mb-1">Учет источников (капитал, обязательства)</p>
-                                <ul class="small mb-0">
-                                    <li><strong>Схема:</strong> Д-т: Уменьшение, К-т: Увеличение</li>
-                                    <li><strong>Пример:</strong> 80 "Уставный капитал", 66 "Кредиты"</li>
-                                    <li><strong>Сальдо:</strong> Только кредитовое или нулевое</li>
-                                </ul>
+                                <h6>Пассивные счета</h6>
+                                <p class="small mb-1">Учет источников. Д-т: уменьшение, К-т: увеличение. Сальдо
+                                    кредитовое.</p>
+                                <p class="small mb-0">Пример: 80, 66.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <h5 class="mt-3">2. Активно-пассивные счета</h5>
-                <p>Учитывают как активы, так и обязательства. Могут иметь два сальдо.</p>
-
-                <div class="table-responsive">
-                    <table class="table table-sm ">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Счет</th>
-                                <th>Наименование</th>
-                                <th>Активная часть</th>
-                                <th>Пассивная часть</th>
-                                <th>Пример</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>60</strong></td>
-                                <td>Расчеты с поставщиками</td>
-                                <td>Авансы выданные (Дт)</td>
-                                <td>Задолженность перед поставщиками (Кт)</td>
-                                <td>Дт 60 - перечислен аванс; Кт 60 - получен товар</td>
-                            </tr>
-                            <tr>
-                                <td><strong>62</strong></td>
-                                <td>Расчеты с покупателями</td>
-                                <td>Задолженность покупателей (Дт)</td>
-                                <td>Авансы полученные (Кт)</td>
-                                <td>Дт 62 - отгружен товар; Кт 62 - получен аванс</td>
-                            </tr>
-                            <tr>
-                                <td><strong>76</strong></td>
-                                <td>Расчеты с разными дебиторами и кредиторами</td>
-                                <td>Дебиторская задолженность (Дт)</td>
-                                <td>Кредиторская задолженность (Кт)</td>
-                                <td>Дт 76 - претензия к контрагенту; Кт 76 - обязательство</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h5 class="mt-3">3. Иерархия счетов: от синтетического к аналитическому</h5>
-
-                <div class="row align-items-center mb-3">
-                    <div class="col-md-4 text-center">
-                        <div class="p-3 border rounded bg-light">
-                            <h6>Синтетический счет</h6>
-                            <div class="display-6">10</div>
-                            <small>"Материалы"</small>
-                        </div>
-                        <div class="mt-1">↓ открывает</div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="p-3 border rounded bg-light">
-                            <h6>Субсчета</h6>
-                            <div>10.1 "Сырье"<br>10.2 "Топливо"<br>10.3 "Запчасти"</div>
-                        </div>
-                        <div class="mt-1">↓ детализируют</div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="p-3 border rounded bg-light">
-                            <h6>Аналитические счета<br><small>(субконто)</small></h6>
-                            <div>10.1 "Сталь листовая"<br>10.1 "Пластик ABS"<br>10.2 "Бензин АИ-95"</div>
-                        </div>
-                    </div>
-                </div>
-
-                <h5>4. Субконто (аналитические признаки)</h5>
-                <p>Современные системы учета (1С и аналоги) используют измерения "субконто":</p>
-                <ul>
-                    <li><strong>Виды субконто:</strong>
-                        <ul>
-                            <li>Номенклатура (материалы, товары)</li>
-                            <li>Контрагенты (поставщики, покупатели)</li>
-                            <li>Сотрудники (подотчетные лица)</li>
-                            <li>Проекты, договоры, подразделения</li>
-                        </ul>
-                    </li>
-                    <li><strong>Пример для счета 10:</strong>
-                        <ul>
-                            <li>Субконто 1: Номенклатура (Болт М8, Краска белая)</li>
-                            <li>Субконто 2: Склады (Основной, Производственный)</li>
-                            <li>Субконто 3: Партии (Партия №123 от 15.01.2024)</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h5 class="mt-3">5. Контрарные (регулирующие) счета</h5>
-                <p>Корректируют оценку основных счетов. Уменьшают стоимость активов.</p>
-
-                <div class="table-responsive">
-                    <table class="table table-sm ">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Основной счет</th>
-                                <th>Контрарный счет</th>
-                                <th>Назначение</th>
-                                <th>Балансовая стоимость</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>01</strong> "Основные средства"<br><em>(первоначальная стоимость)</em></td>
-                                <td><strong>02</strong> "Амортизация ОС"</td>
-                                <td>Учет накопленного износа</td>
-                                <td>01 - 02 = Остаточная стоимость</td>
-                            </tr>
-                            <tr>
-                                <td><strong>10</strong> "Материалы"<br><em>(учетная стоимость)</em></td>
-                                <td><strong>14</strong> "Резервы под снижение стоимости"</td>
-                                <td>Создание резерва при обесценении</td>
-                                <td>10 - 14 = Рыночная стоимость</td>
-                            </tr>
-                            <tr>
-                                <td><strong>58</strong> "Финансовые вложения"</td>
-                                <td><strong>59</strong> "Резервы под обесценение"</td>
-                                <td>Резерв при падении рыночной цены</td>
-                                <td>58 - 59 = Балансовая стоимость</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h5 class="mt-3">6. Сопоставляющие (результатные) счета</h5>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6>90 "Продажи"</h6>
-                                <ul class="small">
-                                    <li>К-т 90.1 "Выручка"</li>
-                                    <li>Д-т 90.2 "Себестоимость"</li>
-                                    <li>Д-т 90.3 "НДС"</li>
-                                    <li>Д-т 90.9 "Прибыль/убыток"</li>
-                                </ul>
-                                <p class="mb-0"><strong>Итог:</strong> Финансовый результат от продаж</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6>91 "Прочие доходы и расходы"</h6>
-                                <ul class="small">
-                                    <li>К-т 91.1 "Прочие доходы"</li>
-                                    <li>Д-т 91.2 "Прочие расходы"</li>
-                                    <li>Д-т/К-т 91.9 "Сальдо"</li>
-                                </ul>
-                                <p class="mb-0"><strong>Итог:</strong> Результат от прочей деятельности</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert alert-success mt-3">
-                    <small><strong>Важно:</strong> В современных учетных системах (1С) аналитический учет ведется через
-                        механизм "субконто", что позволяет получать детализированные отчеты по любому измерению: по
-                        контрагентам, номенклатуре, проектам и т.д.</small>
-                </div>
-
+                <h5 class="mt-3">Активно-пассивные счета</h5>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Счет</th>
+                            <th>Активная часть</th>
+                            <th>Пассивная часть</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>60</td>
+                            <td>Авансы выданные (Дт)</td>
+                            <td>Задолженность поставщикам (Кт)</td>
+                        </tr>
+                        <tr>
+                            <td>62</td>
+                            <td>Задолженность покупателей (Дт)</td>
+                            <td>Авансы полученные (Кт)</td>
+                        </tr>
+                        <tr>
+                            <td>76</td>
+                            <td>Дебиторская задолженность (Дт)</td>
+                            <td>Кредиторская задолженность (Кт)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <div class="card my-3" style="max-width:800px;">
-            <p>
-                <img loading="lazy" class="card-img-top" src="../h1title17.jpg"
-                    alt="Шахматная и оборотно-сальдовая ведомости" style="filter: grayscale(1);">
-            </p>
+        <div class="card my-3" style="max-width: 900px;" id="theme9_2">
+            <img loading="lazy" class="card-img-top" src="../h1title16.jpg" alt="Субконто"
+                style="filter: grayscale(1);">
             <div class="card-body">
-                <h3 class="card-title">Тема 11. Шахматная и оборотно-сальдовая ведомости: принцип построения</h3>
+                <h3 class="card-title"><span class="badge-method mr-2">9.2</span> Субконто, контрарные и сопоставляющие
+                    счета</h3>
+                <h5>Иерархия счетов</h5>
+                <p>Синтетический счет (10 «Материалы») → субсчета (10.1, 10.2) → аналитические счета (субконто:
+                    номенклатура, склады, партии).</p>
+                <h5>Контрарные счета</h5>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Основной</th>
+                            <th>Контрарный</th>
+                            <th>Балансовая стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01 «ОС»</td>
+                            <td>02 «Амортизация ОС»</td>
+                            <td>01 − 02</td>
+                        </tr>
+                        <tr>
+                            <td>10 «Материалы»</td>
+                            <td>14 «Резервы под снижение стоимости»</td>
+                            <td>10 − 14</td>
+                        </tr>
+                        <tr>
+                            <td>58 «Финансовые вложения»</td>
+                            <td>59 «Резервы под обесценение»</td>
+                            <td>58 − 59</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Сопоставляющие счета</h5>
+                <p><strong>90 «Продажи»</strong> — финансовый результат от продаж. <strong>91 «Прочие доходы и
+                        расходы»</strong> — результат от прочей деятельности.</p>
+            </div>
+        </div>
 
-                <div class="alert alert-secondary mb-3">
-                    <strong>Назначение:</strong> Регистры синтетического учета для обобщения информации по счетам и
-                    проверки правильности корреспонденции
-                </div>
-
-                <h5>1. Шахматная ведомость</h5>
-                <p>Принцип "двойной записи" в табличной форме: дебет одного счета = кредиту другого.</p>
-
+        <!-- ==================== ТЕМА 10 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme10_1">
+            <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="Шахматная ведомость"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">10.1</span> Шахматная ведомость</h3>
+                <p>Принцип двойной записи в табличной форме: дебет одного счета = кредиту другого.</p>
                 <div class="table-responsive">
-                    <table class="table  table-sm text-center">
+                    <table class="table table-sm text-center">
                         <thead class="table-light">
                             <tr>
-                                <th rowspan="2">Счет кредита →<br>Счет дебета ↓</th>
-                                <th>10 "Материалы"</th>
-                                <th>60 "Расчеты с поставщиками"</th>
-                                <th>20 "Основное производство"</th>
+                                <th rowspan="2">Дт ↓ / Кт →</th>
+                                <th>10 «Материалы»</th>
+                                <th>60 «Расчеты с поставщиками»</th>
+                                <th>20 «Основное производство»</th>
                                 <th>Итого по дебету</th>
                             </tr>
                             <tr>
@@ -1331,21 +852,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-start"><strong>10 "Материалы"</strong></td>
+                                <td class="text-start"><strong>10</strong></td>
                                 <td class="bg-light">—</td>
-                                <td>100 000<br><small>Поступление материалов</small></td>
-                                <td>40 000<br><small>Отпущено в производство</small></td>
+                                <td>100 000</td>
+                                <td>40 000</td>
                                 <td><strong>140 000</strong></td>
                             </tr>
                             <tr>
-                                <td class="text-start"><strong>60 "Расчеты с поставщиками"</strong></td>
+                                <td class="text-start"><strong>60</strong></td>
                                 <td>—</td>
                                 <td class="bg-light">—</td>
                                 <td>—</td>
                                 <td><strong>0</strong></td>
                             </tr>
                             <tr>
-                                <td class="text-start"><strong>20 "Основное производство"</strong></td>
+                                <td class="text-start"><strong>20</strong></td>
                                 <td>—</td>
                                 <td>—</td>
                                 <td class="bg-light">—</td>
@@ -1361,39 +882,34 @@
                         </tbody>
                     </table>
                 </div>
-
                 <div class="alert alert-light mt-2 mb-3">
-                    <small><strong>Принцип:</strong> Сумма по строке = оборот по дебету счета. Сумма по столбцу = оборот
-                        по кредиту счета. Итоги по строкам и столбцам равны.</small>
+                    <small><strong>Принцип:</strong> Сумма по строке = оборот по дебету. Сумма по столбцу = оборот по
+                        кредиту. Итоги равны.</small>
                 </div>
+            </div>
+        </div>
 
-                <h5>2. Оборотно-сальдовая ведомость (ОСВ)</h5>
-                <p>Показывает начальные остатки, обороты и конечные остатки по счетам.</p>
-
+        <div class="card my-3" style="max-width: 900px;" id="theme10_2">
+            <img loading="lazy" class="card-img-top" src="../h1title17.jpg" alt="ОСВ" style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">10.2</span> ОСВ и проверочные равенства</h3>
                 <div class="table-responsive">
-                    <table class="table  table-sm text-center">
+                    <table class="table table-sm text-center">
                         <thead class="table-light">
                             <tr>
-                                <th>№ счета</th>
-                                <th>Наименование счета</th>
-                                <th>Сальдо начальное</th>
-                                <th>Обороты за период</th>
-                                <th>Сальдо конечное</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>Дебет</th>
-                                <th>Кредит</th>
-                                <th>Дебет</th>
-                                <th>Кредит</th>
-                                <th>Дебет</th>
-                                <th>Кредит</th>
+                                <th>№</th>
+                                <th>Наименование</th>
+                                <th>Сальдо нач. Дт</th>
+                                <th>Сальдо нач. Кт</th>
+                                <th>Обороты Дт</th>
+                                <th>Обороты Кт</th>
+                                <th>Сальдо кон. Дт</th>
+                                <th>Сальдо кон. Кт</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>10</strong></td>
+                                <td>10</td>
                                 <td class="text-start">Материалы</td>
                                 <td>50 000</td>
                                 <td>0</td>
@@ -1403,7 +919,7 @@
                                 <td>0</td>
                             </tr>
                             <tr>
-                                <td><strong>60</strong></td>
+                                <td>60</td>
                                 <td class="text-start">Расчеты с поставщиками</td>
                                 <td>0</td>
                                 <td>30 000</td>
@@ -1413,7 +929,7 @@
                                 <td>130 000</td>
                             </tr>
                             <tr>
-                                <td><strong>20</strong></td>
+                                <td>20</td>
                                 <td class="text-start">Основное производство</td>
                                 <td>0</td>
                                 <td>0</td>
@@ -1423,7 +939,7 @@
                                 <td>0</td>
                             </tr>
                             <tr class="table-secondary">
-                                <td colspan="2"><strong>Итого:</strong></td>
+                                <td colspan="2"><strong>Итого</strong></td>
                                 <td><strong>50 000</strong></td>
                                 <td><strong>30 000</strong></td>
                                 <td><strong>140 000</strong></td>
@@ -1434,105 +950,73 @@
                         </tbody>
                     </table>
                 </div>
-
-                <h5>Проверочные равенства (контроль правильности):</h5>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>По ОСВ:</strong>
-                                <ul>
-                                    <li>∑Сальдо нач.дебет = ∑Сальдо нач.кредит</li>
-                                    <li>∑Оборотов дебет = ∑Оборотов кредит</li>
-                                    <li>∑Сальдо кон.дебет = ∑Сальдо кон.кредит</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                            <li><strong>По шахматной:</strong>
-                                <ul>
-                                    <li>∑По строкам = ∑По столбцам</li>
-                                    <li>Каждая сумма на пересечении = проводке</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h5>Пример хозяйственных операций:</h5>
+                <h5>Проверочные равенства:</h5>
+                <ul>
+                    <li>∑Сальдо нач. дебет = ∑Сальдо нач. кредит</li>
+                    <li>∑Оборотов дебет = ∑Оборотов кредит</li>
+                    <li>∑Сальдо кон. дебет = ∑Сальдо кон. кредит</li>
+                </ul>
                 <div class="small">
                     <ol>
-                        <li><strong>Дт 10 Кт 60</strong> 100 000 — Поступили материалы от поставщика</li>
-                        <li><strong>Дт 20 Кт 10</strong> 40 000 — Материалы отпущены в производство</li>
+                        <li><strong>Дт 10 Кт 60</strong> 100 000 — поступили материалы.</li>
+                        <li><strong>Дт 20 Кт 10</strong> 40 000 — отпущены в производство.</li>
                     </ol>
                 </div>
+            </div>
+        </div>
 
-                <div class="alert alert-success mt-3">
-                    <small><strong>Практическое применение:</strong> Шахматная ведомость наглядно показывает
-                        корреспонденцию счетов, а ОСВ — итоговое состояние счетов на начало и конец периода. Оба
-                        регистра обязательны для формирования бухгалтерского баланса.</small>
+        <!-- ==================== ТЕМА 11 ==================== -->
+        <div class="card my-3" style="max-width: 900px;" id="theme11_1">
+            <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="Домашнее задание"
+                style="filter: grayscale(1);">
+            <div class="card-body">
+                <h3 class="card-title"><span class="badge-method mr-2">11.1</span> Домашнее задание</h3>
+                <div class="alert alert-primary m-3">
+                    <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов бухгалтерского
+                        учета финансово-хозяйственной деятельности организаций. Приказ Минфина России от 31.10.2000 №
+                        94н</a><br>
+                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
+                    Всегда иметь с собой на занятиях<br>
+                    Знать близко к тексту
                 </div>
-
             </div>
         </div>
 
 
-        <div class="card my-3" style="max-width:800px;">
+
+        <div class="card my-3">
             <p>
-                <img loading="lazy" class="card-img-top" src="../h1title13.jpg" alt="1" style="filter: grayscale(1);">
+                <img loading="lazy" class="card-img-top" src="../h1title5.jpg" alt="1" style="filter: grayscale(1);">
             </p>
             <div class="card-body">
-                <h3 class="card-title">Самостоятельная работа (домашнее задание)</h3>
 
-                <div class="alert alert-primary m-3">
-                   <a href="https://minfin.gov.ru/ru/document?id_4=2293" target="_blank">План счетов
-                        бухгалтерского учета
-                        финансово-хозяйственной деятельности организаций Приказ Минфина России от 31.10.2000 № 94н</a><br>
-                    Прочитать НЕСКОЛЬКО раз желательно БУМАЖНУЮ версию<br>
-                    Всегда иметь с собой на занятиях <br>
-                    Знать близко к тексту<br>                    
-                </div>
-
-
-
+                <div id="simpleaccounting" class="container" data-openquizid="businessplantechnology"></div>
             </div>
         </div>
+
 
 
 
     </div>
 
 
+    <script src="../dist/basicfirebasecrudauthservices.js"></script>
 
-    <!-- Optional JavaScript; choose one of the two! 
+    <script src="./simpleaccounting.js"></script>
 
-   Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
-    <script src="../dist/babel.standalone7.27.6.min.js"></script>
-
-    <script src="../dist/react18.3.1.production.min.js" ></script>
-    <script src="../dist/react-dom18.3.1.production.min.js"></script>
-
-    <script src="../dist/react-bootstrap1.6.8.min.js"></script>
-
-    <!--   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
 
-    <script src="./index.js" type="text/babel">
 
-    </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
