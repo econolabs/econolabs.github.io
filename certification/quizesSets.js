@@ -1087,12 +1087,12 @@ let quizesSets = [
   </div>
   <div class="card-body py-2">
     <p class="card-text mb-1">Показывает разброс числа дефектов относительно среднего.</p>
-    <p class="mb-1"><code>СТАНДОТКЛОН(диапазон)</code> / <code>STDEV(range)</code></p>
+    <p class="mb-1"><code>СТАНДОТКЛОН(диапазон)</code> / <code>STDEV.P(range)</code></p>
     <p class="mb-0 text-muted small">Пример: <code>=СТАНДОТКЛОН(B2:B13)</code></p>
   </div>
 </div>`,
     text: `Введите формулу для расчёта выборочного стандартного отклонения числа дефектов по релизам (столбец «Дефекты»)`,
-    answer: "STDEV(B2:B13)",
+    answer: "STDEV.P(B2:B13)",
   },
 
   {
