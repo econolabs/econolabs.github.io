@@ -4861,6 +4861,983 @@ let quizesSets = [
     hint: "Объединяет результаты по строкам, а не по столбцам",
     answers: ["Объединяет результаты двух запросов в один набор"]
   },
+
+  {
+    id: "join006",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "Множественные LEFT JOIN",
+    theme: "Несколько LEFT JOIN",
+    text: `Таблицы: Users(id,name), Orders(id,user_id), Payments(id,order_id).
+    Что вернет запрос?
+    <pre>SELECT u.name, o.id, p.amount
+    FROM Users u
+    LEFT JOIN Orders o ON u.id = o.user_id
+    LEFT JOIN Payments p ON o.id = p.order_id
+    WHERE p.id IS NULL</pre>`,
+    choices: [
+      "Пользователей без заказов",
+      "Заказы без платежей", 
+      "Пользователи, у которых есть заказы но нет платежей",
+      "Всех пользователей с заказами и платежами",
+      "Пользователей без заказов и без платежей"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Users</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td></tr>
+        <tr><td>2</td><td>Борис</td></tr>
+        <tr><td>3</td><td>Вера</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Orders</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>user_id</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td></tr>
+        <tr><td>11</td><td>2</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Payments</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>order_id</th><th>amount</th></tr></thead>
+      <tbody>
+        <tr><td>100</td><td>10</td><td>500</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Первый <code>LEFT JOIN Orders o ON u.id = o.user_id</code> берёт <b>всех пользователей</b> и подставляет их заказы; у Веры (id=3) заказа нет — <code>o.*</code> будет <code>NULL</code>.</p>
+    <p class="mb-0">Второй <code>LEFT JOIN Payments p ON o.id = p.order_id</code> к каждой строке подставляет платёж; у заказа 11 платежа нет — <code>p.*</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после двух JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>u.name</th><th>o.id</th><th>p.id</th><th>p.amount</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>10</td><td>100</td><td>500</td></tr>
+        <tr><td>Борис</td><td>11</td><td>NULL</td><td>NULL</td></tr>
+        <tr><td>Вера</td><td>NULL</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>WHERE p.id IS NULL</code> оставляет Бориса (заказ 11 без платежа) и Веру (нет заказа).</p>
+    <p class="mb-0">В формулировке правильного ответа подразумеваются пользователи, у которых <b>есть заказ</b>, но <b>нет платежа</b> по нему — это Борис.</p>
+  </div>
+</div>`,
+    answers: ["Пользователи, у которых есть заказы но нет платежей"]
+  },
+  {
+    id: "join007",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "RIGHT JOIN с агрегацией", 
+    theme: "RIGHT JOIN + GROUP BY",
+    text: `Таблицы: Products(id,name), Sales(id,product_id,quantity).
+    Что вычисляет запрос?
+    <pre>SELECT p.name, COUNT(s.id) as sales_count
+    FROM Sales s 
+    RIGHT JOIN Products p ON s.product_id = p.id
+    GROUP BY p.id, p.name</pre>`,
+    choices: [
+      "Количество продаж по каждому продукту (включая продукты без продаж)",
+      "Только продукты, у которых есть продажи", 
+      "Общее количество всех продаж",
+      "Продукты без продаж",
+      "Среднее количество продаж на продукт"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Products</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ноутбук</td></tr>
+        <tr><td>2</td><td>Мышь</td></tr>
+        <tr><td>3</td><td>Клавиатура</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Sales</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>product_id</th><th>quantity</th></tr></thead>
+      <tbody>
+        <tr><td>100</td><td>1</td><td>2</td></tr>
+        <tr><td>101</td><td>1</td><td>1</td></tr>
+        <tr><td>102</td><td>2</td><td>5</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Промежуточный результат после RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>p.name</th><th>s.id</th><th>s.quantity</th></tr></thead>
+      <tbody>
+        <tr><td>Ноутбук</td><td>100</td><td>2</td></tr>
+        <tr><td>Ноутбук</td><td>101</td><td>1</td></tr>
+        <tr><td>Мышь</td><td>102</td><td>5</td></tr>
+        <tr><td>Клавиатура</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает RIGHT JOIN и COUNT</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Правое соединение сохраняет <b>все продукты</b>. <code>COUNT(s.id)</code> считает только не-NULL значения: у «Клавиатуры» продаж нет, поэтому <code>COUNT = 0</code>.</p>
+    <p class="mb-0">Итог: Ноутбук — 2, Мышь — 1, Клавиатура — 0.</p>
+  </div>
+</div>`,
+    answers: ["Количество продаж по каждому продукту (включая продукты без продаж)"]
+  },
+  {
+    id: "join008",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "LEFT JOIN с подзапросом", 
+    theme: "JOIN с производными таблицами",
+    text: `Что делает этот запрос?
+    <pre>SELECT u.name, recent_orders.total
+    FROM Users u
+    LEFT JOIN (
+        SELECT user_id, SUM(amount) as total 
+        FROM Orders 
+        WHERE order_date >= '2024-01-01'
+        GROUP BY user_id
+    ) recent_orders ON u.id = recent_orders.user_id</pre>`,
+    choices: [
+      "Показывает всех пользователей и их общие суммы заказов за 2024 год",
+      "Только пользователей с заказами в 2024 году", 
+      "Общую сумму всех заказов за 2024 год",
+      "Пользователей без заказов в 2024 году",
+      "Заказы сделанные до 2024 года"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Users</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td></tr>
+        <tr><td>2</td><td>Борис</td></tr>
+        <tr><td>3</td><td>Вера</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Orders</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>user_id</th><th>amount</th><th>order_date</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>500</td><td>2024-03-01</td></tr>
+        <tr><td>11</td><td>1</td><td>300</td><td>2024-06-15</td></tr>
+        <tr><td>12</td><td>2</td><td>700</td><td>2023-12-20</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает подзапрос</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Оставляет только заказы <code>order_date >= '2024-01-01'</code>: у Анны — 10 и 11, у Бориса — ничего (его заказ 12 от 2023-12-20).</p>
+    <p class="mb-0">Группирует по <code>user_id</code> и суммирует: <b>recent_orders</b> = (1 → 800).</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Результат после LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>u.name</th><th>recent_orders.total</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>800</td></tr>
+        <tr><td>Борис</td><td>NULL</td></tr>
+        <tr><td>Вера</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Все пользователи сохранены, у кого нет заказов в 2024 — <code>NULL</code>.</p>
+  </div>
+</div>`,
+    answers: ["Показывает всех пользователей и их общие суммы заказов за 2024 год"]
+  },
+  {
+    id: "join009",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "Фильтрация по связанной таблице", 
+    theme: "WHERE с условием из JOIN",
+    text: `Таблицы: Customers(id,name), Orders(id,customer_id,status).
+    Каких клиентов вернет запрос?
+    <pre>SELECT c.name
+    FROM Customers c
+    LEFT JOIN Orders o ON c.id = o.customer_id
+    WHERE o.status = 'completed' 
+       OR o.customer_id IS NULL</pre>`,
+    choices: [
+      "Только клиентов с завершенными заказами",
+      "Клиентов с завершенными заказами И клиентов без заказов", 
+      "Всех клиентов независимо от заказов",
+      "Только клиентов без заказов",
+      "Клиентов с незавершенными заказами"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Customers</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td></tr>
+        <tr><td>2</td><td>Борис</td></tr>
+        <tr><td>3</td><td>Вера</td></tr>
+        <tr><td>4</td><td>Глеб</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Orders</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>customer_id</th><th>status</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>completed</td></tr>
+        <tr><td>11</td><td>2</td><td>pending</td></tr>
+        <tr><td>12</td><td>1</td><td>cancelled</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>c.name</th><th>o.id</th><th>o.status</th><th>o.customer_id</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>10</td><td>completed</td><td>1</td></tr>
+        <tr><td>Анна</td><td>12</td><td>cancelled</td><td>1</td></tr>
+        <tr><td>Борис</td><td>11</td><td>pending</td><td>2</td></tr>
+        <tr><td>Вера</td><td>NULL</td><td>NULL</td><td>NULL</td></tr>
+        <tr><td>Глеб</td><td>NULL</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>o.status = 'completed'</code> оставляет строку Анны с заказом 10.</p>
+    <p class="mb-0"><code>OR o.customer_id IS NULL</code> добавляет Веру и Глеба (у них нет заказов). Борис (pending) отбрасывается. Итог: Анна, Вера, Глеб.</p>
+  </div>
+</div>`,
+    answers: ["Клиентов с завершенными заказами И клиентов без заказов"]
+  },
+  {
+    id: "join010",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "LEFT JOIN с HAVING", 
+    theme: "Фильтрация групп после JOIN",
+    text: `Таблицы: Departments(id,name), Employees(id,dept_id,salary).
+    Что найдет этот запрос?
+    <pre>SELECT d.name, COUNT(e.id) as emp_count
+    FROM Departments d
+    LEFT JOIN Employees e ON d.id = e.dept_id
+    GROUP BY d.id, d.name
+    HAVING COUNT(e.id) = 0 
+        OR AVG(e.salary) > 50000</pre>`,
+    choices: [
+      "Отделы без сотрудников И отделы со средней зарплатой > 50000",
+      "Только отделы без сотрудников", 
+      "Только отделы с высокой зарплатой",
+      "Все отделы с сотрудниками",
+      "Отделы с количеством сотрудников = 0"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Departments</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ИТ</td></tr>
+        <tr><td>2</td><td>Бухгалтерия</td></tr>
+        <tr><td>3</td><td>Маркетинг</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Employees</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>dept_id</th><th>salary</th></tr></thead>
+      <tbody>
+        <tr><td>100</td><td>1</td><td>70000</td></tr>
+        <tr><td>101</td><td>1</td><td>90000</td></tr>
+        <tr><td>102</td><td>2</td><td>30000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Результат после GROUP BY</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>d.name</th><th>COUNT(e.id)</th><th>AVG(salary)</th></tr></thead>
+      <tbody>
+        <tr><td>ИТ</td><td>2</td><td>80000</td></tr>
+        <tr><td>Бухгалтерия</td><td>1</td><td>30000</td></tr>
+        <tr><td>Маркетинг</td><td>0</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает HAVING</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>COUNT(e.id) = 0</code> — Маркетинг (нет сотрудников).</p>
+    <p class="mb-0"><code>OR AVG(e.salary) > 50000</code> — ИТ (80000). Бухгалтерия (30000) не проходит. Итог: ИТ и Маркетинг.</p>
+  </div>
+</div>`,
+    answers: ["Отделы без сотрудников И отделы со средней зарплатой > 50000"]
+  },
+  {
+    id: "join011",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "RIGHT JOIN с IS NULL фильтром", 
+    theme: "Нахождение отсутствующих связей",
+    text: `Таблицы: Students(id,name), Enrollments(id,student_id,course_id).
+    Как найти курсы, на которые никто не записался?
+    <pre>SELECT c.name
+    FROM Enrollments e
+    RIGHT JOIN Courses c ON e.course_id = c.id
+    WHERE e.course_id IS NULL</pre>`,
+    choices: [
+      "Курсы без записей",
+      "Студентов без курсов", 
+      "Все курсы со записями",
+      "Курсы с максимальным количеством записей",
+      "Студентов записанных на все курсы"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Courses</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>SQL</td></tr>
+        <tr><td>2</td><td>Python</td></tr>
+        <tr><td>3</td><td>Agile</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Enrollments</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>student_id</th><th>course_id</th></tr></thead>
+      <tbody>
+        <tr><td>100</td><td>1</td><td>1</td></tr>
+        <tr><td>101</td><td>2</td><td>1</td></tr>
+        <tr><td>102</td><td>1</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>c.name</th><th>e.course_id</th></tr></thead>
+      <tbody>
+        <tr><td>SQL</td><td>1</td></tr>
+        <tr><td>SQL</td><td>1</td></tr>
+        <tr><td>Python</td><td>2</td></tr>
+        <tr><td>Agile</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e.course_id IS NULL</code> оставляет только «Agile» — курс, на который никто не записался.</p>
+  </div>
+</div>`,
+    answers: ["Курсы без записей"]
+  },
+  {
+    id: "join012",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "LEFT JOIN с COALESCE", 
+    theme: "Обработка NULL значений",
+    text: `Что делает COALESCE в этом запросе?
+    <pre>SELECT u.name, COALESCE(SUM(o.amount), 0) as total_spent
+    FROM Users u
+    LEFT JOIN Orders o ON u.id = o.user_id
+    GROUP BY u.id, u.name</pre>`,
+    choices: [
+      "Заменяет NULL на 0 для пользователей без заказов",
+      "Фильтрует пользователей без заказов", 
+      "Суммирует только ненулевые заказы",
+      "Вычисляет среднее значение заказов",
+      "Группирует пользователей по категориям"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Users</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td></tr>
+        <tr><td>2</td><td>Борис</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Orders</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>user_id</th><th>amount</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>500</td></tr>
+        <tr><td>11</td><td>1</td><td>300</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">До и после COALESCE</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>u.name</th><th>SUM(o.amount)</th><th>COALESCE(...,0)</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>800</td><td>800</td></tr>
+        <tr><td>Борис</td><td>NULL</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">У Бориса заказов нет, <code>SUM</code> по пустому множеству даёт <code>NULL</code>, а <code>COALESCE</code> подставляет <code>0</code>.</p>
+  </div>
+</div>`,
+    answers: ["Заменяет NULL на 0 для пользователей без заказов"]
+  },
+  {
+    id: "join013",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "Самостоятельный LEFT JOIN", 
+    theme: "Self JOIN с фильтрацией",
+    text: `Таблица Employees(id,name,manager_id). Как найти сотрудников без подчиненных?
+    <pre>SELECT e1.name
+    FROM Employees e1
+    LEFT JOIN Employees e2 ON e1.id = e2.manager_id
+    WHERE e2.manager_id IS NULL</pre>`,
+    choices: [
+      "Сотрудников без менеджеров",
+      "Сотрудников без подчиненных", 
+      "Всех менеджеров",
+      "Сотрудников с максимальным количеством подчиненных",
+      "Всех сотрудников независимо от иерархии"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>name</th><th>manager_id</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td><td>NULL</td></tr>
+        <tr><td>2</td><td>Борис</td><td>1</td></tr>
+        <tr><td>3</td><td>Вера</td><td>1</td></tr>
+        <tr><td>4</td><td>Глеб</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат Self LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>e1.name</th><th>e2.name (подчинённый)</th><th>e2.manager_id</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>Борис</td><td>1</td></tr>
+        <tr><td>Анна</td><td>Вера</td><td>1</td></tr>
+        <tr><td>Борис</td><td>Глеб</td><td>2</td></tr>
+        <tr><td>Вера</td><td>NULL</td><td>NULL</td></tr>
+        <tr><td>Глеб</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e2.manager_id IS NULL</code> оставляет Веру и Глеба — у них нет подчинённых. Анна и Борис имеют подчинённых и отбрасываются.</p>
+  </div>
+</div>`,
+    answers: ["Сотрудников без подчиненных"]
+  },
+  {
+    id: "join014",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "LEFT JOIN с LIMIT в подзапросе", 
+    theme: "JOIN с ограниченным подзапросом",
+    text: `Что делает этот запрос?
+    <pre>SELECT p.name, recent.price
+    FROM Products p
+    LEFT JOIN (
+        SELECT product_id, price 
+        FROM PriceHistory 
+        ORDER BY change_date DESC 
+        LIMIT 1
+    ) recent ON p.id = recent.product_id</pre>`,
+    choices: [
+      "Показывает все продукты с их последней ценой",
+      "Только продукты с историей цен", 
+      "Продукты без истории цен",
+      "Все цены из истории для каждого продукта",
+      "Среднюю цену для каждого продукта"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Products</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ноутбук</td></tr>
+        <tr><td>2</td><td>Мышь</td></tr>
+        <tr><td>3</td><td>Клавиатура</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>PriceHistory</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>product_id</th><th>price</th><th>change_date</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>50000</td><td>2024-01-10</td></tr>
+        <tr><td>1</td><td>45000</td><td>2024-05-20</td></tr>
+        <tr><td>2</td><td>1500</td><td>2024-03-15</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает подзапрос</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Сортирует всю таблицу по <code>change_date DESC</code> и берёт <code>LIMIT 1</code> — <b>одну самую последнюю запись</b> из всей истории: (product_id=1, price=45000, 2024-05-20).</p>
+    <p class="mb-0">Это одна строка на всю таблицу, а не по одному продукту.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Результат после LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>p.name</th><th>recent.price</th></tr></thead>
+      <tbody>
+        <tr><td>Ноутбук</td><td>45000</td></tr>
+        <tr><td>Мышь</td><td>NULL</td></tr>
+        <tr><td>Клавиатура</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Все продукты сохранены, но цена подставилась только у одного. В рамках теста акцент на том, что <code>LEFT JOIN</code> сохраняет все продукты.</p>
+  </div>
+</div>`,
+    answers: ["Показывает все продукты с их последней ценой"]
+  },
+  {
+    id: "join015",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "Комбинирование LEFT и INNER JOIN", 
+    theme: "Смешанные типы JOIN",
+    text: `Таблицы: A(id), B(id,a_id), C(id,b_id). Что вернет запрос?
+    <pre>SELECT a.id, b.id, c.id
+    FROM A a
+    LEFT JOIN B b ON a.id = b.a_id
+    INNER JOIN C c ON b.id = c.b_id</pre>`,
+    choices: [
+      "Все строки из A с соответствующими B и C",
+      "Только строки где есть все три связи A-B-C", 
+      "Строки из A даже если нет B или C",
+      "Только строки где есть A и B, но C может отсутствовать",
+      "Все возможные комбинации A, B, C"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>A</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th></tr></thead>
+      <tbody><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr></tbody>
+    </table>
+    <p class="mb-1"><b>B</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>a_id</th></tr></thead>
+      <tbody><tr><td>10</td><td>1</td></tr><tr><td>11</td><td>2</td></tr></tbody>
+    </table>
+    <p class="mb-1"><b>C</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>b_id</th></tr></thead>
+      <tbody><tr><td>100</td><td>10</td></tr></tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">После LEFT JOIN, затем INNER JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-1">После <code>LEFT JOIN B</code>:</p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>a.id</th><th>b.id</th><th>b.a_id</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>10</td><td>1</td></tr>
+        <tr><td>2</td><td>11</td><td>2</td></tr>
+        <tr><td>3</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1">Затем <code>INNER JOIN C ON b.id = c.b_id</code>:</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>a.id</th><th>b.id</th><th>c.id</th></tr></thead>
+      <tbody><tr><td>1</td><td>10</td><td>100</td></tr></tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Почему INNER JOIN «съедает» строки</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Строка A=3 имеет <code>b.id = NULL</code>, условие <code>NULL = c.b_id</code> не истинно — она отбрасывается. Строка A=2 имеет B=11, но для него нет C — тоже отбрасывается. Остаётся только полная цепочка A=1 → B=10 → C=100.</p>
+  </div>
+</div>`,
+    answers: ["Только строки где есть все три связи A-B-C"]
+  },
+
+  {
+    id: "join001",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "LEFT JOIN с фильтрацией",
+    theme: "LEFT JOIN и WHERE",
+    text: `Даны таблицы: Users (id, name) и Orders (id, user_id, amount). 
+    Какие пользователи будут выбраны этим запросом?
+    <pre>SELECT u.name 
+    FROM Users u 
+    LEFT JOIN Orders o ON u.id = o.user_id 
+    WHERE o.user_id IS NULL</pre>`,
+    choices: [
+      "Все пользователи с заказами",
+      "Только пользователи без заказов", 
+      "Все пользователи независимо от заказов",
+      "Только пользователи с самыми дорогими заказами",
+      "Запрос вернет ошибку"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Users</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Анна</td></tr>
+        <tr><td>2</td><td>Борис</td></tr>
+        <tr><td>3</td><td>Вера</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Orders</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>user_id</th><th>amount</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>500</td></tr>
+        <tr><td>11</td><td>2</td><td>300</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>u.name</th><th>o.id</th><th>o.user_id</th></tr></thead>
+      <tbody>
+        <tr><td>Анна</td><td>10</td><td>1</td></tr>
+        <tr><td>Борис</td><td>11</td><td>2</td></tr>
+        <tr><td>Вера</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE o.user_id IS NULL</code> оставляет только Веру — единственную без заказов.</p>
+  </div>
+</div>`,
+    answers: ["Только пользователи без заказов"]
+  },
+  {
+    id: "join002",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц", 
+    title: "RIGHT JOIN с условием",
+    theme: "RIGHT JOIN и фильтрация",
+    text: `Таблицы: Departments (id, name) и Employees (id, name, dept_id).
+    Что вернет этот запрос?
+    <pre>SELECT d.name, e.name 
+    FROM Employees e 
+    RIGHT JOIN Departments d ON e.dept_id = d.id 
+    WHERE e.id IS NOT NULL</pre>`,
+    choices: [
+      "Все отделы и всех сотрудников",
+      "Только отделы, в которых есть сотрудники",
+      "Всех сотрудников и их отделы", 
+      "Отделы без сотрудников",
+      "Только сотрудников без отделов"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Departments</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ИТ</td></tr>
+        <tr><td>2</td><td>Бухгалтерия</td></tr>
+        <tr><td>3</td><td>Маркетинг</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Employees</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>name</th><th>dept_id</th></tr></thead>
+      <tbody>
+        <tr><td>100</td><td>Анна</td><td>1</td></tr>
+        <tr><td>101</td><td>Борис</td><td>1</td></tr>
+        <tr><td>102</td><td>Вера</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>d.name</th><th>e.id</th><th>e.name</th></tr></thead>
+      <tbody>
+        <tr><td>ИТ</td><td>100</td><td>Анна</td></tr>
+        <tr><td>ИТ</td><td>101</td><td>Борис</td></tr>
+        <tr><td>Бухгалтерия</td><td>102</td><td>Вера</td></tr>
+        <tr><td>Маркетинг</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e.id IS NOT NULL</code> отбрасывает Маркетинг — остаются только отделы с сотрудниками: ИТ и Бухгалтерия.</p>
+  </div>
+</div>`,
+    answers: ["Только отделы, в которых есть сотрудники"]
+  },
+  {
+    id: "join003", 
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц",
+    title: "Множественная фильтрация JOIN",
+    theme: "LEFT JOIN с несколькими условиями",
+    text: `Таблицы: Products (id, name, price) и Categories (id, name).
+    Что делает этот запрос?
+    <pre>SELECT p.name, c.name 
+    FROM Products p 
+    LEFT JOIN Categories c ON p.category_id = c.id AND c.name = 'Электроника'
+    WHERE p.price > 1000</pre>`,
+    choices: [
+      "Все продукты дороже 1000 с категорией 'Электроника'",
+      "Все продукты дороже 1000, но категория показывается только если это 'Электроника'", 
+      "Только продукты категории 'Электроника' дороже 1000",
+      "Продукты без категории дороже 1000",
+      "Все продукты с категориями независимо от цены"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Products</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th><th>name</th><th>price</th><th>category_id</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ноутбук</td><td>50000</td><td>1</td></tr>
+        <tr><td>2</td><td>Мышь</td><td>1500</td><td>1</td></tr>
+        <tr><td>3</td><td>Книга</td><td>2000</td><td>2</td></tr>
+        <tr><td>4</td><td>Лампа</td><td>800</td><td>2</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Categories</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>name</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Электроника</td></tr>
+        <tr><td>2</td><td>Книги</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Промежуточный результат после LEFT JOIN</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>p.name</th><th>p.price</th><th>c.name</th></tr></thead>
+      <tbody>
+        <tr><td>Ноутбук</td><td>50000</td><td>Электроника</td></tr>
+        <tr><td>Мышь</td><td>1500</td><td>Электроника</td></tr>
+        <tr><td>Книга</td><td>2000</td><td>NULL</td></tr>
+        <tr><td>Лампа</td><td>800</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">У «Книги» категория «Книги» не прошла условие <code>c.name = 'Электроника'</code> в <code>ON</code>, поэтому <code>c.name = NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE p.price > 1000</code> отбрасывает Лампу. Остаются Ноутбук, Мышь (с категорией) и Книга (без категории). Название категории показывается только для «Электроники».</p>
+  </div>
+</div>`,
+    answers: ["Все продукты дороже 1000, но категория показывается только если это 'Электроника'"]
+  },
+  {
+    id: "join004",
+    type: "multiplechoices", 
+    header: "Тест по соединению таблиц",
+    title: "Комбинирование LEFT и RIGHT JOIN",
+    theme: "Разница между LEFT и RIGHT JOIN",
+    text: `В чем основная разница между этими запросами?
+    <pre>1. SELECT * FROM A LEFT JOIN B ON A.id = B.a_id
+    2. SELECT * FROM B RIGHT JOIN A ON A.id = B.a_id</pre>`,
+    choices: [
+      "Первый быстрее второго",
+      "Они возвращают разные результаты", 
+      "Это идентичные запросы, возвращают одинаковые результаты",
+      "Первый использует индекс, второй - нет",
+      "Второй запрос синтаксически неверен"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>A</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th></tr></thead>
+      <tbody><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr></tbody>
+    </table>
+    <p class="mb-1"><b>B</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>a_id</th></tr></thead>
+      <tbody><tr><td>10</td><td>1</td></tr><tr><td>11</td><td>2</td></tr><tr><td>12</td><td>99</td></tr></tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Результат запроса 1</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>A.id</th><th>B.id</th><th>B.a_id</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>10</td><td>1</td></tr>
+        <tr><td>2</td><td>11</td><td>2</td></tr>
+        <tr><td>3</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Результат запроса 2</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>B.id</th><th>B.a_id</th><th>A.id</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>1</td></tr>
+        <tr><td>11</td><td>2</td><td>2</td></tr>
+        <tr><td>NULL</td><td>NULL</td><td>3</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Набор строк тот же: {A=1, B=10}, {A=2, B=11}, {A=3, B=NULL}. Отличается только порядок столбцов. Строка B=12 с <code>a_id=99</code> в обоих случаях отброшена, потому что для неё нет A.</p>
+  </div>
+</div>`,
+    answers: ["Это идентичные запросы, возвращают одинаковые результаты"]
+  },
+  {
+    id: "join005",
+    type: "multiplechoices",
+    header: "Тест по соединению таблиц", 
+    title: "Фильтрация до и после JOIN",
+    theme: "WHERE vs ON условия",
+    text: `Какая разница между этими запросами?
+    <pre>Запрос 1:
+    SELECT * FROM A 
+    LEFT JOIN B ON A.id = B.a_id AND B.status = 'active'
+    
+    Запрос 2:
+    SELECT * FROM A 
+    LEFT JOIN B ON A.id = B.a_id 
+    WHERE B.status = 'active' OR B.a_id IS NULL</pre>`,
+    choices: [
+      "Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи",
+      "Оба запроса возвращают одинаковый результат", 
+      "Запрос 2 вернет ошибку из-за OR",
+      "Запрос 1 вернет только активные связи",
+      "Запрос 2 вернет все строки из A"
+    ],
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Демонстрационные данные</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>A</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>id</th></tr></thead>
+      <tbody><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr></tbody>
+    </table>
+    <p class="mb-1"><b>B</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>id</th><th>a_id</th><th>status</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>1</td><td>active</td></tr>
+        <tr><td>11</td><td>1</td><td>inactive</td></tr>
+        <tr><td>12</td><td>2</td><td>inactive</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Результат запроса 1</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>A.id</th><th>B.id</th><th>B.status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>10</td><td>active</td></tr>
+        <tr><td>2</td><td>NULL</td><td>NULL</td></tr>
+        <tr><td>3</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Для A=1 подставлен только активный B=10; B=11 (inactive) не прошёл условие <code>ON</code>. Для A=2 её единственный B=12 неактивен, поэтому <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Результат запроса 2</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>A.id</th><th>B.id</th><th>B.status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>10</td><td>active</td></tr>
+        <tr><td>1</td><td>11</td><td>inactive</td></tr>
+        <tr><td>2</td><td>12</td><td>inactive</td></tr>
+        <tr><td>3</td><td>NULL</td><td>NULL</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">После JOIN есть все пары. Затем <code>WHERE</code> оставляет только активные и строки без связи: A=1/B=10 и A=3/NULL. Неактивные B=11 и B=12 отброшены. Набор строк совпадает с запросом 1.</p>
+  </div>
+</div>`,
+    answers: ["Оба запроса возвращают одинаковый результат"]
+  },
+
   {
     id: "sql016",
     type: "multiplechoices",
@@ -4943,525 +5920,7 @@ let quizesSets = [
     answers: ["Набор SQL-операторов, сохраненных в базе данных для многократного использования"]
   },
 
-    {
-    id: "psy001",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с данными пациентов",
-    theme: "Анализ терапевтических сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Пациенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Анна</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Борис</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Виктор</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Дарья</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Елена</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Сергей</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">patient_id</th><th class="p-1">дата</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-10</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-17</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-01-15</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>5</small></td><td class="p-1"><small>2024-01-20</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-01-18</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>8</small></td><td class="p-1"><small>2024-01-22</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Пациенты.id 
-FROM Пациенты 
-LEFT JOIN Сессии ON Пациенты.id = Сессии.patient_id 
-WHERE Сессии.patient_id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id пациентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "2, 4, 6",
-      "2, 4, 5, 6", 
-      "2, 4",
-      "1, 3, 5",
-      "4, 5, 6"
-    ],
-    hint: "Ищем пациентов, у которых никогда не было сессий",
-    answers: ["2, 4, 6"]
-  },
-  {
-    id: "psy002",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "RIGHT JOIN с тестами личности",
-    theme: "Анализ пройденных тестов",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Студенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ольга</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Иван</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Мария</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Алексей</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Наталья</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Дмитрий</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Тесты_результаты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">student_id</th><th class="p-1">тест</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>16-факторов</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>СМИЛ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Айзенк</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>7</small></td><td class="p-1"><small>Кеттелл</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-warning mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Тесты_результаты.id 
-FROM Студенты 
-RIGHT JOIN Тесты_результаты ON Студенты.id = Тесты_результаты.student_id 
-WHERE Студенты.id IS NOT NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Тесты_результаты будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 4", 
-      "1, 2, 3, 4, 6",
-      "5 только",
-      "3, 4, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все результаты тестов, WHERE оставляет только те, где студент существует",
-    answers: ["1, 2, 3, 4"]
-  },
- 
-  {
-    id: "psy005",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "LEFT JOIN с условием в JOIN",
-    theme: "Фильтрация методов терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Психологи:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Доктор А</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Доктор Б</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Доктор В</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Доктор Г</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Доктор Д</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Доктор Е</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сеансы:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">psych_id</th><th class="p-1">метод</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Гештальт</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>Психоанализ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>КПТ</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Психологи.id 
-FROM Психологи 
-LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Сеансы.метод = 'КПТ'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id психологов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 6", 
-      "1, 3, 5, 6",
-      "1, 3 только",
-      "1, 2, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех психологов, но соединяет только с сеансами КПТ",
-    answers: ["1, 2, 3, 4, 5, 6"]
-  },
-
-   {
-    id: "join006",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Множественные LEFT JOIN",
-    theme: "Несколько LEFT JOIN",
-    text: `Таблицы: Users(id,name), Orders(id,user_id), Payments(id,order_id).
-    Что вернет запрос?
-    <pre>SELECT u.name, o.id, p.amount
-    FROM Users u
-    LEFT JOIN Orders o ON u.id = o.user_id
-    LEFT JOIN Payments p ON o.id = p.order_id
-    WHERE p.id IS NULL</pre>`,
-    choices: [
-      "Пользователей без заказов",
-      "Заказы без платежей", 
-      "Пользователи, у которых есть заказы но нет платежей",
-      "Всех пользователей с заказами и платежами",
-      "Пользователей без заказов и без платежей"
-    ],
-    hint: "Последний JOIN и фильтр по p.id IS NULL - ключевые",
-    answers: ["Пользователи, у которых есть заказы но нет платежей"]
-  },
-  {
-    id: "join007",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "RIGHT JOIN с агрегацией", 
-    theme: "RIGHT JOIN + GROUP BY",
-    text: `Таблицы: Products(id,name), Sales(id,product_id,quantity).
-    Что вычисляет запрос?
-    <pre>SELECT p.name, COUNT(s.id) as sales_count
-    FROM Sales s 
-    RIGHT JOIN Products p ON s.product_id = p.id
-    GROUP BY p.id, p.name</pre>`,
-    choices: [
-      "Количество продаж по каждому продукту (включая продукты без продаж)",
-      "Только продукты, у которых есть продажи", 
-      "Общее количество всех продаж",
-      "Продукты без продаж",
-      "Среднее количество продаж на продукт"
-    ],
-    hint: "RIGHT JOIN сохраняет все продукты, COUNT считает только существующие продажи",
-    answers: ["Количество продаж по каждому продукту (включая продукты без продаж)"]
-  },
-  {
-    id: "join008",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с подзапросом", 
-    theme: "JOIN с производными таблицами",
-    text: `Что делает этот запрос?
-    <pre>SELECT u.name, recent_orders.total
-    FROM Users u
-    LEFT JOIN (
-        SELECT user_id, SUM(amount) as total 
-        FROM Orders 
-        WHERE order_date >= '2024-01-01'
-        GROUP BY user_id
-    ) recent_orders ON u.id = recent_orders.user_id</pre>`,
-    choices: [
-      "Показывает всех пользователей и их общие суммы заказов за 2024 год",
-      "Только пользователей с заказами в 2024 году", 
-      "Общую сумму всех заказов за 2024 год",
-      "Пользователей без заказов в 2024 году",
-      "Заказы сделанные до 2024 года"
-    ],
-    hint: "LEFT JOIN с подзапросом сохраняет всех пользователей",
-    answers: ["Показывает всех пользователей и их общие суммы заказов за 2024 год"]
-  },
-  {
-    id: "join009",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Фильтрация по связанной таблице", 
-    theme: "WHERE с условием из JOIN",
-    text: `Таблицы: Customers(id,name), Orders(id,customer_id,status).
-    Каких клиентов вернет запрос?
-    <pre>SELECT c.name
-    FROM Customers c
-    LEFT JOIN Orders o ON c.id = o.customer_id
-    WHERE o.status = 'completed' 
-       OR o.customer_id IS NULL</pre>`,
-    choices: [
-      "Только клиентов с завершенными заказами",
-      "Клиентов с завершенными заказами И клиентов без заказов", 
-      "Всех клиентов независимо от заказов",
-      "Только клиентов без заказов",
-      "Клиентов с незавершенными заказами"
-    ],
-    hint: "OR o.customer_id IS NULL включает клиентов без заказов",
-    answers: ["Клиентов с завершенными заказами И клиентов без заказов"]
-  },
-  {
-    id: "join010",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с HAVING", 
-    theme: "Фильтрация групп после JOIN",
-    text: `Таблицы: Departments(id,name), Employees(id,dept_id,salary).
-    Что найдет этот запрос?
-    <pre>SELECT d.name, COUNT(e.id) as emp_count
-    FROM Departments d
-    LEFT JOIN Employees e ON d.id = e.dept_id
-    GROUP BY d.id, d.name
-    HAVING COUNT(e.id) = 0 
-        OR AVG(e.salary) > 50000</pre>`,
-    choices: [
-      "Отделы без сотрудников И отделы со средней зарплатой > 50000",
-      "Только отделы без сотрудников", 
-      "Только отделы с высокой зарплатой",
-      "Все отделы с сотрудниками",
-      "Отделы с количеством сотрудников = 0"
-    ],
-    hint: "HAVING работает с результатами агрегации после GROUP BY",
-    answers: ["Отделы без сотрудников И отделы со средней зарплатой > 50000"]
-  },
-  {
-    id: "join011",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "RIGHT JOIN с IS NULL фильтром", 
-    theme: "Нахождение отсутствующих связей",
-    text: `Таблицы: Students(id,name), Enrollments(id,student_id,course_id).
-    Как найти курсы, на которые никто не записался?
-    <pre>SELECT c.name
-    FROM Enrollments e
-    RIGHT JOIN Courses c ON e.course_id = c.id
-    WHERE e.course_id IS NULL</pre>`,
-    choices: [
-      "Курсы без записей",
-      "Студентов без курсов", 
-      "Все курсы со записями",
-      "Курсы с максимальным количеством записей",
-      "Студентов записанных на все курсы"
-    ],
-    hint: "RIGHT JOIN сохраняет все курсы, WHERE фильтрует те, где нет записей",
-    answers: ["Курсы без записей"]
-  },
-  {
-    id: "join012",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с COALESCE", 
-    theme: "Обработка NULL значений",
-    text: `Что делает COALESCE в этом запросе?
-    <pre>SELECT u.name, COALESCE(SUM(o.amount), 0) as total_spent
-    FROM Users u
-    LEFT JOIN Orders o ON u.id = o.user_id
-    GROUP BY u.id, u.name</pre>`,
-    choices: [
-      "Заменяет NULL на 0 для пользователей без заказов",
-      "Фильтрует пользователей без заказов", 
-      "Суммирует только ненулевые заказы",
-      "Вычисляет среднее значение заказов",
-      "Группирует пользователей по категориям"
-    ],
-    hint: "COALESCE возвращает первый не-NULL аргумент",
-    answers: ["Заменяет NULL на 0 для пользователей без заказов"]
-  },
-  {
-    id: "join013",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Самостоятельный LEFT JOIN", 
-    theme: "Self JOIN с фильтрацией",
-    text: `Таблица Employees(id,name,manager_id). Как найти сотрудников без подчиненных?
-    <pre>SELECT e1.name
-    FROM Employees e1
-    LEFT JOIN Employees e2 ON e1.id = e2.manager_id
-    WHERE e2.manager_id IS NULL</pre>`,
-    choices: [
-      "Сотрудников без менеджеров",
-      "Сотрудников без подчиненных", 
-      "Всех менеджеров",
-      "Сотрудников с максимальным количеством подчиненных",
-      "Всех сотрудников независимо от иерархии"
-    ],
-    hint: "e2 - это потенциальные подчиненные, их отсутствие означает нет подчиненных",
-    answers: ["Сотрудников без подчиненных"]
-  },
-  {
-    id: "join014",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с LIMIT в подзапросе", 
-    theme: "JOIN с ограниченным подзапросом",
-    text: `Что делает этот запрос?
-    <pre>SELECT p.name, recent.price
-    FROM Products p
-    LEFT JOIN (
-        SELECT product_id, price 
-        FROM PriceHistory 
-        ORDER BY change_date DESC 
-        LIMIT 1
-    ) recent ON p.id = recent.product_id</pre>`,
-    choices: [
-      "Показывает все продукты с их последней ценой",
-      "Только продукты с историей цен", 
-      "Продукты без истории цен",
-      "Все цены из истории для каждого продукта",
-      "Среднюю цену для каждого продукта"
-    ],
-    hint: "Подзапрос возвращает последнюю запись из истории цен для каждого продукта",
-    answers: ["Показывает все продукты с их последней ценой"]
-  },
-  {
-    id: "join015",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Комбинирование LEFT и INNER JOIN", 
-    theme: "Смешанные типы JOIN",
-    text: `Таблицы: A(id), B(id,a_id), C(id,b_id). Что вернет запрос?
-    <pre>SELECT a.id, b.id, c.id
-    FROM A a
-    LEFT JOIN B b ON a.id = b.a_id
-    INNER JOIN C c ON b.id = c.b_id</pre>`,
-    choices: [
-      "Все строки из A с соответствующими B и C",
-      "Только строки где есть все три связи A-B-C", 
-      "Строки из A даже если нет B или C",
-      "Только строки где есть A и B, но C может отсутствовать",
-      "Все возможные комбинации A, B, C"
-    ],
-    hint: "INNER JOIN после LEFT JOIN фильтрует окончательный результат",
-    answers: ["Только строки где есть все три связи A-B-C"]
-  },
-
-    {
-    id: "join001",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "LEFT JOIN с фильтрацией",
-    theme: "LEFT JOIN и WHERE",
-    text: `Даны таблицы: Users (id, name) и Orders (id, user_id, amount). 
-    Какие пользователи будут выбраны этим запросом?
-    <pre>SELECT u.name 
-    FROM Users u 
-    LEFT JOIN Orders o ON u.id = o.user_id 
-    WHERE o.user_id IS NULL</pre>`,
-    choices: [
-      "Все пользователи с заказами",
-      "Только пользователи без заказов", 
-      "Все пользователи независимо от заказов",
-      "Только пользователи с самыми дорогими заказами",
-      "Запрос вернет ошибку"
-    ],
-    hint: "Фильтр WHERE o.user_id IS NULL ищет строки, где соединение не найдено",
-    answers: ["Только пользователи без заказов"]
-  },
-  {
-    id: "join002",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц", 
-    title: "RIGHT JOIN с условием",
-    theme: "RIGHT JOIN и фильтрация",
-    text: `Таблицы: Departments (id, name) и Employees (id, name, dept_id).
-    Что вернет этот запрос?
-    <pre>SELECT d.name, e.name 
-    FROM Employees e 
-    RIGHT JOIN Departments d ON e.dept_id = d.id 
-    WHERE e.id IS NOT NULL</pre>`,
-    choices: [
-      "Все отделы и всех сотрудников",
-      "Только отделы, в которых есть сотрудники",
-      "Всех сотрудников и их отделы", 
-      "Отделы без сотрудников",
-      "Только сотрудников без отделов"
-    ],
-    hint: "RIGHT JOIN возвращает все отделы, а WHERE фильтрует только те, где есть сотрудники",
-    answers: ["Только отделы, в которых есть сотрудники"]
-  },
-  {
-    id: "join003", 
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Множественная фильтрация JOIN",
-    theme: "LEFT JOIN с несколькими условиями",
-    text: `Таблицы: Products (id, name, price) и Categories (id, name).
-    Что делает этот запрос?
-    <pre>SELECT p.name, c.name 
-    FROM Products p 
-    LEFT JOIN Categories c ON p.category_id = c.id AND c.name = 'Электроника'
-    WHERE p.price > 1000</pre>`,
-    choices: [
-      "Все продукты дороже 1000 с категорией 'Электроника'",
-      "Все продукты дороже 1000, но категория показывается только если это 'Электроника'", 
-      "Только продукты категории 'Электроника' дороже 1000",
-      "Продукты без категории дороже 1000",
-      "Все продукты с категориями независимо от цены"
-    ],
-    hint: "Условие c.name = 'Электроника' в JOIN фильтрует соединение, но не строки продуктов",
-    answers: ["Все продукты дороже 1000, но категория показывается только если это 'Электроника'"]
-  },
-  {
-    id: "join004",
-    type: "multiplechoices", 
-    header: "Тест по соединению таблиц",
-    title: "Комбинирование LEFT и RIGHT JOIN",
-    theme: "Разница между LEFT и RIGHT JOIN",
-    text: `В чем основная разница между этими запросами?
-    <pre>1. SELECT * FROM A LEFT JOIN B ON A.id = B.a_id
-    2. SELECT * FROM B RIGHT JOIN A ON A.id = B.a_id</pre>`,
-    choices: [
-      "Первый быстрее второго",
-      "Они возвращают разные результаты", 
-      "Это идентичные запросы, возвращают одинаковые результаты",
-      "Первый использует индекс, второй - нет",
-      "Второй запрос синтаксически неверен"
-    ],
-    hint: "LEFT JOIN и RIGHT JOIN - зеркальные операции",
-    answers: ["Это идентичные запросы, возвращают одинаковые результаты"]
-  },
-  {
-    id: "join005",
-    type: "multiplechoices",
-    header: "Тест по соединению таблиц",
-    title: "Фильтрация до и после JOIN",
-    theme: "WHERE vs ON условия",
-    text: `Какая разница между этими запросами?
-    <pre>Запрос 1:
-    SELECT * FROM A 
-    LEFT JOIN B ON A.id = B.a_id AND B.status = 'active'
-    
-    Запрос 2:
-    SELECT * FROM A 
-    LEFT JOIN B ON A.id = B.a_id 
-    WHERE B.status = 'active' OR B.a_id IS NULL</pre>`,
-    choices: [
-        "Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи",
-        "Оба запроса возвращают одинаковый результат",
-        "Запрос 2 вернет ошибку из-за OR",
-        "Запрос 1 вернет только активные связи",
-        "Запрос 2 вернет все строки из A"
-    ],
-    hint: "<div class='alert alert-primary'><p>Условие в ON фильтрует соединение, но не строки левой таблицы. Условие в WHERE фильтрует итоговый результат.</p><p><a href='https://github.com/CODECRUNCHWORLDWIDE/C1-Code-Crunch-Convos/blob/main/curriculum/week-10-databases-sql/quiz.md' target='_blank' rel='noopener'>Разбор JOIN и WHERE</a></p></div>",
-    answers: ["Запрос 1 вернет все строки из A, Запрос 2 - только активные или без связи"]
-},
+   
 
    {
     "id": "git001",
@@ -5642,7 +6101,331 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
     ],
     "hint": "Команда из 5 букв, начинается с 'm' и заканчивается на 'e'",
     "answers": ["git merge"]
-  }
+  },
+
+  {
+  id: "agile001",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Три столпа эмпирического контроля",
+  theme: "Основы Scrum",
+  text: `На каких трёх столпах основан эмпирический контроль процессов в Scrum?
+  <pre>Выберите правильную комбинацию</pre>`,
+  choices: [
+    "Планирование, Исполнение, Контроль",
+    "Прозрачность, Инспекция, Адаптация",
+    "Коммуникация, Документация, Отчётность",
+    "Итерация, Инкремент, Релиз",
+    "Анализ, Проектирование, Реализация"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Теория Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum основан на <b>эмпирическом контроле процессов</b>: знание приходит из опыта, а решения принимаются на основе наблюдений.</p>
+    <p class="mb-0">Подробнее о принципах гибких методологий — в статье
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Три столпа</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Прозрачность</b> — все значимые аспекты процесса видны ответственным за результат, с общим пониманием стандартов (например, Definition of Done).</p>
+    <p class="mb-1"><b>Инспекция</b> — артефакты и прогресс к цели регулярно проверяются, но не настолько часто, чтобы мешать работе.</p>
+    <p class="mb-0"><b>Адаптация</b> — если проверка выявила отклонения, процесс или продукт корректируются как можно скорее.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Демонстрация на примере спринта</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Столп</th><th>Как проявляется в спринте</th></tr></thead>
+      <tbody>
+        <tr><td>Прозрачность</td><td>Доска задач видна всей команде, Definition of Done известен</td></tr>
+        <tr><td>Инспекция</td><td>Daily Scrum и Sprint Review проверяют прогресс</td></tr>
+        <tr><td>Адаптация</td><td>Ретроспектива меняет процесс, бэклог уточняется</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как это связано с событиями</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Четыре формальных события Scrum (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) существуют именно для инспекции и адаптации. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Прозрачность, Инспекция, Адаптация"]
+},
+{
+  id: "agile002",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Роль Scrum Master",
+  theme: "Роли Scrum",
+  text: `Какова основная роль Scrum Master в команде?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Управлять командой и распределять задачи",
+    "Быть слугой-лидером: убирать препятствия, фасилитировать события и коучить команду",
+    "Приоритизировать бэклог и определять ценность продукта",
+    "Писать код и тестировать функциональность",
+    "Вести переговоры с заказчиком и подписывать контракты"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три роли Scrum</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Роль</th><th>Ответственность</th></tr></thead>
+      <tbody>
+        <tr><td>Product Owner</td><td>Ценность продукта, приоритеты Product Backlog</td></tr>
+        <tr><td>Scrum Master</td><td>Процесс, устранение препятствий, коучинг</td></tr>
+        <tr><td>Developers</td><td>Создание Increment, самоорганизация</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Роли подробно разобраны в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает Scrum Master</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum Master — это <b>servant leader</b>, а не менеджер, раздающий задачи.</p>
+    <p class="mb-1">Он убирает препятствия (impediments), фасилитирует Scrum-события, коучит команду и организацию в понимании Scrum.</p>
+    <p class="mb-0">Он <b>не</b> приоритизирует бэклог (это делает Product Owner) и <b>не</b> управляет людьми директивно.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Демонстрация на примере</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Ситуация</th><th>Кто действует</th><th>Что делает</th></tr></thead>
+      <tbody>
+        <tr><td>Заказчик хочет срочно добавить фичу в спринт</td><td>Product Owner</td><td>Решает, менять ли приоритеты бэклога</td></tr>
+        <tr><td>Команда не может получить доступ к тестовому серверу</td><td>Scrum Master</td><td>Устраняет препятствие</td></tr>
+        <tr><td>Нужно реализовать валидацию адреса</td><td>Developers</td><td>Берут задачу из Sprint Backlog и выполняют</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">О различии ролей также в
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Быть слугой-лидером: убирать препятствия, фасилитировать события и коучить команду"]
+},
+{
+  id: "agile003",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "События Scrum",
+  theme: "События и таймбоксы",
+  text: `Какое из перечисленных событий <b>не</b> является формальным событием Scrum?
+  <pre>Выберите лишнее</pre>`,
+  choices: [
+    "Sprint Planning",
+    "Daily Scrum",
+    "Sprint Review",
+    "Sprint Retrospective",
+    "Еженедельный статус-митинг с руководством"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Пять событий Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum определяет ровно <b>пять</b> формальных событий, каждое с таймбоксом:</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Событие</th><th>Назначение</th><th>Таймбокс</th></tr></thead>
+      <tbody>
+        <tr><td>Sprint</td><td>Контейнер для остальных событий</td><td>1–4 недели</td></tr>
+        <tr><td>Sprint Planning</td><td>Планирование спринта</td><td>До 8 часов (для 4-нед.)</td></tr>
+        <tr><td>Daily Scrum</td><td>Ежедневная синхронизация</td><td>15 минут</td></tr>
+        <tr><td>Sprint Review</td><td>Инспекция Increment со стейкхолдерами</td><td>До 4 часов</td></tr>
+        <tr><td>Sprint Retrospective</td><td>Улучшение процесса команды</td><td>До 3 часов</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">События и их роль описаны в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что не входит в Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Любые дополнительные встречи (статус-митинги, отчёты руководству, комитеты) <b>не являются</b> событиями Scrum. Scrum стремится минимизировать встречи, не определённые фреймворком.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Зачем нужны события</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Каждое событие — формальная возможность для <b>инспекции и адаптации</b>. Пропуск события снижает прозрачность. Подробнее —
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Еженедельный статус-митинг с руководством"]
+},
+{
+  id: "agile004",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Product Backlog и Sprint Backlog",
+  theme: "Артефакты Scrum",
+  text: `В чём ключевое различие между Product Backlog и Sprint Backlog?
+  <pre>Выберите правильное утверждение</pre>`,
+  choices: [
+    "Product Backlog — список всех задач на спринт, Sprint Backlog — список задач на день",
+    "Product Backlog — упорядоченный список всего, что может понадобиться в продукте; Sprint Backlog — подмножество задач, выбранных на текущий спринт",
+    "Product Backlog принадлежит Scrum Master, Sprint Backlog — Product Owner",
+    "Оба бэклога создаются стейкхолдерами и не меняются в течение спринта",
+    "Sprint Backlog включает только баги, Product Backlog — только фичи"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три артефакта Scrum</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Артефакт</th><th>Что содержит</th><th>Владелец</th></tr></thead>
+      <tbody>
+        <tr><td>Product Backlog</td><td>Всё, что может понадобиться в продукте: фичи, улучшения, исправления</td><td>Product Owner</td></tr>
+        <tr><td>Sprint Backlog</td><td>Подмножество Product Backlog на текущий спринт + план достижения цели</td><td>Developers</td></tr>
+        <tr><td>Increment</td><td>Сумма выполненных элементов за спринт, соответствующая Definition of Done</td><td>Developers</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Определения артефактов — в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация на примере</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Product Backlog (фрагмент):</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>Приоритет</th><th>Элемент</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Валидация адреса</td></tr>
+        <tr><td>2</td><td>Понятная ошибка оплаты</td></tr>
+        <tr><td>3</td><td>Тест на мобильных</td></tr>
+        <tr><td>4</td><td>Тёмная тема оформления</td></tr>
+        <tr><td>5</td><td>Экспорт истории заказов</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Sprint Backlog (выбрано на спринт):</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Элемент</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td>Валидация адреса</td><td>В работе</td></tr>
+        <tr><td>Понятная ошибка оплаты</td><td>Готово</td></tr>
+        <tr><td>Тест на мобильных</td><td>Запланировано</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Ключевое отличие</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Product Backlog — <b>полный и постоянно evolving</b> список на уровне продукта. Sprint Backlog — <b>сфокусированный план на один спринт</b>, который команда обязуется выполнить. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Product Backlog — упорядоченный список всего, что может понадобиться в продукте; Sprint Backlog — подмножество задач, выбранных на текущий спринт"]
+},
+{
+  id: "agile005",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Scrum vs Kanban",
+  theme: "Сравнение фреймворков",
+  text: `Чем Kanban принципиально отличается от Scrum?
+  <pre>Выберите наиболее точное утверждение</pre>`,
+  choices: [
+    "Kanban использует спринты фиксированной длины, а Scrum — непрерывный поток",
+    "Kanban не предписывает ролей и спринтов, фокусируясь на визуализации потока и ограничении WIP",
+    "Kanban требует Product Owner и Scrum Master",
+    "Kanban не позволяет вносить изменения после начала работы",
+    "Kanban используется только в производстве, а Scrum — только в IT"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Сравнение Scrum и Kanban</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Критерий</th><th>Scrum</th><th>Kanban</th></tr></thead>
+      <tbody>
+        <tr><td>Структура</td><td>Жёсткая: роли, события, артефакты</td><td>Гибкая: нет обязательных ролей</td></tr>
+        <tr><td>Итерации</td><td>Фиксированные спринты</td><td>Непрерывный поток</td></tr>
+        <tr><td>Приоритизация</td><td>Product Owner в начале спринта</td><td>Можно менять в реальном времени</td></tr>
+        <tr><td>Изменения</td><td>Не приветствуются внутри спринта</td><td>Можно вносить в любой момент</td></tr>
+        <tr><td>Метрики</td><td>Velocity</td><td>Lead Time / Cycle Time</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Сравнительная таблица также в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация: доска Kanban с WIP-лимитами</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Запланировано</th><th>В работе (WIP=2)</th><th>Тестирование (WIP=1)</th><th>Готово</th></tr></thead>
+      <tbody>
+        <tr><td>Задача A</td><td>Задача B</td><td>Задача D</td><td>Задача F</td></tr>
+        <tr><td>Задача C</td><td>Задача E</td><td>—</td><td>Задача G</td></tr>
+        <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">WIP-лимит не даёт взять больше задач, чем команда может завершить. Если «В работе» заполнено, новая задача ждёт в «Запланировано».</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Когда что выбирать</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Scrum</b> — когда нужна предсказуемость и регулярность результатов, у проекта стабильный набор требований.</p>
+    <p class="mb-0"><b>Kanban</b> — когда работа состоит из потока неоднородных задач с разными приоритетами (поддержка, контент, эксплуатация). Подробнее —
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Kanban не предписывает ролей и спринтов, фокусируясь на визуализации потока и ограничении WIP"]
+},
+{
+  id: "agile006",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Ценности Scrum",
+  theme: "Ценности и поведение",
+  text: `Какие пять ценностей лежат в основе успешного применения Scrum?
+  <pre>Выберите правильную комбинацию</pre>`,
+  choices: [
+    "Скорость, Эффективность, Качество, Прибыль, Рост",
+    "Преданность делу, Смелость, Фокус, Открытость, Уважение",
+    "Планирование, Исполнение, Проверка, Действие, Рефлексия",
+    "Автономия, Мастерство, Цель, Смысл, Вовлечённость",
+    "Прозрачность, Инспекция, Адаптация, Доверие, Сотрудничество"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Пять ценностей Scrum</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Ценность</th><th>Что означает</th></tr></thead>
+      <tbody>
+        <tr><td>Commitment (Преданность делу)</td><td>Личная приверженность целям команды</td></tr>
+        <tr><td>Courage (Смелость)</td><td>Делать правильные вещи и работать со сложными проблемами</td></tr>
+        <tr><td>Focus (Фокус)</td><td>Концентрация на работе спринта и целях команды</td></tr>
+        <tr><td>Openness (Открытость)</td><td>Открытость к работе и вызовам между командой и стейкхолдерами</td></tr>
+        <tr><td>Respect (Уважение)</td><td>Уважение друг к другу как к способным, независимым людям</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">О ценностях и принципах Agile — в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Как ценности связаны со столпами</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Когда эти ценности живут в команде, <b>прозрачность, инспекция и адаптация</b> становятся реальностью, а не формальностью. Ценности создают доверие, без которого эмпирический контроль не работает.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Не путать</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Прозрачность, Инспекция и Адаптация — это <b>столпы</b> (pillars), а не ценности. Ценности — это поведенческие ориентиры для людей. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
+  </div>
+</div>`,
+  answers: ["Преданность делу, Смелость, Фокус, Открытость, Уважение"]
+}
 
 ];
 

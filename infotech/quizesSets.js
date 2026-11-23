@@ -4257,7 +4257,8 @@ b := 0
   <div class="card-header bg-primary text-white">Теория Scrum</div>
   <div class="card-body py-2">
     <p class="mb-1">Scrum основан на <b>эмпирическом контроле процессов</b>: знание приходит из опыта, а решения принимаются на основе наблюдений.</p>
-    <p class="mb-0">Эмпирический подход требует трёх опор, без которых он не работает.</p>
+    <p class="mb-0">Подробнее о принципах гибких методологий — в статье
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
@@ -4269,9 +4270,23 @@ b := 0
   </div>
 </div>
 <div class="card border-secondary mb-2">
-  <div class="card-header bg-secondary text-white">Как это связано с событиями</div>
+  <div class="card-header bg-secondary text-white">Демонстрация на примере спринта</div>
   <div class="card-body py-2">
-    <p class="mb-0">Четыре формальных события Scrum (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) существуют именно для инспекции и адаптации.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Столп</th><th>Как проявляется в спринте</th></tr></thead>
+      <tbody>
+        <tr><td>Прозрачность</td><td>Доска задач видна всей команде, Definition of Done известен</td></tr>
+        <tr><td>Инспекция</td><td>Daily Scrum и Sprint Review проверяют прогресс</td></tr>
+        <tr><td>Адаптация</td><td>Ретроспектива меняет процесс, бэклог уточняется</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как это связано с событиями</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Четыре формальных события Scrum (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) существуют именно для инспекции и адаптации. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Прозрачность, Инспекция, Адаптация"]
@@ -4294,9 +4309,16 @@ b := 0
   hint: `<div class="card border-primary mb-2">
   <div class="card-header bg-primary text-white">Три роли Scrum</div>
   <div class="card-body py-2">
-    <p class="mb-1"><b>Product Owner</b> — максимизирует ценность продукта, управляет Product Backlog и приоритетами.</p>
-    <p class="mb-1"><b>Scrum Master</b> — отвечает за создание среды, в которой команда может эффективно работать по Scrum.</p>
-    <p class="mb-0"><b>Development Team</b> — кросс-функциональные специалисты, создающие Increment.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Роль</th><th>Ответственность</th></tr></thead>
+      <tbody>
+        <tr><td>Product Owner</td><td>Ценность продукта, приоритеты Product Backlog</td></tr>
+        <tr><td>Scrum Master</td><td>Процесс, устранение препятствий, коучинг</td></tr>
+        <tr><td>Developers</td><td>Создание Increment, самоорганизация</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Роли подробно разобраны в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
@@ -4308,9 +4330,18 @@ b := 0
   </div>
 </div>
 <div class="card border-secondary mb-2">
-  <div class="card-header bg-secondary text-white">Ключевое отличие</div>
+  <div class="card-header bg-secondary text-white">Демонстрация на примере</div>
   <div class="card-body py-2">
-    <p class="mb-0">Scrum Master защищает фокус команды и создаёт условия для <b>самоорганизации</b>, а не командует.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Ситуация</th><th>Кто действует</th><th>Что делает</th></tr></thead>
+      <tbody>
+        <tr><td>Заказчик хочет срочно добавить фичу в спринт</td><td>Product Owner</td><td>Решает, менять ли приоритеты бэклога</td></tr>
+        <tr><td>Команда не может получить доступ к тестовому серверу</td><td>Scrum Master</td><td>Устраняет препятствие</td></tr>
+        <tr><td>Нужно реализовать валидацию адреса</td><td>Developers</td><td>Берут задачу из Sprint Backlog и выполняют</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">О различии ролей также в
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Быть слугой-лидером: убирать препятствия, фасилитировать события и коучить команду"]
@@ -4334,11 +4365,18 @@ b := 0
   <div class="card-header bg-primary text-white">Пять событий Scrum</div>
   <div class="card-body py-2">
     <p class="mb-1">Scrum определяет ровно <b>пять</b> формальных событий, каждое с таймбоксом:</p>
-    <p class="mb-1">1. <b>Sprint</b> — контейнер для остальных событий (1–4 недели).</p>
-    <p class="mb-1">2. <b>Sprint Planning</b> — планирование спринта.</p>
-    <p class="mb-1">3. <b>Daily Scrum</b> — ежедневная синхронизация (15 минут).</p>
-    <p class="mb-1">4. <b>Sprint Review</b> — инспекция Increment со стейкхолдерами.</p>
-    <p class="mb-0">5. <b>Sprint Retrospective</b> — улучшение процесса команды.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Событие</th><th>Назначение</th><th>Таймбокс</th></tr></thead>
+      <tbody>
+        <tr><td>Sprint</td><td>Контейнер для остальных событий</td><td>1–4 недели</td></tr>
+        <tr><td>Sprint Planning</td><td>Планирование спринта</td><td>До 8 часов (для 4-нед.)</td></tr>
+        <tr><td>Daily Scrum</td><td>Ежедневная синхронизация</td><td>15 минут</td></tr>
+        <tr><td>Sprint Review</td><td>Инспекция Increment со стейкхолдерами</td><td>До 4 часов</td></tr>
+        <tr><td>Sprint Retrospective</td><td>Улучшение процесса команды</td><td>До 3 часов</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">События и их роль описаны в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
@@ -4350,7 +4388,8 @@ b := 0
 <div class="card border-secondary mb-2">
   <div class="card-header bg-secondary text-white">Зачем нужны события</div>
   <div class="card-body py-2">
-    <p class="mb-0">Каждое событие — формальная возможность для <b>инспекции и адаптации</b>. Пропуск события снижает прозрачность.</p>
+    <p class="mb-0">Каждое событие — формальная возможность для <b>инспекции и адаптации</b>. Пропуск события снижает прозрачность. Подробнее —
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Еженедельный статус-митинг с руководством"]
@@ -4373,21 +4412,48 @@ b := 0
   hint: `<div class="card border-primary mb-2">
   <div class="card-header bg-primary text-white">Три артефакта Scrum</div>
   <div class="card-body py-2">
-    <p class="mb-1"><b>Product Backlog</b> — единый упорядоченный список всего, что может потребоваться в продукте: фичи, улучшения, исправления. Владелец — <b>Product Owner</b>.</p>
-    <p class="mb-1"><b>Sprint Backlog</b> — подмножество Product Backlog, выбранное командой на текущий спринт, плюс план по достижению Sprint Goal.</p>
-    <p class="mb-0"><b>Increment</b> — сумма всех выполненных элементов бэклога за спринт, соответствующая Definition of Done.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Артефакт</th><th>Что содержит</th><th>Владелец</th></tr></thead>
+      <tbody>
+        <tr><td>Product Backlog</td><td>Всё, что может понадобиться в продукте: фичи, улучшения, исправления</td><td>Product Owner</td></tr>
+        <tr><td>Sprint Backlog</td><td>Подмножество Product Backlog на текущий спринт + план достижения цели</td><td>Developers</td></tr>
+        <tr><td>Increment</td><td>Сумма выполненных элементов за спринт, соответствующая Definition of Done</td><td>Developers</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Определения артефактов — в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
-  <div class="card-header bg-success text-white">Ключевое отличие</div>
+  <div class="card-header bg-success text-white">Демонстрация на примере</div>
   <div class="card-body py-2">
-    <p class="mb-0">Product Backlog — <b>полный и постоянно evolving</b> список на уровне продукта. Sprint Backlog — <b>сфокусированный план на один спринт</b>, который команда обязуется выполнить.</p>
+    <p class="mb-1"><b>Product Backlog (фрагмент):</b></p>
+    <table class="table table-sm table-bordered mb-2">
+      <thead class="table-light"><tr><th>Приоритет</th><th>Элемент</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Валидация адреса</td></tr>
+        <tr><td>2</td><td>Понятная ошибка оплаты</td></tr>
+        <tr><td>3</td><td>Тест на мобильных</td></tr>
+        <tr><td>4</td><td>Тёмная тема оформления</td></tr>
+        <tr><td>5</td><td>Экспорт истории заказов</td></tr>
+      </tbody>
+    </table>
+    <p class="mb-1"><b>Sprint Backlog (выбрано на спринт):</b></p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Элемент</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td>Валидация адреса</td><td>В работе</td></tr>
+        <tr><td>Понятная ошибка оплаты</td><td>Готово</td></tr>
+        <tr><td>Тест на мобильных</td><td>Запланировано</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <div class="card border-secondary mb-2">
-  <div class="card-header bg-secondary text-white">Кто чем владеет</div>
+  <div class="card-header bg-secondary text-white">Ключевое отличие</div>
   <div class="card-body py-2">
-    <p class="mb-0">Product Owner отвечает за Product Backlog. Sprint Backlog принадлежит <b>Development Team</b> — команда сама решает, как достичь Sprint Goal.</p>
+    <p class="mb-0">Product Backlog — <b>полный и постоянно evolving</b> список на уровне продукта. Sprint Backlog — <b>сфокусированный план на один спринт</b>, который команда обязуется выполнить. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Product Backlog — упорядоченный список всего, что может понадобиться в продукте; Sprint Backlog — подмножество задач, выбранных на текущий спринт"]
@@ -4408,24 +4474,42 @@ b := 0
     "Kanban используется только в производстве, а Scrum — только в IT"
   ],
   hint: `<div class="card border-primary mb-2">
-  <div class="card-header bg-primary text-white">Scrum: итерации и роли</div>
+  <div class="card-header bg-primary text-white">Сравнение Scrum и Kanban</div>
   <div class="card-body py-2">
-    <p class="mb-1">Scrum организует работу <b>спринтами фиксированной длины</b> (1–4 недели).</p>
-    <p class="mb-0">Scrum предписывает <b>три роли</b> (Product Owner, Scrum Master, Developers), <b>три артефакта</b> и <b>пять событий</b>.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Критерий</th><th>Scrum</th><th>Kanban</th></tr></thead>
+      <tbody>
+        <tr><td>Структура</td><td>Жёсткая: роли, события, артефакты</td><td>Гибкая: нет обязательных ролей</td></tr>
+        <tr><td>Итерации</td><td>Фиксированные спринты</td><td>Непрерывный поток</td></tr>
+        <tr><td>Приоритизация</td><td>Product Owner в начале спринта</td><td>Можно менять в реальном времени</td></tr>
+        <tr><td>Изменения</td><td>Не приветствуются внутри спринта</td><td>Можно вносить в любой момент</td></tr>
+        <tr><td>Метрики</td><td>Velocity</td><td>Lead Time / Cycle Time</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Сравнительная таблица также в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
-  <div class="card-header bg-success text-white">Kanban: поток и WIP-лимиты</div>
+  <div class="card-header bg-success text-white">Демонстрация: доска Kanban с WIP-лимитами</div>
   <div class="card-body py-2">
-    <p class="mb-1">Kanban <b>не требует спринтов</b> и не предписывает ролей. Работа течёт непрерывно.</p>
-    <p class="mb-0">Ключевые практики: <b>визуализация потока</b> (доска) и <b>ограничение Work in Progress (WIP)</b> — не брать больше задач, чем команда может завершить.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Запланировано</th><th>В работе (WIP=2)</th><th>Тестирование (WIP=1)</th><th>Готово</th></tr></thead>
+      <tbody>
+        <tr><td>Задача A</td><td>Задача B</td><td>Задача D</td><td>Задача F</td></tr>
+        <tr><td>Задача C</td><td>Задача E</td><td>—</td><td>Задача G</td></tr>
+        <tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">WIP-лимит не даёт взять больше задач, чем команда может завершить. Если «В работе» заполнено, новая задача ждёт в «Запланировано».</p>
   </div>
 </div>
 <div class="card border-secondary mb-2">
   <div class="card-header bg-secondary text-white">Когда что выбирать</div>
   <div class="card-body py-2">
-    <p class="mb-1"><b>Scrum</b> лучше для продуктовой разработки с чёткими циклами и потребностью в регулярной обратной связи.</p>
-    <p class="mb-0"><b>Kanban</b> лучше для поддержки, эксплуатации и потока задач, поступающих непрерывно и непредсказуемо.</p>
+    <p class="mb-1"><b>Scrum</b> — когда нужна предсказуемость и регулярность результатов, у проекта стабильный набор требований.</p>
+    <p class="mb-0"><b>Kanban</b> — когда работа состоит из потока неоднородных задач с разными приоритетами (поддержка, контент, эксплуатация). Подробнее —
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Kanban не предписывает ролей и спринтов, фокусируясь на визуализации потока и ограничении WIP"]
@@ -4448,12 +4532,18 @@ b := 0
   hint: `<div class="card border-primary mb-2">
   <div class="card-header bg-primary text-white">Пять ценностей Scrum</div>
   <div class="card-body py-2">
-    <p class="mb-1">Scrum Guide определяет пять ценностей, которые команда должна воплощать в работе с ролями, событиями и артефактами:</p>
-    <p class="mb-1"><b>Commitment (Преданность делу)</b> — личная приверженность целям команды.</p>
-    <p class="mb-1"><b>Courage (Смелость)</b> — делать правильные вещи и работать со сложными проблемами.</p>
-    <p class="mb-1"><b>Focus (Фокус)</b> — концентрация на работе спринта и целях команды.</p>
-    <p class="mb-1"><b>Openness (Открытость)</b> — открытость к работе и вызовам между командой и стейкхолдерами.</p>
-    <p class="mb-0"><b>Respect (Уважение)</b> — уважение друг к другу как к способным, независимым людям.</p>
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Ценность</th><th>Что означает</th></tr></thead>
+      <tbody>
+        <tr><td>Commitment (Преданность делу)</td><td>Личная приверженность целям команды</td></tr>
+        <tr><td>Courage (Смелость)</td><td>Делать правильные вещи и работать со сложными проблемами</td></tr>
+        <tr><td>Focus (Фокус)</td><td>Концентрация на работе спринта и целях команды</td></tr>
+        <tr><td>Openness (Открытость)</td><td>Открытость к работе и вызовам между командой и стейкхолдерами</td></tr>
+        <tr><td>Respect (Уважение)</td><td>Уважение друг к другу как к способным, независимым людям</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">О ценностях и принципах Agile — в
+      <a href="https://workspace.vk.ru/blog/agile-scrum-kanban-gibkie-metodologii/" target="_blank" rel="noopener">VK WorkSpace: Agile, Scrum и Kanban простыми словами</a>.</p>
   </div>
 </div>
 <div class="card border-success mb-2">
@@ -4465,11 +4555,13 @@ b := 0
 <div class="card border-secondary mb-2">
   <div class="card-header bg-secondary text-white">Не путать</div>
   <div class="card-body py-2">
-    <p class="mb-0">Прозрачность, Инспекция и Адаптация — это <b>столпы</b> (pillars), а не ценности. Ценности — это поведенческие ориентиры для людей.</p>
+    <p class="mb-0">Прозрачность, Инспекция и Адаптация — это <b>столпы</b> (pillars), а не ценности. Ценности — это поведенческие ориентиры для людей. См. также
+      <a href="https://rb.ru/stories/agile-scrum-kanban/" target="_blank" rel="noopener">RB.ru: Agile, scrum, kanban — в чём разница</a>.</p>
   </div>
 </div>`,
   answers: ["Преданность делу, Смелость, Фокус, Открытость, Уважение"]
 },
+
 
 {
   id: "ai001",
@@ -4966,7 +5058,9 @@ b := 0
   </div>
 </div>`,
   answers: ["В ~/.cache/huggingface/"]
-}
+},
+
+
 
 ];
 
