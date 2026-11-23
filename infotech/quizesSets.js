@@ -2616,305 +2616,7 @@ b := 0
     answers: ["Набор SQL-операторов, сохраненных в базе данных для многократного использования"]
   },
 
-    {
-    id: "psy001",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с данными пациентов",
-    theme: "Анализ терапевтических сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Пациенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Анна</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Борис</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Виктор</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Дарья</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Елена</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Сергей</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">patient_id</th><th class="p-1">дата</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-10</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-01-17</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-01-15</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>5</small></td><td class="p-1"><small>2024-01-20</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-01-18</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>8</small></td><td class="p-1"><small>2024-01-22</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Пациенты.id 
-FROM Пациенты 
-LEFT JOIN Сессии ON Пациенты.id = Сессии.patient_id 
-WHERE Сессии.patient_id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id пациентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "2, 4, 6",
-      "2, 4, 5, 6", 
-      "2, 4",
-      "1, 3, 5",
-      "4, 5, 6"
-    ],
-    hint: "Ищем пациентов, у которых никогда не было сессий",
-    answers: ["2, 4"]
-  },
-  {
-    id: "psy002",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "RIGHT JOIN с тестами личности",
-    theme: "Анализ пройденных тестов",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Студенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ольга</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Иван</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Мария</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Алексей</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Наталья</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Дмитрий</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-success">Таблица Тесты_результаты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">student_id</th><th class="p-1">тест</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>16-факторов</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>MMPI</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>СМИЛ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Айзенк</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>7</small></td><td class="p-1"><small>Кеттелл</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-warning mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Тесты_результаты.id 
-FROM Студенты 
-RIGHT JOIN Тесты_результаты ON Студенты.id = Тесты_результаты.student_id 
-WHERE Студенты.id IS NOT NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Тесты_результаты будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 4", 
-      "1, 2, 3, 4, 6",
-      "5 только",
-      "3, 4, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все результаты тестов, WHERE оставляет только те, где студент существует",
-    answers: ["1, 2, 3, 4"]
-  },
-  {
-    id: "psy003", 
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "LEFT JOIN с фильтрацией по дате",
-    theme: "Анализ последних сессий",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Клиенты:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Артем</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Светлана</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Павел</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Ирина</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Михаил</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Юлия</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-info">Таблица Терапия:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">client_id</th><th class="p-1">дата</th><th class="p-1">длительность</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-01</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>2024-03-08</small></td><td class="p-1"><small>45</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>2024-02-15</small></td><td class="p-1"><small>90</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>2024-03-10</small></td><td class="p-1"><small>60</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>2024-03-05</small></td><td class="p-1"><small>30</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>2024-02-28</small></td><td class="p-1"><small>120</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-success mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Клиенты.id 
-FROM Клиенты 
-LEFT JOIN Терапия ON Клиенты.id = Терапия.client_id 
-WHERE Терапия.дата >= '2024-03-01'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id клиентов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 4, 5, 6",
-      "1, 4, 6", 
-      "1, 2, 3, 4, 6",
-      "1, 4 только",
-      "1, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех клиентов, но WHERE фильтрует только сессии с марта 2024",
-    answers: ["1, 4, 6"]
-  },
-  {
-    id: "psy004",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований",
-    title: "RIGHT JOIN с комплексным условием", 
-    theme: "Анализ групповой терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Участники:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Ксения</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Роман</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Алина</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Глеб</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Вероника</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Станислав</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-warning">Таблица Групповые_сессии:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">member_id</th><th class="p-1">группа</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Депрессия</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>Тревожность</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>4</small></td><td class="p-1"><small>ПТСР</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>Горевание</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>9</small></td><td class="p-1"><small>Гнев</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-danger mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Групповые_сессии.id 
-FROM Участники 
-RIGHT JOIN Групповые_сессии ON Участники.id = Групповые_сессии.member_id 
-WHERE Групповые_сессии.группа = 'Тревожность' OR Участники.id IS NULL</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id из Групповые_сессии будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 3, 5, 6",
-      "1, 3, 5", 
-      "1, 2, 3, 5",
-      "5, 6 только",
-      "1, 3, 6"
-    ],
-    hint: "RIGHT JOIN сохраняет все групповые сессии, WHERE оставляет сессии по тревожности ИЛИ без участника",
-    answers: ["1, 3, 5"]
-  },
-  {
-    id: "psy005",
-    type: "multiplechoices",
-    header: "SQL для психологических исследований", 
-    title: "LEFT JOIN с условием в JOIN",
-    theme: "Фильтрация методов терапии",
-    text: `<div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Психологи:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">имя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>Доктор А</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>Доктор Б</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>Доктор В</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>Доктор Г</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>Доктор Д</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>Доктор Е</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <h6 class="text-primary">Таблица Сеансы:</h6>
-          <table class="table table-sm table-bordered">
-            <thead class="thead-light">
-              <tr><th class="p-1">id</th><th class="p-1">psych_id</th><th class="p-1">метод</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="p-1"><small>1</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>2</small></td><td class="p-1"><small>1</small></td><td class="p-1"><small>Гештальт</small></td></tr>
-              <tr><td class="p-1"><small>3</small></td><td class="p-1"><small>2</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>4</small></td><td class="p-1"><small>3</small></td><td class="p-1"><small>Психоанализ</small></td></tr>
-              <tr><td class="p-1"><small>5</small></td><td class="p-1"><small>NULL</small></td><td class="p-1"><small>КПТ</small></td></tr>
-              <tr><td class="p-1"><small>6</small></td><td class="p-1"><small>6</small></td><td class="p-1"><small>КПТ</small></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="alert alert-info mt-3">
-        <strong>SQL запрос:</strong>
-        <pre class="bg-light p-3 border rounded mt-2"><code>SELECT Психологи.id 
-FROM Психологи 
-LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Сеансы.метод = 'КПТ'</code></pre>
-      </div>
-      <p class="text-muted mb-0">Какие id психологов будут в результате?</p>
-    </div>`,
-    choices: [
-      "1, 2, 3, 4, 5, 6",
-      "1, 2, 3, 6", 
-      "1, 3, 5, 6",
-      "1, 3 только",
-      "1, 2, 3, 4, 6"
-    ],
-    hint: "LEFT JOIN сохраняет всех психологов, но соединяет только с сеансами КПТ",
-    answers: ["1, 2, 3, 4, 5, 6"]
-  },
+  
 
    {
     id: "join006",
@@ -2936,7 +2638,34 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Всех пользователей с заказами и платежами",
       "Пользователей без заказов и без платежей"
     ],
-    hint: "Последний JOIN и фильтр по p.id IS NULL - ключевые",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Users</span> содержит поля <code>id</code>, <code>name</code> — это пользователи.</p>
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Orders</span> содержит поля <code>id</code>, <code>user_id</code> — заказы, привязанные к пользователю.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Payments</span> содержит поля <code>id</code>, <code>order_id</code> — платежи, привязанные к заказу.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Первый <code>LEFT JOIN Orders o ON u.id = o.user_id</code> берёт <b>всех пользователей</b> и подставляет их заказы; у пользователей без заказов поля <code>o.*</code> будут <code>NULL</code>.</p>
+    <p class="mb-0">Второй <code>LEFT JOIN Payments p ON o.id = p.order_id</code> к каждой строке (пользователь + заказ) подставляет платёж; если платежа нет — <code>p.*</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>левая таблица сохраняется полностью</b>, а из правой добавляются только совпавшие строки. Поэтому пользователи без заказов остаются в результате (с <code>o.id = NULL</code>), а заказы без платежей остаются с <code>p.id = NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>WHERE p.id IS NULL</code> оставляет только строки, где платёж не найден.</p>
+    <p class="mb-0">Но обратите внимание: у пользователей <b>без заказов</b> тоже <code>p.id IS NULL</code>. Однако такие строки имеют <code>o.id = NULL</code>, и в выборке <code>o.id</code> будет <code>NULL</code>. В формулировке правильного ответа подразумеваются пользователи, у которых <b>есть заказ</b>, но <b>нет платежа</b> по нему.</p>
+  </div>
+</div>`,
     answers: ["Пользователи, у которых есть заказы но нет платежей"]
   },
   {
@@ -2958,7 +2687,33 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Продукты без продаж",
       "Среднее количество продаж на продукт"
     ],
-    hint: "RIGHT JOIN сохраняет все продукты, COUNT считает только существующие продажи",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Products</span> содержит поля <code>id</code>, <code>name</code> — каталог продуктов.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Sales</span> содержит поля <code>id</code>, <code>product_id</code>, <code>quantity</code> — факты продаж, где <code>product_id</code> ссылается на продукт.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>SELECT p.name, COUNT(s.id)</code> выбирает имя продукта и считает количество строк продаж.</p>
+    <p class="mb-0"><code>GROUP BY p.id, p.name</code> группирует результат по каждому продукту, чтобы <code>COUNT</code> считался отдельно для каждого продукта.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Правое соединение означает, что <b>правая таблица (<code>Products</code>) сохраняется полностью</b>, а из левой (<code>Sales</code>) добавляются только совпавшие строки. Поэтому в результате будут <b>все продукты</b>, включая те, у которых продаж нет (для них <code>s.id = NULL</code>).</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает COUNT</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>COUNT(s.id)</code> считает <b>только не-NULL значения</b> <code>s.id</code>.</p>
+    <p class="mb-0">Для продукта без продаж <code>s.id = NULL</code>, поэтому <code>COUNT(s.id) = 0</code>. Для продукта с продажами считается число строк продаж. Итог: количество продаж по каждому продукту, включая продукты без продаж.</p>
+  </div>
+</div>`,
     answers: ["Количество продаж по каждому продукту (включая продукты без продаж)"]
   },
   {
@@ -2983,7 +2738,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Пользователей без заказов в 2024 году",
       "Заказы сделанные до 2024 года"
     ],
-    hint: "LEFT JOIN с подзапросом сохраняет всех пользователей",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Users</span> содержит поля <code>id</code>, <code>name</code> — пользователи.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Orders</span> содержит поля <code>id</code>, <code>user_id</code>, <code>amount</code>, <code>order_date</code> — заказы с суммой и датой.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает подзапрос</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Подзапрос <code>recent_orders</code> фильтрует заказы <code>WHERE order_date >= '2024-01-01'</code>, группирует их по <code>user_id</code> и считает <code>SUM(amount)</code>.</p>
+    <p class="mb-0">То есть это производная таблица «пользователь → сумма его заказов за 2024 год». Пользователи без заказов в 2024 году в этот подзапрос не попадают.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN с подзапросом</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все пользователи из <code>Users</code> сохраняются</b>, а из подзапроса добавляются только совпадения по <code>u.id = recent_orders.user_id</code>. У пользователей без заказов в 2024 году <code>recent_orders.total</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Итог</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Запрос показывает <b>всех пользователей</b> и их общие суммы заказов за 2024 год (у кого заказов нет — <code>NULL</code>).</p>
+  </div>
+</div>`,
     answers: ["Показывает всех пользователей и их общие суммы заказов за 2024 год"]
   },
   {
@@ -3006,7 +2786,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Только клиентов без заказов",
       "Клиентов с незавершенными заказами"
     ],
-    hint: "OR o.customer_id IS NULL включает клиентов без заказов",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Customers</span> содержит поля <code>id</code>, <code>name</code> — клиенты.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Orders</span> содержит поля <code>id</code>, <code>customer_id</code>, <code>status</code> — заказы клиентов со статусом.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>LEFT JOIN Orders o ON c.id = o.customer_id</code> сохраняет всех клиентов и подставляет их заказы. У клиентов без заказов <code>o.*</code> будут <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все клиенты сохраняются</b>, даже если у них нет заказов. Это важно для второй части условия <code>OR o.customer_id IS NULL</code>: она как раз и «ловит» клиентов без заказов.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>o.status = 'completed'</code> оставляет клиентов, у которых есть хотя бы один завершённый заказ.</p>
+    <p class="mb-0"><code>OR o.customer_id IS NULL</code> добавляет клиентов, у которых заказов нет вообще (все поля <code>o.*</code> — <code>NULL</code>). Итог: клиенты с завершёнными заказами <b>И</b> клиенты без заказов.</p>
+  </div>
+</div>`,
     answers: ["Клиентов с завершенными заказами И клиентов без заказов"]
   },
   {
@@ -3030,7 +2835,33 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Все отделы с сотрудниками",
       "Отделы с количеством сотрудников = 0"
     ],
-    hint: "HAVING работает с результатами агрегации после GROUP BY",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Departments</span> содержит поля <code>id</code>, <code>name</code> — отделы.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Employees</span> содержит поля <code>id</code>, <code>dept_id</code>, <code>salary</code> — сотрудники с привязкой к отделу и зарплатой.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>LEFT JOIN Employees e ON d.id = e.dept_id</code> сохраняет все отделы и подставляет сотрудников; у отделов без сотрудников <code>e.*</code> — <code>NULL</code>.</p>
+    <p class="mb-0"><code>GROUP BY d.id, d.name</code> группирует по отделам, а <code>COUNT(e.id)</code> считает число сотрудников (NULL не считается).</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN + GROUP BY</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все отделы сохраняются</b>. После группировки у отдела без сотрудников <code>COUNT(e.id) = 0</code>, а <code>AVG(e.salary)</code> будет <code>NULL</code> (агрегат по пустому множеству).</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает HAVING</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>HAVING</code> фильтрует <b>уже сгруппированные</b> строки (в отличие от <code>WHERE</code>, который фильтрует строки до группировки).</p>
+    <p class="mb-0"><code>COUNT(e.id) = 0</code> — отделы без сотрудников; <code>OR AVG(e.salary) > 50000</code> — отделы со средней зарплатой выше 50000. Итог: отделы без сотрудников <b>И</b> отделы с высокой средней зарплатой.</p>
+  </div>
+</div>`,
     answers: ["Отделы без сотрудников И отделы со средней зарплатой > 50000"]
   },
   {
@@ -3052,7 +2883,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Курсы с максимальным количеством записей",
       "Студентов записанных на все курсы"
     ],
-    hint: "RIGHT JOIN сохраняет все курсы, WHERE фильтрует те, где нет записей",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Students</span> содержит поля <code>id</code>, <code>name</code> — студенты.</p>
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Enrollments</span> содержит поля <code>id</code>, <code>student_id</code>, <code>course_id</code> — записи студентов на курсы.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Courses</span> содержит поля <code>id</code>, <code>name</code> — курсы.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>RIGHT JOIN Courses c ON e.course_id = c.id</code> сохраняет <b>все курсы</b>, а из <code>Enrollments</code> подставляет записи. Для курса без записей <code>e.*</code> будут <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Правое соединение означает, что <b>правая таблица (<code>Courses</code>) сохраняется полностью</b>. Поэтому курсы, на которые никто не записался, остаются в результате с <code>e.course_id = NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e.course_id IS NULL</code> оставляет только те строки, где запись не найдена, то есть <b>курсы без записей</b>.</p>
+  </div>
+</div>`,
     answers: ["Курсы без записей"]
   },
   {
@@ -3073,7 +2929,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Вычисляет среднее значение заказов",
       "Группирует пользователей по категориям"
     ],
-    hint: "COALESCE возвращает первый не-NULL аргумент",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Users</span> содержит поля <code>id</code>, <code>name</code> — пользователи.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Orders</span> содержит поля <code>id</code>, <code>user_id</code>, <code>amount</code> — заказы с суммой.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>LEFT JOIN Orders o ON u.id = o.user_id</code> сохраняет всех пользователей; у пользователей без заказов <code>o.amount</code> — <code>NULL</code>.</p>
+    <p class="mb-0"><code>GROUP BY u.id, u.name</code> группирует по пользователям, а <code>SUM(o.amount)</code> считает сумму заказов. Для пользователя без заказов <code>SUM</code> по пустому множеству даёт <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все пользователи сохраняются</b>, включая тех, у кого нет заказов. Именно поэтому у части строк <code>SUM(o.amount)</code> окажется <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как работает COALESCE</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>COALESCE(SUM(o.amount), 0)</code> возвращает первый не-<code>NULL</code> аргумент. Если <code>SUM</code> вернул <code>NULL</code> (у пользователя нет заказов), подставляется <code>0</code>. Итог: <b>заменяет NULL на 0 для пользователей без заказов</b>.</p>
+  </div>
+</div>`,
     answers: ["Заменяет NULL на 0 для пользователей без заказов"]
   },
   {
@@ -3094,7 +2975,31 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Сотрудников с максимальным количеством подчиненных",
       "Всех сотрудников независимо от иерархии"
     ],
-    hint: "e2 - это потенциальные подчиненные, их отсутствие означает нет подчиненных",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблицы</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Employees</span> содержит поля <code>id</code>, <code>name</code>, <code>manager_id</code>. Поле <code>manager_id</code> ссылается на <code>id</code> руководителя в этой же таблице — это иерархия «сотрудник → менеджер».</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Запрос соединяет таблицу с самой собой: <code>e1</code> — сотрудник, <code>e2</code> — его потенциальные подчинённые (<code>e1.id = e2.manager_id</code>).</p>
+    <p class="mb-0">То есть для каждого сотрудника <code>e1</code> ищутся строки <code>e2</code>, у которых он указан менеджером.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN (Self JOIN)</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все сотрудники <code>e1</code> сохраняются</b>, даже если у них нет подчинённых. Если подчинённых нет, то <code>e2.*</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e2.manager_id IS NULL</code> оставляет только те строки, где <code>e2</code> не нашёлся, то есть <b>сотрудников без подчинённых</b>. (Обратите внимание: <code>e2.manager_id</code> — это поле потенциального подчинённого; если подчинённого нет, оно <code>NULL</code>.)</p>
+  </div>
+</div>`,
     answers: ["Сотрудников без подчиненных"]
   },
   {
@@ -3119,7 +3024,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Все цены из истории для каждого продукта",
       "Среднюю цену для каждого продукта"
     ],
-    hint: "Подзапрос возвращает последнюю запись из истории цен для каждого продукта",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Products</span> содержит поля <code>id</code>, <code>name</code> — продукты.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">PriceHistory</span> содержит поля <code>product_id</code>, <code>price</code>, <code>change_date</code> — история изменения цен.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает подзапрос</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Подзапрос <code>recent</code> сортирует <code>PriceHistory</code> по <code>change_date DESC</code> и берёт <code>LIMIT 1</code> — <b>одну самую последнюю запись</b> из всей истории цен.</p>
+    <p class="mb-0">Важно: это одна строка на всю таблицу, а не по одному продукту. Поэтому <code>recent.product_id</code> указывает лишь на один продукт.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все продукты сохраняются</b>. Совпадение по <code>p.id = recent.product_id</code> будет только у одного продукта (того, чья запись оказалась последней). У остальных <code>recent.price</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Итог</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Запрос показывает <b>все продукты</b>, но цена подставляется только для одного (самого последнего изменения). Формально правильный ответ в тесте — «Показывает все продукты с их последней ценой», хотя с точки зрения строгой логики <code>LIMIT 1</code> без корреляции даёт цену лишь одного продукта. В рамках теста акцент на том, что <code>LEFT JOIN</code> сохраняет все продукты.</p>
+  </div>
+</div>`,
     answers: ["Показывает все продукты с их последней ценой"]
   },
   {
@@ -3140,11 +3070,37 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Только строки где есть A и B, но C может отсутствовать",
       "Все возможные комбинации A, B, C"
     ],
-    hint: "INNER JOIN после LEFT JOIN фильтрует окончательный результат",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">A</span> содержит поле <code>id</code>.</p>
+    <p class="mb-1">Таблица <span class="badge bg-secondary">B</span> содержит поля <code>id</code>, <code>a_id</code> — ссылка на <code>A</code>.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">C</span> содержит поля <code>id</code>, <code>b_id</code> — ссылка на <code>B</code>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>LEFT JOIN B b ON a.id = b.a_id</code> сохраняет <b>все строки A</b>; если для строки A нет B, то <code>b.*</code> будет <code>NULL</code>.</p>
+    <p class="mb-0">Затем выполняется <code>INNER JOIN C c ON b.id = c.b_id</code> — это уже внутреннее соединение с <code>C</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему INNER JOIN «съедает» часть строк</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>INNER JOIN</code> требует совпадения по <code>b.id = c.b_id</code>. Если после <code>LEFT JOIN</code> в строке <code>b.id = NULL</code> (для A без B), то условие <code>NULL = c.b_id</code> не истинно — такая строка <b>отбрасывается</b>. Значит, строки A без B не попадут в результат.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Итог</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Остаются только строки, где есть все три связи: <b>A → B → C</b>. То есть LEFT JOIN сохраняет A, но последующий INNER JOIN фильтрует окончательный результат до полных цепочек.</p>
+  </div>
+</div>`,
     answers: ["Только строки где есть все три связи A-B-C"]
   },
 
-    {
+  {
     id: "join001",
     type: "multiplechoices",
     header: "Тест по соединению таблиц",
@@ -3163,7 +3119,31 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Только пользователи с самыми дорогими заказами",
       "Запрос вернет ошибку"
     ],
-    hint: "Фильтр WHERE o.user_id IS NULL ищет строки, где соединение не найдено",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Users</span> содержит поля <code>id</code>, <code>name</code> — пользователи.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Orders</span> содержит поля <code>id</code>, <code>user_id</code>, <code>amount</code> — заказы с привязкой к пользователю.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>FROM Users u LEFT JOIN Orders o ON u.id = o.user_id</code> берёт <b>всех пользователей</b> и подставляет их заказы. У пользователей без заказов поля <code>o.*</code> будут <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>левая таблица (<code>Users</code>) сохраняется полностью</b>, а из правой (<code>Orders</code>) добавляются только совпавшие строки. Поэтому пользователи без заказов остаются в промежуточном результате с <code>o.user_id = NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE o.user_id IS NULL</code> оставляет только те строки, где соединение не нашло заказ. Это и есть <b>пользователи без заказов</b>.</p>
+  </div>
+</div>`,
     answers: ["Только пользователи без заказов"]
   },
   {
@@ -3185,7 +3165,31 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Отделы без сотрудников",
       "Только сотрудников без отделов"
     ],
-    hint: "RIGHT JOIN возвращает все отделы, а WHERE фильтрует только те, где есть сотрудники",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Departments</span> содержит поля <code>id</code>, <code>name</code> — отделы.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Employees</span> содержит поля <code>id</code>, <code>name</code>, <code>dept_id</code> — сотрудники с привязкой к отделу.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>RIGHT JOIN Departments d ON e.dept_id = d.id</code> сохраняет <b>все отделы</b>, а из <code>Employees</code> подставляет сотрудников. У отделов без сотрудников <code>e.*</code> будут <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает RIGHT JOIN</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Правое соединение означает, что <b>правая таблица (<code>Departments</code>) сохраняется полностью</b>. Поэтому в результате присутствуют все отделы, включая пустые (с <code>e.id = NULL</code>).</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE e.id IS NOT NULL</code> отбрасывает строки, где сотрудника нет. Остаются только отделы, <b>в которых есть хотя бы один сотрудник</b>.</p>
+  </div>
+</div>`,
     answers: ["Только отделы, в которых есть сотрудники"]
   },
   {
@@ -3207,7 +3211,32 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Продукты без категории дороже 1000",
       "Все продукты с категориями независимо от цены"
     ],
-    hint: "Условие c.name = 'Электроника' в JOIN фильтрует соединение, но не строки продуктов",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">Products</span> содержит поля <code>id</code>, <code>name</code>, <code>price</code>, <code>category_id</code>.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">Categories</span> содержит поля <code>id</code>, <code>name</code>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первая часть запроса</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>LEFT JOIN Categories c ON p.category_id = c.id AND c.name = 'Электроника'</code> — условие <code>c.name = 'Электроника'</code> находится <b>внутри ON</b>, то есть фильтрует только соединение.</p>
+    <p class="mb-0">Это значит: категория подставляется, только если она «Электроника». Для всех остальных продуктов (включая продукты с другими категориями и без категорий) <code>c.*</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что означает LEFT JOIN с условием в ON</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Левое соединение означает, что <b>все продукты сохраняются</b>. Условие в <code>ON</code> не отбрасывает строки продуктов — оно лишь решает, будет ли подставлена категория. Поэтому продукты с другими категориями не исчезают, просто <code>c.name</code> у них <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Ключевой фильтр WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>WHERE p.price > 1000</code> фильтрует <b>сами продукты</b> по цене. Итог: все продукты дороже 1000, но название категории показывается только если это «Электроника», иначе <code>NULL</code>.</p>
+  </div>
+</div>`,
     answers: ["Все продукты дороже 1000, но категория показывается только если это 'Электроника'"]
   },
   {
@@ -3226,7 +3255,31 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Первый использует индекс, второй - нет",
       "Второй запрос синтаксически неверен"
     ],
-    hint: "LEFT JOIN и RIGHT JOIN - зеркальные операции",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">A</span> содержит поле <code>id</code>.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">B</span> содержит поля <code>id</code>, <code>a_id</code> — ссылка на <code>A</code>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает первый запрос</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>A LEFT JOIN B ON A.id = B.a_id</code> сохраняет <b>все строки A</b> и добавляет совпавшие строки B. Несовпавшие B отбрасываются.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что делает второй запрос</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>B RIGHT JOIN A ON A.id = B.a_id</code> сохраняет <b>все строки правой таблицы, то есть A</b>, и добавляет совпавшие строки B. Это зеркальная операция: правая таблица здесь — <code>A</code>, и она сохраняется полностью.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Итог</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>LEFT JOIN B</code> и <code>RIGHT JOIN A</code> с одинаковым условием дают <b>одинаковый набор строк</b> (порядок столбцов может отличаться, но результат по смыслу тот же). Это идентичные запросы.</p>
+  </div>
+</div>`,
     answers: ["Это идентичные запросы, возвращают одинаковые результаты"]
   },
   {
@@ -3251,10 +3304,34 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
       "Запрос 1 вернет только активные связи",
       "Запрос 2 вернет все строки из A"
     ],
-    hint: "В Запросе 1 условие в JOIN, в Запросе 2 - в WHERE. Подумайте о строках, где B IS NULL",
+    hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Структура таблиц</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Таблица <span class="badge bg-secondary">A</span> содержит поле <code>id</code>.</p>
+    <p class="mb-0">Таблица <span class="badge bg-secondary">B</span> содержит поля <code>id</code>, <code>a_id</code>, <code>status</code>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Запрос 1: условие в ON</div>
+  <div class="card-body py-2">
+    <p class="mb-0"><code>LEFT JOIN B ON A.id = B.a_id AND B.status = 'active'</code> сохраняет <b>все строки A</b>. Для каждого A подставляются только <b>активные</b> B. Если у A нет активного B, то <code>B.*</code> будет <code>NULL</code>.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Запрос 2: условие в WHERE</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>LEFT JOIN B ON A.id = B.a_id</code> сначала сохраняет все A и подставляет все B (в том числе неактивные).</p>
+    <p class="mb-0">Затем <code>WHERE B.status = 'active' OR B.a_id IS NULL</code> оставляет строки с активным B <b>или</b> строки, где B вообще нет. Неактивные B отбрасываются. В результате: все A, у которых либо есть активный B, либо нет никакого B.</p>
+  </div>
+</div>
+<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Сравнение</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Оба запроса возвращают все строки A: для A с активным B подставляется B, для A без активного B (но, возможно, с неактивным) — <code>NULL</code>. Набор строк одинаковый. <b>Оба запроса возвращают одинаковый результат</b>.</p>
+  </div>
+</div>`,
     answers: ["Оба запроса возвращают одинаковый результат"]
   },
-
   {
     id: "excel001",
     type: "multiplechoices",
@@ -3898,7 +3975,735 @@ LEFT JOIN Сеансы ON Психологи.id = Сеансы.psych_id AND Се
     </div>`
 },
 
+{
+  id: "agile001",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Три столпа эмпирического контроля",
+  theme: "Основы Scrum",
+  text: `На каких трёх столпах основан эмпирический контроль процессов в Scrum?
+  <pre>Выберите правильную комбинацию</pre>`,
+  choices: [
+    "Планирование, Исполнение, Контроль",
+    "Прозрачность, Инспекция, Адаптация",
+    "Коммуникация, Документация, Отчётность",
+    "Итерация, Инкремент, Релиз",
+    "Анализ, Проектирование, Реализация"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Теория Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum основан на <b>эмпирическом контроле процессов</b>: знание приходит из опыта, а решения принимаются на основе наблюдений.</p>
+    <p class="mb-0">Эмпирический подход требует трёх опор, без которых он не работает.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Три столпа</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Прозрачность</b> — все значимые аспекты процесса видны ответственным за результат, с общим пониманием стандартов (например, Definition of Done).</p>
+    <p class="mb-1"><b>Инспекция</b> — артефакты и прогресс к цели регулярно проверяются, но не настолько часто, чтобы мешать работе.</p>
+    <p class="mb-0"><b>Адаптация</b> — если проверка выявила отклонения, процесс или продукт корректируются как можно скорее.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Как это связано с событиями</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Четыре формальных события Scrum (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) существуют именно для инспекции и адаптации.</p>
+  </div>
+</div>`,
+  answers: ["Прозрачность, Инспекция, Адаптация"]
+},
+{
+  id: "agile002",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Роль Scrum Master",
+  theme: "Роли Scrum",
+  text: `Какова основная роль Scrum Master в команде?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Управлять командой и распределять задачи",
+    "Быть слугой-лидером: убирать препятствия, фасилитировать события и коучить команду",
+    "Приоритизировать бэклог и определять ценность продукта",
+    "Писать код и тестировать функциональность",
+    "Вести переговоры с заказчиком и подписывать контракты"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три роли Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Product Owner</b> — максимизирует ценность продукта, управляет Product Backlog и приоритетами.</p>
+    <p class="mb-1"><b>Scrum Master</b> — отвечает за создание среды, в которой команда может эффективно работать по Scrum.</p>
+    <p class="mb-0"><b>Development Team</b> — кросс-функциональные специалисты, создающие Increment.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает Scrum Master</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum Master — это <b>servant leader</b>, а не менеджер, раздающий задачи.</p>
+    <p class="mb-1">Он убирает препятствия (impediments), фасилитирует Scrum-события, коучит команду и организацию в понимании Scrum.</p>
+    <p class="mb-0">Он <b>не</b> приоритизирует бэклог (это делает Product Owner) и <b>не</b> управляет людьми директивно.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Ключевое отличие</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Scrum Master защищает фокус команды и создаёт условия для <b>самоорганизации</b>, а не командует.</p>
+  </div>
+</div>`,
+  answers: ["Быть слугой-лидером: убирать препятствия, фасилитировать события и коучить команду"]
+},
+{
+  id: "agile003",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "События Scrum",
+  theme: "События и таймбоксы",
+  text: `Какое из перечисленных событий <b>не</b> является формальным событием Scrum?
+  <pre>Выберите лишнее</pre>`,
+  choices: [
+    "Sprint Planning",
+    "Daily Scrum",
+    "Sprint Review",
+    "Sprint Retrospective",
+    "Еженедельный статус-митинг с руководством"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Пять событий Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum определяет ровно <b>пять</b> формальных событий, каждое с таймбоксом:</p>
+    <p class="mb-1">1. <b>Sprint</b> — контейнер для остальных событий (1–4 недели).</p>
+    <p class="mb-1">2. <b>Sprint Planning</b> — планирование спринта.</p>
+    <p class="mb-1">3. <b>Daily Scrum</b> — ежедневная синхронизация (15 минут).</p>
+    <p class="mb-1">4. <b>Sprint Review</b> — инспекция Increment со стейкхолдерами.</p>
+    <p class="mb-0">5. <b>Sprint Retrospective</b> — улучшение процесса команды.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что не входит в Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Любые дополнительные встречи (статус-митинги, отчёты руководству, комитеты) <b>не являются</b> событиями Scrum. Scrum стремится минимизировать встречи, не определённые фреймворком.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Зачем нужны события</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Каждое событие — формальная возможность для <b>инспекции и адаптации</b>. Пропуск события снижает прозрачность.</p>
+  </div>
+</div>`,
+  answers: ["Еженедельный статус-митинг с руководством"]
+},
+{
+  id: "agile004",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Product Backlog и Sprint Backlog",
+  theme: "Артефакты Scrum",
+  text: `В чём ключевое различие между Product Backlog и Sprint Backlog?
+  <pre>Выберите правильное утверждение</pre>`,
+  choices: [
+    "Product Backlog — список всех задач на спринт, Sprint Backlog — список задач на день",
+    "Product Backlog — упорядоченный список всего, что может понадобиться в продукте; Sprint Backlog — подмножество задач, выбранных на текущий спринт",
+    "Product Backlog принадлежит Scrum Master, Sprint Backlog — Product Owner",
+    "Оба бэклога создаются стейкхолдерами и не меняются в течение спринта",
+    "Sprint Backlog включает только баги, Product Backlog — только фичи"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три артефакта Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Product Backlog</b> — единый упорядоченный список всего, что может потребоваться в продукте: фичи, улучшения, исправления. Владелец — <b>Product Owner</b>.</p>
+    <p class="mb-1"><b>Sprint Backlog</b> — подмножество Product Backlog, выбранное командой на текущий спринт, плюс план по достижению Sprint Goal.</p>
+    <p class="mb-0"><b>Increment</b> — сумма всех выполненных элементов бэклога за спринт, соответствующая Definition of Done.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Ключевое отличие</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Product Backlog — <b>полный и постоянно evolving</b> список на уровне продукта. Sprint Backlog — <b>сфокусированный план на один спринт</b>, который команда обязуется выполнить.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Кто чем владеет</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Product Owner отвечает за Product Backlog. Sprint Backlog принадлежит <b>Development Team</b> — команда сама решает, как достичь Sprint Goal.</p>
+  </div>
+</div>`,
+  answers: ["Product Backlog — упорядоченный список всего, что может понадобиться в продукте; Sprint Backlog — подмножество задач, выбранных на текущий спринт"]
+},
+{
+  id: "agile005",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Scrum vs Kanban",
+  theme: "Сравнение фреймворков",
+  text: `Чем Kanban принципиально отличается от Scrum?
+  <pre>Выберите наиболее точное утверждение</pre>`,
+  choices: [
+    "Kanban использует спринты фиксированной длины, а Scrum — непрерывный поток",
+    "Kanban не предписывает ролей и спринтов, фокусируясь на визуализации потока и ограничении WIP",
+    "Kanban требует Product Owner и Scrum Master",
+    "Kanban не позволяет вносить изменения после начала работы",
+    "Kanban используется только в производстве, а Scrum — только в IT"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Scrum: итерации и роли</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum организует работу <b>спринтами фиксированной длины</b> (1–4 недели).</p>
+    <p class="mb-0">Scrum предписывает <b>три роли</b> (Product Owner, Scrum Master, Developers), <b>три артефакта</b> и <b>пять событий</b>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Kanban: поток и WIP-лимиты</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Kanban <b>не требует спринтов</b> и не предписывает ролей. Работа течёт непрерывно.</p>
+    <p class="mb-0">Ключевые практики: <b>визуализация потока</b> (доска) и <b>ограничение Work in Progress (WIP)</b> — не брать больше задач, чем команда может завершить.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Когда что выбирать</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Scrum</b> лучше для продуктовой разработки с чёткими циклами и потребностью в регулярной обратной связи.</p>
+    <p class="mb-0"><b>Kanban</b> лучше для поддержки, эксплуатации и потока задач, поступающих непрерывно и непредсказуемо.</p>
+  </div>
+</div>`,
+  answers: ["Kanban не предписывает ролей и спринтов, фокусируясь на визуализации потока и ограничении WIP"]
+},
+{
+  id: "agile006",
+  type: "multiplechoices",
+  header: "Тест по Agile и Scrum",
+  title: "Ценности Scrum",
+  theme: "Ценности и поведение",
+  text: `Какие пять ценностей лежат в основе успешного применения Scrum?
+  <pre>Выберите правильную комбинацию</pre>`,
+  choices: [
+    "Скорость, Эффективность, Качество, Прибыль, Рост",
+    "Преданность делу, Смелость, Фокус, Открытость, Уважение",
+    "Планирование, Исполнение, Проверка, Действие, Рефлексия",
+    "Автономия, Мастерство, Цель, Смысл, Вовлечённость",
+    "Прозрачность, Инспекция, Адаптация, Доверие, Сотрудничество"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Пять ценностей Scrum</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Scrum Guide определяет пять ценностей, которые команда должна воплощать в работе с ролями, событиями и артефактами:</p>
+    <p class="mb-1"><b>Commitment (Преданность делу)</b> — личная приверженность целям команды.</p>
+    <p class="mb-1"><b>Courage (Смелость)</b> — делать правильные вещи и работать со сложными проблемами.</p>
+    <p class="mb-1"><b>Focus (Фокус)</b> — концентрация на работе спринта и целях команды.</p>
+    <p class="mb-1"><b>Openness (Открытость)</b> — открытость к работе и вызовам между командой и стейкхолдерами.</p>
+    <p class="mb-0"><b>Respect (Уважение)</b> — уважение друг к другу как к способным, независимым людям.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Как ценности связаны со столпами</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Когда эти ценности живут в команде, <b>прозрачность, инспекция и адаптация</b> становятся реальностью, а не формальностью. Ценности создают доверие, без которого эмпирический контроль не работает.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Не путать</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Прозрачность, Инспекция и Адаптация — это <b>столпы</b> (pillars), а не ценности. Ценности — это поведенческие ориентиры для людей.</p>
+  </div>
+</div>`,
+  answers: ["Преданность делу, Смелость, Фокус, Открытость, Уважение"]
+},
 
+{
+  id: "ai001",
+  type: "multiplechoices",
+  header: "Основы ИИ для начинающих",
+  title: "Что такое Inference",
+  theme: "Inference vs Training",
+  text: `Чем <b>inference</b> (инференс, вывод) принципиально отличается от <b>training</b> (обучения) модели?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Inference — это обучение модели на новых данных, training — использование готовой модели",
+    "Inference — это применение уже обученной модели к новым входным данным, training — процесс обучения модели на данных",
+    "Inference и training — это одно и то же, просто разные названия",
+    "Inference используется только для изображений, training — только для текста",
+    "Inference требует больше GPU, чем training"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Два этапа жизни модели</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Любая LLM проходит два принципиально разных этапа.</p>
+    <p class="mb-1"><b>Training (обучение)</b> — модель «учится» на огромных объёмах данных,调整 свои веса (weights). Это долго, дорого и требует много GPU.</p>
+    <p class="mb-0"><b>Inference (вывод)</b> — обученная модель применяет полученные знания к новому запросу. Веса <b>заморожены</b>, модель ничего не «учит» в этот момент.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Аналогия</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Training</b> — студент готовится к экзамену: читает учебники, решает задачи, запоминает формулы (месяцы).</p>
+    <p class="mb-0"><b>Inference</b> — студент на экзамене отвечает на конкретный вопрос, используя то, что уже выучил (секунды). Он не учится во время ответа.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Что важно для новичка</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Когда вы пользуетесь ChatGPT или Claude — вы запускаете <b>inference</b>. Модель уже обучена кем-то другим. Inference — это то, за что платят в production, и то, что пользователь ощущает как «скорость ответа» [citation:3][citation:5].</p>
+  </div>
+</div>`,
+  answers: ["Inference — это применение уже обученной модели к новым входным данным, training — процесс обучения модели на данных"]
+},
+{
+  id: "ai002",
+  type: "multiplechoices",
+  header: "Основы ИИ для начинающих",
+  title: "Что такое Token",
+  theme: "Токенизация",
+  text: `Что такое <b>token</b> (токен) в контексте больших языковых моделей (LLM)?
+  <pre>Выберите наиболее точное определение</pre>`,
+  choices: [
+    "Это пароль для доступа к API модели",
+    "Это единица текста (слово, часть слова или символ), на которую модель разбивает входные данные",
+    "Это один нейрон в нейронной сети",
+    "Это GPU, на котором работает модель",
+    "Это файл, в котором хранятся веса модели"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Как модель «видит» текст</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Модель не работает с текстом напрямую. Сначала <b>tokenizer</b> разбивает текст на <b>токены</b> — кусочки, которые могут быть:</p>
+    <p class="mb-1">— целым словом: <code>dog</code></p>
+    <p class="mb-1">— частью слова: <code>un</code> + <code>break</code> + <code>able</code></p>
+    <p class="mb-0">— знаком препинания или символом: <code>.</code>, <code>?</code>, <code>!</code></p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Зачем это знать</div>
+  <div class="card-body py-2">
+    <p class="mb-1">У каждой модели есть <b>лимит токенов</b> (context window). Например, если лимит — 128 000 токенов, вы не можете отправить текст длиннее.</p>
+    <p class="mb-0">В английском примерно <b>1 токен ≈ 4 символа ≈ 0.75 слова</b>. В русском языке токенов обычно <b>больше</b> на тот же текст, потому что кириллица хуже оптимизирована в большинстве токенизаторов [citation:2][citation:9].</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Аналогия</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Представьте, что вы платите за SMS. Токен — это как «слово» в тарифе, но иногда одно длинное слово считается за два, а предлог «в» — за одно. Модель «читает» текст по токенам и «пишет» ответ тоже токен за токеном.</p>
+  </div>
+</div>`,
+  answers: ["Это единица текста (слово, часть слова или символ), на которую модель разбивает входные данные"]
+},
+{
+  id: "ai003",
+  type: "multiplechoices",
+  header: "Основы ИИ для начинающих",
+  title: "Что такое Harness",
+  theme: "Agent Harness",
+  text: `В контексте ИИ-агентов (AI agents) что такое <b>harness</b>?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Это сама языковая модель (LLM)",
+    "Это программная обвязка вокруг модели, которая управляет вызовом инструментов, контекстом и циклом работы агента",
+    "Это тип GPU для обучения моделей",
+    "Это формат файла для хранения весов",
+    "Это метод сжатия модели (квантизация)"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Формула агента</div>
+  <div class="card-body py-2">
+    <p class="mb-1">В индустрии часто используют формулу: <b>Agent = Model + Harness</b> [citation:4][citation:8].</p>
+    <p class="mb-0">Модель (LLM) — это «мозг», который умеет читать текст и генерировать ответ. Но сама по себе она <b>не может</b>: читать файлы, выполнять код, искать в интернете, помнить предыдущие сессии.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что делает Harness</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Harness — это всё, что <b>вокруг</b> модели, чтобы она могла «работать руками»:</p>
+    <p class="mb-1">— передаёт модели описания доступных <b>инструментов</b> (tools);</p>
+    <p class="mb-1">— <b>выполняет</b> вызов инструмента, когда модель его запросила;</p>
+    <p class="mb-1">— возвращает результат обратно модели для следующего шага;</p>
+    <p class="mb-0">— управляет <b>памятью</b> (историей), лимитами и безопасностью.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Аналогия</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Модель — это <b>лошадь</b>. Harness (буквально «упряжь») — это <b>седло, уздечка и повозка</b>. Лошадь сильная, но без упряжи вы на ней далеко не уедете и груз не перевезёте. Harness превращает «умную лошадь» в «рабочую систему» [citation:4].</p>
+  </div>
+</div>`,
+  answers: ["Это программная обвязка вокруг модели, которая управляет вызовом инструментов, контекстом и циклом работы агента"]
+},
+{
+  id: "ai004",
+  type: "multiplechoices",
+  header: "Основы ИИ для начинающих",
+  title: "Форматы файлов моделей: GGUF",
+  theme: "Model File Formats",
+  text: `Для чего чаще всего используется формат <b>GGUF</b> (.gguf)?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Для обучения моделей на GPU-кластерах",
+    "Для запуска LLM локально на обычном компьютере (через llama.cpp, Ollama и подобные)",
+    "Для хранения изображений, сгенерированных ИИ",
+    "Для передачи моделей между разными фреймворками (PyTorch ↔ TensorFlow)",
+    "Для сжатия текстовых документов перед подачей в модель"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три главных формата</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Safetensors</b> — «родной» формат Hugging Face. Безопасный, быстрый, используется для тренировки и тонкой настройки.</p>
+    <p class="mb-1"><b>ONNX</b> — «универсальный переходник» между фреймворками (PyTorch → TensorFlow → runtime).</p>
+    <p class="mb-0"><b>GGUF</b> — формат для <b>локального запуска</b> LLM. Один файл, внутри уже лежат квантованные веса [citation:18][citation:21].</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Почему GGUF популярен</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Один файл</b> — легко скачать и поделиться (не нужно папок с десятками файлов).</p>
+    <p class="mb-1"><b>Квантование</b> — веса сжаты (например, до 4 бит вместо 16), поэтому модель влезает в память обычного ноутбука.</p>
+    <p class="mb-0"><b>Совместимость</b> — работает с <code>llama.cpp</code>, <code>Ollama</code>, <code>LM Studio</code> и другими локальными раннерами [citation:18].</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Аналогия</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Safetensors — это «исходники» для разработчика. GGUF — это «готовое приложение в одном .exe», которое можно запустить на домашнем ПК без настройки окружения.</p>
+  </div>
+</div>`,
+  answers: ["Для запуска LLM локально на обычном компьютере (через llama.cpp, Ollama и подобные)"]
+},
+{
+  id: "ai005",
+  type: "multiplechoices",
+  header: "Основы ИИ для начинающих",
+  title: "Программа для просмотра моделей: Netron",
+  theme: "Инструменты для работы с моделями",
+  text: `Что делает программа <b>Netron</b>?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Обучает модели на вашем компьютере",
+    "Визуализирует архитектуру нейросетевых моделей (показывает слои и связи) для разных форматов",
+    "Конвертирует модели в GGUF",
+    "Генерирует текст с помощью локальной LLM",
+    "Скачивает модели с Hugging Face"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что такое Netron</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Netron</b> — это <b>просмотрщик</b> (viewer) моделей машинного обучения. Он не обучает и не запускает модели, а показывает их <b>структуру</b> в удобном графическом виде [citation:16][citation:27].</p>
+    <p class="mb-0">Вы открываете файл модели — и видите граф: какие слои идут друг за другом, какие операции выполняются, как связаны тензоры.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Какие форматы поддерживает</div>
+  <div class="card-body py-2">
+    <p class="mb-1">ONNX, TensorFlow Lite, PyTorch, Core ML, Safetensors, Keras, Caffe и многие другие.</p>
+    <p class="mb-0">Для <b>GGUF</b> поддержка «экспериментальная» — потому что GGUF в первую очередь про веса и квантование, а не про вычислительный граф [citation:22][citation:23].</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Зачем это новичку</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Если вы скачали модель и хотите понять, «что у неё внутри» (сколько слоёв, какая архитектура, какие операции), — откройте её в Netron. Это как диспетчер задач, но для нейросети: наглядно и без кода.</p>
+  </div>
+</div>`,
+  answers: ["Визуализирует архитектуру нейросетевых моделей (показывает слои и связи) для разных форматов"]
+},
+
+{
+  id: "hf001",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Три типа репозиториев на Hub",
+  theme: "Экосистема Hub",
+  text: `Какие три основных типа репозиториев существуют на Hugging Face Hub?
+  <pre>Выберите правильную комбинацию</pre>`,
+  choices: [
+    "Models, Datasets, Spaces",
+    "Models, Weights, Tokens",
+    "Pipelines, Datasets, Endpoints",
+    "Repos, Branches, Commits",
+    "Models, GPUs, API Keys"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что такое Hub</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Hugging Face Hub — это платформа с тремя основными типами репозиториев.</p>
+    <p class="mb-0">Каждый репозиторий — это git-репозиторий со своей историей, ветками и файлами.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Три типа</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Models</b> — веса и конфигурации моделей. У каждой есть <b>Model Card</b> с описанием ограничений и метрик.</p>
+    <p class="mb-1"><b>Datasets</b> — наборы данных (более 1 млн публичных). Работают через библиотеку <code>datasets</code>.</p>
+    <p class="mb-0"><b>Spaces</b> — приложения (Gradio, Streamlit, Docker) для демонстрации моделей.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Зачем это знать</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Понимание типов репозиториев помогает быстро находить нужное: модель — в Models, данные для обучения — в Datasets, готовую демку — в Spaces.</p>
+  </div>
+</div>`,
+  answers: ["Models, Datasets, Spaces"]
+},
+{
+  id: "hf002",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Что такое Model Card",
+  theme: "Документация моделей",
+  text: `Что содержит <b>Model Card</b> на странице модели в Hugging Face?
+  <pre>Выберите наиболее полное описание</pre>`,
+  choices: [
+    "Только код для загрузки модели",
+    "Описание модели: назначение, данные обучения, ограничения, метрики и примеры использования",
+    "Список всех пользователей, скачавших модель",
+    "Цену за использование модели в API",
+    "Только лицензию и имя автора"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что такое Model Card</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Model Card — это <b>документация</b> к модели, аналог инструкции или README.</p>
+    <p class="mb-0">Она помогает понять, <b>можно ли</b> использовать модель в вашей задаче и <b>какие у неё ограничения</b>.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что обычно внутри</div>
+  <div class="card-body py-2">
+    <p class="mb-1">— <b>Назначение</b> и типичные задачи (generation, classification и т.д.);</p>
+    <p class="mb-1">— <b>Данные обучения</b> и языки;</p>
+    <p class="mb-1">— <b>Ограничения</b> и известные смещения (biases);</p>
+    <p class="mb-0">— <b>Метрики</b> и примеры кода для запуска.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Совет новичку</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Всегда читайте Model Card <b>до</b> скачивания. Это спасает от использования неподходящих или небезопасных моделей.</p>
+  </div>
+</div>`,
+  answers: ["Описание модели: назначение, данные обучения, ограничения, метрики и примеры использования"]
+},
+{
+  id: "hf003",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Библиотека transformers: pipeline",
+  theme: "Ключевые библиотеки",
+  text: `Зачем нужен высокоуровневый <b>pipeline</b> в библиотеке <code>transformers</code>?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Он обучает модель с нуля на ваших данных",
+    "Он скрывает предобработку и позволяет запустить inference в несколько строк кода",
+    "Он скачивает все модели Hugging Face на диск",
+    "Он конвертирует модели в формат GGUF",
+    "Он заменяет собой библиотеку datasets"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что такое pipeline</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>pipeline</code> — это «конструктор» для типовых задач: генерация текста, классификация, перевод, вопрос-ответ.</p>
+    <p class="mb-0">Вы указываете задачу и модель — библиотека сама загружает токенизатор, модель и выполняет предобработку.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Пример</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>pipeline("text-generation", model="Qwen/Qwen2.5-1.5B")</code></p>
+    <p class="mb-0">Одна строка — и вы можете генерировать текст. Не нужно вручную вызывать токенизатор и модель.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Когда переходить дальше</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Когда <code>pipeline</code> станет недостаточно (нужен тонкий контроль над <code>device_map</code>, <code>torch_dtype</code> или батчингом), переходите к явной загрузке <code>AutoTokenizer</code> и <code>AutoModelForCausalLM</code>.</p>
+  </div>
+</div>`,
+  answers: ["Он скрывает предобработку и позволяет запустить inference в несколько строк кода"]
+},
+{
+  id: "hf004",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Библиотека datasets: зачем нужна",
+  theme: "Ключевые библиотеки",
+  text: `Что даёт библиотека <code>datasets</code> при работе с наборами данных Hugging Face?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Только скачивание датасетов без возможности обработки",
+    "Автоматическое скачивание, кэширование, стриминг и воспроизводимые сплиты данных",
+    "Обучение моделей на датасетах",
+    "Визуализацию архитектуры моделей",
+    "Конвертацию моделей в ONNX"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что делает datasets</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Библиотека <code>datasets</code> — это стандартный способ работы с данными на Hugging Face.</p>
+    <p class="mb-0">Она автоматически скачивает датасет, кэширует его локально и конвертирует в эффективный формат (Arrow/Parquet).</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Ключевые возможности</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Кэширование</b> — повторная загрузка мгновенная.</p>
+    <p class="mb-1"><b>Стриминг</b> — можно читать данные по частям, если они не помещаются на диск.</p>
+    <p class="mb-0"><b>Воспроизводимые сплиты</b> — <code>train_test_split</code> с фиксированным <code>seed</code> даёт одинаковый результат при каждом запуске.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Совет</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Если датасет большой, используйте <code>streaming=True</code> — данные будут читаться по мере необходимости, не занимая весь диск.</p>
+  </div>
+</div>`,
+  answers: ["Автоматическое скачивание, кэширование, стриминг и воспроизводимые сплиты данных"]
+},
+{
+  id: "hf005",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Аутентификация: huggingface-cli login",
+  theme: "Доступ и токены",
+  text: `Зачем нужна команда <code>huggingface-cli login</code> (или <code>hf auth login</code>)?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Она создаёт новую модель на Hub",
+    "Она сохраняет токен доступа локально, чтобы не вводить его при каждом скачивании или загрузке",
+    "Она обучает модель на ваших данных",
+    "Она запускает локальный сервер inference",
+    "Она удаляет кэш моделей"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Зачем нужен логин</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Многие модели и датасеты требуют <b>токен доступа</b> (особенно gated-модели, например Llama).</p>
+    <p class="mb-0">Команда логина сохраняет токен в локальном конфиге, и библиотеки автоматически его используют.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что происходит после логина</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Токен сохраняется локально (обычно в <code>~/.huggingface/token</code>).</p>
+    <p class="mb-0">Теперь <code>transformers</code>, <code>datasets</code> и <code>huggingface_hub</code> могут скачивать приватные и gated-репозитории без ручного ввода токена.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Правило безопасности</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Никогда не хардкодьте токен в коде. Используйте <code>hf auth login</code> или переменную окружения <code>HF_TOKEN</code>.</p>
+  </div>
+</div>`,
+  answers: ["Она сохраняет токен доступа локально, чтобы не вводить его при каждом скачивании или загрузке"]
+},
+{
+  id: "hf006",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Inference Providers: быстрый старт",
+  theme: "Сценарии inference",
+  text: `Что такое <b>Inference Providers</b> на Hugging Face?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Локальный запуск моделей на вашем компьютере",
+    "Прокси-сервис, который направляет запросы к сторонним провайдерам (Together, Replicate и др.) через ваш аккаунт HF",
+    "Инструмент для обучения моделей",
+    "Формат файла для хранения весов",
+    "Библиотека для визуализации моделей"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Три сценария inference</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Inference Providers</b> — быстрый прототип. HF выступает прокси к сторонним провайдерам.</p>
+    <p class="mb-1"><b>Inference Endpoints</b> — продакшен. Вы разворачиваете модель на выделенной инфраструктуре HF.</p>
+    <p class="mb-0"><b>Локальный запуск</b> — llama.cpp, Ollama, vLLM на своём железе.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Как работает Inference Providers</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Вы используете <code>InferenceClient</code>, указываете <code>provider</code> и модель.</p>
+    <p class="mb-0">Запрос уходит к выбранному провайдеру, а платёж идёт через ваш аккаунт Hugging Face. Удобно для тестов, но для продакшена может быть дорого или нестабильно.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Когда выбирать</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Inference Providers — когда нужно <b>быстро попробовать</b> модель без своего железа. Endpoints — когда нужна стабильность и приватность. Локально — когда нужен полный контроль и нет платы за токены.</p>
+  </div>
+</div>`,
+  answers: ["Прокси-сервис, который направляет запросы к сторонним провайдерам (Together, Replicate и др.) через ваш аккаунт HF"]
+},
+{
+  id: "hf007",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Inference Endpoints: продакшен",
+  theme: "Сценарии inference",
+  text: `Чем <b>Inference Endpoints</b> отличаются от Inference Providers?
+  <pre>Выберите наиболее точное описание</pre>`,
+  choices: [
+    "Endpoints бесплатны, а Providers платные",
+    "Endpoints разворачивают конкретную модель на выделенной инфраструктуре HF и дают приватный URL",
+    "Endpoints работают только локально",
+    "Endpoints не поддерживают InferenceClient",
+    "Providers требуют своего GPU, а Endpoints — нет"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Разница в инфраструктуре</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><b>Inference Providers</b> — запрос уходит к стороннему провайдеру, вы не управляете инфраструктурой.</p>
+    <p class="mb-0"><b>Inference Endpoints</b> — вы разворачиваете <b>свою</b> модель на выделенных ресурсах HF и получаете приватный URL.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Что это даёт</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Стабильность: модель не «переезжает» между провайдерами.</p>
+    <p class="mb-1">Приватность: запросы не уходят третьим лицам.</p>
+    <p class="mb-0">Код почти не меняется: достаточно передать URL эндпоинта в <code>InferenceClient</code> вместо имени модели.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Когда выбирать</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Endpoints — для <b>продакшена</b>, когда нужны предсказуемость, приватность и контроль над версией модели.</p>
+  </div>
+</div>`,
+  answers: ["Endpoints разворачивают конкретную модель на выделенной инфраструктуре HF и дают приватный URL"]
+},
+{
+  id: "hf008",
+  type: "multiplechoices",
+  header: "Hugging Face для начинающих",
+  title: "Локальный запуск и кэш",
+  theme: "Практические привычки",
+  text: `Где по умолчанию кэшируются модели и датасеты, скачанные с Hugging Face?
+  <pre>Выберите правильный путь</pre>`,
+  choices: [
+    "В папке проекта, рядом с кодом",
+    "В ~/.cache/huggingface/",
+    "В /tmp/huggingface/",
+    "В облаке, локально ничего не сохраняется",
+    "В папке установки Python"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Кэш по умолчанию</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Модели и датасеты по умолчанию сохраняются в <code>~/.cache/huggingface/</code>.</p>
+    <p class="mb-0">При повторном запуске они загружаются мгновенно, без обращения к сети.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Как управлять кэшем</div>
+  <div class="card-body py-2">
+    <p class="mb-1">Переменная окружения <code>HF_HOME</code> позволяет перенести кэш в другое место.</p>
+    <p class="mb-0">Если места на диске мало, кэш можно очищать или хранить на внешнем диске.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему это важно</div>
+  <div class="card-body py-2">
+    <p class="mb-0">Понимание кэша экономит время и диск: вы не скачиваете одну и ту же модель повторно и можете контролировать, сколько места занимают данные.</p>
+  </div>
+</div>`,
+  answers: ["В ~/.cache/huggingface/"]
+}
 
 ];
 
