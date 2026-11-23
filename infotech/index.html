@@ -2722,6 +2722,149 @@
       </div>
 
       <div class="card my-3" style="max-width: 900px">
+  <img
+    loading="lazy"
+    class="card-img-top"
+    src="../h1title7.jpg"
+    alt="Agile и Scrum"
+    style="filter: grayscale(1)"
+  />
+  <div class="card-body">
+    <h3 class="card-title">
+      <span class="badge-method mr-2">5.2</span> Agile и Scrum: гибкое управление проектами
+    </h3>
+
+    <p>
+      <strong>Agile</strong> — это не конкретная методология, а скорее философия
+      и набор ценностей, сформулированных в 2001 году в
+      <a href="https://agilemanifesto.org/iso/ru/manifesto.html" target="_blank" rel="noopener">«Манифесте Agile»</a>.
+      Четыре ключевые ценности ставят людей и взаимодействие выше процессов и
+      инструментов, работающий продукт выше исчерпывающей документации,
+      сотрудничество с заказчиком выше согласования контрактов, а готовность к
+      изменениям выше следования первоначальному плану.
+      <strong>Scrum</strong> — это наиболее популярный фреймворк, реализующий
+      принципы Agile на практике. Он организует работу короткими итерациями —
+      <strong>спринтами</strong> длиной от одной до четырёх недель, в конце
+      каждого из которых команда поставляет готовый <strong>инкремент</strong>
+      продукта. Scrum опирается на три столпа эмпирического
+      контроля: <strong>прозрачность, инспекцию и адаптацию</strong>.
+      В фреймворке определены три роли: <strong>Product Owner</strong>
+      (владелец продукта, отвечает за ценность и приоритеты бэклога),
+      <strong>Scrum Master</strong> (помогает команде следовать процессу и
+      устраняет препятствия) и <strong>Developers</strong> (кросс-функциональная
+      команда, создающая инкремент). Пять событий
+      задают ритм: Sprint Planning, Daily Scrum, Sprint Review, Sprint
+      Retrospective и сам Sprint. Три артефакта — Product Backlog,
+      Sprint Backlog и Increment — обеспечивают прозрачность работы.
+      Пять ценностей — commitment, courage, focus, openness и respect — оживают,
+      когда команда действительно следует им в работе с событиями и артефактами.
+      <strong>Kanban</strong> — альтернативный подход, который не
+      предписывает ролей и спринтов, а фокусируется на визуализации потока
+      задач и ограничении незавершённой работы (WIP).
+      Kanban легче внедрить поверх существующего процесса, но он требует
+      большей дисциплины команды для поддержания доски в актуальном состоянии.
+      На практике Scrum и Kanban часто комбинируют: Scrum задаёт
+      ритм и цели, а Kanban-доска помогает визуализировать поток задач внутри
+      спринта. Понимание этих основ помогает выбрать подходящий
+      процесс и не путать церемонии с ценностями.
+    </p>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th>Аспект</th>
+            <th>Scrum</th>
+            <th>Kanban</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge bg-primary">Ритм работы</span></td>
+            <td>Спринты фиксированной длины (1–4 недели)</td>
+            <td>Непрерывный поток, без спринтов</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-success">Роли</span></td>
+            <td>Product Owner, Scrum Master, Developers</td>
+            <td>Не предписывает ролей</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-info">Изменения</span></td>
+            <td>Вносятся между спринтами</td>
+            <td>Можно вносить в любой момент</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-warning">Метрики</span></td>
+            <td>Velocity (скорость команды)</td>
+            <td>Lead Time и Cycle Time</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-danger">Лучше подходит</span></td>
+            <td>Продуктовая разработка с чёткими циклами</td>
+            <td>Поддержка, поток задач, эксплуатация</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead class="table-light">
+          <tr>
+            <th colspan="3">Демонстрационный пример: спринт команды «Оформление заказа»</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 33%">
+              <b>Цель спринта</b><br />
+              Пользователь завершает покупку без обращения в поддержку.
+            </td>
+            <td style="width: 33%">
+              <b>Sprint Backlog (выбрано)</b><br />
+              — Валидация адреса<br />
+              — Понятная ошибка оплаты<br />
+              — Тест на мобильных
+            </td>
+            <td>
+              <b>Результат Sprint Review</b><br />
+              Инкремент готов, стейкхолдеры приняли.<br />
+              Ретроспектива: тестирование на мобильных заняло больше времени — вынести в отдельную задачу.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mb-2">
+      <i class="fas fa-lightbulb text-warning mr-1"></i>
+      <strong>Важно:</strong> Scrum не требует story points и не запрещает
+      выпускать инкремент до конца спринта — Sprint Review не является
+      «разрешением на релиз». Спринт не является «запечатанной коробкой»:
+      объём задач можно уточнять с Product Owner по мере получения знаний,
+      сохраняя цель спринта.
+    </p>
+
+    <p class="small mb-2">
+      <b>Источники:</b>
+      <a href="https://agilemanifesto.org/iso/ru/manifesto.html" target="_blank" rel="noopener">Манифест Agile</a>,
+      <a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide (официальное руководство)</a>,
+      <a href="https://habr.com/ru/companies/kaiten/articles/906006/" target="_blank" rel="noopener">Habr: Waterfall или Agile, Scrum или Kanban</a>.
+    </p>
+
+    <a
+      href="https://habr.com/ru/companies/kaiten/articles/906006/"
+      target="_blank"
+      rel="noopener"
+      class="btn btn-sm btn-outline-primary"
+    >
+      Подробнее на Habr: «Waterfall или Agile, Scrum или Kanban: что выбрать» →
+    </a>
+  </div>
+</div>
+
+      <div class="card my-3" style="max-width: 900px">
         <img
           loading="lazy"
           class="card-img-top"
@@ -2732,9 +2875,9 @@
         <div class="card-body">
           <h3 class="card-title">Пример отчета</h3>
 
-          <p class="card-text">Блог на gitverse</p>
+          <p class="card-text">Что должно быть в отчетне на Отлично - см. архив</p>
           <a
-            href="https://lera1.gitverse.site/blog/post17092026.html"
+            href="https://econolabs.gitverse.site/"
             class="btn btn-primary"
           >
             Пример отчета</a
