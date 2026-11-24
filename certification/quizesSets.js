@@ -4036,125 +4036,288 @@ let quizesSets = [
 
   // ==================== ТОП-5 REGEX ====================
   {
-    id: "regex001",
-    type: "multiplechoices",
-    header: "Тест по регулярным выражениям",
-    title: "Цифры",
-    theme: "Базовые regex",
-    text: `<div class="container-fluid">
-      <div class="alert alert-info mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое регулярное выражение соответствует одной или более цифрам?</p>
-      </div>
-    </div>`,
-    choices: [
-      "\\d+",
-      "\\w+",
-      "\\s+",
-      "[a-z]+",
-      ".*",
-      "\\D+"
-    ],
-    hint: "d — digit (цифра), + — один или более раз",
-    answers: ["\\d+"]
-  },
+  id: "regex001",
+  type: "multiplechoices",
+  header: "Тест по регулярным выражениям",
+  title: "Цифры: подсветка в VS Code",
+  theme: "Базовые regex",
+  text: `<div class="container-fluid">
+    <div class="alert alert-info mt-3">
+      <strong>Ситуация:</strong>
+      <p class="mb-2">Вы открыли в VS Code файл с текстом:</p>
+      <pre class="bg-light p-2 border rounded">Заказ 42, стол 7, стул 13 и ещё 105 позиций.</pre>
+      <p class="mb-0">В поле поиска (Ctrl+F) вы включили режим regex и ввели шаблон <code>\\d+</code>. Сколько фрагментов будет подсвечено?</p>
+    </div>
+  </div>`,
+  choices: [
+    "4 — все числа: 42, 7, 13, 105",
+    "3 — только двузначные и трёхзначные",
+    "1 — всё число целиком",
+    "5 — включая пробелы между числами",
+    "0 — шаблон ничего не найдёт"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что означает \\d+</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>\\d</code> — digit, одна цифра (0–9).</p>
+    <p class="mb-0"><code>+</code> — один или более раз. Значит, <code>\\d+</code> — «одна или более цифр подряд», то есть любое целое число.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация на строке</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>Заказ <mark>42</mark>, стол <mark>7</mark>, стул <mark>13</mark> и ещё <mark>105</mark> позиций.</code></p>
+    <p class="mb-0">VS Code подсветит <b>4 фрагмента</b>: 42, 7, 13, 105. Каждое число — отдельное совпадение, потому что между ними есть нецифровые символы.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему не другие варианты</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>\\w+</code> — буквы, цифры и подчёркивание; подсветит и слова.</p>
+    <p class="mb-1"><code>\\s+</code> — пробельные символы, а не цифры.</p>
+    <p class="mb-1"><code>[a-z]+</code> — только строчные латинские буквы.</p>
+    <p class="mb-1"><code>.*</code> — вся строка целиком.</p>
+    <p class="mb-0"><code>\\D+</code> — наоборот, всё, что <b>не</b> цифра.</p>
+  </div>
+</div>`,
+  answers: ["4 — все числа: 42, 7, 13, 105"]
+},
 
-  {
-    id: "regex002",
-    type: "multiplechoices",
-    header: "Тест по регулярным выражениям",
-    title: "Email",
-    theme: "Практические regex",
-    text: `<div class="container-fluid">
-      <div class="alert alert-primary mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое регулярное выражение чаще всего используется для проверки простого email-адреса?</p>
-      </div>
-    </div>`,
-    choices: [
-      "^[\\w.-]+@[\\w.-]+\\.\\w{2,}$",
-      "^\\d+@\\d+\\.\\d+$",
-      "^[a-z]+@[a-z]+$",
-      "^.*@.*$",
-      "^\\w+@\\w+$",
-      "^[A-Z]+@[A-Z]+\\.[A-Z]+$"
-    ],
-    hint: "Начинается с ^, содержит @ и домен с точкой",
-    answers: ["^[\\w.-]+@[\\w.-]+\\.\\w{2,}$"]
-  },
+{
+  id: "regex002",
+  type: "multiplechoices",
+  header: "Тест по регулярным выражениям",
+  title: "Email: что подсветится",
+  theme: "Практические regex",
+  text: `<div class="container-fluid">
+    <div class="alert alert-primary mt-3">
+      <strong>Ситуация:</strong>
+      <p class="mb-2">В логе регистрации есть строки:</p>
+      <pre class="bg-light p-2 border rounded">anna@example.com
+boris@mail
+vera@site.ru
+gleb@test.org
+daria@</pre>
+      <p class="mb-0">Вы ищете шаблон <code>^[\\w.-]+@[\\w.-]+\\.\\w{2,}$</code>. Какие строки будут выделены как совпадения?</p>
+    </div>
+  </div>`,
+  choices: [
+    "anna@example.com, vera@site.ru, gleb@test.org",
+    "Все пять строк",
+    "Только anna@example.com",
+    "anna@example.com и boris@mail",
+    "Ни одна строка",
+    "Все, кроме daria@"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Разбор шаблона</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Часть</th><th>Что требует</th></tr></thead>
+      <tbody>
+        <tr><td><code>^</code></td><td>Начало строки</td></tr>
+        <tr><td><code>[\\w.-]+</code></td><td>Логин: буквы, цифры, <code>_</code>, точка, дефис</td></tr>
+        <tr><td><code>@</code></td><td>Символ @</td></tr>
+        <tr><td><code>[\\w.-]+</code></td><td>Домен: буквы, цифры, точка, дефис</td></tr>
+        <tr><td><code>\\.</code></td><td>Точка (экранированная)</td></tr>
+        <tr><td><code>\\w{2,}</code></td><td>Зона: минимум 2 буквы/цифры</td></tr>
+        <tr><td><code>$</code></td><td>Конец строки</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация: какие строки проходят</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Строка</th><th>Проходит?</th><th>Почему</th></tr></thead>
+      <tbody>
+        <tr><td>anna@example.com</td><td>✅</td><td>Логин, @, домен, точка, зона com</td></tr>
+        <tr><td>boris@mail</td><td>❌</td><td>Нет точки и зоны после домена</td></tr>
+        <tr><td>vera@site.ru</td><td>✅</td><td>Логин, @, домен site, точка, зона ru</td></tr>
+        <tr><td>gleb@test.org</td><td>✅</td><td>Логин, @, домен test, точка, зона org</td></tr>
+        <tr><td>daria@</td><td>❌</td><td>После @ ничего нет</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему не другие варианты</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>^.*@.*$</code> — слишком мягкий: пропустит <code>daria@</code> и <code>boris@mail</code>.</p>
+    <p class="mb-0"><code>^\\w+@\\w+$</code> — не допускает точки в домене, пропустит все реальные адреса.</p>
+  </div>
+</div>`,
+  answers: ["anna@example.com, vera@site.ru, gleb@test.org"]
+},
 
-  {
-    id: "regex003",
-    type: "multiplechoices",
-    header: "Тест по регулярным выражениям",
-    title: "Пробелы",
-    theme: "Базовые regex",
-    text: `<div class="container-fluid">
-      <div class="alert alert-warning mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое регулярное выражение соответствует одному или более пробельным символам (пробел, таб, перенос)?</p>
-      </div>
-    </div>`,
-    choices: [
-      "\\s+",
-      "\\d+",
-      "\\w+",
-      "\\S+",
-      " +",
-      "\\t+"
-    ],
-    hint: "s — space (пробельный символ)",
-    answers: ["\\s+"]
-  },
+{
+  id: "regex003",
+  type: "multiplechoices",
+  header: "Тест по регулярным выражениям",
+  title: "Пробелы: сколько фрагментов выделит VS Code",
+  theme: "Базовые regex",
+  text: `<div class="container-fluid">
+    <div class="alert alert-warning mt-3">
+      <strong>Ситуация:</strong>
+      <p class="mb-2">В файле есть строка с разными пробельными символами (пробелы и табуляция):</p>
+      <pre class="bg-light p-2 border rounded">Имя:	Анна    Возраст:  25</pre>
+      <p class="mb-0">Вы ищете <code>\\s+</code>. Сколько фрагментов будет подсвечено?</p>
+    </div>
+  </div>`,
+  choices: [
+    "3 — каждая группа пробелов/табов подряд",
+    "1 — вся строка целиком",
+    "5 — каждый отдельный пробел",
+    "0 — пробелы не ищутся",
+    "2 — только табы"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что означает \\s+</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>\\s</code> — любой пробельный символ: пробел, таб, перенос строки.</p>
+    <p class="mb-0"><code>+</code> — один или более раз. Значит, <code>\\s+</code> «схлопывает» любую группу пробельных символов в одно совпадение.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация: где сработает</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>Имя:<mark>[таб]</mark>Анна<mark>[4 пробела]</mark>Возраст:<mark>[2 пробела]</mark>25</code></p>
+    <p class="mb-0">VS Code подсветит <b>3 фрагмента</b>: таб после «Имя:», 4 пробела после «Анна», 2 пробела после «Возраст:». Каждая группа — одно совпадение, потому что <code>+</code> жадный.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему не другие варианты</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code> +</code> (просто пробел и плюс) — только пробелы, без табов.</p>
+    <p class="mb-1"><code>\\t+</code> — только табы.</p>
+    <p class="mb-1"><code>\\S+</code> — наоборот, всё, что <b>не</b> пробел.</p>
+    <p class="mb-0"><code>\\d+</code> и <code>\\w+</code> — цифры и слова соответственно.</p>
+  </div>
+</div>`,
+  answers: ["3 — каждая группа пробелов/табов подряд"]
+},
 
-  {
-    id: "regex004",
-    type: "multiplechoices",
-    header: "Тест по регулярным выражениям",
-    title: "Слово целиком",
-    theme: "Границы слов",
-    text: `<div class="container-fluid">
-      <div class="alert alert-success mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое регулярное выражение найдёт слово "test" как отдельное слово (не часть другого слова)?</p>
-      </div>
-    </div>`,
-    choices: [
-      "\\btest\\b",
-      "test",
-      "^test$",
-      "\\wtest\\w",
-      "[test]",
-      "test.*"
-    ],
-    hint: "\\b — граница слова (word boundary)",
-    answers: ["\\btest\\b"]
-  },
+{
+  id: "regex004",
+  type: "multiplechoices",
+  header: "Тест по регулярным выражениям",
+  title: "Слово целиком: подсветка в тексте",
+  theme: "Границы слов",
+  text: `<div class="container-fluid">
+    <div class="alert alert-success mt-3">
+      <strong>Ситуация:</strong>
+      <p class="mb-2">В тексте встречаются слова, содержащие «test»:</p>
+      <pre class="bg-light p-2 border rounded">test testing contest test_case latest test.</pre>
+      <p class="mb-0">Вы ищете <code>\\btest\\b</code>. Какие фрагменты будут выделены?</p>
+    </div>
+  </div>`,
+  choices: [
+    "Только два отдельных слова test (в начале и перед точкой)",
+    "Все пять фрагментов, где есть test",
+    "Только test в начале строки",
+    "test, testing, contest, test_case, latest, test",
+    "Ничего не будет выделено"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Что означает \\b</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>\\b</code> — word boundary, граница слова. Это позиция между «словесным» символом (<code>\\w</code>: буква, цифра, <code>_</code>) и «не словесным» (пробел, точка, начало/конец строки).</p>
+    <p class="mb-0"><code>\\btest\\b</code> требует, чтобы слева и справа от «test» был не-словесный символ.</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация: где сработает</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Фрагмент</th><th>Совпадение?</th><th>Почему</th></tr></thead>
+      <tbody>
+        <tr><td><mark>test</mark></td><td>✅</td><td>Слева начало строки, справа пробел</td></tr>
+        <tr><td>testing</td><td>❌</td><td>Справа буква «i» — нет границы</td></tr>
+        <tr><td>contest</td><td>❌</td><td>Слева буква «n» — нет границы</td></tr>
+        <tr><td>test_case</td><td>❌</td><td>Справа «_» — это словесный символ</td></tr>
+        <tr><td>latest</td><td>❌</td><td>Слева буква «a» — нет границы</td></tr>
+        <tr><td><mark>test</mark>.</td><td>✅</td><td>Слева пробел, справа точка — граница</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему не другие варианты</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>test</code> без границ — найдёт «test» внутри всех слов.</p>
+    <p class="mb-1"><code>^test$</code> — только если вся строка состоит из «test».</p>
+    <p class="mb-1"><code>[test]</code> — это класс символов: t, e, s, t (без повторов).</p>
+    <p class="mb-0"><code>test.*</code> — «test» и всё, что после него до конца строки.</p>
+  </div>
+</div>`,
+  answers: ["Только два отдельных слова test (в начале и перед точкой)"]
+},
 
-  {
-    id: "regex005",
-    type: "multiplechoices",
-    header: "Тест по регулярным выражениям",
-    title: "Любой символ",
-    theme: "Базовые regex",
-    text: `<div class="container-fluid">
-      <div class="alert alert-danger mt-3">
-        <strong>Вопрос:</strong>
-        <p class="mb-0">Какое регулярное выражение соответствует любой строке (включая пустую) от начала до конца?</p>
-      </div>
-    </div>`,
-    choices: [
-      "^.*$",
-      "^.+$",
-      "^\\w*$",
-      "^\\d*$",
-      "^.?$",
-      "^.*"
-    ],
-    hint: "Точка — любой символ, звёздочка — ноль или более раз",
-    answers: ["^.*$"]
-  },
-
+{
+  id: "regex005",
+  type: "multiplechoices",
+  header: "Тест по регулярным выражениям",
+  title: "Любая строка: что подсветится",
+  theme: "Базовые regex",
+  text: `<div class="container-fluid">
+    <div class="alert alert-danger mt-3">
+      <strong>Ситуация:</strong>
+      <p class="mb-2">В файле три строки:</p>
+      <pre class="bg-light p-2 border rounded">первая строка
+(пустая строка)
+третья</pre>
+      <p class="mb-0">Вы ищете <code>^.*$</code>. Что будет выделено?</p>
+    </div>
+  </div>`,
+  choices: [
+    "Все три строки целиком, включая пустую",
+    "Только первая и третья строки",
+    "Только непустые строки",
+    "Ничего, потому что есть пустая строка",
+    "Только пустая строка"
+  ],
+  hint: `<div class="card border-primary mb-2">
+  <div class="card-header bg-primary text-white">Разбор шаблона</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Часть</th><th>Что означает</th></tr></thead>
+      <tbody>
+        <tr><td><code>^</code></td><td>Начало строки</td></tr>
+        <tr><td><code>.</code></td><td>Любой символ, кроме переноса строки</td></tr>
+        <tr><td><code>*</code></td><td>Ноль или более раз</td></tr>
+        <tr><td><code>$</code></td><td>Конец строки</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Вместе: «от начала до конца строки, любое количество любых символов».</p>
+  </div>
+</div>
+<div class="card border-success mb-2">
+  <div class="card-header bg-success text-white">Демонстрация: где сработает</div>
+  <div class="card-body py-2">
+    <table class="table table-sm table-bordered mb-0">
+      <thead class="table-light"><tr><th>Строка</th><th>Совпадение?</th><th>Почему</th></tr></thead>
+      <tbody>
+        <tr><td>первая строка</td><td>✅</td><td>Есть символы, начало и конец совпадают</td></tr>
+        <tr><td>(пустая)</td><td>✅</td><td><code>.*</code> допускает ноль символов</td></tr>
+        <tr><td>третья</td><td>✅</td><td>Есть символы, начало и конец совпадают</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-2 mb-0">Если бы было <code>^.+$</code> (плюс вместо звёздочки), пустая строка <b>не</b> прошла бы.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-2">
+  <div class="card-header bg-secondary text-white">Почему не другие варианты</div>
+  <div class="card-body py-2">
+    <p class="mb-1"><code>^.+$</code> — требует хотя бы один символ, пустую строку пропустит.</p>
+    <p class="mb-1"><code>^\\w*$</code> — только буквы, цифры, <code>_</code>; пробелы не пройдут.</p>
+    <p class="mb-1"><code>^\\d*$</code> — только цифры.</p>
+    <p class="mb-1"><code>^.?$</code> — ноль или один символ, длинные строки не пройдут.</p>
+    <p class="mb-0"><code>^.*</code> без <code>$</code> — найдёт начало строки, но не проверит конец.</p>
+  </div>
+</div>`,
+  answers: ["Все три строки целиком, включая пустую"]
+},
   
   
   
