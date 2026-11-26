@@ -53,8 +53,10 @@
             </li>
           </ul>
           <div class="d-flex align-items-center gap-2">
-            <span id="authStatus" class="small text-muted"
-            style="display:none"
+            <span
+              id="authStatus"
+              class="small text-muted"
+              style="display: none"
             ></span>
             <button
               id="logoutBtn"
@@ -261,303 +263,6 @@
     ></script>
 
     <script type="module">
-      // ============================================================
-      //  Inlined financelabsutilities@0.0.10
-      //  (only the functions this page actually uses)
-      // ============================================================
-
-      // const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-
-      let { alphabet, applyClassToTableTag } =
-        window.basicfirebasecrudauthservices;
-
-      function makeDomNodeForSpreadsheet(e) {
-        var t = document.createElement("table");
-        t.setAttribute("class", "table table-bordered table-sm");
-        var r = document.createElement("thead"),
-          a = document.createElement("tr"),
-          i = document.createElement("th");
-        i.innerText = " ";
-        a.appendChild(i);
-        e &&
-          Array.isArray(e) &&
-          e[0] &&
-          e[0].forEach((l, o) => {
-            var s = document.createElement("th");
-            s.setAttribute("class", "text-center");
-            s.innerText = alphabet[o];
-            a.appendChild(s);
-          });
-        r.appendChild(a);
-        t.appendChild(r);
-        var n = document.createElement("tbody");
-        return (
-          e &&
-            Array.isArray(e) &&
-            e.forEach((s, o) => {
-              var s = document.createElement("tr"),
-                d = document.createElement("td");
-              d.setAttribute("scope", "row");
-              d.innerText = o + 1;
-              s.appendChild(d);
-              e[o] &&
-                e[o].forEach((p, c) => {
-                  var f = document.createElement("td");
-                  f.innerText = e[o][c];
-                  s.appendChild(f);
-                });
-              n.appendChild(s);
-            }),
-          t.appendChild(n),
-          t
-        );
-      }
-
-      function vanillajsQuizByDateCard(e, t) {
-        return (document.getElementById(e).innerHTML = `
-    <div class="card m-1">
-        <div class="card-body" id="studentquiz">
-            <h5 class="card-title">${t?.theme ? t.theme : ""}</h5>
-            <p class="card-text">${t?.title ? t.title : ""}</p>
-            <hr />
-            <div class=row>
-                <div class="col-12 col-lg-3">
-                    <img src=${t.avatarUrl}
-                            data-bs-toggle="tooltip" data-bs-html="true" 
-                            alt=${t.id} id=${t.id} class="avatar"
-                            title=${t.user}>
-                    <div class="m-1">
-                    ${t?.user ? applyClassToTableTag(t.user) : ""}
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
-                    <div id="studenthint" class="mb-3">${t?.quizString ? applyClassToTableTag(t.quizString) : ""}</div>
-                </div>
-            <div>    
-            <hr />
-        </div>
-    </div>`);
-      }
-
-      function balanceIndicatorValue({
-        indicator: e = "Sales",
-        balanceIndicators: t = [],
-        records: r = [],
-        periods: a = ["default"],
-        period: i = "default",
-      }) {
-        let n = 0,
-          l = 0,
-          o = t.filter((s) => s.type === "asset").map((s) => s.title);
-        return (
-          Array.isArray(r) &&
-            r.forEach((s) => {
-              let d = a.findIndex((c) => c === s.period),
-                p = a.findIndex((c) => c === i) + 1;
-              s.d === e && p > d && (n = n + parseFloat(s.sum));
-              s.k === e && p > d && (l = l + parseFloat(s.sum));
-            }),
-          o.includes(e) ? n - l : l - n
-        );
-      }
-
-      function vanillajsShowAccountingRecords(e) {
-        return `<table class="table table-striped table-bordered table-hover">
-<thead>
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">Period</th>
-        <th scope="col">D</th>
-        <th scope="col">К</th>
-        <th scope="col">Sum</th>
-        <th scope="col">Type</th>                  
-    </tr>
-</thead>
-<tbody>
-    ${[...new Set(e.map((r) => r.period))]
-      .map(
-        (r) =>
-          Array.isArray(e) &&
-          e
-            .filter((a) => a.period === r)
-            .map(
-              (a, i) => `<tr>
-                <th scope="row">${i + 1}</th>
-                <td><small>${a?.period}</td>
-                <td><small>${a?.d}</td>
-                <td><small>${a?.k}</td>
-                <td><small>${a?.sum}</td>
-                <td><small>${a?.type ? a.type : ""}</td>
-               </tr>`,
-            )
-            .join(""),
-      )
-      .join("")}
-</tbody>
-</table>`;
-      }
-
-      function vanillajsShowBalanceMarkUp(e, t) {
-        let r = [...new Set(e.map((a) => a.period))];
-        return (
-          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [" ", ...r].map((a) => `<th scope="col">${a}</th>`).join("") +
-          "</tr></thead><tbody>" +
-          t
-            .filter((a) => a.type === "asset" && a.title.length > 2)
-            .map(
-              (a) => `
-                <tr>
-                    <th scope="row" class="text-small">${a.title}</th>
-
-                    ${r.map((i, n) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[n] })}</td>`).join("")}
-                    
-                </tr>`,
-            )
-            .join("") +
-          "</tbody></table><table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [" ", ...r].map((a) => `<th scope="col">${a}</th>`).join("") +
-          "</tr></thead><tbody>" +
-          t
-            .filter((a) => a.type !== "asset" && a.title.length > 2)
-            .map(
-              (a, i) => `
-                <tr>
-                    <th scope="row">${a.title}</th>
-
-                    ${r.map((n, l) => `<td>${balanceIndicatorValue({ indicator: a.title, balanceIndicators: t, records: e, periods: r, period: r[l] })}</td>`).join("")}
-                    
-                </tr>`,
-            )
-            .join("") +
-          "</tbody></table>"
-        );
-      }
-
-      function perPeriodAmounts(e, t, r, a) {
-        let i = [];
-        function n(l) {
-          let o = a.findIndex((s) => l === s.title);
-          return a[o].type === "asset";
-        }
-        return (
-          r.map((l) => {
-            n(e)
-              ? (i.push(
-                  balanceIndicatorValue({
-                    indicator: e,
-                    balanceIndicators: a,
-                    records: t,
-                    periods: r,
-                    period: l,
-                  }),
-                ),
-                i.push(0))
-              : (i.push(0),
-                i.push(
-                  balanceIndicatorValue({
-                    indicator: e,
-                    balanceIndicators: a,
-                    records: t,
-                    periods: r,
-                    period: l,
-                  }),
-                ));
-          }),
-          i
-        );
-      }
-
-      function vanillajsShowBalanceStackedBars(e, t) {
-        let r = [...new Set(e.map((l) => l.period))],
-          a = [];
-        t.forEach((l) => {
-          l.title.length > 2 &&
-            a.push({ name: l.title, data: perPeriodAmounts(l.title, e, r, t) });
-        });
-        let i = [];
-        return (
-          r.forEach((l) => {
-            i.push("Asset " + l);
-            i.push("Cap+L " + l);
-          }),
-          {
-            ...{
-              chart: {
-                type: "bar",
-                stacked: !0,
-                zoom: { enabled: !0 },
-                width: "90%",
-                height: "80%",
-              },
-              plotOptions: { bar: { borderRadius: 1, horizontal: !1 } },
-              legend: { position: "bottom" },
-              fill: { opacity: 1 },
-              xaxis: { categories: i },
-            },
-            series: a,
-          }
-        );
-      }
-
-      function sumByType(e, t, o = "cash", s) {
-        let d = 0;
-        return (
-          e.forEach(
-            (p) => (
-              p?.type &&
-                p.type.includes(o) &&
-                p.period === s &&
-                (d = d + parseFloat(p.sum)),
-              null
-            ),
-          ),
-          d
-        );
-      }
-
-      function vanillajsShowCashFlowMarkUp(e, t) {
-        let [r, ...a] = t,
-          i = [...new Set(e.map((l) => l.period))];
-        return (
-          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [r, ...i].map((l) => `<th scope="col">${l}</th>`).join("") +
-          "</tr></thead><tbody>" +
-          a
-            .map(
-              (l) => `<tr>
-            <th scope="row" class="text-small">${l}</th>
-            ${i.map((o) => `<td>${sumByType(e, l, o)}</td>`).join("")}            
-        </tr>`,
-            )
-            .join("") +
-          "</tbody></table>"
-        );
-      }
-
-      function vanillajsShowFinancialResultsMarkUp(e, t) {
-        let r = [...new Set(e.map((l) => l.period))],
-          [a, ...i] = t;
-        return (
-          "<table class='table'><thead><tr class='bg-secondary text-white'>" +
-          [a, ...r].map((l) => `<th scope="col">${l}</th>`).join("") +
-          "</tr></thead><tbody>" +
-          i
-            .map(
-              (l) => `<tr>
-            <th scope="row" class="text-small">${l}</th>
-            ${r.map((o) => `<td>${sumByType(e, l, o)}</td>`).join("")}                            
-        </tr>`,
-            )
-            .join("") +
-          "</tbody></table>"
-        );
-      }
-
-      // ============================================================
-      //  Pull the rest from your custom library
-      // ============================================================
-
       let {
         createMinimalProtoArray,
         getFirebaseNode,
@@ -585,11 +290,21 @@
         logOut,
         logIn,
         findImageByGender,
-      } = window.basicfirebasecrudauthservices;
 
-      // ============================================================
-      //  App store (custom library, replaces RTK)
-      // ============================================================
+        alphabet,
+        applyClassToTableTag,
+
+        perPeriodAmounts,
+        vanillajsShowBalanceMarkUp,
+        makeDomNodeForSpreadsheet,
+        vanillajsQuizByDateCard,
+        balanceIndicatorValue,
+        vanillajsShowAccountingRecords,
+        vanillajsShowBalanceStackedBars,
+        sumByType,
+        vanillajsShowCashFlowMarkUp,
+        vanillajsShowFinancialResultsMarkUp,
+      } = window.basicfirebasecrudauthservices;
 
       const store = createApplicationStore();
       window.appStore = store;
@@ -608,13 +323,43 @@
         document.getElementById("quizcaseModal"),
       );
 
-      // ============================================================
-      //  Helpers
-      // ============================================================
+      async function fetchMockingQuiz(titlehash = "temp", title) {
+        try {
+          //    console.log("-P" + titlehash.substring(10, titlehash.length - 10));
+          let mock = await getFirebaseNode({
+            url:
+              "usersCraft/mock_mail_ru/posts/" +
+              "-P" +
+              titlehash.substring(10, titlehash.length - 10),
+            type: "object",
+          });
+          //     console.log(mock);
+          return {
+            mocktitle: !!mock?.title ? mock.title : null,
+            titlehash:  "-P" +titlehash.substring(10, titlehash.length - 10),
+            title: title,
+          };
+        } catch (err) {
+          console.log(err);
+          return null;
+        }
+      }
 
-      // ============================================================
-      //  Plain async data accessors (replace RTK-Query endpoints)
-      // ============================================================
+      async function fetchMockingQuizes(uniqueTitles) {
+        try {
+          let hashesArray = await getHashesArray(uniqueTitles);
+          //    console.log(hashesArray);
+          let mocked = await Promise.all(
+            hashesArray.map((item, index) => {
+              return fetchMockingQuiz(item, uniqueTitles[index]);
+            }),
+          );
+          return mocked;
+        } catch (err) {
+          console.log(err);
+          return [];
+        }
+      }
 
       async function fetchQuizesCasesByDate(
         url = "/currentDay/Wed__Feb_14__2024/",
@@ -744,6 +489,8 @@
             : findImageByGender("https://econolabs.github.io/", true, []);
 
           let foundquiz = await fetchWorkbookPost({ userEmail, id });
+
+          console.log(foundquiz);
 
           if (!foundquiz) {
             const altid = "-N" + id.split("-N").pop();
@@ -923,33 +670,51 @@
 
         let quizesbyDate = store.getState().application.quizesbyDate;
 
-         let uniqueUserEmails = [...new Set(quizesbyDate.map(item => item?.email.replace(/[^a-zA-Z0-9]/g, "_")))];
+        let uniqueUserEmails = [
+          ...new Set(
+            quizesbyDate.map((item) =>
+              item?.email.replace(/[^a-zA-Z0-9]/g, "_"),
+            ),
+          ),
+        ];
 
-console.log(uniqueUserEmails)
+        console.log(uniqueUserEmails);
         // let uniqueEmails = [...new Set(store.getState().application.quizesbyDate.map(item => item?.email))];
-         let uniqueTitles = [...new Set(quizesbyDate.map(item => item?.title))];
+        let uniqueTitles = [
+          ...new Set(quizesbyDate.map((item) => item?.title)),
+        ];
         // //  let uniqueUsers = [...new Set(res.map(item => item?.user))];
-console.log(uniqueTitles)
-         let users = [];
-         uniqueUserEmails.forEach(email => {
-             let solved = 0;
-             let id = email.replace(/[^a-zA-Z0-9]/g, "_");
-             let user = quizesbyDate.find(item => item.email === email)?.user;
-             let avatarUrl = quizesbyDate.find(item => item.email === email)?.avatarUrl;
-             uniqueTitles.forEach(title => {
-                 let foundIndex = quizesbyDate.findIndex(item => item.email === email && item.title === title);
-                 if (foundIndex > 0) { solved++ }
-             });
-             console.log(solved);
-             users.push({ id,
-               avatarUrl: !!avatarUrl ? avatarUrl :"https://econolabs.github.io/freelancer.jpg",
-               user: user,
-               solved: solved })
-         });
+        console.log(uniqueTitles);
+        let users = [];
+        uniqueUserEmails.forEach((email) => {
+          let solved = 0;
+          let id = email.replace(/[^a-zA-Z0-9]/g, "_");
+          let user = quizesbyDate.find((item) => item.email === email)?.user;
+          let avatarUrl = quizesbyDate.find(
+            (item) => item.email === email,
+          )?.avatarUrl;
+          uniqueTitles.forEach((title) => {
+            let foundIndex = quizesbyDate.findIndex(
+              (item) => item.email === email && item.title === title,
+            );
+            if (foundIndex > 0) {
+              solved++;
+            }
+          });
+          console.log(solved);
+          users.push({
+            id,
+            avatarUrl: !!avatarUrl
+              ? avatarUrl
+              : "https://econolabs.github.io/freelancer.jpg",
+            user: user,
+            solved: solved,
+          });
+        });
 
-         console.log(users);
-         users.sort((a, b) => b.solved - a.solved);
-         console.log(users);
+        console.log(users);
+        users.sort((a, b) => b.solved - a.solved);
+        console.log(users);
 
         // let quizes = currentDayQuizes.filter((item) => item.source === "posts");
         // let uniqueUsers = [...new Set(quizes.map((item) => item?.user))];
@@ -968,7 +733,7 @@ console.log(uniqueTitles)
         //         let avatar = !!findavatar ? findavatar : defaultAvatar;
 
         //         return `<img src=${avatar}
-        //                         data-bs-toggle="tooltip" data-bs-html="true" 
+        //                         data-bs-toggle="tooltip" data-bs-html="true"
         //                         alt=${quiz.id} id=${quiz.id} class="avatar"
         //                         title=${user}>`;
         //       })
@@ -983,26 +748,27 @@ console.log(uniqueTitles)
         //                 </div>`;
         //   })
         //   .join("");
-        document.getElementById("modalbody").innerHTML = users.map(
-          user => {
+        document.getElementById("modalbody").innerHTML = users
+          .map((user) => {
             console.log(user);
             return `
-            <div class="card mb-3"  data-id=${user.id}>
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${user?.avatarUrl}"" class="avatar" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${user.id}</h5>
-        <p class="card-text">${user.solved}</p>
-        <p class="card-text"><small class="text-muted">${user.solved}</small></p>
+                  <div class="card mb-3"  data-id=${user.id}>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${user?.avatarUrl}"" class="avatar" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${user.id}</h5>
+              <p class="card-text">${user.solved}</p>
+              <p class="card-text"><small class="text-muted">${user.solved}</small></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
- `
-          }).join(" ");
+       `;
+          })
+          .join(" ");
         myModal.show();
       }
 
@@ -1016,47 +782,95 @@ console.log(uniqueTitles)
         defaultAvatar = "../freelancer.jpg",
       ) {
         let quizes = currentDayQuizes.filter((item) => item.source === "posts");
+
         let uniqueTitles = [...new Set(quizes.map((item) => item?.title))];
-        document.getElementById(domIdforPosts).innerHTML = uniqueTitles
-          .map((title) => {
-            let avatarsmarkup = quizes
-              .filter((quiz) => quiz.title === title)
-              .map((quiz) => {
-                let openavatar =
-                  openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
-                let finduser = openavatar?.user;
-                let user = !!finduser ? finduser : defaultUser;
-                let findavatar = openavatar?.avatarUrl;
-                let avatar = !!findavatar ? findavatar : defaultAvatar;
 
-                return `<img src=${avatar}
-                                data-bs-toggle="tooltip" data-bs-html="true" 
-                                alt=${quiz.id} id=${quiz.id} class="avatar"
-                                title=${user}>`;
-              })
-              .join("");
+        let processedQuizes = [];
 
-            return `
-                        <div class="card m-1" data-id=${title}>
-                            <div class="card-body">
-                                <h5 class="card-title">${title}</h5>
-                                <div class="class-text">${avatarsmarkup}</div>
-                            </div>
-                        </div>`;
-          })
-          .join("");
+        fetchMockingQuizes(uniqueTitles).then((res) => {
+          let mockedtitlesarray = [];
+          console.log(res);
+          res.map((item) => {
+            if (!!item?.mocktitle) {
+              mockedtitlesarray.push(item.title);
+            }
+          });
+          console.log(mockedtitlesarray);
+          quizes.map((quiz) => {
+            let openavatar =
+              openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+            let finduser = openavatar?.user;
+            let user = !!finduser ? finduser : defaultUser;
+            let findavatar = openavatar?.avatarUrl;
+            let avatarUrl = !!findavatar ? findavatar : defaultAvatar;
+            let updatedQuiz = { ...quiz, user: user, avatarUrl: avatarUrl };
 
-        let avatarbuttons = document.getElementsByClassName("avatar");
-        for (var i = 0; i < avatarbuttons.length; i++) {
-          avatarbuttons[i].addEventListener("click", (e) =>
-            doSelectQuiz(
-              e.target.id,
-              quizes
-                .find((item) => item.id === e.target.id)
-                .email.replace(/[^a-zA-Z0-9]/g, "_"),
-            ),
-          );
-        }
+            if (mockedtitlesarray.includes(quiz.title)) {
+              updatedQuiz.hash = true;
+              updatedQuiz.title = res.filter(
+                (item) => item.title === quiz.title,
+              )[0].mocktitle;
+              updatedQuiz.email = "mock_mail_ru";
+              updatedQuiz.id = res.filter(
+                (item) => item.title === quiz.title,
+              )[0].titlehash;
+            } else {
+              updatedQuiz.hash = false;
+            }
+            processedQuizes.push(updatedQuiz);
+          });
+          console.log(processedQuizes);
+          uniqueTitles = [
+            ...new Set(processedQuizes.map((item) => item?.title)),
+          ];
+
+          document.getElementById(domIdforPosts).innerHTML = uniqueTitles
+            .map((title) => {
+              let avatarsmarkup = processedQuizes
+                .filter((quiz) => quiz.title === title)
+                .map((quiz) => {
+                  // let openavatar =
+                  //   openavatarsObject[quiz.email.replace(/[^a-zA-Z0-9]/g, "_")];
+                  // let finduser = openavatar?.user;
+                  // let user = !!finduser ? finduser : defaultUser;
+                  // let findavatar = openavatar?.avatarUrl;
+                  // let avatar = !!findavatar ? findavatar : defaultAvatar;
+
+                  return `<img src=${quiz.avatarUrl}
+                                      data-bs-toggle="tooltip" data-bs-html="true"
+                                      alt=${quiz.id} id=${quiz.id} class="avatar"
+                                      title=${quiz.user}>`;
+                })
+                .join("");
+
+              return `
+                              <div class="card m-1" data-id=${title}>
+                                  <div class="card-body">
+                                      <h5 class="card-title">${title}</h5>
+                                      <div class="class-text">${avatarsmarkup}</div>
+                                  </div>
+                              </div>`;
+            })
+            .join("");
+
+          let avatarbuttons = document.getElementsByClassName("avatar");
+          for (var i = 0; i < avatarbuttons.length; i++) {
+            avatarbuttons[i].addEventListener("click", (e) => {
+              console.log(e.target.id);
+              console.log(
+                processedQuizes
+                  .find((item) => item.id === e.target.id)
+                  .email.replace(/[^a-zA-Z0-9]/g, "_"),
+              );
+              doSelectQuiz(
+                e.target.id,
+                processedQuizes
+                  .find((item) => item.id === e.target.id)
+                  .email.replace(/[^a-zA-Z0-9]/g, "_"),
+              );
+            });
+          }
+        });
 
         let caseswithmediatypes = currentDayQuizes.filter(
           (item) =>
@@ -1083,37 +897,37 @@ console.log(uniqueTitles)
             let casetimestampmarkup = filteredquizes
               .map((labcase) => {
                 return `<div class="col">
-                        <button class="btn btn-sm btn-outline-secondary casemediabutton" id=${labcase.id}>
-                            ${labcase?.type}
-                           </button>
-                           </div>`;
+                              <button class="btn btn-sm btn-outline-secondary casemediabutton" id=${labcase.id}>
+                                  ${labcase?.type}
+                                 </button>
+                                 </div>`;
               })
               .join("");
 
             return `<div class="card my-1">
-                                <div class="card-body">
+                                      <div class="card-body">
 
-                                    <div class="row">
-                                        <div class="col-12 col-lg-3">
-                                            <img src=${avatar}
-                                            data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
-                                                alt=${quiz.id} id=${quiz.id} 
-                                            title=${user}>
-                                        </div>    
-                                        <div  <div class="col-12 col-lg-9">
-                                            <h5 class="card-title">${quiz.title}</h5>
-                                            <div class="class-text">${quiz.comment}</div>
-                                        </div>    
-                                    </div>
+                                          <div class="row">
+                                              <div class="col-12 col-lg-3">
+                                                  <img src=${avatar}
+                                                  data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
+                                                      alt=${quiz.id} id=${quiz.id}
+                                                  title=${user}>
+                                              </div>
+                                              <div  <div class="col-12 col-lg-9">
+                                                  <h5 class="card-title">${quiz.title}</h5>
+                                                  <div class="class-text">${quiz.comment}</div>
+                                              </div>
+                                          </div>
 
 
-                                   <div class=container>
-                                    <div class="row">
-                                       ${casetimestampmarkup}
-                                    </div>
-                                   </div>        
-                                </div>
-                            </div>`;
+                                         <div class=container>
+                                          <div class="row">
+                                             ${casetimestampmarkup}
+                                          </div>
+                                         </div>
+                                      </div>
+                                  </div>`;
           })
           .join("");
 
@@ -1146,26 +960,26 @@ console.log(uniqueTitles)
               let avatar = !!findavatar ? findavatar : defaultAvatar;
 
               return `<div class="card my-1">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-lg-3">
-                                            <img src=${avatar}
-                                            data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
-                                                alt=${casewithbudgeting.id} id=${casewithbudgeting.id} 
-                                            title=${user}>
-                                        </div>    
-                                        <div  <div class="col-12 col-lg-9">
-                                            <h5 class="card-title">${casewithbudgeting.title}</h5>
-                                            <div class="class-text">${casewithbudgeting.comment}</div>
-                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingrecords" id=${casewithbudgeting.id}>Операции</button>  
-                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingbalance" id=${casewithbudgeting.id}>Баланс</button>
-                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingfinancialresults" id=${casewithbudgeting.id}>Фин Рез</button>        
-                                            <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingcashflow" id=${casewithbudgeting.id}>Кэш фло</button>
-                                            <button class="btn btn-sm btn-outline-secondary m-1 btnbalancecase" id=${casewithbudgeting.id}>Диаг Баланс</button> 
-                                        </div>    
-                                    </div>
-                                </div>
-                            </div>`;
+                                      <div class="card-body">
+                                          <div class="row">
+                                              <div class="col-12 col-lg-3">
+                                                  <img src=${avatar}
+                                                  data-bs-toggle="tooltip" data-bs-html="true" class="avatar"
+                                                      alt=${casewithbudgeting.id} id=${casewithbudgeting.id}
+                                                  title=${user}>
+                                              </div>
+                                              <div  <div class="col-12 col-lg-9">
+                                                  <h5 class="card-title">${casewithbudgeting.title}</h5>
+                                                  <div class="class-text">${casewithbudgeting.comment}</div>
+                                                  <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingrecords" id=${casewithbudgeting.id}>Операции</button>
+                                                  <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingbalance" id=${casewithbudgeting.id}>Баланс</button>
+                                                  <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingfinancialresults" id=${casewithbudgeting.id}>Фин Рез</button>
+                                                  <button class="btn btn-sm btn-outline-secondary m-1 btnaccountingcashflow" id=${casewithbudgeting.id}>Кэш фло</button>
+                                                  <button class="btn btn-sm btn-outline-secondary m-1 btnbalancecase" id=${casewithbudgeting.id}>Диаг Баланс</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>`;
             })
             .join("");
 
@@ -1283,10 +1097,12 @@ console.log(uniqueTitles)
         });
 
         store.dispatch(
-          seedState({ object:
-             { openavatars: updatedopenavatars,
-              quizesbyDate: quizesbyDate
-              } }),
+          seedState({
+            object: {
+              openavatars: updatedopenavatars,
+              quizesbyDate: quizesbyDate,
+            },
+          }),
         );
 
         markupForQuizesCasesByDate(
