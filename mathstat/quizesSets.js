@@ -1,186 +1,342 @@
  // ---- mathwithrandomnumber ----
 let quizesSets = [
 
- 
+ {
+    "id": "margin_leverage_fixed_costs_001",
+    "type": "mathwithrandomnumber",
+    "header": "Типовая задача",
+    "title": "Постоянные затраты по отчету о финансовых результатах",
+    "theme": "Маржинальный анализ. Рычаги",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Маржинальный анализ. Рычаги
+  </div>
+  <div class="card-body">
+    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{=3*{var1-10}+70*(2+{var1-10})/20}</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{=3*{var1-10}+80*(2+{var1-10})/20}</strong> млн. руб.</div>
 
-      {
-        "id": "fipi_taxi_001",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ",
-        "title": "Такси",
-        "theme": "Классическое определение вероятности",
-        "text": "В фирме такси свободно 10 машин: 5 чёрных, 1 жёлтая и 4 зелёных. По вызову выехала одна из машин, случайно оказавшаяся ближе всего к заказчику. Найдите вероятность того, что к нему приедет жёлтое такси.",
-        "choices": ["0.1", "0.2", "0.4", "0.5"],
-        "answers": ["0.1"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🚕 Классическая вероятность</h5><p class='mb-1'>$$P = \\frac{m}{n} $$</p><hr class='my-2'><p class='mb-1'>Жёлтых: 1. Всего: 10.</p><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
-    },
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Постоянные затраты организации составляют ... млн. руб.
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    "answer": "3*{var1-10}",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Суммарные затраты описываются уравнением:</div>
+    <div class="text-center">$$ TC = FC + VC = FC + v \\cdot Q $$</div>
+    <div class="mt-3 mb-2">Составим систему по двум объемам продаж:</div>
+    <div class="text-center">$$ FC + v \\cdot 70 = {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
+    <div class="text-center">$$ FC + v \\cdot 80 = {=3*{var1-10}+80*(2+{var1-10})/20} $$</div>
+    <div class="mt-3 mb-2">Вычтем первое уравнение из второго:</div>
+    <div class="text-center">$$ 10v = {=3*{var1-10}+80*(2+{var1-10})/20} - {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
+    <div class="text-center">$$ v = {=(2+{var1-10})/20} $$</div>
+    <div class="mt-3 mb-2">Подставим \( v \) в первое уравнение:</div>
+    <div class="text-center">$$ FC = {=3*{var1-10}+70*(2+{var1-10})/20} - 70 \\cdot {=(2+{var1-10})/20} = {=3*{var1-10}} $$</div>
+    <div class="alert alert-success mt-3">Ответ: <strong>{=3*{var1-10}}</strong> млн. руб.</div>
+  </div>
+</div>`,
+    "randomfrom": [10, 20, 30, 40]
+  },
+  {
+    "id": "margin_leverage_forecast_costs_001",
+    "type": "mathwithrandomnumber",
+    "header": "Типовая задача",
+    "title": "Прогнозный отчет о финансовых результатах исходя из отчетных данных",
+    "theme": "Маржинальный анализ. Рычаги",
+    "text": `
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Маржинальный анализ. Рычаги
+  </div>
+  <div class="card-body">
+    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{=3*{var1-10}+70*(2+{var1-10})/20}</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{=3*{var1-10}+80*(2+{var1-10})/20}</strong> млн. руб.</div>
+
+    <div class="alert alert-success mt-3 mb-0">
+      <strong>Вопрос:</strong> Чему будут равны полные затраты при объеме продаж <strong>{={var1-10}*4}</strong> млн. руб.?
+      Введите число.
+    </div>
+  </div>
+</div>`,
+    "answer": "3*{var1-10}+{var1-10}*4*(2+{var1-10})/20",
+    "hint": `
+<div class="card">
+  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Суммарные затраты описываются уравнением:</div>
+    <div class="text-center">$$ TC = FC + v \\cdot Q $$</div>
+    <div class="mt-3 mb-2">Из двух отчетных точек найдем постоянные затраты \( FC \) и переменные затраты на единицу \( v \):</div>
+    <div class="text-center">$$ 10v = {=3*{var1-10}+80*(2+{var1-10})/20} - {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
+    <div class="text-center">$$ v = {=(2+{var1-10})/20} $$</div>
+    <div class="text-center">$$ FC = {=3*{var1-10}+70*(2+{var1-10})/20} - 70 \\cdot {=(2+{var1-10})/20} = {=3*{var1-10}} $$</div>
+    <div class="mt-3 mb-2">Прогнозные полные затраты при \( Q = {={var1-10}*4} \):</div>
+    <div class="text-center">$$ TC = {=3*{var1-10}} + {=(2+{var1-10})/20} \\cdot {={var1-10}*4} = {=3*{var1-10}+{var1-10}*4*(2+{var1-10})/20} $$</div>
+    <div class="alert alert-success mt-3">Ответ: <strong>{=3*{var1-10}+{var1-10}*4*(2+{var1-10})/20}</strong> млн. руб.</div>
+  </div>
+</div>`,
+    "randomfrom": [10, 20, 30, 40]
+  },
     {
-        "id": "fipi_cups_001",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ",
-        "title": "Чашки",
-        "theme": "Классическое определение вероятности",
-        "text": "У бабушки 20 чашек: 10 с красными цветами, остальные с синими. Бабушка наливает чай в случайно выбранную чашку. Найдите вероятность того, что это будет чашка с синими цветами.",
-        "choices": ["0.1", "0.3", "0.5", "0.7"],
-        "answers": ["0.5"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>☕ Классическая вероятность</h5><p class='mb-1'>Синих: 20 − 10 = 10. Всего: 20.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{10}{20} = 0.5$$</p></div>"
-    },
-    {
-        "id": "fipi_bulbs_001",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ",
-        "title": "Фонарики",
-        "theme": "Классическое определение вероятности",
-        "text": "В среднем из 100 карманных фонариков, поступивших в продажу, девять неисправных. Найдите вероятность того, что выбранный наудачу фонарик окажется исправен.",
-        "choices": ["0.09", "0.9", "0.91", "0.99"],
-        "answers": ["0.91"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔦 Классическая вероятность</h5><p class='mb-1'>Исправных: 100 − 9 = 91. Всего: 100.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{91}{100} = 0.91$$</p></div>"
-    },
-    {
-        "id": "fipi_skiers_001",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ",
-        "title": "Лыжники",
-        "theme": "Классическое определение вероятности",
-        "text": "В лыжных гонках участвуют 7 спортсменов из России, 1 из Швеции и 2 из Норвегии. Порядок старта определяется жребием. Найдите вероятность того, что первым будет стартовать спортсмен из Швеции.",
-        "choices": ["0.1", "0.2", "0.3", "0.7"],
-        "answers": ["0.1"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⛷️ Классическая вероятность</h5><p class='mb-1'>Всего: 7 + 1 + 2 = 10. Из Швеции: 1.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
-    },
-    {
-        "id": "fipi_pens_001",
-        "type": "multiplechoices",
-        "header": "ФИПИ · ОГЭ",
-        "title": "Ручки",
-        "theme": "Классическое определение вероятности",
-        "text": "В магазине 100 ручек: 37 красных, 8 зелёных, 17 фиолетовых, остальные синие и чёрные, их поровну. Найдите вероятность того, что случайно выбранная ручка окажется красной или чёрной.",
-        "choices": ["0.37", "0.46", "0.5", "0.56"],
-        "answers": ["0.56"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🖊️ Классическая вероятность</h5><p class='mb-1'>Остальные: 100 − 37 − 8 − 17 = 38. Порівну: синих 19, чёрных 19.</p><hr class='my-2'><p class='mb-1'>Красных или чёрных: 37 + 19 = 56.</p><p class='mb-0'>$$P = \\frac{56}{100} = 0.56$$</p></div>"
-    },
+  "id": "oral_corr_sign",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Знак корреляции",
+  "theme": "Корреляция и регрессия",
+  "text": "Если с ростом x величина y в среднем убывает, то коэффициент корреляции r…",
+  "choices": ["r > 0", "r < 0", "r = 0", "r = 1"],
+  "answers": ["r < 0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📉 Знак r</h5><p class='mb-1'>r ∈ [−1; 1]. Знак совпадает с направлением связи:</p><ul class='mb-1'><li>r > 0 — прямая (обе растут),</li><li>r < 0 — обратная (одна растёт, другая падает),</li><li>r = 0 — линейной связи нет.</li></ul></div>"
+},
+{
+  "id": "oral_corr_bounds",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Границы r",
+  "theme": "Корреляция и регрессия",
+  "text": "В каких пределах может находиться коэффициент корреляции r?",
+  "choices": ["0 ≤ r ≤ 1", "−1 ≤ r ≤ 1", "−∞ < r < +∞", "0 ≤ r ≤ 100"],
+  "answers": ["−1 ≤ r ≤ 1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Границы r</h5><p class='mb-1'>Коэффициент корреляции Пирсона всегда лежит в отрезке <span class='badge badge-info'>[−1; 1]</span>.</p><hr class='my-2'><p class='mb-0'>|r| = 1 — точки лежат точно на прямой; r = 0 — линейной связи нет.</p></div>"
+},
+{
+  "id": "oral_corr_perfect",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Идеальная связь",
+  "theme": "Корреляция и регрессия",
+  "text": "Все точки лежат точно на прямой, идущей вверх. Чему равен r?",
+  "choices": ["−1", "0", "0.5", "1"],
+  "answers": ["1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 r = 1</h5><p class='mb-1'>Точки точно на прямой, связь прямая (обе величины растут вместе) → <span class='badge badge-info'>r = 1</span>.</p><hr class='my-2'><p class='mb-0'>Если бы прямая шла вниз — было бы r = −1.</p></div>"
+},
+{
+  "id": "oral_corr_none",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Корреляция",
+  "title": "Нет линейной связи",
+  "theme": "Корреляция и регрессия",
+  "text": "Облако точек имеет форму круга (без наклона). Каково примерное значение r?",
+  "choices": ["−1", "0", "0.9", "1"],
+  "answers": ["0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⭕ r ≈ 0</h5><p class='mb-1'>Если облако точек симметрично и не вытянуто вдоль наклонной прямой, <span class='badge badge-info'>линейной связи нет</span>.</p><hr class='my-2'><p class='mb-0'>Формально r ≈ 0. При этом нелинейная связь может быть — r ловит только линейную.</p></div>"
+},
+
+{
+  "id": "oral_reg_mean_xy",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Среднее значение",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Среднее арифметическое</div>
+  <div class="card-body">
+    <div class="mb-3">Даны значения x: <strong>{var1-10}, {= {var1-10} + 2}, {= {var1-10} + 4}</strong>. Найдите x̄.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Среднее — сумма, делённая на количество:</div>
+    <div class="text-center">$$\\bar{x} = \\frac{ {var1-10} + {= {var1-10} + 2} + {= {var1-10} + 4} }{3} = {= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 4, 6, 8]
+},
+{
+  "id": "oral_reg_slope_two_points",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Наклон по двум точкам",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Наклон прямой</div>
+  <div class="card-body">
+    <div class="mb-3">Прямая проходит через точки (1; {var1-10}) и (3; {= {var1-10} + 4}). Найдите угловой коэффициент b = Δy/Δx.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "(({var1-10} + 4) - {var1-10}) / (3 - 1)",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Наклон = изменение y на изменение x:</div>
+    <div class="text-center">$$b = \\frac{\\Delta y}{\\Delta x} = \\frac{ {= {var1-10} + 4} - {var1-10} }{3 - 1} = \\frac{4}{2} = 2$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>2</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [2, 3, 4, 5]
+},
+{
+  "id": "oral_reg_sum_residuals",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Сумма остатков МНК",
+  "theme": "Линейная регрессия",
+  "text": "Чему равна сумма остатков eᵢ = yᵢ − ŷᵢ для линии, построенной методом наименьших квадратов (с константой)?",
+  "choices": ["Всегда 0", "Всегда 1", "Равна среднему y", "Нельзя определить"],
+  "answers": ["Всегда 0"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⚖️ Сумма остатков = 0</h5><p class='mb-1'>Одно из свойств МНК-прямой с константой: положительные и отрицательные отклонения <span class='badge badge-info'>уравновешивают друг друга</span>.</p><hr class='my-2'><p class='mb-0'>Поэтому Σeᵢ = 0, а среднее остатков тоже 0. Это используют для проверки расчётов.</p></div>"
+},
+
+{
+  "id": "oral_reg_collinear_yes",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Три точки на одной прямой?",
+  "theme": "Линейная регрессия",
+  "text": "Лежат ли точки A(1; 2), B(2; 4), C(3; 6) на одной прямой?",
+  "choices": [
+    "Да, лежат",
+    "Нет, не лежат",
+    "Нельзя определить",
+    "Только A и B"
+  ],
+  "answers": ["Да, лежат"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Точки лежат на одной прямой, если наклоны отрезков AB и AC совпадают:</p><p class='text-center'>$$\\frac{y_B-y_A}{x_B-x_A} = \\frac{y_C-y_A}{x_C-x_A} $$</p><hr class='my-2'><p class='mb-1'>AB: (4−2)/(2−1) = 2/1 = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−2)/(3−1) = 4/2 = <span class='badge badge-info'>2</span></p><p class='mb-0'>Наклоны равны → точки на одной прямой <span class='badge badge-success'>y = 2x</span>.</p></div>"
+},
+{
+  "id": "oral_reg_collinear_no",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Три точки на одной прямой?",
+  "theme": "Линейная регрессия",
+  "text": "Лежат ли точки A(1; 1), B(2; 3), C(3; 6) на одной прямой?",
+  "choices": [
+    "Да, лежат",
+    "Нет, не лежат",
+    "Нельзя определить",
+    "Только B и C"
+  ],
+  "answers": ["Нет, не лежат"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Сравниваем наклоны AB и AC:</p><p class='mb-1'>AB: (3−1)/(2−1) = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−1)/(3−1) = 5/2 = <span class='badge badge-info'>2.5</span></p><hr class='my-2'><p class='mb-0'>2 ≠ 2.5 → точки <span class='badge badge-danger'>не лежат</span> на одной прямой (через них проходит «излом»).</p></div>"
+},
+
+{
+  "id": "oral_reg_missing_y",
+  "type": "mathwithrandomnumber",
+  "header": "Устный счёт · Регрессия",
+  "title": "Достройте точку до прямой",
+  "theme": "Линейная регрессия",
+  "text": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Точка на прямой</div>
+  <div class="card-body">
+    <div class="mb-3">Точки A(1; {var1-10}) и B(2; {= {var1-10} + 3}) лежат на прямой. Какая ордината у точки C с x = 3, чтобы она тоже лежала на этой прямой?</div>
+    <div class="mt-3 mb-2">Введите число.</div>
+  </div>
+</div>`,
+  "answer": "{var1-10} + 2 * 3",
+  "hint": `
+<div class="card">
+  <div class="card-header bg-primary text-white">Решение</div>
+  <div class="card-body">
+    <div class="mb-2">Наклон прямой:</div>
+    <div class="text-center">$$b = \\frac{ {= {var1-10} + 3} - {var1-10} }{2 - 1} = 3$$</div>
+    <div class="mb-2">Уравнение: y = {var1-10} + 3(x − 1). При x = 3:</div>
+    <div class="text-center">$$y = {var1-10} + 3 \\cdot 2 = {= {var1-10} + 2 * 3} $$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 2 * 3}</strong></div>
+  </div>
+</div>`,
+  "randomfrom": [1, 2, 3, 4, 5]
+},
+{
+  "id": "oral_reg_collinear_qual",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Что значит «лежат на одной прямой»?",
+  "theme": "Линейная регрессия",
+  "text": "Три точки лежат на одной прямой. Что это означает для линейной регрессии по этим точкам?",
+  "choices": [
+    "r = ±1, остатки равны 0, прямая проходит точно через все точки",
+    "r = 0",
+    "Регрессию построить нельзя",
+    "Средние не определены"
+  ],
+  "answers": ["r = ±1, остатки равны 0, прямая проходит точно через все точки"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 Идеальная линейная связь</h5><p class='mb-1'>Если все точки на одной прямой:</p><ul class='mb-1'><li>|r| = <span class='badge badge-info'>1</span> (связь функциональная),</li><li>все остатки eᵢ = <span class='badge badge-info'>0</span>,</li><li>МНК-прямая совпадает с этой прямой.</li></ul><hr class='my-2'><p class='mb-0'>Знак r: +1, если прямая идёт вверх, −1 — если вниз.</p></div>"
+},
+
+{
+  "id": "oral_reg_cost_fixed",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Постоянные затраты",
+  "theme": "Линейная регрессия в экономике",
+  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент a — это…",
+  "choices": [
+    "Постоянные затраты (при нулевой выручке)",
+    "Переменные затраты на 1 рубль выручки",
+    "Средняя выручка",
+    "Прибыль"
+  ],
+  "answers": ["Постоянные затраты (при нулевой выручке)"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Свободный член a</h5><p class='mb-1'>При выручке = 0: Затраты = a. Это <span class='badge badge-info'>постоянные затраты</span> — аренда, зарплата администрации и т.п.</p><hr class='my-2'><p class='mb-0'>Коэффициент b — <span class='badge badge-info'>переменные затраты</span> на единицу выручки.</p></div>"
+},
+{
+  "id": "oral_reg_cost_variable",
+  "type": "multiplechoices",
+  "header": "Устный счёт · Регрессия",
+  "title": "Переменные затраты",
+  "theme": "Линейная регрессия в экономике",
+  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент b показывает…",
+  "choices": [
+    "На сколько растут затраты при росте выручки на 1",
+    "Постоянные затраты",
+    "Среднюю выручку",
+    "Рентабельность"
+  ],
+  "answers": ["На сколько растут затраты при росте выручки на 1"],
+  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Коэффициент b</h5><p class='mb-1'>b — <span class='badge badge-info'>переменные затраты на единицу выручки</span>.</p><hr class='my-2'><p class='mb-0'>Например, b = 0.5 означает: с каждым рублём выручки затраты растут на 50 копеек.</p></div>"
+},
 
 
-    // =====================================================================
-    // ==================== ТЕМА 1.1: Основные понятия комбинаторики ====================
-    // =====================================================================
+
+
+
     {
-        "id": "tv_001",
+        "id": "tv_020",
         "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Основной принцип комбинаторики",
-        "theme": "Основные понятия комбинаторики",
-        "text": "Сколько существует способов выбрать один напиток из 5 видов и один десерт из 4 видов?",
-        "choices": ["9", "20", "5", "4"],
-        "answers": ["20"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из первого множества</span> И <span class='badge badge-info'>один элемент из второго множества</span>, количества вариантов перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 5 видов напитка × 4 вида десерта = <span class='badge badge-success'>20 способов</span></p></div>"
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Коэффициент корреляции",
+        "theme": "Корреляционный анализ",
+        "text": "В каком диапазоне находятся значения коэффициента корреляции Пирсона?",
+        "choices": [
+            "[0, 1]",
+            "[-1, 1]",
+            "[−∞, +∞]",
+            "[0, +∞]"
+        ],
+        "answers": ["[-1, 1]"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции</h5><p class='mb-1'>Измеряет <span class='badge badge-info'>силу и направление</span> линейной связи между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Значения:</strong> r = 1 — полная положительная связь; r = −1 — полная отрицательная; r = 0 — <span class='badge badge-success'>нет линейной связи</span>.</p></div>"
     },
     {
-        "id": "tv_101",
+        "id": "tv_126",
         "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Правило суммы или произведения?",
-        "theme": "Основные понятия комбинаторики",
-        "text": "Выбор напитка из 3 видов чая и 2 видов кофе. Сколько всего вариантов напитка?",
+        "header": "Тема 4. Элементы математической статистики",
+        "title": "Связь между переменными",
+        "theme": "Корреляционный анализ",
+        "text": "Мера линейной связи между двумя переменными, принимающая значения от -1 до 1 — это...",
         "choices": [
-            "Правило суммы (5 вариантов)",
-            "Правило произведения (6 вариантов)",
-            "Перестановки (120 вариантов)",
-            "Сочетания (10 вариантов)"
+            "Коэффициент корреляции Пирсона",
+            "Коэффициент детерминации",
+            "Ковариация",
+            "Регрессия"
         ],
-        "answers": ["Правило суммы (5 вариантов)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило суммы</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из нескольких непересекающихся множеств</span>, количества вариантов складываются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 вида чая + 2 вида кофе = <span class='badge badge-success'>5 вариантов напитка</span></p></div>"
-    },
-    {
-        "id": "tv_102",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Правило суммы или произведения?",
-        "theme": "Основные понятия комбинаторики",
-        "text": "Выбор напитка (3 вида) и десерта (4 вида). Сколько всего вариантов пары?",
-        "choices": [
-            "Правило суммы (7 вариантов)",
-            "Правило произведения (12 вариантов)",
-            "Перестановки (24 варианта)",
-            "Сочетания (6 вариантов)"
-        ],
-        "answers": ["Правило произведения (12 вариантов)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать последовательно <span class='badge badge-info'>элемент из первого множества</span> И <span class='badge badge-info'>элемент из второго множества</span>, варианты перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 напитка × 4 десерта = <span class='badge badge-success'>12 вариантов пары</span></p></div>"
+        "answers": ["Коэффициент корреляции Пирсона"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции Пирсона</h5><p class='mb-1'>Наиболее распространённая <span class='badge badge-info'>мера линейной зависимости</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> корреляция <span class='badge badge-warning'>не означает причинно-следственную связь</span>. r² (коэффициент детерминации) показывает долю объяснённой дисперсии.</p></div>"
     },
 
-    // =====================================================================
-    // ==================== ТЕМА 1.2: Перестановки, размещения, сочетания ====================
-    // =====================================================================
-    {
-        "id": "tv_002",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Сочетания",
-        "theme": "Перестановки, размещения, сочетания",
-        "text": "Сколькими способами можно выбрать 2 книги из 5?",
-        "choices": ["20", "10", "120", "5"],
-        "answers": ["10"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Выбираем <span class='badge badge-info'>неупорядоченный</span> набор элементов. Порядок НЕ важен.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> C₅² = 5! / (2! × 3!) = <span class='badge badge-success'>10 способов</span></p></div>"
-    },
-    {
-        "id": "tv_003",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Перестановки",
-        "theme": "Перестановки, размещения, сочетания",
-        "text": "Сколькими способами можно расставить 4 книги на полке?",
-        "choices": ["4", "16", "24", "8"],
-        "answers": ["24"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Упорядочиваем <span class='badge badge-info'>все</span> элементы. Порядок ВАЖЕН.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P₄ = 4! = 4×3×2×1 = <span class='badge badge-success'>24 способа</span></p></div>"
-    },
-    {
-        "id": "tv_103",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Перестановки, размещения или сочетания?",
-        "theme": "Перестановки, размещения, сочетания",
-        "text": "Сколькими способами можно расставить 5 книг на полке?",
-        "choices": [
-            "Перестановки (5!)",
-            "Размещения (A₅³)",
-            "Сочетания (C₅³)",
-            "Правило суммы"
-        ],
-        "answers": ["Перестановки (5!)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>все элементы участвуют</span> и <span class='badge badge-info'>порядок важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> P₅ = 5! = 5×4×3×2×1 = <span class='badge badge-success'>120 способов</span></p></div>"
-    },
-    {
-        "id": "tv_104",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Перестановки, размещения или сочетания?",
-        "theme": "Перестановки, размещения, сочетания",
-        "text": "Сколькими способами можно выбрать 3 книги из 5 (порядок не важен)?",
-        "choices": [
-            "Перестановки (P₅)",
-            "Размещения (A₅³)",
-            "Сочетания (C₅³)",
-            "Правило произведения"
-        ],
-        "answers": ["Сочетания (C₅³)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок НЕ важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> C₅³ = 5! / (3! × 2!) = <span class='badge badge-success'>10 способов</span></p></div>"
-    },
-    {
-        "id": "tv_105",
-        "type": "multiplechoices",
-        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
-        "title": "Перестановки, размещения или сочетания?",
-        "theme": "Перестановки, размещения, сочетания",
-        "text": "Сколько 3-значных чисел можно составить из 5 цифр (порядок важен)?",
-        "choices": [
-            "Перестановки (P₅)",
-            "Размещения (A₅³)",
-            "Сочетания (C₅³)",
-            "Правило суммы"
-        ],
-        "answers": ["Размещения (A₅³)"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Размещения</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок ВАЖЕН</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> A₅³ = 5! / (5-3)! = 5! / 2! = <span class='badge badge-success'>60 чисел</span></p></div>"
-    },
-
+      
      // ============================================================
   //  КОМБИНАТОРИКА
   // ============================================================
@@ -3666,394 +3822,6 @@ let quizesSets = [
     // ==================== ТЕМА 4.9: Корреляционный анализ ====================
     // =====================================================================
 
-    {
-  "id": "oral_corr_sign",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Корреляция",
-  "title": "Знак корреляции",
-  "theme": "Корреляция и регрессия",
-  "text": "Если с ростом x величина y в среднем убывает, то коэффициент корреляции r…",
-  "choices": ["r > 0", "r < 0", "r = 0", "r = 1"],
-  "answers": ["r < 0"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📉 Знак r</h5><p class='mb-1'>r ∈ [−1; 1]. Знак совпадает с направлением связи:</p><ul class='mb-1'><li>r > 0 — прямая (обе растут),</li><li>r < 0 — обратная (одна растёт, другая падает),</li><li>r = 0 — линейной связи нет.</li></ul></div>"
-},
-{
-  "id": "oral_corr_bounds",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Корреляция",
-  "title": "Границы r",
-  "theme": "Корреляция и регрессия",
-  "text": "В каких пределах может находиться коэффициент корреляции r?",
-  "choices": ["0 ≤ r ≤ 1", "−1 ≤ r ≤ 1", "−∞ < r < +∞", "0 ≤ r ≤ 100"],
-  "answers": ["−1 ≤ r ≤ 1"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Границы r</h5><p class='mb-1'>Коэффициент корреляции Пирсона всегда лежит в отрезке <span class='badge badge-info'>[−1; 1]</span>.</p><hr class='my-2'><p class='mb-0'>|r| = 1 — точки лежат точно на прямой; r = 0 — линейной связи нет.</p></div>"
-},
-{
-  "id": "oral_corr_perfect",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Корреляция",
-  "title": "Идеальная связь",
-  "theme": "Корреляция и регрессия",
-  "text": "Все точки лежат точно на прямой, идущей вверх. Чему равен r?",
-  "choices": ["−1", "0", "0.5", "1"],
-  "answers": ["1"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 r = 1</h5><p class='mb-1'>Точки точно на прямой, связь прямая (обе величины растут вместе) → <span class='badge badge-info'>r = 1</span>.</p><hr class='my-2'><p class='mb-0'>Если бы прямая шла вниз — было бы r = −1.</p></div>"
-},
-{
-  "id": "oral_corr_none",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Корреляция",
-  "title": "Нет линейной связи",
-  "theme": "Корреляция и регрессия",
-  "text": "Облако точек имеет форму круга (без наклона). Каково примерное значение r?",
-  "choices": ["−1", "0", "0.9", "1"],
-  "answers": ["0"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⭕ r ≈ 0</h5><p class='mb-1'>Если облако точек симметрично и не вытянуто вдоль наклонной прямой, <span class='badge badge-info'>линейной связи нет</span>.</p><hr class='my-2'><p class='mb-0'>Формально r ≈ 0. При этом нелинейная связь может быть — r ловит только линейную.</p></div>"
-},
-
-{
-  "id": "oral_reg_mean_xy",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Среднее значение",
-  "theme": "Линейная регрессия",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Среднее арифметическое</div>
-  <div class="card-body">
-    <div class="mb-3">Даны значения x: <strong>{var1-10}, {= {var1-10} + 2}, {= {var1-10} + 4}</strong>. Найдите x̄.</div>
-    <div class="mt-3 mb-2">Введите число.</div>
-  </div>
-</div>`,
-  "answer": "({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Среднее — сумма, делённая на количество:</div>
-    <div class="text-center">$$\\bar{x} = \\frac{ {var1-10} + {= {var1-10} + 2} + {= {var1-10} + 4} }{3} = {= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} + ({var1-10} + 2) + ({var1-10} + 4)) / 3}</strong></div>
-  </div>
-</div>`,
-  "randomfrom": [2, 4, 6, 8]
-},
-{
-  "id": "oral_reg_slope_two_points",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Наклон по двум точкам",
-  "theme": "Линейная регрессия",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Наклон прямой</div>
-  <div class="card-body">
-    <div class="mb-3">Прямая проходит через точки (1; {var1-10}) и (3; {= {var1-10} + 4}). Найдите угловой коэффициент b = Δy/Δx.</div>
-    <div class="mt-3 mb-2">Введите число.</div>
-  </div>
-</div>`,
-  "answer": "(({var1-10} + 4) - {var1-10}) / (3 - 1)",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Наклон = изменение y на изменение x:</div>
-    <div class="text-center">$$b = \\frac{\\Delta y}{\\Delta x} = \\frac{ {= {var1-10} + 4} - {var1-10} }{3 - 1} = \\frac{4}{2} = 2$$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>2</strong></div>
-  </div>
-</div>`,
-  "randomfrom": [2, 3, 4, 5]
-},
-{
-  "id": "oral_reg_sum_residuals",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Сумма остатков МНК",
-  "theme": "Линейная регрессия",
-  "text": "Чему равна сумма остатков eᵢ = yᵢ − ŷᵢ для линии, построенной методом наименьших квадратов (с константой)?",
-  "choices": ["Всегда 0", "Всегда 1", "Равна среднему y", "Нельзя определить"],
-  "answers": ["Всегда 0"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⚖️ Сумма остатков = 0</h5><p class='mb-1'>Одно из свойств МНК-прямой с константой: положительные и отрицательные отклонения <span class='badge badge-info'>уравновешивают друг друга</span>.</p><hr class='my-2'><p class='mb-0'>Поэтому Σeᵢ = 0, а среднее остатков тоже 0. Это используют для проверки расчётов.</p></div>"
-},
-
-{
-  "id": "oral_reg_collinear_yes",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Три точки на одной прямой?",
-  "theme": "Линейная регрессия",
-  "text": "Лежат ли точки A(1; 2), B(2; 4), C(3; 6) на одной прямой?",
-  "choices": [
-    "Да, лежат",
-    "Нет, не лежат",
-    "Нельзя определить",
-    "Только A и B"
-  ],
-  "answers": ["Да, лежат"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Точки лежат на одной прямой, если наклоны отрезков AB и AC совпадают:</p><p class='text-center'>$$\\frac{y_B-y_A}{x_B-x_A} = \\frac{y_C-y_A}{x_C-x_A} $$</p><hr class='my-2'><p class='mb-1'>AB: (4−2)/(2−1) = 2/1 = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−2)/(3−1) = 4/2 = <span class='badge badge-info'>2</span></p><p class='mb-0'>Наклоны равны → точки на одной прямой <span class='badge badge-success'>y = 2x</span>.</p></div>"
-},
-{
-  "id": "oral_reg_collinear_no",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Три точки на одной прямой?",
-  "theme": "Линейная регрессия",
-  "text": "Лежат ли точки A(1; 1), B(2; 3), C(3; 6) на одной прямой?",
-  "choices": [
-    "Да, лежат",
-    "Нет, не лежат",
-    "Нельзя определить",
-    "Только B и C"
-  ],
-  "answers": ["Нет, не лежат"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📏 Проверка коллинеарности</h5><p class='mb-1'>Сравниваем наклоны AB и AC:</p><p class='mb-1'>AB: (3−1)/(2−1) = <span class='badge badge-info'>2</span></p><p class='mb-1'>AC: (6−1)/(3−1) = 5/2 = <span class='badge badge-info'>2.5</span></p><hr class='my-2'><p class='mb-0'>2 ≠ 2.5 → точки <span class='badge badge-danger'>не лежат</span> на одной прямой (через них проходит «излом»).</p></div>"
-},
-
-{
-  "id": "oral_reg_missing_y",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Достройте точку до прямой",
-  "theme": "Линейная регрессия",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Точка на прямой</div>
-  <div class="card-body">
-    <div class="mb-3">Точки A(1; {var1-10}) и B(2; {= {var1-10} + 3}) лежат на прямой. Какая ордината у точки C с x = 3, чтобы она тоже лежала на этой прямой?</div>
-    <div class="mt-3 mb-2">Введите число.</div>
-  </div>
-</div>`,
-  "answer": "{var1-10} + 2 * 3",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Наклон прямой:</div>
-    <div class="text-center">$$b = \\frac{ {= {var1-10} + 3} - {var1-10} }{2 - 1} = 3$$</div>
-    <div class="mb-2">Уравнение: y = {var1-10} + 3(x − 1). При x = 3:</div>
-    <div class="text-center">$$y = {var1-10} + 3 \\cdot 2 = {= {var1-10} + 2 * 3} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 2 * 3}</strong></div>
-  </div>
-</div>`,
-  "randomfrom": [1, 2, 3, 4, 5]
-},
-{
-  "id": "oral_reg_collinear_qual",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Что значит «лежат на одной прямой»?",
-  "theme": "Линейная регрессия",
-  "text": "Три точки лежат на одной прямой. Что это означает для линейной регрессии по этим точкам?",
-  "choices": [
-    "r = ±1, остатки равны 0, прямая проходит точно через все точки",
-    "r = 0",
-    "Регрессию построить нельзя",
-    "Средние не определены"
-  ],
-  "answers": ["r = ±1, остатки равны 0, прямая проходит точно через все точки"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📈 Идеальная линейная связь</h5><p class='mb-1'>Если все точки на одной прямой:</p><ul class='mb-1'><li>|r| = <span class='badge badge-info'>1</span> (связь функциональная),</li><li>все остатки eᵢ = <span class='badge badge-info'>0</span>,</li><li>МНК-прямая совпадает с этой прямой.</li></ul><hr class='my-2'><p class='mb-0'>Знак r: +1, если прямая идёт вверх, −1 — если вниз.</p></div>"
-},
-
-{
-  "id": "oral_reg_cost_predict",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Затраты при заданной выручке",
-  "theme": "Линейная регрессия в экономике",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Затраты и выручка</div>
-  <div class="card-body">
-    <div class="mb-3">Зависимость затрат от выручки: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong> (в тыс. руб.). Чему равны затраты при выручке <strong>{= {var1-10} * 2}</strong> тыс. руб.?</div>
-    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
-  </div>
-</div>`,
-  "answer": "{var1-10} + 0.5 * ({var1-10} * 2)",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Подставляем выручку в уравнение:</div>
-    <div class="text-center">$$\\text{Затраты} = {var1-10} + 0.5 \\cdot {= {var1-10} * 2} = {var1-10} + {var1-10} = {= {var1-10} + 0.5 * ({var1-10} * 2)} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= {var1-10} + 0.5 * ({var1-10} * 2)}</strong> тыс. руб.</div>
-  </div>
-</div>`,
-  "randomfrom": [10, 20, 30, 40, 50]
-},
-{
-  "id": "oral_reg_cost_fixed",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Постоянные затраты",
-  "theme": "Линейная регрессия в экономике",
-  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент a — это…",
-  "choices": [
-    "Постоянные затраты (при нулевой выручке)",
-    "Переменные затраты на 1 рубль выручки",
-    "Средняя выручка",
-    "Прибыль"
-  ],
-  "answers": ["Постоянные затраты (при нулевой выручке)"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Свободный член a</h5><p class='mb-1'>При выручке = 0: Затраты = a. Это <span class='badge badge-info'>постоянные затраты</span> — аренда, зарплата администрации и т.п.</p><hr class='my-2'><p class='mb-0'>Коэффициент b — <span class='badge badge-info'>переменные затраты</span> на единицу выручки.</p></div>"
-},
-{
-  "id": "oral_reg_cost_variable",
-  "type": "multiplechoices",
-  "header": "Устный счёт · Регрессия",
-  "title": "Переменные затраты",
-  "theme": "Линейная регрессия в экономике",
-  "text": "В уравнении «Затраты = a + b · Выручка» коэффициент b показывает…",
-  "choices": [
-    "На сколько растут затраты при росте выручки на 1",
-    "Постоянные затраты",
-    "Среднюю выручку",
-    "Рентабельность"
-  ],
-  "answers": ["На сколько растут затраты при росте выручки на 1"],
-  "hint": "<div class='alert alert-primary'><h5 class='mb-2'>💰 Коэффициент b</h5><p class='mb-1'>b — <span class='badge badge-info'>переменные затраты на единицу выручки</span>.</p><hr class='my-2'><p class='mb-0'>Например, b = 0.5 означает: с каждым рублём выручки затраты растут на 50 копеек.</p></div>"
-},
-{
-  "id": "oral_reg_cost_profit",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Прибыль при заданной выручке",
-  "theme": "Линейная регрессия в экономике",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Прибыль = Выручка − Затраты</div>
-  <div class="card-body">
-    <div class="mb-3">Затраты: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. Чему равна прибыль при выручке <strong>{= {var1-10} * 4}</strong> тыс. руб.?</div>
-    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
-  </div>
-</div>`,
-  "answer": "({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Сначала затраты:</div>
-    <div class="text-center">$$\\text{Затраты} = {var1-10} + 0.5 \\cdot {= {var1-10} * 4} = {= {var1-10} + 0.5 * ({var1-10} * 4)} $$</div>
-    <div class="mt-2 mb-2">Прибыль:</div>
-    <div class="text-center">$$\\Pi = {= {var1-10} * 4} - {= {var1-10} + 0.5 * ({var1-10} * 4)} = {= ({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} * 4) - ({var1-10} + 0.5 * ({var1-10} * 4))}</strong> тыс. руб.</div>
-  </div>
-</div>`,
-  "randomfrom": [10, 20, 30, 40]
-},
-{
-  "id": "oral_reg_cost_breakeven",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Точка безубыточности",
-  "theme": "Линейная регрессия в экономике",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Когда прибыль равна нулю?</div>
-  <div class="card-body">
-    <div class="mb-3">Затраты: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. При какой выручке прибыль равна нулю (Выручка = Затраты)?</div>
-    <div class="mt-3 mb-2">Введите число (в тыс. руб.).</div>
-  </div>
-</div>`,
-  "answer": "2 * {var1-10}",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Приравниваем выручку и затраты:</div>
-    <div class="text-center">$$V = {var1-10} + 0.5V$$</div>
-    <div class="mb-2">Переносим:</div>
-    <div class="text-center">$$0.5V = {var1-10} \\quad\\Rightarrow\\quad V = 2 \\cdot {var1-10} = {= 2 * {var1-10}} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= 2 * {var1-10}}</strong> тыс. руб.</div>
-  </div>
-</div>`,
-  "randomfrom": [10, 20, 30, 40, 50]
-},
-{
-  "id": "oral_reg_cost_residual",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Отклонение от прогноза",
-  "theme": "Линейная регрессия в экономике",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Остаток по затратам</div>
-  <div class="card-body">
-    <div class="mb-3">Прогноз: <strong>Затраты = {var1-10} + 0.5 · Выручка</strong>. Фактические затраты при выручке {= {var1-10} * 2} тыс. руб. оказались равны <strong>{= {var1-10} * 2}</strong> тыс. руб. Найдите остаток (факт − прогноз).</div>
-    <div class="mt-3 mb-2">Введите число.</div>
-  </div>
-</div>`,
-  "answer": "({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Прогноз затрат:</div>
-    <div class="text-center">$$\\hat{y} = {var1-10} + 0.5 \\cdot {= {var1-10} * 2} = {= {var1-10} + 0.5 * ({var1-10} * 2)} $$</div>
-    <div class="mt-2 mb-2">Остаток:</div>
-    <div class="text-center">$$e = {= {var1-10} * 2} - {= {var1-10} + 0.5 * ({var1-10} * 2)} = {= ({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))} $$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>{= ({var1-10} * 2) - ({var1-10} + 0.5 * ({var1-10} * 2))}</strong></div>
-  </div>
-</div>`,
-  "randomfrom": [10, 20, 30, 40]
-},
-{
-  "id": "oral_reg_cost_two_points",
-  "type": "mathwithrandomnumber",
-  "header": "Устный счёт · Регрессия",
-  "title": "Найти переменные затраты",
-  "theme": "Линейная регрессия в экономике",
-  "text": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Переменные затраты по двум точкам</div>
-  <div class="card-body">
-    <div class="mb-3">При выручке <strong>{var1-10}</strong> тыс. руб. затраты равны <strong>{= {var1-10} + 10}</strong> тыс. руб., а при выручке <strong>{= {var1-10} * 2}</strong> тыс. руб. — <strong>{= {var1-10} * 2 + 10}</strong> тыс. руб. Найдите переменные затраты на 1 рубль выручки (угловой коэффициент).</div>
-    <div class="mt-3 mb-2">Введите число.</div>
-  </div>
-</div>`,
-  "answer": "(({var1-10} * 2 + 10) - ({var1-10} + 10)) / (({var1-10} * 2) - {var1-10})",
-  "hint": `
-<div class="card">
-  <div class="card-header bg-primary text-white">Решение</div>
-  <div class="card-body">
-    <div class="mb-2">Угловой коэффициент — это ΔЗатрат / ΔВыручки:</div>
-    <div class="text-center">$$b = \\frac{ {= {var1-10} * 2 + 10} - {= {var1-10} + 10} }{ {= {var1-10} * 2} - {var1-10} } = \\frac{ {var1-10} }{ {var1-10} } = 1$$</div>
-    <div class="alert alert-primary mt-3">Ответ: <strong>1</strong></div>
-  </div>
-</div>`,
-  "randomfrom": [10, 20, 30, 40, 50]
-},
-
-    {
-        "id": "tv_020",
-        "type": "multiplechoices",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Коэффициент корреляции",
-        "theme": "Корреляционный анализ",
-        "text": "В каком диапазоне находятся значения коэффициента корреляции Пирсона?",
-        "choices": [
-            "[0, 1]",
-            "[-1, 1]",
-            "[−∞, +∞]",
-            "[0, +∞]"
-        ],
-        "answers": ["[-1, 1]"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции</h5><p class='mb-1'>Измеряет <span class='badge badge-info'>силу и направление</span> линейной связи между переменными.</p><hr class='my-2'><p class='mb-0'><strong>Значения:</strong> r = 1 — полная положительная связь; r = −1 — полная отрицательная; r = 0 — <span class='badge badge-success'>нет линейной связи</span>.</p></div>"
-    },
-    {
-        "id": "tv_126",
-        "type": "multiplechoices",
-        "header": "Тема 4. Элементы математической статистики",
-        "title": "Связь между переменными",
-        "theme": "Корреляционный анализ",
-        "text": "Мера линейной связи между двумя переменными, принимающая значения от -1 до 1 — это...",
-        "choices": [
-            "Коэффициент корреляции Пирсона",
-            "Коэффициент детерминации",
-            "Ковариация",
-            "Регрессия"
-        ],
-        "answers": ["Коэффициент корреляции Пирсона"],
-        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📊 Коэффициент корреляции Пирсона</h5><p class='mb-1'>Наиболее распространённая <span class='badge badge-info'>мера линейной зависимости</span>.</p><hr class='my-2'><p class='mb-0'><strong>Важно:</strong> корреляция <span class='badge badge-warning'>не означает причинно-следственную связь</span>. r² (коэффициент детерминации) показывает долю объяснённой дисперсии.</p></div>"
-    },
     {
         "id": "tv_165_covariance",
         "type": "mathwithrandomnumber",
@@ -8125,6 +7893,183 @@ let quizesSets = [
     sandbox: false
 },
 
+{
+        "id": "fipi_taxi_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Такси",
+        "theme": "Классическое определение вероятности",
+        "text": "В фирме такси свободно 10 машин: 5 чёрных, 1 жёлтая и 4 зелёных. По вызову выехала одна из машин, случайно оказавшаяся ближе всего к заказчику. Найдите вероятность того, что к нему приедет жёлтое такси.",
+        "choices": ["0.1", "0.2", "0.4", "0.5"],
+        "answers": ["0.1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🚕 Классическая вероятность</h5><p class='mb-1'>$$P = \\frac{m}{n} $$</p><hr class='my-2'><p class='mb-1'>Жёлтых: 1. Всего: 10.</p><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
+    },
+    {
+        "id": "fipi_cups_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Чашки",
+        "theme": "Классическое определение вероятности",
+        "text": "У бабушки 20 чашек: 10 с красными цветами, остальные с синими. Бабушка наливает чай в случайно выбранную чашку. Найдите вероятность того, что это будет чашка с синими цветами.",
+        "choices": ["0.1", "0.3", "0.5", "0.7"],
+        "answers": ["0.5"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>☕ Классическая вероятность</h5><p class='mb-1'>Синих: 20 − 10 = 10. Всего: 20.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{10}{20} = 0.5$$</p></div>"
+    },
+    {
+        "id": "fipi_bulbs_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Фонарики",
+        "theme": "Классическое определение вероятности",
+        "text": "В среднем из 100 карманных фонариков, поступивших в продажу, девять неисправных. Найдите вероятность того, что выбранный наудачу фонарик окажется исправен.",
+        "choices": ["0.09", "0.9", "0.91", "0.99"],
+        "answers": ["0.91"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔦 Классическая вероятность</h5><p class='mb-1'>Исправных: 100 − 9 = 91. Всего: 100.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{91}{100} = 0.91$$</p></div>"
+    },
+    {
+        "id": "fipi_skiers_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Лыжники",
+        "theme": "Классическое определение вероятности",
+        "text": "В лыжных гонках участвуют 7 спортсменов из России, 1 из Швеции и 2 из Норвегии. Порядок старта определяется жребием. Найдите вероятность того, что первым будет стартовать спортсмен из Швеции.",
+        "choices": ["0.1", "0.2", "0.3", "0.7"],
+        "answers": ["0.1"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>⛷️ Классическая вероятность</h5><p class='mb-1'>Всего: 7 + 1 + 2 = 10. Из Швеции: 1.</p><hr class='my-2'><p class='mb-0'>$$P = \\frac{1}{10} = 0.1$$</p></div>"
+    },
+    {
+        "id": "fipi_pens_001",
+        "type": "multiplechoices",
+        "header": "ФИПИ · ОГЭ",
+        "title": "Ручки",
+        "theme": "Классическое определение вероятности",
+        "text": "В магазине 100 ручек: 37 красных, 8 зелёных, 17 фиолетовых, остальные синие и чёрные, их поровну. Найдите вероятность того, что случайно выбранная ручка окажется красной или чёрной.",
+        "choices": ["0.37", "0.46", "0.5", "0.56"],
+        "answers": ["0.56"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🖊️ Классическая вероятность</h5><p class='mb-1'>Остальные: 100 − 37 − 8 − 17 = 38. Порівну: синих 19, чёрных 19.</p><hr class='my-2'><p class='mb-1'>Красных или чёрных: 37 + 19 = 56.</p><p class='mb-0'>$$P = \\frac{56}{100} = 0.56$$</p></div>"
+    },
+
+
+    // =====================================================================
+    // ==================== ТЕМА 1.1: Основные понятия комбинаторики ====================
+    // =====================================================================
+    {
+        "id": "tv_001",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Основной принцип комбинаторики",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Сколько существует способов выбрать один напиток из 5 видов и один десерт из 4 видов?",
+        "choices": ["9", "20", "5", "4"],
+        "answers": ["20"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из первого множества</span> И <span class='badge badge-info'>один элемент из второго множества</span>, количества вариантов перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 5 видов напитка × 4 вида десерта = <span class='badge badge-success'>20 способов</span></p></div>"
+    },
+    {
+        "id": "tv_101",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Правило суммы или произведения?",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Выбор напитка из 3 видов чая и 2 видов кофе. Сколько всего вариантов напитка?",
+        "choices": [
+            "Правило суммы (5 вариантов)",
+            "Правило произведения (6 вариантов)",
+            "Перестановки (120 вариантов)",
+            "Сочетания (10 вариантов)"
+        ],
+        "answers": ["Правило суммы (5 вариантов)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило суммы</h5><p class='mb-1'>Когда нужно выбрать <span class='badge badge-info'>один элемент из нескольких непересекающихся множеств</span>, количества вариантов складываются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 вида чая + 2 вида кофе = <span class='badge badge-success'>5 вариантов напитка</span></p></div>"
+    },
+    {
+        "id": "tv_102",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Правило суммы или произведения?",
+        "theme": "Основные понятия комбинаторики",
+        "text": "Выбор напитка (3 вида) и десерта (4 вида). Сколько всего вариантов пары?",
+        "choices": [
+            "Правило суммы (7 вариантов)",
+            "Правило произведения (12 вариантов)",
+            "Перестановки (24 варианта)",
+            "Сочетания (6 вариантов)"
+        ],
+        "answers": ["Правило произведения (12 вариантов)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>📐 Правило произведения</h5><p class='mb-1'>Когда нужно выбрать последовательно <span class='badge badge-info'>элемент из первого множества</span> И <span class='badge badge-info'>элемент из второго множества</span>, варианты перемножаются.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> 3 напитка × 4 десерта = <span class='badge badge-success'>12 вариантов пары</span></p></div>"
+    },
+
+    // =====================================================================
+    // ==================== ТЕМА 1.2: Перестановки, размещения, сочетания ====================
+    // =====================================================================
+    {
+        "id": "tv_002",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Сочетания",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно выбрать 2 книги из 5?",
+        "choices": ["20", "10", "120", "5"],
+        "answers": ["10"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Выбираем <span class='badge badge-info'>неупорядоченный</span> набор элементов. Порядок НЕ важен.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> C₅² = 5! / (2! × 3!) = <span class='badge badge-success'>10 способов</span></p></div>"
+    },
+    {
+        "id": "tv_003",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно расставить 4 книги на полке?",
+        "choices": ["4", "16", "24", "8"],
+        "answers": ["24"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Упорядочиваем <span class='badge badge-info'>все</span> элементы. Порядок ВАЖЕН.</p><hr class='my-2'><p class='mb-0'><strong>Формула:</strong> P₄ = 4! = 4×3×2×1 = <span class='badge badge-success'>24 способа</span></p></div>"
+    },
+    {
+        "id": "tv_103",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно расставить 5 книг на полке?",
+        "choices": [
+            "Перестановки (5!)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило суммы"
+        ],
+        "answers": ["Перестановки (5!)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Перестановки</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>все элементы участвуют</span> и <span class='badge badge-info'>порядок важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> P₅ = 5! = 5×4×3×2×1 = <span class='badge badge-success'>120 способов</span></p></div>"
+    },
+    {
+        "id": "tv_104",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколькими способами можно выбрать 3 книги из 5 (порядок не важен)?",
+        "choices": [
+            "Перестановки (P₅)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило произведения"
+        ],
+        "answers": ["Сочетания (C₅³)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Сочетания</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок НЕ важен</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> C₅³ = 5! / (3! × 2!) = <span class='badge badge-success'>10 способов</span></p></div>"
+    },
+    {
+        "id": "tv_105",
+        "type": "multiplechoices",
+        "header": "Тема 1. Элементы комбинаторики и основы теории вероятностей",
+        "title": "Перестановки, размещения или сочетания?",
+        "theme": "Перестановки, размещения, сочетания",
+        "text": "Сколько 3-значных чисел можно составить из 5 цифр (порядок важен)?",
+        "choices": [
+            "Перестановки (P₅)",
+            "Размещения (A₅³)",
+            "Сочетания (C₅³)",
+            "Правило суммы"
+        ],
+        "answers": ["Размещения (A₅³)"],
+        "hint": "<div class='alert alert-primary'><h5 class='mb-2'>🔢 Размещения</h5><p class='mb-1'>Используем, когда <span class='badge badge-info'>выбираем часть элементов</span> и <span class='badge badge-info'>порядок ВАЖЕН</span>.</p><hr class='my-2'><p class='mb-0'><strong>Решение:</strong> A₅³ = 5! / (5-3)! = 5! / 2! = <span class='badge badge-success'>60 чисел</span></p></div>"
+    },
 
 ];
 
