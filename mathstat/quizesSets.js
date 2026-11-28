@@ -1,84 +1,70 @@
  // ---- mathwithrandomnumber ----
 let quizesSets = [
 
- {
-    "id": "margin_leverage_fixed_costs_001",
+  
+   {
+    "id": "margin_fixed_costs",
     "type": "mathwithrandomnumber",
     "header": "Типовая задача",
     "title": "Постоянные затраты по отчету о финансовых результатах",
     "theme": "Маржинальный анализ. Рычаги",
     "text": `
 <div class="card">
-  <div class="card-header bg-success text-white">
-    Маржинальный анализ. Рычаги
-  </div>
+  <div class="card-header bg-primary text-white">Постоянные затраты</div>
   <div class="card-body">
-    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{=3*{var1-10}+70*(2+{var1-10})/20}</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{=3*{var1-10}+80*(2+{var1-10})/20}</strong> млн. руб.</div>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Постоянные затраты организации составляют ... млн. руб.
-      Введите число.
-    </div>
+    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{= 3*{var1-10} + 70*(2+{var1-10})/20 }</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{= 3*{var1-10} + 80*(2+{var1-10})/20 }</strong> млн. руб.</div>
+    <div class="mb-3">Постоянные затраты организации составляют … млн. руб.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
   </div>
 </div>`,
     "answer": "3*{var1-10}",
     "hint": `
 <div class="card">
-  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
-    <div class="mb-2">Суммарные затраты описываются уравнением:</div>
-    <div class="text-center">$$ TC = FC + VC = FC + v \\cdot Q $$</div>
-    <div class="mt-3 mb-2">Составим систему по двум объемам продаж:</div>
-    <div class="text-center">$$ FC + v \\cdot 70 = {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
-    <div class="text-center">$$ FC + v \\cdot 80 = {=3*{var1-10}+80*(2+{var1-10})/20} $$</div>
-    <div class="mt-3 mb-2">Вычтем первое уравнение из второго:</div>
-    <div class="text-center">$$ 10v = {=3*{var1-10}+80*(2+{var1-10})/20} - {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
-    <div class="text-center">$$ v = {=(2+{var1-10})/20} $$</div>
-    <div class="mt-3 mb-2">Подставим \( v \) в первое уравнение:</div>
-    <div class="text-center">$$ FC = {=3*{var1-10}+70*(2+{var1-10})/20} - 70 \\cdot {=(2+{var1-10})/20} = {=3*{var1-10}} $$</div>
-    <div class="alert alert-success mt-3">Ответ: <strong>{=3*{var1-10}}</strong> млн. руб.</div>
+    <div class="mb-2">Ставка переменных затрат на 1 руб. выручки:</div>
+    <div class="text-center">$$\\frac{TC_2 - TC_1}{80 - 70} = \\frac{ {= 3*{var1-10} + 80*(2+{var1-10})/20 } - {= 3*{var1-10} + 70*(2+{var1-10})/20 } }{10} = {= (2+{var1-10})/20 } $$</div>
+    <div class="mb-2 mt-3">Постоянные затраты:</div>
+    <div class="text-center">$$TC_1 - 70 \\cdot {= (2+{var1-10})/20 } = {= 3*{var1-10} }$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= 3*{var1-10} }</strong> млн. руб.</div>
   </div>
 </div>`,
-    "randomfrom": [10, 20, 30, 40]
+    "randomfrom": [1, 5, 10]
   },
   {
-    "id": "margin_leverage_forecast_costs_001",
+    "id": "margin_forecast_total_costs",
     "type": "mathwithrandomnumber",
     "header": "Типовая задача",
     "title": "Прогнозный отчет о финансовых результатах исходя из отчетных данных",
     "theme": "Маржинальный анализ. Рычаги",
     "text": `
 <div class="card">
-  <div class="card-header bg-success text-white">
-    Маржинальный анализ. Рычаги
-  </div>
+  <div class="card-header bg-primary text-white">Прогноз полных затрат</div>
   <div class="card-body">
-    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{=3*{var1-10}+70*(2+{var1-10})/20}</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{=3*{var1-10}+80*(2+{var1-10})/20}</strong> млн. руб.</div>
-
-    <div class="alert alert-success mt-3 mb-0">
-      <strong>Вопрос:</strong> Чему будут равны полные затраты при объеме продаж <strong>{={var1-10}*4}</strong> млн. руб.?
-      Введите число.
-    </div>
+    <div class="mb-3">При объеме продаж 70 млн. руб. суммарные затраты составляют <strong>{= 3*{var1-10} + 70*(2+{var1-10})/20 }</strong> млн. руб., при объеме продаж 80 млн. руб. — <strong>{= 3*{var1-10} + 80*(2+{var1-10})/20 }</strong> млн. руб.</div>
+    <div class="mb-3">Чему будут равны полные затраты при объеме продаж <strong>{= {var1-10}*4 }</strong> млн. руб.? … млн. руб.</div>
+    <div class="mt-3 mb-2">Введите число.</div>
   </div>
 </div>`,
-    "answer": "3*{var1-10}+{var1-10}*4*(2+{var1-10})/20",
+    "answer": "3*{var1-10} + {var1-10}*4*(2+{var1-10})/20",
     "hint": `
 <div class="card">
-  <div class="card-header bg-success text-white">Решение</div>
+  <div class="card-header bg-primary text-white">Решение</div>
   <div class="card-body">
-    <div class="mb-2">Суммарные затраты описываются уравнением:</div>
-    <div class="text-center">$$ TC = FC + v \\cdot Q $$</div>
-    <div class="mt-3 mb-2">Из двух отчетных точек найдем постоянные затраты \( FC \) и переменные затраты на единицу \( v \):</div>
-    <div class="text-center">$$ 10v = {=3*{var1-10}+80*(2+{var1-10})/20} - {=3*{var1-10}+70*(2+{var1-10})/20} $$</div>
-    <div class="text-center">$$ v = {=(2+{var1-10})/20} $$</div>
-    <div class="text-center">$$ FC = {=3*{var1-10}+70*(2+{var1-10})/20} - 70 \\cdot {=(2+{var1-10})/20} = {=3*{var1-10}} $$</div>
-    <div class="mt-3 mb-2">Прогнозные полные затраты при \( Q = {={var1-10}*4} \):</div>
-    <div class="text-center">$$ TC = {=3*{var1-10}} + {=(2+{var1-10})/20} \\cdot {={var1-10}*4} = {=3*{var1-10}+{var1-10}*4*(2+{var1-10})/20} $$</div>
-    <div class="alert alert-success mt-3">Ответ: <strong>{=3*{var1-10}+{var1-10}*4*(2+{var1-10})/20}</strong> млн. руб.</div>
+    <div class="mb-2">Постоянные затраты:</div>
+    <div class="text-center">$$FC = {= 3*{var1-10} }$$</div>
+    <div class="mb-2 mt-3">Ставка переменных затрат на 1 руб. выручки:</div>
+    <div class="text-center">$$v = \\frac{TC_2 - TC_1}{80 - 70} = {= (2+{var1-10})/20 }$$</div>
+    <div class="mb-2 mt-3">Полные затраты при выручке \(Q_3 = {= {var1-10}*4 }\):</div>
+    <div class="text-center">$$TC_3 = FC + Q_3 \\cdot v = {= 3*{var1-10} } + {= {var1-10}*4 } \\cdot {= (2+{var1-10})/20 } = {= 3*{var1-10} + {var1-10}*4*(2+{var1-10})/20 }$$</div>
+    <div class="alert alert-primary mt-3">Ответ: <strong>{= 3*{var1-10} + {var1-10}*4*(2+{var1-10})/20 }</strong> млн. руб.</div>
   </div>
 </div>`,
-    "randomfrom": [10, 20, 30, 40]
+    "randomfrom": [1, 5, 10]
   },
+
+
+
     {
   "id": "oral_corr_sign",
   "type": "multiplechoices",
